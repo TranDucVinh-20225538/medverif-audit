@@ -1,0 +1,20 @@
+{
+  "chunks": 509259,
+  "sentences": 2067510,
+  "pool_DOSE": 6309,
+  "pool_POLARITY": 2580,
+  "extract_drops": {
+    "used_v2_sentence": 247
+  },
+  "used_v2_keys": 246,
+  "selection": {
+    "DOSE:book_cap": 5,
+    "DOSE:attempt_cap": 5904,
+    "DOSE:selected": 400,
+    "POLARITY:book_cap": 18,
+    "POLARITY:attempt_cap": 2162,
+    "POLARITY:selected": 400
+  },
+  "selected": 800,
+  "seed": 2026
+}
