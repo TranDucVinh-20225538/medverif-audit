@@ -1,8 +1,15 @@
 {
   "path": "data/t8/instances_aggrefact_inv.jsonl",
   "path_v3": "data/v3/instances_aggrefact_inv.jsonl",
-  "n_candidates": 34,
-  "n_selected": 34,
+  "n_inv_candidates": 806,
+  "n_e1_candidates": 973,
+  "n_selected": 200,
+  "n_inv_selected": 100,
+  "n_e1_selected": 100,
   "target": 200,
+  "splits": [
+    "dev",
+    "test"
+  ],
   "expected_verdict": "FAIL"
 }

@@ -1,0 +1,12 @@
+{
+  "invalidated_flip_rows_by_file": {
+    "instances_main.jsonl": 101,
+    "instances_cpu_early.jsonl": 101,
+    "instances_score_pending.jsonl": 95,
+    "instances_pending_node30.jsonl": 101,
+    "instances_pending_t6a.jsonl": 3
+  },
+  "invalidated_flip_rows_total": 401,
+  "pol_bases_total": 240,
+  "pol_bases_with_compliant_flip": 68
+}

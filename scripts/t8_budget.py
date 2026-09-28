@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""T8 AggreFact sample spend cap (default $5)."""
+"""T8 AggreFact sample spend cap (default $3)."""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ def t8_spend_usd() -> float:
 
 
 def cap() -> float:
-    return float(os.environ.get("MEDVERIF_T8_BUDGET_USD", "5"))
+    return float(os.environ.get("MEDVERIF_T8_BUDGET_USD", "3"))
 
 
 def assert_under_cap(extra: float = 0.0) -> dict:

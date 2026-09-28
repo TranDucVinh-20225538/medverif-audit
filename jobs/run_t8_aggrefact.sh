@@ -7,7 +7,7 @@ medverif_acquire_lock t8_aggrefact
 
 cd "${ROOT}"
 export PYTHONPATH="${ROOT}/src"
-export MEDVERIF_T8_BUDGET_USD="${MEDVERIF_T8_BUDGET_USD:-5}"
+export MEDVERIF_T8_BUDGET_USD="${MEDVERIF_T8_BUDGET_USD:-3}"
 
 LOG="${ROOT}/jobs/logs/t8_aggrefact_$(date +%Y%m%dT%H%M).log"
 exec >>"${LOG}" 2>&1
@@ -18,7 +18,7 @@ if [[ ! -f "${ROOT}/data/t8/aggrefact/dev.jsonl" ]]; then
   python3 scripts/t8_download_aggrefact.py
 fi
 
-python3 scripts/t8_aggrefact_analysis.py --split dev
+python3 scripts/t8_aggrefact_analysis.py --splits dev,test
 python3 scripts/t8_build_aggrefact_inv_sample.py
 
 INST="${ROOT}/data/t8/instances_aggrefact_inv.jsonl"

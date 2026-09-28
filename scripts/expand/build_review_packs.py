@@ -34,6 +34,7 @@ def main() -> None:
     parser.add_argument("--bases", type=Path, default=ROOT / "data" / "expand" / "bases_main.jsonl")
     parser.add_argument("--qc-dir", type=Path, default=ROOT / "qc")
     parser.add_argument("--seed", type=int, default=2026)
+    parser.add_argument("--skip-dose-sample", action="store_true")
     args = parser.parse_args()
     args.qc_dir.mkdir(parents=True, exist_ok=True)
 
@@ -43,6 +44,10 @@ def main() -> None:
     pol_flips = []
     for row in inst:
         if row.get("type") != "POLARITY" or row.get("magnitude") != "flip":
+            continue
+        if row.get("valid") is False:
+            continue
+        if (row.get("invalid_reason") or "") == "policy_violation":
             continue
         base = bases.get(row["base_id"], {})
         span = row.get("claim_span") or base.get("target_span_claim") or ""
@@ -71,31 +76,32 @@ def main() -> None:
             writer.writeheader()
             writer.writerows(pol_flips)
 
-    dose_bases = sorted({r["base_id"] for r in inst if r.get("type") == "DOSE" and r.get("condition") == "C0"})
-    rng = random.Random(args.seed)
-    sample_n = max(1, (len(dose_bases) + 3) // 4) if dose_bases else 0
-    sample_ids = set(rng.sample(dose_bases, min(sample_n, len(dose_bases))))
-    dose_rows = []
-    by_id = {(r["base_id"], r.get("condition")): r for r in inst}
-    for bid in sorted(sample_ids):
-        c0 = by_id.get((bid, "C0"), {})
-        e1 = by_id.get((bid, "E1-claim"), by_id.get((bid, "E1-evid"), {}))
-        dose_rows.append(
-            {
-                "base_id": bid,
-                "claim_c0": c0.get("claim", ""),
-                "evidence_c0": c0.get("evidence", ""),
-                "e1_condition": e1.get("condition", ""),
-                "e1_claim": e1.get("claim", ""),
-                "e1_evidence": e1.get("evidence", ""),
-                "PI_ok": "",
-            }
-        )
-    with (args.qc_dir / "expand_dose_sample.csv").open("w", newline="", encoding="utf-8") as handle:
-        if dose_rows:
-            writer = csv.DictWriter(handle, fieldnames=list(dose_rows[0].keys()))
-            writer.writeheader()
-            writer.writerows(dose_rows)
+    dose_rows: list[dict] = []
+    if not args.skip_dose_sample:
+        dose_bases = sorted({r["base_id"] for r in inst if r.get("type") == "DOSE" and r.get("condition") == "C0"})
+        rng = random.Random(args.seed)
+        sample_n = max(1, (len(dose_bases) + 3) // 4) if dose_bases else 0
+        sample_ids = set(rng.sample(dose_bases, min(sample_n, len(dose_bases))))
+        by_id = {(r["base_id"], r.get("condition")): r for r in inst}
+        for bid in sorted(sample_ids):
+            c0 = by_id.get((bid, "C0"), {})
+            e1 = by_id.get((bid, "E1-claim"), by_id.get((bid, "E1-evid"), {}))
+            dose_rows.append(
+                {
+                    "base_id": bid,
+                    "claim_c0": c0.get("claim", ""),
+                    "evidence_c0": c0.get("evidence", ""),
+                    "e1_condition": e1.get("condition", ""),
+                    "e1_claim": e1.get("claim", ""),
+                    "e1_evidence": e1.get("evidence", ""),
+                    "PI_ok": "",
+                }
+            )
+        with (args.qc_dir / "expand_dose_sample.csv").open("w", newline="", encoding="utf-8") as handle:
+            if dose_rows:
+                writer = csv.DictWriter(handle, fieldnames=list(dose_rows[0].keys()))
+                writer.writeheader()
+                writer.writerows(dose_rows)
 
     unit_rows = []
     for row in inst:
@@ -110,9 +116,16 @@ def main() -> None:
                 "converted_span": span,
                 "natural_rule": label,
                 "suggested_natural": "Y" if label else "",
+                "sample": "",
                 "PI_ok": "",
             }
         )
+    if unit_rows:
+        rng_unit = random.Random(args.seed)
+        pick = set(rng_unit.sample(range(len(unit_rows)), min(40, len(unit_rows))))
+        for i, row in enumerate(unit_rows):
+            if i in pick:
+                row["sample"] = "1"
     with (args.qc_dir / "expand_unit_natural.csv").open("w", newline="", encoding="utf-8") as handle:
         if unit_rows:
             writer = csv.DictWriter(handle, fieldnames=list(unit_rows[0].keys()))
