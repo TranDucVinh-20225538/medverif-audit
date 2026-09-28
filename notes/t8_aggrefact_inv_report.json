@@ -1,0 +1,45 @@
+{
+  "n_instances": 200,
+  "verifiers": {
+    "v1b_medscore": {
+      "n_scored": 200,
+      "fail_rate": 0.39
+    },
+    "v2a_minicheck": {
+      "n_scored": 0,
+      "fail_rate": null
+    },
+    "v3_alignscore": {
+      "n_scored": 0,
+      "fail_rate": null
+    },
+    "t6a_minicheck_roberta": {
+      "n_scored": 0,
+      "fail_rate": null
+    },
+    "t6a_minicheck_deberta": {
+      "n_scored": 0,
+      "fail_rate": null
+    },
+    "t6a_alignscore_base": {
+      "n_scored": 0,
+      "fail_rate": null
+    },
+    "t6a_summac_zs": {
+      "n_scored": 0,
+      "fail_rate": null
+    },
+    "t6a_summac_conv": {
+      "n_scored": 0,
+      "fail_rate": null
+    },
+    "t6a_hhem": {
+      "n_scored": 0,
+      "fail_rate": null
+    },
+    "t6a_granite_guardian": {
+      "n_scored": 0,
+      "fail_rate": null
+    }
+  }
+}
