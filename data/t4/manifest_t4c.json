@@ -1,0 +1,13 @@
+{
+  "task": "T4c sentence-level claim on PI-labeled correct eco answers",
+  "instances": "data/t4/eco_instances_t4c.jsonl",
+  "n": 139,
+  "rules": {
+    "dose_sentence": 126,
+    "dose_sentence+freq_next": 12,
+    "fallback_full_answer": 1
+  },
+  "node30_job": "jobs/run_t4c_eco_node30.sh",
+  "hpc_job": "jobs/run_t4c_eco_hpc.sh",
+  "raw_dir": "results/raw/t4c_eco"
+}

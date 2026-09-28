@@ -1,0 +1,307 @@
+{
+  "n_instances": 139,
+  "fail_rates_by_verifier_category": {
+    "v1c_medscore": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v6_ragas_nli": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v1b_medscore": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v5_ragas_nli": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v4_ragas_nli": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v1_medscore": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v2a_minicheck": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v3_alignscore": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_minicheck_roberta": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_minicheck_deberta": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_alignscore_base": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_summac_zs": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_summac_conv": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_hhem": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_granite_guardian": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    }
+  },
+  "instances": "data/t4/eco_instances_t4c.jsonl",
+  "raw_dir": "results/raw/t4c_eco"
+}

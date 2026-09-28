@@ -1,0 +1,9 @@
+{
+  "n": 117,
+  "instances": "data/e2/instances_main_x2.jsonl",
+  "filter": "main valid E2 magnitude=x2",
+  "hpc_job": "jobs/run_e2_main_hpc.sh",
+  "node30_job": "jobs/run_e2_main_node30.sh",
+  "raw_hpc": "results/raw/e2_main",
+  "raw_node30": "results/raw/e2_main"
+}
