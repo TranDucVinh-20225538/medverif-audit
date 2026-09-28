@@ -1,0 +1,29 @@
+{
+  "answerers": [
+    {
+      "id": "gemma2_9b",
+      "openrouter_model": "google/gemma-2-9b-it",
+      "provider": "Google"
+    },
+    {
+      "id": "deepseek_chat",
+      "openrouter_model": "deepseek/deepseek-chat",
+      "provider": "DeepSeek"
+    },
+    {
+      "id": "command_r",
+      "openrouter_model": "cohere/command-r-08-2024",
+      "provider": "Cohere"
+    }
+  ],
+  "budget_usd": 5.0,
+  "excluded_families": [
+    "Mistral",
+    "Llama",
+    "OpenAI",
+    "Anthropic",
+    "Qwen",
+    "Gemini",
+    "Phi"
+  ]
+}

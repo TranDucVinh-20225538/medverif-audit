@@ -21,7 +21,7 @@ from t2_build_instances import (  # noqa: E402
 
 OUT = ROOT / "data" / "v3" / "instances_t6_scope.jsonl"
 MANIFEST = ROOT / "data" / "v3" / "manifest_t6_scope.json"
-T3 = ROOT / "data" / "t3" / "instances_inv_families.jsonl"
+T3 = ROOT / "data" / "v3" / "instances_inv_families.jsonl"
 
 
 def content_sha1(row: dict) -> str:

@@ -2,7 +2,10 @@
 # Score T3 INV families with T2 verifiers when instances exist.
 set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
-INST="${ROOT}/data/t3/instances_inv_families.jsonl"
+INST="${ROOT}/data/v3/instances_inv_families.jsonl"
+if [[ ! -s "${INST}" ]]; then
+  INST="${ROOT}/data/t3/instances_inv_families.jsonl"
+fi
 if [[ ! -s "${INST}" ]]; then
   echo "T3 INV families not ready (empty ${INST})"
   exit 0

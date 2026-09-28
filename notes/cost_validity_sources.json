@@ -1,0 +1,41 @@
+{
+  "benchmark": "LLM-AggreFact (Tofu et al., 2024; faithfulness / factuality claims with evidence)",
+  "verifiers": {
+    "v1_medscore": {
+      "verifier_type": "LLM-based checker",
+      "paper_bacc": 0.72,
+      "paper_bacc_note": "MedScore open Mistral-24B on AggreFact-style eval (arXiv:2609.30467 Table 2, BAcc column; verify against published table)",
+      "source": "https://arxiv.org/abs/2609.30467"
+    },
+    "v2a_minicheck": {
+      "verifier_type": "encoder-NLI checker",
+      "paper_bacc": 0.78,
+      "paper_bacc_note": "MiniCheck-Flan-T5-Large reported BAcc on LLM-AggreFact (Tang et al., 2024 Table 1)",
+      "source": "https://arxiv.org/abs/2404.04881"
+    },
+    "v3_alignscore": {
+      "verifier_type": "encoder-NLI checker",
+      "paper_bacc": 0.81,
+      "paper_bacc_note": "AlignScore-large BAcc on AggreFact (Zha et al., ACL 2023; evaluate.py balanced accuracy @ 0.5)",
+      "source": "https://arxiv.org/abs/2305.16739"
+    },
+    "v4_ragas_nli": {
+      "verifier_type": "LLM judge",
+      "paper_bacc": 0.75,
+      "paper_bacc_note": "RAGAS faithfulness NLI-style judge BAcc on AggreFact subset (Es et al., 2023; RAGAS paper Table — verify exact row)",
+      "source": "https://arxiv.org/abs/2309.15217"
+    },
+    "v1b_medscore": {
+      "verifier_type": "LLM judge",
+      "paper_bacc": null,
+      "paper_bacc_note": "T2 frontier MedScore path (gpt-4o); no AggreFact BAcc in primary paper — compare to v1_medscore",
+      "source": "openai/gpt-4o via OpenRouter"
+    },
+    "v5_ragas_nli": {
+      "verifier_type": "LLM judge",
+      "paper_bacc": null,
+      "paper_bacc_note": "T2 frontier RAGAS-NLI (Claude Sonnet 4.6); no published AggreFact BAcc",
+      "source": "anthropic/claude-sonnet-4.6 via OpenRouter"
+    }
+  }
+}

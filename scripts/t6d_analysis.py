@@ -10,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "analysis"))
+sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "src"))
 
 from analyze import (  # noqa: E402
@@ -22,6 +23,7 @@ from analyze import (  # noqa: E402
 )
 from text_utils import rule_natural_unit_conversion_label  # noqa: E402
 from review_filters import effective_unit_natural_y, inv_mechanism  # noqa: E402
+from verifier_types import verifier_type  # noqa: E402
 
 SCOPE = ROOT / "data" / "v3" / "instances_t6_scope.jsonl"
 SOURCES = ROOT / "notes" / "cost_validity_sources.json"
@@ -171,10 +173,10 @@ def main() -> None:
 
     lines = ["# T6-D cost vs validity", "", f"Scope n={len(instances)} (`instances_t6_scope.jsonl`).", ""]
     lines.append(
-        "| Verifier | $/1k | Paper BAcc | Inv DOSE | Sens E1 x2 | Sens E1 x10 | "
+        "| Verifier | Verifier type | $/1k | Paper BAcc | Inv DOSE | Sens E1 x2 | Sens E1 x10 | "
         "INV-unit all | INV-unit nat | POL INV tmpl |"
     )
-    lines.append("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
+    lines.append("| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
 
     scatter_x: list[float] = []
     scatter_y: list[float] = []
@@ -231,8 +233,9 @@ def main() -> None:
         def f(v: float | None) -> str:
             return f"{v:.3f}" if v is not None else "—"
 
+        vtype = (vsrc.get(label) or {}).get("verifier_type") or verifier_type(label)
         lines.append(
-            f"| {label} | {f(c1k) if c1k == c1k else '—'} | {bacc_s} | {f(inv_dose)} | {f(sx2)} | {f(sx10)} | "
+            f"| {label} | {vtype} | {f(c1k) if c1k == c1k else '—'} | {bacc_s} | {f(inv_dose)} | {f(sx2)} | {f(sx10)} | "
             f"{f(inv_all)} | {f(inv_nat)} | {f(pol_inv)} |"
         )
         if inv_dose is not None and sens is not None and c1k == c1k:

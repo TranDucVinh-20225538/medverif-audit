@@ -1,0 +1,18 @@
+{
+  "path_v3": "data/v3/instances_inv_families.jsonl",
+  "path_t3": "data/t3/instances_inv_families.jsonl",
+  "n_instances": 114,
+  "by_family": {
+    "inv_frequency": 22,
+    "inv_route": 29,
+    "inv_numerals": 62,
+    "inv_format": 1
+  },
+  "families": [
+    "inv_frequency",
+    "inv_route",
+    "inv_numerals",
+    "inv_format"
+  ],
+  "ready_for_scoring": true
+}
