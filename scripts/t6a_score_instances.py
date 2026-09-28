@@ -75,6 +75,7 @@ def main() -> None:
     p.add_argument("--instances", type=Path, required=True)
     p.add_argument("--outdir", type=Path, required=True)
     p.add_argument("--checker", required=True, help="T6-A id or 'all'")
+    p.add_argument("--out-suffix", default="", help="e.g. t8b → t6a_*_t8b.jsonl")
     args = p.parse_args()
 
     manifest = json.loads(MANIFEST.read_text())
@@ -89,7 +90,10 @@ def main() -> None:
     ce.ensure_nltk()
     for cid in ids:
         jsonl = next(c["jsonl"] for c in manifest["checkers"] if c["id"] == cid)
-        score_checker(cid, rows, args.outdir / jsonl)
+        out_name = jsonl
+        if args.out_suffix:
+            out_name = jsonl.replace(".jsonl", f"_{args.out_suffix}.jsonl")
+        score_checker(cid, rows, args.outdir / out_name)
 
 
 if __name__ == "__main__":

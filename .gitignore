@@ -21,8 +21,11 @@ jobs/locks/
 data/smoke/
 tests/smoke_results/
 tests/*_study.jsonl
-results/raw/*
-!results/raw/*.jsonl
-results/raw_threshold/*
-!results/raw_threshold/*.jsonl
+results/raw/**
+!results/raw/**/
+!results/raw/**/*.jsonl
+results/raw_threshold/**
+!results/raw_threshold/**/
+!results/raw_threshold/**/*.jsonl
+data/t8/aggrefact/*.jsonl
 *.jsonl.bak

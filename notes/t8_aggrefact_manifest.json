@@ -1,12 +1,14 @@
 {
-  "task": "T8 LLM-AggreFact blind-spot + non-med INV-unit generalization",
-  "dataset": "lytang/LLM-AggreFact (HF gated — accept terms, then t8_download_aggrefact.py)",
-  "cache": "data/t8/aggrefact/{dev,test}.jsonl",
+  "task": "T8 LLM-AggreFact quantity blind-spot + T8b supported subgroup",
+  "dataset": "lytang/LLM-AggreFact (HF gated — see notes/t8_aggrefact_cache.md)",
+  "cache": "data/t8/aggrefact/{dev,test}.jsonl (local only, gitignored)",
   "unit_audit": "scripts/t8_aggrefact_analysis.py → notes/t8_aggrefact_unit_audit.md",
-  "inv_sample": "data/t8/instances_aggrefact_inv.jsonl (+ data/v3 mirror for node30)",
-  "node30_job": "jobs/run_t8_aggrefact_node30.sh",
-  "budget_usd": 5,
-  "hpc_score": "v1b_medscore on sample (jobs/run_t8_aggrefact.sh)",
-  "node30_score": "V2, V3, 7× T6-A on same instances (manual / extend run_t7 node30 pattern)",
-  "report": "scripts/t8_aggrefact_inv_report.py"
+  "mismatch_qc": "scripts/t8_dump_mismatch_qc.py → qc/t8_mismatch_check.csv",
+  "inv_sample": "data/t8/instances_aggrefact_inv.jsonl (+ v3 mirror)",
+  "t8b_sample": "data/t8/instances_aggrefact_t8b.jsonl (300 format-mismatch + 300 qty-match supported)",
+  "raw_results": "results/raw/t8/*.jsonl (versioned)",
+  "budget_usd": 3,
+  "hpc_score": "jobs/run_t8_aggrefact.sh, jobs/run_t8b_aggrefact.sh (v1b)",
+  "node30_score": "jobs/run_t8_aggrefact_node30.sh, jobs/run_t8b_aggrefact_node30.sh",
+  "reports": "scripts/t8_aggrefact_inv_report.py, scripts/t8b_report.py"
 }

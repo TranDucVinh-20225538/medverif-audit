@@ -15,7 +15,12 @@ def t8_spend_usd() -> float:
     total = 0.0
     if not RAW.is_dir():
         return 0.0
-    for path in RAW.rglob("*.jsonl"):
+    scope = os.environ.get("MEDVERIF_T8_BUDGET_SCOPE", "")
+    if scope == "t8b":
+        paths = sorted(RAW.glob("*_t8b.jsonl"))
+    else:
+        paths = sorted(RAW.rglob("*.jsonl"))
+    for path in paths:
         with path.open() as handle:
             for line in handle:
                 if line.strip():

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""T8: FAIL rates on AggreFact INV-unit sample (generalization check)."""
+"""T8: rates on AggreFact unit sample — INV pass vs E1-unit fail + overall FAIL."""
 
 from __future__ import annotations
 
@@ -24,8 +24,15 @@ def read_jsonl(path: Path) -> list[dict]:
 def main() -> None:
     if not INST.is_file():
         raise SystemExit(f"missing {INST} — run t8_build_aggrefact_inv_sample.py")
-    ids = [r["instance_id"] for r in read_jsonl(INST)]
-    report = {"n_instances": len(ids), "verifiers": {}}
+    rows = read_jsonl(INST)
+    inv_ids = [r["instance_id"] for r in rows if r.get("condition") == "T8-aggrefact-inv"]
+    e1_ids = [r["instance_id"] for r in rows if r.get("condition") == "T8-aggrefact-e1-unit"]
+    report = {
+        "n_instances": len(rows),
+        "n_inv": len(inv_ids),
+        "n_e1_unit": len(e1_ids),
+        "verifiers": {},
+    }
     for v in VERIFIERS:
         path = RAW / f"{v}.jsonl"
         scores = {}
@@ -33,11 +40,17 @@ def main() -> None:
             for row in read_jsonl(path):
                 if row.get("instance_id"):
                     scores[row["instance_id"]] = row.get("verdict")
-        scored = [scores[i] for i in ids if scores.get(i)]
-        fails = sum(1 for x in scored if x == "FAIL")
+        inv_scored = [scores[i] for i in inv_ids if scores.get(i)]
+        e1_scored = [scores[i] for i in e1_ids if scores.get(i)]
+        all_scored = inv_scored + e1_scored
+        fails = sum(1 for x in all_scored if x == "FAIL")
         report["verifiers"][v] = {
-            "n_scored": len(scored),
-            "fail_rate": fails / len(scored) if scored else None,
+            "n_scored": len(all_scored),
+            "fail_rate": fails / len(all_scored) if all_scored else None,
+            "inv_pass_rate": sum(1 for x in inv_scored if x == "PASS") / len(inv_scored) if inv_scored else None,
+            "e1_unit_fail_rate": sum(1 for x in e1_scored if x == "FAIL") / len(e1_scored) if e1_scored else None,
+            "n_inv_scored": len(inv_scored),
+            "n_e1_scored": len(e1_scored),
         }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(report, indent=2) + "\n")

@@ -1,0 +1,16 @@
+{
+  "path": "data/t8/instances_aggrefact_t8b.jsonl",
+  "path_v3": "data/v3/instances_aggrefact_t8b.jsonl",
+  "supported_total_by_group": {
+    "format_mismatch": 795,
+    "qty_match": 8487,
+    "no_quantity": 36568
+  },
+  "n_sample_per_group": 300,
+  "n_instances": 600,
+  "expected_verdict": "PASS",
+  "groups_scored": [
+    "format_mismatch",
+    "qty_match"
+  ]
+}

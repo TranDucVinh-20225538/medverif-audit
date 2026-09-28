@@ -115,40 +115,51 @@ def _canon_unit(u: str) -> str:
     return _UNIT_CANON.get(u.lower(), u.lower())
 
 
-def format_quantity_mismatch(claim: str, doc: str) -> bool:
-    """Same underlying quantity, different unit/format between claim and doc."""
+def _mismatch_label(c: Qty, d: Qty) -> str | None:
+    cv = _normalize_value(c)
+    dv = _normalize_value(d)
+    if cv is None or dv is None:
+        return None
+    if c.kind in ("scale", "plain") and d.kind in ("scale", "plain"):
+        if cv == dv and c.surface.lower() != d.surface.lower():
+            return "scale_or_plain_format"
+    if c.kind == "percent" and d.kind == "plain":
+        if d.value is not None and cv / Decimal("100") == d.value:
+            return "percent_vs_fraction"
+    if d.kind == "percent" and c.kind == "plain":
+        if c.value is not None and dv / Decimal("100") == c.value:
+            return "fraction_vs_percent"
+    if c.kind in ("unit", "med_dose") and d.kind in ("unit", "med_dose"):
+        if c.value == d.value and _canon_unit(c.unit) == _canon_unit(d.unit):
+            if c.unit.lower() != d.unit.lower() or c.surface != d.surface:
+                return "same_value_diff_unit_token"
+        if _canon_unit(c.unit) == _canon_unit(d.unit) == "m" and c.unit != d.unit:
+            if c.value is not None and d.value is not None:
+                if c.value * Decimal("1000") == d.value or d.value * Decimal("1000") == c.value:
+                    return "length_unit_conversion"
+    return None
+
+
+def explain_format_quantity_mismatch(claim: str, doc: str) -> dict | None:
+    """First format mismatch between claim and doc with spans and label."""
     cq = extract_general_quantities(claim)
     dq = extract_general_quantities(doc)
     if not cq or not dq:
-        return False
-
+        return None
     for c in cq:
-        cv = _normalize_value(c)
-        if cv is None:
-            continue
         for d in dq:
-            dv = _normalize_value(d)
-            if dv is None:
-                continue
-            # scale / plain cross (e.g. 1.2 billion vs 1200 million)
-            if c.kind in ("scale", "plain") and d.kind in ("scale", "plain"):
-                if cv == dv and c.surface.lower() != d.surface.lower():
-                    return True
-            # percent vs fraction wording (50% vs 0.5)
-            if c.kind == "percent" and d.kind == "plain":
-                if d.value is not None and cv / Decimal("100") == d.value:
-                    return True
-            if d.kind == "percent" and c.kind == "plain":
-                if c.value is not None and dv / Decimal("100") == c.value:
-                    return True
-            # same numeric, different unit token
-            if c.kind in ("unit", "med_dose") and d.kind in ("unit", "med_dose"):
-                if c.value == d.value and _canon_unit(c.unit) == _canon_unit(d.unit):
-                    if c.unit.lower() != d.unit.lower() or c.surface != d.surface:
-                        return True
-                # km vs m same length when values differ by 1000
-                if _canon_unit(c.unit) == _canon_unit(d.unit) == "m" and c.unit != d.unit:
-                    if c.value is not None and d.value is not None:
-                        if c.value * Decimal("1000") == d.value or d.value * Decimal("1000") == c.value:
-                            return True
-    return False
+            label = _mismatch_label(c, d)
+            if label:
+                return {
+                    "claim_span": c.surface,
+                    "doc_span": d.surface,
+                    "mismatch_label": label,
+                    "claim_kind": c.kind,
+                    "doc_kind": d.kind,
+                }
+    return None
+
+
+def format_quantity_mismatch(claim: str, doc: str) -> bool:
+    """Same underlying quantity, different unit/format between claim and doc."""
+    return explain_format_quantity_mismatch(claim, doc) is not None

@@ -1,0 +1,290 @@
+{
+  "t8b": {
+    "verifiers": {
+      "v1b_medscore": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      },
+      "v2a_minicheck": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      },
+      "v3_alignscore": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      },
+      "t6a_minicheck_roberta": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      },
+      "t6a_minicheck_deberta": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      },
+      "t6a_alignscore_base": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      },
+      "t6a_summac_zs": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      },
+      "t6a_summac_conv": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      },
+      "t6a_hhem": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      },
+      "t6a_granite_guardian": {
+        "false_alarm_fail_rate": {
+          "format_mismatch": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          },
+          "qty_match": {
+            "n_scored": 0,
+            "fail_rate": null,
+            "ci95": null
+          }
+        },
+        "bacc_supported_sample": null
+      }
+    },
+    "groups": [
+      "format_mismatch",
+      "qty_match"
+    ]
+  },
+  "t8_unit_sample": {
+    "verifiers": {
+      "v1b_medscore": {
+        "inv_pass_rate": {
+          "n": 100,
+          "rate": 0.39,
+          "ci95": [
+            0.3,
+            0.48
+          ]
+        },
+        "e1_unit_fail_rate": {
+          "n": 100,
+          "rate": 0.17,
+          "ci95": [
+            0.1,
+            0.24
+          ]
+        }
+      },
+      "v2a_minicheck": {
+        "inv_pass_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "e1_unit_fail_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        }
+      },
+      "v3_alignscore": {
+        "inv_pass_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "e1_unit_fail_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        }
+      },
+      "t6a_minicheck_roberta": {
+        "inv_pass_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "e1_unit_fail_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        }
+      },
+      "t6a_minicheck_deberta": {
+        "inv_pass_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "e1_unit_fail_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        }
+      },
+      "t6a_alignscore_base": {
+        "inv_pass_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "e1_unit_fail_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        }
+      },
+      "t6a_summac_zs": {
+        "inv_pass_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "e1_unit_fail_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        }
+      },
+      "t6a_summac_conv": {
+        "inv_pass_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "e1_unit_fail_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        }
+      },
+      "t6a_hhem": {
+        "inv_pass_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "e1_unit_fail_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        }
+      },
+      "t6a_granite_guardian": {
+        "inv_pass_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "e1_unit_fail_rate": {
+          "n": 0,
+          "rate": null,
+          "ci95": null
+        }
+      }
+    }
+  }
+}

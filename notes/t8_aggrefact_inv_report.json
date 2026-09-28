@@ -1,45 +1,87 @@
 {
   "n_instances": 200,
+  "n_inv": 100,
+  "n_e1_unit": 100,
   "verifiers": {
     "v1b_medscore": {
       "n_scored": 200,
-      "fail_rate": 0.39
+      "fail_rate": 0.39,
+      "inv_pass_rate": 0.39,
+      "e1_unit_fail_rate": 0.17,
+      "n_inv_scored": 100,
+      "n_e1_scored": 100
     },
     "v2a_minicheck": {
       "n_scored": 0,
-      "fail_rate": null
+      "fail_rate": null,
+      "inv_pass_rate": null,
+      "e1_unit_fail_rate": null,
+      "n_inv_scored": 0,
+      "n_e1_scored": 0
     },
     "v3_alignscore": {
       "n_scored": 0,
-      "fail_rate": null
+      "fail_rate": null,
+      "inv_pass_rate": null,
+      "e1_unit_fail_rate": null,
+      "n_inv_scored": 0,
+      "n_e1_scored": 0
     },
     "t6a_minicheck_roberta": {
       "n_scored": 0,
-      "fail_rate": null
+      "fail_rate": null,
+      "inv_pass_rate": null,
+      "e1_unit_fail_rate": null,
+      "n_inv_scored": 0,
+      "n_e1_scored": 0
     },
     "t6a_minicheck_deberta": {
       "n_scored": 0,
-      "fail_rate": null
+      "fail_rate": null,
+      "inv_pass_rate": null,
+      "e1_unit_fail_rate": null,
+      "n_inv_scored": 0,
+      "n_e1_scored": 0
     },
     "t6a_alignscore_base": {
       "n_scored": 0,
-      "fail_rate": null
+      "fail_rate": null,
+      "inv_pass_rate": null,
+      "e1_unit_fail_rate": null,
+      "n_inv_scored": 0,
+      "n_e1_scored": 0
     },
     "t6a_summac_zs": {
       "n_scored": 0,
-      "fail_rate": null
+      "fail_rate": null,
+      "inv_pass_rate": null,
+      "e1_unit_fail_rate": null,
+      "n_inv_scored": 0,
+      "n_e1_scored": 0
     },
     "t6a_summac_conv": {
       "n_scored": 0,
-      "fail_rate": null
+      "fail_rate": null,
+      "inv_pass_rate": null,
+      "e1_unit_fail_rate": null,
+      "n_inv_scored": 0,
+      "n_e1_scored": 0
     },
     "t6a_hhem": {
       "n_scored": 0,
-      "fail_rate": null
+      "fail_rate": null,
+      "inv_pass_rate": null,
+      "e1_unit_fail_rate": null,
+      "n_inv_scored": 0,
+      "n_e1_scored": 0
     },
     "t6a_granite_guardian": {
       "n_scored": 0,
-      "fail_rate": null
+      "fail_rate": null,
+      "inv_pass_rate": null,
+      "e1_unit_fail_rate": null,
+      "n_inv_scored": 0,
+      "n_e1_scored": 0
     }
   }
 }
