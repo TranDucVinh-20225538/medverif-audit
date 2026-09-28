@@ -106,7 +106,7 @@ def clean_claim(text: str) -> str:
     return text
 
 
-def load_llm(model: str, revision: str):
+def load_llm(model: str, revision: str, *, enforce_eager: bool = False):
     from vllm import LLM
 
     return LLM(
@@ -117,6 +117,7 @@ def load_llm(model: str, revision: str):
         trust_remote_code=True,
         max_model_len=4096,
         gpu_memory_utilization=0.90,
+        enforce_eager=enforce_eager,
         download_dir=os.environ.get("HUGGINGFACE_HUB_CACHE"),
     )
 

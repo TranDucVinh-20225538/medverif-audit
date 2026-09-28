@@ -1,0 +1,22 @@
+{"base_id": "D0032", "dose_kind": "descriptive", "raw_output": "Descriptive\n\nThe statement describes a study"}
+{"base_id": "D0052", "dose_kind": "prescriptive", "raw_output": "Prescriptive\n\nThe statement provides specific instructions"}
+{"base_id": "D0053", "dose_kind": "prescriptive", "raw_output": "Prescriptive\n\nThe statement is recommending a"}
+{"base_id": "D0062", "dose_kind": "descriptive", "raw_output": "Descriptive\n\nThe statement describes the results"}
+{"base_id": "D0068", "dose_kind": "prescriptive", "raw_output": "Prescriptive\n\nThe statement provides a specific"}
+{"base_id": "D0077", "dose_kind": "descriptive", "raw_output": "Descriptive\n\nThe statement provides information about"}
+{"base_id": "D0080", "dose_kind": "prescriptive", "raw_output": "Prescriptive\n\nThe statement provides a recommendation"}
+{"base_id": "D0086", "dose_kind": "descriptive", "raw_output": "Descriptive\n\nThe statement describes the findings"}
+{"base_id": "D0094", "dose_kind": "prescriptive", "raw_output": "Prescriptive\n\nThe statement describes the administration"}
+{"base_id": "D0096", "dose_kind": "measurement", "raw_output": "Measurement\n\nThe statement provides a specific value"}
+{"base_id": "D0108", "dose_kind": "prescriptive", "raw_output": "Prescriptive\n\nThe statement provides a recommendation"}
+{"base_id": "D0109", "dose_kind": "prescriptive", "raw_output": "Prescriptive\n\nThe statement specifies the administration"}
+{"base_id": "D0114", "dose_kind": "prescriptive", "raw_output": "Prescriptive\n\nThe statement provides a recommendation"}
+{"base_id": "D0123", "dose_kind": "descriptive", "raw_output": "Descriptive\n\nThe statement describes the administration"}
+{"base_id": "D0161", "dose_kind": "measurement", "raw_output": "Measurement\n\nThe statement refers to a specific"}
+{"base_id": "D0176", "dose_kind": "descriptive", "raw_output": "Descriptive\n\nThe statement reports findings from"}
+{"base_id": "D0027", "dose_kind": "measurement", "raw_output": "Measurement\n\nThe statement refers to a specific"}
+{"base_id": "D0110", "dose_kind": "prescriptive", "raw_output": "Prescriptive\n\nThe statement provides a recommendation"}
+{"base_id": "D0146", "dose_kind": "measurement", "raw_output": "Measurement\n\nThe statement provides a quantifiable"}
+{"base_id": "D0149", "dose_kind": "descriptive", "raw_output": "Descriptive\n\nThe statement describes a scenario"}
+{"base_id": "D0153", "dose_kind": "descriptive", "raw_output": "Descriptive\n\nThe statement describes a condition"}
+{"base_id": "D0172", "dose_kind": "descriptive", "raw_output": "Descriptive\n\nThe statement provides information about"}

@@ -28,6 +28,7 @@ def load():
         trust_remote_code=True,
         max_model_len=4096,
         gpu_memory_utilization=0.90,
+        enforce_eager=True,
         download_dir=os.environ.get("HUGGINGFACE_HUB_CACHE"),
     )
     tokenizer = llm.get_tokenizer()

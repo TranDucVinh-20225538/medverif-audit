@@ -16,7 +16,10 @@ conda activate vllm
 
 INST="${ROOT}/data/v3/instances_main.jsonl"
 if [ ! -f "${INST}" ]; then
-  echo "missing ${INST}" >&2
+  INST="${ROOT}/data/v3/instances_cpu_main.jsonl"
+fi
+if [ ! -f "${INST}" ]; then
+  echo "missing instances_main and instances_cpu_main" >&2
   exit 1
 fi
 

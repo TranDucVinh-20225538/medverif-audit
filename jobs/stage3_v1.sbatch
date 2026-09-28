@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=medverif-v1
 #SBATCH --partition=defq
-#SBATCH --exclude=node001
+#SBATCH --exclude=node001,node002
 #SBATCH --gres=gpu:1
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
@@ -42,9 +42,12 @@ if bad:
 print("v1 weights ready", len(wanted))
 PY
 
-python src/score_jsonl.py --verifier v1_medscore --instances tests/smoke_pairs.jsonl --out tests/smoke_results/v1_medscore.jsonl
-python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_main.jsonl --out results/raw/v1_medscore.jsonl
-python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_threshold.jsonl --out results/raw_threshold/v1_medscore.jsonl
+python src/split_cpu_early.py
+mkdir -p tests/smoke_results results/raw results/raw_threshold
+
+python src/score_jsonl.py --verifier v1_medscore --instances tests/smoke_v1_all.jsonl --out tests/smoke_results/v1_medscore.jsonl
+python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_cpu_main.jsonl --out results/raw/v1_medscore.jsonl
+python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_cpu_threshold.jsonl --out results/raw_threshold/v1_medscore.jsonl
 python src/reparse_v1_study.py --in-place tests/smoke_results/v1_medscore.jsonl results/raw/v1_medscore.jsonl results/raw_threshold/v1_medscore.jsonl
-echo "v1 stage3 done $(date -Is)"
+echo "v1 stage3 (cpu_early) done $(date -Is)"
 sbatch --dependency=afterok:"${SLURM_JOB_ID}" "${ROOT}/jobs/stage4.sbatch"

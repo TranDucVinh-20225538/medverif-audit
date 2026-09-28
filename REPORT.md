@@ -1,6 +1,6 @@
 # REPORT
 
-**Daily status (2026-09-28):** **61394** `medverif-v3` on **node004** (replaces **61388**). **61388→61394:** job 61388 hung on **node002** NFS (GPU 0%, no `para_attempts` after ~41 min); cancelled and resubmitted as 61394 with `--exclude=node002`, host-RAM guard, chunked paraphrase, `PYTHONUNBUFFERED`. **61394** then Qwen paraphrase + Phi → QC v3; on success auto-`sbatch stage3_v1`, which chains **`sbatch --dependency=afterok` → `jobs/stage4.sbatch`** → `results/tables/phenomenon_checklist.md`. **CPU early:** `nltk` in `.cache/cpu_extra`; **`spacy` via `jobs/install_cpu_extra.sbatch`** (no heavy login-node pip). **Git:** local only, no remote.
+**Daily status (2026-09-28):** **61394 TIMEOUT** at 3h (vLLM `torch.compile` + Qwen↔Phi reloads); `para_attempts.jsonl` kept, **no QC v3**. **Restructure:** (1) **`jobs/submit_priority.sh`** → **`stage3_v1`** on **`instances_cpu_early`** (main+threshold, `enforce_eager=True`, 4h) → **`stage4`**; (2) then **`label_v3b`** (Phi **once**, validate attempts 1–2 only, **no attempt 3** / log `label_v3b_skip.json`) → **`stage3_v1_inv_resume`** + **stage4** for new INV-paraphrase rows. **61388→61394:** 61388 stuck node002; 61394 resubmit node004 then timed out. **Git:** local only.
 
 ## Stage 0 — Environment and sources (2026-09-28)
 
