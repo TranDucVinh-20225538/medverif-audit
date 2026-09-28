@@ -94,6 +94,7 @@ def main() -> None:
                 stats["polarity_scope"] += 1
                 continue
             row["subset"] = "main"
+            row["pol_flip_not_lexical"] = True
             main_bases.append(row)
             stats["polarity_main"] += 1
         chosen = para_yes.get(row["id"])

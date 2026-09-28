@@ -62,7 +62,7 @@ def main() -> None:
     t3_inv = [r for r in read_jsonl(T3_INV) if r.get("valid") and r.get("pi_ok") == "Y"]
     pending_t3 = [r for r in t3_inv if r["instance_id"] not in done]
     write_jsonl(OUT_T3_INV, pending_t3)
-    combined = pending_cpu + pending_g + pending_t3
+    combined = pending_cpu + pending_g + pending_t3 + pending_expand
     write_jsonl(OUT_NODE30, combined)
     expand_rows = [r for r in read_jsonl(EXPAND) if r.get("valid", True)]
     pending_expand = [r for r in expand_rows if r["instance_id"] not in done]
@@ -74,6 +74,7 @@ def main() -> None:
         "pending_node30_total": len(combined),
         "pending_t3_inv_pi_ok": len(pending_t3),
         "pending_expand_set": len(pending_expand),
+        "pending_node30_includes_expand": len(pending_expand) > 0,
         "paths": {
             "cpu_early_pending": str(OUT_CPU.relative_to(ROOT)),
             "g_inv_pending": str(OUT_G.relative_to(ROOT)),
