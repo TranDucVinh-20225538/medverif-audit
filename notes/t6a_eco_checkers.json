@@ -4,37 +4,37 @@
     {
       "id": "t6a_minicheck_roberta",
       "label": "MiniCheck-RoBERTa",
-      "jsonl": "t6a_minicheck_roberta.jsonl"
+      "jsonl": "t6_minicheck_roberta.jsonl"
     },
     {
       "id": "t6a_minicheck_deberta",
       "label": "MiniCheck-DeBERTa",
-      "jsonl": "t6a_minicheck_deberta.jsonl"
+      "jsonl": "t6_minicheck_deberta.jsonl"
     },
     {
       "id": "t6a_alignscore_base",
       "label": "AlignScore-base",
-      "jsonl": "t6a_alignscore_base.jsonl"
+      "jsonl": "t6_alignscore_base.jsonl"
     },
     {
       "id": "t6a_summac_zs",
       "label": "SummaC-ZS",
-      "jsonl": "t6a_summac_zs.jsonl"
+      "jsonl": "t6_summac_zs.jsonl"
     },
     {
       "id": "t6a_summac_conv",
       "label": "SummaC-Conv",
-      "jsonl": "t6a_summac_conv.jsonl"
+      "jsonl": "t6_summac_conv.jsonl"
     },
     {
       "id": "t6a_hhem",
       "label": "HHEM",
-      "jsonl": "t6a_hhem.jsonl"
+      "jsonl": "t6_hhem.jsonl"
     },
     {
       "id": "t6a_granite_guardian",
       "label": "Granite Guardian",
-      "jsonl": "t6a_granite_guardian.jsonl"
+      "jsonl": "t6_granite_guardian.jsonl"
     }
   ],
   "node30": {

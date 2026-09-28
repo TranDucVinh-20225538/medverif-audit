@@ -75,262 +75,262 @@
     },
     "v1b_medscore": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.07692307692307693,
+        "ci_lo": 0.0,
+        "ci_hi": 0.19230769230769232
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.011235955056179775,
+        "ci_lo": 0.0,
+        "ci_hi": 0.033707865168539325
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0
       }
     },
     "v5_ragas_nli": {
       "exact_surface_variant": {
-        "n": 2,
-        "fail_rate": 0.5,
-        "ci_lo": 0.0,
-        "ci_hi": 1.0
+        "n": 26,
+        "fail_rate": 0.3076923076923077,
+        "ci_lo": 0.11538461538461539,
+        "ci_hi": 0.5
       },
       "exact_verbatim": {
-        "n": 12,
-        "fail_rate": 0.3333333333333333,
-        "ci_lo": 0.08333333333333333,
-        "ci_hi": 0.5833333333333334
+        "n": 89,
+        "fail_rate": 0.30337078651685395,
+        "ci_lo": 0.20224719101123595,
+        "ci_hi": 0.39325842696629215
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.041666666666666664,
+        "ci_lo": 0.0,
+        "ci_hi": 0.125
       }
     },
     "v4_ragas_nli": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.11538461538461539,
+        "ci_lo": 0.0,
+        "ci_hi": 0.23076923076923078
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.1348314606741573,
+        "ci_lo": 0.06741573033707865,
+        "ci_hi": 0.21348314606741572
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0
       }
     },
     "v1_medscore": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.07692307692307693,
+        "ci_lo": 0.0,
+        "ci_hi": 0.19230769230769232
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.0449438202247191,
+        "ci_lo": 0.011235955056179775,
+        "ci_hi": 0.0898876404494382
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0
       }
     },
     "v2a_minicheck": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.19230769230769232,
+        "ci_lo": 0.038461538461538464,
+        "ci_hi": 0.34615384615384615
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.2247191011235955,
+        "ci_lo": 0.14606741573033707,
+        "ci_hi": 0.3146067415730337
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.2916666666666667,
+        "ci_lo": 0.125,
+        "ci_hi": 0.5
       }
     },
     "v3_alignscore": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.2692307692307692,
+        "ci_lo": 0.11538461538461539,
+        "ci_hi": 0.46153846153846156
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.20224719101123595,
+        "ci_lo": 0.12359550561797752,
+        "ci_hi": 0.2808988764044944
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.08333333333333333,
+        "ci_lo": 0.0,
+        "ci_hi": 0.20833333333333334
       }
     },
     "t6a_minicheck_roberta": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.5769230769230769,
+        "ci_lo": 0.38461538461538464,
+        "ci_hi": 0.7692307692307693
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.6179775280898876,
+        "ci_lo": 0.5168539325842697,
+        "ci_hi": 0.7191011235955056
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.6666666666666666,
+        "ci_lo": 0.5,
+        "ci_hi": 0.8333333333333334
       }
     },
     "t6a_minicheck_deberta": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.5,
+        "ci_lo": 0.3076923076923077,
+        "ci_hi": 0.6923076923076923
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.5393258426966292,
+        "ci_lo": 0.43820224719101125,
+        "ci_hi": 0.6404494382022472
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.25,
+        "ci_lo": 0.08333333333333333,
+        "ci_hi": 0.4166666666666667
       }
     },
     "t6a_alignscore_base": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.3076923076923077,
+        "ci_lo": 0.11538461538461539,
+        "ci_hi": 0.5
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.21348314606741572,
+        "ci_lo": 0.1348314606741573,
+        "ci_hi": 0.30337078651685395
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.08333333333333333,
+        "ci_lo": 0.0,
+        "ci_hi": 0.20833333333333334
       }
     },
     "t6a_summac_zs": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.5,
+        "ci_lo": 0.3076923076923077,
+        "ci_hi": 0.6923076923076923
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.6067415730337079,
+        "ci_lo": 0.5056179775280899,
+        "ci_hi": 0.7078651685393258
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.4583333333333333,
+        "ci_lo": 0.25,
+        "ci_hi": 0.6666666666666666
       }
     },
     "t6a_summac_conv": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.7692307692307693,
+        "ci_lo": 0.5769230769230769,
+        "ci_hi": 0.9230769230769231
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.8089887640449438,
+        "ci_lo": 0.7191011235955056,
+        "ci_hi": 0.8876404494382022
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.8333333333333334,
+        "ci_lo": 0.6666666666666666,
+        "ci_hi": 0.9583333333333334
       }
     },
     "t6a_hhem": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.5,
+        "ci_lo": 0.3076923076923077,
+        "ci_hi": 0.6923076923076923
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.25842696629213485,
+        "ci_lo": 0.16853932584269662,
+        "ci_hi": 0.3595505617977528
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.2916666666666667,
+        "ci_lo": 0.125,
+        "ci_hi": 0.4583333333333333
       }
     },
     "t6a_granite_guardian": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.15384615384615385,
+        "ci_lo": 0.038461538461538464,
+        "ci_hi": 0.3076923076923077
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.0449438202247191,
+        "ci_lo": 0.011235955056179775,
+        "ci_hi": 0.0898876404494382
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.041666666666666664,
+        "ci_lo": 0.0,
+        "ci_hi": 0.125
       }
     }
   },
@@ -338,18 +338,18 @@
   "verifier_files_present": {
     "v1c_medscore": true,
     "v6_ragas_nli": true,
-    "v1b_medscore": false,
+    "v1b_medscore": true,
     "v5_ragas_nli": true,
-    "v4_ragas_nli": false,
-    "v1_medscore": false,
-    "v2a_minicheck": false,
-    "v3_alignscore": false,
-    "t6a_minicheck_roberta": false,
-    "t6a_minicheck_deberta": false,
-    "t6a_alignscore_base": false,
-    "t6a_summac_zs": false,
-    "t6a_summac_conv": false,
-    "t6a_hhem": false,
-    "t6a_granite_guardian": false
+    "v4_ragas_nli": true,
+    "v1_medscore": true,
+    "v2a_minicheck": true,
+    "v3_alignscore": true,
+    "t6a_minicheck_roberta": true,
+    "t6a_minicheck_deberta": true,
+    "t6a_alignscore_base": true,
+    "t6a_summac_zs": true,
+    "t6a_summac_conv": true,
+    "t6a_hhem": true,
+    "t6a_granite_guardian": true
   }
 }

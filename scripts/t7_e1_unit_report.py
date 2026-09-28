@@ -37,10 +37,28 @@ def read_jsonl(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.open() if line.strip()]
 
 
+def _score_path(raw_dir: Path, verifier: str) -> Path:
+    direct = raw_dir / f"{verifier}.jsonl"
+    if direct.is_file():
+        return direct
+    if verifier == "v2b_bespoke":
+        alt = raw_dir / "t6_bespoke_minicheck.jsonl"
+        if alt.is_file():
+            return alt
+    if T6A_MANIFEST.is_file():
+        t6a = {c["id"]: c["jsonl"] for c in json.loads(T6A_MANIFEST.read_text()).get("checkers", [])}
+        fname = t6a.get(verifier)
+        if fname:
+            cand = raw_dir / fname
+            if cand.is_file():
+                return cand
+    return direct
+
+
 def load_scores(raw_dir: Path, verifiers: list[str]) -> dict[str, dict[str, str]]:
     out: dict[str, dict[str, str]] = {}
     for v in verifiers:
-        path = raw_dir / f"{v}.jsonl"
+        path = _score_path(raw_dir, v)
         m: dict[str, str] = {}
         for row in read_jsonl(path):
             iid = row.get("instance_id")

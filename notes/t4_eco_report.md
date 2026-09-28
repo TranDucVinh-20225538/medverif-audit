@@ -35,96 +35,96 @@ Among human-labeled **correct** answers (`exact_verbatim`, `exact_surface_varian
 | exact_verbatim | 89 | 0.258 | [0.169, 0.348] |
 | frequency_rephrased | 24 | 0.000 | [0.000, 0.000] |
 
-### v1b_medscore (partial/missing scores)
+### v1b_medscore
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.077 | [0.000, 0.192] |
+| exact_verbatim | 89 | 0.011 | [0.000, 0.034] |
+| frequency_rephrased | 24 | 0.000 | [0.000, 0.000] |
 
 ### v5_ragas_nli
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 2 | 0.500 | [0.000, 1.000] |
-| exact_verbatim | 12 | 0.333 | [0.083, 0.583] |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.308 | [0.115, 0.500] |
+| exact_verbatim | 89 | 0.303 | [0.202, 0.393] |
+| frequency_rephrased | 24 | 0.042 | [0.000, 0.125] |
 
-### v4_ragas_nli (partial/missing scores)
+### v4_ragas_nli
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.115 | [0.000, 0.231] |
+| exact_verbatim | 89 | 0.135 | [0.067, 0.213] |
+| frequency_rephrased | 24 | 0.000 | [0.000, 0.000] |
 
-### v1_medscore (partial/missing scores)
+### v1_medscore
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.077 | [0.000, 0.192] |
+| exact_verbatim | 89 | 0.045 | [0.011, 0.090] |
+| frequency_rephrased | 24 | 0.000 | [0.000, 0.000] |
 
-### v2a_minicheck (partial/missing scores)
+### v2a_minicheck
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.192 | [0.038, 0.346] |
+| exact_verbatim | 89 | 0.225 | [0.146, 0.315] |
+| frequency_rephrased | 24 | 0.292 | [0.125, 0.500] |
 
-### v3_alignscore (partial/missing scores)
+### v3_alignscore
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.269 | [0.115, 0.462] |
+| exact_verbatim | 89 | 0.202 | [0.124, 0.281] |
+| frequency_rephrased | 24 | 0.083 | [0.000, 0.208] |
 
-### t6a_minicheck_roberta (partial/missing scores)
+### t6a_minicheck_roberta
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.577 | [0.385, 0.769] |
+| exact_verbatim | 89 | 0.618 | [0.517, 0.719] |
+| frequency_rephrased | 24 | 0.667 | [0.500, 0.833] |
 
-### t6a_minicheck_deberta (partial/missing scores)
+### t6a_minicheck_deberta
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.500 | [0.308, 0.692] |
+| exact_verbatim | 89 | 0.539 | [0.438, 0.640] |
+| frequency_rephrased | 24 | 0.250 | [0.083, 0.417] |
 
-### t6a_alignscore_base (partial/missing scores)
+### t6a_alignscore_base
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.308 | [0.115, 0.500] |
+| exact_verbatim | 89 | 0.213 | [0.135, 0.303] |
+| frequency_rephrased | 24 | 0.083 | [0.000, 0.208] |
 
-### t6a_summac_zs (partial/missing scores)
+### t6a_summac_zs
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.500 | [0.308, 0.692] |
+| exact_verbatim | 89 | 0.607 | [0.506, 0.708] |
+| frequency_rephrased | 24 | 0.458 | [0.250, 0.667] |
 
-### t6a_summac_conv (partial/missing scores)
+### t6a_summac_conv
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.769 | [0.577, 0.923] |
+| exact_verbatim | 89 | 0.809 | [0.719, 0.888] |
+| frequency_rephrased | 24 | 0.833 | [0.667, 0.958] |
 
-### t6a_hhem (partial/missing scores)
+### t6a_hhem
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.500 | [0.308, 0.692] |
+| exact_verbatim | 89 | 0.258 | [0.169, 0.360] |
+| frequency_rephrased | 24 | 0.292 | [0.125, 0.458] |
 
-### t6a_granite_guardian (partial/missing scores)
+### t6a_granite_guardian
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 0 | — | — |
-| exact_verbatim | 0 | — | — |
-| frequency_rephrased | 0 | — | — |
+| exact_surface_variant | 26 | 0.154 | [0.038, 0.308] |
+| exact_verbatim | 89 | 0.045 | [0.011, 0.090] |
+| frequency_rephrased | 24 | 0.042 | [0.000, 0.125] |
 
 ## Cohort error rates (full scored ecological set)
 
