@@ -1,0 +1,14 @@
+{
+  "instances": "data/v3/instances_main.jsonl",
+  "n_instances": 1085,
+  "scores": "results/raw/v4_ragas_nli.jsonl",
+  "out": "results/raw/v4_ragas_nli.jsonl",
+  "input_lines": 181,
+  "duplicate_instance_id": 0,
+  "unknown_instance_id": 0,
+  "stale_content_sha1": 0,
+  "kept": 181,
+  "sample_duplicate_ids": [],
+  "sample_stale_ids": [],
+  "sample_unknown_ids": []
+}
