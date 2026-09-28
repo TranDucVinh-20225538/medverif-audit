@@ -8,7 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 INP = ROOT / "data" / "t4" / "eco_classified.jsonl"
-OUT = ROOT / "data" / "t4" / "instances_eco_verify.jsonl"
+OUT = ROOT / "data" / "t4" / "eco_instances.jsonl"
+OUT_LEGACY = ROOT / "data" / "t4" / "instances_eco_verify.jsonl"
 
 
 def main() -> None:
@@ -24,7 +25,7 @@ def main() -> None:
                 "base_id": row["base_id"],
                 "type": "DOSE",
                 "condition": "ECO-answer",
-                "magnitude": row.get("eco_category"),
+                "magnitude": row.get("eco_category_final") or row.get("eco_category"),
                 "claim": row["answer"],
                 "evidence": row["evidence"],
                 "expected_verdict": "PASS",
@@ -38,10 +39,18 @@ def main() -> None:
             }
         )
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    with OUT.open("w") as handle:
-        for row in rows:
-            handle.write(json.dumps(row, ensure_ascii=False) + "\n")
-    print(json.dumps({"n": len(rows), "path": str(OUT.relative_to(ROOT))}))
+    payload = "\n".join(json.dumps(row, ensure_ascii=False) for row in rows) + "\n"
+    OUT.write_text(payload)
+    OUT_LEGACY.write_text(payload)
+    print(
+        json.dumps(
+            {
+                "n": len(rows),
+                "path": str(OUT.relative_to(ROOT)),
+                "legacy": str(OUT_LEGACY.relative_to(ROOT)),
+            }
+        )
+    )
 
 
 if __name__ == "__main__":

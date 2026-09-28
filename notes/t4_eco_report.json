@@ -1,0 +1,461 @@
+{
+  "n_answers": 444,
+  "distribution_all": {
+    "exact_verbatim": 320,
+    "exact_surface_variant": 26,
+    "omitted": 58,
+    "changed_value": 20,
+    "frequency_rephrased": 20
+  },
+  "distribution_by_answerer": {
+    "command_r": {
+      "exact_verbatim": 101,
+      "exact_surface_variant": 14,
+      "omitted": 12,
+      "changed_value": 14,
+      "frequency_rephrased": 7
+    },
+    "deepseek_chat": {
+      "exact_verbatim": 106,
+      "omitted": 27,
+      "changed_value": 4,
+      "exact_surface_variant": 6,
+      "frequency_rephrased": 5
+    },
+    "gemma3_27b": {
+      "exact_verbatim": 113,
+      "omitted": 19,
+      "changed_value": 2,
+      "frequency_rephrased": 8,
+      "exact_surface_variant": 6
+    }
+  },
+  "classifier_fit_dev_labels": 1.0,
+  "n_dev_labels": 100,
+  "classifier_accuracy_held_out_review2": NaN,
+  "n_held_out_review2_labeled": 0,
+  "n_review2_sheet": 72,
+  "false_alarm_excludes": [
+    [
+      "D0077__eco",
+      "command_r"
+    ],
+    [
+      "D0122__eco",
+      "deepseek_chat"
+    ]
+  ],
+  "n_correct_for_false_alarm": 365,
+  "fail_rates_by_verifier_category": {
+    "v1c_medscore": {
+      "exact_surface_variant": {
+        "n": 26,
+        "fail_rate": 0.07692307692307693,
+        "ci_lo": 0.0,
+        "ci_hi": 0.19230769230769232
+      },
+      "exact_verbatim": {
+        "n": 320,
+        "fail_rate": 0.015625,
+        "ci_lo": 0.003125,
+        "ci_hi": 0.03125
+      },
+      "frequency_rephrased": {
+        "n": 19,
+        "fail_rate": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0
+      }
+    },
+    "v6_ragas_nli": {
+      "exact_surface_variant": {
+        "n": 20,
+        "fail_rate": 0.2,
+        "ci_lo": 0.05,
+        "ci_hi": 0.4
+      },
+      "exact_verbatim": {
+        "n": 248,
+        "fail_rate": 0.21370967741935484,
+        "ci_lo": 0.16532258064516128,
+        "ci_hi": 0.2661290322580645
+      },
+      "frequency_rephrased": {
+        "n": 13,
+        "fail_rate": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0
+      }
+    },
+    "v1b_medscore": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v5_ragas_nli": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v4_ragas_nli": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v1_medscore": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v2a_minicheck": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "v3_alignscore": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_minicheck_roberta": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_minicheck_deberta": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_alignscore_base": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_summac_zs": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_summac_conv": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_hhem": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    },
+    "t6a_granite_guardian": {
+      "exact_surface_variant": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "exact_verbatim": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "frequency_rephrased": {
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
+      }
+    }
+  },
+  "changed_value_detection_fail_rate": {
+    "v1c_medscore": {
+      "n": 20,
+      "fail_rate": 0.05,
+      "ci_lo": 0.0,
+      "ci_hi": 0.15
+    },
+    "v6_ragas_nli": {
+      "n": 17,
+      "fail_rate": 0.35294117647058826,
+      "ci_lo": 0.11764705882352941,
+      "ci_hi": 0.5882352941176471
+    },
+    "v1b_medscore": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "v5_ragas_nli": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "v4_ragas_nli": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "v1_medscore": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "v2a_minicheck": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "v3_alignscore": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "t6a_minicheck_roberta": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "t6a_minicheck_deberta": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "t6a_alignscore_base": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "t6a_summac_zs": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "t6a_summac_conv": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "t6a_hhem": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    },
+    "t6a_granite_guardian": {
+      "n": 0,
+      "fail_rate": null,
+      "ci_lo": null,
+      "ci_hi": null
+    }
+  },
+  "n_changed_value_cohort": 20,
+  "verifier_files_present": {
+    "v1c_medscore": true,
+    "v6_ragas_nli": true,
+    "v1b_medscore": false,
+    "v5_ragas_nli": false,
+    "v4_ragas_nli": false,
+    "v1_medscore": false,
+    "v2a_minicheck": false,
+    "v3_alignscore": false,
+    "t6a_minicheck_roberta": false,
+    "t6a_minicheck_deberta": false,
+    "t6a_alignscore_base": false,
+    "t6a_summac_zs": false,
+    "t6a_summac_conv": false,
+    "t6a_hhem": false,
+    "t6a_granite_guardian": false
+  }
+}
