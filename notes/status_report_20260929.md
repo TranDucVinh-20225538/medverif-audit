@@ -27,5 +27,5 @@
 
 ## T1 (M1)
 
-- tmux **`t1_m1_or`** / **`t1_m1_cpu`**: M1 re-score → `results/raw_m1/`.
+- tmux **`t1_m1_or`** (HPC): M1 V1/V4 → `results/raw_m1/`; **node30**: `run_t1_m1_score_node30.sh` for V2/V3 M1.
 - Table: `results/tables/cost_vs_validity.md`.

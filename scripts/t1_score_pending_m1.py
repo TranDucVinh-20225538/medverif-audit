@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Score node30 pending instances with MEDVERIF_M1=1 into results/raw_m1/."""
+"""node30 only: score instances_m1_pending_node30.jsonl → results/raw_m1/ (V2a+V3)."""
 
 from __future__ import annotations
 

@@ -16,6 +16,8 @@ Append scores (resume by `instance_id`):
 
 Use the same env as `notes/environment_node30.md` (MiniCheck + AlignScore, threshold 0.5).
 
+**T1-M1:** on node30 only, run `jobs/run_t1_m1_score_node30.sh` (not on HPC).
+
 On HPC, V1/V4 OpenRouter for the **cpu_early** pending slice only:
 
 ```bash
