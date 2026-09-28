@@ -9,7 +9,16 @@ from pathlib import Path
 DOSE_SAMPLE_SEED = 2026
 DOSE_SAMPLE_N = 40
 
-FIELDNAMES = ("base_id", "type", "sample", "original", "rewrite", "PI_ok")
+FIELDNAMES = (
+    "base_id",
+    "type",
+    "mechanism",
+    "mapping",
+    "sample",
+    "original",
+    "rewrite",
+    "PI_ok",
+)
 
 
 def build_manual_review_rows(accepted: list[dict]) -> list[dict]:
@@ -20,6 +29,8 @@ def build_manual_review_rows(accepted: list[dict]) -> list[dict]:
         entry = {
             "base_id": row["base_id"],
             "type": row["type"],
+            "mechanism": row.get("mechanism") or "",
+            "mapping": row.get("mapping") or "",
             "sample": "",
             "original": row["original"],
             "rewrite": row["rewrite"],

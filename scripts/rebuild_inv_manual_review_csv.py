@@ -38,6 +38,8 @@ def main() -> None:
             {
                 "base_id": bid,
                 "type": row["type"],
+                "mechanism": "llm",
+                "mapping": "",
                 "original": c0.get(bid, row.get("claim_c0") or ""),
                 "rewrite": row["claim"],
             }

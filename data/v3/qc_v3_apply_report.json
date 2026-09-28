@@ -106,14 +106,14 @@
     "POLARITY|E1-claim|main": 22,
     "POLARITY|E1-evid|main": 22,
     "POLARITY|E2|main": 22,
-    "POLARITY|INV-claim|main": 78
+    "POLARITY|INV-claim|main": 42
   },
-  "valid_main_instances": 1080,
+  "valid_main_instances": 1044,
   "valid_threshold_instances": 214,
   "valid_range_instances": 50,
-  "cpu_early_instances": 1294,
+  "cpu_early_instances": 1258,
   "paraphrase_todo": 194,
   "polarity_domain_unclear_c0": 29,
   "ocr_noise_main_bases": 5,
-  "sensitivity_exclude_ocr_n": 1262
+  "sensitivity_exclude_ocr_n": 1227
 }

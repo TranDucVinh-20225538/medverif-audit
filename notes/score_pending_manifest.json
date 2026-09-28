@@ -1,8 +1,8 @@
 {
   "scored_ids_in_raw_v2v3": 1216,
-  "pending_cpu_early": 78,
+  "pending_cpu_early": 42,
   "pending_g_inv_paraphrase": 109,
-  "pending_node30_total": 187,
+  "pending_node30_total": 151,
   "paths": {
     "cpu_early_pending": "data/v3/instances_score_pending_cpu_early.jsonl",
     "g_inv_pending": "data/v3/instances_score_pending_g_inv.jsonl",

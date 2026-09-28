@@ -100,6 +100,8 @@ POLARITY_REPHRASE_INV = {
     "is contraindicated": "should not be used",
 }
 
+# Equivalence rephrases for INV-claim (subset also used by inv_cue where applicable).
+# Excluded: contraindicated ↔ not recommended / not indicated (clinically distinct).
 INV_POLARITY = {
     "should not be administered": "must not be administered",
     "should not be given": "must not be given",
@@ -107,17 +109,10 @@ INV_POLARITY = {
     "should be administered": "ought to be administered",
     "should be given": "ought to be given",
     "should be used": "ought to be used",
-    "are not recommended": "are contraindicated",
-    "is not recommended": "is contraindicated",
     "are recommended for": "are indicated for",
     "is recommended for": "is indicated for",
-    "are not indicated": "are contraindicated",
-    "is not indicated": "is contraindicated",
     "are indicated for": "are recommended for",
     "is indicated for": "is recommended for",
-    "are contraindicated": "are not recommended",
-    "is contraindicated": "is not recommended",
-    "contraindicated in": "not recommended in",
 }
 
 _ABBREV = (
@@ -315,12 +310,19 @@ def inv_cue(cue: str) -> str:
     return INV_POLARITY[key]
 
 
-def rephrase_polarity_cue(cue: str) -> str:
-    """Template equivalence rephrase (QC v3 G): explicit pairs first, then INV_POLARITY."""
+def rephrase_polarity_mapping(cue: str) -> tuple[str, str, str]:
+    """Return (cue_key, rewritten_cue, table) where table is G_pair or INV_POLARITY."""
     key = cue_key(cue)
     if key in POLARITY_REPHRASE_INV:
-        return POLARITY_REPHRASE_INV[key]
-    return inv_cue(cue)
+        return key, POLARITY_REPHRASE_INV[key], "POLARITY_REPHRASE_INV"
+    if key not in INV_POLARITY:
+        raise ValueError(f"no rephrase INV for {cue!r}")
+    return key, INV_POLARITY[key], "INV_POLARITY"
+
+
+def rephrase_polarity_cue(cue: str) -> str:
+    """Template equivalence rephrase (QC v3 G): explicit pairs first, then INV_POLARITY."""
+    return rephrase_polarity_mapping(cue)[1]
 
 
 def replace_span(text: str, start: int, end: int, new: str) -> str:

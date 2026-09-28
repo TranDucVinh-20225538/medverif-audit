@@ -173,18 +173,29 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
                 inv_span, espan,
             ))
     if base["type"] == "POLARITY":
+        rep_ok = False
+        rep_edit = None
+        rep_span = cspan
         try:
             rep_span = rephrase_polarity_cue(cspan)
             rep_edit = _diff(claim0, claim0, c0, c1, rep_span, "claim")
-            if rep_edit["confined_to_span"] and rep_edit["text"] != claim0:
-                instances.append(_instance(
-                    base, "INV-claim", "rephrase",
-                    rep_edit["text"], evid0, "PASS",
-                    {"claim": {k: rep_edit[k] for k in rep_edit if k != "text"}, "evidence_unchanged": True},
-                    rep_span, espan,
-                ))
+            rep_ok = rep_edit["confined_to_span"] and rep_edit["text"] != claim0
         except ValueError:
-            pass
+            rep_edit = _diff(claim0, claim0, c0, c1, cspan, "claim")
+        diff_payload = {
+            "claim": {k: rep_edit[k] for k in rep_edit if k != "text"},
+            "evidence_unchanged": True,
+        }
+        if not rep_ok:
+            diff_payload["rephrase_nonequivalent"] = True
+        instances.append(_instance(
+            base, "INV-claim", "rephrase",
+            rep_edit["text"] if rep_ok else claim0,
+            evid0, "PASS",
+            diff_payload,
+            rep_span if rep_ok else cspan,
+            espan,
+        ))
     return instances, failures
 
 

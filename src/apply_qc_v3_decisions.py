@@ -118,10 +118,26 @@ def apply_validity(inst: dict, meta: dict, flip_block: str | None) -> None:
         and inst.get("condition") == "INV-claim"
         and inst.get("type") == "POLARITY"
     ):
+        diff = inst.get("diff") or {}
+        if diff.get("rephrase_nonequivalent") or (
+            (inst.get("claim") or "") == (inst.get("claim_c0") or "")
+        ):
+            inst["valid"] = False
+            inst["invalid_reason"] = "pol_rephrase_nonequivalent"
+            return
         reason = sentence_rule_failure(inst.get("claim") or "")
         if reason:
             inst["valid"] = False
             inst["invalid_reason"] = f"sentence:{reason}"
+            return
+        # Same main-analysis gate as POLARITY C0 (QC I: treatment domain; main subset only).
+        if meta.get("subset") != "main":
+            inst["valid"] = False
+            inst["invalid_reason"] = "pol_rephrase_not_main"
+            return
+        if not main_polarity_domain(meta.get("domain_kind")):
+            inst["valid"] = False
+            inst["invalid_reason"] = f"pol_rephrase_domain:{meta.get('domain_kind')}"
             return
     if meta["subset"] == "excluded_scope":
         inst["valid"] = False
