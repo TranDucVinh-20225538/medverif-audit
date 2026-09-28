@@ -1,0 +1,50 @@
+# Planned wrappers only. Not executed. See notes/environment.md.
+# Binary PASS = supported / faithful. Raw scores are always stored.
+
+v1_medscore:
+  source_repo: https://github.com/Heyuan9/MedScore
+  source_commit: 207c2b723f02339091ecc29628bf745d184952f6
+  wrapper: provided-evidence format_input, no retrieval
+  model: mistralai/Mistral-Small-24B-Instruct-2501
+  model_revision: 9527884be6e5616bdd54de542f9ae13384489724
+  temperature: 0.0
+  top_p: 1.0
+  seed: 42
+  max_tokens: 256
+  pass_rule: parsed_score == 1.0
+
+v2a_minicheck_flan_t5:
+  source_repo: https://github.com/Liyan06/MiniCheck
+  source_commit: b58b9fa69acbd1015ec970fa65dd752413a053d2
+  model: lytang/MiniCheck-Flan-T5-Large
+  model_revision: 96eafd01cee2d16cf81aaa2fb226b14f422a37b3
+  code_model_name: flan-t5-large
+  author_threshold: 0.5
+  pass_rule: raw_prob > 0.5
+
+v2b_bespoke_minicheck_7b:
+  model: bespokelabs/Bespoke-MiniCheck-7B
+  model_revision: 1ed7786bcda3fa1dc35f7c4ed9e3f36b785d33b8
+  code_model_name: Bespoke-MiniCheck-7B
+  author_threshold: 0.5
+  pass_rule: raw_prob > 0.5
+
+v3_alignscore_large:
+  source_repo: https://github.com/yuh-zha/AlignScore
+  source_commit: a0936d5afee642a46b22f6c02a163478447aa493
+  checkpoint: yzha/AlignScore/AlignScore-large.ckpt
+  checkpoint_repo_revision: 8509e78d25bb914939fc585c626500c9b2944249
+  backbone: roberta-large
+  evaluation_mode: nli_sp
+  author_threshold: 0.5  # evaluate.py uses score > 0.5
+  pass_rule: score > 0.5
+
+v4_ragas_nli:
+  source_repo: https://github.com/vibrantlabsai/ragas
+  source_commit: 298b68274234c060deacab3cf5fb52aa3a20e885
+  source_file: src/ragas/metrics/_faithfulness.py
+  prompt: NLIStatementPrompt only; statements=[claim]
+  model: Qwen/Qwen3-14B
+  model_revision: 40c069824f4251a91eefaf281ebe4c544efd3e18
+  temperature: 0.0
+  pass_rule: verdict == 1

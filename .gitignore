@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+models/
+corpus/
+data/raw_corpora/
+*.ckpt
+*.safetensors
+*.bin
+wandb/
+.ipynb_checkpoints/
