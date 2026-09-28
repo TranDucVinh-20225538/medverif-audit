@@ -39,11 +39,17 @@ def main() -> None:
     args = ap.parse_args()
 
     rows = read_jsonl(args.scores)
+    inst_by_id = {}
+    for path in (ROOT / "data/t9").glob("instances_*.jsonl"):
+        for r in read_jsonl(path):
+            inst_by_id[r["instance_id"]] = r
+
     by_group: dict[str, list[dict]] = defaultdict(list)
     for r in rows:
         by_group[r.get("t9_group") or "?"].append(r)
 
     stats = {}
+    b_strata: dict[str, dict] = {}
     examples = {}
     for g, grp in sorted(by_group.items()):
         blocked = [int(r.get("blocked")) for r in grp if r.get("blocked") is not None]
@@ -59,8 +65,28 @@ def main() -> None:
             }
             for r in grp[: args.examples]
         ]
+        if g == "b":
+            by_stratum: dict[str, list[dict]] = defaultdict(list)
+            for r in grp:
+                meta = inst_by_id.get(r.get("instance_id") or "", {})
+                st = meta.get("stratum") or (
+                    "eco_reexpressed"
+                    if "__eco" in (r.get("instance_id") or "")
+                    else "inv_unit_natural"
+                )
+                by_stratum[st].append(r)
+            for st, sub in sorted(by_stratum.items()):
+                blocked = [int(x.get("blocked")) for x in sub if x.get("blocked") is not None]
+                m, lo, hi = bootstrap_rate(blocked)
+                b_strata[st] = {
+                    "n": len(sub),
+                    "n_decided": len(blocked),
+                    "block_rate": m,
+                    "ci_lo": lo,
+                    "ci_hi": hi,
+                }
 
-    payload = {"n_total": len(rows), "groups": stats, "examples": examples}
+    payload = {"n_total": len(rows), "groups": stats, "b_strata": b_strata, "examples": examples}
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(payload, indent=2) + "\n")
 
@@ -76,6 +102,20 @@ def main() -> None:
         lines.append(
             f"| {g} | {s['n']} | {s['block_rate']:.3f} | [{s['ci_lo']:.3f}, {s['ci_hi']:.3f}] |"
         )
+    if b_strata:
+        lines.extend(
+            [
+                "",
+                "### Group **b** by source stratum",
+                "",
+                "| stratum | n | block_rate | 95% CI |",
+                "|---|---:|---:|---|",
+            ]
+        )
+        for st, s in b_strata.items():
+            lines.append(
+                f"| {st} | {s['n']} | {s['block_rate']:.3f} | [{s['ci_lo']:.3f}, {s['ci_hi']:.3f}] |"
+            )
     lines.append("")
     for g, ex in examples.items():
         lines.append(f"### Group {g} examples (up to {args.examples})")

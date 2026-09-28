@@ -14,7 +14,16 @@ python3 -c "import nemoguardrails; print(nemoguardrails.__version__)"
 
 ## AlignScore server (official helper in package)
 
-Default CLI loads **`base`** checkpoint only, port **5000**:
+Default CLI loads **`base`** checkpoint only, port **5000**. The Typer default for `models` is **`["base"]`** (AlignScore-base, not `large`):
+
+```python
+models: List[str] = typer.Option(
+    default=["base"],
+    help="The list of models to be loaded on startup",
+),
+```
+
+(from `nemoguardrails/library/factchecking/align_score/server.py`, nemoguardrails **0.24.1**)
 
 ```94:111:/data2/cmdir/home/toandq/.conda/envs/vllm/lib/python3.12/site-packages/nemoguardrails/library/factchecking/align_score/server.py
 @cli_app.command()
@@ -130,6 +139,13 @@ Built by `scripts/t9_build_input_sets.py` → `data/t9/instances_*.jsonl` + `dat
 |-----|--------|
 | **a** | T4 eco `exact_verbatim`, human `PI_ok=Y`, main |
 | **b** | T4 eco `exact_surface_variant` + `frequency_rephrased` (PI_ok=Y) + **INV-unit natural** (main+expand) |
+
+**Group b strata** (field `stratum` on each instance; rebuild with `scripts/t9_build_input_sets.py`):
+
+| stratum | source | n (manifest) |
+|---|---|---:|
+| `eco_reexpressed` | T4 eco answers (surface/frequency PI-correct) | 27 |
+| `inv_unit_natural` | Synthetic main/expand INV-claim `unit_conversion` (natural Y) | 103 |
 | **c** | DOSE main `E1-claim` **x2** |
 | **d** | T7 `instances_e1_unit.jsonl` (E1-unit) |
 
