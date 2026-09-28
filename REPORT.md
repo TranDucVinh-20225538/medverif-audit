@@ -1,6 +1,6 @@
 # REPORT
 
-**Daily status (2026-09-28):** **61394** `medverif-v3` **RUNNING** on **node004** (~734 GB RAM free); chưa `para_attempts` (đang import/load Qwen). **V1 10/10 shards OK** → 61394 xong sẽ tự `sbatch stage3_v1`. **V2b/Qwen3/AlignScore** download dở (PID repair đã chết) — cần `download_verifiers.py` sau. **Git:** `f20d188`, no remote. PI: review `qc_samples_v3.md` khi có; stage3 có thể chạy nền. **V1:** 10/10 shard headers OK (`notes/v1_shard_headers.json`); scoring stores full `raw_output` + released score; study label via `reparse_v1_study.py`. **Weights PID 3863732** still downloading (V2b+); 4.4 GB consolidated `.incomplete` left untouched. **Next:** PI QC review after 61388; then `not_remove` mining, V4/V2b GPU scoring; CPU early blocked (`nltk` missing in `.cache/cpu_extra`).
+**Daily status (2026-09-28):** **61394** `medverif-v3` on **node004** (replaces **61388**). **61388→61394:** job 61388 hung on **node002** NFS (GPU 0%, no `para_attempts` after ~41 min); cancelled and resubmitted as 61394 with `--exclude=node002`, host-RAM guard, chunked paraphrase, `PYTHONUNBUFFERED`. **61394** then Qwen paraphrase + Phi → QC v3; on success auto-`sbatch stage3_v1`, which chains **`sbatch --dependency=afterok` → `jobs/stage4.sbatch`** → `results/tables/phenomenon_checklist.md`. **CPU early:** `nltk` in `.cache/cpu_extra`; **`spacy` via `jobs/install_cpu_extra.sbatch`** (no heavy login-node pip). **Git:** local only, no remote.
 
 ## Stage 0 — Environment and sources (2026-09-28)
 

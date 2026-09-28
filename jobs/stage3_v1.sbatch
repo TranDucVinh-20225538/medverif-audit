@@ -47,3 +47,4 @@ python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_m
 python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_threshold.jsonl --out results/raw_threshold/v1_medscore.jsonl
 python src/reparse_v1_study.py --in-place tests/smoke_results/v1_medscore.jsonl results/raw/v1_medscore.jsonl results/raw_threshold/v1_medscore.jsonl
 echo "v1 stage3 done $(date -Is)"
+sbatch --dependency=afterok:"${SLURM_JOB_ID}" "${ROOT}/jobs/stage4.sbatch"
