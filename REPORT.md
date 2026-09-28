@@ -48,3 +48,33 @@ Numbers below are copied from `data/extract_stats.json`, `data/llm_stats.json`, 
 QC sample: `qc/qc_samples.md`. QC counts: `qc/qc_stats.md`.
 Stage 3 was not started.
 <!-- /stage12-final -->
+
+## PI manual review (2026-09-28)
+
+Files: `qc/inv_manual_review.csv` (merged `PI_ok`), `qc/unit_naturalness.csv` (`natural`), archive `qc/inv_manual_review_PI_ok_labels.csv`.
+
+Validation: **95** labeled rows, key `(base_id, type, mechanism)`, **0** unmatched keys. Values **Y/N** only on reviewed rows.
+
+| Slice | Y | N |
+| --- | ---: | ---: |
+| POLARITY / template | 34 | 8 |
+| POLARITY / llm | 9 | 4 |
+| DOSE / llm (sample=1 only) | 23 | 17 |
+| Unit naturalness (58 bases) | 22 | 36 |
+
+**Analysis filters:** INV enters only if `PI_ok=Y` (accepted: template POL **34**, llm POL **9**, llm DOSE **23**). DOSE llm rows with `sample=0` are excluded (not reviewed). INV-unit also reported for `natural=Y` subset (**22** bases).
+
+**LLM paraphrase human acceptance** (despite passing generation rules + Gemini validator): DOSE **23/40 = 58%**; POLARITY **9/13 ≈ 69%**. Many rule-valid paraphrases are not meaning-preserving under human PI review.
+
+## Scoring progress (2026-09-28)
+
+Valid instances (main + threshold): **1258**. Unique scored ids in `results/raw/`:
+
+| Verifier | Scored | Complete? |
+| --- | ---: | --- |
+| v1_medscore | 1080 | no (178 pending) |
+| v4_ragas_nli | 419 | no (839 pending) |
+| v2a_minicheck | 1403 | yes (≥ main+thr union) |
+| v3_alignscore | 1403 | yes |
+
+When V1 and V4 reach **1258** each (main + threshold + agreement subsample as queued), run `scripts/build_full_v1v4.py` → `results/tables/full_v1v4.md` (INV gated on `PI_ok=Y`; INV-unit also `natural=Y`).
