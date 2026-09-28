@@ -1,6 +1,6 @@
 # REPORT
 
-**Daily status (2026-09-28):** **61394 TIMEOUT** at 3h (vLLM `torch.compile` + Qwen↔Phi reloads); `para_attempts.jsonl` kept, **no QC v3**. **Restructure:** (1) **`jobs/submit_priority.sh`** → **`stage3_v1`** on **`instances_cpu_early`** (main+threshold, `enforce_eager=True`, 4h) → **`stage4`**; (2) then **`label_v3b`** (Phi **once**, validate attempts 1–2 only, **no attempt 3** / log `label_v3b_skip.json`) → **`stage3_v1_inv_resume`** + **stage4** for new INV-paraphrase rows. **61388→61394:** 61388 stuck node002; 61394 resubmit node004 then timed out. **Git:** local only.
+**Daily status (2026-09-28):** **61394 TIMEOUT** at 3h (vLLM `torch.compile` + Qwen↔Phi reloads); `para_attempts.jsonl` kept, **no QC v3**. **Parallel wave (`submit_parallel.sh`):** **`stage3_v1`** + **`label_v3b`** + **`gpu_early`** (V2a GPU; V3 skipped if AlignScore/`AdamW`); **`stage4`** `afterok` V1+gpu_early → `phenomenon_checklist.md`. **V4:** Qwen3-14B **not ready** (3 missing shards, 3 `.incomplete`) — see `notes/qwen3_14b_download.json`. **61388→61394:** 61388 stuck node002; 61394 resubmit node004 then timed out. **Git:** local only.
 
 ## Stage 0 — Environment and sources (2026-09-28)
 

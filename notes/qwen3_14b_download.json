@@ -1,0 +1,12 @@
+{
+  "repo": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "ready": false,
+  "missing_shards": [
+    "model-00005-of-00008.safetensors",
+    "model-00006-of-00008.safetensors",
+    "model-00007-of-00008.safetensors"
+  ],
+  "incomplete_blobs": 3,
+  "v4_submitted": false
+}
