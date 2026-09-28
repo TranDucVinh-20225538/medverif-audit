@@ -1,0 +1,7 @@
+{
+  "started": "2026-09-29T03:20+07:00",
+  "orchestrator": "tmux session overnight — waits for t7,t4_eco,v4_resume_missing,t6b_full,expand_score",
+  "t9": "pushed e45206c — node30: jobs/run_t9_node30.sh",
+  "t10": "prep pushed 3066ccc — leaderboard HF dataset 401; qc/t10_sample.csv padded 30 rows",
+  "budget_floor_usd": 1.5
+}
