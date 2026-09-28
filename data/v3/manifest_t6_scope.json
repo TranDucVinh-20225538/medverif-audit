@@ -2,11 +2,11 @@
   "mode": "full_pending",
   "approved": true,
   "note": "Scoring allowed (PI OK).",
-  "n_instances": 533,
+  "n_instances": 569,
   "n_main": 533,
   "n_expand": 0,
   "path": "data/v3/instances_t6_scope.jsonl",
-  "n_t3_inv_families": 0,
+  "n_t3_inv_families": 36,
   "dedupe_key": "instance_id",
   "content_sha1": "sha1(claim + newline + evidence)"
 }

@@ -1,12 +1,16 @@
 {
-  "scored_ids_in_raw_v2v3": 1216,
-  "pending_cpu_early": 42,
-  "pending_g_inv_paraphrase": 109,
-  "pending_node30_total": 151,
+  "scored_ids_in_raw_v2v3": 1403,
+  "pending_cpu_early": 62,
+  "pending_g_inv_paraphrase": 0,
+  "pending_node30_total": 98,
+  "pending_t3_inv_pi_ok": 36,
+  "pending_expand_set": 0,
   "paths": {
     "cpu_early_pending": "data/v3/instances_score_pending_cpu_early.jsonl",
     "g_inv_pending": "data/v3/instances_score_pending_g_inv.jsonl",
-    "node30_combined": "data/v3/instances_score_pending_node30.jsonl"
+    "t3_inv_pending": "data/v3/instances_score_pending_t3_inv.jsonl",
+    "node30_combined": "data/v3/instances_score_pending_node30.jsonl",
+    "expand_pending": "data/expand/instances_score_pending.jsonl"
   },
   "node30_cmd_hint": "Score OUT_NODE30 with scripts/run_node30_v2v3.py (or cpu_early scorer) appending to results/raw/v2a_minicheck.jsonl and v3_alignscore.jsonl."
 }
