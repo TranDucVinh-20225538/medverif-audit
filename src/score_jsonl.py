@@ -13,6 +13,7 @@ import vllm_graceful
 from verifiers.io_utils import append_jsonl, done_ids, read_jsonl
 
 USE_OR = os.environ.get("MEDVERIF_USE_OPENROUTER", "").lower() in ("1", "true", "yes")
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> None:
@@ -31,7 +32,8 @@ def main() -> None:
     if not todo:
         print(json.dumps({"verifier": args.verifier, "skipped": "complete", "n": len(rows)}))
         return
-    batch = int(os.environ.get("MEDVERIF_SCORE_BATCH", "8"))
+    default_batch = "4" if (ROOT / ".cache" / "g_full.active").exists() else "8"
+    batch = int(os.environ.get("MEDVERIF_SCORE_BATCH", default_batch))
     llm, tokenizer, params, load_s = module.load()
     if not USE_OR:
         vllm_graceful.register(llm)

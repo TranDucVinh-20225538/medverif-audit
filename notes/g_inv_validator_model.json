@@ -1,0 +1,4 @@
+{
+  "validator_model": "google/gemini-2.5-flash",
+  "gen": "qwen/qwen-2.5-72b-instruct"
+}

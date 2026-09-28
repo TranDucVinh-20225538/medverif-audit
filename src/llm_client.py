@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import http.client
 import json
 import os
 import random
@@ -21,6 +22,21 @@ MAX_WORKERS = 10
 
 _lock = threading.Lock()
 _calls: list[dict[str, Any]] = []
+_inflight = threading.Semaphore(int(os.environ.get("MEDVERIF_OR_MAX_INFLIGHT", "8")))
+
+
+def _retry_sleep(attempt: int, exc: Exception) -> None:
+    wait: float | None = None
+    if isinstance(exc, urllib.error.HTTPError) and exc.code == 429:
+        raw = exc.headers.get("Retry-After") if exc.headers else None
+        if raw is not None:
+            try:
+                wait = float(raw)
+            except ValueError:
+                wait = None
+    if wait is None:
+        wait = min(120.0, 5.0 * (2**attempt) + random.uniform(0, 3.0))
+    time.sleep(wait)
 
 
 @dataclass
@@ -93,7 +109,7 @@ def chat(
     allow_fallbacks: bool = False,
     extra_body: dict[str, Any] | None = None,
     timeout_s: float = 300.0,
-    max_retries: int = 5,
+    max_retries: int = 12,
     refuse_reasoning_only: bool = True,
 ) -> LLMResponse:
     prov = provider or os.environ.get("MEDVERIF_OPENROUTER_PROVIDER", "").strip() or None
@@ -114,22 +130,23 @@ def chat(
     last_err: Exception | None = None
     for attempt in range(max_retries):
         try:
-            req = urllib.request.Request(
-                url,
-                data=json.dumps(body).encode("utf-8"),
-                headers={
-                    "Authorization": f"Bearer {_api_key()}",
-                    "Content-Type": "application/json",
-                    "HTTP-Referer": os.environ.get(
-                        "MEDVERIF_OPENROUTER_REFERER", "https://medverif-audit.local"
-                    ),
-                    "X-Title": os.environ.get("MEDVERIF_OPENROUTER_TITLE", "medverif-audit"),
-                },
-                method="POST",
-            )
-            t0 = time.perf_counter()
-            with urllib.request.urlopen(req, timeout=timeout_s) as resp:
-                payload = json.loads(resp.read().decode("utf-8"))
+            with _inflight:
+                req = urllib.request.Request(
+                    url,
+                    data=json.dumps(body).encode("utf-8"),
+                    headers={
+                        "Authorization": f"Bearer {_api_key()}",
+                        "Content-Type": "application/json",
+                        "HTTP-Referer": os.environ.get(
+                            "MEDVERIF_OPENROUTER_REFERER", "https://medverif-audit.local"
+                        ),
+                        "X-Title": os.environ.get("MEDVERIF_OPENROUTER_TITLE", "medverif-audit"),
+                    },
+                    method="POST",
+                )
+                t0 = time.perf_counter()
+                with urllib.request.urlopen(req, timeout=timeout_s) as resp:
+                    payload = json.loads(resp.read().decode("utf-8"))
             latency = time.perf_counter() - t0
             choice = (payload.get("choices") or [{}])[0]
             message = choice.get("message") or {}
@@ -185,12 +202,24 @@ def chat(
                 flush=True,
             )
             return out
-        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
+        except urllib.error.HTTPError as exc:
+            last_err = exc
+            if exc.code < 500 and exc.code not in (408, 429):
+                break
+            if attempt + 1 >= max_retries:
+                break
+            _retry_sleep(attempt, exc)
+        except (
+            urllib.error.URLError,
+            TimeoutError,
+            http.client.RemoteDisconnected,
+            ConnectionError,
+            ConnectionResetError,
+        ) as exc:
             last_err = exc
             if attempt + 1 >= max_retries:
                 break
-            sleep = min(60.0, (2**attempt) + random.random())
-            time.sleep(sleep)
+            _retry_sleep(attempt, exc)
     raise RuntimeError(f"OpenRouter chat failed after {max_retries} tries: {last_err}")
 
 

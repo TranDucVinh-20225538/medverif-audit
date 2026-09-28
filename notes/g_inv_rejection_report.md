@@ -1,0 +1,47 @@
+# G full run — rejection breakdown
+
+- Attempt rows: 201
+- Bases touched: 133
+- Bases with ≥1 accepted attempt: 109
+
+## Attempt-level reason counts
+
+- `accepted`: 109
+- `rule:pure_permutation`: 25
+- `rule:fronting`: 16
+- `validator:yes/no`: 4
+- `rule:qualifier_set:extra:typically`: 4
+- `rule:qualifier_set:missing:may`: 4
+- `hard:added_causation`: 3
+- `hard:indication_framing_for`: 3
+- `rule:qualifier_set:missing:can`: 3
+- `rule:added_hedge:approximately`: 3
+- `rule:qualifier_set:extra:can`: 3
+- `rule:jaccard_low:0.476`: 3
+- `rule:qualifier_set:extra:commonly`: 3
+- `rule:bad_punct`: 3
+- `rule:leading_lower`: 2
+- `rule:added_hedge:usually`: 2
+- `rule:span_count`: 2
+- `rule:qualifier_set:missing:about`: 2
+- `rule:no_period`: 2
+- `hard:drug_framing_as`: 1
+- `rule:jaccard_low:0.417`: 1
+- `rule:jaccard_low:0.450`: 1
+- `validator:no/no`: 1
+- `hard:subject_reorder`: 1
+
+## subject_reorder (hard rule)
+
+### P0087 (attempt 1)
+
+**Original**
+```
+The most effective and least toxic antibiotic, given in the shortest possible course—ideally a single dose—should be used.
+```
+
+**Rewrite**
+```
+A single dose, ideally, of the most effective and least toxic antibiotic, given in the shortest possible course, should be used.
+```
+

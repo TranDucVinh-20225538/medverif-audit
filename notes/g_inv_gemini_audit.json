@@ -1,0 +1,95 @@
+{
+  "pairs": [
+    {
+      "base_id": "D0004",
+      "expect": "reject",
+      "pipeline_pass_llm_only": true,
+      "fluent": "yes",
+      "same_meaning": "yes",
+      "reason": "The rewrite rephrases the sentence to emphasize the causes of peripheral neuropathies, but the core facts and relationships remain identical. 'Can be seen in' and 'can lead to' convey the same potential causal link in this context.",
+      "model": "google/gemini-2.5-flash"
+    },
+    {
+      "base_id": "D0005",
+      "expect": "reject",
+      "pipeline_pass_llm_only": false,
+      "fluent": "no",
+      "same_meaning": "no",
+      "reason": "The phrase 'as etanercept' in B incorrectly frames etanercept as the manner of administration rather than the drug itself. A states etanercept is the drug given, while B implies the injection is given 'as' etanercept, which is grammatically awkward and semantically incorrect.",
+      "model": "google/gemini-2.5-flash"
+    },
+    {
+      "base_id": "D0007",
+      "expect": "reject",
+      "pipeline_pass_llm_only": false,
+      "fluent": "yes",
+      "same_meaning": "no",
+      "reason": "The rewrite 'for tranexamic acid' incorrectly frames tranexamic acid as the recipient or purpose of the doses, rather than the substance being administered. The original states that tranexamic acid *is given*, implying it is the drug itself, while the rewrite implies the doses are *for* tranexamic acid, which is grammatically awkward and semantically incorrect in this medical context.",
+      "model": "google/gemini-2.5-flash"
+    },
+    {
+      "base_id": "P0087",
+      "expect": "reject",
+      "pipeline_pass_llm_only": true,
+      "fluent": "yes",
+      "same_meaning": "yes",
+      "reason": "The rewrite reorders phrases but maintains the same core meaning and grammatical structure. 'Ideally a single dose' is moved to modify 'single dose' directly, which is still within the context of 'shortest possible course'.",
+      "model": "google/gemini-2.5-flash"
+    },
+    {
+      "base_id": "D0001",
+      "expect": "pass",
+      "pipeline_pass_llm_only": true,
+      "fluent": "yes",
+      "same_meaning": "yes",
+      "reason": "The rewrite B is a passive construction of the original sentence A, maintaining the same facts and meaning without any additions or removals.",
+      "model": "google/gemini-2.5-flash"
+    },
+    {
+      "base_id": "D0008",
+      "expect": "pass",
+      "pipeline_pass_llm_only": true,
+      "fluent": "yes",
+      "same_meaning": "yes",
+      "reason": "The rewrite rephrases the sentence structure without altering the core information, conditions, or sequence of events. 'receive' is replaced by 'be given', and the order of clauses is slightly adjusted, but the meaning remains identical.",
+      "model": "google/gemini-2.5-flash"
+    },
+    {
+      "base_id": "D0009",
+      "expect": "pass",
+      "pipeline_pass_llm_only": true,
+      "fluent": "yes",
+      "same_meaning": "yes",
+      "reason": "The rewrite uses a possessive form ('Cefazolin's') instead of a prepositional phrase ('of cefazolin'), which is a natural and grammatically correct way to express the same information.",
+      "model": "google/gemini-2.5-flash"
+    },
+    {
+      "base_id": "D0011",
+      "expect": "pass",
+      "pipeline_pass_llm_only": true,
+      "fluent": "yes",
+      "same_meaning": "yes",
+      "reason": "B rephrases the sentence while maintaining all factual information and conditions. The phrase 'through an intravenous echinocandin' in A is slightly awkward, and B clarifies that caspofungin *is* an intravenous echinocandin, which is a more natural phrasing.",
+      "model": "google/gemini-2.5-flash"
+    },
+    {
+      "base_id": "D0013",
+      "expect": "pass",
+      "pipeline_pass_llm_only": true,
+      "fluent": "yes",
+      "same_meaning": "yes",
+      "reason": "The rewrite rephrases the sentence using 'administered' instead of 'given as', which is a natural and grammatically correct substitution without altering the meaning or facts.",
+      "model": "google/gemini-2.5-flash"
+    },
+    {
+      "base_id": "P0021",
+      "expect": "pass",
+      "pipeline_pass_llm_only": true,
+      "fluent": "yes",
+      "same_meaning": "yes",
+      "reason": "The rewrite maintains the core information about antibiotic prophylaxis in necrotizing pancreatitis, the basis in EBM and extensive studies, and the subsequent reversal of recommendations. 'Initially based on' and 'subsequently overturned' accurately reflect 'based on' and 'later reversed' without altering the meaning or causal relations.",
+      "model": "google/gemini-2.5-flash"
+    }
+  ],
+  "model": "google/gemini-2.5-flash"
+}
