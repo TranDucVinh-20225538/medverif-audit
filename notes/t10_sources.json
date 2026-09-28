@@ -1,0 +1,12 @@
+{
+  "hhem_model_readme": {
+    "url": "https://huggingface.co/vectara/hallucination_evaluation_model/raw/main/README.md",
+    "path": "data/t10/hhem_model_readme.md",
+    "bytes": 15299,
+    "commit_hint": "\"a169b3681b4f29081d5378dc37e39f1757fc3bd2\""
+  },
+  "leaderboard_readme": {
+    "url": "https://huggingface.co/datasets/vectara/hallucination_leaderboard/raw/main/README.md",
+    "error": "HTTP Error 401: Unauthorized"
+  }
+}
