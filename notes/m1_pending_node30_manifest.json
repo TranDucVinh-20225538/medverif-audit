@@ -6,7 +6,6 @@
   "score_out_dir": "results/raw_m1/<verifier>.jsonl",
   "n_scoped": 942,
   "n_pending": 942,
-  "full_regenerate": true,
   "n_already_in_raw_m1": 0,
   "pending_by_condition": {
     "C0": 194,

@@ -1,9 +1,8 @@
 {
-  "status": "deprecated",
-  "deprecated_reason": "synthetic INV/E1 construction flawed — audit only; see notes/t8_synthetic_inv_DEPRECATED.md",
-  "do_not_score": true,
   "path": "data/t8/instances_aggrefact_inv.jsonl",
   "path_v3": "data/v3/instances_aggrefact_inv.jsonl",
-  "n_selected": 200,
-  "invalid_reason": "synthetic_t8_deprecated"
+  "n_candidates": 34,
+  "n_selected": 34,
+  "target": 200,
+  "expected_verdict": "FAIL"
 }
