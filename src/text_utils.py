@@ -215,17 +215,45 @@ def scale_dose_span(span: str, factor: Decimal) -> str:
     return f"{format_decimal(new_number)} {unit}"
 
 
-def convert_dose_span(span: str) -> str:
+# Common pairs only. The converted number must fall in [0.1, 1000].
+_NATURAL_PAIRS = (
+    ("mg/kg", "mcg/kg", Decimal("1000")),
+    ("mcg/kg", "mg/kg", Decimal("0.001")),
+    ("µg/kg", "mg/kg", Decimal("0.001")),
+    ("μg/kg", "mg/kg", Decimal("0.001")),
+    ("mg", "g", Decimal("0.001")),
+    ("g", "mg", Decimal("1000")),
+    ("mg", "mcg", Decimal("1000")),
+    ("mcg", "mg", Decimal("0.001")),
+    ("µg", "mg", Decimal("0.001")),
+    ("μg", "mg", Decimal("0.001")),
+    ("mL", "L", Decimal("0.001")),
+    ("ml", "L", Decimal("0.001")),
+    ("L", "mL", Decimal("1000")),
+)
+
+
+def natural_unit_conversion(span: str) -> Optional[str]:
+    """Return a common-unit rewrite with value in [0.1, 1000], or None."""
     match = DOSE_RE.search(span)
     if match is None or match.group(0) != span.strip():
-        raise ValueError(f"span is not a single dose: {span!r}")
+        return None
     number = parse_decimal(match.group(1))
     unit = match.group(2)
-    converted = convertible_unit(unit)
+    for src, dst, factor in _NATURAL_PAIRS:
+        if unit != src:
+            continue
+        value = number * factor
+        if Decimal("0.1") <= value <= Decimal("1000"):
+            return f"{format_decimal(value)} {dst}"
+    return None
+
+
+def convert_dose_span(span: str) -> str:
+    converted = natural_unit_conversion(span)
     if converted is None:
-        raise ValueError(f"unit not convertible: {unit}")
-    new_mass, factor, suffix = converted
-    return f"{format_decimal(number * factor)} {new_mass}{suffix}"
+        raise ValueError(f"no natural unit conversion for {span!r}")
+    return converted
 
 
 def polarity_matches(text: str) -> List[re.Match]:
@@ -236,8 +264,39 @@ def cue_key(text: str) -> str:
     return text.lower()
 
 
+# Lexical swaps do not insert the word "not".
+LEXICAL_FLIP = {
+    "should be used": "should be avoided",
+    "should be avoided": "should be used",
+    "is recommended for": "is contraindicated for",
+    "are recommended for": "are contraindicated for",
+    "is indicated for": "is contraindicated for",
+    "are indicated for": "are contraindicated for",
+    "is contraindicated": "is indicated",
+    "are contraindicated": "are indicated",
+    "contraindicated in": "indicated in",
+    "is effective": "is ineffective",
+    "are effective": "are ineffective",
+    "is safe": "is unsafe",
+    "are safe": "are unsafe",
+}
+
+
+def flip_mechanism(cue: str) -> str:
+    key = cue_key(cue)
+    if key in LEXICAL_FLIP:
+        return "lexical"
+    flipped = FLIP.get(key, "")
+    if " not " in f" {key} " and " not " not in f" {flipped} ":
+        return "not_remove"
+    return "not_insert"
+
+
 def flip_cue(cue: str) -> str:
     key = cue_key(cue)
+    mechanism = flip_mechanism(cue)
+    if mechanism == "lexical":
+        return LEXICAL_FLIP[key]
     if key not in FLIP:
         raise ValueError(f"no flip for {cue!r}")
     return FLIP[key]

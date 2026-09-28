@@ -1,0 +1,6 @@
+{"instance_id":"smoke_pass_1","evidence":"Amoxicillin 500 mg by mouth three times daily is a standard adult dose for this infection.","claim":"Amoxicillin 500 mg by mouth three times daily is a standard adult dose for this infection.","expected_verdict":"PASS"}
+{"instance_id":"smoke_pass_2","evidence":"Ibuprofen is indicated for mild to moderate pain.","claim":"Ibuprofen is indicated for mild to moderate pain.","expected_verdict":"PASS"}
+{"instance_id":"smoke_dose_500_vs_5000","evidence":"The recommended dose is 500 mg once daily.","claim":"The recommended dose is 5000 mg once daily.","expected_verdict":"FAIL"}
+{"instance_id":"smoke_dose_500_vs_5000_b","evidence":"Give 500 mg of the drug every 8 hours.","claim":"Give 5000 mg of the drug every 8 hours.","expected_verdict":"FAIL"}
+{"instance_id":"smoke_polarity","evidence":"The drug is indicated for patients with this condition.","claim":"The drug is contraindicated for patients with this condition.","expected_verdict":"FAIL"}
+{"instance_id":"smoke_unit","evidence":"The dose is 500 mg daily.","claim":"The dose is 0.5 g daily.","expected_verdict":"PASS"}

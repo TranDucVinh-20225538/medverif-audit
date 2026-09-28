@@ -52,7 +52,9 @@ source /data2/shared/apps/conda/etc/profile.d/conda.sh
 conda activate vllm
 export PYTHONPATH="${ROOT}/src"
 
-if ! python - << 'PY'
+rc=0
+python - << 'PY' || rc=$?
+import struct
 import sys
 from pathlib import Path
 need = {
@@ -60,17 +62,34 @@ need = {
     "models--microsoft--phi-4": 6,
 }
 root = Path("/data2/hpcshared/medverif-audit/.cache/huggingface/hub")
+
+def header_ok(path: Path) -> bool:
+    with path.open("rb") as handle:
+        raw = handle.read(8)
+    if len(raw) != 8:
+        return False
+    n = struct.unpack("<Q", raw)[0]
+    return 8 < n < 50_000_000 and n + 8 < path.stat().st_size
+
 for name, n_shards in need.items():
     base = root / name
-    done = list(base.glob("**/model-*.safetensors"))
+    done = sorted(base.glob("snapshots/*/model-*.safetensors"))
     incomplete = list(base.glob("**/*.incomplete"))
     print(name, "shards", len(done), "incomplete", len(incomplete))
     if len(done) < n_shards or incomplete:
         sys.exit(1)
+    for path in done:
+        if not header_ok(path):
+            print("bad safetensors header", path)
+            sys.exit(2)
 print("weights ready")
 PY
-then
+if [ "${rc}" -eq 1 ]; then
   resubmit "weights not local yet"
+fi
+if [ "${rc}" -ne 0 ]; then
+  python src/append_report.py --blocker "Stage 1-2 stopped: a safetensors header is invalid. The job was not resubmitted."
+  exit "${rc}"
 fi
 
 echo "smoke start $(date -Is)"

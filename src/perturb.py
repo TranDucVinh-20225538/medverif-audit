@@ -11,8 +11,8 @@ from typing import Dict, List
 from text_utils import (
     convert_dose_span,
     flip_cue,
+    flip_mechanism,
     highlight,
-    inv_cue,
     levenshtein,
     outside_identical,
     parse_decimal,
@@ -66,6 +66,9 @@ def _instance(
         "claim_c0": base["claim"],
         "evidence_c0": base["evidence"],
         "diff": diff,
+        "flip_mechanism": base.get("flip_mechanism"),
+        "dose_kind": base.get("dose_kind"),
+        "subset": base.get("subset", "main"),
     }
 
 
@@ -92,6 +95,9 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
     if base["type"] == "POLARITY" and cspan.lower() != espan.lower():
         failures.append({"base_id": base["id"], "reason": "polarity_span_not_verbatim"})
         return [], failures
+    if base["type"] == "POLARITY":
+        base = dict(base)
+        base["flip_mechanism"] = flip_mechanism(espan)
 
     unchanged = {
         "where": "none",
@@ -113,11 +119,15 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
                 if not _dose_factor_ok(espan, new_span, factor):
                     raise ValueError(f"factor check failed for {mag}")
                 variants.append((mag, new_span))
-            inv_span = convert_dose_span(cspan)
+            inv_span = None
+            try:
+                inv_span = convert_dose_span(cspan)
+            except ValueError:
+                inv_span = None
         else:
             flipped = flip_cue(espan)
             variants = [("flip", flipped)]
-            inv_span = inv_cue(cspan)
+            inv_span = None
     except ValueError as exc:
         failures.append({"base_id": base["id"], "reason": "rule_edit_failed", "detail": str(exc)})
         return [], failures
@@ -152,19 +162,27 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
             both, new_span, new_span,
         ))
 
-    inv_edit = _diff(claim0, claim0, c0, c1, inv_span, "claim")
-    if not inv_edit["confined_to_span"]:
-        failures.append({"base_id": base["id"], "reason": "inv_not_confined"})
-        return [], failures
-    if inv_edit["text"] == claim0:
-        failures.append({"base_id": base["id"], "reason": "inv_no_change"})
-        return [], failures
-    instances.append(_instance(
-        base, "INV-claim", "unit_conversion" if base["type"] == "DOSE" else "rephrase",
-        inv_edit["text"], evid0, "PASS",
-        {"claim": {k: inv_edit[k] for k in inv_edit if k != "text"}, "evidence_unchanged": True},
-        inv_span, espan,
-    ))
+    if inv_span:
+        inv_edit = _diff(claim0, claim0, c0, c1, inv_span, "claim")
+        if inv_edit["confined_to_span"] and inv_edit["text"] != claim0:
+            instances.append(_instance(
+                base, "INV-claim", "unit_conversion",
+                inv_edit["text"], evid0, "PASS",
+                {"claim": {k: inv_edit[k] for k in inv_edit if k != "text"}, "evidence_unchanged": True},
+                inv_span, espan,
+            ))
+    for para in base.get("paraphrases") or []:
+        if para.get("label") != "YES" or not para.get("text") or para["text"] == claim0:
+            continue
+        if base.get("target_span_claim") not in para["text"]:
+            continue
+        instances.append(_instance(
+            base, "INV-claim", "paraphrase",
+            para["text"], evid0, "PASS",
+            {"where": "paraphrase", "template": para.get("template"), "evidence_unchanged": True},
+            base.get("target_span_claim", ""), espan,
+        ))
+        break
     return instances, failures
 
 

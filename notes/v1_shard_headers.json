@@ -1,0 +1,67 @@
+{
+  "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+  "n_shards": 10,
+  "bad": 0,
+  "shards": [
+    {
+      "shard": "model-00001-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 4781571736
+    },
+    {
+      "shard": "model-00002-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 4781592784
+    },
+    {
+      "shard": "model-00003-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 4781592800
+    },
+    {
+      "shard": "model-00004-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 4886471600
+    },
+    {
+      "shard": "model-00005-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 4781592824
+    },
+    {
+      "shard": "model-00006-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 4781592816
+    },
+    {
+      "shard": "model-00007-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 4886471600
+    },
+    {
+      "shard": "model-00008-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 4781592824
+    },
+    {
+      "shard": "model-00009-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 4781592816
+    },
+    {
+      "shard": "model-00010-of-00010.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 3900777072
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "counts": {
+    "bases": 246,
+    "c0_drift": 21,
+    "dose_measurement": 9,
+    "dose_prescriptive": 121,
+    "dose_unclear": 22,
+    "ocr_noise": 5,
+    "exclude_ocr_target": 8,
+    "dose_descriptive": 3,
+    "domain_treatment": 53,
+    "domain_unclear": 35,
+    "exclude_flip_scope": 13,
+    "domain_other": 2,
+    "domain_diagnostic_procedure": 1,
+    "exclude_scope": 13,
+    "invalid_paraphrase_v2": 233,
+    "invalid_excluded": 101,
+    "todo_main": 184,
+    "todo_threshold": 28
+  },
+  "note": "v2 files were not deleted. paraphrase rows are valid=false."
+}

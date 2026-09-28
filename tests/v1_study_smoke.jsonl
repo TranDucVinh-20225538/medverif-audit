@@ -1,0 +1,5 @@
+{"instance_id":"v1_smoke_neg_not_true","raw_output":"not true","released_parser_score":1.0}
+{"instance_id":"v1_smoke_neg_sentence","raw_output":"This is not true","released_parser_score":1.0}
+{"instance_id":"v1_smoke_neg_period","raw_output":"The claim is not true.","released_parser_score":1.0}
+{"instance_id":"v1_smoke_plain_true","raw_output":"True","released_parser_score":1.0}
+{"instance_id":"v1_smoke_plain_false","raw_output":"False","released_parser_score":0.0}

@@ -1,0 +1,28 @@
+{
+  "bases_in": 246,
+  "dose_main": 126,
+  "dose_threshold": 29,
+  "polarity_main": 78,
+  "polarity_scope_excluded": 13,
+  "scope_terms": {
+    "but": 3,
+    "only": 9,
+    "unless": 1
+  },
+  "flip_mechanism_main": {
+    "not_insert": 31,
+    "lexical": 42,
+    "not_remove": 5
+  },
+  "dose_kind_main": {
+    "prescriptive": 112,
+    "descriptive": 14
+  },
+  "unit_inv_main": 58,
+  "dose_main_without_unit_inv": 68,
+  "instances_main": 1456,
+  "instances_threshold": 243,
+  "paraphrase_pending": 0,
+  "dose_kind_pending": 0,
+  "paraphrase_yes": 233
+}

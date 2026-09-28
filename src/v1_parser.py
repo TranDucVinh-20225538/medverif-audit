@@ -33,15 +33,20 @@ def released_parse_verification_output(completion_message: str) -> float:
     return is_supported
 
 
-def study_verdict(completion_message: str) -> str:
-    """PASS/FAIL only when a whole word true/false is present. Otherwise PARSE_FAIL.
+def released_verdict(completion_message: str) -> str:
+    """Binary map from the released parser only (no PARSE_FAIL)."""
+    return "PASS" if released_parse_verification_output(completion_message) == 1.0 else "FAIL"
 
-    This does not replace the released score. Both are stored.
-    Whole-word 'true' with no whole-word 'false' is PASS, including 'not true',
-    because the released parser also treats that as supported. Absence of either
-    word is PARSE_FAIL, which the released parser never emits.
+
+def study_verdict(completion_message: str) -> str:
+    """Study label from raw text. Does not replace the released score.
+
+    Whole-word true/false when present. Negated true (``not true``) is FAIL, not PASS.
+    Neither whole word → PARSE_FAIL.
     """
     text = completion_message.strip().lower()
+    if re.search(r"\bnot\s+true\b", text):
+        return "FAIL"
     true_at = [m.start() for m in re.finditer(r"\btrue\b", text)]
     false_at = [m.start() for m in re.finditer(r"\bfalse\b", text)]
     if not true_at and not false_at:

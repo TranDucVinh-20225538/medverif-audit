@@ -1,0 +1,51 @@
+{
+  "generator_model": "Qwen/Qwen2.5-32B-Instruct",
+  "generator_revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+  "validator_model": "microsoft/phi-4",
+  "validator_revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+  "candidates_attempted": 360,
+  "attempted_by_type": {
+    "DOSE": 180,
+    "POLARITY": 180
+  },
+  "rule_passed": 351,
+  "validator_yes": 326,
+  "bases_kept": 246,
+  "bases_kept_by_type": {
+    "DOSE": 155,
+    "POLARITY": 91
+  },
+  "instances": 1695,
+  "instances_by_type_condition_magnitude": {
+    "DOSE|C0|none": 155,
+    "DOSE|E1-claim|x10": 155,
+    "DOSE|E1-claim|x2": 155,
+    "DOSE|E1-evid|x10": 155,
+    "DOSE|E1-evid|x2": 155,
+    "DOSE|E2|x10": 155,
+    "DOSE|E2|x2": 155,
+    "DOSE|INV-claim|unit_conversion": 155,
+    "POLARITY|C0|none": 91,
+    "POLARITY|E1-claim|flip": 91,
+    "POLARITY|E1-evid|flip": 91,
+    "POLARITY|E2|flip": 91,
+    "POLARITY|INV-claim|rephrase": 91
+  },
+  "drops": {
+    "span_not_unique_in_claim": 5,
+    "span_missing_in_claim": 4,
+    "validator_no": 25,
+    "inv_meaning_rejected": 80
+  },
+  "perturb_failures": [],
+  "roles": {
+    "claim_generator": "Qwen/Qwen2.5-32B-Instruct",
+    "support_validator": "microsoft/phi-4",
+    "inv_meaning_checker": "microsoft/phi-4",
+    "not_used": [
+      "mistralai/Mistral-Small-24B-Instruct-2501",
+      "Qwen/Qwen3-14B",
+      "gpt-4o"
+    ]
+  }
+}

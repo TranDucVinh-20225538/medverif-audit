@@ -22,7 +22,17 @@
   {
     "input": "not true",
     "released_score": 1.0,
-    "study_verdict": "PASS"
+    "study_verdict": "FAIL"
+  },
+  {
+    "input": "This is not true",
+    "released_score": 1.0,
+    "study_verdict": "FAIL"
+  },
+  {
+    "input": "The answer is not true.",
+    "released_score": 1.0,
+    "study_verdict": "FAIL"
   },
   {
     "input": "untrue",

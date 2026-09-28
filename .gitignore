@@ -13,3 +13,7 @@ wandb/
 .cache/
 jobs/logs/
 data/smoke/
+tests/smoke_results/
+results/raw/
+results/raw_threshold/
+*.jsonl.bak

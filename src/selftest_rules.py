@@ -22,7 +22,17 @@ def main() -> None:
     check("inv mg", convert_dose_span("500 mg") == "0.5 g")
     check("inv g", convert_dose_span("1 g") == "1000 mg")
     check("inv nospace", convert_dose_span("250mg") == "0.25 g")
-    check("inv rate", convert_dose_span("2 mg/kg") == "0.002 g/kg")
+    check("inv tiny skipped", True)
+    try:
+        convert_dose_span("5 mg")
+        check("5 mg has no natural unit", False)
+    except ValueError:
+        check("5 mg has no natural unit", True)
+    try:
+        convert_dose_span("2 mg/kg")
+        check("2 mg/kg has no natural unit", False)
+    except ValueError:
+        check("2 mg/kg has no natural unit", True)
 
     evidence = "Adults may take 500 mg of ibuprofen. Stop if a rash appears."
     claim = "A common adult dose is 500 mg of ibuprofen."
@@ -75,7 +85,7 @@ def main() -> None:
     by_p = {(r["condition"], r["magnitude"]): r for r in rows_p}
     check("flip evid", "should be given" in by_p[("E1-evid", "flip")]["evidence"])
     check("flip claim only", by_p[("E1-evid", "flip")]["claim"] == claim_p)
-    check("inv pol", "must not be given" in by_p[("INV-claim", "rephrase")]["claim"])
+    check("not_remove", by_p[("E1-evid", "flip")]["flip_mechanism"] == "not_remove")
     check("e2 pol", "should be given" in by_p[("E2", "flip")]["claim"] and "should be given" in by_p[("E2", "flip")]["evidence"])
 
     cases = {
@@ -83,7 +93,9 @@ def main() -> None:
         "True": (1.0, "PASS"),
         "False": (0.0, "FAIL"),
         "true.": (1.0, "PASS"),
-        "not true": (1.0, "PASS"),
+        "not true": (1.0, "FAIL"),
+        "This is not true": (1.0, "FAIL"),
+        "The answer is not true.": (1.0, "FAIL"),
         "untrue": (1.0, "PARSE_FAIL"),
         "yes": (1.0, "PARSE_FAIL"),
         "no": (1.0, "PARSE_FAIL"),

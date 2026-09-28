@@ -22,13 +22,17 @@ The score is `1.0` if none of the tokens `not`, `cannot`, `unknown`, `informatio
 `yes`, `no`, and `maybe` also score `1.0`.
 `I cannot tell` and `unknown` score `0.0`.
 
-Study label used by this audit, stored beside the released score, never instead of the raw output:
+Study label (`study_verdict`), applied **post-hoc** via `src/reparse_v1_study.py` on `raw_output` in
+`results/raw/`. Scoring stores `released_parser_score` and a released-map `verdict` only.
 
-- whole word `true` and no whole word `false` → PASS
+- `\bnot\s+true\b` anywhere → FAIL (disagrees with released `1.0` on phrases like `This is not true`)
+- else whole word `true` and no whole word `false` → PASS
 - whole word `false` and no whole word `true` → FAIL
 - both whole words → PASS if the last `true` is after the last `false`, else FAIL
 - neither whole word → PARSE_FAIL
 
-PARSE_FAIL is not mapped to FAIL. `not true` remains PASS under the study label, matching the released score, and is recorded as a parser hazard rather than silently corrected. `untrue`, empty text, `yes`, `no`, and `maybe` are PARSE_FAIL under the study label even though the released score is `1.0`.
+PARSE_FAIL is not mapped to FAIL. Report `disagree_rate` between released-map and study labels.
+Smoke strings: `tests/v1_study_smoke.jsonl`. `untrue`, empty text, `yes`, `no`, and `maybe` are
+PARSE_FAIL under the study label even though the released score is `1.0`.
 
 gpt-4o was not used. This note does not come from a verifier run.
