@@ -1,10 +1,12 @@
-# INV-claim rows scored in cpu_early (n=68)
+# INV-claim rows in cpu_early
 
-Matrix: `data/v3/instances_cpu_early.jsonl`. All **68** valid INV-claim rows here are **DOSE / unit_conversion** (57 main + 11 threshold). **POLARITY / rephrase** INV is not in cpu_early (0 rows).
+Matrix: `data/v3/instances_cpu_early.jsonl` — **146** valid INV-claim rows: **68** DOSE `unit_conversion`, **78** POLARITY template `rephrase`.
 
-Pass counts use the logged `verdict` (default score threshold 0.5; see `notes/environment_node30.md`).
+V2/V3 node30 scores (first tranche, n=1216) cover **DOSE unit_conversion only** (8/68 and 19/68 PASS @ 0.5). POLARITY `rephrase` rows are in `data/v3/instances_score_pending_node30.jsonl` (awaiting node30).
 
-## Pass rate by INV kind
+Pass counts below use logged `verdict` (score > 0.5; `notes/environment_node30.md`).
+
+## Pass rate by INV kind (scored rows only)
 
 | Verifier | Slice | All scored | Conditional on C0 PASS |
 | --- | --- | --- | --- |

@@ -316,10 +316,11 @@ def inv_cue(cue: str) -> str:
 
 
 def rephrase_polarity_cue(cue: str) -> str:
+    """Template equivalence rephrase (QC v3 G): explicit pairs first, then INV_POLARITY."""
     key = cue_key(cue)
-    if key not in POLARITY_REPHRASE_INV:
-        raise ValueError(f"no rephrase INV for {cue!r}")
-    return POLARITY_REPHRASE_INV[key]
+    if key in POLARITY_REPHRASE_INV:
+        return POLARITY_REPHRASE_INV[key]
+    return inv_cue(cue)
 
 
 def replace_span(text: str, start: int, end: int, new: str) -> str:

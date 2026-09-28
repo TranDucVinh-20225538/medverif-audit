@@ -113,6 +113,16 @@ def apply_validity(inst: dict, meta: dict, flip_block: str | None) -> None:
         inst["valid"] = False
         inst["invalid_reason"] = "inv_paraphrase_regen"
         return
+    if (
+        inst.get("magnitude") == "rephrase"
+        and inst.get("condition") == "INV-claim"
+        and inst.get("type") == "POLARITY"
+    ):
+        reason = sentence_rule_failure(inst.get("claim") or "")
+        if reason:
+            inst["valid"] = False
+            inst["invalid_reason"] = f"sentence:{reason}"
+            return
     if meta["subset"] == "excluded_scope":
         inst["valid"] = False
         inst["invalid_reason"] = "scope"

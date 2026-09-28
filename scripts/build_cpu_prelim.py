@@ -151,6 +151,99 @@ def f1_at_threshold(rows: list[tuple[float, bool]], t: float) -> float:
     return 2 * prec * rec / (prec + rec)
 
 
+def bootstrap_median(values: list[float], seed: int = SEED) -> dict:
+    if not values:
+        return {"median": None, "lo": None, "hi": None, "n": 0}
+    point = statistics.median(values)
+    if len(values) < 2:
+        return {"median": point, "lo": None, "hi": None, "n": len(values)}
+    rng = random.Random(seed)
+    stats: list[float] = []
+    m = len(values)
+    for _ in range(N_BOOT):
+        sample = [values[rng.randrange(m)] for _ in range(m)]
+        stats.append(statistics.median(sample))
+    stats.sort()
+    return {
+        "median": point,
+        "lo": _percentile(stats, 0.025),
+        "hi": _percentile(stats, 0.975),
+        "n": m,
+    }
+
+
+def dose_paired_drops(block: list[dict]) -> dict[str, list[float]]:
+    """Per-base score drop from C0 (C0 − condition), C0-conditional DOSE bases."""
+    cond = _c0_pass_bases(block)
+    by: dict[str, dict[str, float]] = {}
+    for row in block:
+        if row["type"] != "DOSE" or row["base_id"] not in cond or not _parsed(row):
+            continue
+        score = row.get("score")
+        if not isinstance(score, (int, float)):
+            continue
+        slot = by.setdefault(row["base_id"], {})
+        if row["condition"] == "C0":
+            slot["c0"] = float(score)
+        elif row["condition"] == "INV-claim" and row["magnitude"] == "unit_conversion":
+            slot["inv"] = float(score)
+        elif row["condition"] == "E1-claim" and row["magnitude"] == "x2":
+            slot["e1_x2"] = float(score)
+        elif row["condition"] == "E1-claim" and row["magnitude"] == "x10":
+            slot["e1_x10"] = float(score)
+    out: dict[str, list[float]] = {"inv": [], "e1_x2": [], "e1_x10": []}
+    for slot in by.values():
+        if "c0" not in slot:
+            continue
+        c0 = slot["c0"]
+        for key, out_key in (("inv", "inv"), ("e1_x2", "e1_x2"), ("e1_x10", "e1_x10")):
+            if key in slot:
+                out[out_key].append(c0 - slot[key])
+    return out
+
+
+def max_min_inv_e1_sensitivity(block: list[dict]) -> dict:
+    """max_τ min(INV-unit pass, E1 fail rate) on DOSE, C0-conditional, τ ∈ [0,1] step 0.01."""
+    cond = _c0_pass_bases(block)
+    inv_scores = [
+        float(r["score"])
+        for r in block
+        if r["type"] == "DOSE"
+        and r["base_id"] in cond
+        and r["condition"] == "INV-claim"
+        and r["magnitude"] == "unit_conversion"
+        and _parsed(r)
+        and isinstance(r.get("score"), (int, float))
+    ]
+    e1_scores = [
+        float(r["score"])
+        for r in block
+        if r["type"] == "DOSE"
+        and r["base_id"] in cond
+        and r["condition"] in ("E1-evid", "E1-claim")
+        and _parsed(r)
+        and isinstance(r.get("score"), (int, float))
+    ]
+    if not inv_scores or not e1_scores:
+        return {"tau": None, "objective": None, "inv_pass": None, "e1_fail": None}
+    best = {"tau": 0.0, "objective": -1.0, "inv_pass": 0.0, "e1_fail": 0.0}
+    for step in range(101):
+        tau = step / 100
+        inv_pass = sum(s > tau for s in inv_scores) / len(inv_scores)
+        e1_fail = sum(s <= tau for s in e1_scores) / len(e1_scores)
+        obj = min(inv_pass, e1_fail)
+        if obj > best["objective"] or (
+            obj == best["objective"] and abs(tau - DEFAULT_T) < abs(best["tau"] - DEFAULT_T)
+        ):
+            best = {
+                "tau": tau,
+                "objective": obj,
+                "inv_pass": inv_pass,
+                "e1_fail": e1_fail,
+            }
+    return best
+
+
 def best_f1_threshold(rows: list[tuple[float, bool]]) -> tuple[float, float]:
     if not rows:
         return DEFAULT_T, 0.0
@@ -226,16 +319,23 @@ def inv_pass_table(joined: list[dict], verifier: str, c0_only: bool) -> list[tup
 
 
 def write_inv_breakdown(joined: list[dict]) -> None:
+    early = read_jsonl(INSTANCES)
+    inv_early = [r for r in early if r.get("condition") == "INV-claim" and r.get("valid", True)]
+    n_unit = sum(1 for r in inv_early if r["type"] == "DOSE" and r["magnitude"] == "unit_conversion")
+    n_pol = sum(1 for r in inv_early if r["type"] == "POLARITY" and r["magnitude"] == "rephrase")
     lines = [
-        "# INV-claim rows scored in cpu_early (n=68)",
+        "# INV-claim rows in cpu_early",
         "",
-        f"Matrix: `{INSTANCES.relative_to(ROOT)}`. All **68** valid INV-claim rows here are "
-        "**DOSE / unit_conversion** (57 main + 11 threshold). "
-        "**POLARITY / rephrase** INV is not in cpu_early (0 rows).",
+        f"Matrix: `{INSTANCES.relative_to(ROOT)}` — **{len(inv_early)}** valid INV-claim rows: "
+        f"**{n_unit}** DOSE `unit_conversion`, **{n_pol}** POLARITY template `rephrase`.",
         "",
-        "Pass counts use the logged `verdict` (default score threshold 0.5; see `notes/environment_node30.md`).",
+        "V2/V3 node30 scores (first tranche, n=1216) cover **DOSE unit_conversion only** "
+        "(8/68 and 19/68 PASS @ 0.5). POLARITY `rephrase` rows are in "
+        "`data/v3/instances_score_pending_node30.jsonl` (awaiting node30).",
         "",
-        "## Pass rate by INV kind",
+        "Pass counts below use logged `verdict` (score > 0.5; `notes/environment_node30.md`).",
+        "",
+        "## Pass rate by INV kind (scored rows only)",
         "",
         "| Verifier | Slice | All scored | Conditional on C0 PASS |",
         "| --- | --- | --- | --- |",
@@ -290,18 +390,32 @@ def c0_e1_calibration_rows(block: list[dict]) -> list[tuple[float, bool]]:
 
 def write_prelim(joined: list[dict]) -> None:
     OUT_PRELIM.parent.mkdir(parents=True, exist_ok=True)
+    n_early = len(read_jsonl(INSTANCES))
     lines = [
         "# Preliminary V2 / V3 (cpu_early)",
         "",
-        f"Instances: `{INSTANCES.relative_to(ROOT)}` ({len(read_jsonl(INSTANCES))} rows).",
-        f"Scores: `{VERDICTS.relative_to(ROOT)}/v2a_minicheck.jsonl`, `v3_alignscore.jsonl`.",
+        f"Instances: `{INSTANCES.relative_to(ROOT)}` ({n_early} rows).",
+        f"Scores (first tranche): `{VERDICTS.relative_to(ROOT)}/v2a_minicheck.jsonl`, "
+        "`v3_alignscore.jsonl` (1216 instance_ids; DOSE unit INV **68/68** scored).",
         "",
         "Default binarization: **score > 0.5 → PASS** (repo default for V2a and V3).",
         "Conditional slices: only bases whose **C0** verdict is PASS for that verifier.",
         "",
-        "## INV-claim pass (68 scored rows = DOSE unit_conversion only)",
+        "## Interpretation: ranking failure, not calibration",
         "",
-        "| Verifier | All INV-unit | C0-conditional INV-unit | INV-polarity (cpu_early) |",
+        "AUROC(**C0** vs **INV-unit**) ≈ **0.97** — verifiers assign *much* lower scores to "
+        "unit-equivalent claims than to the original C0 wording (they treat INV like a large "
+        "claim change, not an invariant rewrite).",
+        "",
+        "Threshold tuning does **not** rescue invariance without sacrificing E1 sensitivity: "
+        "the best-F1 τ on C0+E1 is **above** 0.5, and raising τ **lowers** INV-unit pass "
+        "while E1 fail rate is already high at default. There is no τ that simultaneously "
+        "passes most INV-unit rows and fails most E1 rows — a **ranking** problem, not a "
+        "fixed-offset calibration problem.",
+        "",
+        "## INV-claim pass (68 scored DOSE unit rows; 78 POL rephrase pending node30)",
+        "",
+        "| Verifier | INV-unit (all) | INV-unit (C0-cond) | INV-polarity scored |",
         "| --- | --- | --- | --- |",
     ]
     for verifier in VERIFIERS:
@@ -336,7 +450,8 @@ def write_prelim(joined: list[dict]) -> None:
         "### C0 vs INV-unit (DOSE `unit_conversion`)",
         "",
         "Positive class: **C0** scores; negative: **INV-unit** scores (C0-conditional bases). "
-        "An ideal invariance-aware verifier should not rank equivalent claims differently → AUROC ≈ **0.5**.",
+        "Ideal invariance: AUROC ≈ **0.5** (no separation). Observed ≈ **0.97** → strong "
+        " erroneous separation.",
         "",
         "| Verifier | AUROC | 95% CI | n(C0) | n(INV-unit) |",
         "| --- | --- | --- | --- | --- |",
@@ -409,13 +524,50 @@ def write_prelim(joined: list[dict]) -> None:
 
     lines += [
         "",
-        "## Threshold sweep (C0 + E1-evid + E1-claim)",
+        "## Score drop from C0 (DOSE, paired by base, C0-conditional)",
         "",
-        "Gold: C0 → PASS; E1-evid / E1-claim → FAIL. Search thresholds on observed scores "
-        "(plus 0.00–1.00 grid) for best **F1**, then report INV-unit pass rate at that threshold "
-        "(calibration vs ranking for invariance).",
+        "Drop = score(C0) − score(condition). Bootstrap **median** drop across bases "
+        f"({N_BOOT} resamples, seed {SEED}).",
         "",
-        "| Verifier | Best-F1 τ | F1 | INV-unit pass @ τ (C0-cond) | INV-unit pass @ 0.5 |",
+        "| Verifier | INV-unit median drop [CI] | E1-claim x2 | E1-claim x10 |",
+        "| --- | --- | --- | --- |",
+    ]
+    headline_bits = []
+    for verifier in VERIFIERS:
+        block = [r for r in joined if r["verifier"] == verifier and r["type"] == "DOSE"]
+        drops = dose_paired_drops(block)
+        parts = []
+        for key in ("inv", "e1_x2", "e1_x10"):
+            stat = bootstrap_median(drops[key])
+            if stat["median"] is None:
+                parts.append("—")
+            elif stat["lo"] is None:
+                parts.append(f"{stat['median']:.4f}")
+            else:
+                parts.append(f"{stat['median']:.4f} [{stat['lo']:.4f}, {stat['hi']:.4f}]")
+        lines.append(f"| {verifier} | {parts[0]} | {parts[1]} | {parts[2]} |")
+        if drops["inv"] and drops["e1_x2"]:
+            headline_bits.append(
+                f"{verifier}: median drop INV-unit {statistics.median(drops['inv']):.3f} "
+                f"vs E1 x2 {statistics.median(drops['e1_x2']):.3f}"
+            )
+    if headline_bits:
+        lines += [
+            "",
+            "**Headline (median score drop from C0):** rewriting a dose in equivalent units "
+            "(e.g. 500 mg → 0.5 g) costs **comparable** verifier score to a **2× dose error** "
+            f"— e.g. {headline_bits[0]}; V3 is closer but same pattern.",
+            "",
+        ]
+
+    lines += [
+        "## Threshold analysis",
+        "",
+        "### Best F1 on C0 + E1 (C0-conditional DOSE)",
+        "",
+        "Gold: C0 → PASS; E1-evid / E1-claim → FAIL. Higher τ **reduces** INV pass — no calibration fix.",
+        "",
+        "| Verifier | Best-F1 τ | F1 | INV-unit pass @ τ | INV-unit pass @ 0.5 |",
         "| --- | --- | --- | --- | --- |",
     ]
     for verifier in VERIFIERS:
@@ -425,7 +577,8 @@ def write_prelim(joined: list[dict]) -> None:
         inv_rows = [
             r
             for r in block
-            if r["condition"] == "INV-claim"
+            if r["type"] == "DOSE"
+            and r["condition"] == "INV-claim"
             and r["magnitude"] == "unit_conversion"
             and _parsed(r)
             and isinstance(r.get("score"), (int, float))
@@ -436,6 +589,32 @@ def write_prelim(joined: list[dict]) -> None:
             f"| {verifier} | {best_t:.4f} | {best_f1:.4f} | {at_t}/{len(inv_rows)} | "
             f"{at_default}/{len(inv_rows)} |"
         )
+
+    lines += [
+        "",
+        "### max_τ min(INV-unit pass, E1 fail) — no joint operating point",
+        "",
+        "τ ∈ [0, 1] step 0.01; DOSE; C0-conditional. E1 = E1-evid + E1-claim.",
+        "",
+        "| Verifier | Best τ | min(pass INV, fail E1) | INV pass @ τ | E1 fail @ τ |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for verifier in VERIFIERS:
+        block = filtered_block(joined, verifier, c0_cond=True)
+        mm = max_min_inv_e1_sensitivity(block)
+        if mm["tau"] is None:
+            lines.append(f"| {verifier} | — | — | — | — |")
+        else:
+            lines.append(
+                f"| {verifier} | {mm['tau']:.2f} | {mm['objective']:.3f} | "
+                f"{100 * mm['inv_pass']:.1f}% | {100 * mm['e1_fail']:.1f}% |"
+            )
+    lines += [
+        "",
+        "At the best joint τ, **min(INV pass, E1 fail)** stays far below what we would need "
+        "for a usable verifier — consistent with a ranking failure, not a single wrong threshold.",
+        "",
+    ]
 
     OUT_PRELIM.write_text("\n".join(lines) + "\n")
 
