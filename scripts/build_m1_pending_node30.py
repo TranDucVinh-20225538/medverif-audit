@@ -59,7 +59,17 @@ def scored_m1_ids() -> set[str]:
 
 
 def main() -> None:
-    done = scored_m1_ids()
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--full",
+        action="store_true",
+        help="Write all scoped M1 rows (ignore existing raw_m1 scores); use after rule fix",
+    )
+    args = parser.parse_args()
+
+    done = scored_m1_ids() if not args.full else set()
     scoped: list[dict] = []
     for line in INST.open():
         if not line.strip():
@@ -68,7 +78,7 @@ def main() -> None:
         if not t1_m1_scope(row):
             continue
         scoped.append(m1_enrich(row))
-    pending = [r for r in scoped if r["instance_id"] not in done]
+    pending = scoped if args.full else [r for r in scoped if r["instance_id"] not in done]
     pending.sort(key=lambda r: r["instance_id"])
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w") as handle:
@@ -90,6 +100,7 @@ def main() -> None:
         "score_out_dir": "results/raw_m1/<verifier>.jsonl",
         "n_scoped": len(scoped),
         "n_pending": len(pending),
+        "full_regenerate": args.full,
         "n_already_in_raw_m1": len(scoped) - len(pending),
         "pending_by_condition": by_cond,
         "node30_hint": (
