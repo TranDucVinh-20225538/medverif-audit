@@ -1,0 +1,17 @@
+models:
+  - type: main
+    engine: dummy
+    model: dummy
+
+rails:
+  config:
+    fact_checking:
+      parameters:
+        endpoint: http://127.0.0.1:5000/alignscore_base
+      fallback_to_self_check: false
+
+instructions:
+  - type: general
+    content: |
+      Minimal medical RAG: evidence = relevant_chunks, candidate answer = bot message.
+      Fact-checking uses NVIDIA NeMo Guardrails AlignScore rail (default threshold).
