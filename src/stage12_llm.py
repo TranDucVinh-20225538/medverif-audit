@@ -13,6 +13,12 @@ import os
 from collections import Counter
 from pathlib import Path
 
+# The shared vLLM env has hf_xet. Reading half-written cache files through Xet
+# raised "Stale file handle" and killed job 61354. Force plain file reads.
+import huggingface_hub.file_download as _hf_file_download
+
+_hf_file_download.is_xet_available = lambda: False
+
 from perturb import perturb_one
 from text_utils import first_word
 

@@ -53,15 +53,20 @@ conda activate vllm
 export PYTHONPATH="${ROOT}/src"
 
 if ! python - << 'PY'
-import huggingface_hub.file_download as fd
-fd.is_xet_available = lambda: False
-from huggingface_hub import snapshot_download
-pairs = [
-    ("Qwen/Qwen2.5-32B-Instruct", "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"),
-    ("microsoft/phi-4", "2db69c1c3e91a05d2c64a3185acfbaf36f744e25"),
-]
-for repo, rev in pairs:
-    snapshot_download(repo, revision=rev, local_files_only=True)
+import sys
+from pathlib import Path
+need = {
+    "models--Qwen--Qwen2.5-32B-Instruct": 17,
+    "models--microsoft--phi-4": 6,
+}
+root = Path("/data2/hpcshared/medverif-audit/.cache/huggingface/hub")
+for name, n_shards in need.items():
+    base = root / name
+    done = list(base.glob("**/model-*.safetensors"))
+    incomplete = list(base.glob("**/*.incomplete"))
+    print(name, "shards", len(done), "incomplete", len(incomplete))
+    if len(done) < n_shards or incomplete:
+        sys.exit(1)
 print("weights ready")
 PY
 then
