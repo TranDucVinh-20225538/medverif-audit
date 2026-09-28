@@ -1,9 +1,10 @@
 {
   "answerers": [
     {
-      "id": "gemma2_9b",
-      "openrouter_model": "google/gemma-2-9b-it",
-      "provider": "Google"
+      "id": "gemma3_4b",
+      "openrouter_model": "google/gemma-3-4b-it",
+      "provider": "Google",
+      "note": "gemma-2-9b-it 404 on OR; using gemma-3-4b-it (Google Gemma, non-excluded family)"
     },
     {
       "id": "deepseek_chat",
