@@ -1,0 +1,548 @@
+{
+  "configs": [
+    {
+      "config": "reasoning_enabled_false_deepinfra",
+      "provider": "DeepInfra",
+      "extra": {
+        "reasoning": {
+          "enabled": false
+        },
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "suffix": "",
+      "n": 20,
+      "parse_rate": 0.2,
+      "passed": false,
+      "examples": [
+        {
+          "instance_id": "D0020__E2__x2",
+          "verdict": "PASS",
+          "completion_tokens": 115,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Men who took famciclovir (500 mg every 12 hours) daily for 18 weeks did not experience changes in sperm shape or movement.\",\n            \"reason\": \"The context explicitly states that men receiving daily famciclovir (500 mg every 12 hours) for 18 weeks had no changes in sperm morphology or motility, which directly supports the statement.\",\n "
+        },
+        {
+          "instance_id": "D0004__E2__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 245,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"It is important to note that peripheral neuropathies can be seen in doses of 400 mg per day or higher, as well as interaction with other medications.\",\n            \"reason\": \"The statement is a direct quote from the context and is explicitly mentioned without any need for inference.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0052__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 120,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"For this test, you will take 1 mg of dexamethasone at 11 p.m., and a blood test to check cortisol levels will be done at 8 a.m. the next day.\",\n            \"reason\": \"The context specifies that the patient takes 10 mg of dexamethasone at 11 p.m., not 1 mg. Therefore, the statement cannot be directly inferred from the context.\",\n            "
+        }
+      ],
+      "results": [
+        {
+          "instance_id": "D0123__E1-evid__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 420,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0020__E2__x2",
+          "verdict": "PASS",
+          "completion_tokens": 115,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Men who took famciclovir (500 mg every 12 hours) daily for 18 weeks did not experience changes in sperm shape or movement.\",\n            \"reason\": \"The context explicitly states that men receiving daily famciclovir (500 mg every 12 hours) for 18 weeks had no changes in sperm morphology or motility, which directly supports the statement.\",\n "
+        },
+        {
+          "instance_id": "D0004__E2__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 245,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"It is important to note that peripheral neuropathies can be seen in doses of 400 mg per day or higher, as well as interaction with other medications.\",\n            \"reason\": \"The statement is a direct quote from the context and is explicitly mentioned without any need for inference.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0150__E2__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 486,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0052__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 120,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"For this test, you will take 1 mg of dexamethasone at 11 p.m., and a blood test to check cortisol levels will be done at 8 a.m. the next day.\",\n            \"reason\": \"The context specifies that the patient takes 10 mg of dexamethasone at 11 p.m., not 1 mg. Therefore, the statement cannot be directly inferred from the context.\",\n            "
+        },
+        {
+          "instance_id": "D0048__E1-evid__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 357,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Sitagliptin is taken orally at a dose of 100 mg once daily.\",\n            \"reason\": \"The context explicitly states that Sitagliptin is given orally as 1000 mg once daily, not 100 mg. The dosage in the statement is incorrect compared to the information provided in the context.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0044__E1-evid__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 362,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0026__C0__none",
+          "verdict": "PASS",
+          "completion_tokens": 100,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The dosage is 400 mg per day for the first 2 weeks and then 200 mg thrice weekly.\",\n            \"reason\": \"The context explicitly states the dosage as '400 mg/d for the first 2 weeks and then 200 mg thrice weekly,' which matches the statement word-for-word.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0148__E2__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 512,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The recommended treatment for younger persons who are not hospitalized includes a single intramuscular dose of ceftriaxone (2500 mg), plus doxycycline taken orally for 14 days, with or without metronidazole for 14 days.\",\n            \"reason\": \"The context explicitly states that the recommended ambulatory treatment for younger persons with "
+        },
+        {
+          "instance_id": "D0018__C0__none",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 300,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The usual oral dosage of EACA is 6 g four times a day.\",\n            \"reason\": \"The context explicitly states that the usual oral dosage of EACA is 6 g four times a day, which directly matches the statement.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0134__E1-evid__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 382,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0150__E1-claim__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 512,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "P0035__C0__none",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 304,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The medication should be given orally or by nasogastric tube or per rectum.\",\n            \"reason\": \"The context explicitly states that the medication 'should be given orally or by nasogastric tube or per rectum,' which directly matches the statement.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0106__E1-claim__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 395,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0016__E1-evid__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 335,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"A common starting dose in adults is 500 mg three or four times daily.\",\n            \"reason\": \"The context explicitly states that the common starting dose in adults is 1000 mg three or four times daily, not 500 mg. Therefore, the statement contradicts the information provided in the context and cannot be directly inferred.\",\n            \"ve"
+        },
+        {
+          "instance_id": "D0115__E1-claim__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 360,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0081__E2__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 325,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Alternatives for treatment include clindamycin in a dose of 3000 mg orally twice daily for 7 days.\",\n            \"reason\": \"The context explicitly states that clindamycin, 3000 mg orally twice daily for 7 days, is an alternative treatment option. This matches the statement directly.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0005__E1-claim__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 321,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Etanercept is given by subcutaneous injection, 100 mg once weekly.\",\n            \"reason\": \"The context explicitly states that Etanercept is given by subcutaneous injection, 50 mg once weekly. The statement incorrectly claims a dosage of 100 mg, which contradicts the information provided in the context.\",\n            \"verdict\": 0\n        }\n"
+        },
+        {
+          "instance_id": "D0005__C0__none",
+          "verdict": "PASS",
+          "completion_tokens": 78,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Etanercept is given by subcutaneous injection, 50 mg once weekly.\",\n            \"reason\": \"The context explicitly states that Etanercept is given by subcutaneous injection, 50 mg once weekly.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0016__INV-claim__unit_conversion",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 340,
+          "has_reasoning": true,
+          "raw_preview": ""
+        }
+      ]
+    },
+    {
+      "config": "reasoning_effort_none_deepinfra",
+      "provider": "DeepInfra",
+      "extra": {
+        "reasoning": {
+          "effort": "none"
+        },
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "suffix": "",
+      "n": 20,
+      "parse_rate": 0.2,
+      "passed": false,
+      "examples": [
+        {
+          "instance_id": "D0020__E2__x2",
+          "verdict": "PASS",
+          "completion_tokens": 115,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Men who took famciclovir (500 mg every 12 hours) daily for 18 weeks did not experience changes in sperm shape or movement.\",\n            \"reason\": \"The context explicitly states that men receiving daily famciclovir (500 mg every 12 hours) for 18 weeks had no changes in sperm morphology or motility, which directly supports the statement.\",\n "
+        },
+        {
+          "instance_id": "D0004__E2__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 245,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"It is important to note that peripheral neuropathies can be seen in doses of 400 mg per day or higher, as well as interaction with other medications.\",\n            \"reason\": \"The statement is a direct quote from the context and is explicitly mentioned without any need for inference.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0052__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 120,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"For this test, you will take 1 mg of dexamethasone at 11 p.m., and a blood test to check cortisol levels will be done at 8 a.m. the next day.\",\n            \"reason\": \"The context specifies that the patient takes 10 mg of dexamethasone at 11 p.m., not 1 mg. Therefore, the statement cannot be directly inferred from the context.\",\n            "
+        }
+      ],
+      "results": [
+        {
+          "instance_id": "D0123__E1-evid__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 424,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0020__E2__x2",
+          "verdict": "PASS",
+          "completion_tokens": 115,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Men who took famciclovir (500 mg every 12 hours) daily for 18 weeks did not experience changes in sperm shape or movement.\",\n            \"reason\": \"The context explicitly states that men receiving daily famciclovir (500 mg every 12 hours) for 18 weeks had no changes in sperm morphology or motility, which directly supports the statement.\",\n "
+        },
+        {
+          "instance_id": "D0004__E2__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 245,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"It is important to note that peripheral neuropathies can be seen in doses of 400 mg per day or higher, as well as interaction with other medications.\",\n            \"reason\": \"The statement is a direct quote from the context and is explicitly mentioned without any need for inference.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0150__E2__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 485,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0052__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 120,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"For this test, you will take 1 mg of dexamethasone at 11 p.m., and a blood test to check cortisol levels will be done at 8 a.m. the next day.\",\n            \"reason\": \"The context specifies that the patient takes 10 mg of dexamethasone at 11 p.m., not 1 mg. Therefore, the statement cannot be directly inferred from the context.\",\n            "
+        },
+        {
+          "instance_id": "D0048__E1-evid__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 357,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Sitagliptin is taken orally at a dose of 100 mg once daily.\",\n            \"reason\": \"The context explicitly states that Sitagliptin is given orally as 1000 mg once daily, not 100 mg. The dosage in the statement is incorrect compared to the information provided in the context.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0044__E1-evid__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 361,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0026__C0__none",
+          "verdict": "PASS",
+          "completion_tokens": 100,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The dosage is 400 mg per day for the first 2 weeks and then 200 mg thrice weekly.\",\n            \"reason\": \"The context explicitly states the dosage as '400 mg/d for the first 2 weeks and then 200 mg thrice weekly,' which matches the statement word-for-word.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0148__E2__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 428,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The recommended treatment for younger persons who are not hospitalized includes a single intramuscular dose of ceftriaxone (2500 mg), plus doxycycline taken orally for 14 days, with or without metronidazole for 14 days.\",\n            \"reason\": \"The context explicitly states that the recommended ambulatory treatment for younger persons is ce"
+        },
+        {
+          "instance_id": "D0018__C0__none",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 239,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The usual oral dosage of EACA is 6 g four times a day.\",\n            \"reason\": \"The context explicitly states that the usual oral dosage of EACA is 6 g four times a day, which directly matches the statement.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0134__E1-evid__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 398,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Megestrol acetate was given in a dose of 40 mg per day and had good results.\",\n            \"reason\": \"The context specifies that megestrol acetate was administered in a dose of 400 mg per day, not 40 mg per day. The statement incorrectly states the dose, making it inconsistent with the context.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0150__E1-claim__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 512,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "P0035__C0__none",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 258,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The medication should be given orally or by nasogastric tube or per rectum.\",\n            \"reason\": \"The context explicitly states that the medication should be given orally or by nasogastric tube or per rectum, which directly matches the statement.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0106__E1-claim__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 395,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0016__E1-evid__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 300,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"A common starting dose in adults is 500 mg three or four times daily.\",\n            \"reason\": \"The context explicitly states that the common starting dose in adults is 1000 mg three or four times daily, not 500 mg. Therefore, the statement contradicts the information provided in the context and cannot be directly inferred.\",\n            \"ve"
+        },
+        {
+          "instance_id": "D0115__E1-claim__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 367,
+          "has_reasoning": true,
+          "raw_preview": ""
+        },
+        {
+          "instance_id": "D0081__E2__x10",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 325,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Alternatives for treatment include clindamycin in a dose of 3000 mg orally twice daily for 7 days.\",\n            \"reason\": \"The context explicitly states that clindamycin, 3000 mg orally twice daily for 7 days, is an alternative treatment option. This matches the statement directly.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0005__E1-claim__x2",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 323,
+          "has_reasoning": true,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Etanercept is given by subcutaneous injection, 100 mg once weekly.\",\n            \"reason\": \"The context explicitly states that Etanercept is given by subcutaneous injection, 50 mg once weekly. The statement claims a dosage of 100 mg, which contradicts the information provided in the context.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0005__C0__none",
+          "verdict": "PASS",
+          "completion_tokens": 78,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Etanercept is given by subcutaneous injection, 50 mg once weekly.\",\n            \"reason\": \"The context explicitly states that Etanercept is given by subcutaneous injection, 50 mg once weekly.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0016__INV-claim__unit_conversion",
+          "verdict": "REJECT_REASONING",
+          "completion_tokens": 340,
+          "has_reasoning": true,
+          "raw_preview": ""
+        }
+      ]
+    },
+    {
+      "config": "reasoning_enabled_false_alibaba",
+      "provider": "Alibaba",
+      "extra": {
+        "reasoning": {
+          "enabled": false
+        },
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "suffix": "",
+      "n": 20,
+      "parse_rate": 0.95,
+      "passed": false,
+      "examples": [
+        {
+          "instance_id": "D0123__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 99,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"A study used 100 mg of micronized progesterone intravaginally daily.\",\n            \"reason\": \"The context specifies that Cetingoz and coworkers (2011) used 1000 mg of micronized progesterone, not 100 mg. Therefore, the statement cannot be directly inferred from the context.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0020__E2__x2",
+          "verdict": "PASS",
+          "completion_tokens": 111,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Men who took famciclovir (500 mg every 12 hours) daily for 18 weeks did not experience changes in sperm shape or movement.\",\n            \"reason\": \"The context explicitly states that men receiving daily famciclovir (500 mg every 12 hours) for 18 weeks had no changes in sperm morphology or motility, which directly supports the statement.\",\n "
+        },
+        {
+          "instance_id": "D0004__E2__x2",
+          "verdict": "PASS",
+          "completion_tokens": 80,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"It is important to note that peripheral neuropathies can be seen in doses of 400 mg per day or higher, as well as interaction with other medications.\",\n            \"reason\": \"The statement is directly quoted from the context, making it fully inferable.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        }
+      ],
+      "results": [
+        {
+          "instance_id": "D0123__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 99,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"A study used 100 mg of micronized progesterone intravaginally daily.\",\n            \"reason\": \"The context specifies that Cetingoz and coworkers (2011) used 1000 mg of micronized progesterone, not 100 mg. Therefore, the statement cannot be directly inferred from the context.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0020__E2__x2",
+          "verdict": "PASS",
+          "completion_tokens": 111,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Men who took famciclovir (500 mg every 12 hours) daily for 18 weeks did not experience changes in sperm shape or movement.\",\n            \"reason\": \"The context explicitly states that men receiving daily famciclovir (500 mg every 12 hours) for 18 weeks had no changes in sperm morphology or motility, which directly supports the statement.\",\n "
+        },
+        {
+          "instance_id": "D0004__E2__x2",
+          "verdict": "PASS",
+          "completion_tokens": 80,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"It is important to note that peripheral neuropathies can be seen in doses of 400 mg per day or higher, as well as interaction with other medications.\",\n            \"reason\": \"The statement is directly quoted from the context, making it fully inferable.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0150__E2__x2",
+          "verdict": "PASS",
+          "completion_tokens": 115,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"To stop the fetal heartbeat, a doctor may use an ultrasound-guided injection of 4 mL of a potassium chloride solution directly into the fetal heart.\",\n            \"reason\": \"The context mentions a sonographically guided fetal intracardiac injection of 4 mL (2 mEq/mL) potassium chloride solution to resolve fetal cardiac activity. The stateme"
+        },
+        {
+          "instance_id": "D0052__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 116,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"For this test, you will take 1 mg of dexamethasone at 11 p.m., and a blood test to check cortisol levels will be done at 8 a.m. the next day.\",\n            \"reason\": \"The context specifies that the patient takes 10 mg of dexamethasone at 11 p.m., not 1 mg. Therefore, the statement cannot be directly inferred from the context.\",\n            "
+        },
+        {
+          "instance_id": "D0048__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 90,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Sitagliptin is taken orally at a dose of 100 mg once daily.\",\n            \"reason\": \"The context states that Sitagliptin is given orally as 1000 mg once daily, not 100 mg. Therefore, the statement cannot be directly inferred from the context.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0044__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 120,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The drug is given under the skin in amounts starting at 50 \u03bcg, several times a day, with the dose adjusted based on how you respond.\",\n            \"reason\": \"The context states that the drug is administered subcutaneously (500 \u03bcg tid), titrated according to clinical response. The statement incorrectly specifies the dose as 50 \u03bcg instead of "
+        },
+        {
+          "instance_id": "D0026__C0__none",
+          "verdict": "PASS",
+          "completion_tokens": 97,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The dosage is 400 mg per day for the first 2 weeks and then 200 mg thrice weekly.\",\n            \"reason\": \"The context explicitly states that the dosage is 400 mg/d for the first 2 weeks and then 200 mg thrice weekly, which matches the statement word-for-word.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0148__E2__x10",
+          "verdict": "REJECT_TOKENS",
+          "completion_tokens": 159,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The recommended treatment for younger persons who are not hospitalized includes a single intramuscular dose of ceftriaxone (2500 mg), plus doxycycline taken orally for 14 days, with or without metronidazole for 14 days.\",\n            \"reason\": \"The context explicitly states that the recommended ambulatory treatment for younger persons is ce"
+        },
+        {
+          "instance_id": "D0018__C0__none",
+          "verdict": "PASS",
+          "completion_tokens": 74,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The usual oral dosage of EACA is 6 g four times a day.\",\n            \"reason\": \"The context explicitly states that the usual oral dosage of EACA is 6 g four times a day, which directly matches the statement.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0134__E1-evid__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 98,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Megestrol acetate was given in a dose of 40 mg per day and had good results.\",\n            \"reason\": \"The context explicitly states that megestrol acetate was administered in a dose of 400 mg per day with good results. The statement claims a dose of 40 mg, which is inconsistent with the context.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0150__E1-claim__x2",
+          "verdict": "FAIL",
+          "completion_tokens": 116,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"To stop the fetal heartbeat, a doctor may use an ultrasound-guided injection of 4 mL of a potassium chloride solution directly into the fetal heart.\",\n            \"reason\": \"The context mentions a sonographically guided fetal intracardiac injection of 2 mL (2 mEq/mL) potassium chloride solution, but it does not mention stopping the fetal he"
+        },
+        {
+          "instance_id": "P0035__C0__none",
+          "verdict": "PASS",
+          "completion_tokens": 78,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The medication should be given orally or by nasogastric tube or per rectum.\",\n            \"reason\": \"The context explicitly states that the medication should be given orally or by nasogastric tube or per rectum, which directly supports the statement.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0106__E1-claim__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 116,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"For treatment during pregnancy, erythromycin base, 5000 mg orally four times daily, is given for 21 days.\",\n            \"reason\": \"The context states that erythromycin base, 500 mg orally four times daily, is given for 21 days. The statement incorrectly specifies 5000 mg instead of 500 mg, which cannot be directly inferred from the context."
+        },
+        {
+          "instance_id": "D0016__E1-evid__x2",
+          "verdict": "FAIL",
+          "completion_tokens": 80,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"A common starting dose in adults is 500 mg three or four times daily.\",\n            \"reason\": \"The context explicitly states that the common starting dose in adults is 1000 mg three or four times daily, which directly contradicts the statement.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0115__E1-claim__x10",
+          "verdict": "FAIL",
+          "completion_tokens": 91,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"The specific amount of drug was diluted in approximately 300 mL of water and administered orally.\",\n            \"reason\": \"The context explicitly states that the specific amount of drug was diluted in approximately 30 mL of water, not 300 mL. Therefore, the statement cannot be directly inferred from the context.\",\n            \"verdict\": 0\n "
+        },
+        {
+          "instance_id": "D0081__E2__x10",
+          "verdict": "PASS",
+          "completion_tokens": 88,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Alternatives for treatment include clindamycin in a dose of 3000 mg orally twice daily for 7 days.\",\n            \"reason\": \"The context explicitly states that clindamycin, 3000 mg orally twice daily for 7 days, is an alternative treatment option.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0005__E1-claim__x2",
+          "verdict": "FAIL",
+          "completion_tokens": 96,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Etanercept is given by subcutaneous injection, 100 mg once weekly.\",\n            \"reason\": \"The context states that Etanercept is given by subcutaneous injection, 50 mg once weekly. The statement incorrectly claims the dosage is 100 mg, which contradicts the information in the context.\",\n            \"verdict\": 0\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0005__C0__none",
+          "verdict": "PASS",
+          "completion_tokens": 74,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"Etanercept is given by subcutaneous injection, 50 mg once weekly.\",\n            \"reason\": \"The context explicitly states that Etanercept is given by subcutaneous injection, 50 mg once weekly.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        },
+        {
+          "instance_id": "D0016__INV-claim__unit_conversion",
+          "verdict": "PASS",
+          "completion_tokens": 93,
+          "has_reasoning": false,
+          "raw_preview": "{\n    \"statements\": [\n        {\n            \"statement\": \"A common starting dose in adults is 0.5 g three or four times daily.\",\n            \"reason\": \"The context states that a common starting dose in adults is 500 mg three or four times daily, which is equivalent to 0.5 g. Therefore, the statement can be directly inferred from the context.\",\n            \"verdict\": 1\n        }\n    ]\n}"
+        }
+      ]
+    }
+  ],
+  "winner": null
+}

@@ -6,6 +6,7 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
 #SBATCH --time=04:00:00
+#SBATCH --signal=B:TERM@120
 #SBATCH --output=/data2/hpcshared/medverif-audit/jobs/logs/%x-%j.out
 
 set -euo pipefail
@@ -19,6 +20,11 @@ export TOKENIZERS_PARALLELISM=false
 export PYTHONPATH="${ROOT}/src"
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
 conda activate vllm
+source "${ROOT}/jobs/lib/gpu_graceful.sh"
+source "${ROOT}/jobs/lib/stage_vllm_cache.sh"
+gpu_graceful_init
+export MEDVERIF_ROOT="${ROOT}"
+stage_hf_snapshot "mistralai/Mistral-Small-24B-Instruct-2501" "9527884be6e5616bdd54de542f9ae13384489724"
 
 python - << 'PY'
 import json
@@ -45,8 +51,8 @@ PY
 python src/split_cpu_early.py
 mkdir -p tests/smoke_results results/raw results/raw_threshold
 
-python src/score_jsonl.py --verifier v1_medscore --instances tests/smoke_v1_all.jsonl --out tests/smoke_results/v1_medscore.jsonl
-python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_cpu_main.jsonl --out results/raw/v1_medscore.jsonl
-python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_cpu_threshold.jsonl --out results/raw_threshold/v1_medscore.jsonl
+gpu_run python src/score_jsonl.py --verifier v1_medscore --instances tests/smoke_v1_all.jsonl --out tests/smoke_results/v1_medscore.jsonl
+gpu_run python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_cpu_main.jsonl --out results/raw/v1_medscore.jsonl
+gpu_run python src/score_jsonl.py --verifier v1_medscore --instances data/v3/instances_cpu_threshold.jsonl --out results/raw_threshold/v1_medscore.jsonl
 python src/reparse_v1_study.py --in-place tests/smoke_results/v1_medscore.jsonl results/raw/v1_medscore.jsonl results/raw_threshold/v1_medscore.jsonl
 echo "v1 stage3 (cpu_early) done $(date -Is)"

@@ -10,9 +10,48 @@ from verifiers.ragas_nli_prompt import nli_prompt
 
 MODEL = "Qwen/Qwen3-14B"
 REVISION = "40c069824f4251a91eefaf281ebe4c544efd3e18"
+LLAMA_OR = "meta-llama/llama-3.3-70b-instruct"
+LLAMA_TOK = "meta-llama/Llama-3.3-70B-Instruct"
+
+
+def _tokenizer_spec() -> tuple[str, str | None]:
+    tok = os.environ.get("MEDVERIF_V4_TOKENIZER_MODEL", "").strip()
+    rev = os.environ.get("MEDVERIF_V4_TOKENIZER_REVISION", "").strip() or None
+    if tok:
+        return tok, rev
+    or_model = os.environ.get("MEDVERIF_V4_OPENROUTER_MODEL", "qwen/qwen3-14b")
+    if "llama-3.3-70b" in or_model.lower():
+        return LLAMA_TOK, rev
+    return MODEL, REVISION
 
 
 def load():
+    if os.environ.get("MEDVERIF_USE_OPENROUTER", "").lower() in ("1", "true", "yes"):
+        from openrouter_runtime import load_openrouter_engine
+
+        or_model = os.environ.get("MEDVERIF_V4_OPENROUTER_MODEL", "qwen/qwen3-14b")
+        provider = os.environ.get("MEDVERIF_V4_PROVIDER", "DeepInfra")
+        extra: dict = {}
+        if os.environ.get("MEDVERIF_V4_REASONING_JSON"):
+            import json as _json
+
+            extra.update(_json.loads(os.environ["MEDVERIF_V4_REASONING_JSON"]))
+        elif "qwen3" in or_model.lower():
+            extra = {"chat_template_kwargs": {"enable_thinking": False}, "reasoning": {"enabled": False}}
+        tok_model, tok_rev = _tokenizer_spec()
+        suffix = os.environ.get("MEDVERIF_V4_PROMPT_SUFFIX", "")
+        return load_openrouter_engine(
+            openrouter_model=or_model,
+            tokenizer_model=tok_model,
+            tokenizer_revision=tok_rev,
+            max_tokens=int(os.environ.get("MEDVERIF_V4_MAX_TOKENS", "512")),
+            provider=provider,
+            extra_body=extra or None,
+            assert_no_thinking=True,
+            prompt_suffix=suffix,
+        )
+
+    import vllm_graceful
     import huggingface_hub.file_download as fd
     from vllm import LLM, SamplingParams
 
@@ -31,23 +70,26 @@ def load():
     )
     tokenizer = llm.get_tokenizer()
     params = SamplingParams(temperature=0.0, max_tokens=512, seed=42)
+    vllm_graceful.register(llm)
     return llm, tokenizer, params, time.perf_counter() - started
 
 
 def render(tokenizer, evidence: str, claim: str) -> str:
     user = nli_prompt(evidence, [claim])
+    messages = [{"role": "user", "content": user}]
     try:
         return tokenizer.apply_chat_template(
-            [{"role": "user", "content": user}],
+            messages,
             tokenize=False,
             add_generation_prompt=True,
             enable_thinking=False,
         )
-    except TypeError as exc:
-        raise RuntimeError(
-            "Qwen3 chat template did not accept enable_thinking=False. "
-            "Refusing to run with thinking left on."
-        ) from exc
+    except TypeError:
+        return tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+        )
 
 
 def parse_verdict(raw: str) -> tuple[str, float | None]:
@@ -79,6 +121,10 @@ def score_batch(llm, tokenizer, params, pairs: list[dict]) -> list[dict]:
     rows = []
     for row, out in zip(pairs, outputs):
         raw = out.outputs[0].text if out.outputs else ""
+        if os.environ.get("MEDVERIF_USE_OPENROUTER", "").lower() in ("1", "true", "yes"):
+            from llm_client import assert_no_thinking_leak
+
+            assert_no_thinking_leak(raw)
         verdict, score = parse_verdict(raw)
         rows.append({
             "instance_id": row["instance_id"],

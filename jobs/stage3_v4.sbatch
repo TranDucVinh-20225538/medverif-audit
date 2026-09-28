@@ -6,6 +6,7 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
 #SBATCH --time=04:00:00
+#SBATCH --signal=B:TERM@120
 #SBATCH --output=/data2/hpcshared/medverif-audit/jobs/logs/%x-%j.out
 
 set -euo pipefail
@@ -19,9 +20,14 @@ export TOKENIZERS_PARALLELISM=false
 export PYTHONPATH="${ROOT}/src"
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
 conda activate vllm
+source "${ROOT}/jobs/lib/gpu_graceful.sh"
+source "${ROOT}/jobs/lib/stage_vllm_cache.sh"
+gpu_graceful_init
+export MEDVERIF_ROOT="${ROOT}"
+stage_hf_snapshot "Qwen/Qwen3-14B" "40c069824f4251a91eefaf281ebe4c544efd3e18"
 
 python src/split_cpu_early.py
 mkdir -p results/raw results/raw_threshold
 
-python -u src/stage3_v4_run.py
+gpu_run python -u src/stage3_v4_run.py
 echo "v4 stage3 done $(date -Is)"

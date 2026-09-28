@@ -15,13 +15,14 @@ export HF_HOME="${ROOT}/.cache/huggingface"
 export HUGGINGFACE_HUB_CACHE="${HF_HOME}/hub"
 export HF_HUB_DISABLE_TELEMETRY=1
 export TOKENIZERS_PARALLELISM=false
-export OMP_NUM_THREADS=8
-export MKL_NUM_THREADS=8
+export OMP_NUM_THREADS=4
+export MKL_NUM_THREADS=4
+export OPENBLAS_NUM_THREADS=4
 export NLTK_DATA="${ROOT}/.cache/nltk"
-export PYTHONPATH="${ROOT}/src:${ROOT}/.cache/src/MiniCheck:${ROOT}/.cache/src/AlignScore/src:${ROOT}/.cache/cpu_extra"
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
 conda activate vllm
-python src/cpu_early.py
+# cpu_early.py sets PYTHONPATH (skips .cache/cpu_extra when conda has spacy — avoids torch/torchvision clash).
+nice -n 19 python -u src/cpu_early.py
 
 # Stage 4 on the MAIN verdicts only. Threshold, if scored, stays in results/raw_threshold.
 mkdir -p "${ROOT}/results/prelim" "${ROOT}/results/tables"

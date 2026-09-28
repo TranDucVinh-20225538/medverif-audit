@@ -6,6 +6,7 @@
 #SBATCH --mem=48G
 #SBATCH --cpus-per-task=8
 #SBATCH --time=02:00:00
+#SBATCH --signal=B:TERM@120
 #SBATCH --output=/data2/hpcshared/medverif-audit/jobs/logs/%x-%j.out
 
 set -euo pipefail
@@ -19,5 +20,7 @@ export PYTHONUNBUFFERED=1
 export PYTHONPATH="${ROOT}/src:${ROOT}/.cache/src/MiniCheck:${ROOT}/.cache/src/AlignScore/src:${ROOT}/.cache/cpu_extra"
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
 conda activate vllm
-python -u src/gpu_early.py
+source "${ROOT}/jobs/lib/gpu_graceful.sh"
+gpu_graceful_init
+gpu_run python -u src/gpu_early.py
 echo "gpu_early done $(date -Is)"

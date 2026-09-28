@@ -6,6 +6,7 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
 #SBATCH --time=03:00:00
+#SBATCH --signal=B:TERM@120
 #SBATCH --open-mode=append
 #SBATCH --output=/data2/hpcshared/medverif-audit/jobs/logs/%x-%j.out
 
@@ -44,6 +45,8 @@ export PYTHONUNBUFFERED=1
 export PYTHONPATH="${ROOT}/src"
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
 conda activate vllm
-python -u src/generate_v3.py
+source "${ROOT}/jobs/lib/gpu_graceful.sh"
+gpu_graceful_init
+gpu_run python -u src/generate_v3.py
 echo "DEPRECATED: use jobs/submit_priority.sh (V1 cpu_early + label_v3b). $(date -Is)"
 exit 1

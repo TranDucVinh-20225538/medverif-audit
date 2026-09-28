@@ -6,6 +6,7 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
 #SBATCH --time=01:00:00
+#SBATCH --signal=B:TERM@120
 #SBATCH --output=/data2/hpcshared/medverif-audit/jobs/logs/%x-%j.out
 
 set -euo pipefail
@@ -19,7 +20,9 @@ export TOKENIZERS_PARALLELISM=false
 export PYTHONPATH="${ROOT}/src"
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
 conda activate vllm
-python src/validate_v2.py
-python src/rebuild_v2.py
+source "${ROOT}/jobs/lib/gpu_graceful.sh"
+gpu_graceful_init
+gpu_run python src/validate_v2.py
+gpu_run python src/rebuild_v2.py
 python src/write_qc_v2.py
 echo "v2 labels done $(date -Is)"

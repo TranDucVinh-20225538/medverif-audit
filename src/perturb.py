@@ -17,6 +17,7 @@ from text_utils import (
     outside_identical,
     parse_decimal,
     replace_span,
+    rephrase_polarity_cue,
     scale_dose_span,
 )
 
@@ -171,18 +172,19 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
                 {"claim": {k: inv_edit[k] for k in inv_edit if k != "text"}, "evidence_unchanged": True},
                 inv_span, espan,
             ))
-    for para in base.get("paraphrases") or []:
-        if para.get("label") != "YES" or not para.get("text") or para["text"] == claim0:
-            continue
-        if base.get("target_span_claim") not in para["text"]:
-            continue
-        instances.append(_instance(
-            base, "INV-claim", "paraphrase",
-            para["text"], evid0, "PASS",
-            {"where": "paraphrase", "template": para.get("template"), "evidence_unchanged": True},
-            base.get("target_span_claim", ""), espan,
-        ))
-        break
+    if base["type"] == "POLARITY":
+        try:
+            rep_span = rephrase_polarity_cue(cspan)
+            rep_edit = _diff(claim0, claim0, c0, c1, rep_span, "claim")
+            if rep_edit["confined_to_span"] and rep_edit["text"] != claim0:
+                instances.append(_instance(
+                    base, "INV-claim", "rephrase",
+                    rep_edit["text"], evid0, "PASS",
+                    {"claim": {k: rep_edit[k] for k in rep_edit if k != "text"}, "evidence_unchanged": True},
+                    rep_span, espan,
+                ))
+        except ValueError:
+            pass
     return instances, failures
 
 

@@ -17,6 +17,22 @@ def format_input(evidence: str, claim: str) -> str:
 
 
 def load():
+    if os.environ.get("MEDVERIF_USE_OPENROUTER", "").lower() in ("1", "true", "yes"):
+        from openrouter_runtime import load_openrouter_engine
+
+        or_model = os.environ.get(
+            "MEDVERIF_V1_OPENROUTER_MODEL", "mistralai/mistral-small-24b-instruct-2501"
+        )
+        provider = os.environ.get("MEDVERIF_V1_PROVIDER", "DeepInfra")
+        return load_openrouter_engine(
+            openrouter_model=or_model,
+            tokenizer_model=MODEL,
+            tokenizer_revision=REVISION,
+            max_tokens=256,
+            provider=provider,
+        )
+
+    import vllm_graceful
     from vllm import LLM, SamplingParams
 
     started = time.perf_counter()
@@ -34,6 +50,7 @@ def load():
     tokenizer = llm.get_tokenizer()
     params = SamplingParams(temperature=0.0, top_p=1.0, max_tokens=256, seed=42)
     load_s = time.perf_counter() - started
+    vllm_graceful.register(llm)
     return llm, tokenizer, params, load_s
 
 
@@ -53,15 +70,28 @@ def score_batch(llm, tokenizer, params, pairs: list[dict]) -> list[dict]:
     elapsed = time.perf_counter() - started
     per = elapsed / max(len(pairs), 1)
     rows = []
-    for row, out in zip(pairs, outputs):
+    metas = getattr(llm, "last_meta", [])
+    for i, (row, out) in enumerate(zip(pairs, outputs)):
         raw = out.outputs[0].text if out.outputs else ""
         released = released_parse_verification_output(raw)
-        rows.append({
+        rec = {
             "instance_id": row["instance_id"],
             "raw_output": raw,
             "released_parser_score": released,
             "verdict": released_verdict(raw),
             "latency_s": per,
             "verifier": "v1_medscore",
-        })
+        }
+        if i < len(metas):
+            m = metas[i]
+            rec.update({
+                "api_model": m.model,
+                "api_provider": m.provider,
+                "api_request_id": m.request_id,
+                "api_prompt_tokens": m.prompt_tokens,
+                "api_completion_tokens": m.completion_tokens,
+                "api_total_tokens": m.total_tokens,
+                "api_cost_usd": m.cost_usd,
+            })
+        rows.append(rec)
     return rows

@@ -1,0 +1,55 @@
+{
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "n_shards": 8,
+  "bad": 0,
+  "shards": [
+    {
+      "shard": "model-00001-of-00008.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 3841788544
+    },
+    {
+      "shard": "model-00002-of-00008.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 3963750816
+    },
+    {
+      "shard": "model-00003-of-00008.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 3963750880
+    },
+    {
+      "shard": "model-00004-of-00008.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 3963750880
+    },
+    {
+      "shard": "model-00005-of-00008.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 3963750880
+    },
+    {
+      "shard": "model-00006-of-00008.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 3963750880
+    },
+    {
+      "shard": "model-00007-of-00008.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 3963750880
+    },
+    {
+      "shard": "model-00008-of-00008.safetensors",
+      "ok": true,
+      "reason": "ok",
+      "bytes": 1912371880
+    }
+  ]
+}

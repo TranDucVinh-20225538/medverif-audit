@@ -24,8 +24,33 @@ HEDGES = (
 )
 
 FLIP_BAD_RE = re.compile(
-    r"\b(?:with caution|cautiously|neither|nor|none|never|relatively|"
+    r"\b(?:with(?:\s+(?:great|extreme))?\s+caution|cautiously|neither|nor|none|never|relatively|"
     r"may be|can be|could be)\b|\bno\b",
+    re.I,
+)
+ADJUNCT_AFTER_PRED_RE = re.compile(
+    r"^\s*(?:at|with|as needed|when|annually|regularly|in full)\b",
+    re.I,
+)
+FOR_DURATION_RE = re.compile(
+    r"^\s*for\s+(?:\d|(?:the\s+)?(?:first|last|next)\s+\d|(?:acute|chronic|long|short)\b|"
+    r"monitoring|surveillance|prophylaxis|prevention|treatment|therapy|relief|pain|symptom)",
+    re.I,
+)
+FOR_IN_PATIENT_RE = re.compile(
+    r"^\s*(?:for|in)\s+(?:patients?|children|pediatric|adults?|pregnant|pregnancy|"
+    r"individuals|people|those|persons?|women|men|neonates?|infants?|elderly|"
+    r"[A-Za-z][\w/-]{2,}(?:/[\w-]+)?)\b",
+    re.I,
+)
+COORD_VP_RE = re.compile(r"\band\s+(?:is|are|was|were|should|must|can|may|will|has|have)\b", re.I)
+RANGE_ENDPOINT_RE = re.compile(
+    r"(?<![\w.])(\d+(?:\.\d+)?)\s*(?:to|–|—|-|/|or)\s*(\d+(?:\.\d+)?)\s*"
+    r"(?:mg|g|mcg|µg|μg|mL|ml|units|mg/kg|mcg/kg)(?![\w/])",
+    re.I,
+)
+NON_INTERVENTION_SUBJECT_RE = re.compile(
+    r"\b(?:compensatory|tachycardia|adverse effect|fluid retention|headache|angina)\b",
     re.I,
 )
 MEAS_RE = re.compile(
@@ -128,6 +153,69 @@ def flip_bad_term(text: str, start: int, end: int) -> Optional[str]:
     clause = clause_around(text or "", start, end)
     match = FLIP_BAD_RE.search(clause)
     return match.group(0).lower() if match else None
+
+
+def flip_post_predicate_ok(text: str, cue_end: int) -> Optional[str]:
+    """Return None if flip is allowed; else a short exclusion reason."""
+    clause = clause_around(text or "", cue_end, cue_end)
+    tail = (text or "")[cue_end:]
+    if cue_end < len(text or ""):
+        idx = text.find(clause)
+        if idx >= 0:
+            tail = text[idx + (cue_end - idx) :]
+            rel = cue_end - idx
+            tail = clause[rel:] if rel <= len(clause) else ""
+    tail = tail.strip()
+    if not tail or tail in {".", ",", ";"}:
+        return None
+    if ADJUNCT_AFTER_PRED_RE.search(tail):
+        return "adjunct_after_predicate"
+    if FOR_DURATION_RE.search(tail):
+        return "for_duration_or_purpose"
+    if COORD_VP_RE.search(tail):
+        return "coordinated_vp"
+    if FOR_IN_PATIENT_RE.match(tail):
+        return None
+    if re.match(r"^[.,;]", tail):
+        return None
+    return "predicate_not_at_clause_end"
+
+
+def polarity_flip_allowed(claim: str, span: str, base_id: str = "") -> Optional[str]:
+    """Return invalid_reason if this base must not contribute flip instances."""
+    if base_id == "P0143":
+        return "flip_not_intervention"
+    if not span or span not in (claim or ""):
+        return "missing_span"
+    start = claim.index(span)
+    end = start + len(span)
+    bad = flip_bad_term(claim, start, end)
+    if bad:
+        return f"flip_scope:{bad}"
+    post = flip_post_predicate_ok(claim, end)
+    if post:
+        return post
+    prefix = claim[:start]
+    if NON_INTERVENTION_SUBJECT_RE.search(prefix) and not DOMAIN_TX_RE.search(prefix):
+        return "flip_not_intervention"
+    return None
+
+
+def dose_range_endpoint(claim: str, span: str) -> bool:
+    if not span or span not in (claim or ""):
+        return False
+    for match in RANGE_ENDPOINT_RE.finditer(claim):
+        a, b = match.group(1), match.group(2)
+        unit = match.group(0).split()[-1]
+        left = f"{a} {unit}"
+        right = f"{b} {unit}"
+        if span.strip() in {left, right, a, b}:
+            return True
+    return False
+
+
+def main_polarity_domain(domain_kind: str | None) -> bool:
+    return domain_kind == "treatment"
 
 
 def ocr_hits(text: str) -> list[str]:

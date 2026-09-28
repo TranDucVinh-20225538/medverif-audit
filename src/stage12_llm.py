@@ -107,9 +107,10 @@ def clean_claim(text: str) -> str:
 
 
 def load_llm(model: str, revision: str, *, enforce_eager: bool = False):
+    import vllm_graceful
     from vllm import LLM
 
-    return LLM(
+    llm = LLM(
         model=model,
         revision=revision,
         dtype="bfloat16",
@@ -120,9 +121,14 @@ def load_llm(model: str, revision: str, *, enforce_eager: bool = False):
         enforce_eager=enforce_eager,
         download_dir=os.environ.get("HUGGINGFACE_HUB_CACHE"),
     )
+    vllm_graceful.register(llm)
+    return llm
 
 
 def unload(llm) -> None:
+    import vllm_graceful
+
+    vllm_graceful.shutdown_all()
     import torch
 
     del llm

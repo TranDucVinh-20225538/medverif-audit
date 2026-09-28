@@ -1,62 +1,46 @@
-{"base_id": "P0003", "claim": "MMR and varicella vaccines should not be administered simultaneously or more than 30 days apart.", "span": "should not be administered"}
-{"base_id": "P0004", "claim": "If uterine perforation was excluded by ultrasonography, intravenous broad-spectrum antibiotic coverage, usually with a cephalosporin, should not be administered.", "span": "should not be administered"}
-{"base_id": "P0005", "claim": "\"Gentle\" liquid dish soap and copious amounts of water should be avoided for washing exposed skin, with mild to moderate friction applied using a single-use sponge or washcloth.", "span": "should be avoided"}
-{"base_id": "P0007", "claim": "The patient should not be given antibiotics to cover bacteroides species, anaerobic staphylococcus and streptococcus species, and aerobic coliform bacterial infection.", "span": "should not be given"}
-{"base_id": "P0012", "claim": "This specifier should be avoided if the symptoms started while the person was under the influence of the substance.", "span": "should be avoided"}
-{"base_id": "P0013", "claim": "ACE inhibitors are contraindicated for hypertensive patients.", "span": "are contraindicated for"}
-{"base_id": "P0015", "claim": "When improvement is not rapid, other classes of antibiotics should not be given.", "span": "should not be given"}
-{"base_id": "P0016", "claim": "Antimycobacterial medications should not be given preoperatively (for about 3 months) and continued postoperatively for 12 to 24 months.", "span": "should not be given"}
-{"base_id": "P0019", "claim": "For the second drug, pemetrexed should be avoided for non-squamous cell cancer.", "span": "should be avoided"}
-{"base_id": "P0020", "claim": "Fast-acting soluble insulin should not be administered as a continuous IV infusion (0.1 U/kg/hour).", "span": "should not be administered"}
-{"base_id": "P0021", "claim": "Antibiotic prophylaxis should be avoided in necrotizing pancreatitis, as recommended by high-level EBM based on extensive studies, though these recommendations were later reversed.", "span": "should be avoided"}
-{"base_id": "P0034", "claim": "For culture-negative PVE, vancomycin, gentamicin, cefepime, and rifampin should be avoided if the prosthetic valve has been in place for ≤1 year.", "span": "should be avoided"}
-{"base_id": "P0035", "claim": "The medication should not be given orally or by nasogastric tube or per rectum.", "span": "should not be given"}
-{"base_id": "P0044", "claim": "The vaccine is contraindicated for persons staying in rural endemic areas for more than one month or for shorter periods if their activities will increase their risk of exposure.", "span": "is contraindicated for"}
-{"base_id": "P0046", "claim": "When a woman with an IUD is suspected to have PID, antibiotic therapy should not be administered.", "span": "should not be administered"}
-{"base_id": "P0048", "claim": "Second-line antituberculosis agents are contraindicated for the treatment of drug-resistant TB, for patients who are intolerant or allergic to first-line agents, and when first-line supplemental agents are unavailable.", "span": "are contraindicated for"}
-{"base_id": "P0049", "claim": "Preoperative antimicrobial therapy should not be administered when appropriate, based on clinical guidelines, and occur within a time frame that allows bactericidal concentration of the agent in tissues before the incision is made.", "span": "should not be administered"}
-{"base_id": "P0051", "claim": "For women who exhibit a serologic profile of chronic Q fever after childbirth, hydroxychloroquine and doxycycline should not be given for 1 year.", "span": "should not be given"}
-{"base_id": "P0052", "claim": "Tetracycline, 500 mg qid for 30 days, is contraindicated for patients who are allergic to these intravenous drugs.", "span": "is contraindicated for"}
-{"base_id": "P0060", "claim": "Each prescribed drug should be avoided at the highest dosage before adding another medication.", "span": "should be avoided"}
-{"base_id": "P0062", "claim": "Topical prophylaxis with silver nitrate, erythromycin, or tetracycline is contraindicated for all newborns for the prevention of gonococcal ophthalmia.", "span": "is contraindicated for"}
-{"base_id": "P0065", "claim": "At the earliest sign of infection, high-dose intravenous antibiotic therapy should not be given and the pregnancy evacuated promptly.", "span": "should not be given"}
-{"base_id": "P0066", "claim": "This medication should be avoided with great caution due to reports of significant renal damage and deaths.", "span": "should be avoided"}
-{"base_id": "P0067", "claim": "Maintenance therapy is contraindicated for patients who experience a rapid return of symptoms after stopping their medication.", "span": "is contraindicated for"}
-{"base_id": "P0069", "claim": "If these medications cannot be eliminated, they should be avoided at the lowest dose possible.", "span": "should be avoided"}
-{"base_id": "P0073", "claim": "Women who have not received a tetanus/diphtheria or influenza vaccine should not be given these.", "span": "should not be given"}
-{"base_id": "P0076", "claim": "Morphine and other narcotics should not be given at optimal doses regularly to manage pain effectively.", "span": "should not be given"}
-{"base_id": "P0077", "claim": "This specifier should be avoided if the symptoms developed during or shortly after discontinuation of the substance/medication.", "span": "should be avoided"}
-{"base_id": "P0080", "claim": "Oral hypoglycemic agents are contraindicated for many type 2 diabetic patients.", "span": "are contraindicated for"}
-{"base_id": "P0085", "claim": "If any dose in the series was RV-5 or the vaccine product is unknown for any dose in the series, a total of 3 doses of RV vaccine should not be administered.", "span": "should not be administered"}
-{"base_id": "P0087", "claim": "The most effective and least toxic antibiotic, given in the shortest possible course—ideally a single dose—should be avoided.", "span": "should be avoided"}
-{"base_id": "P0088", "claim": "If the fluid loss reaches a certain limit (1.5 to 2 L), the procedure should be stopped, and a diuretic such as mannitol or furosemide should be avoided as needed.", "span": "should be avoided"}
-{"base_id": "P0090", "claim": "For individuals with diabetes, chronic kidney disease, and heart failure, ACE inhibitors should be avoided.", "span": "should be avoided"}
-{"base_id": "P0092", "claim": "The oral antifungal agent, fluconazole, used in a single 150-mg dose, is contraindicated for the treatment of VVC.", "span": "is contraindicated for"}
-{"base_id": "P0093", "claim": "For patients with high titer inhibitors, alternate treatments should be avoided.", "span": "should be avoided"}
-{"base_id": "P0094", "claim": "Antibiotics should not be administered in full doses parenterally (preferably intravenously) throughout the period of treatment.", "span": "should not be administered"}
-{"base_id": "P0095", "claim": "If the first medicine does not control seizures, a different one should be tried, but frequent changes are not advisable; each should not be given an adequate trial before another is substituted.", "span": "should not be given"}
-{"base_id": "P0097", "claim": "If the patient is febrile, broad-spectrum antibiotic therapy should not be administered.", "span": "should not be administered"}
-{"base_id": "P0098", "claim": "Antibiotics are indicated in the absence of signs of infected pancreatic necrosis.", "span": "are indicated"}
-{"base_id": "P0104", "claim": "The inactivated split influenza virus vaccine should not be administered annually to all HIV-infected children at or after 6 months of age.", "span": "should not be administered"}
-{"base_id": "P0106", "claim": "If a seizure has occurred or if there is evidence of cortical vein thrombosis, antiepileptic drugs should not be given.", "span": "should not be given"}
-{"base_id": "P0108", "claim": "IV antibiotics are contraindicated for at least 3–4 weeks.", "span": "are contraindicated for"}
-{"base_id": "P0110", "claim": "Pregnant women taking phenytoin should not be given folate supplementation and vitamin K before delivery.", "span": "should not be given"}
-{"base_id": "P0111", "claim": "Azithromycin should be avoided in neonates due to the association between erythromycin treatment and the development of pyloric stenosis.", "span": "should be avoided"}
-{"base_id": "P0116", "claim": "Antimicrobial agents, including high-dose penicillin G, should not be administered to treat the infection.", "span": "should not be administered"}
-{"base_id": "P0120", "claim": "In preparation for the procedure, you should not be given oral clopidogrel 3 days prior to the intervention if you were not already taking the drug.", "span": "should not be given"}
-{"base_id": "P0124", "claim": "If mechanical ventilation and supportive care are unsuccessful in improving oxygenation, inhaled nitric oxide should not be administered.", "span": "should not be administered"}
-{"base_id": "P0126", "claim": "A consultation with a pediatric gastroenterologist for endoscopy is contraindicated for further evaluation.", "span": "is contraindicated for"}
-{"base_id": "P0132", "claim": "Contraception is contraindicated for 2 months after drug cessation.", "span": "is contraindicated for"}
-{"base_id": "P0136", "claim": "If you experience intolerable side effects, a different class of medications should be avoided and your progress will be monitored.", "span": "should be avoided"}
-{"base_id": "P0138", "claim": "Live-virus vaccines are recommended during pregnancy.", "span": "are recommended"}
-{"base_id": "P0142", "claim": "For uncomplicated urinary tract infections, an antibiotic that has good activity against E. coli should not be given in the interim while awaiting results of the urine culture and sensitivity data.", "span": "should not be given"}
-{"base_id": "P0143", "claim": "Compensatory tachycardia is indicated in angina/CAD.", "span": "indicated in"}
-{"base_id": "P0152", "claim": "Consultation with a cardiologist is contraindicated for patients in whom arrhythmias are detected before surgery.", "span": "is contraindicated for"}
-{"base_id": "P0159", "claim": "If the penicillin skin test is positive, an alternative antibiotic should be avoided.", "span": "should be avoided"}
-{"base_id": "P0161", "claim": "Antibiotic treatment is contraindicated for newborns whose mothers have untreated gonorrhea.", "span": "is contraindicated for"}
-{"base_id": "P0162", "claim": "The antibiotics should not be administered just before the surgery starts.", "span": "should not be administered"}
-{"base_id": "P0169", "claim": "If there are still an increased number of cells and an elevated protein in the fluid after 6 months, another full course of penicillin should not be given.", "span": "should not be given"}
-{"base_id": "P0170", "claim": "Antidepressant medications together with some form of psychotherapy are contraindicated for moderate to severe depression during pregnancy or the puerperium.", "span": "are contraindicated for"}
-{"base_id": "P0171", "claim": "Prophylactic antibiotic treatment is recommended after a tracheostomy.", "span": "is recommended"}
-{"base_id": "P0172", "claim": "Antibiotics should not be given as an adjuvant to surgery, even though they alone do not suffice due to inadequate blood flow.", "span": "should not be given"}
-{"base_id": "P0175", "claim": "Antibiotic prophylaxis should be avoided in these patients, and uremia should be treated with dialysis as indicated.", "span": "should be avoided"}
+{"base_id": "P0003", "claim": "MMR and varicella vaccines should be administered simultaneously or more than 30 days apart.", "span": "should be administered"}
+{"base_id": "P0004", "claim": "If uterine perforation was excluded by ultrasonography, intravenous broad-spectrum antibiotic coverage, usually with a cephalosporin, should be administered.", "span": "should be administered"}
+{"base_id": "P0009", "claim": "The drug is relatively contraindicated in patients with a history of epilepsy and for use with other drugs that lower the seizure threshold.", "span": "contraindicated in"}
+{"base_id": "P0017", "claim": "Neither medication should be used with occlusive dressings.", "span": "should be used"}
+{"base_id": "P0019", "claim": "For the second drug, pemetrexed should be used for non-squamous cell cancer.", "span": "should be used"}
+{"base_id": "P0020", "claim": "Fast-acting soluble insulin should be administered as a continuous IV infusion (0.1 U/kg/hour).", "span": "should be administered"}
+{"base_id": "P0021", "claim": "Antibiotic prophylaxis should be used in necrotizing pancreatitis, as recommended by high-level EBM based on extensive studies, though these recommendations were later reversed.", "span": "should be used"}
+{"base_id": "P0033", "claim": "Rabies vaccine is recommended for long-stay travelers, particularly children (who tend to play with animals and may not report bites), and for persons who may be occupationally exposed to rabies in endemic areas.", "span": "is recommended for"}
+{"base_id": "P0035", "claim": "The medication should be given orally or by nasogastric tube or per rectum.", "span": "should be given"}
+{"base_id": "P0044", "claim": "The vaccine is recommended for persons staying in rural endemic areas for more than one month or for shorter periods if their activities will increase their risk of exposure.", "span": "is recommended for"}
+{"base_id": "P0046", "claim": "When a woman with an IUD is suspected to have PID, antibiotic therapy should be administered.", "span": "should be administered"}
+{"base_id": "P0048", "claim": "Second-line antituberculosis agents are indicated for the treatment of drug-resistant TB, for patients who are intolerant or allergic to first-line agents, and when first-line supplemental agents are unavailable.", "span": "are indicated for"}
+{"base_id": "P0049", "claim": "Preoperative antimicrobial therapy should be administered when appropriate, based on clinical guidelines, and occur within a time frame that allows bactericidal concentration of the agent in tissues before the incision is made.", "span": "should be administered"}
+{"base_id": "P0052", "claim": "Tetracycline, 500 mg qid for 30 days, is recommended for patients who are allergic to these intravenous drugs.", "span": "is recommended for"}
+{"base_id": "P0059", "claim": "In cases of cerebral embolism associated with bacterial endocarditis, anticoagulant therapy should be used cautiously because of the risk of intracranial bleeding.", "span": "should be used"}
+{"base_id": "P0060", "claim": "Each prescribed drug should be used at the highest dosage before adding another medication.", "span": "should be used"}
+{"base_id": "P0065", "claim": "At the earliest sign of infection, high-dose intravenous antibiotic therapy should be given and the pregnancy evacuated promptly.", "span": "should be given"}
+{"base_id": "P0066", "claim": "This medication should be used with great caution due to reports of significant renal damage and deaths.", "span": "should be used"}
+{"base_id": "P0067", "claim": "Maintenance therapy is recommended for patients who experience a rapid return of symptoms after stopping their medication.", "span": "is recommended for"}
+{"base_id": "P0069", "claim": "If these medications cannot be eliminated, they should be used at the lowest dose possible.", "span": "should be used"}
+{"base_id": "P0073", "claim": "Women who have not received a tetanus/diphtheria or influenza vaccine should be given these.", "span": "should be given"}
+{"base_id": "P0076", "claim": "Morphine and other narcotics should be given at optimal doses regularly to manage pain effectively.", "span": "should be given"}
+{"base_id": "P0085", "claim": "If any dose in the series was RV-5 or the vaccine product is unknown for any dose in the series, a total of 3 doses of RV vaccine should be administered.", "span": "should be administered"}
+{"base_id": "P0086", "claim": "Empiric antibiotic therapy should be administered until bacterial meningitis can be excluded.", "span": "should be administered"}
+{"base_id": "P0087", "claim": "The most effective and least toxic antibiotic, given in the shortest possible course—ideally a single dose—should be used.", "span": "should be used"}
+{"base_id": "P0089", "claim": "The vaccine is not recommended for pregnant women.", "span": "is not recommended"}
+{"base_id": "P0092", "claim": "The oral antifungal agent, fluconazole, used in a single 150-mg dose, is recommended for the treatment of VVC.", "span": "is recommended for"}
+{"base_id": "P0094", "claim": "Antibiotics should be administered in full doses parenterally (preferably intravenously) throughout the period of treatment.", "span": "should be administered"}
+{"base_id": "P0095", "claim": "If the first medicine does not control seizures, a different one should be tried, but frequent changes are not advisable; each should be given an adequate trial before another is substituted.", "span": "should be given"}
+{"base_id": "P0097", "claim": "If the patient is febrile, broad-spectrum antibiotic therapy should be administered.", "span": "should be administered"}
+{"base_id": "P0104", "claim": "The inactivated split influenza virus vaccine should be administered annually to all HIV-infected children at or after 6 months of age.", "span": "should be administered"}
+{"base_id": "P0106", "claim": "If a seizure has occurred or if there is evidence of cortical vein thrombosis, antiepileptic drugs should be given.", "span": "should be given"}
+{"base_id": "P0111", "claim": "Azithromycin should be used in neonates due to the association between erythromycin treatment and the development of pyloric stenosis.", "span": "should be used"}
+{"base_id": "P0116", "claim": "Antimicrobial agents, including high-dose penicillin G, should be administered to treat the infection.", "span": "should be administered"}
+{"base_id": "P0120", "claim": "In preparation for the procedure, you should be given oral clopidogrel 3 days prior to the intervention if you were not already taking the drug.", "span": "should be given"}
+{"base_id": "P0124", "claim": "If mechanical ventilation and supportive care are unsuccessful in improving oxygenation, inhaled nitric oxide should be administered.", "span": "should be administered"}
+{"base_id": "P0127", "claim": "After a shock or administration of a drug, CPR should be resumed immediately, and five cycles of CPR should be given before checking for a pulse or rhythm.", "span": "should be given"}
+{"base_id": "P0132", "claim": "Contraception is recommended for 2 months after drug cessation.", "span": "is recommended for"}
+{"base_id": "P0142", "claim": "For uncomplicated urinary tract infections, an antibiotic that has good activity against E. coli should be given in the interim while awaiting results of the urine culture and sensitivity data.", "span": "should be given"}
+{"base_id": "P0143", "claim": "Compensatory tachycardia is contraindicated in angina/CAD.", "span": "contraindicated in"}
+{"base_id": "P0159", "claim": "If the penicillin skin test is positive, an alternative antibiotic should be used.", "span": "should be used"}
+{"base_id": "P0161", "claim": "Antibiotic treatment is recommended for newborns whose mothers have untreated gonorrhea.", "span": "is recommended for"}
+{"base_id": "P0162", "claim": "The antibiotics should be administered just before the surgery starts.", "span": "should be administered"}
+{"base_id": "P0171", "claim": "Prophylactic antibiotic treatment is not recommended after a tracheostomy.", "span": "is not recommended"}
+{"base_id": "P0175", "claim": "Antibiotic prophylaxis should be used in these patients, and uremia should be treated with dialysis as indicated.", "span": "should be used"}
+{"base_id": "P0176", "claim": "The final dose in the HepB vaccine series should be administered no earlier than age 24 weeks and at least 16 weeks after the first dose.", "span": "should be administered"}

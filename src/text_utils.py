@@ -94,6 +94,12 @@ FLIP = {
 }
 
 # Syntax-preserving meaning-preserving swaps. The second LLM still has to agree.
+# Decision G: equivalence rephrase INV (not flip).
+POLARITY_REPHRASE_INV = {
+    "should not be used": "is contraindicated",
+    "is contraindicated": "should not be used",
+}
+
 INV_POLARITY = {
     "should not be administered": "must not be administered",
     "should not be given": "must not be given",
@@ -307,6 +313,13 @@ def inv_cue(cue: str) -> str:
     if key not in INV_POLARITY:
         raise ValueError(f"no invariance rephrase for {cue!r}")
     return INV_POLARITY[key]
+
+
+def rephrase_polarity_cue(cue: str) -> str:
+    key = cue_key(cue)
+    if key not in POLARITY_REPHRASE_INV:
+        raise ValueError(f"no rephrase INV for {cue!r}")
+    return POLARITY_REPHRASE_INV[key]
 
 
 def replace_span(text: str, start: int, end: int, new: str) -> str:

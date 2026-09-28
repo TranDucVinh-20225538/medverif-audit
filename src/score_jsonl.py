@@ -7,7 +7,12 @@ import importlib
 import json
 from pathlib import Path
 
+import os
+
+import vllm_graceful
 from verifiers.io_utils import append_jsonl, done_ids, read_jsonl
+
+USE_OR = os.environ.get("MEDVERIF_USE_OPENROUTER", "").lower() in ("1", "true", "yes")
 
 
 def main() -> None:
@@ -26,14 +31,30 @@ def main() -> None:
     if not todo:
         print(json.dumps({"verifier": args.verifier, "skipped": "complete", "n": len(rows)}))
         return
+    batch = int(os.environ.get("MEDVERIF_SCORE_BATCH", "8"))
     llm, tokenizer, params, load_s = module.load()
-    scored = module.score_batch(llm, tokenizer, params, todo)
-    append_jsonl(args.out, scored)
-    fails = sum(row["verdict"] == "PARSE_FAIL" for row in scored)
+    if not USE_OR:
+        vllm_graceful.register(llm)
+    scored_all: list[dict] = []
+    try:
+        for offset in range(0, len(todo), batch):
+            chunk = todo[offset : offset + batch]
+            scored = module.score_batch(llm, tokenizer, params, chunk)
+            append_jsonl(args.out, scored)
+            scored_all.extend(scored)
+            print(json.dumps({
+                "verifier": args.verifier,
+                "progress": len(scored_all),
+                "total_todo": len(todo),
+            }), flush=True)
+    finally:
+        if not USE_OR:
+            vllm_graceful.shutdown_all()
+    fails = sum(row["verdict"] == "PARSE_FAIL" for row in scored_all)
     print(json.dumps({
         "verifier": args.verifier,
         "load_s": load_s,
-        "scored": len(scored),
+        "scored": len(scored_all),
         "parse_fail": fails,
         "out": str(args.out),
     }))

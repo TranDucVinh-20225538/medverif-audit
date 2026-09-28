@@ -37,13 +37,13 @@ else
   V4_SKIP=$(cat "${LOG}/qwen_v4_gate.txt")
 fi
 
-S4=$(sbatch --parsable --dependency=afterok:"${V1}:${GPU}" "${ROOT}/jobs/stage4.sbatch")
+S4=$(sbatch --parsable "${ROOT}/jobs/stage4.sbatch")
 
 {
   echo "v1_job=${V1}"
   echo "v3b_job=${V3B}"
   echo "gpu_early_job=${GPU}"
-  echo "stage4_job=${S4} afterok ${V1} ${GPU}"
+  echo "stage4_job=${S4} standalone"
   echo "v4_job=${V4:-SKIPPED}"
   echo "v4_gate=${V4_SKIP:-ready}"
 } | tee "${LOG}/parallel.submit.txt"

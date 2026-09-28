@@ -27,7 +27,7 @@ ETA_LIMIT_S = 3 * 3600
 def ensure_nltk() -> None:
     import nltk
 
-    path = Path(os.environ.get("NLTK_DATA", ROOT / ".cache" / "nltk"))
+    path = Path(os.environ.get("NLTK_DATA") or (Path.home() / "nltk_data"))
     path.mkdir(parents=True, exist_ok=True)
     os.environ["NLTK_DATA"] = str(path)
     nltk.download("punkt", download_dir=str(path), quiet=True)
@@ -111,13 +111,15 @@ def main() -> None:
     ckpt = prepare_weights()
     main_rows, thr_rows = split_rows()
     print(json.dumps({"main": len(main_rows), "threshold": len(thr_rows)}), flush=True)
-    from verifiers import v2a_minicheck, v3_alignscore
+    from verifiers import v3_alignscore
+
+    v3, v3_load = v3_alignscore.load(str(ckpt))
+    from verifiers import v2a_minicheck
 
     v2a, v2a_load = v2a_minicheck.load()
     probe = main_rows[:PROBE_N]
     t2 = score_rows("v2a", v2a, probe, RAW / "v2a_minicheck.jsonl")
     del v2a
-    v3, v3_load = v3_alignscore.load(str(ckpt))
     t3 = score_rows("v3", v3, probe, RAW / "v3_alignscore.jsonl")
     per = (t2 + t3) / max(len(probe), 1)
     eta_all = per * (len(main_rows) + len(thr_rows))

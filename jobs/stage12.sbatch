@@ -6,6 +6,7 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
 #SBATCH --time=08:00:00
+#SBATCH --signal=B:TERM@120
 #SBATCH --open-mode=append
 #SBATCH --output=/data2/hpcshared/medverif-audit/jobs/logs/%x-%j.out
 
@@ -51,6 +52,12 @@ fi
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
 conda activate vllm
 export PYTHONPATH="${ROOT}/src"
+source "${ROOT}/jobs/lib/gpu_graceful.sh"
+source "${ROOT}/jobs/lib/stage_vllm_cache.sh"
+gpu_graceful_init
+export MEDVERIF_ROOT="${ROOT}"
+stage_hf_snapshot "Qwen/Qwen2.5-32B-Instruct" "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
+stage_hf_snapshot "microsoft/phi-4" "2db69c1c3e91a05d2c64a3185acfbaf36f744e25"
 
 rc=0
 python - << 'PY' || rc=$?
@@ -93,7 +100,7 @@ if [ "${rc}" -ne 0 ]; then
 fi
 
 echo "smoke start $(date -Is)"
-python src/stage12_llm.py \
+gpu_run python src/stage12_llm.py \
   --candidates "${ROOT}/data/candidates.jsonl" \
   --outdir "${ROOT}/data/smoke" \
   --limit-per-type 16 \
@@ -107,7 +114,7 @@ if [ "${kept}" -lt 1 ]; then
 fi
 
 echo "full start $(date -Is)"
-python src/stage12_llm.py \
+gpu_run python src/stage12_llm.py \
   --candidates "${ROOT}/data/candidates.jsonl" \
   --outdir "${ROOT}/data" \
   --limit-per-type 0 \
