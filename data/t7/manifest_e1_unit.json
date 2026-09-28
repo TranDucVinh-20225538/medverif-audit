@@ -1,0 +1,16 @@
+{
+  "valid_main_bases": 117,
+  "bases_with_bases_row": 117,
+  "skipped_no_base_row": 0,
+  "instances": 230,
+  "failed_bases": 2,
+  "path": "data/t7/instances_e1_unit.jsonl",
+  "path_v3": "data/v3/instances_e1_unit.jsonl",
+  "by_condition": {
+    "E1-unit-claim": 115,
+    "E1-unit-evid": 115
+  },
+  "magnitude": "x1000",
+  "expected_verdict": "FAIL",
+  "qc_sample": "qc/t7_e1_unit_sample.csv"
+}

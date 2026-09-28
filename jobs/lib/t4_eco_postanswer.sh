@@ -22,11 +22,17 @@ python3 scripts/t4_eco_classify.py --in data/t4/eco_answers.jsonl --out data/t4/
 python3 scripts/t4_eco_qc.py
 python3 scripts/t4_build_eco_instances.py
 
-INST="${ROOT}/data/t4/instances_eco_verify.jsonl"
+INST="${ROOT}/data/t4/eco_instances.jsonl"
+if [[ ! -f "${INST}" ]]; then
+  INST="${ROOT}/data/t4/instances_eco_verify.jsonl"
+fi
 RAW="${ROOT}/results/raw/t4_eco"
 mkdir -p "${RAW}"
 
-python3 scripts/t4_eco_score_encoders.py
+export MEDVERIF_V1B_OPENROUTER_MODEL="${MEDVERIF_V1B_OPENROUTER_MODEL:-openai/gpt-4o}"
+export MEDVERIF_V1B_PROVIDER="${MEDVERIF_V1B_PROVIDER:-OpenAI}"
+
+# V2/V3 encoders run on node30 only (not HPC login nodes).
 
 OR_VERIFIERS=(
   v1c_medscore
@@ -65,3 +71,20 @@ PY
 done
 
 python3 scripts/openrouter_account_credits.py
+
+python3 - <<'PY'
+import json
+from pathlib import Path
+ROOT = Path("/data2/hpcshared/medverif-audit")
+manifest = {
+    "n_eco_instances": sum(1 for _ in (ROOT / "data/t4/eco_instances.jsonl").open()),
+    "qc_sample": "qc/eco_sample.csv",
+    "node30_encoders": "run t4_eco_score_encoders.py on node30 only",
+    "hpc_verifiers": "results/raw/t4_eco/*.jsonl (OpenRouter)",
+}
+(ROOT / "notes/t4_eco_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+PY
+
+if [[ "${MEDVERIF_T4_GIT_PUSH:-1}" == "1" ]]; then
+  bash "${ROOT}/scripts/t4_eco_git_push.sh" || true
+fi

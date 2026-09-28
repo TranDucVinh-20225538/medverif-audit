@@ -29,7 +29,8 @@ def load():
     from openrouter_runtime import load_openrouter_engine
 
     or_model = os.environ.get("MEDVERIF_V1B_OPENROUTER_MODEL", MODEL)
-    provider = os.environ.get("MEDVERIF_V1B_PROVIDER", os.environ.get("MEDVERIF_V1_PROVIDER", "OpenAI"))
+    # Do not inherit MEDVERIF_V1_PROVIDER (often DeepInfra for Mistral V1).
+    provider = os.environ.get("MEDVERIF_V1B_PROVIDER", "OpenAI")
     return load_openrouter_engine(
         openrouter_model=or_model,
         tokenizer_model=TOK_MODEL,

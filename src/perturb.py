@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Dict, List
 
@@ -13,6 +13,7 @@ from text_utils import (
     flip_cue,
     flip_mechanism,
     highlight,
+    inv_cue,
     levenshtein,
     outside_identical,
     parse_decimal,
@@ -37,9 +38,17 @@ def _diff(before: str, after: str, start: int, end: int, new_span: str, where: s
 
 
 def _dose_factor_ok(old_span: str, new_span: str, factor: Decimal) -> bool:
-    old = parse_decimal(old_span.split()[0])
-    new = parse_decimal(new_span.split()[0])
-    return new / old == factor
+    try:
+        old = parse_decimal(old_span.split()[0])
+        new = parse_decimal(new_span.split()[0])
+    except (ValueError, IndexError):
+        return False
+    if old == 0:
+        return False
+    try:
+        return new / old == factor
+    except InvalidOperation:
+        return False
 
 
 def _instance(
@@ -112,6 +121,8 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
     }
     instances.append(_instance(base, "C0", "none", claim0, evid0, "PASS", unchanged, cspan, espan))
 
+    inv_span = None
+    unit_inv_source = None
     try:
         if base["type"] == "DOSE":
             variants = []
@@ -120,15 +131,18 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
                 if not _dose_factor_ok(espan, new_span, factor):
                     raise ValueError(f"factor check failed for {mag}")
                 variants.append((mag, new_span))
-            inv_span = None
-            try:
-                inv_span = convert_dose_span(cspan)
-            except ValueError:
-                inv_span = None
+            from text_utils import unit_inv_conversion
+
+            pair = unit_inv_conversion(cspan)
+            if pair:
+                inv_span, unit_inv_source = pair
         else:
-            flipped = flip_cue(espan)
-            variants = [("flip", flipped)]
-            inv_span = None
+            mech = flip_mechanism(espan)
+            if base.get("pol_flip_not_lexical") and mech == "lexical":
+                variants = []
+            else:
+                flipped = flip_cue(espan)
+                variants = [("flip", flipped)]
     except ValueError as exc:
         failures.append({"base_id": base["id"], "reason": "rule_edit_failed", "detail": str(exc)})
         return [], failures
@@ -166,18 +180,30 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
     if inv_span:
         inv_edit = _diff(claim0, claim0, c0, c1, inv_span, "claim")
         if inv_edit["confined_to_span"] and inv_edit["text"] != claim0:
-            instances.append(_instance(
+            diff_payload = {
+                "claim": {k: inv_edit[k] for k in inv_edit if k != "text"},
+                "evidence_unchanged": True,
+            }
+            if unit_inv_source:
+                diff_payload["unit_inv_source"] = unit_inv_source
+            inst = _instance(
                 base, "INV-claim", "unit_conversion",
                 inv_edit["text"], evid0, "PASS",
-                {"claim": {k: inv_edit[k] for k in inv_edit if k != "text"}, "evidence_unchanged": True},
+                diff_payload,
                 inv_span, espan,
-            ))
+            )
+            if unit_inv_source:
+                inst["unit_inv_source"] = unit_inv_source
+            instances.append(inst)
     if base["type"] == "POLARITY":
         rep_ok = False
         rep_edit = None
         rep_span = cspan
         try:
-            rep_span = rephrase_polarity_cue(cspan)
+            if base.get("pol_inv_templates_only"):
+                rep_span = inv_cue(cspan)
+            else:
+                rep_span = rephrase_polarity_cue(cspan)
             rep_edit = _diff(claim0, claim0, c0, c1, rep_span, "claim")
             rep_ok = rep_edit["confined_to_span"] and rep_edit["text"] != claim0
         except ValueError:
