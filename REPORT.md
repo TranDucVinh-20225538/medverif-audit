@@ -1,6 +1,6 @@
 # REPORT
 
-**Daily status (2026-09-28):** Cancelled stuck **61388** (GPU 0%, NFS `Dl` on node002). Resubmitted **61394** on **node004** with RAM guard, `HF_HUB_OFFLINE`, chunked paraphrase + flush logs. **V1:** 10/10 shard headers OK (`notes/v1_shard_headers.json`); scoring stores full `raw_output` + released score; study label via `reparse_v1_study.py`. **Weights PID 3863732** still downloading (V2b+); 4.4 GB consolidated `.incomplete` left untouched. **Next:** PI QC review after 61388; then `not_remove` mining, V4/V2b GPU scoring; CPU early blocked (`nltk` missing in `.cache/cpu_extra`).
+**Daily status (2026-09-28):** **61394** `medverif-v3` **RUNNING** on **node004** (~734 GB RAM free); chưa `para_attempts` (đang import/load Qwen). **V1 10/10 shards OK** → 61394 xong sẽ tự `sbatch stage3_v1`. **V2b/Qwen3/AlignScore** download dở (PID repair đã chết) — cần `download_verifiers.py` sau. **Git:** `f20d188`, no remote. PI: review `qc_samples_v3.md` khi có; stage3 có thể chạy nền. **V1:** 10/10 shard headers OK (`notes/v1_shard_headers.json`); scoring stores full `raw_output` + released score; study label via `reparse_v1_study.py`. **Weights PID 3863732** still downloading (V2b+); 4.4 GB consolidated `.incomplete` left untouched. **Next:** PI QC review after 61388; then `not_remove` mining, V4/V2b GPU scoring; CPU early blocked (`nltk` missing in `.cache/cpu_extra`).
 
 ## Stage 0 — Environment and sources (2026-09-28)
 
