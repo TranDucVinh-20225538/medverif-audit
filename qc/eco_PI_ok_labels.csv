@@ -35,7 +35,7 @@ D0067__eco,D0067,gemma3_27b,exact,Y,,
 D0166__eco,D0166,gemma3_27b,exact,Y,,
 D0012__eco,D0012,gemma3_27b,exact,Y,,
 D0172__eco,D0172,command_r,exact,Y,,
-D0017__eco,D0017,deepseek_chat,changed_value,Y,,"không nhắc 150 mg, đưa liều khác (100 mg); nhãn chấp nhận được"
+D0017__eco,D0017,deepseek_chat,changed_value,N,omitted,"không nhắc 150 mg; câu trả lời nói 100 mg (đúng evidence) — target mismatch, không phải lỗi liều"
 D0145__eco,D0145,deepseek_chat,changed_value,N,exact,"có ""4.5 ounces (135 mL)"""
 D0164__eco,D0164,deepseek_chat,exact,Y,,
 D0128__eco,D0128,command_r,exact,Y,,

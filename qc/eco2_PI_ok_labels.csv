@@ -1,0 +1,73 @@
+﻿task_id,answerer_id,eco_category,PI_ok,correct_category,note
+D0005__eco,gemma3_27b,changed_value,N,omitted,Target 50 mg là etanercept; câu trả lời chỉ nói infliximab 3–5 mg/kg (đúng evidence). Target chọn nhầm thuốc
+D0005__eco,command_r,changed_value,N,omitted,"Chỉ nói infliximab, không có 50 mg etanercept"
+D0005__eco,deepseek_chat,changed_value,N,omitted,"Chỉ nói infliximab, không có 50 mg etanercept"
+D0078__eco,command_r,changed_value,N,omitted,Chỉ nói amphetamine; không có 75 mg pemoline
+D0078__eco,gemma3_27b,changed_value,N,omitted,Có nhắc pemoline nhưng không có liều 75 mg
+D0078__eco,deepseek_chat,changed_value,N,omitted,Chỉ nói amphetamine; không có 75 mg
+D0054__eco,command_r,changed_value,N,omitted,Chỉ nói clonazepam; không có 2100 mg gabapentin
+D0137__eco,gemma3_27b,frequency_rephrased,Y,,q6h thành every 6 hours
+D0137__eco,command_r,frequency_rephrased,Y,,q6h thành every 6 hours
+D0042__eco,gemma3_27b,exact_surface_variant,Y,,75 grams
+D0042__eco,command_r,exact_surface_variant,Y,,75 grams
+D0173__eco,deepseek_chat,changed_value,N,omitted,"Target 1 µg là hệ số quy đổi IU, không phải liều; câu trả lời chỉ có 15/20 µg. Nên loại"
+D0173__eco,command_r,changed_value,N,omitted,"Target 1 µg là hệ số quy đổi, không phải liều. Nên loại"
+D0042__eco,deepseek_chat,exact_surface_variant,Y,,75 grams
+D0031__eco,command_r,exact_surface_variant,Y,,1 microgram (μg)
+D0082__eco,command_r,changed_value,N,omitted,"Có 0.6 và 1.2 mg, không có 1.8 mg (còn nói sai là uống)"
+D0046__eco,command_r,exact_surface_variant,Y,,100 micrograms
+D0061__eco,deepseek_chat,exact_surface_variant,Y,,25 grams
+D0061__eco,command_r,exact_surface_variant,Y,,25 grams
+D0062__eco,command_r,exact_surface_variant,Y,,200 micrograms
+D0009__eco,gemma3_27b,frequency_rephrased,Y,,2 grams every 8 hours (q8h đổi cách viết)
+D0009__eco,command_r,changed_value,N,omitted,Chỉ nói vancomycin 1 g; không có 2 g cefazolin
+D0091__eco,command_r,changed_value,N,omitted,Chỉ có 2000 mg; không có 60 mg
+D0033__eco,command_r,changed_value,N,omitted,Nói phác đồ uống 400 mg (đúng evidence); không có 5 mg/kg IV
+D0023__eco,gemma3_27b,frequency_rephrased,Y,,q6h thành every 6 hours
+D0023__eco,command_r,frequency_rephrased,Y,,every 6 hours (q6h)
+D0162__eco,command_r,changed_value,Y,,"Lỗi thật: bịa 56 mg chia 28 mg x2/ngày, khác 20 mg twice daily"
+D0155__eco,command_r,changed_value,N,omitted,Chỉ có 6 mg/kg (đúng evidence); không có 3 mg/kg
+D0167__eco,gemma3_27b,exact_surface_variant,Y,,100 grams per week
+D0167__eco,command_r,exact_surface_variant,Y,,100 grams
+D0124__eco,gemma3_27b,exact_surface_variant,Y,,2 grams; 2 h thành 2 hours vẫn tính exact
+D0171__eco,command_r,changed_value,N,omitted,"Target 3.5 g là protein niệu, không phải liều; câu trả lời bịa 500 mg. Nên loại"
+D0124__eco,deepseek_chat,exact_surface_variant,Y,,2 grams
+D0028__eco,command_r,exact_surface_variant,Y,,6 to 10 grams (câu đầu gán sai 3 g cho phenobarbital)
+D0028__eco,deepseek_chat,exact_surface_variant,Y,,6 to 10 grams
+D0108__eco,gemma3_27b,exact_surface_variant,N,frequency_rephrased,Đổi cả đơn vị (micrograms) lẫn tần suất (twice daily thành twice a day); ưu tiên FR
+D0108__eco,command_r,exact_surface_variant,N,frequency_rephrased,micrograms + twice a day; ưu tiên FR
+D0068__eco,gemma3_27b,frequency_rephrased,Y,,q6h thành every 6 hours
+D0129__eco,command_r,changed_value,N,omitted,Có 4 g/kg và 1 g/kg (đúng evidence); không có 2 g
+D0068__eco,deepseek_chat,frequency_rephrased,Y,,q6h thành every 6 hours
+D0081__eco,command_r,frequency_rephrased,N,exact_verbatim,Clindamycin 300 mg twice daily chép nguyên văn
+D0002__eco,gemma3_27b,frequency_rephrased,Y,,single daily dose thành once daily
+D0099__eco,command_r,changed_value,N,omitted,Có 300/1800 mg; không có 1200 mg
+D0017__eco,command_r,changed_value,N,omitted,Nói 100 mg (đúng evidence); không có 150 mg. Không phải lỗi thật
+D0026__eco,deepseek_chat,frequency_rephrased,Y,,thrice weekly thành three times a week
+D0176__eco,command_r,exact_surface_variant,Y,,30 grams (nhưng đổi fish thành fish oil supplements)
+D0165__eco,command_r,exact_surface_variant,Y,,70-80 micrograms
+D0018__eco,deepseek_chat,exact_surface_variant,Y,,6 grams
+D0018__eco,gemma3_27b,exact_surface_variant,Y,,6 grams
+D0044__eco,deepseek_chat,frequency_rephrased,Y,,tid thành three times a day
+D0044__eco,gemma3_27b,frequency_rephrased,Y,,three times a day (tid)
+D0118__eco,command_r,exact_surface_variant,Y,,250 micrograms
+D0054__eco,gemma3_27b,exact_verbatim,Y,,2100 mg
+D0071__eco,command_r,exact_verbatim,Y,,81 mg
+D0090__eco,gemma3_27b,exact_verbatim,Y,,600 mg
+D0090__eco,deepseek_chat,exact_verbatim,Y,,600 mg
+D0022__eco,deepseek_chat,exact_verbatim,Y,,3 mL
+D0045__eco,gemma3_27b,exact_verbatim,N,frequency_rephrased,twice weekly thành twice a week
+D0135__eco,command_r,exact_verbatim,Y,,"7.5 mg, two to three times daily"
+D0052__eco,gemma3_27b,exact_verbatim,Y,,1 mg at 11 p.m.
+D0123__eco,command_r,exact_verbatim,Y,,100 mg; daily thành once daily vẫn tính exact
+D0107__eco,deepseek_chat,exact_verbatim,Y,,120 mg every 3 hours; h thành hours vẫn tính exact
+D0025__eco,deepseek_chat,exact_verbatim,N,frequency_rephrased,single daily dose thành once daily
+D0140__eco,command_r,exact_verbatim,N,frequency_rephrased,once a day thành once daily
+D0148__eco,command_r,exact_verbatim,Y,,250 mg
+D0152__eco,command_r,exact_verbatim,Y,,3 to 15 mcg/kg/min
+D0003__eco,deepseek_chat,exact_verbatim,N,frequency_rephrased,biweekly thành every two weeks
+D0066__eco,command_r,exact_verbatim,Y,,1 mg
+D0004__eco,gemma3_27b,exact_verbatim,N,exact_surface_variant,200mg viết liền
+D0102__eco,gemma3_27b,exact_verbatim,Y,,2 mg/kg per day
+D0013__eco,gemma3_27b,exact_verbatim,N,exact_surface_variant,250mg viết liền
+D0040__eco,deepseek_chat,exact_verbatim,Y,,20 mg/kg

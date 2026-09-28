@@ -30,7 +30,7 @@ def main() -> None:
         type=Path,
         action="append",
         default=None,
-        help="Repeatable; default: qc/eco_PI_ok_labels.csv + qc/eco_review2.csv (labeled rows only)",
+        help="Repeatable; default: qc/eco_PI_ok_labels.csv + qc/eco2_PI_ok_labels.csv",
     )
     args = parser.parse_args()
 

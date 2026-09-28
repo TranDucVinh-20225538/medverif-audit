@@ -4,9 +4,14 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from non_dose_targets import NON_DOSE_TARGET_BASES  # noqa: E402
+
 INP = ROOT / "data" / "t4" / "eco_classified.jsonl"
 OUT = ROOT / "data" / "t4" / "eco_instances.jsonl"
 OUT_LEGACY = ROOT / "data" / "t4" / "instances_eco_verify.jsonl"
@@ -18,6 +23,8 @@ def main() -> None:
         if not line.strip():
             continue
         row = json.loads(line)
+        if row.get("base_id") in NON_DOSE_TARGET_BASES:
+            continue
         iid = f"{row['task_id']}__{row['answerer_id']}__eco"
         rows.append(
             {

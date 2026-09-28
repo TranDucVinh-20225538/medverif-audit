@@ -276,6 +276,32 @@ def _local_context(text: str, needle: str, radius: int = 140) -> str:
     return t[max(0, pos - radius) : pos + len(needle) + radius]
 
 
+def target_mismatch_omitted(
+    answer: str, evidence: str, target_span: str, ans_span: str, tgt_span: str
+) -> bool:
+    """Answer cites a dose amount that appears in evidence but not the task target."""
+    del answer, target_span  # signature kept for call-site clarity
+    if not ans_span or not evidence or not tgt_span:
+        return False
+    if doses_match(ans_span, tgt_span):
+        return False
+    a_m = DOSE_RE.search(ans_span)
+    t_m = DOSE_RE.search(tgt_span)
+    if not a_m or not t_m:
+        return False
+    if a_m.group(1) == t_m.group(1):
+        return False
+    a_num = a_m.group(1)
+    hay = evidence or ""
+    for m in DOSE_RE.finditer(hay):
+        if m.group(1) == a_num:
+            return True
+    for m in _WORD_DOSE.finditer(hay):
+        if m.group(1) == a_num:
+            return True
+    return False
+
+
 def frequency_surface_rephrase(
     answer: str,
     evidence: str,
@@ -325,6 +351,10 @@ def frequency_surface_rephrase(
 
 
 def classify_answer(answer: str, evidence: str, target_span: str) -> str:
+    """
+    Precedence: changed_value > frequency_rephrased > exact_surface_variant > exact_verbatim.
+    Target mismatch (answer dose elsewhere in evidence) → omitted before changed_value.
+    """
     tgt = primary_dose(target_span) or primary_dose(evidence)
     if tgt is None:
         ans = primary_dose(answer)
@@ -342,6 +372,8 @@ def classify_answer(answer: str, evidence: str, target_span: str) -> str:
             return "omitted"
 
     if not doses_match(ans_span, tgt_span):
+        if target_mismatch_omitted(answer, evidence, target_span, ans_span, tgt_span):
+            return "omitted"
         try:
             a_m = DOSE_RE.search(ans_span)
             t_m = DOSE_RE.search(tgt_span)
@@ -362,9 +394,14 @@ def classify_answer(answer: str, evidence: str, target_span: str) -> str:
     if frequency_surface_rephrase(answer, evidence, target_span, ans_span):
         return "frequency_rephrased"
 
+    glued = bool(re.search(r"\d(?:mg|mcg|g|ml|mL|L)\b", answer or "", re.I))
     verbatim = dose_in_evidence_verbatim(ans_span, evidence, target_span)
     if raw_compact(ans_span) == raw_compact(tgt_span):
+        if glued and not verbatim:
+            return "exact_surface_variant"
         return "exact_verbatim" if verbatim else "exact_surface_variant"
+    if glued:
+        return "exact_surface_variant"
     return "exact_verbatim" if verbatim else "exact_surface_variant"
 
 
@@ -395,12 +432,24 @@ def apply_pi_override(
         return classifier_cat
     row = labels[key]
     cc = (row.get("correct_category") or "").strip()
+    pi = (row.get("PI_ok") or "").strip().upper()
+    sheet_cat = (row.get("eco_category") or "").strip()
     if cc:
         if cc == "exact":
             if classifier_cat in ("exact_verbatim", "exact_surface_variant"):
                 return classifier_cat
             return "exact_surface_variant"
         return cc
+    if pi == "Y" and sheet_cat:
+        if sheet_cat == "exact":
+            if classifier_cat in ("exact_verbatim", "exact_surface_variant"):
+                return classifier_cat
+            return "exact_surface_variant"
+        return sheet_cat
+    if pi == "N":
+        return "omitted"
+    if pi == "Y":
+        return classifier_cat
     return classifier_cat
 
 
@@ -456,5 +505,5 @@ def default_pi_label_paths(root) -> list:
     r = Path(root)
     return [
         r / "qc" / "eco_PI_ok_labels.csv",
-        r / "qc" / "eco_review2.csv",
+        r / "qc" / "eco2_PI_ok_labels.csv",
     ]

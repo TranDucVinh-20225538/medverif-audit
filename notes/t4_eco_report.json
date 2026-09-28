@@ -1,51 +1,37 @@
 {
-  "n_answers": 444,
-  "distribution_all": {
-    "exact_verbatim": 320,
+  "n_answers_scored": 438,
+  "n_pi_labeled": 172,
+  "n_labeled_rows_in_classified": 168,
+  "distribution_pi_labeled_final": {
+    "exact_verbatim": 89,
     "exact_surface_variant": 26,
-    "omitted": 58,
-    "changed_value": 20,
-    "frequency_rephrased": 20
-  },
-  "distribution_by_answerer": {
-    "command_r": {
-      "exact_verbatim": 101,
-      "exact_surface_variant": 14,
-      "omitted": 12,
-      "changed_value": 14,
-      "frequency_rephrased": 7
-    },
-    "deepseek_chat": {
-      "exact_verbatim": 106,
-      "omitted": 27,
-      "changed_value": 4,
-      "exact_surface_variant": 6,
-      "frequency_rephrased": 5
-    },
-    "gemma3_27b": {
-      "exact_verbatim": 113,
-      "omitted": 19,
-      "changed_value": 2,
-      "frequency_rephrased": 8,
-      "exact_surface_variant": 6
-    }
+    "omitted": 27,
+    "frequency_rephrased": 25,
+    "changed_value": 1
   },
   "classifier_fit_dev_labels": 1.0,
-  "n_dev_labels": 100,
-  "classifier_accuracy_held_out_review2": NaN,
-  "n_held_out_review2_labeled": 0,
-  "n_review2_sheet": 72,
+  "n_dev_labels": 99,
+  "classifier_accuracy_held_out_eco2_pred_vs_gold": 0.8260869565217391,
+  "n_held_out_eco2_pred_vs_gold": 69,
+  "classifier_acceptance_held_out_eco2_PI_ok": 0.625,
+  "n_held_out_eco2_PI_ok_Y": 45,
+  "n_held_out_sheet": 72,
+  "real_dose_error_rate": 0.00228310502283105,
+  "n_real_dose_errors_final": 1,
+  "omission_target_mismatch_rate": 0.16210045662100456,
+  "n_omitted_final": 71,
+  "n_classifier_changed_value_raw": 2,
   "false_alarm_excludes": [
-    [
-      "D0077__eco",
-      "command_r"
-    ],
     [
       "D0122__eco",
       "deepseek_chat"
+    ],
+    [
+      "D0077__eco",
+      "command_r"
     ]
   ],
-  "n_correct_for_false_alarm": 365,
+  "n_correct_for_false_alarm_labeled": 139,
   "fail_rates_by_verifier_category": {
     "v1c_medscore": {
       "exact_surface_variant": {
@@ -55,13 +41,13 @@
         "ci_hi": 0.19230769230769232
       },
       "exact_verbatim": {
-        "n": 320,
-        "fail_rate": 0.015625,
-        "ci_lo": 0.003125,
-        "ci_hi": 0.03125
+        "n": 89,
+        "fail_rate": 0.02247191011235955,
+        "ci_lo": 0.0,
+        "ci_hi": 0.056179775280898875
       },
       "frequency_rephrased": {
-        "n": 19,
+        "n": 24,
         "fail_rate": 0.0,
         "ci_lo": 0.0,
         "ci_hi": 0.0
@@ -69,19 +55,19 @@
     },
     "v6_ragas_nli": {
       "exact_surface_variant": {
-        "n": 20,
-        "fail_rate": 0.2,
-        "ci_lo": 0.05,
-        "ci_hi": 0.4
+        "n": 26,
+        "fail_rate": 0.23076923076923078,
+        "ci_lo": 0.07692307692307693,
+        "ci_hi": 0.4230769230769231
       },
       "exact_verbatim": {
-        "n": 248,
-        "fail_rate": 0.21370967741935484,
-        "ci_lo": 0.16532258064516128,
-        "ci_hi": 0.2661290322580645
+        "n": 89,
+        "fail_rate": 0.25842696629213485,
+        "ci_lo": 0.16853932584269662,
+        "ci_hi": 0.34831460674157305
       },
       "frequency_rephrased": {
-        "n": 13,
+        "n": 24,
         "fail_rate": 0.0,
         "ci_lo": 0.0,
         "ci_hi": 0.0
@@ -109,16 +95,16 @@
     },
     "v5_ragas_nli": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 2,
+        "fail_rate": 0.5,
+        "ci_lo": 0.0,
+        "ci_hi": 1.0
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 12,
+        "fail_rate": 0.3333333333333333,
+        "ci_lo": 0.08333333333333333,
+        "ci_hi": 0.5833333333333334
       },
       "frequency_rephrased": {
         "n": 0,
@@ -348,104 +334,12 @@
       }
     }
   },
-  "changed_value_detection_fail_rate": {
-    "v1c_medscore": {
-      "n": 20,
-      "fail_rate": 0.05,
-      "ci_lo": 0.0,
-      "ci_hi": 0.15
-    },
-    "v6_ragas_nli": {
-      "n": 17,
-      "fail_rate": 0.35294117647058826,
-      "ci_lo": 0.11764705882352941,
-      "ci_hi": 0.5882352941176471
-    },
-    "v1b_medscore": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "v5_ragas_nli": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "v4_ragas_nli": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "v1_medscore": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "v2a_minicheck": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "v3_alignscore": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "t6a_minicheck_roberta": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "t6a_minicheck_deberta": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "t6a_alignscore_base": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "t6a_summac_zs": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "t6a_summac_conv": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "t6a_hhem": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    },
-    "t6a_granite_guardian": {
-      "n": 0,
-      "fail_rate": null,
-      "ci_lo": null,
-      "ci_hi": null
-    }
-  },
-  "n_changed_value_cohort": 20,
+  "pi_real_error_note": "D0162__eco / command_r (only PI-confirmed true dose error in review)",
   "verifier_files_present": {
     "v1c_medscore": true,
     "v6_ragas_nli": true,
     "v1b_medscore": false,
-    "v5_ragas_nli": false,
+    "v5_ragas_nli": true,
     "v4_ragas_nli": false,
     "v1_medscore": false,
     "v2a_minicheck": false,

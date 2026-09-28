@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""T4 eco: category distribution + verifier false-alarm rates (bootstrap CIs)."""
+"""T4 eco: PI-labeled cohort stats + verifier false-alarm rates (bootstrap CIs)."""
 
 from __future__ import annotations
 
@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from t4_eco_compare import (  # noqa: E402
+    apply_pi_override,
     collapse_exact,
     gold_from_pi_row,
     load_pi_label_paths,
@@ -21,7 +22,7 @@ from t4_eco_compare import (  # noqa: E402
 
 CLASSIFIED = ROOT / "data/t4/eco_classified.jsonl"
 DEV_LABELS = ROOT / "qc/eco_PI_ok_labels.csv"
-REVIEW2 = ROOT / "qc/eco_review2.csv"
+HELD_LABELS = ROOT / "qc/eco2_PI_ok_labels.csv"
 RAW = ROOT / "results/raw/t4_eco"
 T6A_MANIFEST = ROOT / "notes/t6a_eco_checkers.json"
 OUT_MD = ROOT / "notes/t4_eco_report.md"
@@ -68,6 +69,11 @@ def instance_key(row: dict) -> tuple[str, str]:
     return (row["task_id"], row["answerer_id"])
 
 
+def final_category(row: dict, labels: dict) -> str:
+    cat = row.get("eco_category") or ""
+    return apply_pi_override(row["task_id"], row["answerer_id"], cat, labels)
+
+
 def bootstrap_fail_rate(
     fails: list[int], n_boot: int = 2000, seed: int = 42
 ) -> tuple[float, float, float]:
@@ -88,7 +94,6 @@ def bootstrap_fail_rate(
 
 def load_scores(verifiers: list[str]) -> dict[str, dict[str, str]]:
     by_verifier: dict[str, dict[str, str]] = {}
-    t6a_ids = set(t6a_verifier_ids())
     manifest = json.loads(T6A_MANIFEST.read_text()) if T6A_MANIFEST.is_file() else {}
     t6a_jsonl = {c["id"]: c["jsonl"] for c in manifest.get("checkers", [])}
     for v in verifiers:
@@ -124,35 +129,40 @@ def main() -> None:
     args = p.parse_args()
 
     rows = read_jsonl(args.classified)
-    dev_keys = load_pi_sheet_keys(DEV_LABELS)
-    review2_keys = load_pi_sheet_keys(REVIEW2)
+    labels = load_pi_label_paths([DEV_LABELS, HELD_LABELS])
+    labeled_keys = set(labels.keys())
     dev_labels = load_pi_label_paths([DEV_LABELS])
-    review2_labels = load_pi_label_paths([REVIEW2])
-    held_out_labels = {
-        k: v for k, v in review2_labels.items() if k in review2_keys and k not in dev_keys
-    }
+    held_labels = load_pi_label_paths([HELD_LABELS])
 
     verifiers = all_verifiers()
     scores = load_scores(verifiers)
 
-    dist_all = Counter(r.get("eco_category_final") or r.get("eco_category") for r in rows)
-    by_answerer: dict[str, Counter] = defaultdict(Counter)
-    for r in rows:
-        by_answerer[r["answerer_id"]][
-            r.get("eco_category_final") or r.get("eco_category")
-        ] += 1
+    labeled_rows = [r for r in rows if instance_key(r) in labeled_keys]
+    dist_labeled = Counter(final_category(r, labels) for r in labeled_rows)
 
     dev_fit = classifier_vs_gold(rows, dev_labels)
     dev_fit_rate = sum(dev_fit) / len(dev_fit) if dev_fit else float("nan")
-    held_acc = classifier_vs_gold(rows, held_out_labels)
+    held_acc = classifier_vs_gold(rows, held_labels)
     held_rate = sum(held_acc) / len(held_acc) if held_acc else float("nan")
+    held_pi_ok = [
+        1
+        for lab in held_labels.values()
+        if (lab.get("PI_ok") or "").strip().upper() == "Y"
+    ]
+    held_pi_ok_rate = len(held_pi_ok) / len(held_labels) if held_labels else float("nan")
+
+    n_all = len(rows)
+    finals_all = [final_category(r, labels) for r in rows]
+    n_omitted = sum(1 for c in finals_all if c == "omitted")
+    n_changed_final = sum(1 for c in finals_all if c == "changed_value")
+    n_classifier_changed = sum(1 for r in rows if r.get("eco_category") == "changed_value")
 
     analysis_rows = []
-    for r in rows:
+    for r in labeled_rows:
         key = instance_key(r)
         if key in EXCLUDE:
             continue
-        cat = r.get("eco_category_final") or r.get("eco_category")
+        cat = final_category(r, labels)
         if cat not in CORRECT_CATS:
             continue
         iid = f"{r['task_id']}__{r['answerer_id']}__eco"
@@ -189,45 +199,27 @@ def main() -> None:
                 "ci_hi": hi,
             }
 
-    changed_rows = []
-    for r in rows:
-        key = instance_key(r)
-        if key in EXCLUDE:
-            continue
-        cat = r.get("eco_category_final") or r.get("eco_category")
-        if cat != "changed_value":
-            continue
-        iid = f"{r['task_id']}__{r['answerer_id']}__eco"
-        changed_rows.append(iid)
-
-    sens_by_v: dict[str, dict] = {}
-    for v in verifiers:
-        xs = []
-        for iid in changed_rows:
-            verdict = scores.get(v, {}).get(iid)
-            if verdict is None:
-                continue
-            xs.append(int(verdict == "FAIL"))
-        if not xs:
-            sens_by_v[v] = {"n": 0, "fail_rate": None, "ci_lo": None, "ci_hi": None}
-        else:
-            m, lo, hi = bootstrap_fail_rate(xs, n_boot=args.bootstrap)
-            sens_by_v[v] = {"n": len(xs), "fail_rate": m, "ci_lo": lo, "ci_hi": hi}
-
     payload = {
-        "n_answers": len(rows),
-        "distribution_all": dict(dist_all),
-        "distribution_by_answerer": {k: dict(v) for k, v in sorted(by_answerer.items())},
+        "n_answers_scored": n_all,
+        "n_pi_labeled": len(labeled_keys),
+        "n_labeled_rows_in_classified": len(labeled_rows),
+        "distribution_pi_labeled_final": dict(dist_labeled),
         "classifier_fit_dev_labels": dev_fit_rate,
         "n_dev_labels": len(dev_fit),
-        "classifier_accuracy_held_out_review2": held_rate,
-        "n_held_out_review2_labeled": len(held_acc),
-        "n_review2_sheet": len(review2_keys),
+        "classifier_accuracy_held_out_eco2_pred_vs_gold": held_rate,
+        "n_held_out_eco2_pred_vs_gold": len(held_acc),
+        "classifier_acceptance_held_out_eco2_PI_ok": held_pi_ok_rate,
+        "n_held_out_eco2_PI_ok_Y": len(held_pi_ok),
+        "n_held_out_sheet": len(load_pi_sheet_keys(HELD_LABELS)),
+        "real_dose_error_rate": n_changed_final / n_all if n_all else None,
+        "n_real_dose_errors_final": n_changed_final,
+        "omission_target_mismatch_rate": n_omitted / n_all if n_all else None,
+        "n_omitted_final": n_omitted,
+        "n_classifier_changed_value_raw": n_classifier_changed,
         "false_alarm_excludes": [list(x) for x in EXCLUDE],
-        "n_correct_for_false_alarm": len(analysis_rows),
+        "n_correct_for_false_alarm_labeled": len(analysis_rows),
         "fail_rates_by_verifier_category": report_fail,
-        "changed_value_detection_fail_rate": sens_by_v,
-        "n_changed_value_cohort": len(changed_rows),
+        "pi_real_error_note": "D0162__eco / command_r (only PI-confirmed true dose error in review)",
     }
     t6a_map = {}
     if T6A_MANIFEST.is_file():
@@ -245,34 +237,33 @@ def main() -> None:
     lines = [
         "# T4 ecological (PI-reviewed classifier + verifier metrics)",
         "",
-        f"- Answers classified: **{len(rows)}**",
+        f"- Ecological answers in scored cohort: **{n_all}**",
+        f"- PI-labeled rows (dev 100 + eco2 72): **{len(labeled_keys)}** "
+        f"({len(labeled_rows)} present in classified file)",
         f"- Classifier **fit on dev labels** (`eco_PI_ok_labels.csv`, collapsed exact): "
         f"**{dev_fit_rate:.3f}** (n={len(dev_fit)}) — tuning set, not held-out accuracy.",
-        f"- **Held-out** classifier accuracy (`eco_review2.csv` rows you labeled, excluding dev 100): "
-        f"**{held_rate:.3f}** (n={len(held_acc)} labeled / {len(review2_keys)} on sheet).",
-        f"- False-alarm cohort: correct `{', '.join(sorted(CORRECT_CATS))}`, excluding D0122/deepseek (empty) and D0077/command_r (wrong context); **n={len(analysis_rows)}**",
+        f"- **Held-out** classifier acceptance (`eco2_PI_ok_labels.csv`, PI_ok=Y): "
+        f"**{held_pi_ok_rate:.3f}** ({len(held_pi_ok)}/{len(held_labels)} = 45/72 when fully labeled).",
+        f"- Held-out pred vs gold category (strict): **{held_rate:.3f}** (n={len(held_acc)} scored).",
+        f"- False-alarm cohort: PI-labeled rows with final category "
+        f"`{', '.join(sorted(CORRECT_CATS))}`, excluding D0122/deepseek and D0077/command_r; "
+        f"**n={len(analysis_rows)}**",
         "",
-        "## (a) Category distribution (final = PI override on labeled rows)",
+        "## (a) Category distribution (PI-labeled rows only; final = human override)",
         "",
         "| category | n |",
         "|---|---:|",
     ]
-    for cat, n in dist_all.most_common():
+    for cat, n in dist_labeled.most_common():
         lines.append(f"| {cat} | {n} |")
-
-    lines.extend(["", "### Per answerer", ""])
-    for ans in sorted(by_answerer):
-        lines.append(
-            f"**{ans}**: "
-            + ", ".join(f"{c}={n}" for c, n in by_answerer[ans].most_common())
-        )
 
     lines.extend(
         [
             "",
-            "## (b) FAIL rate on correct answers (bootstrap 95% CI)",
+            "## (b) FAIL rate on correct answers (PI-labeled cohort; bootstrap 95% CI)",
             "",
-            "Hypothesis: specialized checkers false-alarm more on `exact_surface_variant` than `exact_verbatim`; LLM judges less so.",
+            "Among human-labeled **correct** answers (`exact_verbatim`, `exact_surface_variant`, "
+            "`frequency_rephrased`), fraction of verifier FAIL.",
             "",
         ]
     )
@@ -294,27 +285,23 @@ def main() -> None:
                 )
         lines.append("")
 
+    real_rate = n_changed_final / n_all if n_all else float("nan")
+    omit_rate = n_omitted / n_all if n_all else float("nan")
     lines.extend(
         [
-            "## (c) Detection on human-verified `changed_value` answers",
+            "## Cohort error rates (full scored ecological set)",
             "",
-            f"Cohort: `eco_category_final=changed_value`, same exclusions as (b); **n={len(changed_rows)}**. "
-            "FAIL rate = real-world sensitivity (verifier flags wrong dose).",
+            f"- **Real dose-error rate** (final `changed_value` after PI override): "
+            f"**{n_changed_final}/{n_all} = {real_rate:.4f}** in current cohort "
+            f"(**1/444** in the original ecological run; only **D0162__eco / command_r**).",
+            f"- **Omission / target-mismatch rate** (final `omitted`): "
+            f"**{n_omitted}/{n_all} = {omit_rate:.4f}**.",
+            f"- Classifier raw `changed_value` (before PI override on unlabeled rows): **{n_classifier_changed}**.",
             "",
-            "| verifier | n scored | FAIL rate | 95% CI |",
-            "|---|---:|---:|---|",
+            "Classifier rules: `notes/t4_eco_classifier_rules.md`.",
+            "",
         ]
     )
-    for v in verifiers:
-        cell = sens_by_v[v]
-        if not cell["n"]:
-            lines.append(f"| {v} | 0 | — | — |")
-        else:
-            lines.append(
-                f"| {v} | {cell['n']} | {cell['fail_rate']:.3f} | "
-                f"[{cell['ci_lo']:.3f}, {cell['ci_hi']:.3f}] |"
-            )
-    lines.append("")
 
     OUT_MD.write_text("\n".join(lines) + "\n")
     print(f"wrote {OUT_MD}")
