@@ -87,9 +87,13 @@ def annotate(inst: dict) -> dict:
 
 
 def load_joined(instances_path: Path, verdicts_dir: Path) -> list[dict]:
+    return load_joined_from_records(read_jsonl(instances_path), verdicts_dir)
+
+
+def load_joined_from_records(instance_rows: list[dict], verdicts_dir: Path) -> list[dict]:
     instances = {
         row["instance_id"]: annotate(row)
-        for row in read_jsonl(instances_path)
+        for row in instance_rows
         if row.get("valid", True)
     }
     joined = []

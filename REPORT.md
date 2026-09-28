@@ -77,4 +77,12 @@ Valid instances (main + threshold): **1258**. Unique scored ids in `results/raw/
 | v2a_minicheck | 1403 | yes (≥ main+thr union) |
 | v3_alignscore | 1403 | yes |
 
-When V1 and V4 reach **1258** each (main + threshold + agreement subsample as queued), run `scripts/build_full_v1v4.py` → `results/tables/full_v1v4.md` (INV gated on `PI_ok=Y`; INV-unit also `natural=Y`).
+When V1 and V4 reach **1258** each (main + threshold + agreement subsample as queued), run `scripts/build_full_v1v4.py` → `results/tables/full_v1v4.md` (INV gated on `PI_ok=Y`; INV-unit also `natural=Y`; POL E1/E2 gated on `qc/e1_pol_review.csv` flip PI_ok=Y, **n=26**).
+
+## Threats to validity
+
+**QC rules B/H vs `valid=true` on C0.** Rules B (`flip_scope:*` from hedge terms in the polarity clause, e.g. `relatively`, `neither`) and H (`adjunct_after_predicate`, `predicate_not_at_clause_end`, `flip_not_intervention`, etc.) apply in `polarity_flip_allowed()` and set **`flip_block` on the base**. `apply_validity` marks only **`magnitude=flip`** instances (E1-evid, E1-claim, E2) invalid — **not** C0 or INV-claim. So bases such as **P0009**, **P0017** (rule B) and **P0049**, **P0060**, **P0066**, **P0069**, **P0076**, **P0094**, **P0104**, **P0143** (rule H) correctly remain **`valid=true` on C0** while their flip rows carry `invalid_reason`. Earlier notes that “rule B blocked the base” were imprecise.
+
+**Human vs automatic gates.** Automatic QC is a **pre-filter**; reported paired POL E1/E2 analyses use **`qc/e1_pol_review.csv` PI_ok=Y (26 bases)**. Only **12/26** currently have valid flip instances in `instances_main.jsonl` / `cpu_early` (scores exist for those); the other 14 human-accepted flips still need instance/score alignment (audit flip text exists but `valid=false`).
+
+**INV LLM paraphrase.** High rule+validator pass rate but low human PI_ok (DOSE 58%, POL 69%) — see PI manual review section.
