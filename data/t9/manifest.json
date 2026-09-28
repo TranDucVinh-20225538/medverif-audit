@@ -1,0 +1,21 @@
+{
+  "nemoguardrails_pin": "0.24.1",
+  "groups": {
+    "a_verbatim": 59,
+    "b_reexpressed": 130,
+    "c_e1_x2": 117,
+    "d_t7_e1_unit": 230,
+    "all": 536
+  },
+  "paths": {
+    "a": "data/t9/instances_a_verbatim.jsonl",
+    "b": "data/t9/instances_b_reexpressed.jsonl",
+    "c": "data/t9/instances_c_e1_x2.jsonl",
+    "d": "data/t9/instances_d_t7_e1_unit.jsonl",
+    "all": "data/t9/instances_all.jsonl"
+  },
+  "b_strata": {
+    "eco_reexpressed": 27,
+    "inv_unit_natural": 103
+  }
+}
