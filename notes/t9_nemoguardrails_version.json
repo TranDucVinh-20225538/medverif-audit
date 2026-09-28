@@ -1,0 +1,7 @@
+{
+  "nemoguardrails": "0.24.1",
+  "rail_logic": "scripts/t9_score_alignscore_rail.py mirrors alignscore_check_facts + _fact_check_outcome (threshold 0.5)",
+  "alignscore_checkpoint": "AlignScore-base.ckpt (official NeMo default)",
+  "alignscore_endpoint": "http://127.0.0.1:5000/alignscore_base",
+  "server": "scripts/nemo_alignscore_http_server.py (NeMo-compatible HTTP API)"
+}
