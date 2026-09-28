@@ -1,0 +1,72 @@
+[
+  {
+    "input": "",
+    "released_score": 1.0,
+    "study_verdict": "PARSE_FAIL"
+  },
+  {
+    "input": "True",
+    "released_score": 1.0,
+    "study_verdict": "PASS"
+  },
+  {
+    "input": "False",
+    "released_score": 0.0,
+    "study_verdict": "FAIL"
+  },
+  {
+    "input": "true.",
+    "released_score": 1.0,
+    "study_verdict": "PASS"
+  },
+  {
+    "input": "not true",
+    "released_score": 1.0,
+    "study_verdict": "PASS"
+  },
+  {
+    "input": "untrue",
+    "released_score": 1.0,
+    "study_verdict": "PARSE_FAIL"
+  },
+  {
+    "input": "yes",
+    "released_score": 1.0,
+    "study_verdict": "PARSE_FAIL"
+  },
+  {
+    "input": "no",
+    "released_score": 1.0,
+    "study_verdict": "PARSE_FAIL"
+  },
+  {
+    "input": "The answer is true",
+    "released_score": 1.0,
+    "study_verdict": "PASS"
+  },
+  {
+    "input": "false true",
+    "released_score": 1.0,
+    "study_verdict": "PASS"
+  },
+  {
+    "input": "true false",
+    "released_score": 0.0,
+    "study_verdict": "FAIL"
+  },
+  {
+    "input": "I cannot tell",
+    "released_score": 0.0,
+    "study_verdict": "PARSE_FAIL"
+  },
+  {
+    "input": "unknown",
+    "released_score": 0.0,
+    "study_verdict": "PARSE_FAIL"
+  },
+  {
+    "input": "maybe",
+    "released_score": 1.0,
+    "study_verdict": "PARSE_FAIL"
+  }
+]

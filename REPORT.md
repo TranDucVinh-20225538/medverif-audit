@@ -17,8 +17,13 @@ What broke / differs from the prompt:
 
 Key numbers: none from a run. Source facts are in `notes/environment.md`.
 
-Open questions for the PI:
+PI decisions on 2026-09-28, applied:
 
-1. Confirm V1 = `mistralai/Mistral-Small-24B-Instruct-2501` rather than `gpt-4o`.
-2. Confirm V4 uses only the RAGAS NLI prompt on the claim as a single statement (no statement-generator rewrite).
-3. If Textbooks-only evidence is acceptable when StatPearls cannot be fetched from NCBI.
+1. V1 is `mistralai/Mistral-Small-24B-Instruct-2501` revision `9527884`. `gpt-4o` is not run.
+2. V4 is named RAGAS-NLI. Statement decomposition is skipped. Judge will be `Qwen/Qwen3-14B` with thinking off. Not run in Stage 1–2.
+3. Evidence is Textbooks only.
+4. Claim generator is `Qwen/Qwen2.5-32B-Instruct`. Support and INV checks are `microsoft/phi-4`. Neither is V1 or V4.
+5. Unparseable verifier output will be `PARSE_FAIL`. Released V1 parser behavior is in `notes/v1_parser.md`.
+6. GPU jobs use `--gres=gpu:1`, `--mem=64G`, `--exclude=node001`, caches under this repo.
+
+Stage 1–2 is queued as SLURM job `medverif-s12` (`jobs/stage12.sbatch`). It waits until weights are local and the node has at least 40 GB free RAM, then runs a 16-per-type smoke and, if that keeps at least one base pair, the full 180-per-type run. If the node is short on RAM it releases the GPU and resubmits 15 minutes later. Stage 3 is not queued.

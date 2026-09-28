@@ -1,0 +1,36 @@
+{
+  "chunks": 125847,
+  "sentences": 795464,
+  "pool_DOSE": 1541,
+  "pool_POLARITY": 652,
+  "extract_drops": {
+    "DOSE:sentence_length": 187285,
+    "POLARITY:sentence_length": 187285,
+    "DOSE:table_or_figure": 57832,
+    "POLARITY:table_or_figure": 57832,
+    "POLARITY:no_drug_context": 1882,
+    "DOSE:calculation": 161,
+    "POLARITY:calculation": 161,
+    "DOSE:range_dose": 769,
+    "DOSE:no_dose_context": 892,
+    "DOSE:multi_dose": 910,
+    "POLARITY:duplicate_sentence": 24,
+    "POLARITY:multi_polarity": 51,
+    "POLARITY:polarity_infinitive": 311,
+    "DOSE:duplicate_sentence": 43,
+    "DOSE:unit_not_convertible": 43
+  },
+  "selection": {
+    "DOSE:book_cap": 571,
+    "DOSE:attempt_cap": 790,
+    "DOSE:selected": 180,
+    "POLARITY:book_cap": 259,
+    "POLARITY:attempt_cap": 213,
+    "POLARITY:selected": 180
+  },
+  "selected": 360,
+  "seed": 42,
+  "per_book": 25,
+  "per_passage": 2,
+  "attempt_per_type": 180
+}

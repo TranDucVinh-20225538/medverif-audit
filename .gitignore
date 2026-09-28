@@ -10,3 +10,6 @@ data/raw_corpora/
 *.bin
 wandb/
 .ipynb_checkpoints/
+.cache/
+jobs/logs/
+data/smoke/

@@ -1,0 +1,43 @@
+# Frozen Stage 1–2 settings. Models were verified on Hugging Face on 2026-09-28.
+# gpt-4o is not used. V1 and V4 checkpoints are not used for generation or QC.
+
+corpus: MedRAG/textbooks
+statpearls: not used
+
+claim_generator:
+  model: Qwen/Qwen2.5-32B-Instruct
+  revision: 5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd
+  license: apache-2.0
+  temperature: 0
+  seed: 42
+  max_tokens: 256
+  thinking: not applicable
+
+support_validator:
+  model: microsoft/phi-4
+  revision: 2db69c1c3e91a05d2c64a3185acfbaf36f744e25
+  license: mit
+  temperature: 0
+  seed: 42
+  max_tokens: 16
+  task: evidence fully supports claim, YES/NO
+
+inv_meaning_checker:
+  model: microsoft/phi-4
+  revision: 2db69c1c3e91a05d2c64a3185acfbaf36f744e25
+  temperature: 0
+  seed: 42
+  max_tokens: 16
+
+selection:
+  seed: 42
+  attempt_per_type: 180
+  per_book: 25
+  per_passage: 2
+  evidence_window: target sentence plus one neighbor on each side when present
+
+not_used:
+  - gpt-4o
+  - mistralai/Mistral-Small-24B-Instruct-2501
+  - Qwen/Qwen3-14B
+  - google/medgemma-27b-text-it
