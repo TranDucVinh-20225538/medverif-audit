@@ -3,7 +3,15 @@
 from __future__ import annotations
 
 import json
+import os
+import time
 from pathlib import Path
+
+PARA_CHUNK = 32
+
+
+def log(msg: str) -> None:
+    print(msg, flush=True)
 
 from qc_v3 import extra_hedges, sentence_rule_failure, span_once
 from stage12_llm import (
@@ -100,33 +108,44 @@ def phi_labels(llm, tokenizer, system: str, users: list[str]) -> list[str]:
 
 
 def generate_round(pending: list[dict], attempt: int) -> list[dict]:
+    if not pending:
+        return []
+    log(f"generate_round attempt={attempt} n={len(pending)} chunk={PARA_CHUNK}")
     llm = load_llm(GEN_MODEL, GEN_REV)
+    log(f"qwen loaded attempt={attempt}")
     tokenizer = llm.get_tokenizer()
     from vllm import SamplingParams
 
-    prompts = []
-    for row in pending:
-        user = (
-            f"Target span (copy verbatim, once): {row['span']}\n"
-            f"Original sentence:\n{row['claim']}\n"
-            f"Instruction: {HINTS[attempt - 1]}"
-        )
-        prompts.append(render(tokenizer, PARA_SYSTEM, user))
-    outputs = llm.generate(prompts, SamplingParams(temperature=0.0, max_tokens=160, seed=42))
-    records = []
-    for row, out in zip(pending, outputs):
-        text = (out.outputs[0].text or "").strip().split("\n")[0].strip().strip('"')
-        records.append({
-            "base_id": row["base_id"],
-            "attempt": attempt,
-            "text": text,
-            "rule": rule_failure(row["claim"], text, row["span"]),
-            "fluency": None,
-            "meaning": None,
-            "passed": False,
-            "raw_output": out.outputs[0].text,
-        })
+    params = SamplingParams(temperature=0.0, max_tokens=160, seed=42)
+    records: list[dict] = []
+    for start in range(0, len(pending), PARA_CHUNK):
+        chunk = pending[start : start + PARA_CHUNK]
+        prompts = []
+        for row in chunk:
+            user = (
+                f"Target span (copy verbatim, once): {row['span']}\n"
+                f"Original sentence:\n{row['claim']}\n"
+                f"Instruction: {HINTS[attempt - 1]}"
+            )
+            prompts.append(render(tokenizer, PARA_SYSTEM, user))
+        t0 = time.perf_counter()
+        outputs = llm.generate(prompts, params)
+        log(f"qwen gen attempt={attempt} chunk {start // PARA_CHUNK + 1} n={len(chunk)} sec={time.perf_counter() - t0:.1f}")
+        for row, out in zip(chunk, outputs):
+            text = (out.outputs[0].text or "").strip().split("\n")[0].strip().strip('"')
+            records.append({
+                "base_id": row["base_id"],
+                "attempt": attempt,
+                "text": text,
+                "rule": rule_failure(row["claim"], text, row["span"]),
+                "fluency": None,
+                "meaning": None,
+                "passed": False,
+                "raw_output": out.outputs[0].text,
+            })
+        append_jsonl(OUT / "para_attempts.jsonl", records[-len(chunk) :])
     unload(llm)
+    log(f"qwen unloaded attempt={attempt}")
     return records
 
 
@@ -205,8 +224,10 @@ def label_kinds(llm, tokenizer, todo: list[dict]) -> None:
 
 
 def main() -> None:
+    log(f"generate_v3 start host={os.uname().nodename} pid={os.getpid()}")
     todo = read_jsonl(OUT / "paraphrase_todo.jsonl")
     flips = read_jsonl(OUT / "flip_fluency_todo.jsonl")
+    log(f"todo paraphrase={len(todo)} flips={len(flips)}")
     by_base: dict[str, list[dict]] = {}
     for row in read_jsonl(OUT / "para_attempts.jsonl"):
         by_base.setdefault(row["base_id"], []).append(row)
@@ -232,7 +253,8 @@ def main() -> None:
             side_done = True
         for row in fresh:
             by_base.setdefault(row["base_id"], []).append(row)
-        append_jsonl(OUT / "para_attempts.jsonl", fresh)
+        if fresh:
+            log(f"attempt {attempt} wrote {len(fresh)} rows (incremental flush in generate_round)")
     from apply_v3 import main as apply_main
     apply_main()
     from write_qc_v3 import main as qc_main

@@ -14,6 +14,7 @@ wandb/
 jobs/logs/
 data/smoke/
 tests/smoke_results/
+tests/*_study.jsonl
 results/raw/
 results/raw_threshold/
 *.jsonl.bak

@@ -1,6 +1,6 @@
 # REPORT
 
-**Daily status (2026-09-28):** Job **61388** (`medverif-v3`) running — Qwen paraphrase + Phi-4; no `apply_stats.json` yet. **V1:** 10/10 shard headers OK (`notes/v1_shard_headers.json`); scoring stores full `raw_output` + released score; study label via `reparse_v1_study.py`. **Weights PID 3863732** still downloading (V2b+); 4.4 GB consolidated `.incomplete` left untouched. **Next:** PI QC review after 61388; then `not_remove` mining, V4/V2b GPU scoring; CPU early blocked (`nltk` missing in `.cache/cpu_extra`).
+**Daily status (2026-09-28):** Cancelled stuck **61388** (GPU 0%, NFS `Dl` on node002). Resubmitted **61394** on **node004** with RAM guard, `HF_HUB_OFFLINE`, chunked paraphrase + flush logs. **V1:** 10/10 shard headers OK (`notes/v1_shard_headers.json`); scoring stores full `raw_output` + released score; study label via `reparse_v1_study.py`. **Weights PID 3863732** still downloading (V2b+); 4.4 GB consolidated `.incomplete` left untouched. **Next:** PI QC review after 61388; then `not_remove` mining, V4/V2b GPU scoring; CPU early blocked (`nltk` missing in `.cache/cpu_extra`).
 
 ## Stage 0 — Environment and sources (2026-09-28)
 
