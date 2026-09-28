@@ -54,6 +54,7 @@ def _base_row(i: int, row: dict, *, condition: str, claim: str, evidence: str, p
         "source_dataset": sub,
         "unit_pair": pair,
         "edit_kind": kind,
+        "aggrefact_label": int(row.get("label", -1)) if row.get("label") is not None else None,
         "content_sha1": content_sha1(claim, evidence),
     }
 

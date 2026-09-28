@@ -98,6 +98,9 @@ def main() -> None:
             all_scored.extend(verdicts)
         bacc = bacc_supported(all_scored)
         t8b_block["bacc_supported_sample"] = bacc
+        qm = t8b_block["false_alarm_fail_rate"].get("qty_match", {})
+        fr = qm.get("fail_rate")
+        t8b_block["qty_match_pass_rate_c0_sanity"] = (1.0 - fr) if fr is not None else None
         report["t8b"]["verifiers"][v] = t8b_block
 
         inv_ids = [r["instance_id"] for r in t8_rows if r.get("condition") == "T8-aggrefact-inv"]

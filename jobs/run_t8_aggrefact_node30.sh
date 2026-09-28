@@ -6,6 +6,11 @@ cd "${ROOT}"
 export PYTHONPATH="${ROOT}/src"
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 
+if [[ -f "${ROOT}/notes/pause_t8_node30" ]]; then
+  echo "T8 node30 paused ($(cat "${ROOT}/notes/pause_t8_node30")) — resolve C0 gate first."
+  exit 0
+fi
+
 INST="${ROOT}/data/t8/instances_aggrefact_inv.jsonl"
 if [[ ! -f "${INST}" ]]; then
   INST="${ROOT}/data/v3/instances_aggrefact_inv.jsonl"
