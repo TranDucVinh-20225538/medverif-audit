@@ -1,0 +1,12 @@
+{
+  "task": "T8 LLM-AggreFact blind-spot + non-med INV-unit generalization",
+  "dataset": "lytang/LLM-AggreFact (HF gated — accept terms, then t8_download_aggrefact.py)",
+  "cache": "data/t8/aggrefact/{dev,test}.jsonl",
+  "unit_audit": "scripts/t8_aggrefact_analysis.py → notes/t8_aggrefact_unit_audit.md",
+  "inv_sample": "data/t8/instances_aggrefact_inv.jsonl (+ data/v3 mirror for node30)",
+  "node30_job": "jobs/run_t8_aggrefact_node30.sh",
+  "budget_usd": 5,
+  "hpc_score": "v1b_medscore on sample (jobs/run_t8_aggrefact.sh)",
+  "node30_score": "V2, V3, 7× T6-A on same instances (manual / extend run_t7 node30 pattern)",
+  "report": "scripts/t8_aggrefact_inv_report.py"
+}

@@ -1,0 +1,105 @@
+{
+  "split": "dev",
+  "n_total": 30420,
+  "by_subdataset": {
+    "AggreFact-CNN": {
+      "n": 459,
+      "claim_with_numeric_dose": 0,
+      "claim_with_numeric_dose_pct": 0.0,
+      "doc_with_numeric_dose": 3,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 0
+    },
+    "AggreFact-XSum": {
+      "n": 777,
+      "claim_with_numeric_dose": 0,
+      "claim_with_numeric_dose_pct": 0.0,
+      "doc_with_numeric_dose": 2,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 0
+    },
+    "ClaimVerify": {
+      "n": 1093,
+      "claim_with_numeric_dose": 0,
+      "claim_with_numeric_dose_pct": 0.0,
+      "doc_with_numeric_dose": 30,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 0
+    },
+    "ExpertQA": {
+      "n": 3773,
+      "claim_with_numeric_dose": 6,
+      "claim_with_numeric_dose_pct": 0.0015902464882056719,
+      "doc_with_numeric_dose": 52,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 5
+    },
+    "FactCheck-GPT": {
+      "n": 1537,
+      "claim_with_numeric_dose": 5,
+      "claim_with_numeric_dose_pct": 0.0032530904359141183,
+      "doc_with_numeric_dose": 22,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 5
+    },
+    "Lfqa": {
+      "n": 2029,
+      "claim_with_numeric_dose": 0,
+      "claim_with_numeric_dose_pct": 0.0,
+      "doc_with_numeric_dose": 0,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 0
+    },
+    "RAGTruth": {
+      "n": 15340,
+      "claim_with_numeric_dose": 5,
+      "claim_with_numeric_dose_pct": 0.0003259452411994785,
+      "doc_with_numeric_dose": 64,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 5
+    },
+    "Reveal": {
+      "n": 1656,
+      "claim_with_numeric_dose": 25,
+      "claim_with_numeric_dose_pct": 0.015096618357487922,
+      "doc_with_numeric_dose": 37,
+      "same_number_diff_unit_pairs": 1,
+      "same_number_diff_unit_pct": 0.0006038647342995169,
+      "non_med_claim_with_dose": 20
+    },
+    "TofuEval-MediaS": {
+      "n": 1800,
+      "claim_with_numeric_dose": 0,
+      "claim_with_numeric_dose_pct": 0.0,
+      "doc_with_numeric_dose": 0,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 0
+    },
+    "TofuEval-MeetB": {
+      "n": 1607,
+      "claim_with_numeric_dose": 8,
+      "claim_with_numeric_dose_pct": 0.004978220286247666,
+      "doc_with_numeric_dose": 57,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 8
+    },
+    "Wice": {
+      "n": 349,
+      "claim_with_numeric_dose": 0,
+      "claim_with_numeric_dose_pct": 0.0,
+      "doc_with_numeric_dose": 3,
+      "same_number_diff_unit_pairs": 0,
+      "same_number_diff_unit_pct": 0.0,
+      "non_med_claim_with_dose": 0
+    }
+  }
+}
