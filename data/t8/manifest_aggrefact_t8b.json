@@ -1,16 +1,10 @@
 {
+  "status": "pending_mismatch_qc",
+  "gate": "qc/t8_mismatch_check.csv PI_ok review → scripts/t8_mismatch_qc_report.py --approve-if-precision (≥80%)",
   "path": "data/t8/instances_aggrefact_t8b.jsonl",
   "path_v3": "data/v3/instances_aggrefact_t8b.jsonl",
-  "supported_total_by_group": {
-    "format_mismatch": 795,
-    "qty_match": 8487,
-    "no_quantity": 36568
-  },
-  "n_sample_per_group": 300,
-  "n_instances": 600,
+  "planned_n_per_group": 300,
   "expected_verdict": "PASS",
-  "groups_scored": [
-    "format_mismatch",
-    "qty_match"
-  ]
+  "groups_scored": ["format_mismatch", "qty_match"],
+  "qty_match_sanity": "verifier pass rate on qty_match stratum (C0-equivalent on supported pairs)"
 }

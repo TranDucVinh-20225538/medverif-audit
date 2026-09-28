@@ -10,6 +10,13 @@ export PYTHONPATH="${ROOT}/src"
 export MEDVERIF_T8_BUDGET_USD="${MEDVERIF_T8B_BUDGET_USD:-3}"
 export MEDVERIF_T8_BUDGET_SCOPE=t8b
 
+if [[ ! -f "${ROOT}/notes/t8_mismatch_qc_approved" ]]; then
+  echo "T8b blocked: label qc/t8_mismatch_check.csv (PI_ok Y/N), then:"
+  echo "  python3 scripts/t8_mismatch_qc_report.py --approve-if-precision"
+  echo "Requires precision >= 80% before build/score."
+  exit 0
+fi
+
 if [[ ! -f "${ROOT}/data/t8/aggrefact/dev.jsonl" ]]; then
   set -a && source ~/kkk/openrouter.env && set +a
   python3 scripts/t8_download_aggrefact.py

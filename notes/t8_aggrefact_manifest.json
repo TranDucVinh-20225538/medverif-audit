@@ -1,14 +1,20 @@
 {
-  "task": "T8 LLM-AggreFact quantity blind-spot + T8b supported subgroup",
+  "task": "T8 LLM-AggreFact quantity audit + T8b supported subgroup (active)",
   "dataset": "lytang/LLM-AggreFact (HF gated — see notes/t8_aggrefact_cache.md)",
   "cache": "data/t8/aggrefact/{dev,test}.jsonl (local only, gitignored)",
   "unit_audit": "scripts/t8_aggrefact_analysis.py → notes/t8_aggrefact_unit_audit.md",
   "mismatch_qc": "scripts/t8_dump_mismatch_qc.py → qc/t8_mismatch_check.csv",
-  "inv_sample": "data/t8/instances_aggrefact_inv.jsonl (+ v3 mirror)",
-  "t8b_sample": "data/t8/instances_aggrefact_t8b.jsonl (300 format-mismatch + 300 qty-match supported)",
+  "mismatch_qc_gate": "scripts/t8_mismatch_qc_report.py --approve-if-precision (≥80%) → notes/t8_mismatch_qc_approved",
+  "synthetic_inv_e1": {
+    "status": "deprecated",
+    "doc": "notes/t8_synthetic_inv_DEPRECATED.md",
+    "instances": "data/t8/instances_aggrefact_inv.jsonl (valid=false)",
+    "node30_job": "jobs/run_t8_aggrefact_node30.sh (disabled)"
+  },
+  "t8b_sample": "data/t8/instances_aggrefact_t8b.jsonl (after QC gate)",
   "raw_results": "results/raw/t8/*.jsonl (versioned)",
   "budget_usd": 3,
-  "hpc_score": "jobs/run_t8_aggrefact.sh, jobs/run_t8b_aggrefact.sh (v1b)",
-  "node30_score": "jobs/run_t8_aggrefact_node30.sh, jobs/run_t8b_aggrefact_node30.sh",
-  "reports": "scripts/t8_aggrefact_inv_report.py, scripts/t8b_report.py"
+  "hpc_score": "jobs/run_t8b_aggrefact.sh (v1b, gated)",
+  "node30_score": "jobs/run_t8b_aggrefact_node30.sh",
+  "reports": "scripts/t8b_report.py"
 }
