@@ -1,0 +1,211 @@
+{
+  "pol_flip_instances": 234,
+  "flip_mechanism_counts": {
+    "not_remove": 130,
+    "not_insert": 104
+  },
+  "policy_ok": false,
+  "violations": [
+    {
+      "base_id": "P0024",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0024",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0029",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0029",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0061",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0061",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0062",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0062",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0068",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0068",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0070",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0070",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0077",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0077",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0078",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0078",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0088",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0088",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0100",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0100",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0105",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0105",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0118",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0118",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0119",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0119",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0124",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0124",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0137",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0139",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0139",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0157",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0157",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0158",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0158",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0159",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0159",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0160",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0160",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0162",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0162",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0175",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0175",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0176",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0176",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0187",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0187",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0201",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0201",
+      "reason": "not_insert_not_clause_final"
+    },
+    {
+      "base_id": "P0204",
+      "reason": "not_insert_not_clause_final"
+    }
+  ],
+  "n_violations": 101
+}

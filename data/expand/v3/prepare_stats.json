@@ -1,0 +1,13 @@
+{
+  "bases_main_after_v3": 557,
+  "bases_main_by_type": {
+    "POLARITY": 240,
+    "DOSE": 317
+  },
+  "instances_main_valid": 3203,
+  "invalid": 123,
+  "prepare_counts": {
+    "bases": 665,
+    "exclude": 70
+  }
+}

@@ -1,6 +1,6 @@
 # Expansion status (expanded set)
 
-Updated: 2026-09-29 01:13 +07
+Updated: 2026-09-29 02:38 +07
 
 ## StatPearls
 - Pipeline stage: **chunked**
@@ -14,8 +14,8 @@ Updated: 2026-09-29 01:13 +07
 - Used v2 sentence keys excluded: 246
 
 ## Natural INV-unit (all DOSE main, rule-based)
-- Valid unit INV instances: **70**
-- Bases with unit INV: **70**
+- Valid unit INV instances: **68**
+- Bases with unit INV: **68**
 
 ## Review packs
 - `qc/expand_pol_flips.csv`
