@@ -7,5 +7,5 @@ if tmux has-session -t "${SESSION}" 2>/dev/null; then
   exit 0
 fi
 tmux new-session -d -s "${SESSION}" \
-  "bash ${ROOT}/jobs/lib/openrouter_retry.sh ${ROOT}/jobs/run_t4_eco_openrouter.sh"
+  "bash ${ROOT}/jobs/lib/openrouter_retry.sh ${ROOT}/jobs/run_t4_eco_answer_only.sh"
 echo "started tmux ${SESSION}"

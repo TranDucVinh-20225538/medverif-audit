@@ -1,10 +1,10 @@
 {
   "answerers": [
     {
-      "id": "gemma3_4b",
-      "openrouter_model": "google/gemma-3-4b-it",
+      "id": "gemma3_27b",
+      "openrouter_model": "google/gemma-3-27b-it",
       "provider": "",
-      "note": "gemma-2-9b-it 404 on OR; using gemma-3-4b-it (Google Gemma, non-excluded family)"
+      "note": "Switched from gemma3_4b 2026-09-29; OR probe OK for gemma-3-27b-it"
     },
     {
       "id": "deepseek_chat",
@@ -17,7 +17,20 @@
       "provider": "Cohere"
     }
   ],
+  "gemma_selection_log": [
+    {
+      "at": "2026-09-29T00:57+07:00",
+      "chosen": "google/gemma-3-4b-it",
+      "reason": "gemma-2-9b-it 404"
+    },
+    {
+      "at": "2026-09-29T01:00+07:00",
+      "chosen": "google/gemma-3-27b-it",
+      "reason": "PI request; probed OK (fallback order: 27b > 12b > 4b)"
+    }
+  ],
   "budget_usd": 5.0,
+  "or_max_inflight": 3,
   "excluded_families": [
     "Mistral",
     "Llama",
