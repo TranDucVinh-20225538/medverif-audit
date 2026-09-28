@@ -1,0 +1,22 @@
+{
+  "n_total": 232,
+  "n_e1_unit_evid": 115,
+  "n_e2_x2": 117,
+  "cells": [
+    {
+      "slug": "pxm_gpt4o_ragas",
+      "model": "openai/gpt-4o",
+      "provider": "OpenAI",
+      "prompt": "RAGAS-NLI",
+      "verifier_module": "v4_ragas_nli"
+    },
+    {
+      "slug": "pxm_sonnet_medscore",
+      "model": "anthropic/claude-sonnet-4.6",
+      "provider": "Anthropic",
+      "prompt": "MedScore-provided",
+      "verifier_module": "v1b_medscore"
+    }
+  ],
+  "budget_usd": 2.0
+}
