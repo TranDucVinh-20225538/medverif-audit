@@ -1,0 +1,8 @@
+{
+  "path": "data/t8/instances_aggrefact_inv.jsonl",
+  "path_v3": "data/v3/instances_aggrefact_inv.jsonl",
+  "n_candidates": 34,
+  "n_selected": 34,
+  "target": 200,
+  "expected_verdict": "FAIL"
+}
