@@ -1,0 +1,14 @@
+{
+  "v1b_medscore": {
+    "openrouter_model": "openai/gpt-4o",
+    "provider": "OpenAI",
+    "prompt": "MedScore provided-evidence (same as V1)"
+  },
+  "v5_ragas_nli": {
+    "openrouter_model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "prompt": "RAGAS-NLI (verifiers/ragas_nli_prompt.py)",
+    "temperature": 0.0,
+    "rationale": "Anthropic family not used elsewhere (avoids Gemini G-validator circularity)"
+  }
+}

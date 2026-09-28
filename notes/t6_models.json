@@ -1,0 +1,46 @@
+{
+  "t6b_openrouter": [
+    {
+      "slug": "v6_ragas_gpt4o_mini",
+      "verifier_module": "v6_ragas_nli",
+      "openrouter_model": "openai/gpt-4o-mini",
+      "provider": "OpenAI",
+      "prompt": "RAGAS-NLI",
+      "temperature": 0.0
+    },
+    {
+      "slug": "v6_ragas_haiku45",
+      "verifier_module": "v6_ragas_nli",
+      "openrouter_model": "anthropic/claude-haiku-4.5",
+      "provider": "Anthropic",
+      "prompt": "RAGAS-NLI",
+      "temperature": 0.0
+    },
+    {
+      "slug": "v6_ragas_llama31_8b",
+      "verifier_module": "v6_ragas_nli",
+      "openrouter_model": "meta-llama/llama-3.1-8b-instruct",
+      "provider": "DeepInfra",
+      "prompt": "RAGAS-NLI",
+      "temperature": 0.0
+    },
+    {
+      "slug": "v6_ragas_mistral_small32",
+      "verifier_module": "v6_ragas_nli",
+      "openrouter_model": "mistralai/mistral-small-3.2-24b-instruct",
+      "provider": "DeepInfra",
+      "prompt": "RAGAS-NLI",
+      "temperature": 0.0
+    },
+    {
+      "slug": "v1c_medscore",
+      "verifier_module": "v1c_medscore",
+      "openrouter_model": "openai/gpt-4o-mini",
+      "provider": "OpenAI",
+      "prompt": "MedScore",
+      "temperature": 0.0
+    }
+  ],
+  "excluded_families": ["google/gemini", "qwen"],
+  "budget_usd_t6b": 10.0
+}
