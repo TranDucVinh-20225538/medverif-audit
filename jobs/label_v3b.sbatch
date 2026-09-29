@@ -13,6 +13,10 @@
 set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
 cd "${ROOT}"
+if [[ -f "${ROOT}/notes/HOLD_medverif_v3" ]]; then
+  echo "BLOCKED: notes/HOLD_medverif_v3 present — exit without running" >&2
+  exit 0
+fi
 export HF_HOME="${ROOT}/.cache/huggingface"
 export HUGGINGFACE_HUB_CACHE="${HF_HOME}/hub"
 export VLLM_CACHE_ROOT="${ROOT}/.cache/vllm"

@@ -6,6 +6,8 @@ import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from human_review_overrides import apply_human_overrides
+from non_dose_targets import invalidate_non_dose_row
 from perturb import perturb_one
 from qc_v3 import (
     dose_kind_v3,
@@ -23,8 +25,9 @@ from qc_v3 import (
 from text_utils import rephrase_polarity_cue
 
 ROOT = Path("/data2/hpcshared/medverif-audit")
-V2 = ROOT / "data" / "v2"
-OUT = ROOT / "data" / "v3"
+_EXPAND = __import__("os").environ.get("MEDVERIF_QC_V3_EXPAND") == "1"
+V2 = ROOT / ("data/expand" if _EXPAND else "data/v2")
+OUT = ROOT / ("data/expand/v3" if _EXPAND else "data/v3")
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -39,11 +42,10 @@ def read_jsonl(path: Path) -> list[dict]:
     return out
 
 
-def write_jsonl(path: Path, rows: list[dict]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w") as handle:
-        for row in rows:
-            handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+def write_jsonl(path: Path, rows: list[dict], *, allow_shrink: bool | None = None) -> None:
+    from safe_jsonl import write_jsonl_atomic
+
+    write_jsonl_atomic(path, rows, allow_shrink=allow_shrink)
 
 
 def load_bases() -> dict[str, dict]:
@@ -73,6 +75,7 @@ def base_meta(base: dict) -> dict:
         "subset": base.get("subset") or "main",
         "ocr_noise": bool(neigh_ocr) and not target_ocr,
         "c0_drift": bool(extra_hedges(claim, target)),
+        "c0_qc_fail": base.get("c0_qc_fail"),
         "dose_kind": None,
         "domain_kind": None,
         "flip_block": None,
@@ -91,8 +94,8 @@ def base_meta(base: dict) -> dict:
 
 def rebuild_base_instances(base: dict, meta: dict) -> list[dict]:
     row = dict(base)
-    row["subset"] = meta["subset"]
-    if meta["flip_block"]:
+    row["subset"] = meta.get("subset") or row.get("subset") or "main"
+    if meta.get("flip_block"):
         row["_skip_flip"] = True
     instances, failed = perturb_one(row)
     if failed:
@@ -102,18 +105,19 @@ def rebuild_base_instances(base: dict, meta: dict) -> list[dict]:
         inst["domain_kind"] = meta.get("domain_kind") if inst["type"] == "POLARITY" else None
         inst["ocr_noise"] = meta["ocr_noise"]
         inst["c0_drift"] = meta["c0_drift"]
-        inst["subset"] = meta["subset"]
+        inst["subset"] = meta.get("subset") or inst.get("subset") or "main"
         inst["valid"] = True
         inst["invalid_reason"] = None
     return instances
 
 
 def apply_validity(inst: dict, meta: dict, flip_block: str | None) -> None:
-    if inst.get("magnitude") == "paraphrase" or inst["instance_id"].endswith("paraphrase_v3"):
-        inst["valid"] = False
-        inst["invalid_reason"] = "inv_paraphrase_regen"
-        return
-    if (
+    invalid: str | None = None
+    if inst.get("condition") == "C0" and meta.get("c0_qc_fail"):
+        invalid = str(meta["c0_qc_fail"])
+    elif inst.get("magnitude") == "paraphrase" or inst["instance_id"].endswith("paraphrase_v3"):
+        invalid = "inv_paraphrase_regen"
+    elif (
         inst.get("magnitude") == "rephrase"
         and inst.get("condition") == "INV-claim"
         and inst.get("type") == "POLARITY"
@@ -122,38 +126,39 @@ def apply_validity(inst: dict, meta: dict, flip_block: str | None) -> None:
         if diff.get("rephrase_nonequivalent") or (
             (inst.get("claim") or "") == (inst.get("claim_c0") or "")
         ):
-            inst["valid"] = False
-            inst["invalid_reason"] = "pol_rephrase_nonequivalent"
-            return
-        reason = sentence_rule_failure(inst.get("claim") or "")
-        if reason:
-            inst["valid"] = False
-            inst["invalid_reason"] = f"sentence:{reason}"
-            return
-        # Same main-analysis gate as POLARITY C0 (QC I: treatment domain; main subset only).
-        if meta.get("subset") != "main":
-            inst["valid"] = False
-            inst["invalid_reason"] = "pol_rephrase_not_main"
-            return
-        if not main_polarity_domain(meta.get("domain_kind")):
-            inst["valid"] = False
-            inst["invalid_reason"] = f"pol_rephrase_domain:{meta.get('domain_kind')}"
-            return
-    if meta["subset"] == "excluded_scope":
+            invalid = "pol_rephrase_nonequivalent"
+        else:
+            reason = sentence_rule_failure(inst.get("claim") or "")
+            if reason:
+                invalid = f"sentence:{reason}"
+            elif meta.get("subset") not in (None, "main"):
+                invalid = "pol_rephrase_not_main"
+            elif not main_polarity_domain(meta.get("domain_kind")):
+                invalid = f"pol_rephrase_domain:{meta.get('domain_kind')}"
+    elif meta.get("subset") == "excluded_scope":
+        invalid = "scope"
+    elif inst["type"] == "POLARITY" and inst.get("magnitude") == "flip" and flip_block:
+        invalid = flip_block
+    elif (
+        inst["type"] == "POLARITY"
+        and inst["condition"] == "C0"
+        and meta.get("subset") == "main"
+        and not main_polarity_domain(meta.get("domain_kind"))
+    ):
+        invalid = f"domain_not_treatment:{meta.get('domain_kind')}"
+
+    if invalid:
         inst["valid"] = False
-        inst["invalid_reason"] = "scope"
-        return
-    if inst["type"] == "POLARITY" and inst.get("magnitude") == "flip" and flip_block:
-        inst["valid"] = False
-        inst["invalid_reason"] = flip_block
-        return
-    if inst["type"] == "POLARITY" and inst["condition"] == "C0" and meta["subset"] == "main":
-        if not main_polarity_domain(meta.get("domain_kind")):
+        inst["invalid_reason"] = invalid
+    else:
+        inst["valid"] = True
+        inst["invalid_reason"] = None
+    if inst.get("type") == "DOSE" and inst.get("condition") == "C0":
+        invalidate_non_dose_row(inst)
+        if inst.get("invalid_reason") == "non_dose_target":
             inst["valid"] = False
-            inst["invalid_reason"] = f"domain_not_treatment:{meta.get('domain_kind')}"
-            return
-    inst["valid"] = True
-    inst["invalid_reason"] = None
+    if invalid != "inv_paraphrase_regen":
+        apply_human_overrides(inst)
 
 
 def valid_counts(rows: list[dict]) -> dict:
@@ -184,8 +189,8 @@ def main() -> None:
             continue
         if meta.get("flip_block") or meta.get("range_endpoint"):
             rebuild_ids.add(bid)
-        # Always rebuild POLARITY to pick up rephrase INV template (G).
-        if bases[bid]["type"] == "POLARITY":
+        # Rebuild POLARITY/DOSE for template INV and natural unit INV rules.
+        if bases[bid]["type"] in {"POLARITY", "DOSE"}:
             rebuild_ids.add(bid)
 
     new_audit = []
@@ -238,11 +243,19 @@ def main() -> None:
             seen_flip.add(bid)
             flips.append({"base_id": bid, "claim": inst["claim"], "span": inst.get("claim_span") or ""})
 
-    # Reset LLM paraphrase artifacts (G).
-    backup = OUT / "para_attempts.pre_qc_v3.jsonl"
-    if (OUT / "para_attempts.jsonl").exists():
-        backup.write_text((OUT / "para_attempts.jsonl").read_text())
-    write_jsonl(OUT / "para_attempts.jsonl", [])
+    # Reset LLM paraphrase artifacts (G) — opt-in only (avoid accidental truncation).
+    import os
+    from safe_jsonl import backup_file, write_jsonl_atomic
+
+    para_path = OUT / "para_attempts.jsonl"
+    if os.environ.get("MEDVERIF_QC_V3_RESET_PARA", "").lower() in ("1", "true", "yes"):
+        pre = OUT / "para_attempts.pre_qc_v3.jsonl"
+        bak = backup_file(para_path)
+        if para_path.exists() and para_path.stat().st_size > 0:
+            pre.write_bytes(para_path.read_bytes())
+        write_jsonl_atomic(para_path, [], allow_shrink=True)
+        if bak:
+            print(json.dumps({"para_attempts_backup": str(bak), "pre_qc_copy": str(pre)}))
     write_jsonl(OUT / "paraphrase_todo.jsonl", todo)
     write_jsonl(OUT / "flip_fluency_todo.jsonl", flips)
     write_jsonl(OUT / "instances_audit.jsonl", new_audit)

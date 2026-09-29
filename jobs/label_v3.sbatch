@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
-#SBATCH --time=03:00:00
+#SBATCH --time=08:00:00
 #SBATCH --signal=B:TERM@120
 #SBATCH --open-mode=append
 #SBATCH --output=/data2/hpcshared/medverif-audit/jobs/logs/%x-%j.out
@@ -14,6 +14,10 @@ set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
 cd "${ROOT}"
 mkdir -p jobs/logs
+if [[ -f "${ROOT}/notes/HOLD_medverif_v3" ]]; then
+  echo "BLOCKED: notes/HOLD_medverif_v3 present — exit without running" >&2
+  exit 0
+fi
 
 resubmit() {
   local why="$1"
@@ -46,7 +50,13 @@ export PYTHONPATH="${ROOT}/src"
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
 conda activate vllm
 source "${ROOT}/jobs/lib/gpu_graceful.sh"
+source "${ROOT}/jobs/lib/job_elapsed.sh"
+medverif_job_elapsed_begin \
+  --pack "data/v3/paraphrase_todo.jsonl (qc_v3)" \
+  --verifier "generate_v3 (Qwen2.5-32B + Phi-4)" \
+  --machine "hpc"
 gpu_graceful_init
 gpu_run python -u src/generate_v3.py
-echo "DEPRECATED: use jobs/submit_priority.sh (V1 cpu_early + label_v3b). $(date -Is)"
-exit 1
+PARA="${ROOT}/data/v3/para_attempts.jsonl"
+medverif_job_elapsed_end --rows "$(wc -l < "${PARA}" 2>/dev/null || echo 0)"
+echo "medverif-v3 finished $(date -Is)"

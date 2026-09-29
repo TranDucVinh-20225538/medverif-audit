@@ -78,6 +78,8 @@ def append_jsonl(path: Path, rows: list[dict]) -> None:
     with path.open("a") as handle:
         for row in rows:
             handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+            handle.flush()
+            os.fsync(handle.fileno())
 
 
 def rule_failure(original: str, rewrite: str, span: str) -> str | None:

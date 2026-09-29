@@ -1,0 +1,2 @@
+Do not submit jobs/label_v3.sbatch until user confirms QC v3 full pipeline (Qwen+Phi) is still required.
+Job 61441 was cancelled 2026-09-29 (~7m RUNNING) after hold request.

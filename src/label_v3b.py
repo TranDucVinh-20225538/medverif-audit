@@ -26,10 +26,9 @@ PHI_BATCH = 64
 
 
 def write_jsonl(path: Path, rows: list[dict]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w") as handle:
-        for row in rows:
-            handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+    from safe_jsonl import write_jsonl_atomic
+
+    write_jsonl_atomic(path, rows)
 
 
 def load_attempts() -> list[dict]:

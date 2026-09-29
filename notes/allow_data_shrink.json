@@ -1,0 +1,4 @@
+{
+  "comment": "List paths allowed to shrink vs git HEAD on commit/push. Use only for intentional resets.",
+  "paths": []
+}
