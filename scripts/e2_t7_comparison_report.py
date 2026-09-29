@@ -28,6 +28,7 @@ SCORE_DIRS = [
     ROOT / "results/raw/t2_full",
     ROOT / "results/raw/t7",
     ROOT / "results/raw/t3",
+    ROOT / "results/raw/t4c_eco",
 ]
 
 
@@ -35,16 +36,20 @@ def all_verifier_slugs() -> list[str]:
     slugs: set[str] = set()
     for d in SCORE_DIRS:
         if d.is_dir():
-            slugs.update(p.stem for p in d.glob("*.jsonl"))
+            for p in d.glob("*.jsonl"):
+                if ".legacy." in p.name or ".llama." in p.name or "quarantine" in p.name:
+                    continue
+                slugs.add(p.stem)
     if T6A.is_file():
         for c in json.loads(T6A.read_text()).get("checkers", []):
             slugs.add(c["id"])
-    slugs.add("v2b_bespoke")
+    if any((d / "t6_bespoke_minicheck.jsonl").is_file() for d in SCORE_DIRS):
+        slugs.add("v2b_bespoke")
     return sorted(slugs)
 
 
 def merged_scores(slug: str) -> dict[str, str]:
-    """Merge raw (C0/main) → e2_main → t7 so E2|T7 cells share one map per slug."""
+    """Merge e2_main → raw/t7 → other dirs (later paths override)."""
     m: dict[str, str] = {}
     paths: list[Path] = []
     if T6A.is_file():
@@ -156,7 +161,7 @@ def main() -> None:
         "| verifier | E2 PASS (|C0) | E1-unit-claim FAIL | E1-unit-evid FAIL |",
         "|---|---:|---:|---:|",
     ]
-    for v, cell in table.items():
+    for v, cell in sorted(table.items()):
         e2s = fmt(cell["e2_pass_rate"])
         if cell["e2_n"]:
             e2s += f" ({cell['e2_pass']}/{cell['e2_n']})"
