@@ -23,6 +23,7 @@ OUT_T3_INV = ROOT / "data" / "v3" / "instances_score_pending_t3_inv.jsonl"
 POL_FLIP = ROOT / "data/v3/instances_pol_flip_pending_node30.jsonl"
 M1PLUS = ROOT / "data/v3/instances_m1plus_pending_node30.jsonl"
 OUT_M1PLUS = ROOT / "data/v3/instances_m1plus_score_pending_node30.jsonl"
+T3_BESPOKE = ROOT / "data/v3/instances_t3_bespoke_pending_node30.jsonl"
 RAW_M1PLUS = ROOT / "results/raw_m1plus"
 META = ROOT / "notes/score_pending_manifest.json"
 
@@ -101,6 +102,7 @@ def main() -> None:
     pending_expand = [r for r in expand_rows if r["instance_id"] not in done]
     write_jsonl(OUT_EXPAND, pending_expand)
     pol_flip = read_jsonl(POL_FLIP)
+    t3_bespoke = read_jsonl(T3_BESPOKE)
     m1plus_done = m1plus_scored_ids()
     m1plus_all = read_jsonl(M1PLUS)
     pending_m1plus = [r for r in m1plus_all if r["instance_id"] not in m1plus_done]
@@ -108,7 +110,7 @@ def main() -> None:
 
     write_jsonl(OUT_CPU, pending_cpu)
     write_jsonl(OUT_G, pending_g)
-    combined = pending_cpu + pending_g + pending_t3 + pending_expand + pol_flip
+    combined = pending_cpu + pending_g + pending_t3 + pending_expand + pol_flip + t3_bespoke
     write_jsonl(OUT_NODE30, combined)
     manifest = {
         "scored_ids_in_raw_v2v3": len(done),
@@ -117,6 +119,7 @@ def main() -> None:
         "pending_node30_total": len(combined),
         "pending_t3_inv_pi_ok": len(pending_t3),
         "pending_pol_flip_rescore": len(pol_flip),
+        "pending_t3_bespoke_node30": len(t3_bespoke),
         "pending_m1plus_node30": len(pending_m1plus),
         "pending_expand_set": len(pending_expand),
         "pending_node30_includes_expand": len(pending_expand) > 0,
@@ -125,6 +128,7 @@ def main() -> None:
             "g_inv_pending": str(OUT_G.relative_to(ROOT)),
             "t3_inv_pending": str(OUT_T3_INV.relative_to(ROOT)),
             "pol_flip_pending": str(POL_FLIP.relative_to(ROOT)),
+            "t3_bespoke_pending": str(T3_BESPOKE.relative_to(ROOT)),
             "m1plus_pending": str(OUT_M1PLUS.relative_to(ROOT)),
             "node30_combined": str(OUT_NODE30.relative_to(ROOT)),
             "expand_pending": str(OUT_EXPAND.relative_to(ROOT)),

@@ -1,0 +1,7 @@
+{
+  "path": "data/v3/instances_t3_bespoke_pending_node30.jsonl",
+  "n": 35,
+  "pi_ok_label_ids": 36,
+  "score_to": "results/raw/t3/t6_bespoke_minicheck.jsonl or v2b_bespoke.jsonl",
+  "node30_hint": "jobs/run_node30_score_pending.sh or bespoke-only job"
+}

@@ -7,6 +7,7 @@ cd "${ROOT}"
 python3 scripts/build_m1_t7_node30.py
 python3 scripts/build_pol_flip_pending_node30.py
 python3 scripts/build_m1plus_pending_node30.py
+python3 scripts/build_t3_bespoke_pending_node30.py
 python3 scripts/build_score_pending.py
 
 /usr/bin/git add \
@@ -29,6 +30,14 @@ python3 scripts/build_score_pending.py
   data/v3/instances_pol_flip_pending_node30.jsonl \
   data/v3/instances_m1plus_pending_node30.jsonl \
   data/v3/instances_m1plus_score_pending_node30.jsonl \
+  data/v3/instances_t3_bespoke_pending_node30.jsonl \
+  scripts/build_t3_bespoke_pending_node30.py \
+  notes/m1plus_pending_node30.md \
+  notes/t3_bespoke_pending_node30_manifest.json \
+  results/tables/t3_family_pass.md \
+  notes/t3_family_pass.json \
+  notes/e2_t7_verifier_comparison.md \
+  notes/e2_t7_verifier_comparison.json \
   qc/e1_pol_review.csv \
   data/v3/instances_score_pending_node30.jsonl \
   data/v3/instances_score_pending_t3_inv.jsonl \
