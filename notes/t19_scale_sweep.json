@@ -1,42 +1,42 @@
 {
-  "instances": 1060,
+  "instances": 1623,
   "models": [
     {
       "slug": "llama32_1b",
       "label": "1B",
       "params_b": 1.0,
-      "QI": null,
+      "QI": 0.9411764705882353,
       "QI_ci": [
-        null,
-        null
+        0.8235294117647058,
+        1.0
       ],
-      "NS": null,
+      "NS": 0.05263157894736842,
       "NS_ci": [
-        null,
-        null
+        0.03313840155945419,
+        0.07212475633528265
       ],
-      "US": null,
-      "C0_pass": null,
+      "US": 0.9411764705882353,
+      "C0_pass": 0.8761904761904762,
       "C0_ci": [
-        null,
-        null
+        0.8095238095238095,
+        0.9333333333333333
       ],
-      "n_inv": 0,
-      "n_e1": 0,
-      "n_c0": 0,
-      "AUROC_C0_vs_Conv": null,
+      "n_inv": 17,
+      "n_e1": 513,
+      "n_c0": 105,
+      "AUROC_C0_vs_Conv": 0.5306735306735306,
       "AUROC_C0_vs_Conv_ci": [
-        null,
-        null
+        0.3991228070175439,
+        0.6585648148148148
       ],
-      "AUROC_Conv_vs_Unit": null,
+      "AUROC_Conv_vs_Unit": 0.5049135220125787,
       "AUROC_Conv_vs_Unit_ci": [
-        null,
-        null
+        0.3875,
+        0.6235750666990055
       ],
-      "n_c0_conv": 0,
-      "n_conv_unit": 0,
-      "n_scored": 0
+      "n_c0_conv": 132,
+      "n_conv_unit": 236,
+      "n_scored": 1623
     },
     {
       "slug": "llama32_3b",
@@ -120,29 +120,29 @@
       "slug": "llama33_70b_api",
       "label": "70B (API)",
       "params_b": 70.0,
-      "QI": 0.7647058823529411,
+      "QI": 0.7272727272727273,
       "QI_ci": [
-        0.6274509803921569,
-        0.8823529411764706
+        0.5454545454545454,
+        0.8636363636363636
       ],
-      "NS": 0.95,
+      "NS": 0.9473684210526315,
       "NS_ci": [
-        0.9275,
-        0.97
+        0.9258373205741627,
+        0.9665071770334929
       ],
-      "US": 0.7647058823529411,
+      "US": 0.7272727272727273,
       "C0_pass": 1.0,
       "C0_ci": [
         1.0,
         1.0
       ],
-      "n_inv": 51,
-      "n_e1": 400,
-      "n_c0": 108,
+      "n_inv": 22,
+      "n_e1": 418,
+      "n_c0": 109,
       "AUROC_C0_vs_Conv": null,
       "AUROC_Conv_vs_Unit": null,
       "note": "AUROC from p_yes requires local scores",
-      "n_scored": 840
+      "n_scored": 816
     }
   ]
 }
