@@ -1,0 +1,56 @@
+{
+  "description": "Canonical OpenRouter model + provider pins for scoring verifiers (single source of truth).",
+  "verifiers": {
+    "v1_medscore": {
+      "openrouter_model": "mistralai/mistral-small-24b-instruct-2501",
+      "provider": "DeepInfra"
+    },
+    "v4_ragas_nli": {
+      "openrouter_model": "meta-llama/llama-3.3-70b-instruct",
+      "provider": "DeepInfra",
+      "temperature": 0,
+      "note": "Qwen3-14B dropped — OpenRouter cannot disable thinking reliably."
+    },
+    "v1b_medscore": {
+      "openrouter_model": "openai/gpt-4o",
+      "provider": "OpenAI"
+    },
+    "v5_ragas_nli": {
+      "openrouter_model": "anthropic/claude-sonnet-4.6",
+      "provider": "Anthropic"
+    },
+    "v6_ragas_gpt4o_mini": {
+      "openrouter_model": "openai/gpt-4o-mini",
+      "provider": "OpenAI"
+    },
+    "v6_ragas_haiku45": {
+      "openrouter_model": "anthropic/claude-haiku-4.5",
+      "provider": "Anthropic"
+    },
+    "v6_ragas_llama31_8b": {
+      "openrouter_model": "meta-llama/llama-3.1-8b-instruct",
+      "provider": "DeepInfra"
+    },
+    "v6_ragas_mistral_small32": {
+      "openrouter_model": "mistralai/mistral-small-3.2-24b-instruct",
+      "provider": "DeepInfra"
+    },
+    "t12_ragas_faithfulness": {
+      "openrouter_model": "openai/gpt-4o-mini",
+      "provider": "OpenAI",
+      "note": "RAGAS default judge when unspecified; pinned for reproducibility."
+    },
+    "t12_deepeval_faithfulness": {
+      "openrouter_model": "gpt-4o",
+      "provider": "OpenAI",
+      "note": "DeepEval FaithfulnessMetric default; via OpenRouter openai/gpt-4o if native key absent."
+    },
+    "t12_trulens_groundedness": {
+      "openrouter_model": "openai/gpt-4o-mini",
+      "provider": "OpenAI",
+      "note": "TruLens groundedness default feedback provider stand-in."
+    }
+  },
+  "file_provenance_llama_v4": [],
+  "file_provenance_quarantine_v4": []
+}

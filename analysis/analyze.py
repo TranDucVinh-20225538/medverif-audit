@@ -91,6 +91,8 @@ def load_joined(instances_path: Path, verdicts_dir: Path) -> list[dict]:
 
 
 def load_joined_from_records(instance_rows: list[dict], verdicts_dir: Path) -> list[dict]:
+    from verifier_score_paths import read_verifier_scores
+
     instances = {
         row["instance_id"]: annotate(row)
         for row in instance_rows
@@ -98,10 +100,10 @@ def load_joined_from_records(instance_rows: list[dict], verdicts_dir: Path) -> l
     }
     joined = []
     for verifier in VERIFIERS:
-        path = verdicts_dir / f"{verifier}.jsonl"
-        if not path.exists():
+        verdicts = read_verifier_scores(verdicts_dir, verifier, enforce=True)
+        if not verdicts:
             continue
-        for verdict in read_jsonl(path):
+        for verdict in verdicts:
             inst = instances.get(verdict["instance_id"])
             if inst is None:
                 continue

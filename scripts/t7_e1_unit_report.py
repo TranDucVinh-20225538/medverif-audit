@@ -63,7 +63,10 @@ def read_jsonl(path: Path) -> list[dict]:
 
 
 def _score_path(raw_dir: Path, verifier: str) -> Path:
+    llama = raw_dir / f"{verifier}.llama.jsonl"
     direct = raw_dir / f"{verifier}.jsonl"
+    if llama.is_file():
+        return llama
     if direct.is_file():
         return direct
     if verifier == "v2b_bespoke":
@@ -111,9 +114,12 @@ def merged_scores(slug: str) -> dict[str, str]:
                 if cand.is_file():
                     paths.append(cand)
     for d in SCORE_DIRS:
-        cand = d / f"{slug}.jsonl"
-        if cand.is_file():
-            paths.append(cand)
+        llama = d / f"{slug}.llama.jsonl"
+        plain = d / f"{slug}.jsonl"
+        if llama.is_file():
+            paths.append(llama)
+        elif plain.is_file():
+            paths.append(plain)
     seen: set[Path] = set()
     for path in paths:
         if path in seen:

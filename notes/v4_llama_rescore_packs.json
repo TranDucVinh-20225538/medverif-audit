@@ -1,0 +1,46 @@
+{
+  "verifier": "v4_ragas_nli",
+  "budget_usd": 3.0,
+  "packs": [
+    {
+      "id": "main",
+      "score_dir": "results/raw",
+      "instances": "data/v3/instances_cpu_main.jsonl"
+    },
+    {
+      "id": "threshold",
+      "score_dir": "results/raw_threshold",
+      "instances": "data/v3/instances_cpu_threshold.jsonl"
+    },
+    {
+      "id": "t4_eco",
+      "score_dir": "results/raw/t4_eco",
+      "instances": "data/t4/eco_instances.jsonl"
+    },
+    {
+      "id": "t4c_eco",
+      "score_dir": "results/raw/t4c_eco",
+      "instances": "data/t4/eco_instances_t4c.jsonl"
+    },
+    {
+      "id": "t7",
+      "score_dir": "results/raw/t7",
+      "instances": "data/t7/instances_e1_unit.jsonl"
+    },
+    {
+      "id": "m1",
+      "score_dir": "results/raw_m1",
+      "instances": "data/v3/instances_m1_pending_node30.jsonl"
+    },
+    {
+      "id": "m1_t7",
+      "score_dir": "results/raw_m1/t7",
+      "instances": "data/t7/instances_e1_unit_m1_pending.jsonl",
+      "reuse_llama_from_live": true,
+      "legacy_backup_globs": [
+        "results/raw/_quarantine/**/raw_m1/t7/v4_ragas_nli.jsonl",
+        "results/raw/_quarantine/**/v4_ragas_nli.jsonl.quarantined.jsonl"
+      ]
+    }
+  ]
+}
