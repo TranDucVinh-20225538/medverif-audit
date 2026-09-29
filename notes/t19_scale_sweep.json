@@ -1,0 +1,148 @@
+{
+  "instances": 1060,
+  "models": [
+    {
+      "slug": "llama32_1b",
+      "label": "1B",
+      "params_b": 1.0,
+      "QI": null,
+      "QI_ci": [
+        null,
+        null
+      ],
+      "NS": null,
+      "NS_ci": [
+        null,
+        null
+      ],
+      "US": null,
+      "C0_pass": null,
+      "C0_ci": [
+        null,
+        null
+      ],
+      "n_inv": 0,
+      "n_e1": 0,
+      "n_c0": 0,
+      "AUROC_C0_vs_Conv": null,
+      "AUROC_C0_vs_Conv_ci": [
+        null,
+        null
+      ],
+      "AUROC_Conv_vs_Unit": null,
+      "AUROC_Conv_vs_Unit_ci": [
+        null,
+        null
+      ],
+      "n_c0_conv": 0,
+      "n_conv_unit": 0,
+      "n_scored": 0
+    },
+    {
+      "slug": "llama32_3b",
+      "label": "3B",
+      "params_b": 3.0,
+      "QI": null,
+      "QI_ci": [
+        null,
+        null
+      ],
+      "NS": null,
+      "NS_ci": [
+        null,
+        null
+      ],
+      "US": null,
+      "C0_pass": null,
+      "C0_ci": [
+        null,
+        null
+      ],
+      "n_inv": 0,
+      "n_e1": 0,
+      "n_c0": 0,
+      "AUROC_C0_vs_Conv": null,
+      "AUROC_C0_vs_Conv_ci": [
+        null,
+        null
+      ],
+      "AUROC_Conv_vs_Unit": null,
+      "AUROC_Conv_vs_Unit_ci": [
+        null,
+        null
+      ],
+      "n_c0_conv": 0,
+      "n_conv_unit": 0,
+      "n_scored": 0
+    },
+    {
+      "slug": "llama31_8b_local",
+      "label": "8B (local)",
+      "params_b": 8.0,
+      "QI": null,
+      "QI_ci": [
+        null,
+        null
+      ],
+      "NS": null,
+      "NS_ci": [
+        null,
+        null
+      ],
+      "US": null,
+      "C0_pass": null,
+      "C0_ci": [
+        null,
+        null
+      ],
+      "n_inv": 0,
+      "n_e1": 0,
+      "n_c0": 0,
+      "AUROC_C0_vs_Conv": null,
+      "AUROC_C0_vs_Conv_ci": [
+        null,
+        null
+      ],
+      "AUROC_Conv_vs_Unit": null,
+      "AUROC_Conv_vs_Unit_ci": [
+        null,
+        null
+      ],
+      "n_c0_conv": 0,
+      "n_conv_unit": 0,
+      "n_scored": 0,
+      "api8b_agreement": {
+        "n": 0,
+        "agreement": null
+      }
+    },
+    {
+      "slug": "llama33_70b_api",
+      "label": "70B (API)",
+      "params_b": 70.0,
+      "QI": 0.7647058823529411,
+      "QI_ci": [
+        0.6274509803921569,
+        0.8823529411764706
+      ],
+      "NS": 0.95,
+      "NS_ci": [
+        0.9275,
+        0.97
+      ],
+      "US": 0.7647058823529411,
+      "C0_pass": 1.0,
+      "C0_ci": [
+        1.0,
+        1.0
+      ],
+      "n_inv": 51,
+      "n_e1": 400,
+      "n_c0": 108,
+      "AUROC_C0_vs_Conv": null,
+      "AUROC_Conv_vs_Unit": null,
+      "note": "AUROC from p_yes requires local scores",
+      "n_scored": 840
+    }
+  ]
+}

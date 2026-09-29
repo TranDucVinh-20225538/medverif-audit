@@ -1,0 +1,24 @@
+{
+  "path": "data/t19/instances_t19.jsonl",
+  "n_instances": 1060,
+  "t17_present": false,
+  "t17_n": 0,
+  "by_pack": {
+    "main_dose": 607,
+    "main_e1_unit": 220,
+    "t14": 233
+  },
+  "by_condition": {
+    "C0:none": 112,
+    "E1-evid:x2": 107,
+    "E1-claim:x2": 107,
+    "E1-evid:x10": 108,
+    "E1-claim:x10": 108,
+    "INV-claim:unit_conversion": 65,
+    "E1-unit-claim:x1000": 110,
+    "E1-unit-evid:x1000": 110,
+    "T14-repr-claim:spacing": 112,
+    "T14-repr-claim:unit_spell": 112,
+    "T14-repr-claim:symbol_micro": 9
+  }
+}

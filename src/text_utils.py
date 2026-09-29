@@ -216,6 +216,90 @@ def scale_dose_span(span: str, factor: Decimal) -> str:
     return f"{format_decimal(new_number)} {unit}"
 
 
+def expand_dose_numeric_bounds(text: str, start: int, end: int) -> Tuple[int, int]:
+    """Expand [start, end) to the full dose token (number + unit) in text."""
+    match = None
+    for m in DOSE_RE.finditer(text):
+        if m.start() <= start < m.end() or m.start() < end <= m.end() or (start <= m.start() and m.end() <= end):
+            match = m
+            break
+    if match is None:
+        return start, end
+    return match.start(), match.end()
+
+
+def scale_dose_in_context(text: str, start: int, end: int, factor: Decimal) -> Tuple[str, str]:
+    s, e = expand_dose_numeric_bounds(text, start, end)
+    old_span = text[s:e]
+    new_span = scale_dose_span(old_span, factor)
+    return replace_span(text, s, e, new_span), new_span
+
+
+def normalize_micro_sign(text: str) -> str:
+    return (text or "").replace("\u03bc", "\u00b5")
+
+
+def _dose_span_parts(span: str) -> Tuple[str, str]:
+    match = DOSE_RE.fullmatch(span.strip())
+    if match is None:
+        match = DOSE_RE.search(span)
+        if match is None or match.group(0) != span.strip():
+            raise ValueError(f"span is not a single dose: {span!r}")
+    return match.group(1), match.group(2)
+
+
+def unit_swap_numeral_fixed(span: str, direction: str) -> Optional[Tuple[str, str]]:
+    """Replace mass/volume unit by one SI step; keep numeral. direction: up|down."""
+    try:
+        number, unit = _dose_span_parts(span)
+    except ValueError:
+        return None
+    up_map = {
+        "mcg": ("mg", "mcg→mg"),
+        "µg": ("mg", "µg→mg"),
+        "μg": ("mg", "μg→mg"),
+        "micrograms": ("milligrams", "micrograms→milligrams"),
+        "mg": ("g", "mg→g"),
+        "milligrams": ("grams", "milligrams→grams"),
+        "g": ("kg", "g→kg"),
+        "grams": ("kilograms", "grams→kilograms"),
+        "ml": ("L", "ml→L"),
+        "mL": ("L", "mL→L"),
+    }
+    down_map = {
+        "kg": ("g", "kg→g"),
+        "kilograms": ("grams", "kilograms→grams"),
+        "g": ("mg", "g→mg"),
+        "grams": ("milligrams", "grams→milligrams"),
+        "mg": ("mcg", "mg→mcg"),
+        "milligrams": ("micrograms", "milligrams→micrograms"),
+        "mcg": ("µg", "mcg→µg"),
+        "L": ("mL", "L→mL"),
+        "l": ("ml", "l→ml"),
+    }
+    mapping = up_map if direction == "up" else down_map
+    if unit not in mapping:
+        return None
+    new_unit, pair = mapping[unit]
+    return f"{number} {new_unit}", pair
+
+
+def e1_unit_only_swap(span: str) -> Optional[Tuple[str, str]]:
+    """×1000 unit error with numeral fixed (T7 E1-unit default direction)."""
+    try:
+        _, unit = _dose_span_parts(span)
+    except ValueError:
+        return None
+    up = unit_swap_numeral_fixed(span, "up")
+    down = unit_swap_numeral_fixed(span, "down")
+    prefer_up = unit in {"mcg", "µg", "μg", "micrograms", "mg", "milligrams", "ml", "mL"}
+    if prefer_up and up:
+        return up
+    if down:
+        return down
+    return up
+
+
 # Common pairs only. The converted number must fall in [0.1, 1000].
 _NATURAL_PAIRS = (
     ("mg/kg", "mcg/kg", Decimal("1000")),
@@ -260,6 +344,13 @@ def convert_dose_span(span: str) -> str:
     if converted is None:
         raise ValueError(f"no natural unit conversion for {span!r}")
     return converted
+
+
+def unit_inv_conversion(span: str) -> Optional[Tuple[str, str]]:
+    converted = natural_unit_conversion(span)
+    if converted is None:
+        return None
+    return converted, "natural"
 
 
 def polarity_matches(text: str) -> List[re.Match]:
