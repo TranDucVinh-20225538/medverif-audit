@@ -1,0 +1,546 @@
+{"instance_id": "EXT0008__INV-claim__unit_conversion", "base_id": "EXT0008", "label": "YES", "raw_output": "YES\n\nExplanation: 100 micrograms (μg) is equivalent to "}
+{"instance_id": "EXT0009__INV-claim__unit_conversion", "base_id": "EXT0009", "label": "YES", "raw_output": "YES\n\nThe original span \"0.05 mg/kg\" is equivalent to \""}
+{"instance_id": "EXT0011__INV-claim__unit_conversion", "base_id": "EXT0011", "label": "YES", "raw_output": "YES\n\nThe original span \"320 mg\" is equivalent to \"0.32"}
+{"instance_id": "EXT0012__INV-claim__unit_conversion", "base_id": "EXT0012", "label": "YES", "raw_output": "YES\n\nExplanation: 0.5 mg is equivalent to 500 mcg"}
+{"instance_id": "EXT0015__INV-claim__unit_conversion", "base_id": "EXT0015", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to the edited span \""}
+{"instance_id": "EXT0017__INV-claim__unit_conversion", "base_id": "EXT0017", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "EXT0018__INV-claim__unit_conversion", "base_id": "EXT0018", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "EXT0019__INV-claim__unit_conversion", "base_id": "EXT0019", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "EXT0020__INV-claim__unit_conversion", "base_id": "EXT0020", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mL\" and the edited span \"1"}
+{"instance_id": "EXT0024__INV-claim__unit_conversion", "base_id": "EXT0024", "label": "YES", "raw_output": "YES\n\nThe original span \"0.6 mg/kg\" is equivalent to \""}
+{"instance_id": "EXT0025__INV-claim__unit_conversion", "base_id": "EXT0025", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX0006__INV-claim__unit_conversion", "base_id": "MEX0006", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0007__INV-claim__unit_conversion", "base_id": "MEX0007", "label": "YES", "raw_output": "YES\n\nThe original span \"225 mg\" is equivalent to \"0.225"}
+{"instance_id": "MEX0009__INV-claim__unit_conversion", "base_id": "MEX0009", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0010__INV-claim__unit_conversion", "base_id": "MEX0010", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0015__INV-claim__unit_conversion", "base_id": "MEX0015", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" and the edited span \"1000"}
+{"instance_id": "MEX0016__INV-claim__unit_conversion", "base_id": "MEX0016", "label": "YES", "raw_output": "YES\n\nThe original span \"800 mg\" is equivalent to \"0.8"}
+{"instance_id": "MEX0018__INV-claim__unit_conversion", "base_id": "MEX0018", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0019__INV-claim__unit_conversion", "base_id": "MEX0019", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" and the edited span \"0."}
+{"instance_id": "MEX0020__INV-claim__unit_conversion", "base_id": "MEX0020", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0021__INV-claim__unit_conversion", "base_id": "MEX0021", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0022__INV-claim__unit_conversion", "base_id": "MEX0022", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0023__INV-claim__unit_conversion", "base_id": "MEX0023", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to \"0.25"}
+{"instance_id": "MEX0024__INV-claim__unit_conversion", "base_id": "MEX0024", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0025__INV-claim__unit_conversion", "base_id": "MEX0025", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0026__INV-claim__unit_conversion", "base_id": "MEX0026", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0029__INV-claim__unit_conversion", "base_id": "MEX0029", "label": "YES", "raw_output": "YES\n\nThe original span \"400 µg\" is equivalent to \"0."}
+{"instance_id": "MEX0032__INV-claim__unit_conversion", "base_id": "MEX0032", "label": "YES", "raw_output": "YES\n\nThe original span \"320 mg\" is equivalent to \"0.32"}
+{"instance_id": "MEX0033__INV-claim__unit_conversion", "base_id": "MEX0033", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0034__INV-claim__unit_conversion", "base_id": "MEX0034", "label": "YES", "raw_output": "YES\n\nExplanation: 0.375 mg is equivalent to 375 mcg"}
+{"instance_id": "MEX0035__INV-claim__unit_conversion", "base_id": "MEX0035", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to \"0.15"}
+{"instance_id": "MEX0036__INV-claim__unit_conversion", "base_id": "MEX0036", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to \"0.5"}
+{"instance_id": "MEX0037__INV-claim__unit_conversion", "base_id": "MEX0037", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0039__INV-claim__unit_conversion", "base_id": "MEX0039", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg\" is equivalent to \"250"}
+{"instance_id": "MEX0042__INV-claim__unit_conversion", "base_id": "MEX0042", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to \"0.15"}
+{"instance_id": "MEX0049__INV-claim__unit_conversion", "base_id": "MEX0049", "label": "YES", "raw_output": "YES\n\nThe original span \"169 mL\" is equivalent to \"0.169"}
+{"instance_id": "MEX0050__INV-claim__unit_conversion", "base_id": "MEX0050", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0055__INV-claim__unit_conversion", "base_id": "MEX0055", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0057__INV-claim__unit_conversion", "base_id": "MEX0057", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0058__INV-claim__unit_conversion", "base_id": "MEX0058", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0064__INV-claim__unit_conversion", "base_id": "MEX0064", "label": "YES", "raw_output": "YES\n\nThe original span \"0.4 mg\" is equivalent to \"400"}
+{"instance_id": "MEX0068__INV-claim__unit_conversion", "base_id": "MEX0068", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mL\" is equivalent to the edited span \""}
+{"instance_id": "MEX0069__INV-claim__unit_conversion", "base_id": "MEX0069", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0070__INV-claim__unit_conversion", "base_id": "MEX0070", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0074__INV-claim__unit_conversion", "base_id": "MEX0074", "label": "YES", "raw_output": "YES\n\nThe original span \"875 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0077__INV-claim__unit_conversion", "base_id": "MEX0077", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0079__INV-claim__unit_conversion", "base_id": "MEX0079", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0080__INV-claim__unit_conversion", "base_id": "MEX0080", "label": "YES", "raw_output": "YES\n\nThe original span \"240 mg\" is equivalent to \"0.24"}
+{"instance_id": "MEX0082__INV-claim__unit_conversion", "base_id": "MEX0082", "label": "YES", "raw_output": "YES\n\nThe original span \"500 μg\" is equivalent to \"0."}
+{"instance_id": "MEX0083__INV-claim__unit_conversion", "base_id": "MEX0083", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0084__INV-claim__unit_conversion", "base_id": "MEX0084", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to \"0.25"}
+{"instance_id": "MEX0085__INV-claim__unit_conversion", "base_id": "MEX0085", "label": "YES", "raw_output": "YES\n\nExplanation: 0.25 mg is equivalent to 250 mcg"}
+{"instance_id": "MEX0088__INV-claim__unit_conversion", "base_id": "MEX0088", "label": "YES", "raw_output": "YES\n\nThe original span \"750 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0089__INV-claim__unit_conversion", "base_id": "MEX0089", "label": "YES", "raw_output": "YES\n\nThe original span \"250 μg\" is equivalent to \"0."}
+{"instance_id": "MEX0091__INV-claim__unit_conversion", "base_id": "MEX0091", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0092__INV-claim__unit_conversion", "base_id": "MEX0092", "label": "YES", "raw_output": "YES\n\nThe original span \"0.025 mg\" is equivalent to \"25"}
+{"instance_id": "MEX0094__INV-claim__unit_conversion", "base_id": "MEX0094", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg\" is equivalent to \"250"}
+{"instance_id": "MEX0095__INV-claim__unit_conversion", "base_id": "MEX0095", "label": "YES", "raw_output": "YES\n\nThe original span \"800 mg\" is equivalent to \"0.8"}
+{"instance_id": "MEX0096__INV-claim__unit_conversion", "base_id": "MEX0096", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0097__INV-claim__unit_conversion", "base_id": "MEX0097", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0100__INV-claim__unit_conversion", "base_id": "MEX0100", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0102__INV-claim__unit_conversion", "base_id": "MEX0102", "label": "YES", "raw_output": "YES\n\nThe original span \"750 mg\" and the edited span \"0."}
+{"instance_id": "MEX0103__INV-claim__unit_conversion", "base_id": "MEX0103", "label": "YES", "raw_output": "YES\n\nExplanation: 0.15 mg is equivalent to 150 mcg"}
+{"instance_id": "MEX0104__INV-claim__unit_conversion", "base_id": "MEX0104", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" is equivalent to \"0.6"}
+{"instance_id": "MEX0109__INV-claim__unit_conversion", "base_id": "MEX0109", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0110__INV-claim__unit_conversion", "base_id": "MEX0110", "label": "YES", "raw_output": "YES\n\nThe original span \"0.025 mg\" is equivalent to \"25"}
+{"instance_id": "MEX0112__INV-claim__unit_conversion", "base_id": "MEX0112", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mL\" is equivalent to \"0.1"}
+{"instance_id": "MEX0114__INV-claim__unit_conversion", "base_id": "MEX0114", "label": "YES", "raw_output": "YES\n\nThe original span of \"200 mg\" is equivalent to \"0."}
+{"instance_id": "MEX0115__INV-claim__unit_conversion", "base_id": "MEX0115", "label": "YES", "raw_output": "YES\n\nExplanation: 300 mg is equivalent to 0.3 g,"}
+{"instance_id": "MEX0119__INV-claim__unit_conversion", "base_id": "MEX0119", "label": "YES", "raw_output": "YES\n\nExplanation: 100 μg is equivalent to 0.1 mg"}
+{"instance_id": "MEX0121__INV-claim__unit_conversion", "base_id": "MEX0121", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0122__INV-claim__unit_conversion", "base_id": "MEX0122", "label": "YES", "raw_output": "YES\n\nThe original span \"120 mg\" is equivalent to \"0.12"}
+{"instance_id": "MEX0124__INV-claim__unit_conversion", "base_id": "MEX0124", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" and the edited span \"0."}
+{"instance_id": "MEX0125__INV-claim__unit_conversion", "base_id": "MEX0125", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0126__INV-claim__unit_conversion", "base_id": "MEX0126", "label": "YES", "raw_output": "YES\n\nThe original span \"225 mg\" is equivalent to \"0.225"}
+{"instance_id": "MEX0127__INV-claim__unit_conversion", "base_id": "MEX0127", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0128__INV-claim__unit_conversion", "base_id": "MEX0128", "label": "YES", "raw_output": "YES\n\nThe original span \"875 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0130__INV-claim__unit_conversion", "base_id": "MEX0130", "label": "YES", "raw_output": "YES\n\nExplanation: 100 μg is equivalent to 0.1 mg"}
+{"instance_id": "MEX0131__INV-claim__unit_conversion", "base_id": "MEX0131", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0132__INV-claim__unit_conversion", "base_id": "MEX0132", "label": "YES", "raw_output": "YES\n\nExplanation: 800 μg is equivalent to 0.8 mg"}
+{"instance_id": "MEX0133__INV-claim__unit_conversion", "base_id": "MEX0133", "label": "YES", "raw_output": "YES\n\nExplanation: 150 μg is equivalent to 0.15 mg"}
+{"instance_id": "MEX0134__INV-claim__unit_conversion", "base_id": "MEX0134", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0137__INV-claim__unit_conversion", "base_id": "MEX0137", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0141__INV-claim__unit_conversion", "base_id": "MEX0141", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX0142__INV-claim__unit_conversion", "base_id": "MEX0142", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0143__INV-claim__unit_conversion", "base_id": "MEX0143", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0144__INV-claim__unit_conversion", "base_id": "MEX0144", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0145__INV-claim__unit_conversion", "base_id": "MEX0145", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0146__INV-claim__unit_conversion", "base_id": "MEX0146", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0151__INV-claim__unit_conversion", "base_id": "MEX0151", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to \"0.5"}
+{"instance_id": "MEX0152__INV-claim__unit_conversion", "base_id": "MEX0152", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX0153__INV-claim__unit_conversion", "base_id": "MEX0153", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX0159__INV-claim__unit_conversion", "base_id": "MEX0159", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 g\" is equivalent to \"500"}
+{"instance_id": "MEX0160__INV-claim__unit_conversion", "base_id": "MEX0160", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0161__INV-claim__unit_conversion", "base_id": "MEX0161", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to \"0.5"}
+{"instance_id": "MEX0162__INV-claim__unit_conversion", "base_id": "MEX0162", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to \"0.25"}
+{"instance_id": "MEX0172__INV-claim__unit_conversion", "base_id": "MEX0172", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0173__INV-claim__unit_conversion", "base_id": "MEX0173", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0176__INV-claim__unit_conversion", "base_id": "MEX0176", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0178__INV-claim__unit_conversion", "base_id": "MEX0178", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0184__INV-claim__unit_conversion", "base_id": "MEX0184", "label": "YES", "raw_output": "YES\n\nExplanation: 0.05 mg is equivalent to 50 mcg"}
+{"instance_id": "MEX0185__INV-claim__unit_conversion", "base_id": "MEX0185", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0187__INV-claim__unit_conversion", "base_id": "MEX0187", "label": "YES", "raw_output": "YES\n\nThe original span \"0.05 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0191__INV-claim__unit_conversion", "base_id": "MEX0191", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" is equivalent to \"0.6"}
+{"instance_id": "MEX0192__INV-claim__unit_conversion", "base_id": "MEX0192", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0194__INV-claim__unit_conversion", "base_id": "MEX0194", "label": "YES", "raw_output": "YES\n\nThe original span \"300 μg\" is equivalent to \"0."}
+{"instance_id": "MEX0196__INV-claim__unit_conversion", "base_id": "MEX0196", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0197__INV-claim__unit_conversion", "base_id": "MEX0197", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0199__INV-claim__unit_conversion", "base_id": "MEX0199", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to \"0.5"}
+{"instance_id": "MEX0209__INV-claim__unit_conversion", "base_id": "MEX0209", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg\" is equivalent to \"250"}
+{"instance_id": "MEX0210__INV-claim__unit_conversion", "base_id": "MEX0210", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0214__INV-claim__unit_conversion", "base_id": "MEX0214", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0224__INV-claim__unit_conversion", "base_id": "MEX0224", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0225__INV-claim__unit_conversion", "base_id": "MEX0225", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mL\" is equivalent to \"0.1"}
+{"instance_id": "MEX0227__INV-claim__unit_conversion", "base_id": "MEX0227", "label": "YES", "raw_output": "YES\n\nThe original span \"350 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0228__INV-claim__unit_conversion", "base_id": "MEX0228", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0229__INV-claim__unit_conversion", "base_id": "MEX0229", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0232__INV-claim__unit_conversion", "base_id": "MEX0232", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0234__INV-claim__unit_conversion", "base_id": "MEX0234", "label": "YES", "raw_output": "YES\n\nExplanation: 100 μg is equivalent to 0.1 mg"}
+{"instance_id": "MEX0236__INV-claim__unit_conversion", "base_id": "MEX0236", "label": "YES", "raw_output": "YES\n\nThe original span \"0.2 mg\" is equivalent to \"200"}
+{"instance_id": "MEX0238__INV-claim__unit_conversion", "base_id": "MEX0238", "label": "YES", "raw_output": "YES\n\nExplanation: 1000 micrograms (μg) is equivalent to"}
+{"instance_id": "MEX0243__INV-claim__unit_conversion", "base_id": "MEX0243", "label": "YES", "raw_output": "YES\n\nExplanation: 1000 micrograms (mcg) is equivalent to"}
+{"instance_id": "MEX0244__INV-claim__unit_conversion", "base_id": "MEX0244", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX0245__INV-claim__unit_conversion", "base_id": "MEX0245", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0246__INV-claim__unit_conversion", "base_id": "MEX0246", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0247__INV-claim__unit_conversion", "base_id": "MEX0247", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to \"0.15"}
+{"instance_id": "MEX0250__INV-claim__unit_conversion", "base_id": "MEX0250", "label": "YES", "raw_output": "YES\n\nThe original span \"240 mg\" is equivalent to \"0.24"}
+{"instance_id": "MEX0251__INV-claim__unit_conversion", "base_id": "MEX0251", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0252__INV-claim__unit_conversion", "base_id": "MEX0252", "label": "YES", "raw_output": "YES\n\nThe original span \"290 μg\" is equivalent to \"0."}
+{"instance_id": "MEX0253__INV-claim__unit_conversion", "base_id": "MEX0253", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0255__INV-claim__unit_conversion", "base_id": "MEX0255", "label": "YES", "raw_output": "YES\n\nThe original span \"135 mL\" is equivalent to the edited span \""}
+{"instance_id": "MEX0258__INV-claim__unit_conversion", "base_id": "MEX0258", "label": "YES", "raw_output": "YES\n\nThe original span \"800 mg\" is equivalent to \"0.8"}
+{"instance_id": "MEX0259__INV-claim__unit_conversion", "base_id": "MEX0259", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0260__INV-claim__unit_conversion", "base_id": "MEX0260", "label": "YES", "raw_output": "YES\n\nExplanation: 0.2 grams is equivalent to 200 milligrams"}
+{"instance_id": "MEX0263__INV-claim__unit_conversion", "base_id": "MEX0263", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX0266__INV-claim__unit_conversion", "base_id": "MEX0266", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0268__INV-claim__unit_conversion", "base_id": "MEX0268", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0271__INV-claim__unit_conversion", "base_id": "MEX0271", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0272__INV-claim__unit_conversion", "base_id": "MEX0272", "label": "YES", "raw_output": "YES\n\nThe original span \"800 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0273__INV-claim__unit_conversion", "base_id": "MEX0273", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" and the edited span \"0."}
+{"instance_id": "MEX0274__INV-claim__unit_conversion", "base_id": "MEX0274", "label": "YES", "raw_output": "YES\n\nExplanation: 0.6 mg is equivalent to 600 mcg"}
+{"instance_id": "MEX0275__INV-claim__unit_conversion", "base_id": "MEX0275", "label": "YES", "raw_output": "YES\n\nThe original span \"3500 mL\" is equivalent to the edited span"}
+{"instance_id": "MEX0278__INV-claim__unit_conversion", "base_id": "MEX0278", "label": "YES", "raw_output": "YES\n\nThe original span \"0.4 mg\" is equivalent to \"400"}
+{"instance_id": "MEX0279__INV-claim__unit_conversion", "base_id": "MEX0279", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" and the edited span \"0."}
+{"instance_id": "MEX0280__INV-claim__unit_conversion", "base_id": "MEX0280", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0283__INV-claim__unit_conversion", "base_id": "MEX0283", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg\" is equivalent to \"250"}
+{"instance_id": "MEX0284__INV-claim__unit_conversion", "base_id": "MEX0284", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0286__INV-claim__unit_conversion", "base_id": "MEX0286", "label": "YES", "raw_output": "YES\n\nThe original span \"1.0 mg\" is equivalent to \"100"}
+{"instance_id": "MEX0287__INV-claim__unit_conversion", "base_id": "MEX0287", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0288__INV-claim__unit_conversion", "base_id": "MEX0288", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0292__INV-claim__unit_conversion", "base_id": "MEX0292", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mL\" is equivalent to the edited span \""}
+{"instance_id": "MEX0294__INV-claim__unit_conversion", "base_id": "MEX0294", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0295__INV-claim__unit_conversion", "base_id": "MEX0295", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0300__INV-claim__unit_conversion", "base_id": "MEX0300", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0301__INV-claim__unit_conversion", "base_id": "MEX0301", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0303__INV-claim__unit_conversion", "base_id": "MEX0303", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" is equivalent to \"1000 mg"}
+{"instance_id": "MEX0306__INV-claim__unit_conversion", "base_id": "MEX0306", "label": "YES", "raw_output": "YES\n\nExplanation: 0.25 mg is equivalent to 250 mcg"}
+{"instance_id": "MEX0307__INV-claim__unit_conversion", "base_id": "MEX0307", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to \"0.3"}
+{"instance_id": "MEX0318__INV-claim__unit_conversion", "base_id": "MEX0318", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0320__INV-claim__unit_conversion", "base_id": "MEX0320", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" and the edited span \"0."}
+{"instance_id": "MEX0324__INV-claim__unit_conversion", "base_id": "MEX0324", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0327__INV-claim__unit_conversion", "base_id": "MEX0327", "label": "YES", "raw_output": "YES\n\nExplanation: 0.6 mg is equivalent to 600 mcg"}
+{"instance_id": "MEX0330__INV-claim__unit_conversion", "base_id": "MEX0330", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX0335__INV-claim__unit_conversion", "base_id": "MEX0335", "label": "YES", "raw_output": "YES\n\nThe original span \"900 mg\" is equivalent to \"0.9"}
+{"instance_id": "MEX0336__INV-claim__unit_conversion", "base_id": "MEX0336", "label": "YES", "raw_output": "YES\n\nThe original span \"1200 mg\" and the edited span \"1"}
+{"instance_id": "MEX0338__INV-claim__unit_conversion", "base_id": "MEX0338", "label": "YES", "raw_output": "YES\n\nThe original span \"200 μg\" is equivalent to \"0."}
+{"instance_id": "MEX0339__INV-claim__unit_conversion", "base_id": "MEX0339", "label": "YES", "raw_output": "YES\n\nThe original span \"0.1 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0340__INV-claim__unit_conversion", "base_id": "MEX0340", "label": "YES", "raw_output": "YES\n\nThe original span \"0.1 mg\" is equivalent to \"100"}
+{"instance_id": "MEX0342__INV-claim__unit_conversion", "base_id": "MEX0342", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0345__INV-claim__unit_conversion", "base_id": "MEX0345", "label": "YES", "raw_output": "YES\n\nExplanation: 0.75 mg/kg is equivalent to 750 mc"}
+{"instance_id": "MEX0349__INV-claim__unit_conversion", "base_id": "MEX0349", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0350__INV-claim__unit_conversion", "base_id": "MEX0350", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX0351__INV-claim__unit_conversion", "base_id": "MEX0351", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0352__INV-claim__unit_conversion", "base_id": "MEX0352", "label": "YES", "raw_output": "YES\n\nExplanation: 150 mg is equivalent to 0.15 g."}
+{"instance_id": "MEX0356__INV-claim__unit_conversion", "base_id": "MEX0356", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX0357__INV-claim__unit_conversion", "base_id": "MEX0357", "label": "YES", "raw_output": "YES\n\nThe original span \"125 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0361__INV-claim__unit_conversion", "base_id": "MEX0361", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0362__INV-claim__unit_conversion", "base_id": "MEX0362", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0363__INV-claim__unit_conversion", "base_id": "MEX0363", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX0366__INV-claim__unit_conversion", "base_id": "MEX0366", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0368__INV-claim__unit_conversion", "base_id": "MEX0368", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX0371__INV-claim__unit_conversion", "base_id": "MEX0371", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0372__INV-claim__unit_conversion", "base_id": "MEX0372", "label": "YES", "raw_output": "YES\n\nThe original span \"1200 mg\" and the edited span \"1"}
+{"instance_id": "MEX0377__INV-claim__unit_conversion", "base_id": "MEX0377", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0378__INV-claim__unit_conversion", "base_id": "MEX0378", "label": "YES", "raw_output": "YES\n\nExplanation: 180 μg is equivalent to 0.18 mg"}
+{"instance_id": "MEX0381__INV-claim__unit_conversion", "base_id": "MEX0381", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to \"0.15"}
+{"instance_id": "MEX0383__INV-claim__unit_conversion", "base_id": "MEX0383", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0386__INV-claim__unit_conversion", "base_id": "MEX0386", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0389__INV-claim__unit_conversion", "base_id": "MEX0389", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0390__INV-claim__unit_conversion", "base_id": "MEX0390", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mL\" and the edited span \"0."}
+{"instance_id": "MEX0391__INV-claim__unit_conversion", "base_id": "MEX0391", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mg\" is equivalent to \"1 g"}
+{"instance_id": "MEX0400__INV-claim__unit_conversion", "base_id": "MEX0400", "label": "YES", "raw_output": "YES\n\nThe original span \"300 μg\" is equivalent to \"0."}
+{"instance_id": "MEX0403__INV-claim__unit_conversion", "base_id": "MEX0403", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0404__INV-claim__unit_conversion", "base_id": "MEX0404", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" is equivalent to \"0.6"}
+{"instance_id": "MEX0407__INV-claim__unit_conversion", "base_id": "MEX0407", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0408__INV-claim__unit_conversion", "base_id": "MEX0408", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0410__INV-claim__unit_conversion", "base_id": "MEX0410", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0412__INV-claim__unit_conversion", "base_id": "MEX0412", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX0414__INV-claim__unit_conversion", "base_id": "MEX0414", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg\" is equivalent to \"250"}
+{"instance_id": "MEX0415__INV-claim__unit_conversion", "base_id": "MEX0415", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" and the edited span \"0."}
+{"instance_id": "MEX0416__INV-claim__unit_conversion", "base_id": "MEX0416", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0419__INV-claim__unit_conversion", "base_id": "MEX0419", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" and the edited span \"1000"}
+{"instance_id": "MEX0421__INV-claim__unit_conversion", "base_id": "MEX0421", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0422__INV-claim__unit_conversion", "base_id": "MEX0422", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0425__INV-claim__unit_conversion", "base_id": "MEX0425", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0429__INV-claim__unit_conversion", "base_id": "MEX0429", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0431__INV-claim__unit_conversion", "base_id": "MEX0431", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0433__INV-claim__unit_conversion", "base_id": "MEX0433", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0434__INV-claim__unit_conversion", "base_id": "MEX0434", "label": "YES", "raw_output": "YES\n\nExplanation: 1000 micrograms (μg) is equivalent to"}
+{"instance_id": "MEX0435__INV-claim__unit_conversion", "base_id": "MEX0435", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0436__INV-claim__unit_conversion", "base_id": "MEX0436", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0438__INV-claim__unit_conversion", "base_id": "MEX0438", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0443__INV-claim__unit_conversion", "base_id": "MEX0443", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0450__INV-claim__unit_conversion", "base_id": "MEX0450", "label": "YES", "raw_output": "YES\n\nThe original span \"4500 mg\" is equivalent to \"4."}
+{"instance_id": "MEX0453__INV-claim__unit_conversion", "base_id": "MEX0453", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0454__INV-claim__unit_conversion", "base_id": "MEX0454", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mL\" is equivalent to the edited span \""}
+{"instance_id": "MEX0456__INV-claim__unit_conversion", "base_id": "MEX0456", "label": "YES", "raw_output": "YES\n\nExplanation: 0.8 grams is equivalent to 800 milligrams"}
+{"instance_id": "MEX0457__INV-claim__unit_conversion", "base_id": "MEX0457", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mL\" and the edited span \"0."}
+{"instance_id": "MEX0459__INV-claim__unit_conversion", "base_id": "MEX0459", "label": "YES", "raw_output": "YES\n\nThe original span \"0.6 mg\" is equivalent to \"600"}
+{"instance_id": "MEX0463__INV-claim__unit_conversion", "base_id": "MEX0463", "label": "YES", "raw_output": "YES\n\nThe original span \"550 mg\" is equivalent to \"0.55"}
+{"instance_id": "MEX0465__INV-claim__unit_conversion", "base_id": "MEX0465", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mL\" and the edited span \"1"}
+{"instance_id": "MEX0466__INV-claim__unit_conversion", "base_id": "MEX0466", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0467__INV-claim__unit_conversion", "base_id": "MEX0467", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0468__INV-claim__unit_conversion", "base_id": "MEX0468", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 g\" is equivalent to \"500"}
+{"instance_id": "MEX0470__INV-claim__unit_conversion", "base_id": "MEX0470", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mL\" is equivalent to the edited span"}
+{"instance_id": "MEX0474__INV-claim__unit_conversion", "base_id": "MEX0474", "label": "YES", "raw_output": "YES\n\nThe original span \"1.0 mg\" is equivalent to \"100"}
+{"instance_id": "MEX0475__INV-claim__unit_conversion", "base_id": "MEX0475", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" and the edited span \"0."}
+{"instance_id": "MEX0478__INV-claim__unit_conversion", "base_id": "MEX0478", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mL\" is equivalent to \"0.1"}
+{"instance_id": "MEX0479__INV-claim__unit_conversion", "base_id": "MEX0479", "label": "YES", "raw_output": "YES\n\nExplanation: 200 micrograms (μg) is equivalent to "}
+{"instance_id": "MEX0482__INV-claim__unit_conversion", "base_id": "MEX0482", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0483__INV-claim__unit_conversion", "base_id": "MEX0483", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0484__INV-claim__unit_conversion", "base_id": "MEX0484", "label": "YES", "raw_output": "YES\n\nThe original span \"0.125 mg\" is equivalent to \"125"}
+{"instance_id": "MEX0488__INV-claim__unit_conversion", "base_id": "MEX0488", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to \"0.3"}
+{"instance_id": "MEX0490__INV-claim__unit_conversion", "base_id": "MEX0490", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mg\" is equivalent to the edited span"}
+{"instance_id": "MEX0493__INV-claim__unit_conversion", "base_id": "MEX0493", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0505__INV-claim__unit_conversion", "base_id": "MEX0505", "label": "YES", "raw_output": "YES\n\nExplanation: 100 micrograms (μg) is equivalent to "}
+{"instance_id": "MEX0508__INV-claim__unit_conversion", "base_id": "MEX0508", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0509__INV-claim__unit_conversion", "base_id": "MEX0509", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 mg is equivalent to 100 mcg"}
+{"instance_id": "MEX0510__INV-claim__unit_conversion", "base_id": "MEX0510", "label": "YES", "raw_output": "YES\n\nThe original span \"750 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0513__INV-claim__unit_conversion", "base_id": "MEX0513", "label": "YES", "raw_output": "YES\n\nThe original span \"0.4 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0516__INV-claim__unit_conversion", "base_id": "MEX0516", "label": "YES", "raw_output": "YES\n\nThe original span \"0.1 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0520__INV-claim__unit_conversion", "base_id": "MEX0520", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg\" is equivalent to \"250"}
+{"instance_id": "MEX0521__INV-claim__unit_conversion", "base_id": "MEX0521", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0523__INV-claim__unit_conversion", "base_id": "MEX0523", "label": "YES", "raw_output": "YES\n\nThe original span \"125 mg\" is equivalent to \"0.125"}
+{"instance_id": "MEX0525__INV-claim__unit_conversion", "base_id": "MEX0525", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg/kg\" is equivalent to the"}
+{"instance_id": "MEX0526__INV-claim__unit_conversion", "base_id": "MEX0526", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0528__INV-claim__unit_conversion", "base_id": "MEX0528", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0529__INV-claim__unit_conversion", "base_id": "MEX0529", "label": "YES", "raw_output": "YES\n\nExplanation: 0.3 grams is equivalent to 300 milligrams"}
+{"instance_id": "MEX0531__INV-claim__unit_conversion", "base_id": "MEX0531", "label": "YES", "raw_output": "YES\n\nThe original span \"1200 mg\" is equivalent to the edited span"}
+{"instance_id": "MEX0532__INV-claim__unit_conversion", "base_id": "MEX0532", "label": "YES", "raw_output": "YES\n\nExplanation: 160 mg is equivalent to 0.16 g,"}
+{"instance_id": "MEX0533__INV-claim__unit_conversion", "base_id": "MEX0533", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to \"0.5"}
+{"instance_id": "MEX0536__INV-claim__unit_conversion", "base_id": "MEX0536", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" is equivalent to \"0.6"}
+{"instance_id": "MEX0538__INV-claim__unit_conversion", "base_id": "MEX0538", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" is equivalent to \"1000 mg"}
+{"instance_id": "MEX0539__INV-claim__unit_conversion", "base_id": "MEX0539", "label": "YES", "raw_output": "YES\n\nExplanation: 0.5 mg is equivalent to 500 mcg"}
+{"instance_id": "MEX0540__INV-claim__unit_conversion", "base_id": "MEX0540", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0546__INV-claim__unit_conversion", "base_id": "MEX0546", "label": "YES", "raw_output": "YES\n\nExplanation: 0.35 mg is equivalent to 350 mcg"}
+{"instance_id": "MEX0548__INV-claim__unit_conversion", "base_id": "MEX0548", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0549__INV-claim__unit_conversion", "base_id": "MEX0549", "label": "YES", "raw_output": "YES\n\nExplanation: 100 micrograms (μg) is equivalent to "}
+{"instance_id": "MEX0551__INV-claim__unit_conversion", "base_id": "MEX0551", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0552__INV-claim__unit_conversion", "base_id": "MEX0552", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0555__INV-claim__unit_conversion", "base_id": "MEX0555", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mg\" and the edited span \"1"}
+{"instance_id": "MEX0557__INV-claim__unit_conversion", "base_id": "MEX0557", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" is equivalent to \"1000 mg"}
+{"instance_id": "MEX0561__INV-claim__unit_conversion", "base_id": "MEX0561", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0563__INV-claim__unit_conversion", "base_id": "MEX0563", "label": "YES", "raw_output": "YES\n\nExplanation: 0.5 mg is equivalent to 500 mcg"}
+{"instance_id": "MEX0564__INV-claim__unit_conversion", "base_id": "MEX0564", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" and the edited span \"0."}
+{"instance_id": "MEX0566__INV-claim__unit_conversion", "base_id": "MEX0566", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0567__INV-claim__unit_conversion", "base_id": "MEX0567", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0568__INV-claim__unit_conversion", "base_id": "MEX0568", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0570__INV-claim__unit_conversion", "base_id": "MEX0570", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0573__INV-claim__unit_conversion", "base_id": "MEX0573", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX0574__INV-claim__unit_conversion", "base_id": "MEX0574", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0575__INV-claim__unit_conversion", "base_id": "MEX0575", "label": "YES", "raw_output": "YES\n\nThe original span \"125 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0577__INV-claim__unit_conversion", "base_id": "MEX0577", "label": "YES", "raw_output": "YES\n\nThe original span \"250 μg\" is equivalent to \"0."}
+{"instance_id": "MEX0578__INV-claim__unit_conversion", "base_id": "MEX0578", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0579__INV-claim__unit_conversion", "base_id": "MEX0579", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0581__INV-claim__unit_conversion", "base_id": "MEX0581", "label": "YES", "raw_output": "YES\n\nThe original span \"125 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0583__INV-claim__unit_conversion", "base_id": "MEX0583", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0584__INV-claim__unit_conversion", "base_id": "MEX0584", "label": "YES", "raw_output": "YES\n\nThe original span \"220 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0585__INV-claim__unit_conversion", "base_id": "MEX0585", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX0587__INV-claim__unit_conversion", "base_id": "MEX0587", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" and the edited span \"0."}
+{"instance_id": "MEX0588__INV-claim__unit_conversion", "base_id": "MEX0588", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg\" is equivalent to \"250"}
+{"instance_id": "MEX0590__INV-claim__unit_conversion", "base_id": "MEX0590", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mg\" is equivalent to the edited span"}
+{"instance_id": "MEX0595__INV-claim__unit_conversion", "base_id": "MEX0595", "label": "YES", "raw_output": "YES\n\nThe original span \"130 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0597__INV-claim__unit_conversion", "base_id": "MEX0597", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0600__INV-claim__unit_conversion", "base_id": "MEX0600", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg\" is equivalent to \"250"}
+{"instance_id": "MEX0607__INV-claim__unit_conversion", "base_id": "MEX0607", "label": "YES", "raw_output": "YES\n\nExplanation: 800 mcg is equivalent to 0.8 mg"}
+{"instance_id": "MEX0609__INV-claim__unit_conversion", "base_id": "MEX0609", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" and the edited span \"0."}
+{"instance_id": "MEX0610__INV-claim__unit_conversion", "base_id": "MEX0610", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to \"0.3"}
+{"instance_id": "MEX0613__INV-claim__unit_conversion", "base_id": "MEX0613", "label": "YES", "raw_output": "YES\n\nExplanation: 0.036 mg is equivalent to 36 mcg"}
+{"instance_id": "MEX0620__INV-claim__unit_conversion", "base_id": "MEX0620", "label": "YES", "raw_output": "YES\n\nExplanation: 1000 micrograms (μg) is equivalent to"}
+{"instance_id": "MEX0623__INV-claim__unit_conversion", "base_id": "MEX0623", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX0624__INV-claim__unit_conversion", "base_id": "MEX0624", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0625__INV-claim__unit_conversion", "base_id": "MEX0625", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0626__INV-claim__unit_conversion", "base_id": "MEX0626", "label": "YES", "raw_output": "YES\n\nExplanation: 100 µg is equivalent to 0.1 mg"}
+{"instance_id": "MEX0627__INV-claim__unit_conversion", "base_id": "MEX0627", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" and the edited span \"0."}
+{"instance_id": "MEX0631__INV-claim__unit_conversion", "base_id": "MEX0631", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0632__INV-claim__unit_conversion", "base_id": "MEX0632", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0633__INV-claim__unit_conversion", "base_id": "MEX0633", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0637__INV-claim__unit_conversion", "base_id": "MEX0637", "label": "YES", "raw_output": "YES\n\nExplanation: 0.25 mg is equivalent to 250 mcg"}
+{"instance_id": "MEX0638__INV-claim__unit_conversion", "base_id": "MEX0638", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0640__INV-claim__unit_conversion", "base_id": "MEX0640", "label": "YES", "raw_output": "YES\n\nThe original span \"0.75 mg\" is equivalent to \"750"}
+{"instance_id": "MEX0642__INV-claim__unit_conversion", "base_id": "MEX0642", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX0645__INV-claim__unit_conversion", "base_id": "MEX0645", "label": "YES", "raw_output": "YES\n\nExplanation: 650 mg is equivalent to 0.65 g,"}
+{"instance_id": "MEX0647__INV-claim__unit_conversion", "base_id": "MEX0647", "label": "YES", "raw_output": "YES\n\nThe original span \"240 mg\" is equivalent to \"0.24"}
+{"instance_id": "MEX0649__INV-claim__unit_conversion", "base_id": "MEX0649", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to \"0.3"}
+{"instance_id": "MEX0650__INV-claim__unit_conversion", "base_id": "MEX0650", "label": "YES", "raw_output": "YES\n\nThe original span \"0.6 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0651__INV-claim__unit_conversion", "base_id": "MEX0651", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0652__INV-claim__unit_conversion", "base_id": "MEX0652", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mL\" is equivalent to \"0.2"}
+{"instance_id": "MEX0654__INV-claim__unit_conversion", "base_id": "MEX0654", "label": "YES", "raw_output": "YES\n\nThe original span \"0.9 mg\" is equivalent to \"900"}
+{"instance_id": "MEX0657__INV-claim__unit_conversion", "base_id": "MEX0657", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0658__INV-claim__unit_conversion", "base_id": "MEX0658", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0659__INV-claim__unit_conversion", "base_id": "MEX0659", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0661__INV-claim__unit_conversion", "base_id": "MEX0661", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0662__INV-claim__unit_conversion", "base_id": "MEX0662", "label": "YES", "raw_output": "YES\n\nThe original span \"125 mL\" is equivalent to \"0.125"}
+{"instance_id": "MEX0663__INV-claim__unit_conversion", "base_id": "MEX0663", "label": "YES", "raw_output": "YES\n\nThe original span \"0.6 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0664__INV-claim__unit_conversion", "base_id": "MEX0664", "label": "YES", "raw_output": "YES\n\nThe original span \"1.0 mg\" is equivalent to \"100"}
+{"instance_id": "MEX0666__INV-claim__unit_conversion", "base_id": "MEX0666", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0667__INV-claim__unit_conversion", "base_id": "MEX0667", "label": "YES", "raw_output": "YES\n\nExplanation: The original span \"100 mg\" is equivalent to \"0"}
+{"instance_id": "MEX0671__INV-claim__unit_conversion", "base_id": "MEX0671", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to \"0.15"}
+{"instance_id": "MEX0674__INV-claim__unit_conversion", "base_id": "MEX0674", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0676__INV-claim__unit_conversion", "base_id": "MEX0676", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0677__INV-claim__unit_conversion", "base_id": "MEX0677", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0678__INV-claim__unit_conversion", "base_id": "MEX0678", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0680__INV-claim__unit_conversion", "base_id": "MEX0680", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to \"0.15"}
+{"instance_id": "MEX0682__INV-claim__unit_conversion", "base_id": "MEX0682", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0690__INV-claim__unit_conversion", "base_id": "MEX0690", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0691__INV-claim__unit_conversion", "base_id": "MEX0691", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0694__INV-claim__unit_conversion", "base_id": "MEX0694", "label": "YES", "raw_output": "YES\n\nExplanation: 160 mg is equivalent to 0.16 g,"}
+{"instance_id": "MEX0697__INV-claim__unit_conversion", "base_id": "MEX0697", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0699__INV-claim__unit_conversion", "base_id": "MEX0699", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0701__INV-claim__unit_conversion", "base_id": "MEX0701", "label": "YES", "raw_output": "YES\n\nExplanation: 0.2 grams (g) is equivalent to "}
+{"instance_id": "MEX0703__INV-claim__unit_conversion", "base_id": "MEX0703", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX0705__INV-claim__unit_conversion", "base_id": "MEX0705", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" is equivalent to the edited span \""}
+{"instance_id": "MEX0706__INV-claim__unit_conversion", "base_id": "MEX0706", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0707__INV-claim__unit_conversion", "base_id": "MEX0707", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0711__INV-claim__unit_conversion", "base_id": "MEX0711", "label": "YES", "raw_output": "YES\n\nThe original span \"450 mg\" is equivalent to \"0.45"}
+{"instance_id": "MEX0712__INV-claim__unit_conversion", "base_id": "MEX0712", "label": "YES", "raw_output": "YES\n\nThe original span \"1500 mL\" and the edited span \"1"}
+{"instance_id": "MEX0713__INV-claim__unit_conversion", "base_id": "MEX0713", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX0714__INV-claim__unit_conversion", "base_id": "MEX0714", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" is equivalent to \"1000 mg"}
+{"instance_id": "MEX0715__INV-claim__unit_conversion", "base_id": "MEX0715", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0717__INV-claim__unit_conversion", "base_id": "MEX0717", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" and the edited span \"0."}
+{"instance_id": "MEX0721__INV-claim__unit_conversion", "base_id": "MEX0721", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0722__INV-claim__unit_conversion", "base_id": "MEX0722", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0724__INV-claim__unit_conversion", "base_id": "MEX0724", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mg\" is equivalent to \"1 g"}
+{"instance_id": "MEX0726__INV-claim__unit_conversion", "base_id": "MEX0726", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0729__INV-claim__unit_conversion", "base_id": "MEX0729", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0730__INV-claim__unit_conversion", "base_id": "MEX0730", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0736__INV-claim__unit_conversion", "base_id": "MEX0736", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0737__INV-claim__unit_conversion", "base_id": "MEX0737", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mL\" and the edited span \"0."}
+{"instance_id": "MEX0738__INV-claim__unit_conversion", "base_id": "MEX0738", "label": "YES", "raw_output": "YES\n\nExplanation: 1 mg is equivalent to 1000 mcg,"}
+{"instance_id": "MEX0740__INV-claim__unit_conversion", "base_id": "MEX0740", "label": "YES", "raw_output": "YES\n\nThe original span \"800 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0742__INV-claim__unit_conversion", "base_id": "MEX0742", "label": "YES", "raw_output": "YES\n\nThe original span \"0.18 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0743__INV-claim__unit_conversion", "base_id": "MEX0743", "label": "YES", "raw_output": "YES\n\nExplanation: The original span \"200 mg\" is equivalent to \"0"}
+{"instance_id": "MEX0744__INV-claim__unit_conversion", "base_id": "MEX0744", "label": "YES", "raw_output": "YES\n\nThe original span \"750 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0748__INV-claim__unit_conversion", "base_id": "MEX0748", "label": "YES", "raw_output": "YES\n\nExplanation: 100 μg is equivalent to 0.1 mg"}
+{"instance_id": "MEX0753__INV-claim__unit_conversion", "base_id": "MEX0753", "label": "YES", "raw_output": "YES\n\nThe original span \"0.9 mg\" is equivalent to \"900"}
+{"instance_id": "MEX0754__INV-claim__unit_conversion", "base_id": "MEX0754", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0756__INV-claim__unit_conversion", "base_id": "MEX0756", "label": "YES", "raw_output": "YES\n\nThe original span \"0.4 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0757__INV-claim__unit_conversion", "base_id": "MEX0757", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0760__INV-claim__unit_conversion", "base_id": "MEX0760", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" and the edited span \"1000"}
+{"instance_id": "MEX0763__INV-claim__unit_conversion", "base_id": "MEX0763", "label": "YES", "raw_output": "YES\n\nThe original span \"0.75 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0764__INV-claim__unit_conversion", "base_id": "MEX0764", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0766__INV-claim__unit_conversion", "base_id": "MEX0766", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX0768__INV-claim__unit_conversion", "base_id": "MEX0768", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0770__INV-claim__unit_conversion", "base_id": "MEX0770", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0772__INV-claim__unit_conversion", "base_id": "MEX0772", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0773__INV-claim__unit_conversion", "base_id": "MEX0773", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" and the edited span \"0."}
+{"instance_id": "MEX0774__INV-claim__unit_conversion", "base_id": "MEX0774", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX0777__INV-claim__unit_conversion", "base_id": "MEX0777", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mL\" is equivalent to \"0.2"}
+{"instance_id": "MEX0779__INV-claim__unit_conversion", "base_id": "MEX0779", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0781__INV-claim__unit_conversion", "base_id": "MEX0781", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0784__INV-claim__unit_conversion", "base_id": "MEX0784", "label": "YES", "raw_output": "YES\n\nThe original span \"550 mg\" is equivalent to \"0.55"}
+{"instance_id": "MEX0786__INV-claim__unit_conversion", "base_id": "MEX0786", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0791__INV-claim__unit_conversion", "base_id": "MEX0791", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0794__INV-claim__unit_conversion", "base_id": "MEX0794", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0795__INV-claim__unit_conversion", "base_id": "MEX0795", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 μg\" is equivalent to \"1"}
+{"instance_id": "MEX0796__INV-claim__unit_conversion", "base_id": "MEX0796", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX0797__INV-claim__unit_conversion", "base_id": "MEX0797", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX0798__INV-claim__unit_conversion", "base_id": "MEX0798", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0800__INV-claim__unit_conversion", "base_id": "MEX0800", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 μg\" is equivalent to \"1"}
+{"instance_id": "MEX0801__INV-claim__unit_conversion", "base_id": "MEX0801", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0802__INV-claim__unit_conversion", "base_id": "MEX0802", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0803__INV-claim__unit_conversion", "base_id": "MEX0803", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0804__INV-claim__unit_conversion", "base_id": "MEX0804", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0807__INV-claim__unit_conversion", "base_id": "MEX0807", "label": "YES", "raw_output": "YES\n\nThe original span \"1200 mg\" is equivalent to the edited span"}
+{"instance_id": "MEX0809__INV-claim__unit_conversion", "base_id": "MEX0809", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX0812__INV-claim__unit_conversion", "base_id": "MEX0812", "label": "YES", "raw_output": "YES\n\nExplanation: 400 μg is equivalent to 0.4 mg"}
+{"instance_id": "MEX0814__INV-claim__unit_conversion", "base_id": "MEX0814", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0816__INV-claim__unit_conversion", "base_id": "MEX0816", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX0818__INV-claim__unit_conversion", "base_id": "MEX0818", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" and the edited span \"0."}
+{"instance_id": "MEX0820__INV-claim__unit_conversion", "base_id": "MEX0820", "label": "YES", "raw_output": "YES\n\nThe original span \"2500 mL\" is equivalent to the edited span"}
+{"instance_id": "MEX0821__INV-claim__unit_conversion", "base_id": "MEX0821", "label": "YES", "raw_output": "YES\n\nExplanation: 600 mg is equivalent to 0.6 g,"}
+{"instance_id": "MEX0822__INV-claim__unit_conversion", "base_id": "MEX0822", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0836__INV-claim__unit_conversion", "base_id": "MEX0836", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0837__INV-claim__unit_conversion", "base_id": "MEX0837", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" and the edited span \"1000"}
+{"instance_id": "MEX0844__INV-claim__unit_conversion", "base_id": "MEX0844", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0849__INV-claim__unit_conversion", "base_id": "MEX0849", "label": "YES", "raw_output": "YES\n\nThe original span \"0.125 mg\" is equivalent to \"125"}
+{"instance_id": "MEX0850__INV-claim__unit_conversion", "base_id": "MEX0850", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0851__INV-claim__unit_conversion", "base_id": "MEX0851", "label": "YES", "raw_output": "YES\n\nThe original span \"180 μg\" is equivalent to \"0."}
+{"instance_id": "MEX0853__INV-claim__unit_conversion", "base_id": "MEX0853", "label": "YES", "raw_output": "YES\n\nThe original span \"0.9 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0858__INV-claim__unit_conversion", "base_id": "MEX0858", "label": "YES", "raw_output": "YES\n\nThe original span \"120 mg\" is equivalent to \"0.12"}
+{"instance_id": "MEX0859__INV-claim__unit_conversion", "base_id": "MEX0859", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0861__INV-claim__unit_conversion", "base_id": "MEX0861", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0863__INV-claim__unit_conversion", "base_id": "MEX0863", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0864__INV-claim__unit_conversion", "base_id": "MEX0864", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0867__INV-claim__unit_conversion", "base_id": "MEX0867", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" is equivalent to \"1000 mg"}
+{"instance_id": "MEX0871__INV-claim__unit_conversion", "base_id": "MEX0871", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to \"0.5"}
+{"instance_id": "MEX0875__INV-claim__unit_conversion", "base_id": "MEX0875", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX0877__INV-claim__unit_conversion", "base_id": "MEX0877", "label": "YES", "raw_output": "YES\n\nThe original span \"450 mg\" is equivalent to \"0.45"}
+{"instance_id": "MEX0878__INV-claim__unit_conversion", "base_id": "MEX0878", "label": "YES", "raw_output": "YES\n\nThe original span \"0.8 mg\" is equivalent to \"800"}
+{"instance_id": "MEX0884__INV-claim__unit_conversion", "base_id": "MEX0884", "label": "YES", "raw_output": "YES\n\nThe original span \"120 mg\" is equivalent to \"0.12"}
+{"instance_id": "MEX0889__INV-claim__unit_conversion", "base_id": "MEX0889", "label": "YES", "raw_output": "YES\n\nExplanation: 0.2 mg is equivalent to 200 mcg"}
+{"instance_id": "MEX0894__INV-claim__unit_conversion", "base_id": "MEX0894", "label": "YES", "raw_output": "YES\n\nExplanation: 300 mg is equivalent to 0.3 g,"}
+{"instance_id": "MEX0895__INV-claim__unit_conversion", "base_id": "MEX0895", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0898__INV-claim__unit_conversion", "base_id": "MEX0898", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0899__INV-claim__unit_conversion", "base_id": "MEX0899", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to \"0.15"}
+{"instance_id": "MEX0901__INV-claim__unit_conversion", "base_id": "MEX0901", "label": "YES", "raw_output": "YES\n\nThe original span \"750 mg\" is equivalent to \"0.75"}
+{"instance_id": "MEX0902__INV-claim__unit_conversion", "base_id": "MEX0902", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0903__INV-claim__unit_conversion", "base_id": "MEX0903", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX0904__INV-claim__unit_conversion", "base_id": "MEX0904", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0907__INV-claim__unit_conversion", "base_id": "MEX0907", "label": "YES", "raw_output": "YES\n\nThe original span \"800 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0908__INV-claim__unit_conversion", "base_id": "MEX0908", "label": "YES", "raw_output": "YES\n\nThe original span \"240 mg\" is equivalent to \"0.24"}
+{"instance_id": "MEX0914__INV-claim__unit_conversion", "base_id": "MEX0914", "label": "YES", "raw_output": "YES\n\nThe original span \"0.04 mg\" is equivalent to \"40"}
+{"instance_id": "MEX0916__INV-claim__unit_conversion", "base_id": "MEX0916", "label": "YES", "raw_output": "YES\n\nThe original span \"0.4 mg\" is equivalent to \"400"}
+{"instance_id": "MEX0919__INV-claim__unit_conversion", "base_id": "MEX0919", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX0921__INV-claim__unit_conversion", "base_id": "MEX0921", "label": "YES", "raw_output": "YES\n\nExplanation: 100 μg is equivalent to 0.1 mg"}
+{"instance_id": "MEX0922__INV-claim__unit_conversion", "base_id": "MEX0922", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mL\" is equivalent to the edited span \""}
+{"instance_id": "MEX0923__INV-claim__unit_conversion", "base_id": "MEX0923", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX0925__INV-claim__unit_conversion", "base_id": "MEX0925", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0928__INV-claim__unit_conversion", "base_id": "MEX0928", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0929__INV-claim__unit_conversion", "base_id": "MEX0929", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX0930__INV-claim__unit_conversion", "base_id": "MEX0930", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0935__INV-claim__unit_conversion", "base_id": "MEX0935", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX0936__INV-claim__unit_conversion", "base_id": "MEX0936", "label": "YES", "raw_output": "YES\n\nExplanation: 0.8 grams is equivalent to 800 milligrams"}
+{"instance_id": "MEX0941__INV-claim__unit_conversion", "base_id": "MEX0941", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg/kg\" is equivalent to the"}
+{"instance_id": "MEX0945__INV-claim__unit_conversion", "base_id": "MEX0945", "label": "YES", "raw_output": "YES\n\nThe original span \"900 mg\" is equivalent to \"0.9"}
+{"instance_id": "MEX0946__INV-claim__unit_conversion", "base_id": "MEX0946", "label": "YES", "raw_output": "YES\n\nExplanation: 0.5 mg is equivalent to 500 mcg"}
+{"instance_id": "MEX0947__INV-claim__unit_conversion", "base_id": "MEX0947", "label": "YES", "raw_output": "YES\n\nThe original span \"1.0 g\" is equivalent to \"100"}
+{"instance_id": "MEX0950__INV-claim__unit_conversion", "base_id": "MEX0950", "label": "YES", "raw_output": "YES\n\nThe original span \"160 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0951__INV-claim__unit_conversion", "base_id": "MEX0951", "label": "YES", "raw_output": "YES\n\nThe original span \"125 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0955__INV-claim__unit_conversion", "base_id": "MEX0955", "label": "YES", "raw_output": "YES\n\nThe original span \"1500 mg\" is equivalent to the edited span"}
+{"instance_id": "MEX0958__INV-claim__unit_conversion", "base_id": "MEX0958", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0961__INV-claim__unit_conversion", "base_id": "MEX0961", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0964__INV-claim__unit_conversion", "base_id": "MEX0964", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0968__INV-claim__unit_conversion", "base_id": "MEX0968", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" is equivalent to \"1000 mg"}
+{"instance_id": "MEX0973__INV-claim__unit_conversion", "base_id": "MEX0973", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0976__INV-claim__unit_conversion", "base_id": "MEX0976", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0978__INV-claim__unit_conversion", "base_id": "MEX0978", "label": "YES", "raw_output": "YES\n\nThe original span \"0.4 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0980__INV-claim__unit_conversion", "base_id": "MEX0980", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" and the edited span \"0."}
+{"instance_id": "MEX0982__INV-claim__unit_conversion", "base_id": "MEX0982", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX0983__INV-claim__unit_conversion", "base_id": "MEX0983", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0987__INV-claim__unit_conversion", "base_id": "MEX0987", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0989__INV-claim__unit_conversion", "base_id": "MEX0989", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0990__INV-claim__unit_conversion", "base_id": "MEX0990", "label": "YES", "raw_output": "YES\n\nThe original span \"120 μg\" is equivalent to \"0."}
+{"instance_id": "MEX0991__INV-claim__unit_conversion", "base_id": "MEX0991", "label": "YES", "raw_output": "YES\n\nThe original span \"1500 mg\" is equivalent to the edited span"}
+{"instance_id": "MEX0992__INV-claim__unit_conversion", "base_id": "MEX0992", "label": "YES", "raw_output": "YES\n\nThe original span \"0.15 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX0997__INV-claim__unit_conversion", "base_id": "MEX0997", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX0998__INV-claim__unit_conversion", "base_id": "MEX0998", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mL\" and the edited span \"1"}
+{"instance_id": "MEX1001__INV-claim__unit_conversion", "base_id": "MEX1001", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1002__INV-claim__unit_conversion", "base_id": "MEX1002", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX1006__INV-claim__unit_conversion", "base_id": "MEX1006", "label": "YES", "raw_output": "YES\n\nExplanation: 200 mg is equivalent to 0.2 g,"}
+{"instance_id": "MEX1009__INV-claim__unit_conversion", "base_id": "MEX1009", "label": "YES", "raw_output": "YES\n\nExplanation: The original span \"200 mg\" is equivalent to \"0"}
+{"instance_id": "MEX1010__INV-claim__unit_conversion", "base_id": "MEX1010", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1011__INV-claim__unit_conversion", "base_id": "MEX1011", "label": "YES", "raw_output": "YES\n\nThe original span \"125 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1012__INV-claim__unit_conversion", "base_id": "MEX1012", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX1013__INV-claim__unit_conversion", "base_id": "MEX1013", "label": "YES", "raw_output": "YES\n\nThe original span \"0.6 mg\" is equivalent to \"600"}
+{"instance_id": "MEX1015__INV-claim__unit_conversion", "base_id": "MEX1015", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX1016__INV-claim__unit_conversion", "base_id": "MEX1016", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" is equivalent to \"1000 mg"}
+{"instance_id": "MEX1019__INV-claim__unit_conversion", "base_id": "MEX1019", "label": "YES", "raw_output": "YES\n\nExplanation: 180 μg is equivalent to 0.18 mg"}
+{"instance_id": "MEX1022__INV-claim__unit_conversion", "base_id": "MEX1022", "label": "YES", "raw_output": "YES\n\nExplanation: 200 μg is equivalent to 0.2 mg"}
+{"instance_id": "MEX1024__INV-claim__unit_conversion", "base_id": "MEX1024", "label": "YES", "raw_output": "YES\n\nExplanation: 0.4 grams is equivalent to 400 milligrams"}
+{"instance_id": "MEX1025__INV-claim__unit_conversion", "base_id": "MEX1025", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 mg/kg is equivalent to 100 mc"}
+{"instance_id": "MEX1027__INV-claim__unit_conversion", "base_id": "MEX1027", "label": "YES", "raw_output": "YES\n\nExplanation: 100 μg is equivalent to 0.1 mg"}
+{"instance_id": "MEX1028__INV-claim__unit_conversion", "base_id": "MEX1028", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX1035__INV-claim__unit_conversion", "base_id": "MEX1035", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1036__INV-claim__unit_conversion", "base_id": "MEX1036", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1037__INV-claim__unit_conversion", "base_id": "MEX1037", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX1040__INV-claim__unit_conversion", "base_id": "MEX1040", "label": "YES", "raw_output": "YES\n\nThe original span \"220 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1042__INV-claim__unit_conversion", "base_id": "MEX1042", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1044__INV-claim__unit_conversion", "base_id": "MEX1044", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX1046__INV-claim__unit_conversion", "base_id": "MEX1046", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX1048__INV-claim__unit_conversion", "base_id": "MEX1048", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1050__INV-claim__unit_conversion", "base_id": "MEX1050", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" and the edited span \"0."}
+{"instance_id": "MEX1051__INV-claim__unit_conversion", "base_id": "MEX1051", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX1054__INV-claim__unit_conversion", "base_id": "MEX1054", "label": "YES", "raw_output": "YES\n\nThe original span \"200 mg\" is equivalent to \"0.2"}
+{"instance_id": "MEX1055__INV-claim__unit_conversion", "base_id": "MEX1055", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX1057__INV-claim__unit_conversion", "base_id": "MEX1057", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1062__INV-claim__unit_conversion", "base_id": "MEX1062", "label": "YES", "raw_output": "YES\n\nThe original span \"120 mg\" is equivalent to \"0.12"}
+{"instance_id": "MEX1069__INV-claim__unit_conversion", "base_id": "MEX1069", "label": "YES", "raw_output": "YES\n\nThe original span \"1200 mg\" and the edited span \"1"}
+{"instance_id": "MEX1071__INV-claim__unit_conversion", "base_id": "MEX1071", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1074__INV-claim__unit_conversion", "base_id": "MEX1074", "label": "YES", "raw_output": "YES\n\nExplanation: 1 mg is equivalent to 1000 mcg,"}
+{"instance_id": "MEX1077__INV-claim__unit_conversion", "base_id": "MEX1077", "label": "YES", "raw_output": "YES\n\nThe original span \"0.1 mg\" is equivalent to \"100"}
+{"instance_id": "MEX1079__INV-claim__unit_conversion", "base_id": "MEX1079", "label": "YES", "raw_output": "YES\n\nThe original span \"1 g\" is equivalent to \"1000 mg"}
+{"instance_id": "MEX1080__INV-claim__unit_conversion", "base_id": "MEX1080", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX1081__INV-claim__unit_conversion", "base_id": "MEX1081", "label": "YES", "raw_output": "YES\n\nThe original span \"325 mg\" is equivalent to \"0.325"}
+{"instance_id": "MEX1082__INV-claim__unit_conversion", "base_id": "MEX1082", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1083__INV-claim__unit_conversion", "base_id": "MEX1083", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1092__INV-claim__unit_conversion", "base_id": "MEX1092", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1094__INV-claim__unit_conversion", "base_id": "MEX1094", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX1098__INV-claim__unit_conversion", "base_id": "MEX1098", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" is equivalent to \"0.6"}
+{"instance_id": "MEX1101__INV-claim__unit_conversion", "base_id": "MEX1101", "label": "YES", "raw_output": "YES\n\nThe original span \"0.8 mg/kg\" is equivalent to \""}
+{"instance_id": "MEX1104__INV-claim__unit_conversion", "base_id": "MEX1104", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to the edited span"}
+{"instance_id": "MEX1106__INV-claim__unit_conversion", "base_id": "MEX1106", "label": "YES", "raw_output": "YES\n\nThe original span \"250 μg\" is equivalent to \"0."}
+{"instance_id": "MEX1108__INV-claim__unit_conversion", "base_id": "MEX1108", "label": "YES", "raw_output": "YES\n\nThe original span \"140 mg\" is equivalent to \"0.14"}
+{"instance_id": "MEX1109__INV-claim__unit_conversion", "base_id": "MEX1109", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 μg\" is equivalent to \"1"}
+{"instance_id": "MEX1110__INV-claim__unit_conversion", "base_id": "MEX1110", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to \"0.15"}
+{"instance_id": "MEX1114__INV-claim__unit_conversion", "base_id": "MEX1114", "label": "YES", "raw_output": "YES\n\nThe original span \"4500 mg\" is equivalent to \"4."}
+{"instance_id": "MEX1115__INV-claim__unit_conversion", "base_id": "MEX1115", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1116__INV-claim__unit_conversion", "base_id": "MEX1116", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX1117__INV-claim__unit_conversion", "base_id": "MEX1117", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1119__INV-claim__unit_conversion", "base_id": "MEX1119", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1122__INV-claim__unit_conversion", "base_id": "MEX1122", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1128__INV-claim__unit_conversion", "base_id": "MEX1128", "label": "YES", "raw_output": "YES\n\nExplanation: 240 mg is equivalent to 0.24 g,"}
+{"instance_id": "MEX1133__INV-claim__unit_conversion", "base_id": "MEX1133", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1134__INV-claim__unit_conversion", "base_id": "MEX1134", "label": "YES", "raw_output": "YES\n\nExplanation: 0.03 mg/kg is equivalent to 30 mc"}
+{"instance_id": "MEX1139__INV-claim__unit_conversion", "base_id": "MEX1139", "label": "YES", "raw_output": "YES\n\nThe original span \"250 μg\" is equivalent to \"0."}
+{"instance_id": "MEX1143__INV-claim__unit_conversion", "base_id": "MEX1143", "label": "YES", "raw_output": "YES\n\nThe original span \"125 mg\" is equivalent to \"0.125"}
+{"instance_id": "MEX1150__INV-claim__unit_conversion", "base_id": "MEX1150", "label": "YES", "raw_output": "YES\n\nThe original span \"250 mg\" is equivalent to \"0.25"}
+{"instance_id": "MEX1151__INV-claim__unit_conversion", "base_id": "MEX1151", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1152__INV-claim__unit_conversion", "base_id": "MEX1152", "label": "YES", "raw_output": "YES\n\nThe original span \"0.25 mg\" is equivalent to \"250"}
+{"instance_id": "MEX1154__INV-claim__unit_conversion", "base_id": "MEX1154", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1155__INV-claim__unit_conversion", "base_id": "MEX1155", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg\" is equivalent to \"1000 mc"}
+{"instance_id": "MEX1156__INV-claim__unit_conversion", "base_id": "MEX1156", "label": "YES", "raw_output": "YES\n\nThe original span \"1 mg/kg\" is equivalent to \"1000"}
+{"instance_id": "MEX1157__INV-claim__unit_conversion", "base_id": "MEX1157", "label": "YES", "raw_output": "YES\n\nThe original span \"160 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1158__INV-claim__unit_conversion", "base_id": "MEX1158", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mg\" is equivalent to the edited span"}
+{"instance_id": "MEX1162__INV-claim__unit_conversion", "base_id": "MEX1162", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX1164__INV-claim__unit_conversion", "base_id": "MEX1164", "label": "YES", "raw_output": "YES\n\nThe original span \"100 mg\" is equivalent to \"0.1"}
+{"instance_id": "MEX1169__INV-claim__unit_conversion", "base_id": "MEX1169", "label": "YES", "raw_output": "YES\n\nThe original span \"1000 mg\" and the edited span \"1"}
+{"instance_id": "MEX1170__INV-claim__unit_conversion", "base_id": "MEX1170", "label": "YES", "raw_output": "YES\n\nThe original span \"150 mg\" is equivalent to \"0.15"}
+{"instance_id": "MEX1172__INV-claim__unit_conversion", "base_id": "MEX1172", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX1173__INV-claim__unit_conversion", "base_id": "MEX1173", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1175__INV-claim__unit_conversion", "base_id": "MEX1175", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1177__INV-claim__unit_conversion", "base_id": "MEX1177", "label": "YES", "raw_output": "YES\n\nThe original span \"300 mg\" and the edited span \"0."}
+{"instance_id": "MEX1178__INV-claim__unit_conversion", "base_id": "MEX1178", "label": "YES", "raw_output": "YES\n\nThe original span \"0.5 mg\" is equivalent to \"500"}
+{"instance_id": "MEX1183__INV-claim__unit_conversion", "base_id": "MEX1183", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}
+{"instance_id": "MEX1187__INV-claim__unit_conversion", "base_id": "MEX1187", "label": "YES", "raw_output": "YES\n\nExplanation: 0.1 grams is equivalent to 100 milligrams"}
+{"instance_id": "MEX1188__INV-claim__unit_conversion", "base_id": "MEX1188", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" is equivalent to the edited span \""}
+{"instance_id": "MEX1190__INV-claim__unit_conversion", "base_id": "MEX1190", "label": "YES", "raw_output": "YES"}
+{"instance_id": "MEX1191__INV-claim__unit_conversion", "base_id": "MEX1191", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" and the edited span \"0."}
+{"instance_id": "MEX1192__INV-claim__unit_conversion", "base_id": "MEX1192", "label": "YES", "raw_output": "YES\n\nThe original span \"2100 mg\" is equivalent to \"2."}
+{"instance_id": "MEX1194__INV-claim__unit_conversion", "base_id": "MEX1194", "label": "YES", "raw_output": "YES\n\nThe original span \"0.2 mg\" is equivalent to \"200"}
+{"instance_id": "MEX1195__INV-claim__unit_conversion", "base_id": "MEX1195", "label": "YES", "raw_output": "YES\n\nThe original span \"500 mg\" and the edited span \"0."}
+{"instance_id": "MEX1196__INV-claim__unit_conversion", "base_id": "MEX1196", "label": "YES", "raw_output": "YES\n\nThe original span \"600 mg\" and the edited span \"0."}
+{"instance_id": "MEX1198__INV-claim__unit_conversion", "base_id": "MEX1198", "label": "YES", "raw_output": "YES\n\nExplanation: 100 mg is equivalent to 0.1 g,"}
+{"instance_id": "MEX1199__INV-claim__unit_conversion", "base_id": "MEX1199", "label": "YES", "raw_output": "YES\n\nThe original span \"1200 mg\" is equivalent to \"1."}
+{"instance_id": "MEX1200__INV-claim__unit_conversion", "base_id": "MEX1200", "label": "YES", "raw_output": "YES\n\nThe original span \"400 mg\" is equivalent to \"0.4"}

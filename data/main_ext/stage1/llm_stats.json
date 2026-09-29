@@ -1,0 +1,20 @@
+{
+  "generator_model": "qwen/qwen-2.5-72b-instruct",
+  "validator_model": "microsoft/phi-4",
+  "candidates_attempted": 1200,
+  "attempted_by_type": {
+    "DOSE": 1200
+  },
+  "bases_kept": 1100,
+  "bases_kept_by_type": {
+    "DOSE": 1100
+  },
+  "instances": 8246,
+  "drops": {
+    "span_not_unique_in_claim": 8,
+    "validator_no": 86,
+    "span_missing_in_claim": 1,
+    "perturb_rule_edit_failed": 13
+  },
+  "expand_spend_usd": 0.11903740000000028
+}
