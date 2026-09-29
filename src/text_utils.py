@@ -234,6 +234,11 @@ _NATURAL_PAIRS = (
 )
 
 
+def rule_natural_unit_conversion_label(span: str) -> bool:
+    """True if span has a rule-approved natural mass/volume conversion."""
+    return natural_unit_conversion(span) is not None
+
+
 def natural_unit_conversion(span: str) -> Optional[str]:
     """Return a common-unit rewrite with value in [0.1, 1000], or None."""
     match = DOSE_RE.search(span)

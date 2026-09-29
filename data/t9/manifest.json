@@ -2,10 +2,10 @@
   "nemoguardrails_pin": "0.24.1",
   "groups": {
     "a_verbatim": 59,
-    "b_reexpressed": 130,
-    "c_e1_x2": 117,
+    "b_reexpressed": 49,
+    "c_e1_x2": 119,
     "d_t7_e1_unit": 230,
-    "all": 536
+    "all": 457
   },
   "paths": {
     "a": "data/t9/instances_a_verbatim.jsonl",
@@ -16,6 +16,6 @@
   },
   "b_strata": {
     "eco_reexpressed": 27,
-    "inv_unit_natural": 103
+    "inv_unit_natural": 22
   }
 }

@@ -42,6 +42,24 @@ def unit_natural_y_bases() -> set[str]:
     return {r["base_id"] for r in _read_csv(UNIT_NAT) if (r.get("natural") or "").strip() == "Y"}
 
 
+def unit_natural_labels() -> dict[str, str]:
+    """base_id → human natural label (Y/N/empty)."""
+    out: dict[str, str] = {}
+    for r in _read_csv(UNIT_NAT):
+        out[r["base_id"]] = (r.get("natural") or "").strip().upper()
+    return out
+
+
+def effective_unit_natural_y(base_id: str, rule_y: bool) -> bool:
+    """Human unit_naturalness.csv overrides rule-based naturalness."""
+    human = unit_natural_labels().get(base_id, "")
+    if human == "Y":
+        return True
+    if human == "N":
+        return False
+    return rule_y
+
+
 def inv_mechanism(row: dict) -> str:
     mag = row.get("magnitude") or ""
     if mag == "rephrase":
