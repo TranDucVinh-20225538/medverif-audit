@@ -1,0 +1,773 @@
+{
+  "cohort": {
+    "dose3_PI_ok_bases": 18,
+    "bases_with_candidates": 18,
+    "candidate_kinds": [
+      "C0",
+      "INV_unit",
+      "T4_eco",
+      "E1x2_claim",
+      "E1x2_evid",
+      "E1_unit_x1000"
+    ],
+    "tie_break": "max score; ties \u2192 higher rank index (conservative)"
+  },
+  "by_verifier": {
+    "t6_alignscore_base": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6_bespoke_minicheck": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.09090909090909091,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.2727272727272727
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 0.39931102681449526,
+      "reward_inv_minus_x1000_ci": [
+        0.07284938537129518,
+        0.6218452086029855
+      ],
+      "n_reward_pairs": 3
+    },
+    "t6_granite_guardian": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6_hhem": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6_minicheck_deberta": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6_minicheck_roberta": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6_summac_conv": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6_summac_zs": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6a_alignscore_base": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6a_granite_guardian": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6a_hhem": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6a_minicheck_deberta": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6a_minicheck_roberta": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6a_summac_conv": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "t6a_summac_zs": {
+      "score_mode": "continuous",
+      "n_bases_selected": 10,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    },
+    "v1_medscore": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.05555555555555555,
+      "p_select_wrong_ci": [
+        0.0,
+        0.16666666666666666
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.0,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 0.6666666666666666,
+      "reward_inv_minus_x1000_ci": [
+        0.0,
+        1.0
+      ],
+      "n_reward_pairs": 3
+    },
+    "v1b_medscore": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.1111111111111111,
+      "p_select_wrong_ci": [
+        0.0,
+        0.2777777777777778
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.0,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 1.0,
+      "reward_inv_minus_x1000_ci": [
+        1.0,
+        1.0
+      ],
+      "n_reward_pairs": 3
+    },
+    "v1c_medscore": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.05555555555555555,
+      "p_select_wrong_ci": [
+        0.0,
+        0.16666666666666666
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.0,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 0.6666666666666666,
+      "reward_inv_minus_x1000_ci": [
+        0.0,
+        1.0
+      ],
+      "n_reward_pairs": 3
+    },
+    "v2a_minicheck": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.36363636363636365,
+      "p_inv_below_wrong_ci": [
+        0.09090909090909091,
+        0.6363636363636364
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": -0.2991796477387349,
+      "reward_inv_minus_x1000_ci": [
+        -0.8647145628929138,
+        0.007911741733551025
+      ],
+      "n_reward_pairs": 3
+    },
+    "v2b_bespoke": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.09090909090909091,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.2727272727272727
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 0.39931102681449526,
+      "reward_inv_minus_x1000_ci": [
+        0.07284938537129518,
+        0.6218452086029855
+      ],
+      "n_reward_pairs": 3
+    },
+    "v3_alignscore": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.18181818181818182,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.45454545454545453
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 0.005829102825373411,
+      "reward_inv_minus_x1000_ci": [
+        -0.0024630087427794933,
+        0.0178080927580595
+      ],
+      "n_reward_pairs": 3
+    },
+    "v4_ragas_nli": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.1111111111111111,
+      "p_select_wrong_ci": [
+        0.0,
+        0.2777777777777778
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.0,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 0.6666666666666666,
+      "reward_inv_minus_x1000_ci": [
+        0.0,
+        1.0
+      ],
+      "n_reward_pairs": 3
+    },
+    "v5_ragas_nli": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.0,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 1.0,
+      "reward_inv_minus_x1000_ci": [
+        1.0,
+        1.0
+      ],
+      "n_reward_pairs": 3
+    },
+    "v6_ragas_gpt4o_mini": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.0,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 1.0,
+      "reward_inv_minus_x1000_ci": [
+        1.0,
+        1.0
+      ],
+      "n_reward_pairs": 3
+    },
+    "v6_ragas_haiku45": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.0,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 1.0,
+      "reward_inv_minus_x1000_ci": [
+        1.0,
+        1.0
+      ],
+      "n_reward_pairs": 3
+    },
+    "v6_ragas_llama31_8b": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.0,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 0.0,
+      "reward_inv_minus_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_reward_pairs": 3
+    },
+    "v6_ragas_mistral_small32": {
+      "score_mode": "continuous",
+      "n_bases_selected": 18,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 3,
+      "p_inv_below_wrong": 0.0,
+      "p_inv_below_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "n_inv_vs_wrong": 11,
+      "reward_inv_minus_x1000": 1.0,
+      "reward_inv_minus_x1000_ci": [
+        1.0,
+        1.0
+      ],
+      "n_reward_pairs": 3
+    },
+    "v6_ragas_nli": {
+      "score_mode": "continuous",
+      "n_bases_selected": 5,
+      "p_select_wrong": 0.0,
+      "p_select_wrong_ci": [
+        0.0,
+        0.0
+      ],
+      "p_select_x1000": 0.0,
+      "p_select_x1000_ci": [
+        0.0,
+        0.0
+      ],
+      "n_x1000_present": 1,
+      "p_inv_below_wrong": NaN,
+      "p_inv_below_wrong_ci": [
+        NaN,
+        NaN
+      ],
+      "n_inv_vs_wrong": 0,
+      "reward_inv_minus_x1000": NaN,
+      "reward_inv_minus_x1000_ci": [
+        NaN,
+        NaN
+      ],
+      "n_reward_pairs": 0
+    }
+  }
+}
