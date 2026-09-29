@@ -1,28 +1,30 @@
 {
   "path": "data/t19/instances_t19.jsonl",
-  "n_instances": 1689,
+  "n_instances": 1703,
   "t17_present": true,
-  "t17_n": 612,
+  "t17_n": 588,
   "by_pack": {
-    "main_dose": 624,
-    "main_e1_unit": 220,
-    "t14": 233,
-    "t17": 612
+    "main_dose": 594,
+    "main_e1_unit": 214,
+    "main_pol": 80,
+    "t14": 227,
+    "t17": 588
   },
   "by_condition": {
-    "C0:none": 115,
-    "E1-evid:x2": 110,
-    "E1-claim:x2": 110,
-    "E1-evid:x10": 111,
-    "E1-claim:x10": 111,
-    "INV-claim:unit_conversion": 67,
-    "E1-unit-claim:x1000": 110,
-    "E1-unit-evid:x1000": 110,
-    "T14-repr-claim:spacing": 112,
-    "T14-repr-claim:unit_spell": 112,
+    "C0:none": 156,
+    "E1-evid:x2": 105,
+    "E1-claim:x2": 105,
+    "E1-evid:x10": 106,
+    "E1-claim:x10": 106,
+    "INV-claim:unit_conversion": 62,
+    "E1-unit-claim:x1000": 107,
+    "E1-unit-evid:x1000": 107,
+    "INV-claim:rephrase": 34,
+    "T14-repr-claim:spacing": 109,
+    "T14-repr-claim:unit_spell": 109,
     "T14-repr-claim:symbol_micro": 9,
-    "E1-down10:down10": 228,
-    "E1-down2:down2": 228,
-    "E1-unit-down:unit-down": 156
+    "E1-down10:down10": 218,
+    "E1-down2:down2": 218,
+    "E1-unit-down:unit-down": 152
   }
 }

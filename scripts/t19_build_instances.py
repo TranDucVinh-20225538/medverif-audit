@@ -63,9 +63,24 @@ def main_dose_rows() -> list[dict]:
     return out
 
 
+def main_pol_rows() -> list[dict]:
+    """POL C0 + INV rephrase on main (Rephrase metric for local scale sweep)."""
+    out: list[dict] = []
+    for r in read_jsonl(MAIN):
+        if not r.get("valid", True) or r.get("type") != "POLARITY" or r.get("subset") != "main":
+            continue
+        cond, mag = r.get("condition"), r.get("magnitude")
+        if (cond == "C0" and mag == "none") or (cond == "INV-claim" and mag == "rephrase"):
+            row = dict(r)
+            row["t19_pack"] = "main_pol"
+            out.append(row)
+    return out
+
+
 def main() -> None:
     rows: list[dict] = []
     rows.extend(main_dose_rows())
+    rows.extend(main_pol_rows())
     for r in read_jsonl(T14):
         if not r.get("valid", True):
             continue
