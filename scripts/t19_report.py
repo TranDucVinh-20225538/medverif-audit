@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""T19 scale sweep report: QI/NS/US, AUROC, 8B agreement, figure."""
+"""T19 scale sweep report: card-aligned QI/NS/US/C0 + optional E2/Rephrase."""
 
 from __future__ import annotations
 
 import json
-import math
 import random
 import sys
 from collections import defaultdict
@@ -15,6 +14,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "analysis"))
 sys.path.insert(0, str(ROOT / "src"))
 
+from analyze import N_BOOT, SEED, _c0_pass_bases, _groups, _parsed, bootstrap_rate  # noqa: E402
 from review_filters import effective_unit_natural_y  # noqa: E402
 from text_utils import rule_natural_unit_conversion_label  # noqa: E402
 import t14_t3_filter_report as filt  # noqa: E402
@@ -26,10 +26,11 @@ OUT_JSON = ROOT / "notes/t19_scale_sweep.json"
 OUT_FIG = ROOT / "results/figures/t19_scale.png"
 
 MODELS = [
-    {"slug": "llama32_1b", "label": "1B", "params_b": 1.0, "path": RAW / "llama32_1b_instruct.jsonl"},
-    {"slug": "llama32_3b", "label": "3B", "params_b": 3.0, "path": RAW / "llama32_3b_instruct.jsonl"},
+    {"slug": "llama32_1b", "label": "1B (local)", "params_b": 1.0, "path": RAW / "llama32_1b_instruct.jsonl"},
+    {"slug": "llama32_3b", "label": "3B (local)", "params_b": 3.0, "path": RAW / "llama32_3b_instruct.jsonl"},
     {"slug": "llama31_8b_local", "label": "8B (local)", "params_b": 8.0, "path": RAW / "llama31_8b_instruct.jsonl"},
-    {"slug": "llama33_70b_api", "label": "70B (API)", "params_b": 70.0, "path": None},
+    {"slug": "llama31_8b_api", "label": "8B (API)", "params_b": 8.0, "path": None, "extra_paths": True},
+    {"slug": "llama33_70b_api", "label": "70B (API Llama-3.3)", "params_b": 70.0, "path": None, "api70": True},
 ]
 
 V4_MAIN = ROOT / "results/raw/v4_ragas_nli.llama.jsonl"
@@ -40,9 +41,6 @@ API8B_PATHS = [
     ROOT / "results/raw/e2_main/v6_ragas_llama31_8b.jsonl",
 ]
 
-SEED = 42
-N_BOOT = 1000
-
 
 def read_jsonl(path: Path) -> list[dict]:
     if not path.is_file():
@@ -52,7 +50,7 @@ def read_jsonl(path: Path) -> list[dict]:
 
 def load_scores(path: Path | None, extra_paths: list[Path] | None = None) -> dict[str, dict]:
     out: dict[str, dict] = {}
-    paths = []
+    paths: list[Path] = []
     if path:
         paths.append(path)
     if extra_paths:
@@ -75,178 +73,175 @@ def is_pass(row: dict) -> bool | None:
     return float(s) >= 0.5
 
 
-def bootstrap_rate(values: list[int]) -> tuple[float | None, float | None, float | None]:
-    if not values:
-        return None, None, None
-    rng = random.Random(SEED)
-    n = len(values)
-    pts = []
-    for _ in range(N_BOOT):
-        samp = [values[rng.randrange(n)] for _ in range(n)]
-        pts.append(sum(samp) / n)
-    pts.sort()
-    lo = pts[int(0.025 * len(pts))]
-    hi = pts[int(0.975 * len(pts)) - 1]
-    return sum(values) / n, lo, hi
-
-
-def auroc(labels: list[int], scores: list[float]) -> float | None:
-    if len(labels) < 2 or len(set(labels)) < 2:
-        return None
-    pairs = sorted(zip(scores, labels), key=lambda x: x[0])
-    n_pos = sum(labels)
-    n_neg = len(labels) - n_pos
-    if n_pos == 0 or n_neg == 0:
-        return None
-    rank_sum = 0.0
-    for i, (_, y) in enumerate(pairs, start=1):
-        if y == 1:
-            rank_sum += i
-    u = rank_sum - n_pos * (n_pos + 1) / 2
-    return u / (n_pos * n_neg)
-
-
-def boot_auroc(labels: list[int], scores: list[float]) -> tuple[float | None, float | None, float | None]:
-    if len(labels) < 5:
-        a = auroc(labels, scores)
-        return a, None, None
-    rng = random.Random(SEED)
-    n = len(labels)
-    pts = []
-    for _ in range(N_BOOT):
-        idx = [rng.randrange(n) for _ in range(n)]
-        y = [labels[i] for i in idx]
-        s = [scores[i] for i in idx]
-        a = auroc(y, s)
-        if a is not None:
-            pts.append(a)
-    if not pts:
-        return None, None, None
-    pts.sort()
-    return pts[len(pts) // 2], pts[int(0.025 * len(pts))], pts[int(0.975 * len(pts)) - 1]
-
-
-def inv_natural_ids(instances: list[dict]) -> set[str]:
-    out = set()
-    for r in instances:
-        if r.get("t19_pack") != "main_dose":
-            continue
-        if r.get("condition") != "INV-claim" or r.get("magnitude") != "unit_conversion":
-            continue
-        orig = filt.inv_span_before(r)
-        if effective_unit_natural_y(r["base_id"], bool(rule_natural_unit_conversion_label(orig))):
-            out.add(r["instance_id"])
-    return out
-
-
-def x1000_ids(instances: list[dict]) -> set[str]:
-    out = set()
-    for r in instances:
-        if r.get("t19_pack") == "main_e1_unit" and r.get("magnitude") == "x1000":
-            out.add(r["instance_id"])
-        if r.get("t19_pack") == "main_dose" and r.get("condition") in ("E1-unit-claim", "E1-unit-evid"):
-            out.add(r["instance_id"])
-    return out
-
-
-def c0_bases(instances: list[dict]) -> set[str]:
-    return {
-        r["base_id"]
-        for r in instances
-        if r.get("t19_pack", "").startswith("main") and r.get("condition") == "C0" and r.get("valid", True)
-    }
-
-
-def metrics_for_model(instances: list[dict], scores: dict[str, dict]) -> dict:
-    inv_ids = inv_natural_ids(instances)
-    x1k = x1000_ids(instances)
-    c0_pass_bases = {
-        r["base_id"]
-        for r in instances
-        if r.get("condition") == "C0"
-        and r["base_id"] in c0_bases(instances)
-        and is_pass(scores.get(r["instance_id"], {})) is True
-    }
-    inv_hits: list[int] = []
-    e1_fail: list[int] = []
-    c0_hits: list[int] = []
-    for r in instances:
-        if not r.get("t19_pack", "").startswith("main") and r.get("t19_pack") != "main_e1_unit":
-            continue
-        iid = r["instance_id"]
-        sc = scores.get(iid)
+def join_instances(instances: list[dict], scores: dict[str, dict]) -> list[dict]:
+    joined: list[dict] = []
+    for inst in instances:
+        sc = scores.get(inst["instance_id"])
         if not sc:
             continue
-        p = is_pass(sc)
-        if p is None:
+        v = sc.get("verdict")
+        if v not in ("PASS", "FAIL"):
             continue
-        bid = r["base_id"]
-        if r.get("condition") == "C0":
-            c0_hits.append(int(p))
-        if iid in inv_ids and bid in c0_pass_bases:
-            inv_hits.append(int(p))
-        if bid not in c0_pass_bases:
+        row = dict(inst)
+        row["verdict"] = v
+        row["score"] = sc.get("score")
+        joined.append(row)
+    return joined
+
+
+def _fail_groups(rows: list[dict], keep) -> list[tuple[int, int]]:
+    by: dict[str, list[dict]] = defaultdict(list)
+    for row in rows:
+        if not keep(row) or not _parsed(row):
             continue
-        if iid in x1k or (
-            r.get("condition") in ("E1-claim", "E1-evid") and r.get("magnitude") in ("x2", "x10")
-        ):
-            e1_fail.append(int(not p))
-    qi, qi_lo, qi_hi = bootstrap_rate(inv_hits)
-    ns, ns_lo, ns_hi = bootstrap_rate(e1_fail)
-    us = qi
-    c0, c0_lo, c0_hi = bootstrap_rate(c0_hits)
+        by[row["base_id"]].append(row)
+    out: list[tuple[int, int]] = []
+    for g in by.values():
+        out.append((sum(1 for r in g if r["verdict"] == "FAIL"), len(g)))
+    return out
+
+
+def _natural_inv(r: dict) -> bool:
+    if r.get("condition") != "INV-claim" or r.get("magnitude") != "unit_conversion":
+        return False
+    if r.get("t19_pack") != "main_dose":
+        return False
+    orig = filt.inv_span_before(r)
+    return effective_unit_natural_y(r["base_id"], bool(rule_natural_unit_conversion_label(orig)))
+
+
+def _pack_stat(groups: list[tuple[int, int]]) -> dict:
+    s = bootstrap_rate(groups)
     return {
-        "QI": qi,
-        "QI_ci": [qi_lo, qi_hi],
-        "NS": ns,
-        "NS_ci": [ns_lo, ns_hi],
-        "US": us,
-        "C0_pass": c0,
-        "C0_ci": [c0_lo, c0_hi],
-        "n_inv": len(inv_hits),
-        "n_e1": len(e1_fail),
-        "n_c0": len(c0_hits),
+        "rate": s["rate"],
+        "ci_lo": s["lo"],
+        "ci_hi": s["hi"],
+        "n": s["den"],
+        "n_pass_or_fail": s["num"],
+        "n_bases": s["n_bases"],
     }
 
 
-def auroc_cohorts(instances: list[dict], scores: dict[str, dict]) -> dict:
-    conv_ids = inv_natural_ids(instances)
-    unit_ids = x1000_ids(instances)
-    c0_ids = {r["instance_id"] for r in instances if r.get("condition") == "C0" and r.get("t19_pack") == "main_dose"}
+def metrics_card(joined: list[dict]) -> dict:
+    main = [r for r in joined if r.get("t19_pack") == "main_dose"]
+    c0_stat = _pack_stat(_groups(main, lambda r: r["condition"] == "C0"))
+    cond = _c0_pass_bases(main)
 
-    def collect(id_set: set[str], label: int) -> tuple[list[int], list[float]]:
-        y, s = [], []
-        for iid in id_set:
-            row = scores.get(iid)
-            if not row or row.get("p_yes") is None:
-                continue
-            y.append(label)
-            s.append(float(row["p_yes"]))
-        return y, s
+    qi_all = _pack_stat(
+        _groups(
+            main,
+            lambda r: r["base_id"] in cond
+            and r["condition"] == "INV-claim"
+            and r.get("magnitude") == "unit_conversion",
+        )
+    )
+    qi_nat = _pack_stat(
+        _groups(
+            main,
+            lambda r: r["base_id"] in cond and _natural_inv(r),
+        )
+    )
 
-    y0, s0 = collect(c0_ids, 0)
-    y1, s1 = collect(conv_ids, 1)
-    labels = y0 + y1
-    scs = s0 + s1
-    a_c0_conv, lo_cc, hi_cc = boot_auroc(labels, scs)
+    def ns_claim_main(r: dict) -> bool:
+        return (
+            r["base_id"] in cond
+            and r.get("t19_pack") == "main_dose"
+            and r.get("condition") == "E1-claim"
+            and r.get("magnitude") in ("x2", "x10")
+        )
 
-    yc, sc = collect(conv_ids, 1)
-    yu, su = collect(unit_ids, 0)
-    labels2 = yc + yu
-    scs2 = sc + su
-    a_conv_unit, lo_cu, hi_cu = boot_auroc(labels2, scs2)
-    return {
-        "AUROC_C0_vs_Conv": a_c0_conv,
-        "AUROC_C0_vs_Conv_ci": [lo_cc, hi_cc],
-        "AUROC_Conv_vs_Unit": a_conv_unit,
-        "AUROC_Conv_vs_Unit_ci": [lo_cu, hi_cu],
-        "n_c0_conv": len(labels),
-        "n_conv_unit": len(labels2),
+    def ns_evid_main(r: dict) -> bool:
+        return (
+            r["base_id"] in cond
+            and r.get("t19_pack") == "main_dose"
+            and r.get("condition") == "E1-evid"
+            and r.get("magnitude") in ("x2", "x10")
+        )
+
+    t17 = [r for r in joined if r.get("t19_pack") == "t17"]
+    ns_claim_down2 = _pack_stat(_fail_groups(t17, lambda r: r["base_id"] in cond and r["condition"] == "E1-down2"))
+    ns_claim_down10 = _pack_stat(_fail_groups(t17, lambda r: r["base_id"] in cond and r["condition"] == "E1-down10"))
+    ns_claim = _pack_stat(_fail_groups(joined, ns_claim_main))
+    ns_evid = _pack_stat(_fail_groups(joined, ns_evid_main))
+
+    unit = [r for r in joined if r.get("t19_pack") in ("main_e1_unit", "main_dose", "t17")]
+
+    def us_claim_x1000(r: dict) -> bool:
+        return (
+            r["base_id"] in cond
+            and r.get("t19_pack") == "main_e1_unit"
+            and r.get("condition") == "E1-unit-claim"
+            and r.get("magnitude") == "x1000"
+        )
+
+    def us_evid_x1000(r: dict) -> bool:
+        return (
+            r["base_id"] in cond
+            and r.get("t19_pack") == "main_e1_unit"
+            and r.get("condition") == "E1-unit-evid"
+            and r.get("magnitude") == "x1000"
+        )
+
+    def us_unit_down(r: dict) -> bool:
+        return r["base_id"] in cond and r.get("t19_pack") == "t17" and r.get("condition") == "E1-unit-down"
+
+    us_claim_x1k = _pack_stat(_fail_groups(unit, us_claim_x1000))
+    us_evid_x1k = _pack_stat(_fail_groups(unit, us_evid_x1000))
+    us_unit_down_stat = _pack_stat(_fail_groups(unit, us_unit_down))
+
+    e2_rows = [r for r in joined if r.get("condition") == "E2"]
+    e2_stat = _pack_stat(_groups(joined, lambda r: r.get("condition") == "E2")) if e2_rows else None
+
+    repr_rows = [r for r in joined if r.get("t19_pack") == "t14" and r.get("condition") == "T14-repr-claim"]
+    rephrase_stat = (
+        _pack_stat(_groups(joined, lambda r: r.get("t19_pack") == "t14" and r.get("condition") == "T14-repr-claim"))
+        if repr_rows
+        else None
+    )
+
+    inv_bases_all = {
+        r["base_id"]
+        for r in main
+        if r["base_id"] in cond
+        and r["condition"] == "INV-claim"
+        and r.get("magnitude") == "unit_conversion"
     }
+    inv_bases_nat = {r["base_id"] for r in main if r["base_id"] in cond and _natural_inv(r)}
+
+    return {
+        "n_c0_pass_bases": len(cond),
+        "n_bases_qi_all": len(inv_bases_all),
+        "n_bases_qi_nat": len(inv_bases_nat),
+        "C0": c0_stat,
+        "QI_all": qi_all,
+        "QI_nat": qi_nat,
+        "NS_claim": ns_claim,
+        "NS_evid": ns_evid,
+        "NS_claim_T17_down2": ns_claim_down2,
+        "NS_claim_T17_down10": ns_claim_down10,
+        "US_claim_x1000": us_claim_x1k,
+        "US_evid_x1000": us_evid_x1k,
+        "US_T17_unit_down": us_unit_down_stat,
+        "E2_PASS": e2_stat,
+        "Rephrase_PASS": rephrase_stat,
+    }
+
+
+def fmt_pct(stat: dict | None) -> str:
+    if not stat or stat.get("rate") is None:
+        return "NA"
+    lo, hi = stat.get("ci_lo"), stat.get("ci_hi")
+    body = f"{100 * stat['rate']:.1f}%"
+    if lo is not None and hi is not None:
+        body += f" [{100 * lo:.1f}, {100 * hi:.1f}]"
+    n = stat.get("n", 0)
+    nb = stat.get("n_bases", 0)
+    return f"{body} (n={n}, bases={nb})"
 
 
 def agreement_8b(local: dict[str, dict], api: dict[str, dict], instances: list[dict]) -> dict:
-    agree = tot = 0
+    rng = random.Random(SEED)
+    pairs: list[tuple[int, int]] = []
     for r in instances:
         iid = r["instance_id"]
         a, b = local.get(iid), api.get(iid)
@@ -255,9 +250,24 @@ def agreement_8b(local: dict[str, dict], api: dict[str, dict], instances: list[d
         pa, pb = is_pass(a), is_pass(b)
         if pa is None or pb is None:
             continue
-        tot += 1
-        agree += int(pa == pb)
-    return {"n": tot, "agreement": (agree / tot if tot else None)}
+        pairs.append((int(pa == pb), 1))
+    if not pairs:
+        return {"n": 0, "agreement": None, "ci_lo": None, "ci_hi": None}
+    point = sum(p for p, _ in pairs) / len(pairs)
+    if len(pairs) < 2:
+        return {"n": len(pairs), "agreement": point, "ci_lo": None, "ci_hi": None}
+    m = len(pairs)
+    pts = []
+    for _ in range(N_BOOT):
+        agree = sum(pairs[rng.randrange(m)][0] for _ in range(m))
+        pts.append(agree / m)
+    pts.sort()
+    return {
+        "n": m,
+        "agreement": point,
+        "ci_lo": pts[int(0.025 * len(pts))],
+        "ci_hi": pts[int(0.975 * len(pts)) - 1],
+    }
 
 
 def main() -> None:
@@ -270,76 +280,85 @@ def main() -> None:
 
     model_rows = []
     for spec in MODELS:
-        if spec["slug"] == "llama33_70b_api":
+        if spec.get("api70"):
             scores = api70
+        elif spec.get("extra_paths"):
+            scores = api8b
         else:
             scores = load_scores(spec["path"])
-        m = metrics_for_model(instances, scores)
-        au = auroc_cohorts(instances, scores) if spec["slug"] != "llama33_70b_api" else {
-            "AUROC_C0_vs_Conv": None,
-            "AUROC_Conv_vs_Unit": None,
-            "note": "AUROC from p_yes requires local scores",
-        }
+        joined = join_instances(instances, scores)
+        m = metrics_card(joined)
         row = {
             "slug": spec["slug"],
             "label": spec["label"],
             "params_b": spec["params_b"],
+            "n_scored": len(joined),
+            "n_instances_cohort": len(instances),
             **m,
-            **au,
-            "n_scored": sum(1 for r in instances if r["instance_id"] in scores),
         }
         if spec["slug"] == "llama31_8b_local":
-            row["api8b_agreement"] = agreement_8b(scores, api8b, instances)
+            local_scores = scores
+            row["api8b_agreement"] = agreement_8b(local_scores, api8b, instances)
         model_rows.append(row)
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    payload = {"instances": len(instances), "models": model_rows}
+    payload = {
+        "instances": len(instances),
+        "bootstrap": {"n": N_BOOT, "seed": SEED, "method": "cluster by base_id"},
+        "definitions": {
+            "C0": "P(PASS | C0) on main_dose",
+            "QI_all": "P(PASS | INV-unit, | C0 PASS) all conversions",
+            "QI_nat": "P(PASS | INV-unit natural per nat3, | C0 PASS)",
+            "NS_claim": "P(FAIL | E1-claim x2/x10 main, | C0 PASS)",
+            "NS_evid": "P(FAIL | E1-evid x2/x10 main, | C0 PASS)",
+            "NS_claim_T17_down2/down10": "P(FAIL | T17 E1-down2 or E1-down10, | C0 PASS)",
+            "US_claim_x1000": "P(FAIL | E1-unit-claim x1000, | C0 PASS)",
+            "US_evid_x1000": "P(FAIL | E1-unit-evid x1000, | C0 PASS)",
+            "US_T17_unit_down": "P(FAIL | T17 E1-unit-down, | C0 PASS)",
+        },
+        "models": model_rows,
+    }
     OUT_JSON.write_text(json.dumps(payload, indent=2) + "\n")
 
-    qi70 = next((r for r in model_rows if r["slug"] == "llama33_70b_api"), {})
     lines = [
         "# T19 scale sweep (RAGAS-NLI)",
         "",
-        f"Cohort: `{INST.relative_to(ROOT)}` (n={len(instances)} instances; non-dose excluded).",
+        f"Cohort: `{INST.relative_to(ROOT)}` (n={len(instances)} instances). "
+        "Cluster-bootstrap by `base_id`, seed 42, 1000 resamples (matches `compute_paper_numbers.py`).",
         "",
-        "**QI definition (all models):** subset **natural INV-unit**; conditioning **| C0 PASS** "
-        f"(verifier-specific); exclusions **non_dose_targets** on main slice; scores under "
-        f"`{RAW.relative_to(ROOT)}/` (70B: `{V4_MAIN.relative_to(ROOT)}` + T14 overlap).",
+        "**Shared conditioning:** `n_c0_pass_bases` = bases with C0 PASS on main_dose (per model). "
+        "QI/NS/US use that base set; row `bases=` is clustered units contributing to each metric.",
         "",
-        f"**70B QI line:** {100*(qi70.get('QI') or 0):.1f}% "
-        f"[{100*(qi70.get('QI_ci') or [0,0])[0]:.1f},{100*(qi70.get('QI_ci') or [0,0])[1]:.1f}], "
-        f"n_inv={qi70.get('n_inv', 0)} — see `notes/reconcile_llama70b_qi.md` (not M1 table 84.9% Qwen; not ~91% NS).",
-        "",
-        "| Params | Model | QI | NS | US | C0 pass | n(inv) | n(E1) | AUROC C0 vs Conv | AUROC Conv vs Unit |",
-        "|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "| Model | C0 | QI all | QI nat | NS claim | NS evid | NS ÷2 (T17) | NS ÷10 (T17) | "
+        "US claim ×1k | US evid ×1k | US unit÷ (T17) | Rephrase |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for r in model_rows:
-        def pct(x, ci=None):
-            if x is None:
-                return "NA"
-            if ci and ci[0] is not None:
-                return f"{100*x:.1f}% [{100*ci[0]:.1f},{100*ci[1]:.1f}]"
-            return f"{100*x:.1f}%"
-
-        a_cc = r.get("AUROC_C0_vs_Conv")
-        a_cu = r.get("AUROC_Conv_vs_Unit")
-        s_cc = "NA" if a_cc is None else f"{a_cc:.3f}"
-        s_cu = "NA" if a_cu is None else f"{a_cu:.3f}"
         lines.append(
-            f"| {r['params_b']:.0f}B | {r['label']} | {pct(r.get('QI'), r.get('QI_ci'))} | "
-            f"{pct(r.get('NS'), r.get('NS_ci'))} | {pct(r.get('US'))} | {pct(r.get('C0_pass'), r.get('C0_ci'))} | "
-            f"{r.get('n_inv', 0)} | {r.get('n_e1', 0)} | {s_cc} | {s_cu} |"
+            f"| {r['label']} | {fmt_pct(r['C0'])} | {fmt_pct(r['QI_all'])} | {fmt_pct(r['QI_nat'])} | "
+            f"{fmt_pct(r['NS_claim'])} | {fmt_pct(r['NS_evid'])} | {fmt_pct(r['NS_claim_T17_down2'])} | "
+            f"{fmt_pct(r['NS_claim_T17_down10'])} | {fmt_pct(r['US_claim_x1000'])} | {fmt_pct(r['US_evid_x1000'])} | "
+            f"{fmt_pct(r['US_T17_unit_down'])} | {fmt_pct(r.get('Rephrase_PASS'))} |"
         )
+    lines.append("")
+    lines.append("Per model: `n_c0_pass_bases`, `n_bases_qi_all`, `n_bases_qi_nat` in `notes/t19_scale_sweep.json`.")
+
     loc = next((r for r in model_rows if r["slug"] == "llama31_8b_local"), None)
-    if loc and loc.get("api8b_agreement"):
+    if loc and loc.get("api8b_agreement") and loc["api8b_agreement"].get("n"):
         ag = loc["api8b_agreement"]
         lines.extend(
             [
                 "",
                 f"**8B local vs API (T6-B Llama-3.1-8B) verdict agreement:** "
-                f"{100*(ag.get('agreement') or 0):.1f}% (n={ag.get('n', 0)}).",
+                f"{100 * (ag['agreement'] or 0):.1f}% "
+                f"[{100 * (ag['ci_lo'] or 0):.1f}, {100 * (ag['ci_hi'] or 0):.1f}] "
+                f"(n={ag['n']} overlapping scored instances).",
             ]
         )
+    e2_any = any(r.get("E2_PASS") for r in model_rows)
+    if not e2_any:
+        lines.append("\n_E2: no E2 rows in T19 cohort._")
+
     OUT_MD.write_text("\n".join(lines) + "\n")
 
     try:
@@ -347,13 +366,14 @@ def main() -> None:
 
         OUT_FIG.parent.mkdir(parents=True, exist_ok=True)
         fig, axes = plt.subplots(1, 3, figsize=(10, 3.5))
-        xs = [r["params_b"] for r in model_rows]
+        plot_models = [r for r in model_rows if r["QI_nat"].get("rate") is not None]
+        xs = [r["params_b"] for r in plot_models]
         for ax, key, title in zip(
             axes,
-            ("QI", "NS", "US"),
-            ("QI (INV natural PASS)", "NS (E1 FAIL)", "US"),
+            ("QI_nat", "NS_evid", "US_evid_x1000"),
+            ("QI nat (PASS)", "NS evid (FAIL)", "US evid ×1k (FAIL)"),
         ):
-            ys = [r.get(key) for r in model_rows]
+            ys = [r[key]["rate"] for r in plot_models]
             ax.plot(xs, ys, "o-")
             ax.set_xscale("log")
             ax.set_xlabel("Parameters (B)")

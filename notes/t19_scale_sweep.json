@@ -1,148 +1,501 @@
 {
   "instances": 1623,
+  "bootstrap": {
+    "n": 1000,
+    "seed": 42,
+    "method": "cluster by base_id"
+  },
+  "definitions": {
+    "C0": "P(PASS | C0) on main_dose",
+    "QI_all": "P(PASS | INV-unit, | C0 PASS) all conversions",
+    "QI_nat": "P(PASS | INV-unit natural per nat3, | C0 PASS)",
+    "NS_claim": "P(FAIL | E1-claim x2/x10 main, | C0 PASS)",
+    "NS_evid": "P(FAIL | E1-evid x2/x10 main, | C0 PASS)",
+    "NS_claim_T17_down2/down10": "P(FAIL | T17 E1-down2 or E1-down10, | C0 PASS)",
+    "US_claim_x1000": "P(FAIL | E1-unit-claim x1000, | C0 PASS)",
+    "US_evid_x1000": "P(FAIL | E1-unit-evid x1000, | C0 PASS)",
+    "US_T17_unit_down": "P(FAIL | T17 E1-unit-down, | C0 PASS)"
+  },
   "models": [
     {
       "slug": "llama32_1b",
-      "label": "1B",
+      "label": "1B (local)",
       "params_b": 1.0,
-      "QI": 0.9411764705882353,
-      "QI_ci": [
-        0.8235294117647058,
-        1.0
-      ],
-      "NS": 0.05263157894736842,
-      "NS_ci": [
-        0.03313840155945419,
-        0.07212475633528265
-      ],
-      "US": 0.9411764705882353,
-      "C0_pass": 0.8761904761904762,
-      "C0_ci": [
-        0.8095238095238095,
-        0.9333333333333333
-      ],
-      "n_inv": 17,
-      "n_e1": 513,
-      "n_c0": 105,
-      "AUROC_C0_vs_Conv": 0.5306735306735306,
-      "AUROC_C0_vs_Conv_ci": [
-        0.3991228070175439,
-        0.6585648148148148
-      ],
-      "AUROC_Conv_vs_Unit": 0.5049135220125787,
-      "AUROC_Conv_vs_Unit_ci": [
-        0.3875,
-        0.6235750666990055
-      ],
-      "n_c0_conv": 132,
-      "n_conv_unit": 236,
-      "n_scored": 1623
+      "n_scored": 1516,
+      "n_instances_cohort": 1623,
+      "n_c0_pass_bases": 92,
+      "n_bases_qi_all": 49,
+      "n_bases_qi_nat": 17,
+      "C0": {
+        "rate": 0.8761904761904762,
+        "ci_lo": 0.8095238095238095,
+        "ci_hi": 0.9333333333333333,
+        "n": 105,
+        "n_pass_or_fail": 92,
+        "n_bases": 105
+      },
+      "QI_all": {
+        "rate": 0.8775510204081632,
+        "ci_lo": 0.7755102040816326,
+        "ci_hi": 0.9591836734693877,
+        "n": 49,
+        "n_pass_or_fail": 43,
+        "n_bases": 49
+      },
+      "QI_nat": {
+        "rate": 0.9411764705882353,
+        "ci_lo": 0.8235294117647058,
+        "ci_hi": 1.0,
+        "n": 17,
+        "n_pass_or_fail": 16,
+        "n_bases": 17
+      },
+      "NS_claim": {
+        "rate": 0.05325443786982249,
+        "ci_lo": 0.01764705882352941,
+        "ci_hi": 0.0994298245614035,
+        "n": 169,
+        "n_pass_or_fail": 9,
+        "n_bases": 89
+      },
+      "NS_evid": {
+        "rate": 0.08092485549132948,
+        "ci_lo": 0.034677097867251344,
+        "ci_hi": 0.13718249380677122,
+        "n": 173,
+        "n_pass_or_fail": 14,
+        "n_bases": 90
+      },
+      "NS_claim_T17_down2": {
+        "rate": 0.07692307692307693,
+        "ci_lo": 0.03550295857988166,
+        "ci_hi": 0.12429755872869641,
+        "n": 169,
+        "n_pass_or_fail": 13,
+        "n_bases": 90
+      },
+      "NS_claim_T17_down10": {
+        "rate": 0.0625,
+        "ci_lo": 0.022468771577427656,
+        "ci_hi": 0.11363636363636363,
+        "n": 176,
+        "n_pass_or_fail": 11,
+        "n_bases": 91
+      },
+      "US_claim_x1000": {
+        "rate": 0.03529411764705882,
+        "ci_lo": 0.0,
+        "ci_hi": 0.07058823529411765,
+        "n": 85,
+        "n_pass_or_fail": 3,
+        "n_bases": 85
+      },
+      "US_evid_x1000": {
+        "rate": 0.011627906976744186,
+        "ci_lo": 0.0,
+        "ci_hi": 0.046511627906976744,
+        "n": 86,
+        "n_pass_or_fail": 1,
+        "n_bases": 86
+      },
+      "US_T17_unit_down": {
+        "rate": 0.072,
+        "ci_lo": 0.031496062992125984,
+        "ci_hi": 0.12096774193548387,
+        "n": 125,
+        "n_pass_or_fail": 9,
+        "n_bases": 64
+      },
+      "E2_PASS": null,
+      "Rephrase_PASS": {
+        "rate": 0.9009433962264151,
+        "ci_lo": 0.8504616461239785,
+        "ci_hi": 0.9439382139148494,
+        "n": 212,
+        "n_pass_or_fail": 191,
+        "n_bases": 105
+      }
     },
     {
       "slug": "llama32_3b",
-      "label": "3B",
+      "label": "3B (local)",
       "params_b": 3.0,
-      "QI": null,
-      "QI_ci": [
-        null,
-        null
-      ],
-      "NS": null,
-      "NS_ci": [
-        null,
-        null
-      ],
-      "US": null,
-      "C0_pass": null,
-      "C0_ci": [
-        null,
-        null
-      ],
-      "n_inv": 0,
-      "n_e1": 0,
-      "n_c0": 0,
-      "AUROC_C0_vs_Conv": null,
-      "AUROC_C0_vs_Conv_ci": [
-        null,
-        null
-      ],
-      "AUROC_Conv_vs_Unit": null,
-      "AUROC_Conv_vs_Unit_ci": [
-        null,
-        null
-      ],
-      "n_c0_conv": 0,
-      "n_conv_unit": 0,
-      "n_scored": 0
+      "n_scored": 40,
+      "n_instances_cohort": 1623,
+      "n_c0_pass_bases": 5,
+      "n_bases_qi_all": 0,
+      "n_bases_qi_nat": 0,
+      "C0": {
+        "rate": 0.8333333333333334,
+        "ci_lo": 0.5,
+        "ci_hi": 1.0,
+        "n": 6,
+        "n_pass_or_fail": 5,
+        "n_bases": 6
+      },
+      "QI_all": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "QI_nat": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "NS_claim": {
+        "rate": 0.9,
+        "ci_lo": 0.7,
+        "ci_hi": 1.0,
+        "n": 10,
+        "n_pass_or_fail": 9,
+        "n_bases": 5
+      },
+      "NS_evid": {
+        "rate": 0.875,
+        "ci_lo": 0.6666666666666666,
+        "ci_hi": 1.0,
+        "n": 8,
+        "n_pass_or_fail": 7,
+        "n_bases": 5
+      },
+      "NS_claim_T17_down2": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "NS_claim_T17_down10": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_claim_x1000": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_evid_x1000": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_T17_unit_down": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "E2_PASS": null,
+      "Rephrase_PASS": null
     },
     {
       "slug": "llama31_8b_local",
       "label": "8B (local)",
       "params_b": 8.0,
-      "QI": null,
-      "QI_ci": [
-        null,
-        null
-      ],
-      "NS": null,
-      "NS_ci": [
-        null,
-        null
-      ],
-      "US": null,
-      "C0_pass": null,
-      "C0_ci": [
-        null,
-        null
-      ],
-      "n_inv": 0,
-      "n_e1": 0,
-      "n_c0": 0,
-      "AUROC_C0_vs_Conv": null,
-      "AUROC_C0_vs_Conv_ci": [
-        null,
-        null
-      ],
-      "AUROC_Conv_vs_Unit": null,
-      "AUROC_Conv_vs_Unit_ci": [
-        null,
-        null
-      ],
-      "n_c0_conv": 0,
-      "n_conv_unit": 0,
       "n_scored": 0,
+      "n_instances_cohort": 1623,
+      "n_c0_pass_bases": 0,
+      "n_bases_qi_all": 0,
+      "n_bases_qi_nat": 0,
+      "C0": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "QI_all": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "QI_nat": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "NS_claim": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "NS_evid": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "NS_claim_T17_down2": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "NS_claim_T17_down10": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_claim_x1000": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_evid_x1000": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_T17_unit_down": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "E2_PASS": null,
+      "Rephrase_PASS": null,
       "api8b_agreement": {
         "n": 0,
-        "agreement": null
+        "agreement": null,
+        "ci_lo": null,
+        "ci_hi": null
       }
     },
     {
+      "slug": "llama31_8b_api",
+      "label": "8B (API)",
+      "params_b": 8.0,
+      "n_scored": 807,
+      "n_instances_cohort": 1623,
+      "n_c0_pass_bases": 106,
+      "n_bases_qi_all": 58,
+      "n_bases_qi_nat": 22,
+      "C0": {
+        "rate": 0.9724770642201835,
+        "ci_lo": 0.9357798165137615,
+        "ci_hi": 1.0,
+        "n": 109,
+        "n_pass_or_fail": 106,
+        "n_bases": 109
+      },
+      "QI_all": {
+        "rate": 0.27586206896551724,
+        "ci_lo": 0.1724137931034483,
+        "ci_hi": 0.39655172413793105,
+        "n": 58,
+        "n_pass_or_fail": 16,
+        "n_bases": 58
+      },
+      "QI_nat": {
+        "rate": 0.2727272727272727,
+        "ci_lo": 0.09090909090909091,
+        "ci_hi": 0.45454545454545453,
+        "n": 22,
+        "n_pass_or_fail": 6,
+        "n_bases": 22
+      },
+      "NS_claim": {
+        "rate": 0.9950738916256158,
+        "ci_lo": 0.9850746268656716,
+        "ci_hi": 1.0,
+        "n": 203,
+        "n_pass_or_fail": 202,
+        "n_bases": 103
+      },
+      "NS_evid": {
+        "rate": 0.9556650246305419,
+        "ci_lo": 0.9261083743842364,
+        "ci_hi": 0.9803921568627451,
+        "n": 203,
+        "n_pass_or_fail": 194,
+        "n_bases": 103
+      },
+      "NS_claim_T17_down2": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "NS_claim_T17_down10": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_claim_x1000": {
+        "rate": 0.8349514563106796,
+        "ci_lo": 0.7669902912621359,
+        "ci_hi": 0.8934466019417474,
+        "n": 103,
+        "n_pass_or_fail": 86,
+        "n_bases": 103
+      },
+      "US_evid_x1000": {
+        "rate": 0.47572815533980584,
+        "ci_lo": 0.38810679611650484,
+        "ci_hi": 0.5631067961165048,
+        "n": 103,
+        "n_pass_or_fail": 49,
+        "n_bases": 103
+      },
+      "US_T17_unit_down": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "E2_PASS": null,
+      "Rephrase_PASS": null
+    },
+    {
       "slug": "llama33_70b_api",
-      "label": "70B (API)",
+      "label": "70B (API Llama-3.3)",
       "params_b": 70.0,
-      "QI": 0.7272727272727273,
-      "QI_ci": [
-        0.5454545454545454,
-        0.8636363636363636
-      ],
-      "NS": 0.9473684210526315,
-      "NS_ci": [
-        0.9258373205741627,
-        0.9665071770334929
-      ],
-      "US": 0.7272727272727273,
-      "C0_pass": 1.0,
-      "C0_ci": [
-        1.0,
-        1.0
-      ],
-      "n_inv": 22,
-      "n_e1": 418,
-      "n_c0": 109,
-      "AUROC_C0_vs_Conv": null,
-      "AUROC_Conv_vs_Unit": null,
-      "note": "AUROC from p_yes requires local scores",
-      "n_scored": 816
+      "n_scored": 816,
+      "n_instances_cohort": 1623,
+      "n_c0_pass_bases": 109,
+      "n_bases_qi_all": 62,
+      "n_bases_qi_nat": 22,
+      "C0": {
+        "rate": 1.0,
+        "ci_lo": 1.0,
+        "ci_hi": 1.0,
+        "n": 109,
+        "n_pass_or_fail": 109,
+        "n_bases": 109
+      },
+      "QI_all": {
+        "rate": 0.7580645161290323,
+        "ci_lo": 0.6451612903225806,
+        "ci_hi": 0.8548387096774194,
+        "n": 62,
+        "n_pass_or_fail": 47,
+        "n_bases": 62
+      },
+      "QI_nat": {
+        "rate": 0.7272727272727273,
+        "ci_lo": 0.5454545454545454,
+        "ci_hi": 0.8636363636363636,
+        "n": 22,
+        "n_pass_or_fail": 16,
+        "n_bases": 22
+      },
+      "NS_claim": {
+        "rate": 0.9712918660287081,
+        "ci_lo": 0.947108997584541,
+        "ci_hi": 0.9904306220095693,
+        "n": 209,
+        "n_pass_or_fail": 203,
+        "n_bases": 106
+      },
+      "NS_evid": {
+        "rate": 0.9234449760765551,
+        "ci_lo": 0.8803827751196173,
+        "ci_hi": 0.9619092755585646,
+        "n": 209,
+        "n_pass_or_fail": 193,
+        "n_bases": 106
+      },
+      "NS_claim_T17_down2": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "NS_claim_T17_down10": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_claim_x1000": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_evid_x1000": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "US_T17_unit_down": {
+        "rate": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "n": 0,
+        "n_pass_or_fail": 0,
+        "n_bases": 0
+      },
+      "E2_PASS": null,
+      "Rephrase_PASS": {
+        "rate": 1.0,
+        "ci_lo": 1.0,
+        "ci_hi": 1.0,
+        "n": 227,
+        "n_pass_or_fail": 227,
+        "n_bases": 109
+      }
     }
   ]
 }
