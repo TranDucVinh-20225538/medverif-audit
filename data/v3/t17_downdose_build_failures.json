@@ -1,0 +1,302 @@
+[
+  {
+    "base_id": "D0002",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0002",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0007",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0007",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0008",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0008",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0022",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0022",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0033",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0033",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0039",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0039",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0040",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0040",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0045",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0045",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0049",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0049",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0051",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0051",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0065",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0065",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0070",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0070",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0083",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0083",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0086",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0086",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0089",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0089",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0096",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0096",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0102",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0102",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0115",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0115",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0116",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0116",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0140",
+    "reason": "down2_decimals",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0140",
+    "reason": "down2_decimals",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0140",
+    "reason": "down10_decimals",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0140",
+    "reason": "down10_decimals",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0147",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0147",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0150",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0150",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0155",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0155",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0158",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0158",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0160",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0160",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0166",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0166",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0168",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0168",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0175",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0175",
+    "reason": "no_unit_down",
+    "side": "evid"
+  },
+  {
+    "base_id": "D0180",
+    "reason": "no_unit_down",
+    "side": "claim"
+  },
+  {
+    "base_id": "D0180",
+    "reason": "no_unit_down",
+    "side": "evid"
+  }
+]
