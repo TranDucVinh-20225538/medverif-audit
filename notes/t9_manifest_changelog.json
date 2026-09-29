@@ -1,0 +1,511 @@
+{
+  "legacy_score_lines": 536,
+  "legacy_unique_instance_ids": 524,
+  "legacy_duplicate_instance_ids": [
+    "D0015__INV-claim__unit_conversion",
+    "D0016__INV-claim__unit_conversion",
+    "D0018__INV-claim__unit_conversion",
+    "D0035__INV-claim__unit_conversion",
+    "D0044__INV-claim__unit_conversion",
+    "D0050__INV-claim__unit_conversion",
+    "D0053__INV-claim__unit_conversion",
+    "D0099__INV-claim__unit_conversion",
+    "D0127__INV-claim__unit_conversion",
+    "D0140__INV-claim__unit_conversion",
+    "D0160__INV-claim__unit_conversion",
+    "D0176__INV-claim__unit_conversion"
+  ],
+  "legacy_duplicate_line_count": 12,
+  "current_manifest_n": 457,
+  "unique_ids_removed": 69,
+  "all_removed_are_group_b_inv_unit_natural": true,
+  "removal_reason_counts": {
+    "rule_natural_unit_conversion_false": 69
+  },
+  "policy_summary": "Current manifest applies effective_unit_natural_y: human qc/unit_naturalness.csv (Y/N) overrides rule_natural_unit_conversion_label on INV-claim unit_conversion spans. Legacy 536-line batch included inv_unit_natural rows that fail this gate.",
+  "removed_instances": [
+    {
+      "instance_id": "D0001__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0001",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0003__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0003",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0007__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0007",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0009__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0009",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0010__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0010",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0011__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0011",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0018__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0018",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0031__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0031",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0033__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0033",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0042__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0042",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0044__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0044",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0053__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0053",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0054__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0054",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0055__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0055",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0058__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0058",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0061__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0061",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0075__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0075",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0078__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0078",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0086__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0086",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0087__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0087",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0093__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0093",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0100__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0100",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0101__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0101",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0103__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0103",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0111__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0111",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0115__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0115",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0117__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0117",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0124__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0124",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0130__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0130",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0136__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0136",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0141__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0141",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0142__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0142",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0163__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0163",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0168__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0168",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0176__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0176",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0193__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0193",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0194__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0194",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0201__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0201",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0209__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0209",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0217__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0217",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0218__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0218",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0220__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0220",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0223__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0223",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0233__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0233",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0241__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0241",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0247__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0247",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0250__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0250",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0253__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0253",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0256__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0256",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0261__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0261",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0277__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0277",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0278__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0278",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0285__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0285",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0289__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0289",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0302__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0302",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0306__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0306",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0309__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0309",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0318__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0318",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0321__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0321",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0324__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0324",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0325__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0325",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0340__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0340",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0350__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0350",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0351__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0351",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0369__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0369",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0377__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0377",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0383__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0383",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0395__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0395",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    },
+    {
+      "instance_id": "D0399__INV-claim__unit_conversion",
+      "t9_group": "b",
+      "stratum": "inv_unit_natural",
+      "base_id": "D0399",
+      "removal_reason": "rule_natural_unit_conversion_false"
+    }
+  ]
+}

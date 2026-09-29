@@ -1,182 +1,627 @@
 {
-  "n_total": 536,
-  "groups": {
-    "a": {
-      "n": 59,
-      "n_decided": 59,
-      "block_rate": 0.1694915254237288,
-      "ci_lo": 0.0847457627118644,
-      "ci_hi": 0.2711864406779661
+  "manifest_n": 457,
+  "base": {
+    "n_total": 457,
+    "endpoint": "http://127.0.0.1:5000/alignscore_base",
+    "groups": {
+      "a": {
+        "n": 59,
+        "n_decided": 59,
+        "block_rate": 0.1694915254237288,
+        "ci_lo": 0.0847457627118644,
+        "ci_hi": 0.2711864406779661
+      },
+      "b": {
+        "n": 49,
+        "n_decided": 49,
+        "block_rate": 0.42857142857142855,
+        "ci_lo": 0.30612244897959184,
+        "ci_hi": 0.5714285714285714
+      },
+      "c": {
+        "n": 119,
+        "n_decided": 119,
+        "block_rate": 0.9831932773109243,
+        "ci_lo": 0.957983193277311,
+        "ci_hi": 1.0
+      },
+      "d": {
+        "n": 230,
+        "n_decided": 230,
+        "block_rate": 0.23043478260869565,
+        "ci_lo": 0.1782608695652174,
+        "ci_hi": 0.28695652173913044
+      }
     },
-    "b": {
-      "n": 130,
-      "n_decided": 130,
-      "block_rate": 0.6692307692307692,
-      "ci_lo": 0.5923076923076923,
-      "ci_hi": 0.7461538461538462
-    },
-    "c": {
-      "n": 117,
-      "n_decided": 117,
-      "block_rate": 0.9829059829059829,
-      "ci_lo": 0.9572649572649573,
-      "ci_hi": 1.0
-    },
-    "d": {
-      "n": 230,
-      "n_decided": 230,
-      "block_rate": 0.23043478260869565,
-      "ci_lo": 0.1782608695652174,
-      "ci_hi": 0.28695652173913044
+    "strata": {
+      "a:eco_verbatim": {
+        "n": 59,
+        "n_decided": 59,
+        "block_rate": 0.1694915254237288,
+        "ci_lo": 0.0847457627118644,
+        "ci_hi": 0.2711864406779661
+      },
+      "b:eco_reexpressed": {
+        "n": 27,
+        "n_decided": 27,
+        "block_rate": 0.14814814814814814,
+        "ci_lo": 0.037037037037037035,
+        "ci_hi": 0.2962962962962963
+      },
+      "b:inv_unit_natural": {
+        "n": 22,
+        "n_decided": 22,
+        "block_rate": 0.7727272727272727,
+        "ci_lo": 0.5909090909090909,
+        "ci_hi": 0.9545454545454546
+      }
     }
   },
-  "examples": {
-    "a": [
-      {
-        "instance_id": "D0123__eco__command_r__eco",
-        "claim": "Patients should take 100 mg of micronized progesterone intravaginally once daily, from 24 to 34 weeks of gestation. This dosage and administration method were found to reduce the rate of preterm delivery.",
-        "evidence": "Cetingoz and coworkers (2011) gave 100 mg of micronized progesterone intravaginally daily from 24 to 34 weeks' gestation. his practice reduced rates of delivery before 37 weeks from 79 to 51 percent in 67 women with twins. In contrast, several studies have failed to demonstrate any preterm birth rate reduction in women receiving various formulations of vaginal progesterone.",
-        "alignscore": 0.4299558103084564,
-        "decision": "BLOCK"
+  "large": {
+    "n_total": 457,
+    "endpoint": "http://127.0.0.1:5001/alignscore_large",
+    "groups": {
+      "a": {
+        "n": 59,
+        "n_decided": 59,
+        "block_rate": 0.1694915254237288,
+        "ci_lo": 0.0847457627118644,
+        "ci_hi": 0.2711864406779661
       },
-      {
-        "instance_id": "D0080__eco__deepseek_chat__eco",
-        "claim": "Take **12 mg of zinc daily** as a supplement, following your healthcare provider's guidance, since safe levels during pregnancy aren't firmly established.",
-        "evidence": "Zinc deficiency if severe may lead to poor appetite, suboptimal growth, and impaired wound healing. During pregnancy, the recommended daily intake approximates 12 mg. But, the safe level of zinc supplementation for pregnant women has not been clearly established.",
-        "alignscore": 0.4016900658607483,
-        "decision": "BLOCK"
+      "b": {
+        "n": 49,
+        "n_decided": 49,
+        "block_rate": 0.42857142857142855,
+        "ci_lo": 0.30612244897959184,
+        "ci_hi": 0.5714285714285714
       },
-      {
-        "instance_id": "D0032__eco__deepseek_chat__eco",
-        "claim": "The patient should take **500 mg of azithromycin intravenously (IV)** as part of their antibiotic treatment before a cesarean delivery. This is given in addition to standard prophylaxis.",
-        "evidence": "A growing body of evidence supports extending the antibiotic spectrum (Andrews, 2003; Tita, 2008). One large randomized trial added azithromycin, 500 mg intravenously, to standard prophylaxis prior to cesarean delivery for women in labor or with ruptured membranes (Tita, 2016). Rates of wound infection and endometritis were signiicantly lower in the extended-spectrum group compared with those in t",
-        "alignscore": 0.8321768045425415,
-        "decision": "ALLOW"
+      "c": {
+        "n": 119,
+        "n_decided": 119,
+        "block_rate": 0.9831932773109243,
+        "ci_lo": 0.957983193277311,
+        "ci_hi": 1.0
       },
-      {
-        "instance_id": "D0032__eco__command_r__eco",
-        "claim": "Patients should take azithromycin, a dose of 500 mg, intravenously. This medication is part of an extended antibiotic spectrum and is administered before a cesarean delivery to reduce the risk of infection.",
-        "evidence": "A growing body of evidence supports extending the antibiotic spectrum (Andrews, 2003; Tita, 2008). One large randomized trial added azithromycin, 500 mg intravenously, to standard prophylaxis prior to cesarean delivery for women in labor or with ruptured membranes (Tita, 2016). Rates of wound infection and endometritis were signiicantly lower in the extended-spectrum group compared with those in t",
-        "alignscore": 0.8851693868637085,
-        "decision": "ALLOW"
-      },
-      {
-        "instance_id": "D0113__eco__command_r__eco",
-        "claim": "Patients should take Propranolol, 160 mg daily, in divided doses. This means they will likely take it as two separate doses throughout the day.",
-        "evidence": "Nevertheless, in most of the thyrotoxic cases, the serum potassium levels have been low during the attacks of weakness and the administration of 100 to 200 mg of potassium chloride has terminated the episodes. Propranolol in doses of 160 mg daily in divided doses is also helpful in preventing the episodes. More importantly, effective treatment of the hyperthyroidism abolishes the periodic",
-        "alignscore": 0.4554630517959595,
-        "decision": "BLOCK"
+      "d": {
+        "n": 230,
+        "n_decided": 230,
+        "block_rate": 0.5043478260869565,
+        "ci_lo": 0.4391304347826087,
+        "ci_hi": 0.5695652173913044
       }
-    ],
-    "b": [
-      {
-        "instance_id": "D0137__eco__gemma3_27b__eco",
-        "claim": "The typical starting dose of dexamethasone is around 4 mg every 6 hours. It can be taken with meals and at bedtime. This helps to reduce headache and other symptoms caused by the brain tumor.",
-        "evidence": "For patients with brain tumor, it is common practice initially to use doses of dexamethasone of approximately 4 mg q6h, or the equivalent dose of methylprednisolone. Although a few patients require a rigid schedule, a dose with meals and at bedtime usually suffices to suppress headache and focal tumor signs.",
-        "alignscore": 0.9554913640022278,
-        "decision": "ALLOW"
+    },
+    "strata": {
+      "a:eco_verbatim": {
+        "n": 59,
+        "n_decided": 59,
+        "block_rate": 0.1694915254237288,
+        "ci_lo": 0.0847457627118644,
+        "ci_hi": 0.2711864406779661
       },
-      {
-        "instance_id": "D0137__eco__command_r__eco",
-        "claim": "Patients with brain tumors are typically prescribed an initial dose of dexamethasone, around 4 mg, every 6 hours. This can be taken with meals and at bedtime to manage symptoms like headaches and tumor-related issues. The equivalent dose of methylprednisolone may also be used.",
-        "evidence": "For patients with brain tumor, it is common practice initially to use doses of dexamethasone of approximately 4 mg q6h, or the equivalent dose of methylprednisolone. Although a few patients require a rigid schedule, a dose with meals and at bedtime usually suffices to suppress headache and focal tumor signs.",
-        "alignscore": 0.9762387275695801,
-        "decision": "ALLOW"
+      "b:eco_reexpressed": {
+        "n": 27,
+        "n_decided": 27,
+        "block_rate": 0.1111111111111111,
+        "ci_lo": 0.0,
+        "ci_hi": 0.2222222222222222
       },
-      {
-        "instance_id": "D0042__eco__gemma3_27b__eco",
-        "claim": "The patient will receive either 40 grams per square meter of body surface area *or* 75 grams of glucose. This glucose is given by mouth (orally) over a 10-minute period. Blood samples will then be taken every 30 minutes for 2 hours.",
-        "evidence": "In the oral glucose tolerance test (OGTT), the patient is fasted overnight, and a basal glucose value is determined. Forty g/m2 or 75 g of glucose is given orally over 10 minutes. Blood samples are taken every 30 minutes for 2 hours.",
-        "alignscore": 0.6907585263252258,
-        "decision": "ALLOW"
-      },
-      {
-        "instance_id": "D0042__eco__command_r__eco",
-        "claim": "The patient should take 40 g/m^2 or 75 grams of glucose orally, and it should be consumed within a 10-minute timeframe. This dosage is part of the oral glucose tolerance test and is typically administered after an overnight fast.",
-        "evidence": "In the oral glucose tolerance test (OGTT), the patient is fasted overnight, and a basal glucose value is determined. Forty g/m2 or 75 g of glucose is given orally over 10 minutes. Blood samples are taken every 30 minutes for 2 hours.",
-        "alignscore": 0.6048998832702637,
-        "decision": "ALLOW"
-      },
-      {
-        "instance_id": "D0042__eco__deepseek_chat__eco",
-        "claim": "The patient should take either 40 grams per square meter (g/m\u00b2) or 75 grams of glucose orally within 10 minutes. Blood samples will then be taken every 30 minutes for 2 hours to monitor glucose levels.",
-        "evidence": "In the oral glucose tolerance test (OGTT), the patient is fasted overnight, and a basal glucose value is determined. Forty g/m2 or 75 g of glucose is given orally over 10 minutes. Blood samples are taken every 30 minutes for 2 hours.",
-        "alignscore": 0.5882686376571655,
-        "decision": "ALLOW"
+      "b:inv_unit_natural": {
+        "n": 22,
+        "n_decided": 22,
+        "block_rate": 0.8181818181818182,
+        "ci_lo": 0.6363636363636364,
+        "ci_hi": 0.9545454545454546
       }
+    }
+  },
+  "manifest_changelog": {
+    "legacy_score_lines": 536,
+    "legacy_unique_instance_ids": 524,
+    "legacy_duplicate_instance_ids": [
+      "D0015__INV-claim__unit_conversion",
+      "D0016__INV-claim__unit_conversion",
+      "D0018__INV-claim__unit_conversion",
+      "D0035__INV-claim__unit_conversion",
+      "D0044__INV-claim__unit_conversion",
+      "D0050__INV-claim__unit_conversion",
+      "D0053__INV-claim__unit_conversion",
+      "D0099__INV-claim__unit_conversion",
+      "D0127__INV-claim__unit_conversion",
+      "D0140__INV-claim__unit_conversion",
+      "D0160__INV-claim__unit_conversion",
+      "D0176__INV-claim__unit_conversion"
     ],
-    "c": [
+    "legacy_duplicate_line_count": 12,
+    "current_manifest_n": 457,
+    "unique_ids_removed": 69,
+    "all_removed_are_group_b_inv_unit_natural": true,
+    "removal_reason_counts": {
+      "rule_natural_unit_conversion_false": 69
+    },
+    "policy_summary": "Current manifest applies effective_unit_natural_y: human qc/unit_naturalness.csv (Y/N) overrides rule_natural_unit_conversion_label on INV-claim unit_conversion spans. Legacy 536-line batch included inv_unit_natural rows that fail this gate.",
+    "removed_instances": [
       {
-        "instance_id": "D0001__E1-claim__x2",
-        "claim": "A two-hour oral glucose tolerance test involves drinking a solution containing exactly 150 g of glucose.",
-        "evidence": "Fasting glucose \u2265126 mg/dL (in which fasting is defined as no food intake for 8 hours), 3. Two-hour oral glucose tolerance test of 75 g, with serum glucose \u2265200 mg/dL, or 4. Hemoglobin A1c \u22656.5%.",
-        "alignscore": 0.02465328760445118,
-        "decision": "BLOCK"
+        "instance_id": "D0001__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0001",
+        "removal_reason": "rule_natural_unit_conversion_false"
       },
       {
-        "instance_id": "D0002__E1-claim__x2",
-        "claim": "Most clinicians agree that glucocorticoids, such as prednisone at a dose of 2 mg/kg as a single daily dose either orally or intravenously, are a reasonable first therapy for both PM and DM.",
-        "evidence": "Most clinicians agree that glucocorticoids (e.g., prednisone, 1 mg/kg, as a single daily dose orally, or intravenously) are a reasonable first therapy for both PM and DM. The response to treatment is monitored by testing of strength and measurement of CK (not by following the erythrocyte sedimentation rate [ESR]).",
-        "alignscore": 0.003744295332580805,
-        "decision": "BLOCK"
+        "instance_id": "D0003__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0003",
+        "removal_reason": "rule_natural_unit_conversion_false"
       },
       {
-        "instance_id": "D0003__E1-claim__x2",
-        "claim": "Adalimumab is given by subcutaneous injection, 80 mg biweekly.",
-        "evidence": "Etanercept is given by subcutaneous injection, 50 mg once weekly. Adalimumab is given by subcutaneous injection, 40 mg biweekly. Golimumab is given by subcutaneous injection, 50 or 100 mg every 4 weeks.",
-        "alignscore": 0.004898351617157459,
-        "decision": "BLOCK"
+        "instance_id": "D0007__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0007",
+        "removal_reason": "rule_natural_unit_conversion_false"
       },
       {
-        "instance_id": "D0004__E1-claim__x2",
-        "claim": "It is important to note that peripheral neuropathies can be seen in doses of 400 mg per day or higher, as well as interaction with other medications.",
-        "evidence": "Vitamin B6 for the treatment of dysmenorrheal was more effective at reducing pain than both placebo and a combination of magnesium plus vitamin B6 (23). It is important to note that peripheral neuropathies can be seen in doses of 200 mg per day or higher, as well as interaction with other medications,",
-        "alignscore": 0.0006220935028977692,
-        "decision": "BLOCK"
+        "instance_id": "D0009__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0009",
+        "removal_reason": "rule_natural_unit_conversion_false"
       },
       {
-        "instance_id": "D0005__E1-claim__x2",
-        "claim": "Etanercept is given by subcutaneous injection, 100 mg once weekly.",
-        "evidence": "Gadolinium-enhanced T1-weighted magnetic resonance images, with fat saturation, at baseline and after 24 weeks of infliximab therapy. (From J Braun et al: Arthritis Rheum 54:1646, 2006.) Infliximab is given intravenously, 3\u20135 mg/kg body weight, and then repeated 2 weeks later, again 6 weeks later, and then at 8-week intervals. Etanercept is given by subcutaneous injection, 50 mg once weekly. Adali",
-        "alignscore": 0.00045744958333671093,
-        "decision": "BLOCK"
-      }
-    ],
-    "d": [
-      {
-        "instance_id": "D0001__E1-unit-claim__x1000",
-        "claim": "A two-hour oral glucose tolerance test involves drinking a solution containing exactly 75 mg of glucose.",
-        "evidence": "Fasting glucose \u2265126 mg/dL (in which fasting is defined as no food intake for 8 hours), 3. Two-hour oral glucose tolerance test of 75 g, with serum glucose \u2265200 mg/dL, or 4. Hemoglobin A1c \u22656.5%.",
-        "alignscore": 0.11132961511611938,
-        "decision": "BLOCK"
+        "instance_id": "D0010__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0010",
+        "removal_reason": "rule_natural_unit_conversion_false"
       },
       {
-        "instance_id": "D0001__E1-unit-evid__x1000",
-        "claim": "A two-hour oral glucose tolerance test involves drinking a solution containing exactly 75 g of glucose.",
-        "evidence": "Fasting glucose \u2265126 mg/dL (in which fasting is defined as no food intake for 8 hours), 3. Two-hour oral glucose tolerance test of 75 mg, with serum glucose \u2265200 mg/dL, or 4. Hemoglobin A1c \u22656.5%.",
-        "alignscore": 0.1672697216272354,
-        "decision": "BLOCK"
+        "instance_id": "D0011__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0011",
+        "removal_reason": "rule_natural_unit_conversion_false"
       },
       {
-        "instance_id": "D0002__E1-unit-claim__x1000",
-        "claim": "Most clinicians agree that glucocorticoids, such as prednisone at a dose of 1 g/kg as a single daily dose either orally or intravenously, are a reasonable first therapy for both PM and DM.",
-        "evidence": "Most clinicians agree that glucocorticoids (e.g., prednisone, 1 mg/kg, as a single daily dose orally, or intravenously) are a reasonable first therapy for both PM and DM. The response to treatment is monitored by testing of strength and measurement of CK (not by following the erythrocyte sedimentation rate [ESR]).",
-        "alignscore": 0.994602382183075,
-        "decision": "ALLOW"
+        "instance_id": "D0018__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0018",
+        "removal_reason": "rule_natural_unit_conversion_false"
       },
       {
-        "instance_id": "D0002__E1-unit-evid__x1000",
-        "claim": "Most clinicians agree that glucocorticoids, such as prednisone at a dose of 1 mg/kg as a single daily dose either orally or intravenously, are a reasonable first therapy for both PM and DM.",
-        "evidence": "Most clinicians agree that glucocorticoids (e.g., prednisone, 1 g/kg, as a single daily dose orally, or intravenously) are a reasonable first therapy for both PM and DM. The response to treatment is monitored by testing of strength and measurement of CK (not by following the erythrocyte sedimentation rate [ESR]).",
-        "alignscore": 0.9864404797554016,
-        "decision": "ALLOW"
+        "instance_id": "D0031__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0031",
+        "removal_reason": "rule_natural_unit_conversion_false"
       },
       {
-        "instance_id": "D0003__E1-unit-claim__x1000",
-        "claim": "Adalimumab is given by subcutaneous injection, 40 g biweekly.",
-        "evidence": "Etanercept is given by subcutaneous injection, 50 mg once weekly. Adalimumab is given by subcutaneous injection, 40 mg biweekly. Golimumab is given by subcutaneous injection, 50 or 100 mg every 4 weeks.",
-        "alignscore": 0.8464205265045166,
-        "decision": "ALLOW"
+        "instance_id": "D0033__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0033",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0042__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0042",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0044__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0044",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0053__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0053",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0054__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0054",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0055__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0055",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0058__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0058",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0061__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0061",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0075__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0075",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0078__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0078",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0086__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0086",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0087__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0087",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0093__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0093",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0100__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0100",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0101__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0101",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0103__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0103",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0111__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0111",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0115__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0115",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0117__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0117",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0124__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0124",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0130__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0130",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0136__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0136",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0141__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0141",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0142__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0142",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0163__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0163",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0168__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0168",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0176__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0176",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0193__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0193",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0194__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0194",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0201__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0201",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0209__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0209",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0217__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0217",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0218__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0218",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0220__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0220",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0223__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0223",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0233__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0233",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0241__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0241",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0247__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0247",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0250__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0250",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0253__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0253",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0256__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0256",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0261__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0261",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0277__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0277",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0278__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0278",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0285__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0285",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0289__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0289",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0302__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0302",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0306__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0306",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0309__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0309",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0318__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0318",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0321__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0321",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0324__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0324",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0325__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0325",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0340__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0340",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0350__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0350",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0351__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0351",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0369__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0369",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0377__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0377",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0383__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0383",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0395__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0395",
+        "removal_reason": "rule_natural_unit_conversion_false"
+      },
+      {
+        "instance_id": "D0399__INV-claim__unit_conversion",
+        "t9_group": "b",
+        "stratum": "inv_unit_natural",
+        "base_id": "D0399",
+        "removal_reason": "rule_natural_unit_conversion_false"
       }
     ]
   }
