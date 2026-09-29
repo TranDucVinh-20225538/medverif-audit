@@ -1,6 +1,6 @@
 # Audit snapshot
 
-Built: 2026-09-29T13:00:54.909465+00:00
+Built: 2026-09-29T13:03:45.373535+00:00
 
 Recompute paper numbers:
 
@@ -31,7 +31,7 @@ python scripts/compute_paper_numbers.py
 - `src/non_dose_targets.py`
 - `scripts/compute_paper_numbers.py`
 
-## Score files included
+## Score files included (HPC / master `results/raw/`)
 
 - `results/raw/v2a_minicheck.jsonl`
 - `results/raw/v3_alignscore.jsonl`
@@ -94,8 +94,81 @@ python scripts/compute_paper_numbers.py
 - `results/raw_m1/v2a_minicheck.jsonl`
 - `results/raw_m1/v3_alignscore.jsonl`
 
+## Node30 CPU scores (`env=node30`)
+
+Under `results/raw_node30/` — sourced from `node30-results` at `c48093bdc73a6b11161a26a2b11124a0e2ba5612` (MiniCheck, AlignScore, SummaC, HHEM, Granite, Bespoke, V2/V3, T9 NeMo). Not merged into `results/raw/` on master.
+
+- `results/raw_node30/e2_main/t6_alignscore_base.jsonl`
+- `results/raw_node30/e2_main/t6_bespoke_minicheck.jsonl`
+- `results/raw_node30/e2_main/t6_granite_guardian.jsonl`
+- `results/raw_node30/e2_main/t6_hhem.jsonl`
+- `results/raw_node30/e2_main/t6_minicheck_deberta.jsonl`
+- `results/raw_node30/e2_main/t6_minicheck_roberta.jsonl`
+- `results/raw_node30/e2_main/t6_summac_conv.jsonl`
+- `results/raw_node30/e2_main/t6_summac_zs.jsonl`
+- `results/raw_node30/e2_main/v2a_minicheck.jsonl`
+- `results/raw_node30/e2_main/v3_alignscore.jsonl`
+- `results/raw_node30/t3/t6_alignscore_base.jsonl`
+- `results/raw_node30/t3/t6_bespoke_minicheck.jsonl`
+- `results/raw_node30/t3/t6_granite_guardian.jsonl`
+- `results/raw_node30/t3/t6_hhem.jsonl`
+- `results/raw_node30/t3/t6_minicheck_deberta.jsonl`
+- `results/raw_node30/t3/t6_minicheck_roberta.jsonl`
+- `results/raw_node30/t3/t6_summac_conv.jsonl`
+- `results/raw_node30/t3/t6_summac_zs.jsonl`
+- `results/raw_node30/t3/v2a_minicheck.jsonl`
+- `results/raw_node30/t3/v3_alignscore.jsonl`
+- `results/raw_node30/t4_eco/t6_alignscore_base.jsonl`
+- `results/raw_node30/t4_eco/t6_granite_guardian.jsonl`
+- `results/raw_node30/t4_eco/t6_hhem.jsonl`
+- `results/raw_node30/t4_eco/t6_minicheck_deberta.jsonl`
+- `results/raw_node30/t4_eco/t6_minicheck_roberta.jsonl`
+- `results/raw_node30/t4_eco/t6_summac_conv.jsonl`
+- `results/raw_node30/t4_eco/t6_summac_zs.jsonl`
+- `results/raw_node30/t4_eco/v2a_minicheck.jsonl`
+- `results/raw_node30/t4_eco/v3_alignscore.jsonl`
+- `results/raw_node30/t4c_eco/t6_alignscore_base.jsonl`
+- `results/raw_node30/t4c_eco/t6_bespoke_minicheck.jsonl`
+- `results/raw_node30/t4c_eco/t6_granite_guardian.jsonl`
+- `results/raw_node30/t4c_eco/t6_hhem.jsonl`
+- `results/raw_node30/t4c_eco/t6_minicheck_deberta.jsonl`
+- `results/raw_node30/t4c_eco/t6_minicheck_roberta.jsonl`
+- `results/raw_node30/t4c_eco/t6_summac_conv.jsonl`
+- `results/raw_node30/t4c_eco/t6_summac_zs.jsonl`
+- `results/raw_node30/t4c_eco/v2a_minicheck.jsonl`
+- `results/raw_node30/t4c_eco/v3_alignscore.jsonl`
+- `results/raw_node30/t6_alignscore_base.jsonl`
+- `results/raw_node30/t6_bespoke_minicheck.jsonl`
+- `results/raw_node30/t6_granite_guardian.jsonl`
+- `results/raw_node30/t6_hhem.jsonl`
+- `results/raw_node30/t6_minicheck_deberta.jsonl`
+- `results/raw_node30/t6_minicheck_roberta.jsonl`
+- `results/raw_node30/t6_summac_conv.jsonl`
+- `results/raw_node30/t6_summac_zs.jsonl`
+- `results/raw_node30/t7/t6_alignscore_base.jsonl`
+- `results/raw_node30/t7/t6_bespoke_minicheck.jsonl`
+- `results/raw_node30/t7/t6_granite_guardian.jsonl`
+- `results/raw_node30/t7/t6_hhem.jsonl`
+- `results/raw_node30/t7/t6_minicheck_deberta.jsonl`
+- `results/raw_node30/t7/t6_minicheck_roberta.jsonl`
+- `results/raw_node30/t7/t6_summac_conv.jsonl`
+- `results/raw_node30/t7/t6_summac_zs.jsonl`
+- `results/raw_node30/t7/v2a_minicheck.jsonl`
+- `results/raw_node30/t7/v3_alignscore.jsonl`
+- `results/raw_node30/t9/alignscore_rail.jsonl`
+- `results/raw_node30/t9/alignscore_rail.legacy_536.jsonl`
+- `results/raw_node30/t9/alignscore_rail_large.jsonl`
+- `results/raw_node30/v1_medscore.jsonl`
+- `results/raw_node30/v2a_minicheck.jsonl`
+- `results/raw_node30/v3_alignscore.jsonl`
+- `results/raw_node30/v4_ragas_nli.jsonl`
+
+## Manifest
+
+- `release/score_manifest.tsv` — one row per score file: verifier, pack, row count, source branch/commit.
+
 ## Excluded by policy
 
-- `results/raw/**/v4_ragas_nli.jsonl` (non-Llama / Qwen local)
-- `**/_quarantine/**`, `*.legacy.jsonl`, secrets, `.env`
+- `results/raw/**/v4_ragas_nli.jsonl` (non-Llama / Qwen local on HPC tree only)
+- `**/_quarantine/**`, secrets, `.env`
 
