@@ -3,11 +3,15 @@
 set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
 source "${ROOT}/jobs/lib/flock.sh"
+source "${ROOT}/jobs/lib/hf_env.sh"
 medverif_acquire_lock t17_hpc_score
 
 cd "${ROOT}"
+medverif_hf_env
 set -a && source ~/kkk/openrouter.env && set +a
 export PYTHONPATH="${ROOT}/src"
+source /data2/shared/apps/conda/etc/profile.d/conda.sh
+conda activate vllm
 export MEDVERIF_USE_OPENROUTER=1
 export MEDVERIF_API_LEDGER=1
 export MEDVERIF_GPU_GLOBAL_SCORE_LOCK=0
@@ -24,7 +28,10 @@ echo "t17 hpc score start $(date -Is)"
 for v in v1_medscore v4_ragas_nli v1b_medscore v5_ragas_nli; do
   python3 scripts/t17_openrouter_budget.py || exit 2
   python3 scripts/dedupe_score_jsonl.py "${RAW}/${v}.jsonl" --verifier "${v}" 2>/dev/null || true
-  python3 src/score_jsonl.py --verifier "${v}" --instances "${INST}" --out "${RAW}/${v}.jsonl"
+  python3 src/score_jsonl.py --verifier "${v}" --instances "${INST}" --out "${RAW}/${v}.jsonl" || {
+    echo "t17: verifier ${v} failed $(date -Is)" >&2
+    exit 1
+  }
 done
 
 while IFS=$'\t' read -r slug module or_model provider; do
