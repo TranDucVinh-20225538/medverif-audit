@@ -1,0 +1,410 @@
+{
+  "n_e1_unit_instances": 230,
+  "n_e1_claim_ref": 432,
+  "n_inv_unit_ref": 128,
+  "n_t7_bases": 115,
+  "verifiers": {
+    "t6a_alignscore_base": {
+      "e1_unit_fail_rate": 0.23043478260869565,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "t6a_granite_guardian": {
+      "e1_unit_fail_rate": 0.34347826086956523,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "t6a_hhem": {
+      "e1_unit_fail_rate": 0.05652173913043478,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "t6a_minicheck_deberta": {
+      "e1_unit_fail_rate": 0.8043478260869565,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "t6a_minicheck_roberta": {
+      "e1_unit_fail_rate": 0.34782608695652173,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "t6a_summac_conv": {
+      "e1_unit_fail_rate": 0.691304347826087,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "t6a_summac_zs": {
+      "e1_unit_fail_rate": 0.3695652173913043,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v1_medscore": {
+      "e1_unit_fail_rate": 0.8043478260869565,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": 0.9907407407407407,
+      "e1_claim_n_scored": 432,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": 0.7109375,
+      "inv_unit_n_scored": 128,
+      "inv_unit_n_cohort": 128
+    },
+    "v1b_medscore": {
+      "e1_unit_fail_rate": 0.5695652173913044,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v1c_medscore": {
+      "e1_unit_fail_rate": 0.6695652173913044,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v2a_minicheck": {
+      "e1_unit_fail_rate": 0.3652173913043478,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v2b_bespoke": {
+      "e1_unit_fail_rate": 0.5347826086956522,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v3_alignscore": {
+      "e1_unit_fail_rate": 0.5043478260869565,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v4_ragas_nli": {
+      "e1_unit_fail_rate": 0.8956521739130435,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": 0.9953703703703703,
+      "e1_claim_n_scored": 432,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": 0.8613861386138614,
+      "inv_unit_n_scored": 101,
+      "inv_unit_n_cohort": 128
+    },
+    "v5_ragas_nli": {
+      "e1_unit_fail_rate": 0.8347826086956521,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v6_ragas_gpt4o_mini": {
+      "e1_unit_fail_rate": 0.8391304347826087,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v6_ragas_haiku45": {
+      "e1_unit_fail_rate": 0.9347826086956522,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v6_ragas_llama31_8b": {
+      "e1_unit_fail_rate": 0.6739130434782609,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v6_ragas_mistral_small32": {
+      "e1_unit_fail_rate": 0.7,
+      "e1_unit_n_scored": 230,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    },
+    "v6_ragas_nli": {
+      "e1_unit_fail_rate": null,
+      "e1_unit_n_scored": 0,
+      "e1_unit_n_cohort": 230,
+      "e1_claim_x2_x10_fail_rate": null,
+      "e1_claim_n_scored": 0,
+      "e1_claim_n_cohort": 432,
+      "inv_unit_pass_rate": null,
+      "inv_unit_n_scored": 0,
+      "inv_unit_n_cohort": 128
+    }
+  },
+  "conditional_c0_pass_t7_bases": {
+    "t6a_alignscore_base": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "t6a_granite_guardian": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "t6a_hhem": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "t6a_minicheck_deberta": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "t6a_minicheck_roberta": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "t6a_summac_conv": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "t6a_summac_zs": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v1_medscore": {
+      "n_c0_pass_bases": 115,
+      "e1_claim_fail_rate_c0": 0.991304347826087,
+      "e1_claim_n_c0": 115,
+      "e1_claim_den_c0": 115,
+      "e1_evid_fail_rate_c0": 0.6173913043478261,
+      "e1_evid_n_c0": 115,
+      "e1_evid_den_c0": 115
+    },
+    "v1b_medscore": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v1c_medscore": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v2a_minicheck": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v2b_bespoke": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v3_alignscore": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v4_ragas_nli": {
+      "n_c0_pass_bases": 114,
+      "e1_claim_fail_rate_c0": 1.0,
+      "e1_claim_n_c0": 111,
+      "e1_claim_den_c0": 114,
+      "e1_evid_fail_rate_c0": 0.8157894736842105,
+      "e1_evid_n_c0": 114,
+      "e1_evid_den_c0": 114
+    },
+    "v5_ragas_nli": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v6_ragas_gpt4o_mini": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v6_ragas_haiku45": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v6_ragas_llama31_8b": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v6_ragas_mistral_small32": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    },
+    "v6_ragas_nli": {
+      "n_c0_pass_bases": 0,
+      "e1_claim_fail_rate_c0": null,
+      "e1_claim_n_c0": 0,
+      "e1_claim_den_c0": 0,
+      "e1_evid_fail_rate_c0": null,
+      "e1_evid_n_c0": 0,
+      "e1_evid_den_c0": 0
+    }
+  }
+}

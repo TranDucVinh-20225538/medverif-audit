@@ -21,7 +21,8 @@ echo "pxm start $(date -Is)"
 python3 scripts/openrouter_budget.py || exit 2
 export MEDVERIF_V4_OPENROUTER_MODEL=openai/gpt-4o
 export MEDVERIF_V4_PROVIDER=OpenAI
-export MEDVERIF_V4_TOKENIZER_MODEL=openai/gpt-4o
+export MEDVERIF_V4_TOKENIZER_MODEL=mistralai/Mistral-Small-24B-Instruct-2501
+export MEDVERIF_V4_TOKENIZER_REVISION=9527884be6e5616bdd54de542f9ae13384489724
 python3 src/score_jsonl.py --verifier v4_ragas_nli --instances "${INST}" \
   --out "${RAW}/pxm_gpt4o_ragas.jsonl"
 

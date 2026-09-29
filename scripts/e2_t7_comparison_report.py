@@ -31,31 +31,48 @@ SCORE_DIRS = [
 ]
 
 
-def score_files() -> dict[str, Path]:
-    out: dict[str, Path] = {}
+def all_verifier_slugs() -> list[str]:
+    slugs: set[str] = set()
     for d in SCORE_DIRS:
-        if not d.is_dir():
-            continue
-        for p in sorted(d.glob("*.jsonl")):
-            out.setdefault(p.stem, p)
+        if d.is_dir():
+            slugs.update(p.stem for p in d.glob("*.jsonl"))
     if T6A.is_file():
         for c in json.loads(T6A.read_text()).get("checkers", []):
-            for d in SCORE_DIRS:
-                cand = d / c["jsonl"]
-                if cand.is_file():
-                    out[c["id"]] = cand
-    b = ROOT / "results/raw/e2_main/t6_bespoke_minicheck.jsonl"
-    if b.is_file():
-        out["v2b_bespoke"] = b
-    return out
+            slugs.add(c["id"])
+    slugs.add("v2b_bespoke")
+    return sorted(slugs)
 
 
-def load_scores(path: Path) -> dict[str, str]:
+def merged_scores(slug: str) -> dict[str, str]:
+    """Merge raw (C0/main) → e2_main → t7 so E2|T7 cells share one map per slug."""
     m: dict[str, str] = {}
-    for row in read_jsonl(path):
-        iid = row.get("instance_id")
-        if iid:
-            m[iid] = row.get("verdict") or ""
+    paths: list[Path] = []
+    if T6A.is_file():
+        t6a = {c["id"]: c["jsonl"] for c in json.loads(T6A.read_text()).get("checkers", [])}
+        if slug in t6a:
+            for d in SCORE_DIRS:
+                cand = d / t6a[slug]
+                if cand.is_file():
+                    paths.append(cand)
+    if slug == "v2b_bespoke":
+        for name in ("t6_bespoke_minicheck.jsonl", "v2b_bespoke.jsonl"):
+            for d in SCORE_DIRS:
+                cand = d / name
+                if cand.is_file():
+                    paths.append(cand)
+    for d in SCORE_DIRS:
+        cand = d / f"{slug}.jsonl"
+        if cand.is_file():
+            paths.append(cand)
+    seen: set[Path] = set()
+    for path in paths:
+        if path in seen:
+            continue
+        seen.add(path)
+        for row in read_jsonl(path):
+            iid = row.get("instance_id")
+            if iid:
+                m[iid] = row.get("verdict") or ""
     return m
 
 
@@ -103,10 +120,11 @@ def main() -> None:
     claim_ids = [r["instance_id"] for r in t7_rows if r.get("condition") == "E1-unit-claim"]
     evid_ids = [r["instance_id"] for r in t7_rows if r.get("condition") == "E1-unit-evid"]
 
-    paths = score_files()
     table = {}
-    for verifier, path in sorted(paths.items()):
-        scores = load_scores(path)
+    for verifier in all_verifier_slugs():
+        scores = merged_scores(verifier)
+        if not scores:
+            continue
         joined = join(inst_map, scores, verifier)
         e2_rate, e2_np, e2_n = e2_pass_cond(joined)
         fail_claim, n_c, tot_c = rate(claim_ids, scores, "FAIL")

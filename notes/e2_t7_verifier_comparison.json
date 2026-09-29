@@ -8,6 +8,15 @@
     "e1_evid_fail_rate": 0.24347826086956523,
     "e1_evid_n": 115
   },
+  "t6_bespoke_minicheck": {
+    "e2_pass_rate": null,
+    "e2_n": 0,
+    "e2_pass": 0,
+    "e1_claim_fail_rate": 0.6869565217391305,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.3826086956521739,
+    "e1_evid_n": 115
+  },
   "t6_granite_guardian": {
     "e2_pass_rate": null,
     "e2_n": 0,
@@ -62,40 +71,175 @@
     "e1_evid_fail_rate": 0.3565217391304348,
     "e1_evid_n": 115
   },
+  "t6a_alignscore_base": {
+    "e2_pass_rate": null,
+    "e2_n": 0,
+    "e2_pass": 0,
+    "e1_claim_fail_rate": 0.21739130434782608,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.24347826086956523,
+    "e1_evid_n": 115
+  },
+  "t6a_granite_guardian": {
+    "e2_pass_rate": null,
+    "e2_n": 0,
+    "e2_pass": 0,
+    "e1_claim_fail_rate": 0.45217391304347826,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.23478260869565218,
+    "e1_evid_n": 115
+  },
+  "t6a_hhem": {
+    "e2_pass_rate": null,
+    "e2_n": 0,
+    "e2_pass": 0,
+    "e1_claim_fail_rate": 0.034782608695652174,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.0782608695652174,
+    "e1_evid_n": 115
+  },
+  "t6a_minicheck_deberta": {
+    "e2_pass_rate": null,
+    "e2_n": 0,
+    "e2_pass": 0,
+    "e1_claim_fail_rate": 0.8695652173913043,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.7391304347826086,
+    "e1_evid_n": 115
+  },
+  "t6a_minicheck_roberta": {
+    "e2_pass_rate": null,
+    "e2_n": 0,
+    "e2_pass": 0,
+    "e1_claim_fail_rate": 0.391304347826087,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.30434782608695654,
+    "e1_evid_n": 115
+  },
+  "t6a_summac_conv": {
+    "e2_pass_rate": null,
+    "e2_n": 0,
+    "e2_pass": 0,
+    "e1_claim_fail_rate": 0.6608695652173913,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.7217391304347827,
+    "e1_evid_n": 115
+  },
+  "t6a_summac_zs": {
+    "e2_pass_rate": null,
+    "e2_n": 0,
+    "e2_pass": 0,
+    "e1_claim_fail_rate": 0.3826086956521739,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.3565217391304348,
+    "e1_evid_n": 115
+  },
   "v1_medscore": {
     "e2_pass_rate": 0.8810679611650486,
     "e2_n": 824,
     "e2_pass": 726,
-    "e1_claim_fail_rate": null,
-    "e1_claim_n": 0,
-    "e1_evid_fail_rate": null,
-    "e1_evid_n": 0
+    "e1_claim_fail_rate": 0.991304347826087,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.6173913043478261,
+    "e1_evid_n": 115
+  },
+  "v1b_medscore": {
+    "e2_pass_rate": 0.9743589743589743,
+    "e2_n": 117,
+    "e2_pass": 114,
+    "e1_claim_fail_rate": 0.9826086956521739,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.1565217391304348,
+    "e1_evid_n": 115
+  },
+  "v1c_medscore": {
+    "e2_pass_rate": 1.0,
+    "e2_n": 116,
+    "e2_pass": 116,
+    "e1_claim_fail_rate": 0.8956521739130435,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.4434782608695652,
+    "e1_evid_n": 115
   },
   "v2a_minicheck": {
     "e2_pass_rate": 0.9826388888888888,
     "e2_n": 288,
     "e2_pass": 283,
-    "e1_claim_fail_rate": null,
-    "e1_claim_n": 0,
-    "e1_evid_fail_rate": null,
-    "e1_evid_n": 0
+    "e1_claim_fail_rate": 0.5043478260869565,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.22608695652173913,
+    "e1_evid_n": 115
+  },
+  "v2b_bespoke": {
+    "e2_pass_rate": null,
+    "e2_n": 0,
+    "e2_pass": 0,
+    "e1_claim_fail_rate": 0.6869565217391305,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.3826086956521739,
+    "e1_evid_n": 115
   },
   "v3_alignscore": {
     "e2_pass_rate": 0.9895104895104895,
     "e2_n": 286,
     "e2_pass": 283,
-    "e1_claim_fail_rate": null,
-    "e1_claim_n": 0,
-    "e1_evid_fail_rate": null,
-    "e1_evid_n": 0
+    "e1_claim_fail_rate": 0.5565217391304348,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.45217391304347826,
+    "e1_evid_n": 115
   },
   "v4_ragas_nli": {
-    "e2_pass_rate": 0.9751693002257337,
-    "e2_n": 443,
-    "e2_pass": 432,
-    "e1_claim_fail_rate": null,
-    "e1_claim_n": 0,
-    "e1_evid_fail_rate": null,
-    "e1_evid_n": 0
+    "e2_pass_rate": 0.9844961240310077,
+    "e2_n": 258,
+    "e2_pass": 254,
+    "e1_claim_fail_rate": 0.9739130434782609,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.8173913043478261,
+    "e1_evid_n": 115
+  },
+  "v5_ragas_nli": {
+    "e2_pass_rate": 0.9914529914529915,
+    "e2_n": 117,
+    "e2_pass": 116,
+    "e1_claim_fail_rate": 0.9826086956521739,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.6869565217391305,
+    "e1_evid_n": 115
+  },
+  "v6_ragas_gpt4o_mini": {
+    "e2_pass_rate": 0.9911504424778761,
+    "e2_n": 113,
+    "e2_pass": 112,
+    "e1_claim_fail_rate": 0.9304347826086956,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.7478260869565218,
+    "e1_evid_n": 115
+  },
+  "v6_ragas_haiku45": {
+    "e2_pass_rate": 0.9824561403508771,
+    "e2_n": 114,
+    "e2_pass": 112,
+    "e1_claim_fail_rate": 0.9826086956521739,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.8869565217391304,
+    "e1_evid_n": 115
+  },
+  "v6_ragas_llama31_8b": {
+    "e2_pass_rate": 0.9553571428571429,
+    "e2_n": 112,
+    "e2_pass": 107,
+    "e1_claim_fail_rate": 0.8521739130434782,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.4956521739130435,
+    "e1_evid_n": 115
+  },
+  "v6_ragas_mistral_small32": {
+    "e2_pass_rate": 1.0,
+    "e2_n": 117,
+    "e2_pass": 117,
+    "e1_claim_fail_rate": 0.9217391304347826,
+    "e1_claim_n": 115,
+    "e1_evid_fail_rate": 0.4782608695652174,
+    "e1_evid_n": 115
   }
 }
