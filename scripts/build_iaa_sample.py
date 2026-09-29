@@ -13,7 +13,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "scripts"))
 
+from iaa_author_labels import author_q2_label, expected_q1_label, load_author_label_tables  # noqa: E402
 from verifiers.io_utils import read_jsonl  # noqa: E402
 
 MAIN = ROOT / "data/v3/instances_main.jsonl"
@@ -21,6 +23,11 @@ OUT = ROOT / "qc/iaa_sample.csv"
 KEY = ROOT / "qc/iaa_key_DO_NOT_SHARE.csv"
 GUIDE = ROOT / "qc/iaa_guidelines.md"
 MANIFEST = ROOT / "notes/iaa_sample_manifest.json"
+
+Q1_TEXT = "Does the evidence support the claim as written? (Y/N)"
+Q2_TEXT = (
+    "Is the claim fluent and clinically natural — would a clinician/textbook write it this way? (Y/N)"
+)
 
 STRATA = {
     "conversion_naturalness": 30,
@@ -35,6 +42,15 @@ ROUTE_FREQ_RE = re.compile(
     r"oral|intravenous|intramuscular|subcutaneous|topical|inhaled|route)\b",
     re.I,
 )
+
+PUBLIC_COLUMNS = [
+    "blind_id",
+    "claim",
+    "evidence",
+    "q1_supported",
+    "q2_natural",
+    "note",
+]
 
 
 def stratum(row: dict) -> str | None:
@@ -77,24 +93,29 @@ def main() -> None:
             raise RuntimeError(f"IAA stratum {name}: need {need}, have {len(rows)}")
         picked.extend(rows[:need])
     rng.shuffle(picked)
+    tables = load_author_label_tables()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", newline="") as handle:
         w = csv.writer(handle)
-        w.writerow(["blind_id", "claim", "evidence", "reviewer_a", "reviewer_b"])
+        w.writerow(PUBLIC_COLUMNS)
         key_rows = []
         for i, r in enumerate(picked, start=1):
             bid = blind_id(r["instance_id"], i)
-            w.writerow([bid, r.get("claim", ""), r.get("evidence", ""), "", ""])
+            w.writerow([bid, r.get("claim", ""), r.get("evidence", ""), "", "", ""])
+            q2, q2_src = author_q2_label(r, tables)
             key_rows.append(
                 {
                     "blind_id": bid,
                     "instance_id": r["instance_id"],
                     "base_id": r["base_id"],
+                    "stratum": stratum(r),
                     "condition": r.get("condition"),
                     "magnitude": r.get("magnitude"),
                     "type": r.get("type"),
-                    "stratum": stratum(r),
                     "expected_verdict": r.get("expected_verdict"),
+                    "expected_q1": expected_q1_label(r),
+                    "author_q2": q2,
+                    "author_q2_source": q2_src,
                 }
             )
     with KEY.open("w", newline="") as handle:
@@ -109,19 +130,18 @@ def main() -> None:
                 "magnitude",
                 "type",
                 "expected_verdict",
+                "expected_q1",
+                "author_q2",
+                "author_q2_source",
             ],
         )
         kw.writeheader()
         kw.writerows(key_rows)
-    GUIDE.write_text(
-        "# IAA guidelines\n\n"
-        "Reviewers mark PASS or FAIL in `reviewer_a` / `reviewer_b` for whether the claim "
-        "is supported by the evidence.\n\n"
-        "The review CSV contains only `blind_id`, claim, and evidence — no condition, stratum, "
-        "or expected labels.\n\n"
-        "Adjudication metadata lives locally in `qc/iaa_key_DO_NOT_SHARE.csv` (do not share with reviewers).\n\n"
-        f"Design strata (n={sum(STRATA.values())}): {json.dumps(STRATA)}\n"
-    )
+    if not GUIDE.is_file():
+        GUIDE.write_text(
+            "# Inter-rater review\n\nSee repository `qc/iaa_guidelines.md` (maintained separately).\n"
+        )
+    labeled_q2 = sum(1 for r in key_rows if r.get("author_q2") in ("Y", "N"))
     MANIFEST.write_text(
         json.dumps(
             {
@@ -132,13 +152,17 @@ def main() -> None:
                 "answer_key_in_git": False,
                 "blind": True,
                 "shuffled": True,
-                "public_csv_columns": ["blind_id", "claim", "evidence", "reviewer_a", "reviewer_b"],
+                "public_csv_columns": PUBLIC_COLUMNS,
+                "q1_wording": Q1_TEXT,
+                "q2_wording": Q2_TEXT,
+                "author_q2_labeled": labeled_q2,
+                "guidelines": str(GUIDE.relative_to(ROOT)),
             },
             indent=2,
         )
         + "\n"
     )
-    print(json.dumps({"n": len(picked), "strata": STRATA}, indent=2))
+    print(json.dumps({"n": len(picked), "strata": STRATA, "author_q2_labeled": labeled_q2}, indent=2))
 
 
 if __name__ == "__main__":

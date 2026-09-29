@@ -1,5 +1,22 @@
 {
-  "n_rows": 60,
-  "n_both_filled": 0,
-  "kappa": null
+  "n_csv_rows": 120,
+  "q1_vs_expected_verdict": {
+    "overall": {
+      "n_pairs": 0,
+      "kappa": null,
+      "pct_agree": null
+    },
+    "by_stratum": {}
+  },
+  "q2_vs_author_labels": {
+    "overall": {
+      "n_pairs": 0,
+      "kappa": null,
+      "pct_agree": null
+    },
+    "by_stratum": {},
+    "note": "Author refs: nat3 (unit INV), inv PI_ok, flip PI_ok, dose3 C0/E1 ok"
+  },
+  "filled_q1": 0,
+  "filled_q2_with_author_ref": 0
 }

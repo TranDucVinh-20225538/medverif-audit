@@ -16,7 +16,12 @@
     "blind_id",
     "claim",
     "evidence",
-    "reviewer_a",
-    "reviewer_b"
-  ]
+    "q1_supported",
+    "q2_natural",
+    "note"
+  ],
+  "q1_wording": "Does the evidence support the claim as written? (Y/N)",
+  "q2_wording": "Is the claim fluent and clinically natural \u2014 would a clinician/textbook write it this way? (Y/N)",
+  "author_q2_labeled": 94,
+  "guidelines": "qc/iaa_guidelines.md"
 }
