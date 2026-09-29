@@ -13,4 +13,5 @@
 | 01:00 | H8 | — | `v4_legacy_agreement_report.py` | 7d8e919 |
 | 01:15 | t19_8b | Incomplete HF cache + offline | `medverif_hf_offline_if_cached` + online 61485 | (HEAD) |
 | 01:15 | t15_eval | AggreFact `doc` not mapped to evidence | `_normalize_rows` + skip empty pairs | (HEAD) |
-| 01:16 | H7 | — | `run_prompt_x_model_hpc.sh` | — |
+| 01:16 | H7 | Registry assert blocked gpt-4o v4 | `MEDVERIF_SKIP_OPENROUTER_REGISTRY_ASSERT` | 6cc584d |
+| 01:17 | bespoke_gpu | ExcNodeList node002,004 | Resubmit 61486 after 61485, exclude node004 only | — |
