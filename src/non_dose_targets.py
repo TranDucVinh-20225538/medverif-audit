@@ -5,9 +5,14 @@ from __future__ import annotations
 NON_DOSE_TARGET_BASES = frozenset(
     {
         "D0077",  # fluid volume returned to circulation (not a medication dose)
+        "D0096",
+        "D0157",
+        "D0158",
+        "D0160",
         "D0164",  # catheter / feeding-tube fluid volume (not a medication dose)
         "D0171",
         "D0173",
+        "D0176",
     }
 )
 

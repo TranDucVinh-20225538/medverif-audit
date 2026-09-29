@@ -14,7 +14,14 @@
     "data/v3/instances_inv_families.jsonl": "integrity #11 non-dose D0164",
     "data/v3/instances_t14.jsonl": "integrity #14 v3 mirror T14 n=233",
     "data/v3/instances_t14_pending_node30.jsonl": "integrity #15 node30 T14 pending",
-    "results/raw/v4_ragas_nli.llama.jsonl": "independent audit: dedupe 16 duplicate instance_ids + replace 43 rescored rows"
+    "results/raw/v4_ragas_nli.llama.jsonl": "independent audit: dedupe 16 duplicate instance_ids + replace 43 rescored rows",
+    "data/v3/instances_main.jsonl": "non-dose D0096/D0157/D0158/D0160/D0176 invalidate 40 valid main rows",
+    "data/v3/instances_cpu_main.jsonl": "non-dose: mirror valid main CPU slice",
+    "data/v3/instances_audit.jsonl": "non-dose: invalidate non-dose_target on main subset",
+    "data/t7/instances_e1_unit.jsonl": "non-dose: drop 6 valid E1-unit rows",
+    "data/t14/instances_t14.jsonl": "non-dose: drop 6 valid T14 repr rows",
+    "data/v3/t17_downdose.jsonl": "non-dose: drop 24 valid T17 downdose rows",
+    "data/t3/instances_inv_families.jsonl": "non-dose: drop 2 valid T3 INV-family rows"
   },
   "allow": []
 }

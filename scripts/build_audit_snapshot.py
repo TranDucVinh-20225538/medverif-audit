@@ -30,6 +30,7 @@ INSTANCE_FILES = [
 QC_FILES = [
     "qc/e1_pol_review.csv",
     "qc/inv_manual_review.csv",
+    "qc/nat3_labels.csv",
     "qc/unit_naturalness.csv",
     "qc/dose3_labels.csv",
     "qc/t7_PI_ok_labels.csv",

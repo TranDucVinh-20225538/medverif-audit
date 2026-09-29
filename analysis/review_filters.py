@@ -8,13 +8,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 E1_POL = ROOT / "qc" / "e1_pol_review.csv"
 INV_MANUAL = ROOT / "qc" / "inv_manual_review.csv"
-UNIT_NAT = ROOT / "qc" / "unit_naturalness.csv"
+UNIT_NAT = ROOT / "qc" / "nat3_labels.csv"
 
 POL_E1_CONDITIONS = frozenset({"E1-evid", "E1-claim", "E2"})
 
 
 def _read_csv(path: Path) -> list[dict]:
-    with path.open(newline="", encoding="utf-8") as handle:
+    with path.open(newline="", encoding="utf-8-sig") as handle:
         return list(csv.DictReader(handle))
 
 
@@ -51,7 +51,7 @@ def unit_natural_labels() -> dict[str, str]:
 
 
 def effective_unit_natural_y(base_id: str, rule_y: bool) -> bool:
-    """Human unit_naturalness.csv overrides rule-based naturalness."""
+    """Human qc/nat3_labels.csv (natural Y/N) overrides rule-based naturalness."""
     human = unit_natural_labels().get(base_id, "")
     if human == "Y":
         return True

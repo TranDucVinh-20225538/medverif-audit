@@ -31,6 +31,7 @@ V3 = ROOT / "data/v3"
 T7 = ROOT / "data/t7/instances_e1_unit.jsonl"
 T14 = ROOT / "data/t14/instances_t14.jsonl"
 T17 = V3 / "t17_downdose.jsonl"
+T3 = ROOT / "data/t3/instances_inv_families.jsonl"
 OUT = ROOT / "notes/non_dose_pack_apply.json"
 
 
@@ -82,8 +83,13 @@ def refresh_main_from_audit() -> None:
     write_jsonl(V3 / "instances_cpu_main.jsonl", cpu_main)
 
 
-def t13_derived_note() -> str:
-    return "T13 cohort is derived from valid main DOSE + T7 ×1000 (no separate jsonl pack)."
+def t13_removed_estimate(main_before: int, main_after: int) -> dict:
+    """T13 uses valid main DOSE INV-unit rows; delta tracks main invalidations."""
+    return {
+        "pack": "T13_derived",
+        "note": "Cohort from valid main DOSE + T7 ×1000; no separate jsonl.",
+        "removed_valid_proxy": max(0, main_before - main_after),
+    }
 
 
 def main() -> None:
@@ -91,14 +97,48 @@ def main() -> None:
     before_metrics = hm.filter_metrics()
     before_cohort = hm.cohort_snapshot()
 
+    audit_rows = read_jsonl(V3 / "instances_audit.jsonl")
+    main_before_valid = sum(
+        1
+        for r in audit_rows
+        if r.get("subset") == "main" and r.get("valid", True)
+    )
     refresh_main_from_audit()
+    audit_after = read_jsonl(V3 / "instances_audit.jsonl")
+    main_after_valid = sum(
+        1
+        for r in audit_after
+        if r.get("subset") == "main" and r.get("valid", True)
+    )
+    main_pack_stat = {
+        "pack": "main",
+        "path": "data/v3/instances_audit.jsonl (subset=main)",
+        "rows": sum(1 for r in audit_after if r.get("subset") == "main"),
+        "non_dose_bases_hit": sorted(NON_DOSE_TARGET_BASES),
+        "valid_before": main_before_valid,
+        "valid_after": main_after_valid,
+        "removed_valid": main_before_valid - main_after_valid,
+        "main_dose_bases_after": len(
+            {
+                r["base_id"]
+                for r in audit_after
+                if r.get("subset") == "main"
+                and r.get("valid", True)
+                and r.get("type") == "DOSE"
+            }
+        ),
+    }
     packs = [
-        (V3 / "instances_main.jsonl", "main_DOSE"),
-        (T7, "T7_e1_unit"),
-        (T14, "T14_repr_pre_rebuild"),
-        (T17, "T17_downdose"),
+        (T7, "T7"),
+        (ROOT / "data/t14/instances_t14.jsonl", "T14"),
+        (T17, "T17"),
+        (T3, "T3"),
     ]
-    pack_stats = [invalidate_pack(p, label) for p, label in packs]
+    pack_stats = [main_pack_stat] + [invalidate_pack(p, label) for p, label in packs]
+    main_stat = main_pack_stat
+    pack_stats.append(
+        t13_removed_estimate(main_stat.get("valid_before", 0), main_stat.get("valid_after", 0))
+    )
 
     subprocess.run([sys.executable, str(ROOT / "scripts/t13_best_of_n_report.py")], cwd=ROOT, check=False)
     after_metrics = hm.filter_metrics()
@@ -107,9 +147,8 @@ def main() -> None:
 
     report = {
         "non_dose_target_bases": sorted(NON_DOSE_TARGET_BASES),
-        "newly_listed": ["D0077", "D0164"],
+        "newly_listed": ["D0096", "D0157", "D0158", "D0160", "D0176"],
         "packs": pack_stats,
-        "t13_note": t13_derived_note(),
         "cohort_before": before_cohort,
         "cohort_after": after_cohort,
         "headlines_before": before_metrics,
