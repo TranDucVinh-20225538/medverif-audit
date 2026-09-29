@@ -1,6 +1,6 @@
 # Batch Oct status (HPC)
 
-Updated: 2026-09-29 17:36 (UTC+7)
+Updated: 2026-09-29 17:55 (UTC+7)
 
 ## Gates
 
@@ -27,10 +27,13 @@ Updated: 2026-09-29 17:36 (UTC+7)
 - **Scoring:** `jobs/run_t17_score_hpc.sh` → `results/raw/t17/` (budget ≤ **$5**).
 - **Log:** `/tmp/t17_hpc_score.log`, `jobs/logs/t17_hpc_*.log`.
 
-## T15 (CPU, no training)
+## T15 (fine-tune MiniCheck-RoBERTa-L)
 
-- **Step 1:** `scripts/t15_build_training_data.py` re-run with `HF_HOME=~/.cache/huggingface` (`/tmp/t15_build.log`).
-- **Next:** `scripts/t15_disjointness_check.py` → `data/t15/disjointness_check.json`, then push (no GPU train).
+- **Data:** commit **153429c** — `data/t15/` (2000 bases, train/dev), `disjointness_check.json` **overlap_total=0**.
+- **Slurm:** job **61445** (`t15-train`, 1×GPU `defq`) — `jobs/run_t15_train.sbatch` → `scripts/t15_train.py` + `scripts/t15_eval.py`.
+- **Submit:** `bash jobs/run_t15_submit.sh` (dedupes `t15-*` in squeue).
+- **Outputs (when done):** `notes/t15_config.json`, checkpoint under `.cache/checkpoints/t15_roberta/best`, scores `results/raw/t15/`, draft `notes/t15_report.md`.
+- **T18 eval:** runs when `data/t18/instances_t18.jsonl` exists; otherwise skipped in eval script.
 
 ## 70B QI (paper)
 

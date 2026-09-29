@@ -17,8 +17,11 @@ REGISTRY_KEYS = frozenset(load_registry().get("verifiers", {}).keys())
 
 
 def resolve_verifier_jsonl(raw_dir: Path, verifier: str) -> Path | None:
-    """Prefer ``{verifier}.llama.jsonl`` over ``{verifier}.jsonl``."""
+    """Resolve score jsonl; V4 uses Llama file only (plain ``v4_ragas_nli.jsonl`` excluded)."""
     raw_dir = Path(raw_dir)
+    if verifier == "v4_ragas_nli":
+        llama = raw_dir / f"{verifier}.llama.jsonl"
+        return llama if llama.is_file() else None
     llama = raw_dir / f"{verifier}.llama.jsonl"
     plain = raw_dir / f"{verifier}.jsonl"
     if llama.is_file():

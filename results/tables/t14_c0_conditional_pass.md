@@ -1,3 +1,5 @@
+<!-- LEGACY — not for paper. Use results/tables/card_main.md and qvc/paper_numbers.json from scripts/compute_paper_numbers.py. -->
+
 # T14 — pass rates conditional on C0 PASS
 
 Among **main DOSE** bases where the verifier **PASS**es **C0**, report **P(PASS)** on each T14 claim-side family (expected PASS). **QI** column: same conditioning for **INV-unit natural** (conversion) — higher is better.

@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+"""T15 step 3: score base + fine-tuned MiniCheck; draft notes/t15_report.md."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "analysis"))
+
+from analyze import read_jsonl  # noqa: E402
+from verifiers.io_utils import append_jsonl, done_ids  # noqa: E402
+
+PACKS = (
+    ("main_dose", ROOT / "data/v3/instances_main.jsonl"),
+    ("t14", ROOT / "data/t14/instances_t14.jsonl"),
+    ("t18", ROOT / "data/t18/instances_t18.jsonl"),
+)
+
+
+def _score_pack(rows: list[dict], out: Path, *, use_t15: bool) -> None:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    todo = [r for r in rows if r.get("valid", True) and r["instance_id"] not in done_ids(out)]
+    if not todo:
+        return
+    if use_t15:
+        from verifiers import t15_minicheck_roberta as t15
+
+        bundle, _ = t15.load()
+        step = 8
+        for off in range(0, len(todo), step):
+            append_jsonl(out, t15.score_batch(bundle, todo[off : off + step]))
+    else:
+        from verifiers import t6a_minicheck as mc
+
+        model, _ = mc.load("t6a_minicheck_roberta")
+        step = 4
+        for off in range(0, len(todo), step):
+            append_jsonl(out, mc.score_batch(model, todo[off : off + step], "t6a_minicheck_roberta"))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--report", type=Path, default=ROOT / "notes/t15_report.md")
+    args = parser.parse_args()
+
+    raw_root = ROOT / "results/raw/t15"
+    status_lines = ["# T15 evaluation (auto draft)", ""]
+
+    for name, path in PACKS:
+        if not path.is_file():
+            status_lines.append(f"- **{name}:** skipped (missing `{path.relative_to(ROOT)}`)")
+            continue
+        rows = read_jsonl(path)
+        base_out = raw_root / f"base_{name}.jsonl"
+        ft_out = raw_root / f"ft_{name}.jsonl"
+        _score_pack(rows, base_out, use_t15=False)
+        _score_pack(rows, ft_out, use_t15=True)
+        status_lines.append(
+            f"- **{name}:** base `{base_out.relative_to(ROOT)}` ({len(done_ids(base_out))} rows), "
+            f"ft `{ft_out.relative_to(ROOT)}` ({len(done_ids(ft_out))} rows)"
+        )
+
+    # LLM-AggreFact test regression (balanced acc) when test split exists
+    agg_test = ROOT / "data/t8/aggrefact/test.jsonl"
+    if agg_test.is_file():
+        rows = read_jsonl(agg_test)
+        for tag, use_t15 in (("base", False), ("ft", True)):
+            out = raw_root / f"{tag}_aggrefact_test.jsonl"
+            _score_pack(rows, out, use_t15=use_t15)
+        status_lines.append("- **AggreFact test:** scored under `results/raw/t15/*_aggrefact_test.jsonl`")
+    else:
+        status_lines.append("- **AggreFact:** skipped (run `scripts/t8_download_aggrefact.py` first)")
+
+    status_lines += [
+        "",
+        "Full QVC table (QI/NS/US, McNemar, CIs): extend with `qvc/evaluate/card.py` on joined rows.",
+        "",
+    ]
+    args.report.write_text("\n".join(status_lines) + "\n")
+    print(json.dumps({"report": str(args.report)}, indent=2))
+
+
+if __name__ == "__main__":
+    main()
