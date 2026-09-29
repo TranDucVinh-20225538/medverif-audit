@@ -38,6 +38,8 @@ def _normalize_rows(rows: list[dict]) -> list[dict]:
     for row in rows:
         nr = dict(row)
         nr.setdefault("instance_id", _row_id(row))
+        if not (nr.get("evidence") or "").strip() and (nr.get("doc") or "").strip():
+            nr["evidence"] = nr["doc"]
         out.append(nr)
     return out
 
@@ -46,6 +48,7 @@ def _score_pack(rows: list[dict], out: Path, *, use_t15: bool) -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     rows = _normalize_rows(rows)
     todo = [r for r in rows if r.get("valid", True) and r["instance_id"] not in done_ids(out)]
+    todo = [r for r in todo if (r.get("claim") or "").strip() and (r.get("evidence") or "").strip()]
     if not todo:
         return
     if use_t15:
