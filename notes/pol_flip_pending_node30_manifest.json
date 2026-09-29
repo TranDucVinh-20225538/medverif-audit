@@ -1,0 +1,22 @@
+{
+  "path": "data/v3/instances_pol_flip_pending_node30.jsonl",
+  "flip_ok_bases_total": 26,
+  "target_bases": [
+    "P0020",
+    "P0033",
+    "P0035",
+    "P0044",
+    "P0048",
+    "P0052",
+    "P0067",
+    "P0073",
+    "P0092",
+    "P0116",
+    "P0120",
+    "P0132",
+    "P0161",
+    "P0171"
+  ],
+  "n_pending_rows": 42,
+  "score_to": "results/raw/v2a_minicheck.jsonl, v3_alignscore.jsonl (+ t6a in raw/)"
+}
