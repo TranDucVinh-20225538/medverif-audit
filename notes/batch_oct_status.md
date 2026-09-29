@@ -1,37 +1,46 @@
 # Batch Oct status (HPC)
 
-Updated: 2026-09-29 22:10 (UTC+7)
+Updated: 2026-09-30 01:16 (UTC+7)
 
-## Parallel lanes (kicked off)
+## Fix round (7 items)
 
-| Lane | Flock | Log | Cap | Status |
-|------|-------|-----|-----|--------|
-| **B** CPU T6-A | `lane_b_cpuverif` | `jobs/logs/lane_b_cpuverif_*.log` | — | Running: 200 calib → agreement vs `results/raw_node30` → main E1-evid (`data/lane_b/main_e1_evid.jsonl`, n≈245) |
-| **C** M1 H2 OR | `lane_c_m1_h2` | `jobs/logs/lane_c_m1_h2_*.log` | **$3** lane / **$10** night (`scripts/lane_or_night_budget.py`) | Running: V1/V1b/V1c/V4/V5/V6×4 → `results/raw_m1/lane_c/` |
-| **A** packs | `lane_a_generation` | `jobs/logs/lane_a_generation_*.log` | **$2** (`notes/lane_a_spend.json`) | Running: smoke 5+5 → main_ext + IAA + T18 (no scoring) |
+| Item | Status | Notes |
+|------|--------|-------|
+| Lane C v6 | **RUNNING** | v1–v5 **854/854**; `v6_ragas_gpt4o_mini` in progress (~776/854 @ 01:16). |
+| main_ext count | **DONE** | Cohort **60** INV bases — `notes/main_ext_cohort_report.md`; stage1 **892** = expand only. |
+| T15 eval | **RUNNING** | Packs scored; AggreFact failed on empty evidence → **fix pushed**; re-run in flight. |
+| T18 pack | **DONE** | 100 bases / 736 instances (`scripts/build_t18_wikipedia_pack.py`). |
+| Legacy cal | **DONE (partial)** | SummaC-ZS + Granite **100%** downstream OK; Conv/HHEM **&lt;97%** → human hold. |
+| T19 3B POL + 8B | **3B DONE** | `llama32_3b_instruct.jsonl` **1703** lines; **8B Slurm 61485** loading weights (online HF). |
+| Lane B T17 V2a/V3 | **DONE** | **588/588** valid; 24 invalid `non_dose_target`. |
 
-**OR chain (unchanged):** `jobs/run_or_resume_priority.sh` — main backfill → T17 → T14 → v4 unparsed.
+**Git:** `7d8e919` autonomous batch; `fix(t15/t19)` on HEAD after push.
 
-**GPU (max 2 ours):** T19 3B **61477**, T15 **61476**. Bespoke-7B deferred until GPU free.
+## Queued / overnight
 
-## T19 scale
+| Task | Status |
+|------|--------|
+| Bespoke-7B GPU | **61484 PENDING** (node001/004 unavailable); resubmit after GPU frees. |
+| H7 prompt×model | **STARTED** (`run_prompt_x_model_hpc.sh`, ≤$2). |
+| H8 agreement | **DONE** — `notes/v4_legacy_llama_agreement.{json,md}`. |
+| T16 base-model IG | **BLOCKED** — no job/scripts in repo (see `needs_human.md`). |
 
-- Cohort **1703** (+80 `main_pol`); **1B** done (1623); **3B** finishing 1623 then resume **80 POL**; **8B** on full 1703 after 3B.
-- Report script: `scripts/t19_report.py` (notes after 3B/8B complete).
+## OpenRouter night
 
-## T17 V4 Llama
+- `notes/lane_or_night_spend.json`: **~$5.36 / $10** (~$4.64 left).
+- Lane C cap **$3** — watch during v6 completion.
 
-- **612/612** → `results/raw/t17/v4_ragas_nli.llama.jsonl` (all `meta-llama/llama-3.3-70b-instruct`).
+## Slurm (toandq)
 
-## Git
+| JobID | Name | State |
+|------:|------|-------|
+| 61480 | tmlr-e1 | RUNNING (node002) |
+| 61485 | t19-llama31_8b_local | RUNNING (node002, fetching shards) |
+| 61484 | lane_b_bespoke | PENDING |
 
-- Latest pushed: `a5a952e` (T17 rename + T19 POL cohort); `26538db` (T19 report).
+## Lanes
+
+- **Lane C:** `nohup jobs/run_lane_c_m1_h2.sh` — log `jobs/logs/lane_c_m1_h2_*.log`.
+- **Lane B CPU:** largely complete; bespoke GPU deferred.
 
 <!-- job-elapsed-table -->
-
-## Job wall times (auto)
-
-| JobID | Name | Pack / task | Verifier | Rows | Wall | GPU | State |
-|------:|------|-------------|----------|-----:|------|-----|-------|
-| 61477 | t19-llama32_3b | T19 | local RAGAS | — | — | 1 | RUNNING |
-| 61476 | t15-train | T15 | MiniCheck FT | — | — | 1 | RUNNING |

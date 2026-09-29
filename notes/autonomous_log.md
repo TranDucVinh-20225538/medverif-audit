@@ -10,4 +10,7 @@
 | 01:00 | t19 | 3B POL + 8B not queued | `run_t19_submit_8b_pol.sh` → Slurm 61482/61483 | (see HEAD) |
 | 01:00 | lane_b_t17 | “24 gap” | 588/588 valid done; 24 invalid `non_dose_target` | (see HEAD) |
 | 01:00 | bespoke_gpu | deferred | Slurm 61484 (exclude node002) | (see HEAD) |
-| 01:00 | H8 | — | `v4_legacy_agreement_report.py` | (see HEAD) |
+| 01:00 | H8 | — | `v4_legacy_agreement_report.py` | 7d8e919 |
+| 01:15 | t19_8b | Incomplete HF cache + offline | `medverif_hf_offline_if_cached` + online 61485 | (HEAD) |
+| 01:15 | t15_eval | AggreFact `doc` not mapped to evidence | `_normalize_rows` + skip empty pairs | (HEAD) |
+| 01:16 | H7 | — | `run_prompt_x_model_hpc.sh` | — |
