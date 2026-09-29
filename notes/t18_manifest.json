@@ -1,7 +1,10 @@
 {
-  "bases": 30,
-  "instances": 213,
-  "note": "General-domain doses (non-core textbooks); Wikipedia crawl deferred.",
+  "source": "wikimedia/wikipedia 20231101.en (streaming)",
+  "domain": "non_medical science/geography/engineering",
+  "metric_units": "km/m/cm, kg/g, L/mL, W/kW",
+  "bases": 100,
+  "instances": 736,
   "instances_path": "data/t18/instances_t18.jsonl",
-  "qc": "qc/t18_sample.csv"
+  "qc": "qc/t18_sample.csv",
+  "legacy_medical_mislabel": "data/t18_medical_expand/ (NOT T18)"
 }

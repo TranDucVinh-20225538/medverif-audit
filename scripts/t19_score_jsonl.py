@@ -14,10 +14,18 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--instances", type=Path, required=True)
+    parser.add_argument(
+        "--instances",
+        type=Path,
+        default=None,
+        help="default: data/t19/instances_t19.jsonl or MEDVERIF_T19_INSTANCES",
+    )
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--limit", type=int, default=0)
     args = parser.parse_args()
+    if args.instances is None:
+        env_inst = os.environ.get("MEDVERIF_T19_INSTANCES", "").strip()
+        args.instances = Path(env_inst) if env_inst else (ROOT / "data/t19/instances_t19.jsonl")
     os.environ.setdefault("CUDA_VISIBLE_DEVICES", "0")
     from scoring_lock import exclusive_score_lock
     from verifiers.io_utils import append_jsonl, done_ids, read_jsonl

@@ -16,15 +16,35 @@ sys.path.insert(0, str(ROOT / "analysis"))
 from analyze import read_jsonl  # noqa: E402
 from verifiers.io_utils import append_jsonl, done_ids  # noqa: E402
 
+def _row_id(row: dict) -> str:
+    if row.get("instance_id"):
+        return str(row["instance_id"])
+    cid = row.get("contamination_identifier") or row.get("id")
+    if cid:
+        return str(cid)
+    raise KeyError(f"row missing instance_id: keys={list(row.keys())[:12]}")
+
+
 PACKS = (
     ("main_dose", ROOT / "data/v3/instances_main.jsonl"),
     ("t14", ROOT / "data/t14/instances_t14.jsonl"),
     ("t18", ROOT / "data/t18/instances_t18.jsonl"),
+    ("t18_medical_expand", ROOT / "data/t18_medical_expand/instances_t18.jsonl"),
 )
+
+
+def _normalize_rows(rows: list[dict]) -> list[dict]:
+    out: list[dict] = []
+    for row in rows:
+        nr = dict(row)
+        nr.setdefault("instance_id", _row_id(row))
+        out.append(nr)
+    return out
 
 
 def _score_pack(rows: list[dict], out: Path, *, use_t15: bool) -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
+    rows = _normalize_rows(rows)
     todo = [r for r in rows if r.get("valid", True) and r["instance_id"] not in done_ids(out)]
     if not todo:
         return
@@ -47,12 +67,20 @@ def _score_pack(rows: list[dict], out: Path, *, use_t15: bool) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--report", type=Path, default=ROOT / "notes/t15_report.md")
+    parser.add_argument(
+        "--packs",
+        default="all",
+        help="comma-separated pack names or 'all' (default)",
+    )
     args = parser.parse_args()
 
     raw_root = ROOT / "results/raw/t15"
     status_lines = ["# T15 evaluation (auto draft)", ""]
 
+    want = {p.strip() for p in args.packs.split(",")} if args.packs != "all" else None
     for name, path in PACKS:
+        if want is not None and name not in want:
+            continue
         if not path.is_file():
             status_lines.append(f"- **{name}:** skipped (missing `{path.relative_to(ROOT)}`)")
             continue

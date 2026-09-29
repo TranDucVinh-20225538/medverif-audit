@@ -31,29 +31,42 @@ mkdir -p "${OUT}"
 LEDGER="${ROOT}/notes/lane_c_or_spend.json"
 echo "{\"started\": \"$(date -Is)\"}" > "${LEDGER}"
 
+PACK_N="$(wc -l < "${INST}")"
+
 score_one() {
   local v="$1"
-  python3 scripts/lane_or_night_budget.py
+  local out="${OUT}/${v}.jsonl"
+  if [[ -f "${out}" ]] && [[ "$(wc -l < "${out}")" -ge "${PACK_N}" ]]; then
+    echo "skip ${v}: complete $(wc -l < "${out}")/${PACK_N}"
+    return 0
+  fi
+  python3 scripts/lane_or_night_budget.py || return 2
   python3 scripts/openrouter_budget.py || return 2
-  python3 src/score_jsonl.py --verifier "${v}" --instances "${INST}" --out "${OUT}/${v}.jsonl"
+  python3 src/score_jsonl.py --verifier "${v}" --instances "${INST}" --out "${out}"
 }
 
-# V4: verifier_registry pins meta-llama/llama-3.3-70b-instruct (not Qwen3-14B yaml default).
-for v in v1_medscore v1b_medscore v1c_medscore v4_ragas_nli; do
+ALL_VERIFIERS=(
+  v1_medscore v1b_medscore v1c_medscore v4_ragas_nli v5_ragas_nli
+  v6_ragas_gpt4o_mini v6_ragas_haiku45 v6_ragas_llama31_8b v6_ragas_mistral_small32
+)
+echo "lane C pack rows=${PACK_N}; existing outputs:"
+wc -l "${OUT}"/*.jsonl 2>/dev/null || true
+
+for v in "${ALL_VERIFIERS[@]}"; do
   echo "=== ${v} === $(date -Is)"
+  case "${v}" in
+    v5_ragas_nli|v6_ragas_*) need_balance=1 ;;
+    *) need_balance=0 ;;
+  esac
+  if [[ "${need_balance}" -eq 1 ]]; then
+    if ! python3 scripts/openrouter_pause_before_expensive.py --min-usd 3; then
+      echo "PAUSE: OR balance below \$3 — stopping before ${v}"
+      break
+    fi
+  fi
   score_one "${v}" || break
 done
-
-if ! python3 scripts/openrouter_pause_before_expensive.py --min-usd 3; then
-  echo "PAUSE: OR balance below \$3 — skipping v5/v6 (report in log; re-run later)"
-  python3 scripts/openrouter_pause_before_expensive.py --min-usd 3 || true
-  exit 0
-fi
-
-for v in v5_ragas_nli v6_ragas_gpt4o_mini v6_ragas_haiku45 v6_ragas_llama31_8b v6_ragas_mistral_small32; do
-  echo "=== ${v} === $(date -Is)"
-  score_one "${v}" || break
-done
+unset need_balance
 
 python3 scripts/lane_c_m1_repair_report.py
 python3 scripts/lane_or_night_budget.py > "${ROOT}/notes/lane_c_or_spend_final.json"

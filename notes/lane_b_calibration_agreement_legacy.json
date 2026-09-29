@@ -1,0 +1,55 @@
+{
+  "lane_b_env_id": "03f0450876b0d7b3",
+  "profile": "legacy",
+  "threshold_agreement": 0.97,
+  "blocked_checkers": [
+    "t6a_summac_conv",
+    "t6a_hhem"
+  ],
+  "checkers": [
+    {
+      "n": 93,
+      "agreement": 1.0,
+      "mean_abs_score_diff": 0.0008036709986426817,
+      "hpc_lane_b_env_ids": [
+        "03f0450876b0d7b3"
+      ],
+      "checker": "t6a_summac_zs",
+      "node30_file": "t6_summac_zs.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_summac_zs.jsonl"
+    },
+    {
+      "n": 93,
+      "agreement": 0.34408602150537637,
+      "mean_abs_score_diff": 0.30829103707626304,
+      "hpc_lane_b_env_ids": [
+        "03f0450876b0d7b3"
+      ],
+      "checker": "t6a_summac_conv",
+      "node30_file": "t6_summac_conv.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_summac_conv.jsonl"
+    },
+    {
+      "n": 93,
+      "agreement": 0.43010752688172044,
+      "mean_abs_score_diff": 0.5424456158629186,
+      "hpc_lane_b_env_ids": [
+        "03f0450876b0d7b3"
+      ],
+      "checker": "t6a_hhem",
+      "node30_file": "t6_hhem.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_hhem.jsonl"
+    },
+    {
+      "n": 93,
+      "agreement": 1.0,
+      "mean_abs_score_diff": 0.005303584079268158,
+      "hpc_lane_b_env_ids": [
+        "03f0450876b0d7b3"
+      ],
+      "checker": "t6a_granite_guardian",
+      "node30_file": "t6_granite_guardian.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_granite_guardian.jsonl"
+    }
+  ]
+}
