@@ -1,0 +1,106 @@
+verifier	pack_id	score_path	reason	overlap_n	overlap_agreement
+v2a_minicheck	main_dose	results/raw/v2a_minicheck.jsonl	equal/full coverage on HPC (843 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v3_alignscore	main_dose	results/raw/v3_alignscore.jsonl	equal/full coverage on HPC (843 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v2b_bespoke	main_dose	results/raw/t6_bespoke_minicheck.jsonl	prefer HPC when both exist		
+t6a_minicheck_roberta	main_dose	results/raw_node30/t6_minicheck_roberta.jsonl	node30-only local verifier scores		
+t6a_minicheck_deberta	main_dose	results/raw_node30/t6_minicheck_deberta.jsonl	node30-only local verifier scores		
+t6a_alignscore_base	main_dose	results/raw_node30/t6_alignscore_base.jsonl	node30-only local verifier scores		
+t6a_summac_zs	main_dose	results/raw_node30/t6_summac_zs.jsonl	node30-only local verifier scores		
+t6a_summac_conv	main_dose	results/raw_node30/t6_summac_conv.jsonl	node30-only local verifier scores		
+t6a_hhem	main_dose	results/raw_node30/t6_hhem.jsonl	node30-only local verifier scores		
+t6a_granite_guardian	main_dose	results/raw_node30/t6_granite_guardian.jsonl	node30-only local verifier scores		
+v1_medscore	main_dose	results/raw/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v4_ragas_nli	main_dose	results/raw/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v2a_minicheck	pol	results/raw_node30/v2a_minicheck.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.	1403	1.000000
+v3_alignscore	pol	results/raw_node30/v3_alignscore.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.	1403	1.000000
+v2b_bespoke	pol	results/raw_node30/t6_bespoke_minicheck.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		
+t6a_minicheck_roberta	pol	results/raw_node30/t6_minicheck_roberta.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		
+t6a_minicheck_deberta	pol	results/raw_node30/t6_minicheck_deberta.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		
+t6a_alignscore_base	pol	results/raw_node30/t6_alignscore_base.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		
+t6a_summac_zs	pol	results/raw_node30/t6_summac_zs.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		
+t6a_summac_conv	pol	results/raw_node30/t6_summac_conv.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		
+t6a_hhem	pol	results/raw_node30/t6_hhem.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		
+t6a_granite_guardian	pol	results/raw_node30/t6_granite_guardian.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		
+v1_medscore	pol	results/raw/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v4_ragas_nli	pol	results/raw/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v2a_minicheck	cpu_early	results/raw_node30/v2a_minicheck.jsonl	node30 encoder has fuller pack coverage (1192 vs HPC=1150 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v3_alignscore	cpu_early	results/raw_node30/v3_alignscore.jsonl	node30 encoder has fuller pack coverage (1192 vs HPC=1150 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v2b_bespoke	cpu_early	results/raw/t6_bespoke_minicheck.jsonl	prefer HPC when both exist		
+t6a_minicheck_roberta	cpu_early	results/raw_node30/t6_minicheck_roberta.jsonl	node30-only local verifier scores		
+t6a_minicheck_deberta	cpu_early	results/raw_node30/t6_minicheck_deberta.jsonl	node30-only local verifier scores		
+t6a_alignscore_base	cpu_early	results/raw_node30/t6_alignscore_base.jsonl	node30-only local verifier scores		
+t6a_summac_zs	cpu_early	results/raw_node30/t6_summac_zs.jsonl	node30-only local verifier scores		
+t6a_summac_conv	cpu_early	results/raw_node30/t6_summac_conv.jsonl	node30-only local verifier scores		
+t6a_hhem	cpu_early	results/raw_node30/t6_hhem.jsonl	node30-only local verifier scores		
+t6a_granite_guardian	cpu_early	results/raw_node30/t6_granite_guardian.jsonl	node30-only local verifier scores		
+v1_medscore	cpu_early	results/raw/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v4_ragas_nli	cpu_early	results/raw/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v2a_minicheck	m1_before	results/raw_node30/v2a_minicheck.jsonl	node30 encoder has fuller pack coverage (1192 vs HPC=1150 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v3_alignscore	m1_before	results/raw_node30/v3_alignscore.jsonl	node30 encoder has fuller pack coverage (1192 vs HPC=1150 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v2b_bespoke	m1_before	results/raw/t6_bespoke_minicheck.jsonl	prefer HPC when both exist		
+t6a_minicheck_roberta	m1_before	results/raw_node30/t6_minicheck_roberta.jsonl	node30-only local verifier scores		
+t6a_minicheck_deberta	m1_before	results/raw_node30/t6_minicheck_deberta.jsonl	node30-only local verifier scores		
+t6a_alignscore_base	m1_before	results/raw_node30/t6_alignscore_base.jsonl	node30-only local verifier scores		
+t6a_summac_zs	m1_before	results/raw_node30/t6_summac_zs.jsonl	node30-only local verifier scores		
+t6a_summac_conv	m1_before	results/raw_node30/t6_summac_conv.jsonl	node30-only local verifier scores		
+t6a_hhem	m1_before	results/raw_node30/t6_hhem.jsonl	node30-only local verifier scores		
+t6a_granite_guardian	m1_before	results/raw_node30/t6_granite_guardian.jsonl	node30-only local verifier scores		
+v1_medscore	m1_before	results/raw/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v4_ragas_nli	m1_before	results/raw/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v2a_minicheck	m1_after	results/raw_m1/v2a_minicheck.jsonl	HPC-only pack path	922	0.916486
+v3_alignscore	m1_after	results/raw_m1/v3_alignscore.jsonl	HPC-only pack path	922	0.916486
+v1_medscore	m1_after	results/raw_m1/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v4_ragas_nli	m1_after	results/raw_m1/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v2a_minicheck	t7	results/raw/t7/v2a_minicheck.jsonl	equal/full coverage on HPC (230 required ids); overlap verdict agreement=1.0000 on n=230.	230	1.000000
+v3_alignscore	t7	results/raw/t7/v3_alignscore.jsonl	equal/full coverage on HPC (230 required ids); overlap verdict agreement=1.0000 on n=230.	230	1.000000
+v2b_bespoke	t7	results/raw/t7/t6_bespoke_minicheck.jsonl	prefer HPC when both exist		
+t6a_minicheck_roberta	t7	results/raw/t7/t6_minicheck_roberta.jsonl	prefer HPC when both exist		
+t6a_minicheck_deberta	t7	results/raw/t7/t6_minicheck_deberta.jsonl	prefer HPC when both exist		
+t6a_alignscore_base	t7	results/raw/t7/t6_alignscore_base.jsonl	prefer HPC when both exist		
+t6a_summac_zs	t7	results/raw/t7/t6_summac_zs.jsonl	prefer HPC when both exist		
+t6a_summac_conv	t7	results/raw/t7/t6_summac_conv.jsonl	prefer HPC when both exist		
+t6a_hhem	t7	results/raw/t7/t6_hhem.jsonl	prefer HPC when both exist		
+t6a_granite_guardian	t7	results/raw/t7/t6_granite_guardian.jsonl	prefer HPC when both exist		
+v1_medscore	t7	results/raw/t7/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1b_medscore	t7	results/raw/t7/v1b_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1c_medscore	t7	results/raw/t7/v1c_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v4_ragas_nli	t7	results/raw/t7/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v5_ragas_nli	t7	results/raw/t7/v5_ragas_nli.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_gpt4o_mini	t7	results/raw/t7/v6_ragas_gpt4o_mini.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_haiku45	t7	results/raw/t7/v6_ragas_haiku45.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_llama31_8b	t7	results/raw/t7/v6_ragas_llama31_8b.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_mistral_small32	t7	results/raw/t7/v6_ragas_mistral_small32.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1_medscore	t14	results/raw/t14/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1b_medscore	t14	results/raw/t14/v1b_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v5_ragas_nli	t14	results/raw/t14/v5_ragas_nli.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1_medscore	t17	results/raw/t17/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1b_medscore	t17	results/raw/t17/v1b_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v5_ragas_nli	t17	results/raw/t17/v5_ragas_nli.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v2a_minicheck	t3	results/raw/t3/v2a_minicheck.jsonl	equal/full coverage on HPC (59 required ids); overlap verdict agreement=1.0000 on n=59.	59	1.000000
+v3_alignscore	t3	results/raw/t3/v3_alignscore.jsonl	equal/full coverage on HPC (59 required ids); overlap verdict agreement=1.0000 on n=59.	59	1.000000
+v2b_bespoke	t3	results/raw_node30/t3/t6_bespoke_minicheck.jsonl	node30-only local verifier scores		
+t6a_minicheck_roberta	t3	results/raw/t3/t6_minicheck_roberta.jsonl	prefer HPC when both exist		
+t6a_minicheck_deberta	t3	results/raw/t3/t6_minicheck_deberta.jsonl	prefer HPC when both exist		
+t6a_alignscore_base	t3	results/raw/t3/t6_alignscore_base.jsonl	prefer HPC when both exist		
+t6a_summac_zs	t3	results/raw/t3/t6_summac_zs.jsonl	prefer HPC when both exist		
+t6a_summac_conv	t3	results/raw/t3/t6_summac_conv.jsonl	prefer HPC when both exist		
+t6a_hhem	t3	results/raw/t3/t6_hhem.jsonl	prefer HPC when both exist		
+t6a_granite_guardian	t3	results/raw/t3/t6_granite_guardian.jsonl	prefer HPC when both exist		
+v1_medscore	t3	results/raw/t3/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1b_medscore	t3	results/raw/t3_t2/v1b_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1c_medscore	t3	results/raw/t3_t6b/v1c_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v5_ragas_nli	t3	results/raw/t3_t2/v5_ragas_nli.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_gpt4o_mini	t3	results/raw/t3_t6b/v6_ragas_gpt4o_mini.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_haiku45	t3	results/raw/t3_t6b/v6_ragas_haiku45.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_llama31_8b	t3	results/raw/t3_t6b/v6_ragas_llama31_8b.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_mistral_small32	t3	results/raw/t3_t6b/v6_ragas_mistral_small32.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v2a_minicheck	e2	results/raw/e2_main/v2a_minicheck.jsonl	equal/full coverage on HPC (119 required ids); overlap verdict agreement=1.0000 on n=119.	119	1.000000
+v3_alignscore	e2	results/raw/e2_main/v3_alignscore.jsonl	equal/full coverage on HPC (119 required ids); overlap verdict agreement=1.0000 on n=119.	119	1.000000
+v2b_bespoke	e2	results/raw/e2_main/t6_bespoke_minicheck.jsonl	prefer HPC when both exist		
+t6a_minicheck_roberta	e2	results/raw/e2_main/t6_minicheck_roberta.jsonl	prefer HPC when both exist		
+t6a_minicheck_deberta	e2	results/raw/e2_main/t6_minicheck_deberta.jsonl	prefer HPC when both exist		
+t6a_alignscore_base	e2	results/raw/e2_main/t6_alignscore_base.jsonl	prefer HPC when both exist		
+t6a_summac_zs	e2	results/raw/e2_main/t6_summac_zs.jsonl	prefer HPC when both exist		
+t6a_summac_conv	e2	results/raw/e2_main/t6_summac_conv.jsonl	prefer HPC when both exist		
+t6a_hhem	e2	results/raw/e2_main/t6_hhem.jsonl	prefer HPC when both exist		
+t6a_granite_guardian	e2	results/raw/e2_main/t6_granite_guardian.jsonl	prefer HPC when both exist		

@@ -1,6 +1,6 @@
 # Audit snapshot
 
-Built: 2026-09-29T13:03:45.373535+00:00
+Built: 2026-09-29T13:09:26.085351+00:00
 
 Recompute paper numbers:
 
@@ -72,6 +72,7 @@ python scripts/compute_paper_numbers.py
 - `results/raw/t14/v5_ragas_nli.jsonl`
 - `results/raw/t17/v1_medscore.jsonl`
 - `results/raw/t17/v1b_medscore.jsonl`
+- `results/raw/t17/v5_ragas_nli.jsonl`
 - `results/raw/t3/t6_alignscore_base.jsonl`
 - `results/raw/t3/t6_granite_guardian.jsonl`
 - `results/raw/t3/t6_hhem.jsonl`
@@ -166,6 +167,7 @@ Under `results/raw_node30/` — sourced from `node30-results` at `c48093bdc73a6b
 ## Manifest
 
 - `release/score_manifest.tsv` — one row per score file: verifier, pack, row count, source branch/commit.
+- `release/canonical_sources.tsv` — authoritative (verifier, pack) → score_path for `compute_paper_numbers.py`.
 
 ## Excluded by policy
 

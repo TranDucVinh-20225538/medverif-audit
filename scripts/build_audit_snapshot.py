@@ -5,9 +5,13 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from canonical_scores import CANONICAL_TSV, write_canonical_tsv  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_ZIP = ROOT / "release/audit_snapshot.zip"
@@ -227,6 +231,7 @@ def write_readme(score_paths: list[Path], node30_paths: list[Path]) -> None:
         "## Manifest",
         "",
         "- `release/score_manifest.tsv` — one row per score file: verifier, pack, row count, source branch/commit.",
+        "- `release/canonical_sources.tsv` — authoritative (verifier, pack) → score_path for `compute_paper_numbers.py`.",
         "",
         "## Excluded by policy",
         "",
@@ -239,6 +244,7 @@ def write_readme(score_paths: list[Path], node30_paths: list[Path]) -> None:
 
 
 def main() -> None:
+    write_canonical_tsv(CANONICAL_TSV)
     master_commit = _git_head()
     node30 = _load_node30_source()
     score_paths = _collect_score_paths()
@@ -271,6 +277,9 @@ def main() -> None:
         manifest["files"].append("release/AUDIT_SNAPSHOT_README.md")
         zf.writestr("release/score_manifest.tsv", manifest_tsv)
         manifest["files"].append("release/score_manifest.tsv")
+        if CANONICAL_TSV.is_file():
+            zf.write(CANONICAL_TSV, arcname=CANONICAL_TSV.relative_to(ROOT).as_posix())
+            manifest["files"].append(CANONICAL_TSV.relative_to(ROOT).as_posix())
         zf.writestr("release/manifest.json", json.dumps(manifest, indent=2) + "\n")
     size_mb = OUT_ZIP.stat().st_size / (1024 * 1024)
     print(json.dumps({"zip": str(OUT_ZIP), "size_bytes": OUT_ZIP.stat().st_size, "size_mb": round(size_mb, 2)}))

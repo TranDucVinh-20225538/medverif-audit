@@ -12,6 +12,7 @@ from fnmatch import fnmatch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "analysis"))
 sys.path.insert(0, str(ROOT / "src"))
 
@@ -32,6 +33,7 @@ from review_filters import (  # noqa: E402
 )
 from text_utils import rule_natural_unit_conversion_label  # noqa: E402
 from t14_t3_filter_report import inv_span_before  # noqa: E402
+from canonical_scores import CANONICAL_TSV, load_canonical_paths  # noqa: E402
 from verifier_labels import CANONICAL_VERIFIERS, DISPLAY_NAME  # noqa: E402
 
 OUT_JSON = ROOT / "qvc/paper_numbers.json"
@@ -103,48 +105,32 @@ def load_score_jsonl(path: Path, quarantine_ids: set[str]) -> dict[str, dict]:
     return out
 
 
+_CANONICAL_CACHE: dict[tuple[str, str], list[Path]] | None = None
+
+
+def _canonical_map() -> dict[tuple[str, str], list[Path]]:
+    global _CANONICAL_CACHE
+    if _CANONICAL_CACHE is None:
+        if not CANONICAL_TSV.is_file():
+            raise SystemExit(
+                f"Missing {CANONICAL_TSV.relative_to(ROOT)} — run scripts/build_canonical_sources.py"
+            )
+        _CANONICAL_CACHE = load_canonical_paths()
+    return _CANONICAL_CACHE
+
+
 def score_paths_for_pack(pack_id: str, verifier: str) -> list[Path]:
-    dirs: list[Path] = []
-    if pack_id in ("main_dose", "pol", "cpu_early"):
-        dirs.append(ROOT / "results/raw")
-    if pack_id == "m1_before":
-        dirs.append(ROOT / "results/raw")
-    if pack_id == "m1_after":
-        dirs.append(ROOT / "results/raw_m1")
-    if pack_id == "t7":
-        dirs.append(ROOT / "results/raw/t7")
-    if pack_id == "t14":
-        dirs.append(ROOT / "results/raw/t14")
-    if pack_id == "t17":
-        dirs.append(ROOT / "results/raw/t17")
-    if pack_id == "t3":
-        for sub in ("t3", "t3_t2", "t3_t6b"):
-            d = ROOT / "results/raw" / sub
-            if d.is_dir():
-                dirs.append(d)
-    if pack_id == "e2":
-        dirs.append(ROOT / "results/raw/e2_main")
-    paths: list[Path] = []
-    for d in dirs:
-        if not d.is_dir():
-            continue
-        if verifier == "v4_ragas_nli":
-            cand = d / V4_LLAMA_ONLY
-            if cand.is_file():
-                paths.append(cand)
-            continue
-        for name in (f"{verifier}.llama.jsonl", f"{verifier}.jsonl"):
-            cand = d / name
-            if cand.is_file() and _score_file_allowed(cand):
-                paths.append(cand)
-                break
-    return paths
+    return list(_canonical_map().get((pack_id, verifier), []))
 
 
 def merged_scores(pack_id: str, verifier: str, quarantine_ids: set[str]) -> dict[str, dict]:
     out: dict[str, dict] = {}
     for path in score_paths_for_pack(pack_id, verifier):
-        out.update(load_score_jsonl(path, quarantine_ids))
+        chunk = load_score_jsonl(path, quarantine_ids)
+        for iid, row in chunk.items():
+            row = dict(row)
+            row["_source_path"] = path.relative_to(ROOT).as_posix()
+            out[iid] = row
     return out
 
 
@@ -594,6 +580,7 @@ def main() -> None:
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "pipeline": "scripts/compute_paper_numbers.py",
+        "canonical_score_sources": CANONICAL_TSV.relative_to(ROOT).as_posix(),
         "score_denylist_basenames": sorted(SCORE_DENY_BASENAMES),
         "score_denylist_globs": list(SCORE_DENY_GLOBS),
         "v4_scores_only": V4_LLAMA_ONLY,
