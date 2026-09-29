@@ -17,12 +17,11 @@ import shutil
 from pathlib import Path
 
 repo = "wikimedia/wikipedia"
-revision = "20231101.en"
 dest = Path("/data2/hpcshared/medverif-audit/.cache/huggingface/wikipedia_20231101.en_parquet")
 dest.mkdir(parents=True, exist_ok=True)
 for i in (0, 1):
-    name = f"train-{i:05d}-of-00041.parquet"
-    p = hf_hub_download(repo_id=repo, repo_type="dataset", filename=name, revision=revision)
+    name = f"20231101.en/train-{i:05d}-of-00041.parquet"
+    p = hf_hub_download(repo_id=repo, repo_type="dataset", filename=name)
     target = dest / name
     if not target.exists() or target.stat().st_size != Path(p).stat().st_size:
         shutil.copy2(p, target)
