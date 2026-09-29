@@ -63,6 +63,26 @@ SCORE_ROOTS: dict[str, Path] = {
     "node30": ROOT / "results/raw_node30",
 }
 
+# Main DOSE OpenRouter scores live in cohort subdirs (not results/raw root).
+MAIN_DOSE_AUX_DIRS: dict[str, list[str]] = {
+    "v1b_medscore": ["t2_full"],
+    "v5_ragas_nli": ["t2_full"],
+    "v1c_medscore": ["t6b/full"],
+    "v6_ragas_gpt4o_mini": ["t6b/full"],
+    "v6_ragas_haiku45": ["t6b/full"],
+    "v6_ragas_llama31_8b": ["t6b/full"],
+    "v6_ragas_mistral_small32": ["t6b/full"],
+}
+
+
+def dir_suffixes_for_pack(pack_id: str, verifier: str) -> list[str]:
+    suffixes = list(PACK_SCORE_DIRS.get(pack_id, [""]))
+    if pack_id == "main_dose":
+        for extra in MAIN_DOSE_AUX_DIRS.get(verifier, []):
+            if extra not in suffixes:
+                suffixes.append(extra)
+    return suffixes
+
 
 def score_basename(verifier: str) -> str:
     if verifier == "v2b_bespoke":
@@ -169,6 +189,12 @@ def pick_canonical_path(pack_id: str, verifier: str, dir_suffix: str) -> tuple[P
 
     if verifier in OPENROUTER_VERIFIERS:
         if hpc:
+            if pack_id == "main_dose" and dir_suffix in ("t2_full", "t6b/full"):
+                return (
+                    hpc,
+                    "Main DOSE OpenRouter scores in T2/T6b cohort dir "
+                    f"(results/raw/{dir_suffix}/); not under results/raw root.",
+                )
             return hpc, "API/OpenRouter verifier: HPC results/raw (authoritative)."
         return None, "missing HPC API scores"
 
@@ -232,14 +258,17 @@ def pick_canonical_path(pack_id: str, verifier: str, dir_suffix: str) -> tuple[P
 def build_canonical_rows() -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
     verifiers = [v for v in CANONICAL_VERIFIERS if v in DISPLAY_NAME]
-    for pack_id, dir_suffixes in PACK_SCORE_DIRS.items():
+    for pack_id in PACK_SCORE_DIRS:
         inst_rel, _ = PACK_INSTANCES.get(pack_id, ("", ""))
         if inst_rel and not (ROOT / inst_rel).is_file():
             continue
         for verifier in verifiers:
-            for suffix in dir_suffixes:
+            for suffix in dir_suffixes_for_pack(pack_id, verifier):
                 path, reason = pick_canonical_path(pack_id, verifier, suffix)
                 if not path:
+                    continue
+                rel = path.relative_to(ROOT).as_posix()
+                if any(r["score_path"] == rel for r in rows if r["pack_id"] == pack_id and r["verifier"] == verifier):
                     continue
                 overlap_n = ""
                 overlap_agr = ""

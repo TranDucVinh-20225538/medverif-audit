@@ -39,6 +39,7 @@ QC_FILES = [
 EXCLUSION_FILES = [
     "notes/allow_data_shrink.json",
     "notes/openrouter_verifiers.json",
+    "notes/independent_audit_gaps.md",
     "src/non_dose_targets.py",
     "scripts/compute_paper_numbers.py",
 ]
@@ -57,6 +58,9 @@ SCORE_GLOBS = [
     "results/raw/t3/*.jsonl",
     "results/raw/t3_t2/*.jsonl",
     "results/raw/t3_t6b/*.jsonl",
+    "results/raw/t2_full/*.jsonl",
+    "results/raw/t2_pilot/*.jsonl",
+    "results/raw/t6b/full/*.jsonl",
     "results/raw_m1/v1_medscore.jsonl",
     "results/raw_m1/v4_ragas_nli.llama.jsonl",
     "results/raw_m1/v2a_minicheck.jsonl",

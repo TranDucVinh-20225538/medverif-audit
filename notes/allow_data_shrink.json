@@ -13,7 +13,8 @@
     "data/v3/instances_cpu_early.jsonl": "integrity #10 non-dose af440ee −9 rows",
     "data/v3/instances_inv_families.jsonl": "integrity #11 non-dose D0164",
     "data/v3/instances_t14.jsonl": "integrity #14 v3 mirror T14 n=233",
-    "data/v3/instances_t14_pending_node30.jsonl": "integrity #15 node30 T14 pending"
+    "data/v3/instances_t14_pending_node30.jsonl": "integrity #15 node30 T14 pending",
+    "results/raw/v4_ragas_nli.llama.jsonl": "independent audit: dedupe 16 duplicate instance_ids + replace 43 rescored rows"
   },
   "allow": []
 }

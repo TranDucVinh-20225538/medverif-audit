@@ -10,7 +10,14 @@ t6a_summac_conv	main_dose	results/raw_node30/t6_summac_conv.jsonl	node30-only lo
 t6a_hhem	main_dose	results/raw_node30/t6_hhem.jsonl	node30-only local verifier scores		
 t6a_granite_guardian	main_dose	results/raw_node30/t6_granite_guardian.jsonl	node30-only local verifier scores		
 v1_medscore	main_dose	results/raw/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1b_medscore	main_dose	results/raw/t2_full/v1b_medscore.jsonl	Main DOSE OpenRouter scores in T2/T6b cohort dir (results/raw/t2_full/); not under results/raw root.		
+v1c_medscore	main_dose	results/raw/t6b/full/v1c_medscore.jsonl	Main DOSE OpenRouter scores in T2/T6b cohort dir (results/raw/t6b/full/); not under results/raw root.		
 v4_ragas_nli	main_dose	results/raw/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v5_ragas_nli	main_dose	results/raw/t2_full/v5_ragas_nli.jsonl	Main DOSE OpenRouter scores in T2/T6b cohort dir (results/raw/t2_full/); not under results/raw root.		
+v6_ragas_gpt4o_mini	main_dose	results/raw/t6b/full/v6_ragas_gpt4o_mini.jsonl	Main DOSE OpenRouter scores in T2/T6b cohort dir (results/raw/t6b/full/); not under results/raw root.		
+v6_ragas_haiku45	main_dose	results/raw/t6b/full/v6_ragas_haiku45.jsonl	Main DOSE OpenRouter scores in T2/T6b cohort dir (results/raw/t6b/full/); not under results/raw root.		
+v6_ragas_llama31_8b	main_dose	results/raw/t6b/full/v6_ragas_llama31_8b.jsonl	Main DOSE OpenRouter scores in T2/T6b cohort dir (results/raw/t6b/full/); not under results/raw root.		
+v6_ragas_mistral_small32	main_dose	results/raw/t6b/full/v6_ragas_mistral_small32.jsonl	Main DOSE OpenRouter scores in T2/T6b cohort dir (results/raw/t6b/full/); not under results/raw root.		
 v2a_minicheck	pol	results/raw_node30/v2a_minicheck.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.	1403	1.000000
 v3_alignscore	pol	results/raw_node30/v3_alignscore.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.	1403	1.000000
 v2b_bespoke	pol	results/raw_node30/t6_bespoke_minicheck.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		

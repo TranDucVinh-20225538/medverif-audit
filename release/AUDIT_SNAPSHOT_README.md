@@ -1,6 +1,6 @@
 # Audit snapshot
 
-Built: 2026-09-29T13:09:26.085351+00:00
+Built: 2026-09-29T13:25:09.061964+00:00
 
 Recompute paper numbers:
 
@@ -28,6 +28,7 @@ python scripts/compute_paper_numbers.py
 - `qc/t14_PI_ok_labels.csv`
 - `notes/allow_data_shrink.json`
 - `notes/openrouter_verifiers.json`
+- `notes/independent_audit_gaps.md`
 - `src/non_dose_targets.py`
 - `scripts/compute_paper_numbers.py`
 
@@ -90,6 +91,15 @@ python scripts/compute_paper_numbers.py
 - `results/raw/t3_t6b/v6_ragas_haiku45.jsonl`
 - `results/raw/t3_t6b/v6_ragas_llama31_8b.jsonl`
 - `results/raw/t3_t6b/v6_ragas_mistral_small32.jsonl`
+- `results/raw/t2_full/v1b_medscore.jsonl`
+- `results/raw/t2_full/v5_ragas_nli.jsonl`
+- `results/raw/t2_pilot/v1b_medscore.jsonl`
+- `results/raw/t2_pilot/v5_ragas_nli.jsonl`
+- `results/raw/t6b/full/v1c_medscore.jsonl`
+- `results/raw/t6b/full/v6_ragas_gpt4o_mini.jsonl`
+- `results/raw/t6b/full/v6_ragas_haiku45.jsonl`
+- `results/raw/t6b/full/v6_ragas_llama31_8b.jsonl`
+- `results/raw/t6b/full/v6_ragas_mistral_small32.jsonl`
 - `results/raw_m1/v1_medscore.jsonl`
 - `results/raw_m1/v4_ragas_nli.llama.jsonl`
 - `results/raw_m1/v2a_minicheck.jsonl`
