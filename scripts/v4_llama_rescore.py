@@ -95,13 +95,15 @@ def prepare_pack(pack: dict) -> dict:
     return out
 
 
-def run_score(pack: dict, budget_usd: float, spent: float) -> tuple[float, dict]:
+def run_score(
+    pack: dict, budget_usd: float, spent: float, spent_floor: float
+) -> tuple[float, dict]:
     inst = ROOT / pack["instances"]
     score_dir = ROOT / pack["score_dir"]
     llama = score_dir / f"{VERIFIER}.llama.jsonl"
     if not inst.is_file():
         return spent, {"skipped": "missing_instances", "instances": str(inst)}
-    if spent >= budget_usd:
+    if spent - spent_floor >= budget_usd:
         return spent, {"skipped": "budget_exhausted"}
     cmd = [
         sys.executable,
@@ -121,7 +123,7 @@ def run_score(pack: dict, budget_usd: float, spent: float) -> tuple[float, dict]
         check=False,
     )
     proc = subprocess.run(cmd, cwd=ROOT, env=env)
-    spent = sum_cost(llama) + sum(
+    spent = sum(
         sum_cost(ROOT / p["score_dir"] / f"{VERIFIER}.llama.jsonl")
         for p in json.loads(MANIFEST.read_text())["packs"]
     )
@@ -143,16 +145,23 @@ def main() -> None:
     print(json.dumps({"prepared": len(prep)}, indent=2))
     if args.prepare_only:
         return
-    spent = sum(
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from v4_pack_completion import pack_status  # noqa: E402
+    spent_floor = sum(
         sum_cost(ROOT / p["score_dir"] / f"{VERIFIER}.llama.jsonl") for p in data["packs"]
     )
+    spent = spent_floor
     results = []
     for pack in packs:
-        spent, rep = run_score(pack, budget, spent)
+        st = pack_status(pack)
+        if st["complete"]:
+            results.append({"pack": pack["id"], "skipped": "complete", "llama_n": st["scored"]})
+            continue
+        spent, rep = run_score(pack, budget, spent, spent_floor)
         rep["pack"] = pack["id"]
-        rep["spent_usd_est"] = round(spent, 4)
+        rep["spent_usd_est"] = round(spent - spent_floor, 4)
         results.append(rep)
-        if spent >= budget:
+        if spent - spent_floor >= budget:
             break
     out = ROOT / "notes/v4_llama_rescore_run.json"
     out.write_text(json.dumps({"results": results, "spent_usd_est": spent}, indent=2) + "\n")

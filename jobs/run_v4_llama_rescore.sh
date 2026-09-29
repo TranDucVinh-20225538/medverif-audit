@@ -15,7 +15,15 @@ exec >>"${LOG}" 2>&1
 echo "v4 llama rescore start $(date -Is)"
 
 python3 scripts/v4_llama_rescore.py --prepare-only
-python3 scripts/v4_llama_rescore.py --budget-usd 3.0
+ATTEMPT=0
+until python3 scripts/v4_pack_completion.py --check; do
+  ATTEMPT=$((ATTEMPT + 1))
+  echo "v4 rescore attempt ${ATTEMPT} $(date -Is)"
+  python3 scripts/v4_llama_rescore.py --budget-usd 3.0 || true
+  python3 scripts/v4_pack_completion.py --json
+  sleep 5
+done
+echo "all v4 packs complete $(date -Is)"
 
 set +e
 source ~/kkk/openrouter.env 2>/dev/null || true

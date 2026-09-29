@@ -1,0 +1,47 @@
+{
+  "mode": "pilot",
+  "budget_usd": 12.0,
+  "spent_usd_est": 0.2292,
+  "note": "Pilot used OpenRouter prompt mirrors, NOT upstream RAGAS/DeepEval/TruLens default pipelines.",
+  "frameworks": {
+    "t12_ragas_faithfulness": {
+      "pipeline_label": "RAGAS-style prompt",
+      "upstream_default": false,
+      "status": "ok",
+      "n_scored": 140,
+      "QI": 1.0,
+      "NS": 0.6666666666666666,
+      "US": 1.0,
+      "QI_ci": [1.0, 1.0],
+      "NS_ci": [0.0, 1.0],
+      "n_inv": 1,
+      "n_e1": 3
+    },
+    "t12_deepeval_faithfulness": {
+      "pipeline_label": "DeepEval-style prompt",
+      "upstream_default": false,
+      "status": "ok",
+      "n_scored": 140,
+      "QI": 1.0,
+      "NS": 0.3333333333333333,
+      "US": 1.0,
+      "QI_ci": [1.0, 1.0],
+      "NS_ci": [0.0, 1.0],
+      "n_inv": 1,
+      "n_e1": 3
+    },
+    "t12_trulens_groundedness": {
+      "pipeline_label": "TruLens-style prompt",
+      "upstream_default": false,
+      "status": "ok",
+      "n_scored": 140,
+      "QI": 1.0,
+      "NS": 0.3333333333333333,
+      "US": 1.0,
+      "QI_ci": [1.0, 1.0],
+      "NS_ci": [0.0, 1.0],
+      "n_inv": 1,
+      "n_e1": 3
+    }
+  }
+}

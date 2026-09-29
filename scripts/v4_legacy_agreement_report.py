@@ -93,6 +93,25 @@ def main() -> None:
         rate = "—" if o["rate"] is None else f"{100 * o['rate']:.1f}%"
         flag = "yes" if r["legacy_llama_note"] else "no" if o["rate"] is not None else "—"
         lines.append(f"| {r['pack']} | {o['n']} | {o['agree']} | {rate} | {flag} |")
+    low = [r for r in rows if r["overall"]["rate"] is not None and r["overall"]["rate"] < 0.95]
+    lines.extend(
+        [
+            "",
+            "## Paper provenance (legacy ≠ registry Llama)",
+            "",
+            "All analyses and paper numbers use **`*.llama.jsonl`** only (registry `meta-llama/llama-3.3-70b-instruct`).",
+            "",
+        ]
+    )
+    if low:
+        lines.append(
+            "Packs with legacy↔Llama agreement **<95%** (legacy was **not** the registry model; do **not** treat legacy as Llama):"
+        )
+        for r in low:
+            rate = 100 * r["overall"]["rate"]
+            lines.append(f"- **{r['pack']}**: {rate:.1f}% (n={r['overall']['n']})")
+    else:
+        lines.append("All scored packs with overlap ≥95% legacy≈Llama.")
     lines.append("")
     for r in rows:
         lines.append(f"## {r['pack']}")
