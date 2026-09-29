@@ -36,6 +36,17 @@ HPC_VERIFIERS = [
 ]
 T6A_MANIFEST = ROOT / "notes/t6a_eco_checkers.json"
 
+SCORE_DIRS = [
+    ROOT / "results/raw/e2_main",
+    ROOT / "results/raw",
+    ROOT / "results/raw/t6b/full",
+    ROOT / "results/raw/t2_full",
+    ROOT / "results/raw/t7",
+    ROOT / "results/raw/t3",
+]
+
+CONDITIONAL_LLM = ("v1_medscore", "v4_ragas_nli", "v1b_medscore", "v5_ragas_nli")
+
 
 def node30_verifiers() -> list[str]:
     base = ["v2a_minicheck", "v3_alignscore", "v2b_bespoke"]
@@ -82,6 +93,39 @@ def load_scores(raw_dir: Path, verifiers: list[str]) -> dict[str, dict[str, str]
     return out
 
 
+def merged_scores(slug: str) -> dict[str, str]:
+    """Merge score jsonls (main/C0 in t2_full → t7 overrides per instance_id)."""
+    m: dict[str, str] = {}
+    paths: list[Path] = []
+    if T6A_MANIFEST.is_file():
+        t6a = {c["id"]: c["jsonl"] for c in json.loads(T6A_MANIFEST.read_text()).get("checkers", [])}
+        if slug in t6a:
+            for d in SCORE_DIRS:
+                cand = d / t6a[slug]
+                if cand.is_file():
+                    paths.append(cand)
+    if slug == "v2b_bespoke":
+        for name in ("t6_bespoke_minicheck.jsonl", "v2b_bespoke.jsonl"):
+            for d in SCORE_DIRS:
+                cand = d / name
+                if cand.is_file():
+                    paths.append(cand)
+    for d in SCORE_DIRS:
+        cand = d / f"{slug}.jsonl"
+        if cand.is_file():
+            paths.append(cand)
+    seen: set[Path] = set()
+    for path in paths:
+        if path in seen:
+            continue
+        seen.add(path)
+        for row in read_jsonl(path):
+            iid = row.get("instance_id")
+            if iid:
+                m[iid] = row.get("verdict") or ""
+    return m
+
+
 def rate(ids: list[str], scores: dict[str, str], want: str) -> tuple[float | None, int, int]:
     hits = []
     for iid in ids:
@@ -114,19 +158,18 @@ def main() -> None:
             inv_ids.append(r["instance_id"])
 
     node_verifiers = node30_verifiers()
-    scores_hpc_t7 = load_scores(RAW_T7, HPC_VERIFIERS)
-    scores_node = load_scores(RAW_T7, node_verifiers)
-    scores_main = load_scores(RAW_MAIN, HPC_VERIFIERS)
+    scores_node_t7 = load_scores(RAW_T7, node_verifiers)
 
     def pick_scores(v: str) -> dict[str, str]:
-        return {
-            **(scores_main.get(v) or {}),
-            **(scores_node.get(v) or {}),
-            **(scores_hpc_t7.get(v) or {}),
-        }
+        sc = merged_scores(v)
+        if not sc and v in scores_node_t7:
+            sc = scores_node_t7[v]
+        elif v in scores_node_t7:
+            sc = {**sc, **scores_node_t7[v]}
+        return sc
 
     def c0_pass_bases_for(v: str) -> set[str]:
-        sc = scores_main.get(v) or pick_scores(v)
+        sc = pick_scores(v)
         joined = []
         for r in c0_ref:
             iid = r["instance_id"]
@@ -157,9 +200,8 @@ def main() -> None:
     for v in all_v:
         sc = pick_scores(v)
         fail_e1u, n_e1u, tot_e1u = rate(e1_unit_ids, sc, "FAIL")
-        sc_ref = scores_main.get(v, {})
-        fail_e1c, n_e1c, tot_e1c = rate(e1_claim_ids, sc_ref, "FAIL")
-        pass_inv, n_inv, tot_inv = rate(inv_ids, sc_ref, "PASS")
+        fail_e1c, n_e1c, tot_e1c = rate(e1_claim_ids, sc, "FAIL")
+        pass_inv, n_inv, tot_inv = rate(inv_ids, sc, "PASS")
         table[v] = {
             "e1_unit_fail_rate": fail_e1u,
             "e1_unit_n_scored": n_e1u,
@@ -233,6 +275,24 @@ def main() -> None:
             f"| {v} | {c.get('n_c0_pass_bases', 0)} | "
             f"{fmt(c.get('e1_claim_fail_rate_c0'))} ({c.get('e1_claim_n_c0', 0)}/{c.get('e1_claim_den_c0', 0)}) | "
             f"{fmt(c.get('e1_evid_fail_rate_c0'))} ({c.get('e1_evid_n_c0', 0)}/{c.get('e1_evid_den_c0', 0)}) |"
+        )
+    lines.extend(
+        [
+            "",
+            "### LLM judges (|C0 PASS)",
+            "",
+            "| verifier | C0-pass bases | E1-unit-claim FAIL | E1-unit-evid FAIL |",
+            "|---|---:|---:|---:|",
+        ]
+    )
+    for v in CONDITIONAL_LLM:
+        c = cond_table.get(v, {})
+        def fmt_llm(x):
+            return f"{x:.3f}" if x is not None else "—"
+        lines.append(
+            f"| {v} | {c.get('n_c0_pass_bases', 0)} | "
+            f"{fmt_llm(c.get('e1_claim_fail_rate_c0'))} ({c.get('e1_claim_n_c0', 0)}/{c.get('e1_claim_den_c0', 0)}) | "
+            f"{fmt_llm(c.get('e1_evid_fail_rate_c0'))} ({c.get('e1_evid_n_c0', 0)}/{c.get('e1_evid_den_c0', 0)}) |"
         )
     lines.append("")
     OUT_MD.write_text("\n".join(lines) + "\n")
