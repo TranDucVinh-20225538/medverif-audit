@@ -1,4 +1,4 @@
-"""T19: local Llama RAGAS-NLI (V4/T6-B prompt + parser) with P(yes) at verdict token."""
+"""T19: local Llama RAGAS-NLI (transformers bf16, batched greedy gen, p_yes from logits)."""
 
 from __future__ import annotations
 
@@ -7,14 +7,17 @@ import math
 import os
 import re
 import time
+from dataclasses import dataclass, field
 from typing import Any
+
+import torch
 
 from verifiers import v4_ragas_nli as v4
 from verifiers.preprocess import verifier_inputs
 from verifiers.ragas_nli_prompt import nli_prompt
 
 DEFAULT_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
-_VERDICT_TAIL = re.compile(r'"verdict"\s*:\s*$')
+parse_verdict = v4.parse_verdict
 
 
 def _model_spec() -> tuple[str, str | None]:
@@ -23,38 +26,13 @@ def _model_spec() -> tuple[str, str | None]:
     return model, rev
 
 
-def load():
-    import vllm_graceful
-    import huggingface_hub.file_download as fd
-    from huggingface_hub import model_info
-    from vllm import LLM, SamplingParams
-
-    fd.is_xet_available = lambda: False
-    model, revision = _model_spec()
-    started = time.perf_counter()
-    llm = LLM(
-        model=model,
-        revision=revision,
-        dtype="bfloat16",
-        seed=42,
-        trust_remote_code=True,
-        max_model_len=int(os.environ.get("MEDVERIF_T19_MAX_MODEL_LEN", "8192")),
-        gpu_memory_utilization=float(os.environ.get("MEDVERIF_T19_GPU_UTIL", "0.90")),
-        enforce_eager=True,
-        download_dir=os.environ.get("HUGGINGFACE_HUB_CACHE"),
-    )
-    tokenizer = llm.get_tokenizer()
-    try:
-        info = model_info(model, revision=revision)
-        resolved_rev = info.sha
-    except Exception:
-        resolved_rev = revision or "main"
-    gen_params = SamplingParams(temperature=0.0, max_tokens=512, seed=42)
-    probe_params = SamplingParams(temperature=0.0, max_tokens=1, logprobs=20, seed=42)
-    load_s = time.perf_counter() - started
-    vllm_graceful.register(llm)
-    llm._t19_meta = {"hf_model": model, "hf_revision": resolved_rev}
-    return llm, tokenizer, (gen_params, probe_params), load_s
+@dataclass
+class T19Engine:
+    model: Any
+    tokenizer: Any
+    device: torch.device
+    max_model_len: int = 8192
+    _t19_meta: dict = field(default_factory=dict)
 
 
 def render(tokenizer, evidence: str, claim: str) -> str:
@@ -75,7 +53,7 @@ def render(tokenizer, evidence: str, claim: str) -> str:
         )
 
 
-def _token_id_sets(tokenizer) -> tuple[set[int], set[int], set[int]]:
+def _token_id_sets(tokenizer) -> tuple[set[int], set[int]]:
     ones: set[int] = set()
     zeros: set[int] = set()
     for text in ("1", " 1", "0", " 0"):
@@ -86,19 +64,17 @@ def _token_id_sets(tokenizer) -> tuple[set[int], set[int], set[int]]:
             ones.add(ids[-1])
         else:
             zeros.add(ids[-1])
-    return ones, zeros, ones | zeros
+    return ones, zeros
 
 
-def _p_yes_from_logprobs(logprobs: Any, ones: set[int], zeros: set[int]) -> float | None:
-    if not logprobs:
-        return None
-    lp1 = None
-    lp0 = None
-    for tid, lp in logprobs.items():
-        if tid in ones:
-            lp1 = max(lp1, lp.logprob) if lp1 is not None else lp.logprob
-        if tid in zeros:
-            lp0 = max(lp0, lp.logprob) if lp0 is not None else lp.logprob
+def _p_yes_from_logits(logits: torch.Tensor, ones: set[int], zeros: set[int]) -> float | None:
+    lp1 = lp0 = None
+    for tid in ones:
+        v = float(logits[tid].item())
+        lp1 = v if lp1 is None else max(lp1, v)
+    for tid in zeros:
+        v = float(logits[tid].item())
+        lp0 = v if lp0 is None else max(lp0, v)
     if lp1 is None and lp0 is None:
         return None
     if lp1 is None:
@@ -123,10 +99,77 @@ def _verdict_prefix(raw: str) -> str | None:
     return tail + rest[: m.end()]
 
 
+def load():
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
+    print(json.dumps({"t19_load": "enter"}), flush=True)
+    offline = os.environ.get("HF_HUB_OFFLINE", "").lower() in ("1", "true", "yes")
+    if offline:
+        os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+    model_id, revision = _model_spec()
+    cache = os.environ.get("HUGGINGFACE_HUB_CACHE") or os.environ.get("HF_HOME")
+    tok_kw: dict[str, Any] = {"trust_remote_code": True}
+    model_kw: dict[str, Any] = {
+        "trust_remote_code": True,
+        "torch_dtype": torch.bfloat16,
+    }
+    if cache:
+        tok_kw["cache_dir"] = cache
+        model_kw["cache_dir"] = cache
+    if revision:
+        tok_kw["revision"] = revision
+        model_kw["revision"] = revision
+    started = time.perf_counter()
+    tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=True, **tok_kw)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    model = AutoModelForCausalLM.from_pretrained(model_id, **model_kw)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = model.to(device)
+    model.eval()
+    load_s = time.perf_counter() - started
+    resolved_rev = revision or "main"
+    engine = T19Engine(
+        model=model,
+        tokenizer=tokenizer,
+        device=device,
+        max_model_len=int(os.environ.get("MEDVERIF_T19_MAX_MODEL_LEN", "8192")),
+        _t19_meta={"hf_model": model_id, "hf_revision": resolved_rev},
+    )
+    print(json.dumps({"loaded_model_s": round(load_s, 2), "hf_model": model_id}), flush=True)
+    print(f"loaded model in {load_s:.1f}s", flush=True)
+    return engine, tokenizer, None, load_s
+
+
+@torch.inference_mode()
+def _generate_texts(engine: T19Engine, prompts: list[str], max_new_tokens: int = 512) -> list[str]:
+    tok = engine.tokenizer
+    enc = tok(
+        prompts,
+        return_tensors="pt",
+        padding=True,
+        truncation=True,
+        max_length=engine.max_model_len - max_new_tokens,
+    )
+    enc = {k: v.to(engine.model.device) for k, v in enc.items()}
+    out_ids = engine.model.generate(
+        **enc,
+        max_new_tokens=max_new_tokens,
+        do_sample=False,
+        temperature=None,
+        pad_token_id=tok.pad_token_id,
+    )
+    texts = []
+    for i in range(len(prompts)):
+        inp_len = int(enc["attention_mask"][i].sum().item())
+        new_ids = out_ids[i, inp_len:]
+        texts.append(tok.decode(new_ids, skip_special_tokens=True))
+    return texts
+
+
+@torch.inference_mode()
 def p_yes_probe(
-    llm,
-    tokenizer,
-    probe_params,
+    engine: T19Engine,
     prompt: str,
     raw: str,
     ones: set[int],
@@ -136,38 +179,32 @@ def p_yes_probe(
     if prefix is None:
         return None
     full = prompt + prefix
-    out = llm.generate([full], probe_params)
-    if not out or not out[0].outputs:
-        return None
-    o0 = out[0].outputs[0]
-    if o0.logprobs:
-        return _p_yes_from_logprobs(o0.logprobs[0], ones, zeros)
-    return None
+    tok = engine.tokenizer
+    enc = tok(full, return_tensors="pt", truncation=True, max_length=engine.max_model_len)
+    enc = {k: v.to(engine.model.device) for k, v in enc.items()}
+    logits = engine.model(**enc).logits[0, -1, :].float().cpu()
+    return _p_yes_from_logits(logits, ones, zeros)
 
 
-parse_verdict = v4.parse_verdict
-
-
-def score_batch(llm, tokenizer, params, pairs: list[dict]) -> list[dict]:
-    gen_params, probe_params = params
-    meta = getattr(llm, "_t19_meta", {})
-    model = meta.get("hf_model") or _model_spec()[0]
+def score_batch(llm: T19Engine, tokenizer, _params, pairs: list[dict]) -> list[dict]:
+    engine = llm
+    meta = engine._t19_meta
+    model_name = meta.get("hf_model") or _model_spec()[0]
     revision = meta.get("hf_revision")
-    ones, zeros, _ = _token_id_sets(tokenizer)
+    ones, zeros = _token_id_sets(tokenizer)
     prompts = []
     for row in pairs:
         claim, evidence = verifier_inputs(row)
         prompts.append(render(tokenizer, evidence, claim))
     started = time.perf_counter()
-    outputs = llm.generate(prompts, gen_params)
+    raws = _generate_texts(engine, prompts)
     elapsed = time.perf_counter() - started
     per = elapsed / max(len(pairs), 1)
     slug = os.environ.get("MEDVERIF_T19_SLUG", "t19_ragas_local")
     rows = []
-    for row, prompt, out in zip(pairs, prompts, outputs):
-        raw = out.outputs[0].text if out.outputs else ""
+    for row, prompt, raw in zip(pairs, prompts, raws):
         verdict, score = parse_verdict(raw)
-        p_yes = p_yes_probe(llm, tokenizer, probe_params, prompt, raw, ones, zeros)
+        p_yes = p_yes_probe(engine, prompt, raw, ones, zeros)
         if p_yes is None and score is not None:
             p_yes = float(score)
         rows.append(
@@ -179,7 +216,7 @@ def score_batch(llm, tokenizer, params, pairs: list[dict]) -> list[dict]:
                 "verdict": verdict,
                 "latency_s": per,
                 "verifier": slug,
-                "hf_model": model,
+                "hf_model": model_name,
                 "hf_revision": revision,
             }
         )

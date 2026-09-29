@@ -20,4 +20,4 @@ if [[ "${overlap}" != "0" ]]; then
   exit 1
 fi
 
-sbatch "${ROOT}/jobs/run_t15_train.sbatch"
+sbatch -w node002 --mem=64G "${ROOT}/jobs/run_t15_train.sbatch"

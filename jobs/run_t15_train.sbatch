@@ -2,9 +2,10 @@
 #SBATCH --job-name=t15-train
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:1
-#SBATCH --mem=32G
+#SBATCH --mem=64G
 #SBATCH --cpus-per-task=4
 #SBATCH --time=06:00:00
+#SBATCH --exclude=node001,node004
 #SBATCH --signal=B:TERM@120
 #SBATCH --output=/data2/hpcshared/medverif-audit/jobs/logs/t15-%x-%j.out
 
@@ -13,8 +14,12 @@ ROOT=/data2/hpcshared/medverif-audit
 cd "${ROOT}"
 source "${ROOT}/jobs/lib/flock.sh"
 source "${ROOT}/jobs/lib/gpu_graceful.sh"
+source "${ROOT}/jobs/lib/gpu_node_precheck.sh"
 
 medverif_acquire_lock t15_train
+
+export MEDVERIF_REQ_MEM_GB=64
+medverif_gpu_node_precheck
 
 export HF_HOME="${ROOT}/.cache/huggingface"
 export HUGGINGFACE_HUB_CACHE="${HF_HOME}/hub"

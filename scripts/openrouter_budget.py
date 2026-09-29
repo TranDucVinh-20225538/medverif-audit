@@ -58,6 +58,9 @@ def fetch_credit() -> dict:
 
 
 def min_credit_floor() -> float:
+    task_cap = os.environ.get("MEDVERIF_OR_TASK_CAP_USD", "").strip()
+    if task_cap:
+        return float(task_cap)
     return float(os.environ.get("MEDVERIF_OR_MIN_CREDIT", "2"))
 
 
@@ -66,7 +69,11 @@ def assert_credit_ok() -> dict:
     rem = info.get("limit_remaining")
     floor = min_credit_floor()
     if rem is not None and rem < floor:
-        raise BudgetStop(f"OpenRouter credit {rem:.4f} below floor ${floor}")
+        raise BudgetStop(
+            f"OpenRouter credit {rem:.4f} below required ${floor:.2f} "
+            f"(task cap / floor before starting this task)"
+        )
+    info["required_floor_usd"] = floor
     return info
 
 

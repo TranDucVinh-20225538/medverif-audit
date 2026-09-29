@@ -68,18 +68,43 @@ def _run_score(args: argparse.Namespace, out_path: Path) -> None:
         return
     default_batch = "4" if (ROOT / ".cache" / "g_full.active").exists() else "8"
     batch = int(os.environ.get("MEDVERIF_SCORE_BATCH", default_batch))
-    llm, tokenizer, params, load_s = module.load()
-    if not USE_OR:
+    legacy_cpu = args.verifier in ("v2a_minicheck", "v3_alignscore")
+    if legacy_cpu:
+        if args.verifier == "v3_alignscore":
+            import cpu_early as ce
+
+            ce.ensure_nltk()
+            ckpt = ce.prepare_weights()
+            model, load_s = module.load(str(ckpt))
+        else:
+            model, load_s = module.load()
+        llm, tokenizer, params = model, None, None
+    else:
+        loaded = module.load()
+        if isinstance(loaded, tuple) and len(loaded) == 2:
+            llm, load_s = loaded
+            tokenizer, params = None, None
+            legacy_cpu = True
+        else:
+            llm, tokenizer, params, load_s = loaded
+    if not USE_OR and not legacy_cpu:
         vllm_graceful.register(llm)
     scored_all: list[dict] = []
     try:
         for offset in range(0, len(todo), batch):
             chunk = todo[offset : offset + batch]
-            scored = module.score_batch(llm, tokenizer, params, chunk)
+            if legacy_cpu:
+                scored = module.score_batch(llm, chunk)
+            else:
+                scored = module.score_batch(llm, tokenizer, params, chunk)
             if USE_OR:
-                from verifier_registry import assert_row_model
+                from verifier_registry import assert_row_model, expected_openrouter
 
                 for row in scored:
+                    if not (row.get("api_model") or "").strip():
+                        spec = expected_openrouter(args.verifier, row)
+                        if spec:
+                            row["api_model"] = spec["openrouter_model"]
                     assert_row_model(args.verifier, row)
             append_jsonl(out_path, scored)
             scored_all.extend(scored)
@@ -89,7 +114,7 @@ def _run_score(args: argparse.Namespace, out_path: Path) -> None:
                 "total_todo": len(todo),
             }), flush=True)
     finally:
-        if not USE_OR:
+        if not USE_OR and not legacy_cpu:
             vllm_graceful.shutdown_all()
     fails = sum(row["verdict"] == "PARSE_FAIL" for row in scored_all)
     print(json.dumps({

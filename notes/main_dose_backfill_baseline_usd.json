@@ -1,0 +1,12 @@
+{
+  "baseline_usd": 4.404019915,
+  "files": [
+    "results/raw/t2_full/v1b_medscore.jsonl",
+    "results/raw/t2_full/v5_ragas_nli.jsonl",
+    "results/raw/t6b/full/v1c_medscore.jsonl",
+    "results/raw/t6b/full/v6_ragas_gpt4o_mini.jsonl",
+    "results/raw/t6b/full/v6_ragas_haiku45.jsonl",
+    "results/raw/t6b/full/v6_ragas_llama31_8b.jsonl",
+    "results/raw/t6b/full/v6_ragas_mistral_small32.jsonl"
+  ]
+}
