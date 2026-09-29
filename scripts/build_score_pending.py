@@ -62,11 +62,11 @@ def main() -> None:
     t3_inv = [r for r in read_jsonl(T3_INV) if r.get("valid") and r.get("pi_ok") == "Y"]
     pending_t3 = [r for r in t3_inv if r["instance_id"] not in done]
     write_jsonl(OUT_T3_INV, pending_t3)
-    combined = pending_cpu + pending_g + pending_t3 + pending_expand
-    write_jsonl(OUT_NODE30, combined)
     expand_rows = [r for r in read_jsonl(EXPAND) if r.get("valid", True)]
     pending_expand = [r for r in expand_rows if r["instance_id"] not in done]
     write_jsonl(OUT_EXPAND, pending_expand)
+    combined = pending_cpu + pending_g + pending_t3 + pending_expand
+    write_jsonl(OUT_NODE30, combined)
     manifest = {
         "scored_ids_in_raw_v2v3": len(done),
         "pending_cpu_early": len(pending_cpu),

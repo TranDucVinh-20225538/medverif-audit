@@ -90,9 +90,9 @@
     "e1_evid_n": 0
   },
   "v4_ragas_nli": {
-    "e2_pass_rate": 0.9722991689750693,
-    "e2_n": 361,
-    "e2_pass": 351,
+    "e2_pass_rate": 0.9751693002257337,
+    "e2_n": 443,
+    "e2_pass": 432,
     "e1_claim_fail_rate": null,
     "e1_claim_n": 0,
     "e1_evid_fail_rate": null,

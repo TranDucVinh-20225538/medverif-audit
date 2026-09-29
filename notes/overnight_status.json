@@ -1,7 +1,12 @@
 {
   "started": "2026-09-29T03:20+07:00",
-  "orchestrator": "tmux session overnight — waits for t7,t4_eco,v4_resume_missing,t6b_full,expand_score",
-  "t9": "pushed e45206c — node30: jobs/run_t9_node30.sh",
-  "t10": "prep pushed 3066ccc — leaderboard HF dataset 401; qc/t10_sample.csv padded 30 rows",
-  "budget_floor_usd": 1.5
+  "orchestrator": "tmux session overnight \u2014 waits for t7,t4_eco,v4_resume_missing,t6b_full,expand_score",
+  "t9": "pushed e45206c \u2014 node30: jobs/run_t9_node30.sh",
+  "t10": "prep pushed 2026-09-29T08:03:41+07:00",
+  "budget_floor_usd": 1.5,
+  "t7": "done 2026-09-29T04:30:51+07:00",
+  "t4_eco": "no session 2026-09-29T04:30:51+07:00",
+  "v4_resume": "no session 2026-09-29T04:30:51+07:00",
+  "t6b_full": "no session 2026-09-29T04:30:51+07:00",
+  "expand_score": "done 2026-09-29T08:03:26+07:00"
 }

@@ -13,6 +13,8 @@ conda activate vllm
 export PYTHONPATH="${ROOT}/src"
 export MEDVERIF_USE_OPENROUTER=1
 export MEDVERIF_V1_PROVIDER=DeepInfra
+export MEDVERIF_OR_MAX_INFLIGHT="${MEDVERIF_OR_MAX_INFLIGHT:-4}"
+export MEDVERIF_API_LEDGER=1
 export HF_HOME="${ROOT}/.cache/huggingface"
 export HUGGINGFACE_HUB_CACHE="${HF_HOME}/hub"
 LOG="${ROOT}/jobs/logs/v1_openrouter_full_$(date +%Y%m%dT%H%M).log"

@@ -23,12 +23,12 @@
   "n_classifier_changed_value_raw": 2,
   "false_alarm_excludes": [
     [
-      "D0122__eco",
-      "deepseek_chat"
-    ],
-    [
       "D0077__eco",
       "command_r"
+    ],
+    [
+      "D0122__eco",
+      "deepseek_chat"
     ]
   ],
   "n_correct_for_false_alarm_labeled": 139,

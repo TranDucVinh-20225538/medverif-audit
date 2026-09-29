@@ -5,15 +5,40 @@
 
 ## FAIL rate on correct answers (bootstrap 95% CI)
 
-### v1c_medscore (no scores yet)
+### v1c_medscore
+| category | n | FAIL rate | 95% CI |
+|---|---:|---:|---|
+| exact_surface_variant | 26 | 0.115 | [0.000, 0.231] |
+| exact_verbatim | 89 | 0.011 | [0.000, 0.034] |
+| frequency_rephrased | 24 | 0.000 | [0.000, 0.000] |
 
-### v6_ragas_nli (no scores yet)
+### v6_ragas_nli
+| category | n | FAIL rate | 95% CI |
+|---|---:|---:|---|
+| exact_surface_variant | 26 | 0.192 | [0.038, 0.346] |
+| exact_verbatim | 89 | 0.213 | [0.135, 0.303] |
+| frequency_rephrased | 24 | 0.083 | [0.000, 0.208] |
 
-### v1b_medscore (no scores yet)
+### v1b_medscore
+| category | n | FAIL rate | 95% CI |
+|---|---:|---:|---|
+| exact_surface_variant | 26 | 0.115 | [0.000, 0.231] |
+| exact_verbatim | 89 | 0.011 | [0.000, 0.034] |
+| frequency_rephrased | 24 | 0.000 | [0.000, 0.000] |
 
-### v5_ragas_nli (no scores yet)
+### v5_ragas_nli
+| category | n | FAIL rate | 95% CI |
+|---|---:|---:|---|
+| exact_surface_variant | 26 | 0.231 | [0.077, 0.423] |
+| exact_verbatim | 89 | 0.236 | [0.146, 0.326] |
+| frequency_rephrased | 24 | 0.042 | [0.000, 0.125] |
 
-### v4_ragas_nli (no scores yet)
+### v4_ragas_nli
+| category | n | FAIL rate | 95% CI |
+|---|---:|---:|---|
+| exact_surface_variant | 26 | 0.154 | [0.038, 0.308] |
+| exact_verbatim | 89 | 0.124 | [0.067, 0.191] |
+| frequency_rephrased | 24 | 0.000 | [0.000, 0.000] |
 
 ### v1_medscore (no scores yet)
 

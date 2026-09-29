@@ -1,39 +1,39 @@
-# Morning report (2026-09-29 03:15 +07)
+# Morning report (2026-09-29 08:03 +07)
 
 ## Task status
 
 | Task | Status | Notes |
 |---|---|---|
-| T7 E1-unit OR | see tmux/logs | `notes/t7_e1_unit_report.md` |
-| T4 eco OR | see tmux/logs | `notes/t4_eco_report.md` |
-| V4 main resume | see logs | dedupe: `notes/dedupe_v4_ragas_nli.json` |
-| T6-B full | see tmux/logs | |
-| Expand OR score | see logs | v1b/v5 T2: `results/raw/t2_full/` |
+| T7 E1-unit OR | done 2026-09-29T04:30:51+07:00 | `notes/t7_e1_unit_report.md` |
+| T4 eco OR | no session 2026-09-29T04:30:51+07:00 | `notes/t4_eco_report.md` |
+| V4 main resume | no session 2026-09-29T04:30:51+07:00 | dedupe: `notes/dedupe_v4_ragas_nli.json` |
+| T6-B full | no session 2026-09-29T04:30:51+07:00 | |
+| Expand OR score | done 2026-09-29T08:03:26+07:00 | v1b/v5 T2: `results/raw/t2_full/` |
 | T9 prep | inputs n=536 | **node30 only** `jobs/run_t9_node30.sh` |
-| T10 prep | prep pushed 3066ccc — leaderboard HF dataset 401; qc/t10_sample.csv padded 30 rows | HHEM on node30; open HHEM-2.1 framing |
+| T10 prep | prep pushed 2026-09-29T08:03:41+07:00 | HHEM on node30; open HHEM-2.1 framing |
 | T8 synthetic | **DEPRECATED** | do not score |
 | T8b | **blocked** | `qc/t8_mismatch_check.csv` |
 
-**OpenRouter credit remaining:** 37.01131264
+**OpenRouter credit remaining:** 33.411961680000005
 
 ## T7 (per verifier)
 
 | verifier | E1-unit fail | E1 x2/x10 fail | INV-unit pass |
 |---|---:|---:|---:|
-| t6a_alignscore_base | None (n=0) | None (n=0) | None (n=0) |
-| t6a_granite_guardian | None (n=0) | None (n=0) | None (n=0) |
-| t6a_hhem | None (n=0) | None (n=0) | None (n=0) |
-| t6a_minicheck_deberta | None (n=0) | None (n=0) | None (n=0) |
-| t6a_minicheck_roberta | None (n=0) | None (n=0) | None (n=0) |
-| t6a_summac_conv | None (n=0) | None (n=0) | None (n=0) |
-| t6a_summac_zs | None (n=0) | None (n=0) | None (n=0) |
-| v1_medscore | 0.8043478260869565 (n=230) | 0.9907407407407407 (n=432) | 0.7096774193548387 (n=124) |
+| t6a_alignscore_base | 0.23043478260869565 (n=230) | None (n=0) | None (n=0) |
+| t6a_granite_guardian | 0.34347826086956523 (n=230) | None (n=0) | None (n=0) |
+| t6a_hhem | 0.05652173913043478 (n=230) | None (n=0) | None (n=0) |
+| t6a_minicheck_deberta | 0.8043478260869565 (n=230) | None (n=0) | None (n=0) |
+| t6a_minicheck_roberta | 0.34782608695652173 (n=230) | None (n=0) | None (n=0) |
+| t6a_summac_conv | 0.691304347826087 (n=230) | None (n=0) | None (n=0) |
+| t6a_summac_zs | 0.3695652173913043 (n=230) | None (n=0) | None (n=0) |
+| v1_medscore | 0.8043478260869565 (n=230) | 0.9907407407407407 (n=432) | 0.7109375 (n=128) |
 | v1b_medscore | 0.5695652173913044 (n=230) | None (n=0) | None (n=0) |
-| v2a_minicheck | None (n=0) | None (n=0) | None (n=0) |
-| v2b_bespoke | None (n=0) | None (n=0) | None (n=0) |
-| v3_alignscore | None (n=0) | None (n=0) | None (n=0) |
+| v2a_minicheck | 0.3652173913043478 (n=230) | None (n=0) | None (n=0) |
+| v2b_bespoke | 0.5347826086956522 (n=230) | None (n=0) | None (n=0) |
+| v3_alignscore | 0.5043478260869565 (n=230) | None (n=0) | None (n=0) |
 | v4_ragas_nli | 0.8956521739130435 (n=230) | 0.9953703703703703 (n=432) | 0.8613861386138614 (n=101) |
-| v5_ragas_nli | 0.7678571428571429 (n=56) | None (n=0) | None (n=0) |
+| v5_ragas_nli | 0.8347826086956521 (n=230) | None (n=0) | None (n=0) |
 | v6_ragas_nli | None (n=0) | None (n=0) | None (n=0) |
 
 ## T4 eco false alarms (human-labeled correct answers)
@@ -45,10 +45,34 @@ _See `notes/t4_eco_report.md`_
 ```json
 {
   "instances_cpu_main": 1085,
-  "raw_lines": 1037,
-  "unique_scored": 1037,
-  "pending_vs_main": 48,
-  "dedupe": {}
+  "raw_lines": 1085,
+  "unique_scored": 1085,
+  "pending_vs_main": 0,
+  "dedupe": {
+    "instances": "data/v3/instances_cpu_main.jsonl",
+    "n_instances": 1085,
+    "scores": "results/raw/v4_ragas_nli.jsonl",
+    "out": "results/raw/v4_ragas_nli.jsonl",
+    "input_lines": 3446,
+    "duplicate_instance_id": 0,
+    "unknown_instance_id": 2361,
+    "stale_content_sha1": 0,
+    "kept": 1085,
+    "sample_duplicate_ids": [],
+    "sample_stale_ids": [],
+    "sample_unknown_ids": [
+      "P0002__C0__none",
+      "P0002__E1-evid__flip",
+      "P0002__E1-claim__flip",
+      "P0002__E2__flip",
+      "P0002__INV-claim__rephrase",
+      "P0005__C0__none",
+      "P0008__C0__none",
+      "P0008__INV-claim__rephrase",
+      "P0010__C0__none",
+      "P0010__INV-claim__rephrase"
+    ]
+  }
 }
 ```
 

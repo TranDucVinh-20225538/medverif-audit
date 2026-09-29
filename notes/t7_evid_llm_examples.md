@@ -227,7 +227,7 @@ E2 edits **both** claim and evidence with the same wrong dose (expected **PASS**
 | v1c_medscore | — | 0/0 | 602 |
 | v2a_minicheck | 0.983 | 283/288 | 180 |
 | v3_alignscore | 0.990 | 283/286 | 182 |
-| v4_ragas_nli | 0.971 | 332/342 | 319 |
+| v4_ragas_nli | 0.972 | 343/353 | 340 |
 | v6_ragas_gpt4o_mini | — | 0/0 | 160 |
 | v6_ragas_haiku45 | — | 0/0 | 161 |
 | v6_ragas_llama31_8b | — | 0/0 | 159 |

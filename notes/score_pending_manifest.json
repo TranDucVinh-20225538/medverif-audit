@@ -2,9 +2,9 @@
   "scored_ids_in_raw_v2v3": 1403,
   "pending_cpu_early": 62,
   "pending_g_inv_paraphrase": 0,
-  "pending_node30_total": 2531,
+  "pending_node30_total": 2436,
   "pending_t3_inv_pi_ok": 0,
-  "pending_expand_set": 2469,
+  "pending_expand_set": 2374,
   "pending_node30_includes_expand": true,
   "paths": {
     "cpu_early_pending": "data/v3/instances_score_pending_cpu_early.jsonl",

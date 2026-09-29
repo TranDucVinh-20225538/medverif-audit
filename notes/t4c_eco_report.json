@@ -3,102 +3,102 @@
   "fail_rates_by_verifier_category": {
     "v1c_medscore": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.11538461538461539,
+        "ci_lo": 0.0,
+        "ci_hi": 0.23076923076923078
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.011235955056179775,
+        "ci_lo": 0.0,
+        "ci_hi": 0.033707865168539325
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0
       }
     },
     "v6_ragas_nli": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.19230769230769232,
+        "ci_lo": 0.038461538461538464,
+        "ci_hi": 0.34615384615384615
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.21348314606741572,
+        "ci_lo": 0.1348314606741573,
+        "ci_hi": 0.30337078651685395
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.08333333333333333,
+        "ci_lo": 0.0,
+        "ci_hi": 0.20833333333333334
       }
     },
     "v1b_medscore": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.11538461538461539,
+        "ci_lo": 0.0,
+        "ci_hi": 0.23076923076923078
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.011235955056179775,
+        "ci_lo": 0.0,
+        "ci_hi": 0.033707865168539325
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0
       }
     },
     "v5_ragas_nli": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.23076923076923078,
+        "ci_lo": 0.07692307692307693,
+        "ci_hi": 0.4230769230769231
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.23595505617977527,
+        "ci_lo": 0.14606741573033707,
+        "ci_hi": 0.3258426966292135
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.041666666666666664,
+        "ci_lo": 0.0,
+        "ci_hi": 0.125
       }
     },
     "v4_ragas_nli": {
       "exact_surface_variant": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 26,
+        "fail_rate": 0.15384615384615385,
+        "ci_lo": 0.038461538461538464,
+        "ci_hi": 0.3076923076923077
       },
       "exact_verbatim": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 89,
+        "fail_rate": 0.12359550561797752,
+        "ci_lo": 0.06741573033707865,
+        "ci_hi": 0.19101123595505617
       },
       "frequency_rephrased": {
-        "n": 0,
-        "fail_rate": null,
-        "ci_lo": null,
-        "ci_hi": null
+        "n": 24,
+        "fail_rate": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0
       }
     },
     "v1_medscore": {

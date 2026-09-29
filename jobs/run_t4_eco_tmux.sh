@@ -6,6 +6,10 @@ if tmux has-session -t "${SESSION}" 2>/dev/null; then
   echo "tmux ${SESSION} already running"
   exit 0
 fi
-tmux new-session -d -s "${SESSION}" \
-  "bash ${ROOT}/jobs/lib/openrouter_retry.sh ${ROOT}/jobs/run_t4_eco_answer_only.sh"
+if [[ -s "${ROOT}/data/t4/eco_answers.jsonl" ]]; then
+  JOB="${ROOT}/jobs/run_t4_eco_postonly.sh"
+else
+  JOB="${ROOT}/jobs/run_t4_eco_answer_only.sh"
+fi
+tmux new-session -d -s "${SESSION}" "bash ${JOB}"
 echo "started tmux ${SESSION}"
