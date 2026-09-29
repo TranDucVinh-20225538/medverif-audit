@@ -1,0 +1,9 @@
+{
+  "path": "data/t7/instances_e1_unit_m1_pending.jsonl",
+  "n_e1_unit": 230,
+  "n_c0": 115,
+  "n_total": 345,
+  "n_bases": 115,
+  "score_out_dir": "results/raw_m1/t7/",
+  "m1": "apply_m1_pair; m1_preapplied=true; score with MEDVERIF_M1=0 or idempotent MEDVERIF_M1=1"
+}

@@ -1,17 +1,21 @@
 {
-  "scored_ids_in_raw_v2v3": 1403,
+  "scored_ids_in_raw_v2v3": 1439,
   "pending_cpu_early": 62,
   "pending_g_inv_paraphrase": 0,
-  "pending_node30_total": 2436,
+  "pending_node30_total": 1929,
   "pending_t3_inv_pi_ok": 0,
-  "pending_expand_set": 2374,
+  "pending_pol_flip_rescore": 42,
+  "pending_m1plus_node30": 960,
+  "pending_expand_set": 1825,
   "pending_node30_includes_expand": true,
   "paths": {
     "cpu_early_pending": "data/v3/instances_score_pending_cpu_early.jsonl",
     "g_inv_pending": "data/v3/instances_score_pending_g_inv.jsonl",
     "t3_inv_pending": "data/v3/instances_score_pending_t3_inv.jsonl",
+    "pol_flip_pending": "data/v3/instances_pol_flip_pending_node30.jsonl",
+    "m1plus_pending": "data/v3/instances_m1plus_score_pending_node30.jsonl",
     "node30_combined": "data/v3/instances_score_pending_node30.jsonl",
     "expand_pending": "data/expand/instances_score_pending.jsonl"
   },
-  "node30_cmd_hint": "Score OUT_NODE30 with scripts/run_node30_v2v3.py (or cpu_early scorer) appending to results/raw/v2a_minicheck.jsonl and v3_alignscore.jsonl."
+  "node30_cmd_hint": "Non-M1: jobs/run_node30_score_pending.sh \u2192 results/raw/. M1+: jobs/run_t1_m1plus_score_node30.sh \u2192 results/raw_m1plus/. T7 M1: jobs/run_t7_m1_node30.sh \u2192 results/raw_m1/t7/."
 }

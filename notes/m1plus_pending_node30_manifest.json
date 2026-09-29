@@ -1,0 +1,6 @@
+{
+  "n": 960,
+  "t3_pi_ok_freq_route": 36,
+  "path": "data/v3/instances_m1plus_pending_node30.jsonl",
+  "normalization": "M1 dose/unit + M1+ frequency/route"
+}
