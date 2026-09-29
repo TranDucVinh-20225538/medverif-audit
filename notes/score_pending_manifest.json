@@ -1,12 +1,12 @@
 {
   "scored_ids_in_raw_v2v3": 1439,
-  "pending_cpu_early": 62,
+  "pending_cpu_early": 60,
   "pending_g_inv_paraphrase": 0,
-  "pending_node30_total": 1929,
+  "pending_node30_total": 639,
   "pending_t3_inv_pi_ok": 0,
   "pending_pol_flip_rescore": 42,
-  "pending_m1plus_node30": 960,
-  "pending_expand_set": 1825,
+  "pending_m1plus_node30": 930,
+  "pending_expand_set": 537,
   "pending_node30_includes_expand": true,
   "paths": {
     "cpu_early_pending": "data/v3/instances_score_pending_cpu_early.jsonl",

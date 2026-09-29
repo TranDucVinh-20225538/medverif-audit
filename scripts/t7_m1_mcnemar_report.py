@@ -135,9 +135,8 @@ def main() -> None:
     for v in FOCUS:
         raw_sc = merged_scores(v)
         m1_sc = load_m1_scores(v)
-        c0_pass = c0_pass_bases_for(t7_bases, c0_ref, raw_sc, v) & c0_pass_bases_for(
-            t7_bases, c0_ref, m1_sc, v
-        )
+        # Gate cohort on C0 PASS under raw (pre-M1) scores; paired where M1 scores exist.
+        c0_pass = c0_pass_bases_for(t7_bases, c0_ref, raw_sc, v)
         vrep: dict = {"c0_pass_bases": len(c0_pass)}
         for label, ids in (("E1-unit-claim", claim_ids), ("E1-unit-evid", evid_ids)):
             sl = paired_slice(ids, iid_base, c0_pass, raw_sc, m1_sc)

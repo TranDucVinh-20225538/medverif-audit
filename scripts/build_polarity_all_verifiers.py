@@ -42,8 +42,9 @@ SCORE_SLUGS = [
 ]
 
 
-def pol_instances(flip_y: set[str]) -> list[dict]:
-    rows = []
+def pol_instances(flip_y: set[str]) -> tuple[list[dict], list[dict]]:
+    e1e2: list[dict] = []
+    c0_rows: list[dict] = []
     for line in CPU.open():
         if not line.strip():
             continue
@@ -52,10 +53,11 @@ def pol_instances(flip_y: set[str]) -> list[dict]:
             continue
         if row["base_id"] not in flip_y:
             continue
-        if row.get("condition") not in ("E1-claim", "E2"):
-            continue
-        rows.append(row)
-    return rows
+        if row.get("condition") == "C0":
+            c0_rows.append(row)
+        elif row.get("condition") in ("E1-claim", "E2"):
+            e1e2.append(row)
+    return e1e2, c0_rows
 
 
 def rate_e1(rows: list[dict], sc: dict[str, str], flip_y: set[str], c0_pass: set[str]) -> tuple[int, int]:
@@ -76,7 +78,7 @@ def rate_e1(rows: list[dict], sc: dict[str, str], flip_y: set[str], c0_pass: set
 
 def main() -> None:
     flip_y = flip_pi_ok_bases()
-    inst = pol_instances(flip_y)
+    inst, c0_rows = pol_instances(flip_y)
     lines = [
         "# POLARITY — human flip_ok Y (all verifiers)",
         "",
@@ -92,7 +94,7 @@ def main() -> None:
     for slug in SCORE_SLUGS:
         sc = merged_scores(slug)
         joined = []
-        for row in inst:
+        for row in c0_rows + inst:
             v = sc.get(row["instance_id"])
             if not v:
                 continue
