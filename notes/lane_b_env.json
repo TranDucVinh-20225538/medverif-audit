@@ -1,0 +1,24 @@
+{
+  "conda_env": "cpuverif",
+  "python": "3.11.16",
+  "host_role": "hpc_login",
+  "recorded_at": "2026-09-29T16:11:21.585196+00:00",
+  "reason": "calibration_force_rescore",
+  "packages": {
+    "transformers": "5.17.0",
+    "torch": "2.14.0+cpu",
+    "summac": "0.0.4",
+    "huggingface_hub": "1.33.0",
+    "pytorch_lightning": "2.6.6",
+    "minicheck": {
+      "pip": "0.1.0",
+      "git_rev": "b58b9fa69acbd1015ec970fa65dd752413a053d2"
+    },
+    "alignscore": {
+      "pip": null,
+      "git_rev": "a0936d5afee642a46b22f6c02a163478447aa493",
+      "clone_path": "/data2/hpcshared/medverif-audit/.cache/src/AlignScore"
+    }
+  },
+  "env_id": "7e0333729b5da0af"
+}

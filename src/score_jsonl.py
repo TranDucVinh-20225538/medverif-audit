@@ -106,7 +106,12 @@ def _run_score(args: argparse.Namespace, out_path: Path) -> None:
                         if spec:
                             row["api_model"] = spec["openrouter_model"]
                     assert_row_model(args.verifier, row)
-            append_jsonl(out_path, scored)
+            if os.environ.get("MEDVERIF_SCORE_ENV") == "hpc":
+                from lane_b_env import append_stamped
+
+                append_stamped(out_path, scored)
+            else:
+                append_jsonl(out_path, scored)
             scored_all.extend(scored)
             print(json.dumps({
                 "verifier": args.verifier,

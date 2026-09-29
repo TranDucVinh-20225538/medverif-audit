@@ -1,0 +1,23 @@
+{
+  "cohort": "INV11 main gap backfill (10 instances)",
+  "scored_at": "2026-09-29T21:14:14+07:00",
+  "host": "hpc_login",
+  "conda_env": "cpuverif",
+  "outputs": [
+    "results/raw/v2a_minicheck.jsonl",
+    "results/raw/v3_alignscore.jsonl"
+  ],
+  "rows_have_lane_b_env_stamp": false,
+  "transformers_at_score_time": {
+    "status": "not_recorded_on_rows",
+    "inference": "Before 2026-09-29 ~23:05 UTC+7 transformers 5.17 reinstall for Qwen2/SummaC; INV11 v2a log at 21:05 shows Flan-T5 load consistent with cpuverif 4.x-era stack (not node30 4.30.2). Exact pip pin not captured — treat as pre-lane_b_env.json policy."
+  },
+  "minicheck": {
+    "model": "lytang/MiniCheck-Flan-T5-Large",
+    "note": "Same V2a verifier code path as calibration; no rescore unless calibration agreement flags MiniCheck-family drift."
+  },
+  "alignscore": {
+    "note": "v3 completed in later inv11 run after alignscore import fix; rows in results/raw/v3_alignscore.jsonl for 10 INV11 ids."
+  },
+  "action": "Do not rescore INV11 unless lane B calibration report shows <97% on t6a_minicheck_* or t6a_alignscore_base vs node30."
+}

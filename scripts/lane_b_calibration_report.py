@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare Lane B HPC scores vs node30 on calibration pack (verdict agreement)."""
+"""Compare Lane B HPC calibration scores vs node30 (verdict agreement + |Δscore|)."""
 
 from __future__ import annotations
 
@@ -13,10 +13,11 @@ sys.path.insert(0, str(ROOT / "src"))
 from verifiers.io_utils import read_jsonl  # noqa: E402
 
 CAL = ROOT / "data/lane_b/calibration_200.jsonl"
-HPC = ROOT / "results/raw/lane_b"
+HPC_DIR = ROOT / "results/raw/lane_b/calibration_200"
 NODE30 = ROOT / "results/raw_node30"
 OUT = ROOT / "notes/lane_b_calibration_agreement.json"
 MD = ROOT / "notes/lane_b_calibration_agreement.md"
+ENV_JSON = ROOT / "notes/lane_b_env.json"
 
 CHECKERS = (
     ("t6a_minicheck_roberta", "t6_minicheck_roberta.jsonl"),
@@ -35,40 +36,81 @@ def by_id(path: Path) -> dict[str, dict]:
     return {r["instance_id"]: r for r in read_jsonl(path)}
 
 
-def agreement(ref: dict[str, dict], hpc: dict[str, dict], ids: set[str]) -> dict:
+def compare(ref: dict[str, dict], hpc: dict[str, dict], ids: set[str]) -> dict:
     n = agree = 0
+    diffs: list[float] = []
+    env_ids: set[str] = set()
     for iid in ids:
         a, b = ref.get(iid), hpc.get(iid)
-        if not a or not b:
+        if not b:
+            continue
+        if b.get("lane_b_env_id"):
+            env_ids.add(str(b["lane_b_env_id"]))
+        if not a:
             continue
         va, vb = a.get("verdict"), b.get("verdict")
         if va not in ("PASS", "FAIL") or vb not in ("PASS", "FAIL"):
             continue
         n += 1
         agree += int(va == vb)
+        sa, sb = a.get("score"), b.get("score")
+        if sa is not None and sb is not None:
+            diffs.append(abs(float(sa) - float(sb)))
     rate = agree / n if n else None
-    return {"n": n, "agreement": rate}
+    mean_diff = sum(diffs) / len(diffs) if diffs else None
+    return {
+        "n": n,
+        "agreement": rate,
+        "mean_abs_score_diff": mean_diff,
+        "hpc_lane_b_env_ids": sorted(env_ids),
+    }
 
 
 def main() -> None:
     cal_ids = {r["instance_id"] for r in read_jsonl(CAL)}
+    env_id = None
+    if ENV_JSON.is_file():
+        try:
+            env_id = json.loads(ENV_JSON.read_text()).get("env_id")
+        except json.JSONDecodeError:
+            pass
     rows = []
-    lines = ["# Lane B calibration vs node30", "", f"Calibration ids: {len(cal_ids)}", ""]
-    lines.append("| Checker | n | agreement |")
-    lines.append("|---|---:|---:|")
+    lines = [
+        "# Lane B calibration vs node30",
+        "",
+        f"Calibration ids: {len(cal_ids)}",
+        f"HPC dir: `{HPC_DIR.relative_to(ROOT)}`",
+        f"lane_b_env_id: `{env_id or 'unknown'}`",
+        "",
+        "| Checker | n | agreement | mean |Δscore| | env_ids |",
+        "|---|---:|---:|---:|---|",
+    ]
     for cid, fname in CHECKERS:
         ref = by_id(NODE30 / fname)
-        hpc = by_id(HPC / fname)
-        stat = agreement(ref, hpc, cal_ids)
+        hpc = by_id(HPC_DIR / fname)
+        stat = compare(ref, hpc, cal_ids)
         stat["checker"] = cid
         stat["node30_file"] = fname
+        stat["hpc_file"] = str((HPC_DIR / fname).relative_to(ROOT))
         rows.append(stat)
         ag = stat["agreement"]
-        if ag is not None:
-            lines.append(f"| {cid} | {stat['n']} | {100 * ag:.1f}% |")
-        else:
-            lines.append(f"| {cid} | {stat['n']} | NA |")
-    OUT.write_text(json.dumps({"checkers": rows}, indent=2) + "\n")
+        mdiff = stat["mean_abs_score_diff"]
+        eids = ",".join(stat.get("hpc_lane_b_env_ids") or []) or "—"
+        ag_s = f"{100 * ag:.1f}%" if ag is not None else "NA"
+        mdiff_s = f"{mdiff:.4f}" if mdiff is not None else "NA"
+        lines.append(f"| {cid} | {stat['n']} | {ag_s} | {mdiff_s} | {eids} |")
+
+    blocked = [r["checker"] for r in rows if r.get("agreement") is not None and r["agreement"] < 0.97]
+    doc = {
+        "lane_b_env_id": env_id,
+        "threshold_agreement": 0.97,
+        "pause_downstream": bool(blocked),
+        "blocked_checkers": blocked,
+        "checkers": rows,
+    }
+    OUT.write_text(json.dumps(doc, indent=2) + "\n")
+    if blocked:
+        lines.extend(["", f"**PAUSE downstream packs** (agreement < 97%): {', '.join(blocked)}"])
     MD.write_text("\n".join(lines) + "\n")
     print(OUT.read_text())
 

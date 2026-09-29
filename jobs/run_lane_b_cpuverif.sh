@@ -22,6 +22,7 @@ export PYTHONPATH="${ALIGNScore_SRC}:${PYTHONPATH}"
 
 python3 -c "import summac" 2>/dev/null || PIP_INDEX_URL=https://pypi.org/simple PIP_EXTRA_INDEX_URL= pip install --index-url https://pypi.org/simple -r notes/cpuverif-pip-extras.txt
 
+python3 scripts/lane_b_record_env.py --reason lane_b_job_start
 python3 scripts/lane_b_build_packs.py
 
 # Migrate flat legacy scores into pack subdirs (resume-safe)
@@ -53,8 +54,10 @@ EOF
   fi
 }
 
-score_pack calibration_200 "${ROOT}/data/lane_b/calibration_200.jsonl"
-python3 scripts/lane_b_calibration_report.py
+python3 scripts/lane_b_recalibrate.py --if-stale || {
+  echo "Lane B PAUSED: calibration agreement <97% for one or more checkers (see notes/lane_b_calibration_agreement.md)"
+  exit 0
+}
 
 score_pack main_e1_evid "${ROOT}/data/lane_b/main_e1_evid.jsonl"
 python3 scripts/lane_b_calibration_report.py
