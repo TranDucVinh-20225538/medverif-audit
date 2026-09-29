@@ -19,24 +19,30 @@ def main() -> None:
     p.add_argument("--max-new-candidates", type=int, default=1000)
     p.add_argument("--target-bases", type=int, default=60)
     p.add_argument("--budget-usd", type=float, default=1.0)
+    p.add_argument(
+        "--skip-candidate-append",
+        action="store_true",
+        help="stage1+rebuild only (candidates already appended)",
+    )
     args = p.parse_args()
 
     cand = ROOT / "data/main_ext/candidates_selected.jsonl"
     before_bases = sum(1 for _ in open(ROOT / "data/main_ext/stage1/base_pairs.jsonl"))
 
-    subprocess.run(
-        [
-            sys.executable,
-            str(ROOT / "scripts/main_ext_select_candidates.py"),
-            "--append",
-            "--max-candidates",
-            str(args.max_new_candidates),
-            "--out",
-            str(cand),
-        ],
-        check=True,
-        cwd=str(ROOT),
-    )
+    if not args.skip_candidate_append:
+        subprocess.run(
+            [
+                sys.executable,
+                str(ROOT / "scripts/main_ext_select_candidates.py"),
+                "--append",
+                "--max-candidates",
+                str(args.max_new_candidates),
+                "--out",
+                str(cand),
+            ],
+            check=True,
+            cwd=str(ROOT),
+        )
     env = {
         **os.environ,
         "PYTHONPATH": f"{ROOT / 'src'}:{ROOT / 'scripts/expand'}",
@@ -44,6 +50,9 @@ def main() -> None:
         "MEDVERIF_EXPAND_LEDGER": str(ROOT / "data/main_ext/stage1/api_spend_continue.jsonl"),
         "MEDVERIF_EXPAND_BUDGET_USD": str(args.budget_usd),
         "MEDVERIF_LANE_A_SYNC": "0",
+        "MEDVERIF_EXPAND_GEN_TOKENIZER": os.environ.get(
+            "MEDVERIF_EXPAND_GEN_TOKENIZER", "Qwen/Qwen2.5-7B-Instruct"
+        ),
     }
     proc = subprocess.run(
         [

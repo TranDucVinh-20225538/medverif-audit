@@ -7,7 +7,29 @@ import time
 from verifiers.preprocess import verifier_inputs
 
 
+def _summac_transformers_compat() -> None:
+    """SummaC 0.0.4 expects tokenizer.batch_encode_plus (removed in transformers 5.x)."""
+    from transformers import PreTrainedTokenizerBase
+
+    if hasattr(PreTrainedTokenizerBase, "batch_encode_plus"):
+        return
+
+    def batch_encode_plus(self, batch, *args, **kwargs):
+        kwargs.pop("truncation_strategy", None)
+        kwargs.setdefault("padding", True)
+        kwargs.setdefault("truncation", True)
+        kwargs.setdefault("return_tensors", "pt")
+        if batch and isinstance(batch[0], tuple):
+            texts = [a for a, _b in batch]
+            pairs = [b for _a, b in batch]
+            return self(texts, text_pair=pairs, *args, **kwargs)
+        return self(batch, *args, **kwargs)
+
+    PreTrainedTokenizerBase.batch_encode_plus = batch_encode_plus  # type: ignore[method-assign]
+
+
 def load(verifier_id: str):
+    _summac_transformers_compat()
     from summac.model_summac import SummaCConv, SummaCZS
 
     started = time.perf_counter()

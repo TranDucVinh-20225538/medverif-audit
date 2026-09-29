@@ -38,8 +38,19 @@ score_one() {
   python3 src/score_jsonl.py --verifier "${v}" --instances "${INST}" --out "${OUT}/${v}.jsonl"
 }
 
-for v in v1_medscore v1b_medscore v1c_medscore v4_ragas_nli v5_ragas_nli \
-  v6_ragas_gpt4o_mini v6_ragas_haiku45 v6_ragas_llama31_8b v6_ragas_mistral_small32; do
+# V4: verifier_registry pins meta-llama/llama-3.3-70b-instruct (not Qwen3-14B yaml default).
+for v in v1_medscore v1b_medscore v1c_medscore v4_ragas_nli; do
+  echo "=== ${v} === $(date -Is)"
+  score_one "${v}" || break
+done
+
+if ! python3 scripts/openrouter_pause_before_expensive.py --min-usd 3; then
+  echo "PAUSE: OR balance below \$3 — skipping v5/v6 (report in log; re-run later)"
+  python3 scripts/openrouter_pause_before_expensive.py --min-usd 3 || true
+  exit 0
+fi
+
+for v in v5_ragas_nli v6_ragas_gpt4o_mini v6_ragas_haiku45 v6_ragas_llama31_8b v6_ragas_mistral_small32; do
   echo "=== ${v} === $(date -Is)"
   score_one "${v}" || break
 done
