@@ -21,13 +21,21 @@ def _use_cpu_patch(model_name: str) -> None:
         return
     import minicheck.inference as inference
 
-    _from_pretrained = inference.AutoModelForSeq2SeqLM.from_pretrained
+    def _patch(cls):
+        if getattr(cls, "_medverif_cpu_patched", False):
+            return
+        orig = cls.from_pretrained.__func__
 
-    def _cpu_pretrained(*args, **kwargs):
-        kwargs.pop("device_map", None)
-        return _from_pretrained(*args, **kwargs).to("cpu")
+        @classmethod
+        def from_pretrained(cls_inner, *args, **kwargs):
+            kwargs.pop("device_map", None)
+            return orig(cls_inner, *args, **kwargs).to("cpu")
 
-    inference.AutoModelForSeq2SeqLM.from_pretrained = _cpu_pretrained
+        cls.from_pretrained = from_pretrained
+        cls._medverif_cpu_patched = True
+
+    _patch(inference.AutoModelForSeq2SeqLM)
+    _patch(inference.AutoModelForSequenceClassification)
 
 
 def load(verifier_id: str):

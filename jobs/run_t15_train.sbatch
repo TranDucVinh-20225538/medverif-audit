@@ -37,6 +37,7 @@ gpu_graceful_init
 echo "T15 train start $(date -Is)"
 gpu_run python3 -u scripts/t15_train.py
 echo "T15 eval start $(date -Is)"
+conda activate cpuverif
 gpu_run python3 -u scripts/t15_eval.py
 echo "T15 done $(date -Is)"
 medverif_job_elapsed_end --rows 0

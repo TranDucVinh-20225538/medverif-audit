@@ -42,4 +42,7 @@ export MEDVERIF_T14_BUDGET_USD=2
 export MEDVERIF_OR_TASK_CAP_USD=2
 run_task "t14_resume" bash "${ROOT}/jobs/run_t14_score_openrouter_resume.sh" || true
 
+export MEDVERIF_OR_TASK_CAP_USD=0.5
+run_task "v4_llama_unparsed" bash "${ROOT}/jobs/run_v4_llama_rescore_unparsed.sh" || true
+
 echo "or resume priority end $(date -Is)"
