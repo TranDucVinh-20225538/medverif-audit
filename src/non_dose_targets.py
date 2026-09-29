@@ -2,7 +2,14 @@
 
 from __future__ import annotations
 
-NON_DOSE_TARGET_BASES = frozenset({"D0171", "D0173"})
+NON_DOSE_TARGET_BASES = frozenset(
+    {
+        "D0077",  # fluid volume returned to circulation (not a medication dose)
+        "D0164",  # catheter / feeding-tube fluid volume (not a medication dose)
+        "D0171",
+        "D0173",
+    }
+)
 
 
 def invalidate_non_dose_row(row: dict) -> dict:
