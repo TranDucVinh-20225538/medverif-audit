@@ -1,13 +1,13 @@
 {
   "path": "data/t14/instances_t14.jsonl",
   "path_v3": "data/v3/instances_t14.jsonl",
-  "n_instances": 237,
+  "n_instances": 233,
   "by_magnitude": {
-    "spacing": 114,
-    "unit_spell": 114,
+    "spacing": 112,
+    "unit_spell": 112,
     "symbol_micro": 9
   },
-  "main_c0_bases": 114,
+  "main_c0_bases": 112,
   "qc_sample": "qc/t14_sample.csv",
   "appendix": {
     "thousands_sep": "Not scored in main pack; n=3 bases would qualify (comma/plain \u22651000).",
@@ -16,6 +16,8 @@
   "families": {
     "unit_spell": "unit spelled out (mg\u2194milligrams, \u2026)",
     "spacing": "spacing (e.g. \"500 mg\" \u2194 \"500mg\")",
-    "symbol_micro": "microgram symbol (mcg \u2194 \u00b5g \u2194 ug)"
-  }
+    "symbol_micro": "microgram symbol (mcg \u2194 \u00b5g / \u03bcg; no ug)",
+    "symbol_micro_unicode": "appendix: \u00b5 (U+00B5) \u2194 \u03bc (U+03BC) before g"
+  },
+  "appendix_symbol_micro_unicode_n": 8
 }

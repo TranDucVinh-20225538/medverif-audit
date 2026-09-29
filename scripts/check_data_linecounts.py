@@ -32,7 +32,11 @@ def allowed(rel: str) -> bool:
         data = json.loads(OVERRIDE.read_text())
     except json.JSONDecodeError:
         return False
-    paths = set(data.get("paths") or data.get("allow") or [])
+    raw = data.get("paths") or data.get("allow") or []
+    if isinstance(raw, dict):
+        paths = set(raw.keys())
+    else:
+        paths = set(raw)
     return rel in paths or data.get("allow_all") is True
 
 

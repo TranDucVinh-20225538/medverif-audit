@@ -1,22 +1,18 @@
 {
   "path_v3": "data/v3/instances_inv_families.jsonl",
-  "audit_path": "data/v3/instances_inv_families_audit.jsonl",
-  "n_instances_total": 114,
-  "n_scoring_valid": 36,
-  "by_family_all": {
-    "inv_numerals": 62,
+  "path_t3": "data/t3/instances_inv_families.jsonl",
+  "n_instances": 113,
+  "by_family": {
+    "inv_frequency": 22,
     "inv_route": 29,
-    "inv_format": 1,
-    "inv_frequency": 22
+    "inv_numerals": 61,
+    "inv_format": 1
   },
-  "by_family_valid": {
-    "inv_route": 22,
-    "inv_frequency": 14
-  },
-  "pi_labels_file": "qc/inv_claim_PI_ok_labels.csv",
-  "dropped_families": [
-    "inv_format",
-    "inv_numerals"
+  "families": [
+    "inv_frequency",
+    "inv_route",
+    "inv_numerals",
+    "inv_format"
   ],
   "ready_for_scoring": true
 }

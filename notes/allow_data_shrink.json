@@ -1,4 +1,19 @@
 {
-  "comment": "List paths allowed to shrink vs git HEAD on commit/push. Use only for intentional resets.",
-  "paths": []
+  "comment": "Intentional line-count decreases vs git HEAD; see notes/integrity_check_2026-09-29.md per path.",
+  "paths": {
+    "data/expand/bases_main.jsonl": "integrity #1 expand rebuild after PI",
+    "data/expand/instances_cpu_early.jsonl": "integrity #2 expand scoring slice post-gate",
+    "data/expand/instances_main.jsonl": "integrity #3 expand pending pack 623 valid",
+    "data/expand/instances_pending_node30.jsonl": "integrity #4 expand node30 pending rebuild",
+    "data/expand/instances_pending_t6a.jsonl": "integrity #5 expand T6-A pending",
+    "data/expand/instances_score_pending.jsonl": "integrity #6 expand OR pending",
+    "data/t14/instances_t14.jsonl": "integrity #7 T14 PI + non-dose D0077/D0164 → n=233",
+    "data/t14/instances_t14_pending_openrouter.jsonl": "integrity #8 T14 OR pending sync",
+    "data/t3/instances_inv_families.jsonl": "integrity #9 drop D0164 inv family row",
+    "data/v3/instances_cpu_early.jsonl": "integrity #10 non-dose af440ee −9 rows",
+    "data/v3/instances_inv_families.jsonl": "integrity #11 non-dose D0164",
+    "data/v3/instances_t14.jsonl": "integrity #14 v3 mirror T14 n=233",
+    "data/v3/instances_t14_pending_node30.jsonl": "integrity #15 node30 T14 pending"
+  },
+  "allow": []
 }
