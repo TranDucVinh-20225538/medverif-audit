@@ -23,9 +23,43 @@ def main() -> None:
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--limit", type=int, default=0)
     args = parser.parse_args()
+    from scoring_lock import exclusive_score_lock
+
+    out_path = args.out if args.out.is_absolute() else (ROOT / args.out)
+    with exclusive_score_lock(args.verifier, out_path) as acquired:
+        if not acquired:
+            print(
+                json.dumps(
+                    {
+                        "skipped": "already_running",
+                        "verifier": args.verifier,
+                        "out": str(out_path),
+                    }
+                )
+            )
+            return
+        _run_score(args, out_path)
+
+
+def _run_score(args: argparse.Namespace, out_path: Path) -> None:
     module = importlib.import_module(f"verifiers.{args.verifier}")
+    if USE_OR:
+        from verifier_registry import apply_env_defaults, expected_openrouter
+
+        apply_env_defaults(args.verifier)
+        spec = expected_openrouter(args.verifier)
+        if spec:
+            print(
+                json.dumps(
+                    {
+                        "registry_model": spec["openrouter_model"],
+                        "registry_provider": spec.get("provider"),
+                    }
+                ),
+                flush=True,
+            )
     rows = read_jsonl(args.instances)
-    finished = done_ids(args.out)
+    finished = done_ids(out_path)
     todo = [row for row in rows if row.get("valid", True) and row["instance_id"] not in finished]
     if args.limit:
         todo = todo[: args.limit]
@@ -42,7 +76,12 @@ def main() -> None:
         for offset in range(0, len(todo), batch):
             chunk = todo[offset : offset + batch]
             scored = module.score_batch(llm, tokenizer, params, chunk)
-            append_jsonl(args.out, scored)
+            if USE_OR:
+                from verifier_registry import assert_row_model
+
+                for row in scored:
+                    assert_row_model(args.verifier, row)
+            append_jsonl(out_path, scored)
             scored_all.extend(scored)
             print(json.dumps({
                 "verifier": args.verifier,
@@ -58,7 +97,7 @@ def main() -> None:
         "load_s": load_s,
         "scored": len(scored_all),
         "parse_fail": fails,
-        "out": str(args.out),
+        "out": str(out_path),
     }))
 
 
