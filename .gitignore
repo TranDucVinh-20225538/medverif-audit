@@ -29,3 +29,4 @@ results/raw_threshold/**
 !results/raw_threshold/**/*.jsonl
 data/t8/aggrefact/*.jsonl
 *.jsonl.bak
+qc/iaa_key_DO_NOT_SHARE.csv

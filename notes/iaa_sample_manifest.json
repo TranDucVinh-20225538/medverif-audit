@@ -1,4 +1,22 @@
 {
-  "n": 60,
-  "csv": "qc/iaa_sample.csv"
+  "n": 120,
+  "strata": {
+    "conversion_naturalness": 30,
+    "polarity_flips": 30,
+    "rephrases": 20,
+    "frequency_route": 25,
+    "dose_value": 15
+  },
+  "csv": "qc/iaa_sample.csv",
+  "answer_key_local": "qc/iaa_key_DO_NOT_SHARE.csv",
+  "answer_key_in_git": false,
+  "blind": true,
+  "shuffled": true,
+  "public_csv_columns": [
+    "blind_id",
+    "claim",
+    "evidence",
+    "reviewer_a",
+    "reviewer_b"
+  ]
 }
