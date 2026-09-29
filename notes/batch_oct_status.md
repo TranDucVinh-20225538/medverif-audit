@@ -1,48 +1,31 @@
 # Batch Oct status (HPC)
 
-Updated: 2026-09-29 17:55 (UTC+7)
+Updated: 2026-09-29 22:10 (UTC+7)
 
-## Gates
+## Parallel lanes (kicked off)
 
-| Item | Status |
-|------|--------|
-| Git `origin/master` | `8d7ad8e` (integrity `5ff57d5` + shrink `71d5389` + T17 `b80917e` + OR lock fix). |
-| **medverif-v3** | **HOLD** (`notes/HOLD_medverif_v3`) — do not resubmit. |
-| **T19** | **Blocked** until user says **HF approved** (`notes/t19_llama_hf_gate.md`). |
-| H2 (M1 OR) | `jobs/run_t1_m1_rescore_openrouter.sh` queued after T17 (`/tmp/t1_m1_h2.log`). |
-| Data integrity | `notes/integrity_check_2026-09-29.md`; shrink allow-list in `notes/allow_data_shrink.json`. |
+| Lane | Flock | Log | Cap | Status |
+|------|-------|-----|-----|--------|
+| **B** CPU T6-A | `lane_b_cpuverif` | `jobs/logs/lane_b_cpuverif_*.log` | — | Running: 200 calib → agreement vs `results/raw_node30` → main E1-evid (`data/lane_b/main_e1_evid.jsonl`, n≈245) |
+| **C** M1 H2 OR | `lane_c_m1_h2` | `jobs/logs/lane_c_m1_h2_*.log` | **$3** lane / **$10** night (`scripts/lane_or_night_budget.py`) | Running: V1/V1b/V1c/V4/V5/V6×4 → `results/raw_m1/lane_c/` |
+| **A** packs | `lane_a_generation` | `jobs/logs/lane_a_generation_*.log` | **$2** (`notes/lane_a_spend.json`) | Running: smoke 5+5 → main_ext + IAA + T18 (no scoring) |
 
-## T14 OpenRouter (budget ≤ $3)
+**OR chain (unchanged):** `jobs/run_or_resume_priority.sh` — main backfill → T17 → T14 → v4 unparsed.
 
-- **Pack:** n=233 (`data/t14/manifest_t14.json`).
-- **Progress (rows / 233):** v1 **233**, v4 **233**, v1b **216**, v5 **128**, v6 judges **0** (resume after T17).
-- **Spend:** **$0.85** / $3.00 (`scripts/t14_openrouter_budget.py`).
-- **Report:** `results/tables/t14_c0_conditional_pass.md` (refreshed; partial until v1b/v5/v6 complete).
-- **Runner:** `jobs/run_t14_score_openrouter.sh` (chain `/tmp/t14_h2_chain.log` after T17).
-- **Fix:** `MEDVERIF_GPU_GLOBAL_SCORE_LOCK=0` so OR jobs are not blocked by `gpu0_scoring.lock`.
+**GPU (max 2 ours):** T19 3B **61477**, T15 **61476**. Bespoke-7B deferred until GPU free.
 
-## T17 down-dose (A1 done, A2 scoring)
+## T19 scale
 
-- **Pack:** `data/v3/t17_downdose.jsonl` **n=612**; QC **`qc/t17_sample.csv`** (40 rows).
-- **Scoring:** `jobs/run_t17_score_hpc.sh` → `results/raw/t17/` (budget ≤ **$5**).
-- **Log:** `/tmp/t17_hpc_score.log`, `jobs/logs/t17_hpc_*.log`.
+- Cohort **1703** (+80 `main_pol`); **1B** done (1623); **3B** finishing 1623 then resume **80 POL**; **8B** on full 1703 after 3B.
+- Report script: `scripts/t19_report.py` (notes after 3B/8B complete).
 
-## T15 (fine-tune MiniCheck-RoBERTa-L)
+## T17 V4 Llama
 
-- **Data:** commit **153429c** — `data/t15/` (2000 bases, train/dev), `disjointness_check.json` **overlap_total=0**.
-- **Slurm:** job **61445** (`t15-train`, 1×GPU `defq`) — `jobs/run_t15_train.sbatch` → `scripts/t15_train.py` + `scripts/t15_eval.py`.
-- **Submit:** `bash jobs/run_t15_submit.sh` (dedupes `t15-*` in squeue).
-- **Outputs (when done):** `notes/t15_config.json`, checkpoint under `.cache/checkpoints/t15_roberta/best`, scores `results/raw/t15/`, draft `notes/t15_report.md`.
-- **T18 eval:** runs when `data/t18/instances_t18.jsonl` exists; otherwise skipped in eval script.
+- **612/612** → `results/raw/t17/v4_ragas_nli.llama.jsonl` (all `meta-llama/llama-3.3-70b-instruct`).
 
-## 70B QI (paper)
+## Git
 
-- **Use:** **76.5% QI, n_inv=51** (natural INV-unit | C0, non-dose, Llama-3.3-70B V4).
-- **Not paper QI:** ~91% is **NS** (E1×10), not QI; see `notes/reconcile_llama70b_qi.md`.
-
-## GPU
-
-- Partition: `defq`; tmlr GPU yielded — reserve for **T19** after HF approval only.
+- Latest pushed: `a5a952e` (T17 rename + T19 POL cohort); `26538db` (T19 report).
 
 <!-- job-elapsed-table -->
 
@@ -50,15 +33,5 @@ Updated: 2026-09-29 17:55 (UTC+7)
 
 | JobID | Name | Pack / task | Verifier | Rows | Wall | GPU | State |
 |------:|------|-------------|----------|-----:|------|-----|-------|
-| 61411 | t3rep-U2-A2 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61412 | t3rep-U3-A2 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61413 | t3rep-U2-A3 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61414 | t3rep-U3-A4 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61415 | t3rep-U2-A4 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61416 | t3rep-U3-A4 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61417 | t3rep-U2-A5 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61418 | t3rep-U3-A5 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61419 | t3rep-U2-A6 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61420 | t3rep-U3-A6 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61421 | t3rep-U1-A5 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61422 | t3rep-U1-A2 | — | — |  | 00:00:00 | — | CANCELLED |
+| 61477 | t19-llama32_3b | T19 | local RAGAS | — | — | 1 | RUNNING |
+| 61476 | t15-train | T15 | MiniCheck FT | — | — | 1 | RUNNING |

@@ -1,0 +1,9 @@
+{
+  "bases": 40,
+  "instances": 264,
+  "bases_path": "data/main_ext/bases_main_ext.jsonl",
+  "instances_path": "data/main_ext/instances_main_ext.jsonl",
+  "qc": "qc/main_ext_review.csv",
+  "unit_inv_policy": "author_whitelist",
+  "smoke": false
+}

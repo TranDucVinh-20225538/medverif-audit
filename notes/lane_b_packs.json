@@ -1,0 +1,7 @@
+{
+  "calibration_n": 200,
+  "calibration_path": "data/lane_b/calibration_200.jsonl",
+  "e1_evid_n": 245,
+  "e1_evid_path": "data/lane_b/main_e1_evid.jsonl",
+  "node30_overlap_pool": 1242
+}

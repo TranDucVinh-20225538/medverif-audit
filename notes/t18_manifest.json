@@ -1,0 +1,7 @@
+{
+  "bases": 30,
+  "instances": 213,
+  "note": "General-domain doses (non-core textbooks); Wikipedia crawl deferred.",
+  "instances_path": "data/t18/instances_t18.jsonl",
+  "qc": "qc/t18_sample.csv"
+}
