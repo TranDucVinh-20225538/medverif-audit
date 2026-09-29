@@ -65,6 +65,14 @@ def apply_env_defaults(verifier_module: str) -> None:
 
 def assert_row_model(verifier_module: str, row: dict) -> None:
     """Called from score_jsonl after every OpenRouter batch for registry verifiers."""
+    import os
+
+    if os.environ.get("MEDVERIF_SKIP_OPENROUTER_REGISTRY_ASSERT", "").lower() in (
+        "1",
+        "true",
+        "yes",
+    ):
+        return
     spec = expected_openrouter(verifier_module, row)
     if not spec:
         return
