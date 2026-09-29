@@ -48,9 +48,41 @@ BOOT_SEED = 42
 
 PAIR_TYPES: tuple[tuple[str, str, str], ...] = (
     ("x1000_vs_inv", "E1-unit-claim×1000", "INV-unit natural"),
+    ("x1000_vs_inv_all", "E1-unit-claim×1000", "INV-unit (all)"),
     ("x1000_vs_c0", "E1-unit-claim×1000", "C0"),
+    ("evid_x1000_vs_c0", "E1-unit-evid×1000", "C0"),
     ("e1x2_vs_inv", "E1-claim×2", "INV-unit natural"),
 )
+
+CANONICAL_VERIFIERS: tuple[str, ...] = (
+    "v2a_minicheck",
+    "v3_alignscore",
+    "v2b_bespoke",
+    "t6a_minicheck_roberta",
+    "t6a_minicheck_deberta",
+    "t6a_alignscore_base",
+    "t6a_summac_zs",
+    "t6a_summac_conv",
+    "t6a_hhem",
+    "t6a_granite_guardian",
+    "v1_medscore",
+    "v1b_medscore",
+    "v1c_medscore",
+    "v4_ragas_nli",
+    "v5_ragas_nli",
+    "v6_ragas_gpt4o_mini",
+    "v6_ragas_haiku45",
+    "v6_ragas_llama31_8b",
+    "v6_ragas_mistral_small32",
+)
+
+VERIFIER_FAMILY: dict[str, str] = {
+    "v2a_minicheck": "encoders",
+    "v3_alignscore": "encoders",
+    "v2b_bespoke": "llm_checker",
+    **{v: "encoders" for v in CANONICAL_VERIFIERS if v.startswith("t6a_")},
+    **{v: "llm_judges" for v in CANONICAL_VERIFIERS if v.startswith("v1") or v.startswith("v4") or v.startswith("v5") or v.startswith("v6_")},
+}
 
 
 @dataclass
@@ -58,8 +90,10 @@ class BaseSlice:
     base_id: str
     c0: str | None = None
     inv_natural: str | None = None
+    inv_all: str | None = None
     e1_claim_x2: str | None = None
     e1_unit_x1000: str | None = None
+    e1_evid_x1000: str | None = None
 
 
 def inv_span_before(row: dict) -> str:
@@ -68,21 +102,18 @@ def inv_span_before(row: dict) -> str:
     return str(claim.get("span_before") or row.get("claim_span") or "")
 
 
-def t7_pi_ok_claim_ids() -> set[str]:
-    out: set[str] = set()
+def t7_pi_sample_stats() -> dict[str, int]:
     if not T7_PI.is_file():
-        return out
+        return {"labeled": 0, "pi_ok_y": 0}
     with T7_PI.open(encoding="utf-8-sig", newline="") as handle:
-        for r in csv.DictReader(handle):
-            iid = (r.get("instance_id") or "").strip()
-            if not iid or "E1-unit-claim" not in iid:
-                continue
-            if (r.get("PI_ok") or "").strip().upper() == "Y":
-                out.add(iid)
-    return out
+        rows = list(csv.DictReader(handle))
+    return {
+        "labeled": len(rows),
+        "pi_ok_y": sum(1 for r in rows if (r.get("PI_ok") or "").strip().upper() == "Y"),
+    }
 
 
-def main_dose_slices(t7_pi_claim: set[str]) -> dict[str, BaseSlice]:
+def main_dose_slices() -> dict[str, BaseSlice]:
     """All valid main DOSE bases; slice instance_ids where defined."""
     slices: dict[str, BaseSlice] = {}
     for r in read_jsonl(MAIN):
@@ -96,6 +127,7 @@ def main_dose_slices(t7_pi_claim: set[str]) -> dict[str, BaseSlice]:
         elif cond == "E1-claim" and mag == "x2":
             slices[bid].e1_claim_x2 = r["instance_id"]
         elif cond == "INV-claim" and mag == "unit_conversion":
+            slices[bid].inv_all = r["instance_id"]
             orig = inv_span_before(r)
             rule_y = bool(rule_natural_unit_conversion_label(orig))
             if effective_unit_natural_y(bid, rule_y):
@@ -103,11 +135,15 @@ def main_dose_slices(t7_pi_claim: set[str]) -> dict[str, BaseSlice]:
     for r in read_jsonl(T7):
         if not r.get("valid", True):
             continue
-        if r.get("condition") == "E1-unit-claim" and r.get("magnitude") == "x1000":
-            if r["instance_id"] in t7_pi_claim:
-                bid = r["base_id"]
-                if bid in slices:
-                    slices[bid].e1_unit_x1000 = r["instance_id"]
+        bid = r["base_id"]
+        if bid not in slices:
+            continue
+        if r.get("magnitude") != "x1000":
+            continue
+        if r.get("condition") == "E1-unit-claim":
+            slices[bid].e1_unit_x1000 = r["instance_id"]
+        elif r.get("condition") == "E1-unit-evid":
+            slices[bid].e1_evid_x1000 = r["instance_id"]
     return slices
 
 
@@ -115,9 +151,15 @@ def pair_members(sl: BaseSlice, pair_key: str) -> tuple[str, str] | None:
     if pair_key == "x1000_vs_inv":
         if sl.e1_unit_x1000 and sl.inv_natural:
             return sl.e1_unit_x1000, sl.inv_natural
+    elif pair_key == "x1000_vs_inv_all":
+        if sl.e1_unit_x1000 and sl.inv_all:
+            return sl.e1_unit_x1000, sl.inv_all
     elif pair_key == "x1000_vs_c0":
         if sl.e1_unit_x1000 and sl.c0:
             return sl.e1_unit_x1000, sl.c0
+    elif pair_key == "evid_x1000_vs_c0":
+        if sl.e1_evid_x1000 and sl.c0:
+            return sl.e1_evid_x1000, sl.c0
     elif pair_key == "e1x2_vs_inv":
         if sl.e1_claim_x2 and sl.inv_natural:
             return sl.e1_claim_x2, sl.inv_natural
@@ -247,7 +289,8 @@ def analyze_pairwise(
                 structural[pk] += 1
 
     by_verifier: dict[str, dict] = {}
-    for slug in all_verifier_slugs():
+    slugs = list(dict.fromkeys(list(CANONICAL_VERIFIERS) + all_verifier_slugs()))
+    for slug in slugs:
         rows = merged_score_rows(slug)
         modes: set[str] = set()
         per_pair: dict[str, list[float]] = {pk: [] for pk, _, _ in PAIR_TYPES}
@@ -266,9 +309,11 @@ def analyze_pairwise(
                     continue
                 modes.add(wm if wm != "missing" else cm)
                 per_pair[pk].append(preference(ws, cs))
-        if not any(per_pair.values()):
-            continue
-        entry: dict = {"score_mode": "+".join(sorted(modes)) if modes else "none", "pairs": {}}
+        entry: dict = {
+            "score_mode": "+".join(sorted(modes)) if modes else "none",
+            "family": VERIFIER_FAMILY.get(slug, "other"),
+            "pairs": {},
+        }
         for pk, wrong_l, correct_l in PAIR_TYPES:
             oc = per_pair[pk]
             m, lo, hi = cluster_bootstrap(oc)
@@ -298,20 +343,22 @@ def write_figure(by_verifier: dict[str, dict]) -> None:
     except ImportError:
         return
     pk = "x1000_vs_inv"
+    fam_order = {"encoders": 0, "llm_checker": 1, "llm_judges": 2, "other": 3}
     items = [
-        (v, d["pairs"][pk]["p_wrong_prefers"], d["pairs"][pk]["n_pairs"])
+        (v, d["pairs"][pk]["p_wrong_prefers"], d["pairs"][pk]["n_pairs"], d.get("family", "other"))
         for v, d in by_verifier.items()
-        if pk in d.get("pairs", {}) and d["pairs"][pk]["n_pairs"] >= 3
+        if pk in d.get("pairs", {}) and d["pairs"][pk]["n_pairs"] >= 1
         and d["pairs"][pk]["p_wrong_prefers"] == d["pairs"][pk]["p_wrong_prefers"]
     ]
-    items.sort(key=lambda t: t[1], reverse=True)
+    items.sort(key=lambda t: (fam_order.get(t[3], 9), -t[1], t[0]))
     if not items:
         return
     OUT_FIG.parent.mkdir(parents=True, exist_ok=True)
     fig, ax = plt.subplots(figsize=(9, max(3.5, 0.32 * len(items))))
     vals = [x[1] for x in items]
+    colors = {"encoders": "#4c72b0", "llm_checker": "#55a868", "llm_judges": "#c44e52", "other": "#888"}
     labels = [f"{x[0]} (n={x[2]})" for x in items]
-    ax.barh(range(len(items)), vals, color="#4c72b0")
+    ax.barh(range(len(items)), vals, color=[colors.get(x[3], "#888") for x in items])
     ax.axvline(0.5, color="#888", linestyle="--", linewidth=0.8, label="chance")
     ax.set_yticks(range(len(items)))
     ax.set_yticklabels(labels, fontsize=7)
@@ -333,15 +380,18 @@ def fmt_cell(d: dict) -> str:
 
 
 def main() -> None:
-    t7_pi = t7_pi_ok_claim_ids()
-    slices = main_dose_slices(t7_pi)
+    pi_stats = t7_pi_sample_stats()
+    slices = main_dose_slices()
     by_verifier, structural = analyze_pairwise(slices)
+    n_x1000 = sum(1 for s in slices.values() if s.e1_unit_x1000)
 
     payload = {
         "design": "pairwise_preference",
         "cohort": {
             "valid_main_dose_bases": len(slices),
-            "t7_pi_ok_claim_instances": len(t7_pi),
+            "e1_unit_claim_x1000_instances": n_x1000,
+            "t7_pi_sample": pi_stats,
+            "t7_generator_note": "All valid E1-unit×1000 rows used; 30/30 PI sample validates generator.",
             "structural_pairs_eligible": structural,
             "tie_rule": "P(wrong≥correct): 1 if wrong>correct, 0 if wrong<correct, 0.5 if tie",
             "bootstrap": f"cluster over bases, {N_BOOT} resamples, seed {BOOT_SEED}",
@@ -357,7 +407,8 @@ def main() -> None:
         "# T13 — pairwise preference (selection harm)",
         "",
         "- **Cohort:** all **valid main DOSE** bases (`instances_main.jsonl`).",
-        "- **E1-unit-claim ×1000:** instances in `qc/t7_PI_ok_labels.csv` with `PI_ok=Y` (30/30 PI sample; **16** claim rows).",
+        "- **E1-unit ×1000:** **all** valid `E1-unit-claim` / `E1-unit-evid` rows in `data/t7/instances_e1_unit.jsonl` "
+        f"(**{n_x1000}** claim on main DOSE); generator validated by **{pi_stats.get('pi_ok_y', 0)}/{pi_stats.get('labeled', 0)}** PI sample (`qc/t7_PI_ok_labels.csv`).",
         "- **INV-unit natural:** `rule_natural_unit_conversion_label` + `effective_unit_natural_y` (same gate as T9).",
         "- **Metric:** per base pair, contribute **P(wrong ≥ correct)** — 1 if score(wrong)>score(correct), "
         "**0.5 on ties**, 0 if lower. **Cluster bootstrap** over bases (95% CI).",
@@ -369,16 +420,29 @@ def main() -> None:
         "",
         "## Pairwise table (all verifiers)",
         "",
-        "| verifier | mode | (1) ×1000 vs INV | (2) ×1000 vs C0 | (3) E1×2 vs INV |",
-        "|---|---|---|---|---|",
+        "| verifier | family | mode | (1) ×1000 vs INV nat | (1′) ×1000 vs INV all | (2) ×1000 vs C0 | (2′) evid×1000 vs C0 | (3) E1×2 vs INV |",
+        "|---|---|---|---|---|---|---|---|",
     ]
-    for v, d in sorted(by_verifier.items(), key=lambda t: -(t[1]["pairs"].get("x1000_vs_inv", {}).get("p_wrong_prefers") or -1)):
+    fam_order = {"encoders": 0, "llm_checker": 1, "llm_judges": 2, "other": 3}
+    for v, d in sorted(
+        by_verifier.items(),
+        key=lambda t: (
+            fam_order.get(t[1].get("family", "other"), 9),
+            -(t[1]["pairs"].get("x1000_vs_inv", {}).get("p_wrong_prefers") or -1),
+        ),
+    ):
         p1 = d["pairs"].get("x1000_vs_inv", {})
+        p1p = d["pairs"].get("x1000_vs_inv_all", {})
         p2 = d["pairs"].get("x1000_vs_c0", {})
+        p2e = d["pairs"].get("evid_x1000_vs_c0", {})
         p3 = d["pairs"].get("e1x2_vs_inv", {})
         lines.append(
-            f"| {v} | {d['score_mode']} | {fmt_cell(p1) if p1 else '—'} | "
-            f"{fmt_cell(p2) if p2 else '—'} | {fmt_cell(p3) if p3 else '—'} |"
+            f"| {v} | {d.get('family', 'other')} | {d['score_mode']} | "
+            f"{fmt_cell(p1) if p1.get('n_pairs') else '—'} | "
+            f"{fmt_cell(p1p) if p1p.get('n_pairs') else '—'} | "
+            f"{fmt_cell(p2) if p2.get('n_pairs') else '—'} | "
+            f"{fmt_cell(p2e) if p2e.get('n_pairs') else '—'} | "
+            f"{fmt_cell(p3) if p3.get('n_pairs') else '—'} |"
         )
 
     write_figure(by_verifier)

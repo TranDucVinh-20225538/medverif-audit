@@ -1,0 +1,16 @@
+{
+  "path": "data/t14/instances_t14.jsonl",
+  "path_v3": "data/v3/instances_t14.jsonl",
+  "n_instances": 117,
+  "by_magnitude": {
+    "unit_spell": 114,
+    "thousands_sep": 3
+  },
+  "main_c0_bases": 114,
+  "qc_sample": "qc/t14_sample.csv",
+  "families": {
+    "unit_spell": "unit spelled out (mg\u2194milligrams, \u2026)",
+    "thousands_sep": "thousands separator (\u22651000 numerals)",
+    "number_words": "number words (\u226410 tablets/doses/times)"
+  }
+}

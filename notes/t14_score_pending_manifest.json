@@ -1,0 +1,36 @@
+{
+  "instances_total": 117,
+  "pending": 117,
+  "scored_in_raw_t14": 0,
+  "openrouter_verifiers": [
+    "v1_medscore",
+    "v4_ragas_nli",
+    "v1b_medscore",
+    "v5_ragas_nli",
+    "v6_ragas_gpt4o_mini",
+    "v6_ragas_haiku45",
+    "v6_ragas_llama31_8b",
+    "v6_ragas_mistral_small32"
+  ],
+  "openrouter_note": "T6-B LLM judges on HPC; keep total OpenRouter spend \u2264 USD 3 for T14 pack.",
+  "node30_verifiers": [
+    "v2a_minicheck",
+    "v3_alignscore",
+    "v2b_bespoke",
+    "t6a_minicheck_roberta",
+    "t6a_minicheck_deberta",
+    "t6a_alignscore_base",
+    "t6a_summac_zs",
+    "t6a_summac_conv",
+    "t6a_hhem",
+    "t6a_granite_guardian"
+  ],
+  "paths": {
+    "instances": "data/t14/instances_t14.jsonl",
+    "pending_openrouter": "data/t14/instances_t14_pending_openrouter.jsonl",
+    "pending_node30": "data/v3/instances_t14_pending_node30.jsonl",
+    "score_to": "results/raw/t14/"
+  },
+  "node30_cmd": "jobs/run_t14_score_node30.sh",
+  "openrouter_cmd": "jobs/run_t14_score_openrouter.sh"
+}

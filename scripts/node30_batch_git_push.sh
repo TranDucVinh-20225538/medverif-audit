@@ -8,6 +8,8 @@ python3 scripts/build_m1_t7_node30.py
 python3 scripts/build_pol_flip_pending_node30.py
 python3 scripts/build_m1plus_pending_node30.py
 python3 scripts/build_t3_bespoke_pending_node30.py
+python3 scripts/t14_build_instances.py
+python3 scripts/build_t14_score_pending.py
 python3 scripts/build_score_pending.py
 
 /usr/bin/git add \
@@ -31,6 +33,17 @@ python3 scripts/build_score_pending.py
   data/v3/instances_m1plus_pending_node30.jsonl \
   data/v3/instances_m1plus_score_pending_node30.jsonl \
   data/v3/instances_t3_bespoke_pending_node30.jsonl \
+  data/v3/instances_t14_pending_node30.jsonl \
+  data/t14/instances_t14.jsonl \
+  data/t14/instances_t14_pending_openrouter.jsonl \
+  data/v3/instances_t14.jsonl \
+  qc/t14_sample.csv \
+  data/t14/manifest_t14.json \
+  notes/t14_score_pending_manifest.json \
+  scripts/t14_build_instances.py \
+  scripts/build_t14_score_pending.py \
+  jobs/run_t14_score_node30.sh \
+  jobs/run_t14_score_openrouter.sh \
   scripts/build_t3_bespoke_pending_node30.py \
   notes/m1plus_pending_node30.md \
   notes/t3_bespoke_pending_node30_manifest.json \

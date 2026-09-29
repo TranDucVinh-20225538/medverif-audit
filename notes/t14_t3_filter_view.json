@@ -1,0 +1,177 @@
+{
+  "x1000_claim_ids": 112,
+  "inv_natural_ids": 55,
+  "by_verifier": {
+    "v2a_minicheck": {
+      "family": "encoders",
+      "keep_rate_x1000": 0.48214285714285715,
+      "drop_rate_inv_natural": 0.9090909090909091,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.8,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v3_alignscore": {
+      "family": "encoders",
+      "keep_rate_x1000": 0.44642857142857145,
+      "drop_rate_inv_natural": 0.7636363636363637,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.7636363636363637,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v2b_bespoke": {
+      "family": "llm_checker",
+      "keep_rate_x1000": 0.32142857142857145,
+      "drop_rate_inv_natural": 0.2,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.2,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "t6a_minicheck_roberta": {
+      "family": "encoders",
+      "keep_rate_x1000": 0.5982142857142857,
+      "drop_rate_inv_natural": null,
+      "n_x1000": 112,
+      "n_inv_natural": 0,
+      "t13_p_wrong_vs_inv": null,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "t6a_minicheck_deberta": {
+      "family": "encoders",
+      "keep_rate_x1000": 0.125,
+      "drop_rate_inv_natural": null,
+      "n_x1000": 112,
+      "n_inv_natural": 0,
+      "t13_p_wrong_vs_inv": null,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "t6a_alignscore_base": {
+      "family": "encoders",
+      "keep_rate_x1000": 0.7946428571428571,
+      "drop_rate_inv_natural": null,
+      "n_x1000": 112,
+      "n_inv_natural": 0,
+      "t13_p_wrong_vs_inv": null,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "t6a_summac_zs": {
+      "family": "encoders",
+      "keep_rate_x1000": 0.6071428571428571,
+      "drop_rate_inv_natural": null,
+      "n_x1000": 112,
+      "n_inv_natural": 0,
+      "t13_p_wrong_vs_inv": null,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "t6a_summac_conv": {
+      "family": "encoders",
+      "keep_rate_x1000": 0.33035714285714285,
+      "drop_rate_inv_natural": null,
+      "n_x1000": 112,
+      "n_inv_natural": 0,
+      "t13_p_wrong_vs_inv": null,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "t6a_hhem": {
+      "family": "encoders",
+      "keep_rate_x1000": 0.9642857142857143,
+      "drop_rate_inv_natural": null,
+      "n_x1000": 112,
+      "n_inv_natural": 0,
+      "t13_p_wrong_vs_inv": null,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "t6a_granite_guardian": {
+      "family": "encoders",
+      "keep_rate_x1000": 0.5267857142857143,
+      "drop_rate_inv_natural": null,
+      "n_x1000": 112,
+      "n_inv_natural": 0,
+      "t13_p_wrong_vs_inv": null,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v1_medscore": {
+      "family": "llm_judges",
+      "keep_rate_x1000": 0.008928571428571428,
+      "drop_rate_inv_natural": 0.34545454545454546,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.18181818181818182,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v1b_medscore": {
+      "family": "llm_judges",
+      "keep_rate_x1000": 0.017857142857142856,
+      "drop_rate_inv_natural": 0.03636363636363636,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.03636363636363636,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v1c_medscore": {
+      "family": "llm_judges",
+      "keep_rate_x1000": 0.10714285714285714,
+      "drop_rate_inv_natural": 0.509090909090909,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.33636363636363636,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v4_ragas_nli": {
+      "family": "llm_judges",
+      "keep_rate_x1000": 0.026785714285714284,
+      "drop_rate_inv_natural": 0.22641509433962265,
+      "n_x1000": 112,
+      "n_inv_natural": 53,
+      "t13_p_wrong_vs_inv": 0.1320754716981132,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v5_ragas_nli": {
+      "family": "llm_judges",
+      "keep_rate_x1000": 0.017857142857142856,
+      "drop_rate_inv_natural": 0.03636363636363636,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.03636363636363636,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v6_ragas_gpt4o_mini": {
+      "family": "llm_judges",
+      "keep_rate_x1000": 0.07142857142857142,
+      "drop_rate_inv_natural": 0.23636363636363636,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.17272727272727273,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v6_ragas_haiku45": {
+      "family": "llm_judges",
+      "keep_rate_x1000": 0.017857142857142856,
+      "drop_rate_inv_natural": 0.05454545454545454,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.045454545454545456,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v6_ragas_llama31_8b": {
+      "family": "llm_judges",
+      "keep_rate_x1000": 0.15178571428571427,
+      "drop_rate_inv_natural": 0.7636363636363637,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.509090909090909,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    },
+    "v6_ragas_mistral_small32": {
+      "family": "llm_judges",
+      "keep_rate_x1000": 0.08035714285714286,
+      "drop_rate_inv_natural": 0.03636363636363636,
+      "n_x1000": 112,
+      "n_inv_natural": 55,
+      "t13_p_wrong_vs_inv": 0.09090909090909091,
+      "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
+    }
+  }
+}
