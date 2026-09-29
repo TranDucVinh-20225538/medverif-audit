@@ -3,7 +3,8 @@
   "inv_natural_ids": 55,
   "by_verifier": {
     "v2a_minicheck": {
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "MiniCheck-Flan-T5-Large",
       "keep_rate_x1000": 0.48214285714285715,
       "drop_rate_inv_natural": 0.9090909090909091,
       "n_x1000": 112,
@@ -12,7 +13,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v3_alignscore": {
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "AlignScore-large",
       "keep_rate_x1000": 0.44642857142857145,
       "drop_rate_inv_natural": 0.7636363636363637,
       "n_x1000": 112,
@@ -21,7 +23,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v2b_bespoke": {
-      "family": "llm_checker",
+      "family": "7B fine-tuned checker",
+      "display_name": "Bespoke-MiniCheck-7B",
       "keep_rate_x1000": 0.32142857142857145,
       "drop_rate_inv_natural": 0.2,
       "n_x1000": 112,
@@ -30,7 +33,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "t6a_minicheck_roberta": {
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "MiniCheck-RoBERTa",
       "keep_rate_x1000": 0.5982142857142857,
       "drop_rate_inv_natural": null,
       "n_x1000": 112,
@@ -39,7 +43,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "t6a_minicheck_deberta": {
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "MiniCheck-DeBERTa",
       "keep_rate_x1000": 0.125,
       "drop_rate_inv_natural": null,
       "n_x1000": 112,
@@ -48,7 +53,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "t6a_alignscore_base": {
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "AlignScore-base",
       "keep_rate_x1000": 0.7946428571428571,
       "drop_rate_inv_natural": null,
       "n_x1000": 112,
@@ -57,7 +63,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "t6a_summac_zs": {
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "SummaC-ZS",
       "keep_rate_x1000": 0.6071428571428571,
       "drop_rate_inv_natural": null,
       "n_x1000": 112,
@@ -66,7 +73,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "t6a_summac_conv": {
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "SummaC-Conv",
       "keep_rate_x1000": 0.33035714285714285,
       "drop_rate_inv_natural": null,
       "n_x1000": 112,
@@ -75,7 +83,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "t6a_hhem": {
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "HHEM",
       "keep_rate_x1000": 0.9642857142857143,
       "drop_rate_inv_natural": null,
       "n_x1000": 112,
@@ -84,7 +93,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "t6a_granite_guardian": {
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "Granite Guardian",
       "keep_rate_x1000": 0.5267857142857143,
       "drop_rate_inv_natural": null,
       "n_x1000": 112,
@@ -93,7 +103,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v1_medscore": {
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Mistral-Small-24B (MedScore)",
       "keep_rate_x1000": 0.008928571428571428,
       "drop_rate_inv_natural": 0.34545454545454546,
       "n_x1000": 112,
@@ -102,7 +113,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v1b_medscore": {
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "GPT-4o (MedScore)",
       "keep_rate_x1000": 0.017857142857142856,
       "drop_rate_inv_natural": 0.03636363636363636,
       "n_x1000": 112,
@@ -111,7 +123,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v1c_medscore": {
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "GPT-4o-mini (MedScore)",
       "keep_rate_x1000": 0.10714285714285714,
       "drop_rate_inv_natural": 0.509090909090909,
       "n_x1000": 112,
@@ -120,7 +133,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v4_ragas_nli": {
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Llama-3.3-70B (RAGAS NLI)",
       "keep_rate_x1000": 0.026785714285714284,
       "drop_rate_inv_natural": 0.22641509433962265,
       "n_x1000": 112,
@@ -129,7 +143,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v5_ragas_nli": {
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Claude Sonnet 4.6 (RAGAS NLI)",
       "keep_rate_x1000": 0.017857142857142856,
       "drop_rate_inv_natural": 0.03636363636363636,
       "n_x1000": 112,
@@ -138,7 +153,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v6_ragas_gpt4o_mini": {
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "GPT-4o-mini (RAGAS)",
       "keep_rate_x1000": 0.07142857142857142,
       "drop_rate_inv_natural": 0.23636363636363636,
       "n_x1000": 112,
@@ -147,7 +163,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v6_ragas_haiku45": {
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Claude Haiku 4.5 (RAGAS)",
       "keep_rate_x1000": 0.017857142857142856,
       "drop_rate_inv_natural": 0.05454545454545454,
       "n_x1000": 112,
@@ -156,7 +173,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v6_ragas_llama31_8b": {
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Llama-3.1-8B (RAGAS)",
       "keep_rate_x1000": 0.15178571428571427,
       "drop_rate_inv_natural": 0.7636363636363637,
       "n_x1000": 112,
@@ -165,7 +183,8 @@
       "note": "keep_x1000 = P(PASS|\u00d71000 error); drop_inv = P(FAIL|correct INV natural); 1\u2212US / 1\u2212QI"
     },
     "v6_ragas_mistral_small32": {
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Mistral-Small-3.2-24B (RAGAS)",
       "keep_rate_x1000": 0.08035714285714286,
       "drop_rate_inv_natural": 0.03636363636363636,
       "n_x1000": 112,

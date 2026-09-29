@@ -48,7 +48,8 @@
   "by_verifier": {
     "v2a_minicheck": {
       "score_mode": "continuous",
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "MiniCheck-Flan-T5-Large",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -99,7 +100,8 @@
     },
     "v3_alignscore": {
       "score_mode": "continuous",
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "AlignScore-large",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -150,7 +152,8 @@
     },
     "v2b_bespoke": {
       "score_mode": "continuous",
-      "family": "llm_checker",
+      "family": "7B fine-tuned checker",
+      "display_name": "Bespoke-MiniCheck-7B",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -201,7 +204,8 @@
     },
     "t6a_minicheck_roberta": {
       "score_mode": "continuous",
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "MiniCheck-RoBERTa",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -252,7 +256,8 @@
     },
     "t6a_minicheck_deberta": {
       "score_mode": "continuous",
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "MiniCheck-DeBERTa",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -303,7 +308,8 @@
     },
     "t6a_alignscore_base": {
       "score_mode": "continuous",
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "AlignScore-base",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -354,7 +360,8 @@
     },
     "t6a_summac_zs": {
       "score_mode": "continuous",
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "SummaC-ZS",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -405,7 +412,8 @@
     },
     "t6a_summac_conv": {
       "score_mode": "continuous",
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "SummaC-Conv",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -456,7 +464,8 @@
     },
     "t6a_hhem": {
       "score_mode": "continuous",
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "HHEM",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -507,7 +516,8 @@
     },
     "t6a_granite_guardian": {
       "score_mode": "continuous",
-      "family": "encoders",
+      "family": "small fine-tuned checkers",
+      "display_name": "Granite Guardian",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -558,7 +568,8 @@
     },
     "v1_medscore": {
       "score_mode": "continuous",
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Mistral-Small-24B (MedScore)",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -609,7 +620,8 @@
     },
     "v1b_medscore": {
       "score_mode": "continuous",
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "GPT-4o (MedScore)",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -660,7 +672,8 @@
     },
     "v1c_medscore": {
       "score_mode": "continuous",
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "GPT-4o-mini (MedScore)",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -711,7 +724,8 @@
     },
     "v4_ragas_nli": {
       "score_mode": "continuous",
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Llama-3.3-70B (RAGAS NLI)",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -762,7 +776,8 @@
     },
     "v5_ragas_nli": {
       "score_mode": "continuous",
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Claude Sonnet 4.6 (RAGAS NLI)",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -813,7 +828,8 @@
     },
     "v6_ragas_gpt4o_mini": {
       "score_mode": "continuous",
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "GPT-4o-mini (RAGAS)",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -864,7 +880,8 @@
     },
     "v6_ragas_haiku45": {
       "score_mode": "continuous",
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Claude Haiku 4.5 (RAGAS)",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -915,7 +932,8 @@
     },
     "v6_ragas_llama31_8b": {
       "score_mode": "continuous",
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Llama-3.1-8B (RAGAS)",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -966,7 +984,8 @@
     },
     "v6_ragas_mistral_small32": {
       "score_mode": "continuous",
-      "family": "llm_judges",
+      "family": "LLM judges",
+      "display_name": "Mistral-Small-3.2-24B (RAGAS)",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -1018,6 +1037,7 @@
     "t6_alignscore_base": {
       "score_mode": "continuous",
       "family": "other",
+      "display_name": "t6_alignscore_base",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -1069,6 +1089,7 @@
     "t6_bespoke_minicheck": {
       "score_mode": "continuous",
       "family": "other",
+      "display_name": "t6_bespoke_minicheck",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -1120,6 +1141,7 @@
     "t6_granite_guardian": {
       "score_mode": "continuous",
       "family": "other",
+      "display_name": "t6_granite_guardian",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -1171,6 +1193,7 @@
     "t6_hhem": {
       "score_mode": "continuous",
       "family": "other",
+      "display_name": "t6_hhem",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -1222,6 +1245,7 @@
     "t6_minicheck_deberta": {
       "score_mode": "continuous",
       "family": "other",
+      "display_name": "t6_minicheck_deberta",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -1273,6 +1297,7 @@
     "t6_minicheck_roberta": {
       "score_mode": "continuous",
       "family": "other",
+      "display_name": "t6_minicheck_roberta",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -1324,6 +1349,7 @@
     "t6_summac_conv": {
       "score_mode": "continuous",
       "family": "other",
+      "display_name": "t6_summac_conv",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -1375,6 +1401,7 @@
     "t6_summac_zs": {
       "score_mode": "continuous",
       "family": "other",
+      "display_name": "t6_summac_zs",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
@@ -1426,6 +1453,7 @@
     "v6_ragas_nli": {
       "score_mode": "none",
       "family": "other",
+      "display_name": "v6_ragas_nli",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",

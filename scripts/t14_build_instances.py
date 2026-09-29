@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build T14 repr instances + qc/t14_sample.csv (30 per family, empty PI_ok)."""
+"""Build T14 repr instances + qc/t14_sample.csv (stratified PI_ok empty)."""
 
 from __future__ import annotations
 
@@ -13,8 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from t14_repr import MAG_THOUS, MAG_UNIT, MAG_WORDS  # noqa: E402
-from t14_repr import build_for_base  # noqa: E402
+from t14_repr import MAG_SPACING, MAG_SYMBOL, MAG_THOUS, MAG_UNIT  # noqa: E402
+from t14_repr import build_for_base, _try_thousands  # noqa: E402
 
 BASES = ROOT / "data" / "base_pairs.jsonl"
 MAIN = ROOT / "data" / "v3" / "instances_main.jsonl"
@@ -24,7 +24,8 @@ MANIFEST = ROOT / "data" / "t14" / "manifest_t14.json"
 FAILURES = ROOT / "data" / "t14" / "t14_build_failures.json"
 QC = ROOT / "qc" / "t14_sample.csv"
 SEED = 20261002
-PER_FAMILY = 30
+PER_UNIT_SPELL = 30
+PER_NEW_FAMILY = 15
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -52,6 +53,19 @@ def main_c0_bases() -> set[str]:
     return out
 
 
+def thousands_sep_appendix_count(bases: list[dict]) -> int:
+    n = 0
+    for base in bases:
+        if base.get("type") != "DOSE":
+            continue
+        claim0 = base["claim"]
+        c0, c1 = base["claim_span_start"], base["claim_span_end"]
+        span = claim0[c0:c1]
+        if _try_thousands(span):
+            n += 1
+    return n
+
+
 def write_qc_sample(rows: list[dict]) -> None:
     by_mag: dict[str, list[dict]] = {}
     for row in rows:
@@ -74,10 +88,14 @@ def write_qc_sample(rows: list[dict]) -> None:
                 "note",
             ]
         )
-        for mag in (MAG_UNIT, MAG_THOUS, MAG_WORDS):
+        for mag, cap in (
+            (MAG_UNIT, PER_UNIT_SPELL),
+            (MAG_SPACING, PER_NEW_FAMILY),
+            (MAG_SYMBOL, PER_NEW_FAMILY),
+        ):
             pool = list(by_mag.get(mag, []))
             rng.shuffle(pool)
-            for row in pool[:PER_FAMILY]:
+            for row in pool[:cap]:
                 diff = (row.get("diff") or {}).get("claim") or {}
                 w.writerow(
                     [
@@ -97,13 +115,10 @@ def write_qc_sample(rows: list[dict]) -> None:
 
 def main() -> None:
     c0_bases = main_c0_bases()
+    all_bases = [b for b in read_jsonl(BASES) if b.get("id") in c0_bases and b.get("subset") in (None, "main")]
     instances: list[dict] = []
     failures: list[dict] = []
-    for base in read_jsonl(BASES):
-        if base.get("id") not in c0_bases:
-            continue
-        if base.get("subset") not in (None, "main"):
-            continue
+    for base in all_bases:
         rows, fails = build_for_base(base)
         instances.extend(rows)
         failures.extend(fails)
@@ -111,6 +126,7 @@ def main() -> None:
     write_jsonl(OUT, instances)
     write_jsonl(OUT_V3, instances)
     by_mag = Counter(r["magnitude"] for r in instances)
+    thous_n = thousands_sep_appendix_count(all_bases)
     manifest = {
         "path": str(OUT.relative_to(ROOT)),
         "path_v3": str(OUT_V3.relative_to(ROOT)),
@@ -118,10 +134,14 @@ def main() -> None:
         "by_magnitude": dict(by_mag),
         "main_c0_bases": len(c0_bases),
         "qc_sample": str(QC.relative_to(ROOT)),
+        "appendix": {
+            "thousands_sep": f"Not scored in main pack; n={thous_n} bases would qualify (comma/plain ≥1000).",
+            "number_words": "Dropped (no generator rows in main DOSE spans).",
+        },
         "families": {
             MAG_UNIT: "unit spelled out (mg↔milligrams, …)",
-            MAG_THOUS: "thousands separator (≥1000 numerals)",
-            MAG_WORDS: "number words (≤10 tablets/doses/times)",
+            MAG_SPACING: 'spacing (e.g. "500 mg" ↔ "500mg")',
+            MAG_SYMBOL: "microgram symbol (mcg ↔ µg ↔ ug)",
         },
     }
     MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n")

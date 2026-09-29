@@ -17,6 +17,13 @@ sys.path.insert(0, str(ROOT / "src"))
 from analyze import read_jsonl  # noqa: E402
 from review_filters import effective_unit_natural_y  # noqa: E402
 from text_utils import rule_natural_unit_conversion_label  # noqa: E402
+from verifier_labels import (  # noqa: E402
+    CANONICAL_VERIFIERS,
+    FAMILY_COLORS,
+    FAMILY_ORDER,
+    verifier_display_name,
+    verifier_family,
+)
 
 MAIN = ROOT / "data/v3/instances_main.jsonl"
 T7 = ROOT / "data/t7/instances_e1_unit.jsonl"
@@ -54,35 +61,7 @@ PAIR_TYPES: tuple[tuple[str, str, str], ...] = (
     ("e1x2_vs_inv", "E1-claim×2", "INV-unit natural"),
 )
 
-CANONICAL_VERIFIERS: tuple[str, ...] = (
-    "v2a_minicheck",
-    "v3_alignscore",
-    "v2b_bespoke",
-    "t6a_minicheck_roberta",
-    "t6a_minicheck_deberta",
-    "t6a_alignscore_base",
-    "t6a_summac_zs",
-    "t6a_summac_conv",
-    "t6a_hhem",
-    "t6a_granite_guardian",
-    "v1_medscore",
-    "v1b_medscore",
-    "v1c_medscore",
-    "v4_ragas_nli",
-    "v5_ragas_nli",
-    "v6_ragas_gpt4o_mini",
-    "v6_ragas_haiku45",
-    "v6_ragas_llama31_8b",
-    "v6_ragas_mistral_small32",
-)
-
-VERIFIER_FAMILY: dict[str, str] = {
-    "v2a_minicheck": "encoders",
-    "v3_alignscore": "encoders",
-    "v2b_bespoke": "llm_checker",
-    **{v: "encoders" for v in CANONICAL_VERIFIERS if v.startswith("t6a_")},
-    **{v: "llm_judges" for v in CANONICAL_VERIFIERS if v.startswith("v1") or v.startswith("v4") or v.startswith("v5") or v.startswith("v6_")},
-}
+PRIMARY_PAIR_KEYS = ("x1000_vs_inv", "x1000_vs_inv_all", "evid_x1000_vs_c0")
 
 
 @dataclass
@@ -311,7 +290,8 @@ def analyze_pairwise(
                 per_pair[pk].append(preference(ws, cs))
         entry: dict = {
             "score_mode": "+".join(sorted(modes)) if modes else "none",
-            "family": VERIFIER_FAMILY.get(slug, "other"),
+            "family": verifier_family(slug),
+            "display_name": verifier_display_name(slug),
             "pairs": {},
         }
         for pk, wrong_l, correct_l in PAIR_TYPES:
@@ -343,22 +323,27 @@ def write_figure(by_verifier: dict[str, dict]) -> None:
     except ImportError:
         return
     pk = "x1000_vs_inv"
-    fam_order = {"encoders": 0, "llm_checker": 1, "llm_judges": 2, "other": 3}
     items = [
-        (v, d["pairs"][pk]["p_wrong_prefers"], d["pairs"][pk]["n_pairs"], d.get("family", "other"))
+        (
+            verifier_display_name(v),
+            d["pairs"][pk]["p_wrong_prefers"],
+            d["pairs"][pk]["n_pairs"],
+            d.get("family", "other"),
+        )
         for v, d in by_verifier.items()
-        if pk in d.get("pairs", {}) and d["pairs"][pk]["n_pairs"] >= 1
+        if v in CANONICAL_VERIFIERS
+        and pk in d.get("pairs", {})
+        and d["pairs"][pk]["n_pairs"] >= 1
         and d["pairs"][pk]["p_wrong_prefers"] == d["pairs"][pk]["p_wrong_prefers"]
     ]
-    items.sort(key=lambda t: (fam_order.get(t[3], 9), -t[1], t[0]))
+    items.sort(key=lambda t: (FAMILY_ORDER.get(t[3], 9), -t[1], t[0]))
     if not items:
         return
     OUT_FIG.parent.mkdir(parents=True, exist_ok=True)
     fig, ax = plt.subplots(figsize=(9, max(3.5, 0.32 * len(items))))
     vals = [x[1] for x in items]
-    colors = {"encoders": "#4c72b0", "llm_checker": "#55a868", "llm_judges": "#c44e52", "other": "#888"}
     labels = [f"{x[0]} (n={x[2]})" for x in items]
-    ax.barh(range(len(items)), vals, color=[colors.get(x[3], "#888") for x in items])
+    ax.barh(range(len(items)), vals, color=[FAMILY_COLORS.get(x[3], "#888") for x in items])
     ax.axvline(0.5, color="#888", linestyle="--", linewidth=0.8, label="chance")
     ax.set_yticks(range(len(items)))
     ax.set_yticklabels(labels, fontsize=7)
@@ -418,30 +403,55 @@ def main() -> None:
         + ", ".join(f"({w} vs {c}) **{structural[pk]}**" for pk, w, c in PAIR_TYPES)
         + ".",
         "",
-        "## Pairwise table (all verifiers)",
+        "## Pairwise table (19 verifiers; pairs 1, 1′, 2′)",
         "",
-        "| verifier | family | mode | (1) ×1000 vs INV nat | (1′) ×1000 vs INV all | (2) ×1000 vs C0 | (2′) evid×1000 vs C0 | (3) E1×2 vs INV |",
-        "|---|---|---|---|---|---|---|---|",
+        "Cells: **P(wrong ≥ correct)** [95% cluster-bootstrap CI] **(n=…)**; **ties counted as 0.5**.",
+        "",
+        "| model | family | mode | (1) ×1000 vs INV nat | (1′) ×1000 vs INV all | (2′) evid×1000 vs C0 |",
+        "|---|---|---|---|---|---|",
     ]
-    fam_order = {"encoders": 0, "llm_checker": 1, "llm_judges": 2, "other": 3}
     for v, d in sorted(
         by_verifier.items(),
         key=lambda t: (
-            fam_order.get(t[1].get("family", "other"), 9),
+            FAMILY_ORDER.get(t[1].get("family", "other"), 9),
             -(t[1]["pairs"].get("x1000_vs_inv", {}).get("p_wrong_prefers") or -1),
         ),
     ):
+        if v not in CANONICAL_VERIFIERS:
+            continue
         p1 = d["pairs"].get("x1000_vs_inv", {})
         p1p = d["pairs"].get("x1000_vs_inv_all", {})
-        p2 = d["pairs"].get("x1000_vs_c0", {})
         p2e = d["pairs"].get("evid_x1000_vs_c0", {})
-        p3 = d["pairs"].get("e1x2_vs_inv", {})
+        name = d.get("display_name") or verifier_display_name(v)
         lines.append(
-            f"| {v} | {d.get('family', 'other')} | {d['score_mode']} | "
+            f"| {name} | {d.get('family', 'other')} | {d['score_mode']} | "
             f"{fmt_cell(p1) if p1.get('n_pairs') else '—'} | "
             f"{fmt_cell(p1p) if p1p.get('n_pairs') else '—'} | "
-            f"{fmt_cell(p2) if p2.get('n_pairs') else '—'} | "
-            f"{fmt_cell(p2e) if p2e.get('n_pairs') else '—'} | "
+            f"{fmt_cell(p2e) if p2e.get('n_pairs') else '—'} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Other pairs (supplementary)",
+            "",
+            "| model | (2) ×1000 vs C0 | (3) E1×2 vs INV |",
+            "|---|---|---|",
+        ]
+    )
+    for v, d in sorted(
+        by_verifier.items(),
+        key=lambda t: (
+            FAMILY_ORDER.get(t[1].get("family", "other"), 9),
+            t[0],
+        ),
+    ):
+        if v not in CANONICAL_VERIFIERS:
+            continue
+        p2 = d["pairs"].get("x1000_vs_c0", {})
+        p3 = d["pairs"].get("e1x2_vs_inv", {})
+        name = d.get("display_name") or verifier_display_name(v)
+        lines.append(
+            f"| {name} | {fmt_cell(p2) if p2.get('n_pairs') else '—'} | "
             f"{fmt_cell(p3) if p3.get('n_pairs') else '—'} |"
         )
 

@@ -1,6 +1,6 @@
 {
-  "instances_total": 117,
-  "pending": 117,
+  "instances_total": 237,
+  "pending": 237,
   "scored_in_raw_t14": 0,
   "openrouter_verifiers": [
     "v1_medscore",

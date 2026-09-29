@@ -10,26 +10,8 @@ from text_utils import highlight, levenshtein, outside_identical, replace_span
 CONDITION = "T14-repr-claim"
 MAG_UNIT = "unit_spell"
 MAG_THOUS = "thousands_sep"
-MAG_WORDS = "number_words"
-
-_NUM_WORDS = {
-    1: "one",
-    2: "two",
-    3: "three",
-    4: "four",
-    5: "five",
-    6: "six",
-    7: "seven",
-    8: "eight",
-    9: "nine",
-    10: "ten",
-}
-_WORD_NUM = {v: k for k, v in _NUM_WORDS.items()}
-_COUNT_NOUN = re.compile(
-    r"\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+"
-    r"(tablets?|doses|times)\b",
-    re.I,
-)
+MAG_SPACING = "spacing"
+MAG_SYMBOL = "symbol_micro"
 
 # Longest-first unit alternates inside the target span only.
 _UNIT_SUBS: List[Tuple[re.Pattern, str]] = [
@@ -49,6 +31,14 @@ _UNIT_SUBS: List[Tuple[re.Pattern, str]] = [
 
 _THOUS_COMMA = re.compile(r"(?<![\d.])(\d{1,3}(?:,\d{3})+)(?![\d.])")
 _THOUS_PLAIN = re.compile(r"(?<![\d.])(\d{4,})(?![\d.])")
+
+_SPACE_BEFORE_UNIT = re.compile(
+    r"(\d+(?:\.\d+)?)\s+(mg|g|mcg|µg|μg|ug|mL|ml|milligrams|grams|micrograms|milliliters)\b",
+    re.I,
+)
+_COMPACT_DOSE = re.compile(r"(\d+(?:\.\d+)?)(mg|g|mcg|µg|μg|ug|mL|ml)\b", re.I)
+_MICRO_TOKEN = re.compile(r"\b(mcg|µg|μg|ug)\b", re.I)
+_SYMBOL_NEXT = {"mcg": "µg", "µg": "ug", "μg": "ug", "ug": "mcg"}
 
 
 def _claim_diff(base: dict, new_span: str, family: str) -> dict:
@@ -115,26 +105,29 @@ def _try_thousands(span: str) -> Optional[str]:
     return None
 
 
-def _parse_count(token: str) -> Optional[int]:
-    token = token.strip().lower()
-    if token.isdigit():
-        return int(token)
-    return _WORD_NUM.get(token)
+def _try_spacing(span: str) -> Optional[str]:
+    m = _SPACE_BEFORE_UNIT.search(span)
+    if m:
+        return span[: m.start()] + m.group(1) + m.group(2) + span[m.end() :]
+    m = _COMPACT_DOSE.search(span)
+    if m:
+        return span[: m.start()] + m.group(1) + " " + m.group(2) + span[m.end() :]
+    return None
 
 
-def _try_number_words(span: str) -> Optional[str]:
-    m = _COUNT_NOUN.search(span)
+def _try_symbol_micro(span: str) -> Optional[str]:
+    m = _MICRO_TOKEN.search(span)
     if not m:
         return None
-    n = _parse_count(m.group(1))
-    if n is None or n < 1 or n > 10:
+    token = m.group(1)
+    nxt = _SYMBOL_NEXT.get(token)
+    if nxt is None and token.lower() == "mcg":
+        nxt = "µg"
+    elif nxt is None and token.lower() == "ug":
+        nxt = "mcg"
+    if not nxt or nxt.lower() == token.lower():
         return None
-    if m.group(1).isdigit():
-        word = _NUM_WORDS[n]
-        repl = f"{word} {m.group(2)}"
-    else:
-        repl = f"{n} {m.group(2)}"
-    return span[: m.start()] + repl + span[m.end() :]
+    return span[: m.start()] + nxt + span[m.end() :]
 
 
 def build_for_base(base: dict) -> Tuple[List[dict], List[dict]]:
@@ -153,8 +146,8 @@ def build_for_base(base: dict) -> Tuple[List[dict], List[dict]]:
 
     builders: List[Tuple[str, Callable[[str], Optional[str]]]] = [
         (MAG_UNIT, _try_unit_spell),
-        (MAG_THOUS, _try_thousands),
-        (MAG_WORDS, _try_number_words),
+        (MAG_SPACING, _try_spacing),
+        (MAG_SYMBOL, _try_symbol_micro),
     ]
     for magnitude, fn in builders:
         new_span = fn(span)

@@ -19,13 +19,18 @@ from text_utils import rule_natural_unit_conversion_label  # noqa: E402
 import t13_best_of_n_report as t13  # noqa: E402
 
 from t13_best_of_n_report import (  # noqa: E402
-    CANONICAL_VERIFIERS,
     MAIN,
     T7,
-    VERIFIER_FAMILY,
     inv_span_before,
     merged_score_rows,
     score_from_row,
+)
+from verifier_labels import (  # noqa: E402
+    CANONICAL_VERIFIERS,
+    FAMILY_COLORS,
+    FAMILY_ORDER,
+    verifier_display_name,
+    verifier_family,
 )
 
 OUT_MD = ROOT / "results/tables/t14_t3_filter_view.md"
@@ -130,7 +135,8 @@ def main() -> None:
             drop_inv.append(int(not p))
         if not keep_x1k and not drop_inv:
             rows_out[slug] = {
-                "family": VERIFIER_FAMILY.get(slug, "other"),
+                "family": verifier_family(slug),
+                "display_name": verifier_display_name(slug),
                 "keep_rate_x1000": None,
                 "drop_rate_inv_natural": None,
                 "n_x1000": 0,
@@ -139,7 +145,8 @@ def main() -> None:
             }
             continue
         rows_out[slug] = {
-            "family": VERIFIER_FAMILY.get(slug, "other"),
+            "family": verifier_family(slug),
+            "display_name": verifier_display_name(slug),
             "keep_rate_x1000": sum(keep_x1k) / len(keep_x1k) if keep_x1k else None,
             "drop_rate_inv_natural": sum(drop_inv) / len(drop_inv) if drop_inv else None,
             "n_x1000": len(keep_x1k),
@@ -165,17 +172,17 @@ def main() -> None:
         "",
         f"- ×1000 claim instances (main DOSE): **{len(x1k)}**; INV natural: **{len(inv)}**.",
         "",
-        "| verifier | family | keep ×1000 | drop INV | T13 pair(1) | n ×1000 | n INV |",
+        "| model | family | keep ×1000 | drop INV | T13 pair(1) | n ×1000 | n INV |",
         "|---|---|---:|---:|---:|---:|---:|",
     ]
-    fam_order = {"encoders": 0, "llm_checker": 1, "llm_judges": 2, "other": 3}
 
     def fmt(x):
         return f"{x:.3f}" if x is not None and x == x else "—"
 
-    for v, d in sorted(rows_out.items(), key=lambda t: (fam_order.get(t[1]["family"], 9), t[0])):
+    for v, d in sorted(rows_out.items(), key=lambda t: (FAMILY_ORDER.get(t[1]["family"], 9), t[0])):
+        name = d.get("display_name") or verifier_display_name(v)
         lines.append(
-            f"| {v} | {d['family']} | {fmt(d['keep_rate_x1000'])} | {fmt(d['drop_rate_inv_natural'])} | "
+            f"| {name} | {d['family']} | {fmt(d['keep_rate_x1000'])} | {fmt(d['drop_rate_inv_natural'])} | "
             f"{fmt(d.get('t13_p_wrong_vs_inv'))} | {d['n_x1000']} | {d['n_inv_natural']} |"
         )
 
@@ -196,13 +203,12 @@ def write_figure(rows: dict[str, dict]) -> None:
         import matplotlib.pyplot as plt
     except ImportError:
         return
-    fam_order = {"encoders": 0, "llm_checker": 1, "llm_judges": 2, "other": 3}
     items = [
         (v, d)
         for v, d in rows.items()
         if d.get("n_x1000", 0) >= 10 and d.get("keep_rate_x1000") is not None
     ]
-    items.sort(key=lambda t: (fam_order.get(t[1]["family"], 9), t[0]))
+    items.sort(key=lambda t: (FAMILY_ORDER.get(t[1]["family"], 9), t[0]))
     if not items:
         return
     OUT_FIG.parent.mkdir(parents=True, exist_ok=True)
@@ -216,7 +222,10 @@ def write_figure(rows: dict[str, dict]) -> None:
     ax.barh(y, drop, height=h, label="drop INV nat (bad↑)", color="#dd8452")
     ax.barh([i + h for i in y], t13, height=h, label="T13 P(wrong≥INV)", color="#4c72b0")
     ax.set_yticks(list(y))
-    ax.set_yticklabels([f"{v} ({d['family']})" for v, d in items], fontsize=7)
+    ax.set_yticklabels(
+        [f"{d.get('display_name') or verifier_display_name(v)} ({d['family']})" for v, d in items],
+        fontsize=7,
+    )
     ax.invert_yaxis()
     ax.set_xlim(0, 1)
     ax.set_xlabel("Rate (filter / reward harm proxy)")

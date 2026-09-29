@@ -1,16 +1,21 @@
 {
   "path": "data/t14/instances_t14.jsonl",
   "path_v3": "data/v3/instances_t14.jsonl",
-  "n_instances": 117,
+  "n_instances": 237,
   "by_magnitude": {
+    "spacing": 114,
     "unit_spell": 114,
-    "thousands_sep": 3
+    "symbol_micro": 9
   },
   "main_c0_bases": 114,
   "qc_sample": "qc/t14_sample.csv",
+  "appendix": {
+    "thousands_sep": "Not scored in main pack; n=3 bases would qualify (comma/plain \u22651000).",
+    "number_words": "Dropped (no generator rows in main DOSE spans)."
+  },
   "families": {
     "unit_spell": "unit spelled out (mg\u2194milligrams, \u2026)",
-    "thousands_sep": "thousands separator (\u22651000 numerals)",
-    "number_words": "number words (\u226410 tablets/doses/times)"
+    "spacing": "spacing (e.g. \"500 mg\" \u2194 \"500mg\")",
+    "symbol_micro": "microgram symbol (mcg \u2194 \u00b5g \u2194 ug)"
   }
 }
