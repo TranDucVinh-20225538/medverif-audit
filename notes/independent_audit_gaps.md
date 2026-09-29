@@ -26,13 +26,13 @@ Root-level `results/raw/v1b_medscore.jsonl` etc. **do not exist** (real gap for 
 
 **Action:** you label `natural` on the 58 rows (or we wire a merge later).
 
-## 3. Eleven main INV-unit rows missing from `results/raw` (v1, v2a, v3)
+## 3. Main INV-unit rows missing from `results/raw` (v1, v2a, v3)
 
-Instance ids (same for all three):
+**10** dose bases ( **`D0176` dropped** as non-dose target):  
+`D0001, D0009, D0018, D0031, D0042, D0044, D0053, D0061, D0124, D0141` × `__INV-claim__unit_conversion`.
 
-`D0001, D0009, D0018, D0031, D0042, D0044, D0053, D0061, D0124, D0141, D0176` × `__INV-claim__unit_conversion`.
-
-Present in **`results/raw_m1/`** (M1-after rescore), **not** in **`results/raw/`** (before). Backfill job: `jobs/run_main_inv11_backfill.sh` → appends to root encoders.
+Gap pack: `data/v3/instances_main_inv11_m1_gap.jsonl` — **RAW** rows copied from `instances_main.jsonl` (converted unit in `claim_span` / `span_after`; not M1-normalized).  
+Backfill: `jobs/run_main_inv11_backfill.sh` → appends to `results/raw/{v1,v2a,v3}_*.jsonl`. Status: `notes/main_inv11_backfill.json`.
 
 ## 4. Llama-70B main (`v4_ragas_nli.llama.jsonl`)
 

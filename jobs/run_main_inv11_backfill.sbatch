@@ -22,7 +22,7 @@ medverif_gpu_node_precheck
 
 export HF_HOME="${ROOT}/.cache/huggingface"
 export HUGGINGFACE_HUB_CACHE="${HF_HOME}/hub"
-export PYTHONPATH="${ROOT}/src:${ROOT}/analysis"
+export PYTHONPATH="${ROOT}/.cache/src/AlignScore/src:${ROOT}/src:${ROOT}/analysis"
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
 

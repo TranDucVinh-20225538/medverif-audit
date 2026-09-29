@@ -48,7 +48,7 @@ def main() -> None:
         if row.get("subset") != "main":
             continue
         main_rows.append(row)
-        if row["instance_id"] in INV11:
+        if row["instance_id"] in INV11 and row.get("valid", True):
             inv11.append(row)
 
     write_jsonl(ROOT / "data/v3/instances_main_inv11_m1_gap.jsonl", inv11)

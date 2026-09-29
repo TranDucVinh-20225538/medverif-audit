@@ -1,0 +1,31 @@
+{
+  "cohort": "main INV-unit pre-M1 gap → results/raw (not raw_m1)",
+  "source": "data/v3/instances_main.jsonl (byte-identical rows)",
+  "dropped_non_dose": ["D0176__INV-claim__unit_conversion"],
+  "n_instances": 10,
+  "instance_ids": [
+    "D0001__INV-claim__unit_conversion",
+    "D0009__INV-claim__unit_conversion",
+    "D0018__INV-claim__unit_conversion",
+    "D0031__INV-claim__unit_conversion",
+    "D0042__INV-claim__unit_conversion",
+    "D0044__INV-claim__unit_conversion",
+    "D0053__INV-claim__unit_conversion",
+    "D0061__INV-claim__unit_conversion",
+    "D0124__INV-claim__unit_conversion",
+    "D0141__INV-claim__unit_conversion"
+  ],
+  "verify": {
+    "claim_span_equals_span_after": true,
+    "byte_identical_to_main_jsonl": true,
+    "converted_unit_in_claim": true,
+    "m1_normalized_text": false
+  },
+  "scored": {
+    "v2a_minicheck": 10,
+    "v3_alignscore": 10,
+    "v1_medscore": 10,
+    "parse_fail": 0
+  },
+  "finished_at": "2026-09-29T21:14:14+07:00"
+}

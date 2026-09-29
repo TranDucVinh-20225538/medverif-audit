@@ -21,7 +21,8 @@
     "data/t7/instances_e1_unit.jsonl": "non-dose: drop 6 valid E1-unit rows",
     "data/t14/instances_t14.jsonl": "non-dose: drop 6 valid T14 repr rows",
     "data/v3/t17_downdose.jsonl": "non-dose: drop 24 valid T17 downdose rows",
-    "data/t3/instances_inv_families.jsonl": "non-dose: drop 2 valid T3 INV-family rows"
+    "data/t3/instances_inv_families.jsonl": "non-dose: drop 2 valid T3 INV-family rows",
+    "data/v3/instances_main_inv11_m1_gap.jsonl": "INV11 backfill: drop D0176 non-dose; 10 RAW main rows"
   },
   "allow": []
 }

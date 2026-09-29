@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
 cd "${ROOT}"
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
-export PYTHONPATH="${ROOT}/src:${ROOT}/analysis"
+export PYTHONPATH="${ROOT}/.cache/src/AlignScore/src:${ROOT}/src:${ROOT}/analysis"
 export HF_HOME="${ROOT}/.cache/huggingface"
 export HUGGINGFACE_HUB_CACHE="${HF_HOME}/hub"
 export CUDA_VISIBLE_DEVICES=""
