@@ -16,6 +16,8 @@ Read the **claim** and the **evidence** (usually a nearby paragraph). Decide whe
 
 Ignore whether the evidence supports the claim for this question. Focus on **wording**: grammar, typical clinical style, plausible units/doses/phrasing. Awkward conversions, robotic phrasing, or phrasing you would not expect in a board-review book → **N**.
 
+Judge only the wording and notation (units, abbreviations, phrasing). Assume the numbers themselves could be correct; whether the evidence supports them is Q1.
+
 ---
 
 ## Worked examples for Question 1 (support)
