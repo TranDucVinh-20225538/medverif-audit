@@ -1,0 +1,32 @@
+{
+  "limit": 50,
+  "usage": 19.48374872,
+  "limit_remaining": 30.51625128,
+  "label": "sk-or-v1-30b...eb2",
+  "is_free_tier": false,
+  "raw_keys": [
+    "allowed_data_regions",
+    "byok_usage",
+    "byok_usage_daily",
+    "byok_usage_monthly",
+    "byok_usage_weekly",
+    "creator_user_id",
+    "expires_at",
+    "free_model_daily_requests",
+    "include_byok_in_limit",
+    "is_free_tier",
+    "is_management_key",
+    "is_provisioning_key",
+    "label",
+    "limit",
+    "limit_remaining",
+    "limit_reset",
+    "organization_id",
+    "rate_limit",
+    "usage",
+    "usage_daily",
+    "usage_monthly",
+    "usage_weekly",
+    "workspace_id"
+  ]
+}

@@ -4,14 +4,9 @@
   "m1": "claim/evidence normalized via quantity_norm.apply_m1_pair; m1_preapplied=true",
   "content_sha1": "sha1(m1_claim + newline + m1_evidence)",
   "score_out_dir": "results/raw_m1/<verifier>.jsonl",
-  "n_scoped": 942,
-  "n_pending": 942,
-  "n_already_in_raw_m1": 0,
-  "pending_by_condition": {
-    "C0": 194,
-    "E1-claim": 330,
-    "E1-evid": 330,
-    "INV-unit": 88
-  },
+  "n_scoped": 895,
+  "n_pending": 0,
+  "n_already_in_raw_m1": 895,
+  "pending_by_condition": {},
   "node30_hint": "Score with MEDVERIF_M1=0 (text pre-normalized) or MEDVERIF_M1=1 (idempotent); append to results/raw_m1/v2a_minicheck.jsonl and v3_alignscore.jsonl"
 }

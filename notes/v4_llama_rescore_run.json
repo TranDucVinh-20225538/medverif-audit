@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "pack": "main",
+      "skipped": "complete",
+      "llama_n": 1028
+    },
+    {
+      "pack": "threshold",
+      "skipped": "complete",
+      "llama_n": 221
+    },
+    {
+      "pack": "t4_eco",
+      "skipped": "complete",
+      "llama_n": 438
+    },
+    {
+      "pack": "t4c_eco",
+      "skipped": "complete",
+      "llama_n": 139
+    },
+    {
+      "pack": "t7",
+      "skipped": "complete",
+      "llama_n": 230
+    },
+    {
+      "exit_code": 0,
+      "llama_n": 942,
+      "pack": "m1",
+      "spent_usd_est": 0.0061
+    },
+    {
+      "pack": "m1_t7",
+      "skipped": "complete",
+      "llama_n": 345
+    }
+  ],
+  "spent_usd_est": 0.42938016000000034
+}

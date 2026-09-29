@@ -13,8 +13,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from t14_repr import MAG_SPACING, MAG_SYMBOL, MAG_THOUS, MAG_UNIT  # noqa: E402
-from t14_repr import build_for_base, _try_thousands  # noqa: E402
+from t14_repr import MAG_SPACING, MAG_SYMBOL, MAG_SYMBOL_UNICODE, MAG_THOUS, MAG_UNIT  # noqa: E402
+from t14_repr import appendix_symbol_unicode_for_base, build_for_base, _try_thousands  # noqa: E402
+from non_dose_targets import NON_DOSE_TARGET_BASES  # noqa: E402
 
 BASES = ROOT / "data" / "base_pairs.jsonl"
 MAIN = ROOT / "data" / "v3" / "instances_main.jsonl"
@@ -115,13 +116,23 @@ def write_qc_sample(rows: list[dict]) -> None:
 
 def main() -> None:
     c0_bases = main_c0_bases()
-    all_bases = [b for b in read_jsonl(BASES) if b.get("id") in c0_bases and b.get("subset") in (None, "main")]
+    all_bases = [
+        b
+        for b in read_jsonl(BASES)
+        if b.get("id") in c0_bases
+        and b.get("subset") in (None, "main")
+        and b.get("id") not in NON_DOSE_TARGET_BASES
+    ]
     instances: list[dict] = []
+    appendix_unicode: list[dict] = []
     failures: list[dict] = []
     for base in all_bases:
         rows, fails = build_for_base(base)
         instances.extend(rows)
         failures.extend(fails)
+        ap = appendix_symbol_unicode_for_base(base)
+        if ap:
+            appendix_unicode.append(ap)
     instances.sort(key=lambda r: r["instance_id"])
     write_jsonl(OUT, instances)
     write_jsonl(OUT_V3, instances)
@@ -141,8 +152,10 @@ def main() -> None:
         "families": {
             MAG_UNIT: "unit spelled out (mg↔milligrams, …)",
             MAG_SPACING: 'spacing (e.g. "500 mg" ↔ "500mg")',
-            MAG_SYMBOL: "microgram symbol (mcg ↔ µg ↔ ug)",
+            MAG_SYMBOL: "microgram symbol (mcg ↔ µg / μg; no ug)",
+            MAG_SYMBOL_UNICODE: "appendix: µ (U+00B5) ↔ μ (U+03BC) before g",
         },
+        "appendix_symbol_micro_unicode_n": len(appendix_unicode),
     }
     MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n")
     FAILURES.write_text(json.dumps({"failures": failures}, indent=2) + "\n")

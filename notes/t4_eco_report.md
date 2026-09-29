@@ -49,12 +49,12 @@ Among human-labeled **correct** answers (`exact_verbatim`, `exact_surface_varian
 | exact_verbatim | 89 | 0.303 | [0.202, 0.393] |
 | frequency_rephrased | 24 | 0.042 | [0.000, 0.125] |
 
-### v4_ragas_nli
+### v4_ragas_nli (partial/missing scores)
 | category | n | FAIL rate | 95% CI |
 |---|---:|---:|---|
-| exact_surface_variant | 26 | 0.115 | [0.000, 0.231] |
-| exact_verbatim | 89 | 0.135 | [0.067, 0.213] |
-| frequency_rephrased | 24 | 0.000 | [0.000, 0.000] |
+| exact_surface_variant | 0 | — | — |
+| exact_verbatim | 0 | — | — |
+| frequency_rephrased | 0 | — | — |
 
 ### v1_medscore
 | category | n | FAIL rate | 95% CI |

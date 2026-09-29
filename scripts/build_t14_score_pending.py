@@ -4,9 +4,14 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from t14_pi import apply_pi_validity  # noqa: E402
+
 INST = ROOT / "data/t14/instances_t14.jsonl"
 OUT_OR = ROOT / "data/t14/instances_t14_pending_openrouter.jsonl"
 OUT_N30 = ROOT / "data/v3/instances_t14_pending_node30.jsonl"
@@ -40,12 +45,17 @@ def scored_ids() -> set[str]:
 
 def main() -> None:
     all_rows = read_jsonl(INST)
+    all_rows, pi_stats = apply_pi_validity(all_rows)
+    write_jsonl(INST, all_rows)
+    mirror = ROOT / "data/v3/instances_t14.jsonl"
+    write_jsonl(mirror, [r for r in all_rows if r.get("valid", True)])
     done = scored_ids()
-    pending = [r for r in all_rows if r["instance_id"] not in done]
+    pending = [r for r in all_rows if r.get("valid", True) and r["instance_id"] not in done]
     write_jsonl(OUT_OR, pending)
     write_jsonl(OUT_N30, pending)
     manifest = {
         "instances_total": len(all_rows),
+        "pi_excluded": pi_stats,
         "pending": len(pending),
         "scored_in_raw_t14": len(done),
         "openrouter_verifiers": [

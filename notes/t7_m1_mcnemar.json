@@ -1,0 +1,106 @@
+{
+  "verifiers": {
+    "v2a_minicheck": {
+      "c0_pass_bases": 111,
+      "E1-unit-claim": {
+        "n_paired": 0,
+        "fail_before": 0,
+        "fail_after": 0,
+        "fail_rate_before": null,
+        "fail_rate_after": null,
+        "discordant_pass_fail": 0,
+        "discordant_fail_pass": 0,
+        "mcnemar_chi2": null,
+        "mcnemar_p_approx": null
+      },
+      "E1-unit-evid": {
+        "n_paired": 0,
+        "fail_before": 0,
+        "fail_after": 0,
+        "fail_rate_before": null,
+        "fail_rate_after": null,
+        "discordant_pass_fail": 0,
+        "discordant_fail_pass": 0,
+        "mcnemar_chi2": null,
+        "mcnemar_p_approx": null
+      }
+    },
+    "v3_alignscore": {
+      "c0_pass_bases": 109,
+      "E1-unit-claim": {
+        "n_paired": 0,
+        "fail_before": 0,
+        "fail_after": 0,
+        "fail_rate_before": null,
+        "fail_rate_after": null,
+        "discordant_pass_fail": 0,
+        "discordant_fail_pass": 0,
+        "mcnemar_chi2": null,
+        "mcnemar_p_approx": null
+      },
+      "E1-unit-evid": {
+        "n_paired": 0,
+        "fail_before": 0,
+        "fail_after": 0,
+        "fail_rate_before": null,
+        "fail_rate_after": null,
+        "discordant_pass_fail": 0,
+        "discordant_fail_pass": 0,
+        "mcnemar_chi2": null,
+        "mcnemar_p_approx": null
+      }
+    },
+    "v1_medscore": {
+      "c0_pass_bases": 115,
+      "E1-unit-claim": {
+        "n_paired": 0,
+        "fail_before": 0,
+        "fail_after": 0,
+        "fail_rate_before": null,
+        "fail_rate_after": null,
+        "discordant_pass_fail": 0,
+        "discordant_fail_pass": 0,
+        "mcnemar_chi2": null,
+        "mcnemar_p_approx": null
+      },
+      "E1-unit-evid": {
+        "n_paired": 0,
+        "fail_before": 0,
+        "fail_after": 0,
+        "fail_rate_before": null,
+        "fail_rate_after": null,
+        "discordant_pass_fail": 0,
+        "discordant_fail_pass": 0,
+        "mcnemar_chi2": null,
+        "mcnemar_p_approx": null
+      }
+    },
+    "v4_ragas_nli": {
+      "c0_pass_bases": 114,
+      "E1-unit-claim": {
+        "n_paired": 0,
+        "fail_before": 0,
+        "fail_after": 0,
+        "fail_rate_before": null,
+        "fail_rate_after": null,
+        "discordant_pass_fail": 0,
+        "discordant_fail_pass": 0,
+        "mcnemar_chi2": null,
+        "mcnemar_p_approx": null
+      },
+      "E1-unit-evid": {
+        "n_paired": 0,
+        "fail_before": 0,
+        "fail_after": 0,
+        "fail_rate_before": null,
+        "fail_rate_after": null,
+        "discordant_pass_fail": 0,
+        "discordant_fail_pass": 0,
+        "mcnemar_chi2": null,
+        "mcnemar_p_approx": null
+      }
+    }
+  },
+  "n_claim": 115,
+  "n_evid": 115
+}

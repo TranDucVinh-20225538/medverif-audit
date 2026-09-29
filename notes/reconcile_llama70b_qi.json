@@ -1,0 +1,88 @@
+{
+  "llama70_sources": [
+    "results/raw/v4_ragas_nli.llama.jsonl",
+    "results/raw/t14/v4_ragas_nli.jsonl"
+  ],
+  "computations": {
+    "m1_table_v4_raw_INV_all_magnitudes": {
+      "description": "Same as m1_before_after.py slice_table INV (all INV-claim, |C0, parsed)",
+      "instances": "data/v3/instances_cpu_early.jsonl",
+      "scores": "results/raw/v4_ragas_nli.jsonl (Qwen V4 local, NOT Llama-70B)",
+      "subset": "all INV-claim magnitudes",
+      "conditioning": "C0 PASS (verifier-specific)",
+      "exclusions": "analysis_keep_row (PI flip / INV manual gates)",
+      "result": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    "m1_cohort_llama70_INV_all_magnitudes": {
+      "instances": "data/v3/instances_cpu_early.jsonl (DOSE, analysis_keep)",
+      "scores": "v4_ragas_nli.llama.jsonl (meta-llama/llama-3.3-70b-instruct API)",
+      "subset": "all INV-claim magnitudes",
+      "conditioning": "C0 PASS (Llama scores)",
+      "exclusions": "analysis_keep_row",
+      "result": {
+        "rate": 0.7741935483870968,
+        "n": 62,
+        "n_c0_bases": 110
+      }
+    },
+    "m1_cohort_llama70_INV_unit_natural": {
+      "instances": "data/v3/instances_cpu_early.jsonl",
+      "scores": "v4_ragas_nli.llama.jsonl",
+      "subset": "natural INV-unit only (human+rule unit_naturalness)",
+      "conditioning": "C0 PASS (Llama scores)",
+      "exclusions": "analysis_keep_row",
+      "result": {
+        "rate": 0.7692307692307693,
+        "n": 52,
+        "n_c0_bases": 110
+      }
+    },
+    "main_dose_llama70_INV_unit_natural": {
+      "instances": "data/v3/instances_main.jsonl (main DOSE)",
+      "scores": "v4_ragas_nli.llama.jsonl",
+      "subset": "natural INV-unit",
+      "conditioning": "C0 PASS",
+      "exclusions": "non-dose not removed in this slice (main file post-audit)",
+      "result": {
+        "rate": 0.7647058823529411,
+        "n": 51,
+        "n_c0_bases": 108
+      }
+    },
+    "t19_llama70_INV_unit_natural": {
+      "instances": "data/t19/instances_t19.jsonl (main_dose pack only)",
+      "scores": "llama.jsonl + t14/v4 (overlap only for T19 rows)",
+      "subset": "natural INV-unit",
+      "conditioning": "C0 PASS (Llama scores on T19 rows)",
+      "exclusions": "non_dose_targets applied in T19 pack",
+      "result": {
+        "rate": 0.7647058823529411,
+        "n": 51,
+        "n_c0_bases": 108
+      }
+    },
+    "m1_bootstrap_llama70_INV_all_parsed": {
+      "description": "Cluster bootstrap by base_id like m1_before_after",
+      "instances": "instances_cpu_early DOSE",
+      "scores": "v4_ragas_nli.llama.jsonl",
+      "subset": "all INV-claim (parsed only)",
+      "conditioning": "C0 PASS",
+      "exclusions": "analysis_keep_row",
+      "result": {
+        "rate": 0.7741935483870968,
+        "lo": 0.6612903225806451,
+        "hi": 0.8713709677419351,
+        "num": 48,
+        "den": 62,
+        "n_bases": 62
+      }
+    }
+  }
+}

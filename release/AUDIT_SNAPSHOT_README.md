@@ -1,6 +1,6 @@
 # Audit snapshot
 
-Built: 2026-09-29T10:58:01.459039+00:00
+Built: 2026-09-29T13:00:15.281368+00:00
 
 Recompute paper numbers:
 
@@ -70,6 +70,7 @@ python scripts/compute_paper_numbers.py
 - `results/raw/t14/v1_medscore.jsonl`
 - `results/raw/t14/v1b_medscore.jsonl`
 - `results/raw/t14/v5_ragas_nli.jsonl`
+- `results/raw/t17/v1_medscore.jsonl`
 - `results/raw/t3/t6_alignscore_base.jsonl`
 - `results/raw/t3/t6_granite_guardian.jsonl`
 - `results/raw/t3/t6_hhem.jsonl`

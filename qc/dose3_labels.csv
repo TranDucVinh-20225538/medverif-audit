@@ -1,0 +1,41 @@
+﻿base_id,C0_ok,E1x2_ok,E1x10_ok,PI_ok,note
+D0004,N,N,N,N,Thiếu tên thuốc (vitamin B6); liều là ngưỡng '200 mg or higher' nên tăng lên không làm claim sai
+D0005,Y,Y,Y,Y,
+D0013,Y,Y,Y,Y,
+D0020,Y,Y,Y,Y,
+D0023,Y,Y,Y,Y,
+D0026,N,Y,Y,N,C0 thiếu tên thuốc (TMC207)
+D0033,Y,Y,Y,Y,
+D0035,Y,Y,Y,Y,
+D0038,Y,Y,Y,Y,Evidence cũng không nêu tên thuốc
+D0039,Y,Y,Y,Y,
+D0042,N,Y,Y,N,C0 ghi 'the test' mà không nói OGTT
+D0044,N,Y,Y,N,C0 ghi 'The drug' dù evidence có octreotide
+D0045,N,Y,Y,N,C0 thiếu tên thuốc (ethambutol)
+D0046,Y,N,Y,N,x2: 200 μg vẫn nằm trong khoảng 50–200 μg của evidence nên chưa chắc sai
+D0048,Y,Y,Y,Y,
+D0049,Y,Y,Y,Y,
+D0058,N,Y,Y,N,C0 thiếu tên thuốc (ezetimibe)
+D0059,Y,Y,Y,Y,
+D0062,Y,Y,Y,Y,
+D0066,Y,Y,Y,Y,
+D0068,Y,Y,Y,Y,
+D0070,N,Y,Y,N,C0 thiếu tên thuốc (etomidate)
+D0081,N,Y,Y,N,C0 mất bối cảnh bệnh (viêm âm đạo do vi khuẩn)
+D0083,N,N,N,N,C0 thiếu tên thuốc (diethylcarbamazine); liều chỉ là chi tiết phụ trong câu dược động học (thời điểm đạt đỉnh)
+D0086,N,Y,Y,N,C0 thiếu tên thuốc (paromomycin) và mất đường tiêm bắp
+D0094,N,Y,Y,N,C0 không nói so sánh với gì; 'intermittively' gượng
+D0100,Y,N,N,N,"Tăng liều thì vẫn có tác dụng >24 giờ, nên claim không bị evidence bác bỏ"
+D0103,Y,Y,Y,Y,
+D0106,N,Y,Y,N,C0 mất bối cảnh bệnh (điều trị cái gì trong thai kỳ)
+D0109,N,Y,Y,N,C0 ghi 'the study' không rõ là nghiên cứu nào
+D0115,LOẠI,LOẠI,LOẠI,LOẠI,Không phải liều (thể tích nước pha)
+D0122,N,Y,Y,N,C0 ghi 'the infusion pump' mà mất bối cảnh PCA giảm đau khi chuyển dạ
+D0133,Y,N,Y,N,x2: 0.8 mg nằm trong khoảng hướng dẫn thường dùng (0.4–0.8 mg) nên chưa chắc sai
+D0137,Y,Y,Y,Y,
+D0143,Y,Y,Y,Y,
+D0150,N,Y,Y,N,C0 bỏ nồng độ (2 mEq/mL) và bối cảnh (thai ngoài tử cung)
+D0155,N,Y,N,N,C0 thiếu tên thuốc (Thymoglobulin); x10: nói 30 mg/kg 'may not prevent' thì không bị evidence bác bỏ rõ ràng
+D0158,LOẠI,LOẠI,LOẠI,LOẠI,Không phải liều (lượng nước tiểu)
+D0160,LOẠI,LOẠI,LOẠI,LOẠI,Không phải liều (lượng nước uống)
+D0161,Y,Y,Y,Y,

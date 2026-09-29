@@ -1,11 +1,11 @@
 {
   "instances_cpu_early": "data/expand/instances_cpu_early.jsonl",
-  "n_cpu_early": 3487,
-  "n_main": 3203,
-  "n_threshold": 284,
+  "n_cpu_early": 623,
+  "n_main": 623,
+  "n_threshold": 0,
   "node30_v2v3_pending": "data/expand/instances_pending_node30.jsonl",
   "t6a_scope_pending": "data/expand/instances_pending_t6a.jsonl",
-  "n_t6a_eligible": 1371,
+  "n_t6a_eligible": 319,
   "content_sha1": "sha1(claim + newline + evidence)",
   "node30_hint": "On node30: score instances_pending_node30.jsonl \u2192 results/raw/ v2a_minicheck.jsonl + v3_alignscore.jsonl (resume by instance_id). T6-A: local V1 anchor run on instances_pending_t6a.jsonl if used on main set.",
   "hpc_hint": "jobs/run_expand_score_openrouter.sh (V1 + V4 append)"

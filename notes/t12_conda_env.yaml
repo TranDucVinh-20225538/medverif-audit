@@ -1,0 +1,13 @@
+name: medverif-t12
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - ragas==0.2.7
+      - deepeval==2.5.9
+      - trulens-eval==1.0.3
+      - langchain-openai==0.2.14
+      - openai==1.58.1
+      - datasets>=2.14

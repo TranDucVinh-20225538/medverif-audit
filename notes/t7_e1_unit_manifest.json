@@ -1,0 +1,17 @@
+{
+  "task": "T7 E1-unit (numeral-fixed unit swap, magnitude x1000, expected FAIL)",
+  "instances": "data/t7/instances_e1_unit.jsonl",
+  "qc_sample": "qc/t7_e1_unit_sample.csv",
+  "build": "scripts/t7_build_e1_unit_instances.py",
+  "report": "scripts/t7_e1_unit_report.py",
+  "raw_scores": "results/raw/t7/",
+  "hpc_verifiers": ["v1_medscore", "v4_ragas_nli", "v1b_medscore", "v5_ragas_nli", "v6_ragas_nli"],
+  "node30_verifiers": ["v2a_minicheck", "v3_alignscore", "v2b_bespoke", "t6a_* (7 checkers)"],
+  "hpc_job": "jobs/run_t7_e1_unit_hpc.sh",
+  "node30_job": "jobs/run_t7_e1_unit_node30.sh",
+  "comparison": {
+    "e1_unit": "FAIL rate (this cohort)",
+    "e1_claim": "FAIL rate on E1-claim x2/x10 for same bases (main/expand scores)",
+    "inv_unit": "PASS rate on INV-claim unit_conversion for same bases"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "weak_e1_contrast_instances": 318,
+  "weak_e1_contrast_bases": 60,
+  "reason_tag_counts": {
+    "threshold_context": 266,
+    "within_evidence_range": 86,
+    "pk_descriptive": 8
+  },
+  "sole_reason_instance_counts": {
+    "threshold_context": 224,
+    "within_evidence_range": 46,
+    "pk_descriptive": 6
+  },
+  "reason_combo_counts": {
+    "threshold_context": 224,
+    "within_evidence_range": 46,
+    "threshold_context+within_evidence_range": 40,
+    "pk_descriptive": 6,
+    "pk_descriptive+threshold_context": 2
+  },
+  "note": "Tags are not mutually exclusive (one row can have multiple reasons)."
+}

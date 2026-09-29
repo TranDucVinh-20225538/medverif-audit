@@ -1,0 +1,25 @@
+{
+  "instances": "data/v3/instances_main.jsonl",
+  "n_instances": 1085,
+  "scores": "results/raw/v1_medscore.jsonl",
+  "out": "results/raw/v1_medscore.jsonl",
+  "input_lines": 1135,
+  "duplicate_instance_id": 0,
+  "unknown_instance_id": 50,
+  "stale_content_sha1": 0,
+  "kept": 1085,
+  "sample_duplicate_ids": [],
+  "sample_stale_ids": [],
+  "sample_unknown_ids": [
+    "P0087__E1-evid__flip",
+    "P0087__E1-claim__flip",
+    "P0087__E2__flip",
+    "P0111__E1-evid__flip",
+    "P0111__E1-claim__flip",
+    "P0111__E2__flip",
+    "P0005__INV-claim__rephrase",
+    "P0007__INV-claim__rephrase",
+    "P0009__INV-claim__rephrase",
+    "P0011__INV-claim__rephrase"
+  ]
+}

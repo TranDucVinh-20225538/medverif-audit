@@ -35,7 +35,7 @@ OUT_JSON = ROOT / "notes/t14_c0_conditional_pass.json"
 T14_FAMILIES = (
     (MAG_UNIT, "unit spell-out"),
     (MAG_SPACING, "spacing"),
-    (MAG_SYMBOL, "symbol (mcg/µg/ug)"),
+    (MAG_SYMBOL, "symbol (mcg/µg/μg)"),
 )
 
 

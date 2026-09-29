@@ -1,0 +1,23 @@
+{
+  "llama": {
+    "inv_unit_pass_all": "48/62",
+    "inv_unit_pass_natural_y": "\u2014",
+    "e1_evid_x2_fail": "97/101",
+    "e1_evid_x10_fail": "91/101",
+    "e1_claim_x2_fail": "96/102",
+    "e1_claim_x10_fail": "103/104",
+    "c0_pass_none": "110/110",
+    "e2_pass_given_c0": "234/241",
+    "t9_v4_scored": "none"
+  },
+  "t7_cond_llama": {
+    "c0_pass_bases": 0,
+    "e1_unit_claim_fail": "\u2014",
+    "e1_unit_evid_fail": "\u2014"
+  },
+  "t7_cond_legacy": {
+    "c0_pass_bases": 0,
+    "e1_unit_claim_fail": "\u2014",
+    "e1_unit_evid_fail": "\u2014"
+  }
+}

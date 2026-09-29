@@ -1,0 +1,41 @@
+﻿row_id,claim_span,doc_span,PI_ok,note
+test:397,9 km,9km,Y,
+dev:23413,9,09,N,"'9' là giờ mở cửa (9:30 PM), '09' lấy từ timestamp review_date"
+test:20639,8,08,N,"'8' là giờ đóng cửa (8 PM), '08' là ngày trong review_date"
+dev:23411,3.0,03,N,"'3.0' là số sao, '03' lấy từ giờ trong timestamp review_date"
+test:21026,1,01,N,"'1' là giờ (1:30 PM), '01' lấy từ timestamp review_date"
+test:25010,4,4.0,N,"'4' là giờ đóng cửa (4 PM), '4.0' là review_stars"
+test:22727,5,5.0,N,"'5' là giờ mở cửa (5 pm), '5.0' là review_stars"
+dev:25158,5,05,N,"'5' là thang điểm tối đa (out of 5), '05' lấy từ timestamp review_date"
+dev:4536,2.0,2,N,"'2.0' là một phần tên riêng (LME 2.0), không phải đại lượng đo"
+dev:16587,4,4.0,N,"'4' là giờ mở cửa (4 pm), '4.0' là review_stars"
+test:2155,15,15.0,N,"'15' là số thành viên (đếm người), không xác nhận được '15.0' cùng ngữ cảnh"
+test:21609,4,4.0,Y,
+dev:25869,00,0,N,"'00' là phút trong giờ (11:00), '0' lấy từ chuỗi giờ, không phải đại lượng đo"
+dev:29856,3.0,03,N,"'3.0' là số sao, '03' lấy từ giờ trong timestamp review_date"
+test:20867,00,0,N,"'00' là phút trong giờ, '0' lấy từ chuỗi giờ, không phải đại lượng đo"
+dev:28134,3,3.0,Y,
+test:22036,00,0,N,"'00' là phút trong giờ, '0' lấy từ chuỗi giờ, không phải đại lượng đo"
+test:21994,00,0,N,"'00' là phút trong giờ, '0' lấy từ chuỗi giờ, không phải đại lượng đo"
+dev:18218,5,5.0,Y,
+test:21637,4.0,04,N,"'4.0' là số sao, '04' lấy từ timestamp review_date"
+dev:22575,4,4.0,Y,
+dev:27433,3,3.0,Y,
+test:18187,00,0,N,"'00' là phút trong giờ, '0' lấy từ chuỗi giờ, không phải đại lượng đo"
+test:17588,4,4.0,N,"'4' là giờ đóng cửa (4 PM), '4.0' là số sao"
+dev:26134,4.0,04,N,"'4.0' là số sao, '04' lấy từ timestamp review_date"
+dev:21796,7,07,N,"'7' là số lượt review (đếm), '07' lấy từ timestamp review_date"
+test:5315,10 billion,10.7 billion,N,"khác giá trị (10 tỷ vs 10,7 tỷ)"
+dev:19649,4,4.0,Y,
+dev:27924,9,09,N,"'9' là giờ mở cửa (9 AM), '09' lấy từ timestamp review_date"
+test:21980,00,0,N,"'00' là phút trong giờ, '0' lấy từ chuỗi giờ, không phải đại lượng đo"
+test:22255,4.0,04,N,"'4.0' là số sao, '04' lấy từ timestamp review_date"
+test:765,2m,2.1m,N,khác giá trị (£2m vs 2.1m)
+dev:16673,00,0,N,"'00' là phút trong giờ, '0' lấy từ chuỗi giờ, không phải đại lượng đo"
+test:2750,3,03,N,"'3' là điểm set tennis (6–3), '03' không liên quan"
+test:3162,2.2 pounds,2 pounds,N,khác giá trị (2.2 vs 2 pounds) và khác loại kiếm
+dev:24870,2,2.0,N,"'2' là giờ đóng cửa (2 am), '2.0' là review_stars"
+dev:15541,4,4.0,Y,
+dev:26750,4.0,04,N,"'4.0' là số sao, '04' lấy từ timestamp review_date"
+test:16258,130 lbs,130 pounds,Y,
+dev:29883,4,4.0,Y,

@@ -5,49 +5,49 @@
       "legacy": "results/raw/v4_ragas_nli.legacy.jsonl",
       "llama": "results/raw/v4_ragas_nli.llama.jsonl",
       "legacy_n": 1085,
-      "llama_n": 0
+      "llama_n": 1044
     },
     {
       "id": "threshold",
       "legacy": "results/raw_threshold/v4_ragas_nli.legacy.jsonl",
       "llama": "results/raw_threshold/v4_ragas_nli.llama.jsonl",
       "legacy_n": 221,
-      "llama_n": 0
+      "llama_n": 221
     },
     {
       "id": "t4_eco",
       "legacy": "results/raw/t4_eco/v4_ragas_nli.legacy.jsonl",
       "llama": "results/raw/t4_eco/v4_ragas_nli.llama.jsonl",
       "legacy_n": 438,
-      "llama_n": 0
+      "llama_n": 438
     },
     {
       "id": "t4c_eco",
       "legacy": "results/raw/t4c_eco/v4_ragas_nli.legacy.jsonl",
       "llama": "results/raw/t4c_eco/v4_ragas_nli.llama.jsonl",
       "legacy_n": 139,
-      "llama_n": 0
+      "llama_n": 139
     },
     {
       "id": "t7",
       "legacy": "results/raw/t7/v4_ragas_nli.legacy.jsonl",
       "llama": "results/raw/t7/v4_ragas_nli.llama.jsonl",
       "legacy_n": 230,
-      "llama_n": 0
+      "llama_n": 230
     },
     {
       "id": "m1",
       "legacy": "results/raw_m1/v4_ragas_nli.legacy.jsonl",
       "llama": "results/raw_m1/v4_ragas_nli.llama.jsonl",
       "legacy_n": 436,
-      "llama_n": 0
+      "llama_n": 888
     },
     {
       "id": "m1_t7",
       "legacy": "results/raw_m1/t7/v4_ragas_nli.legacy.jsonl",
       "llama": "results/raw_m1/t7/v4_ragas_nli.llama.jsonl",
-      "legacy_n": 0,
-      "llama_n": 322
+      "legacy_n": 24,
+      "llama_n": 345
     }
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "bases_main": 351,
+  "bases_by_type": {
+    "POLARITY": 138,
+    "DOSE": 213
+  },
+  "instances_main_valid": 2323,
+  "instances_threshold_valid": 290,
+  "instances_range_valid": 481,
+  "cpu_early": 2613,
+  "dose_pi_labeled": 80,
+  "analysis_gate": "Expanded set excluded from headline tables until spot-check \u226585% Y on qc/expand_dose_sample.csv (seed 20260929, 40 bases)."
+}

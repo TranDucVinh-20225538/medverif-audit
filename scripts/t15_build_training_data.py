@@ -47,8 +47,8 @@ def _load_anli(n: int, seed: int) -> list[dict]:
     from datasets import load_dataset
 
     rows: list[dict] = []
-    for config in ("r1", "r2", "r3"):
-        ds = load_dataset("anli", config, split="train")
+    for rnd in ("r1", "r2", "r3"):
+        ds = load_dataset("anli", "plain_text", split=f"train_{rnd}")
         for ex in ds:
             label = ex["label"]
             if label == 0:
@@ -57,10 +57,11 @@ def _load_anli(n: int, seed: int) -> list[dict]:
                 lab = "UNSUPPORTED"
             else:
                 continue
+            uid = ex.get("uid") or ex.get("id") or len(rows)
             rows.append(
                 {
-                    "pair_id": f"ANLI-{config}-{ex['uid']}",
-                    "base_id": f"ANLI-{config}-{ex['uid']}",
+                    "pair_id": f"ANLI-{rnd}-{uid}",
+                    "base_id": f"ANLI-{rnd}-{uid}",
                     "variant": "ANLI",
                     "claim": ex["hypothesis"],
                     "evidence": ex["premise"],

@@ -1,0 +1,210 @@
+{
+  "packs": [
+    {
+      "pack": "main",
+      "legacy_path": "results/raw/v4_ragas_nli.legacy.jsonl",
+      "llama_path": "results/raw/v4_ragas_nli.llama.jsonl",
+      "overall": {
+        "n": 975,
+        "agree": 937,
+        "rate": 0.961025641025641
+      },
+      "by_condition": {
+        "C0": {
+          "n": 153,
+          "agree": 153,
+          "rate": 1.0
+        },
+        "E1-claim": {
+          "n": 242,
+          "agree": 235,
+          "rate": 0.9710743801652892
+        },
+        "E1-evid": {
+          "n": 236,
+          "agree": 227,
+          "rate": 0.961864406779661
+        },
+        "E2": {
+          "n": 250,
+          "agree": 241,
+          "rate": 0.964
+        },
+        "INV-claim": {
+          "n": 94,
+          "agree": 81,
+          "rate": 0.8617021276595744
+        },
+        "unknown": {
+          "n": 0,
+          "agree": 0,
+          "rate": null
+        }
+      },
+      "legacy_llama_note": true
+    },
+    {
+      "pack": "threshold",
+      "legacy_path": "results/raw_threshold/v4_ragas_nli.legacy.jsonl",
+      "llama_path": "results/raw_threshold/v4_ragas_nli.llama.jsonl",
+      "overall": {
+        "n": 220,
+        "agree": 195,
+        "rate": 0.8863636363636364
+      },
+      "by_condition": {
+        "C0": {
+          "n": 29,
+          "agree": 29,
+          "rate": 1.0
+        },
+        "E1-claim": {
+          "n": 57,
+          "agree": 52,
+          "rate": 0.9122807017543859
+        },
+        "E1-evid": {
+          "n": 58,
+          "agree": 41,
+          "rate": 0.7068965517241379
+        },
+        "E2": {
+          "n": 58,
+          "agree": 56,
+          "rate": 0.9655172413793104
+        },
+        "INV-claim": {
+          "n": 18,
+          "agree": 17,
+          "rate": 0.9444444444444444
+        }
+      },
+      "legacy_llama_note": false
+    },
+    {
+      "pack": "t4_eco",
+      "legacy_path": "results/raw/t4_eco/v4_ragas_nli.legacy.jsonl",
+      "llama_path": "results/raw/t4_eco/v4_ragas_nli.llama.jsonl",
+      "overall": {
+        "n": 433,
+        "agree": 389,
+        "rate": 0.8983833718244804
+      },
+      "by_condition": {
+        "ECO-answer": {
+          "n": 433,
+          "agree": 389,
+          "rate": 0.8983833718244804
+        }
+      },
+      "legacy_llama_note": false
+    },
+    {
+      "pack": "t4c_eco",
+      "legacy_path": "results/raw/t4c_eco/v4_ragas_nli.legacy.jsonl",
+      "llama_path": "results/raw/t4c_eco/v4_ragas_nli.llama.jsonl",
+      "overall": {
+        "n": 138,
+        "agree": 127,
+        "rate": 0.9202898550724637
+      },
+      "by_condition": {
+        "ECO-answer-t4c": {
+          "n": 138,
+          "agree": 127,
+          "rate": 0.9202898550724637
+        }
+      },
+      "legacy_llama_note": false
+    },
+    {
+      "pack": "t7",
+      "legacy_path": "results/raw/t7/v4_ragas_nli.legacy.jsonl",
+      "llama_path": "results/raw/t7/v4_ragas_nli.llama.jsonl",
+      "overall": {
+        "n": 226,
+        "agree": 178,
+        "rate": 0.7876106194690266
+      },
+      "by_condition": {
+        "E1-unit-claim": {
+          "n": 111,
+          "agree": 103,
+          "rate": 0.9279279279279279
+        },
+        "E1-unit-evid": {
+          "n": 115,
+          "agree": 75,
+          "rate": 0.6521739130434783
+        }
+      },
+      "legacy_llama_note": false
+    },
+    {
+      "pack": "m1",
+      "legacy_path": "results/raw_m1/v4_ragas_nli.legacy.jsonl",
+      "llama_path": "results/raw_m1/v4_ragas_nli.llama.jsonl",
+      "overall": {
+        "n": 378,
+        "agree": 364,
+        "rate": 0.9629629629629629
+      },
+      "by_condition": {
+        "C0": {
+          "n": 60,
+          "agree": 58,
+          "rate": 0.9666666666666667
+        },
+        "E1-claim": {
+          "n": 115,
+          "agree": 112,
+          "rate": 0.9739130434782609
+        },
+        "E1-evid": {
+          "n": 117,
+          "agree": 109,
+          "rate": 0.9316239316239316
+        },
+        "INV-claim": {
+          "n": 86,
+          "agree": 85,
+          "rate": 0.9883720930232558
+        },
+        "unknown": {
+          "n": 0,
+          "agree": 0,
+          "rate": null
+        }
+      },
+      "legacy_llama_note": true
+    },
+    {
+      "pack": "m1_t7",
+      "legacy_path": "results/raw_m1/t7/v4_ragas_nli.legacy.jsonl",
+      "llama_path": "results/raw_m1/t7/v4_ragas_nli.llama.jsonl",
+      "overall": {
+        "n": 21,
+        "agree": 21,
+        "rate": 1.0
+      },
+      "by_condition": {
+        "C0": {
+          "n": 8,
+          "agree": 8,
+          "rate": 1.0
+        },
+        "E1-unit-claim": {
+          "n": 7,
+          "agree": 7,
+          "rate": 1.0
+        },
+        "E1-unit-evid": {
+          "n": 6,
+          "agree": 6,
+          "rate": 1.0
+        }
+      },
+      "legacy_llama_note": true
+    }
+  ]
+}

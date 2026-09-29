@@ -37,14 +37,50 @@ def main() -> None:
         if not todo:
             print(json.dumps({"skipped": "complete", "n": len(rows)}))
             return
+        print(
+            json.dumps(
+                {
+                    "phase": "load",
+                    "todo": len(todo),
+                    "out": str(out_path),
+                    "hf_offline": os.environ.get("HF_HUB_OFFLINE", ""),
+                }
+            ),
+            flush=True,
+        )
         llm, tokenizer, params, load_s = module.load()
-        print(json.dumps({"load_s": load_s, "meta": getattr(llm, "_t19_meta", {})}), flush=True)
-        batch = int(os.environ.get("MEDVERIF_SCORE_BATCH", "4"))
+        print(
+            json.dumps(
+                {
+                    "load_s": load_s,
+                    "loaded_model_in_s": load_s,
+                    "meta": getattr(llm, "_t19_meta", {}),
+                }
+            ),
+            flush=True,
+        )
+        print(f"loaded model in {load_s:.1f}s", flush=True)
+        batch = max(1, int(os.environ.get("MEDVERIF_SCORE_BATCH", "4")))
+        flush_every = max(1, int(os.environ.get("MEDVERIF_SCORE_FLUSH_EVERY", "20")))
+        scored_n = 0
+        base_lines = len(finished)
         for offset in range(0, len(todo), batch):
             chunk = todo[offset : offset + batch]
             scored = module.score_batch(llm, tokenizer, params, chunk)
             append_jsonl(out_path, scored)
-        print(json.dumps({"scored": len(todo), "out": str(out_path)}))
+            scored_n += len(scored)
+            if scored_n % flush_every < len(scored) or scored_n == len(todo):
+                print(
+                    json.dumps(
+                        {
+                            "progress": scored_n,
+                            "total": len(todo),
+                            "out_lines": base_lines + scored_n,
+                        }
+                    ),
+                    flush=True,
+                )
+        print(json.dumps({"scored": scored_n, "out": str(out_path)}), flush=True)
 
 
 if __name__ == "__main__":

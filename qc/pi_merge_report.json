@@ -1,0 +1,33 @@
+{
+  "t7": {
+    "file": "t7_e1_unit_sample.csv",
+    "rows": 30,
+    "PI_ok": {
+      "Y": 30
+    }
+  },
+  "t8": {
+    "file": "t8_mismatch_check.csv",
+    "rows": 40,
+    "PI_ok": {
+      "Y": 10,
+      "N": 30
+    }
+  },
+  "dose": {
+    "file": "expand_dose_sample.csv",
+    "rows": 80,
+    "PI_ok": {
+      "N": 37,
+      "Y": 43
+    }
+  },
+  "unit2": {
+    "file": "expand_unit_natural.csv",
+    "rows": 153,
+    "sample1_labeled": {
+      "N": 26,
+      "Y": 14
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "valid_unit_inv_instances": 88,
+  "valid_unit_inv_bases_all": 88,
+  "by_source": {
+    "rule": 19,
+    "legacy": 69
+  },
+  "natural_bases_effective_Y": 42,
+  "natural_from_PI_only": 22,
+  "old_legacy_bases": 69,
+  "new_rule_only_bases": 19,
+  "csv_unit_naturalness_rows": 58
+}

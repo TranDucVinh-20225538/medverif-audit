@@ -1,0 +1,177 @@
+{
+  "malformed_pattern": "\\d,\\d{4}",
+  "by_path": {
+    "main_cpu_early": [],
+    "main_main": [],
+    "expand_cpu_early": [],
+    "expand_main": [],
+    "expand_audit": [
+      {
+        "instance_id": "D0043__E1-evid__x10",
+        "base_id": "D0043",
+        "condition": "E1-evid",
+        "magnitude": "x10",
+        "field": "evidence",
+        "token": "1,2000",
+        "snippet": " in doses of 400 to 1,2000 mg daily, is also u"
+      },
+      {
+        "instance_id": "D0043__E1-claim__x10",
+        "base_id": "D0043",
+        "condition": "E1-claim",
+        "magnitude": "x10",
+        "field": "claim",
+        "token": "1,2000",
+        "snippet": " in doses of 400 to 1,2000 mg daily, is also u"
+      },
+      {
+        "instance_id": "D0043__E2__x10",
+        "base_id": "D0043",
+        "condition": "E2",
+        "magnitude": "x10",
+        "field": "claim",
+        "token": "1,2000",
+        "snippet": " in doses of 400 to 1,2000 mg daily, is also u"
+      },
+      {
+        "instance_id": "D0043__E2__x10",
+        "base_id": "D0043",
+        "condition": "E2",
+        "magnitude": "x10",
+        "field": "evidence",
+        "token": "1,2000",
+        "snippet": " in doses of 400 to 1,2000 mg daily, is also u"
+      },
+      {
+        "instance_id": "D0140__E1-evid__x2",
+        "base_id": "D0140",
+        "condition": "E1-evid",
+        "magnitude": "x2",
+        "field": "evidence",
+        "token": "1,1000",
+        "snippet": " intake of 1,200 to 1,1000 mg after menopause "
+      },
+      {
+        "instance_id": "D0140__E1-claim__x2",
+        "base_id": "D0140",
+        "condition": "E1-claim",
+        "magnitude": "x2",
+        "field": "claim",
+        "token": "1,1000",
+        "snippet": " intake of 1,200 to 1,1000 mg after menopause "
+      },
+      {
+        "instance_id": "D0140__E2__x2",
+        "base_id": "D0140",
+        "condition": "E2",
+        "magnitude": "x2",
+        "field": "claim",
+        "token": "1,1000",
+        "snippet": " intake of 1,200 to 1,1000 mg after menopause "
+      },
+      {
+        "instance_id": "D0140__E2__x2",
+        "base_id": "D0140",
+        "condition": "E2",
+        "magnitude": "x2",
+        "field": "evidence",
+        "token": "1,1000",
+        "snippet": " intake of 1,200 to 1,1000 mg after menopause "
+      },
+      {
+        "instance_id": "D0140__E1-evid__x10",
+        "base_id": "D0140",
+        "condition": "E1-evid",
+        "magnitude": "x10",
+        "field": "evidence",
+        "token": "1,5000",
+        "snippet": " intake of 1,200 to 1,5000 mg after menopause "
+      },
+      {
+        "instance_id": "D0140__E1-claim__x10",
+        "base_id": "D0140",
+        "condition": "E1-claim",
+        "magnitude": "x10",
+        "field": "claim",
+        "token": "1,5000",
+        "snippet": " intake of 1,200 to 1,5000 mg after menopause "
+      },
+      {
+        "instance_id": "D0140__E2__x10",
+        "base_id": "D0140",
+        "condition": "E2",
+        "magnitude": "x10",
+        "field": "claim",
+        "token": "1,5000",
+        "snippet": " intake of 1,200 to 1,5000 mg after menopause "
+      },
+      {
+        "instance_id": "D0140__E2__x10",
+        "base_id": "D0140",
+        "condition": "E2",
+        "magnitude": "x10",
+        "field": "evidence",
+        "token": "1,5000",
+        "snippet": " intake of 1,200 to 1,5000 mg after menopause "
+      },
+      {
+        "instance_id": "D0236__E1-evid__x10",
+        "base_id": "D0236",
+        "condition": "E1-evid",
+        "magnitude": "x10",
+        "field": "evidence",
+        "token": "1,2000",
+        "snippet": "a multivitamin plus 1,2000 mg of calcium. Outc"
+      },
+      {
+        "instance_id": "D0236__E1-claim__x10",
+        "base_id": "D0236",
+        "condition": "E1-claim",
+        "magnitude": "x10",
+        "field": "claim",
+        "token": "1,2000",
+        "snippet": "a multivitamin plus 1,2000 mg of calcium."
+      },
+      {
+        "instance_id": "D0236__E2__x10",
+        "base_id": "D0236",
+        "condition": "E2",
+        "magnitude": "x10",
+        "field": "claim",
+        "token": "1,2000",
+        "snippet": "a multivitamin plus 1,2000 mg of calcium."
+      },
+      {
+        "instance_id": "D0236__E2__x10",
+        "base_id": "D0236",
+        "condition": "E2",
+        "magnitude": "x10",
+        "field": "evidence",
+        "token": "1,2000",
+        "snippet": "a multivitamin plus 1,2000 mg of calcium. Outc"
+      }
+    ]
+  },
+  "main_instance_ids": [],
+  "main_base_ids": [],
+  "expand_base_ids": [
+    "D0043",
+    "D0140",
+    "D0236"
+  ],
+  "expand_instance_ids": [
+    "D0043__E1-claim__x10",
+    "D0043__E1-evid__x10",
+    "D0043__E2__x10",
+    "D0140__E1-claim__x10",
+    "D0140__E1-claim__x2",
+    "D0140__E1-evid__x10",
+    "D0140__E1-evid__x2",
+    "D0140__E2__x10",
+    "D0140__E2__x2",
+    "D0236__E1-claim__x10",
+    "D0236__E1-evid__x10",
+    "D0236__E2__x10"
+  ],
+  "main_affected": true
+}

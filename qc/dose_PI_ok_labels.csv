@@ -1,0 +1,81 @@
+﻿base_id,PI_ok,note
+D0002,N,"C0: claim không nêu tên thuốc (evidence cũng không nêu), không kiểm được cùng thuốc"
+D0007,N,C0: bỏ đường dùng 'subcutaneously' của leuprolide
+D0008,Y,
+D0016,N,"C0: bỏ 'together with an ACT', primaquine thành như dùng đơn độc"
+D0022,Y,
+D0032,Y,
+D0053,N,C0: không nêu tên thuốc (pramipexole)
+D0056,N,"C0: chủ ngữ 'It' không rõ (pyrimethamine), claim thiếu thuốc phối hợp"
+D0060,N,C0: không nêu tên thuốc; bỏ cận dưới 0.03 của khoảng 0.03–0.05 mg/kg/ngày
+D0061,Y,
+D0065,Y,
+D0067,N,"C0: chỉ ghi 'the medication', không nêu albendazole"
+D0071,Y,
+D0074,Y,
+D0075,Y,
+D0077,N,C0: không nêu tên thuốc (evidence cũng không nêu)
+D0081,N,C0: không nêu tên thuốc (evidence cũng không nêu)
+D0090,N,"C0: bỏ bối cảnh CTD-ILD, liều prednisone thành khuyến cáo chung"
+D0094,N,C0: không nêu tên thuốc
+D0126,N,C0: bỏ quần thể nhi ≥12 tuổi ≥40 kg viêm da cơ địa
+D0130,N,C0: bỏ 'sau đợt acyclovir tĩnh mạch' và bối cảnh viêm não; 'the study' không rõ
+D0146,N,"C0: bỏ bối cảnh viêm củng mạc, 'most commonly prescribed' thành khẳng định chung"
+D0154,N,C0: không nêu tên thuốc; 'secondary loading dose' thành 'second dose'
+D0159,N,C0: không nêu tên thuốc (dabigatran)
+D0165,Y,
+D0171,Y,
+D0177,Y,
+D0191,N,C0: không nêu tên thuốc (budesonide)
+D0193,Y,
+D0194,Y,
+D0207,N,"C0: chỉ ghi 'the medication', không nêu telithromycin"
+D0208,Y,
+D0211,N,C0: không nêu tên thuốc (haloperidol)
+D0214,Y,
+D0227,Y,
+D0233,Y,
+D0237,Y,
+D0242,N,C0: bỏ chỉ định 'DVT/PE treatment' của liều edoxaban
+D0244,Y,
+D0250,N,C0: không nêu tên thuốc (naloxone)
+D0262,Y,
+D0263,Y,
+D0264,Y,
+D0276,Y,
+D0277,Y,
+D0278,N,"LOẠI: 350 g protein là con số tính dinh dưỡng, không phải liều thuốc"
+D0280,N,"LOẠI: lượng HGA bài tiết nước tiểu là giá trị xét nghiệm, không phải liều"
+D0283,N,C0: không nêu tên thuốc (amitriptyline)
+D0287,Y,
+D0294,N,C0: không nêu tên thuốc (prasugrel)
+D0297,Y,
+D0298,Y,
+D0300,Y,
+D0305,Y,
+D0311,N,"E1: sửa ngưỡng '≥250 mg' thành '≥2500 mg' vẫn có thể đúng, không mâu thuẫn rõ với evidence"
+D0312,Y,
+D0317,N,"C0: không nêu tên thuốc (chỉ 'augmentation therapy', alpha-1 antitrypsin)"
+D0321,Y,
+D0322,N,"C0: không nêu tên thuốc, chỉ có thể tích dung dịch 15 mL"
+D0323,Y,
+D0325,N,C0: không nêu tên thuốc (dexmedetomidine)
+D0328,N,C0: không nêu tên thuốc (voclosporin)
+D0331,Y,
+D0333,N,C0: không nêu tên thuốc (evidence cũng không nêu)
+D0334,N,"LOẠI: mức giảm canxi niệu 24 giờ là giá trị xét nghiệm, không phải liều"
+D0343,Y,
+D0350,N,C0: không nêu tên thuốc; bỏ chỉ định thiếu máu hồng cầu to
+D0351,N,C0: không nêu tên thuốc (evidence cũng không nêu)
+D0358,Y,
+D0359,Y,
+D0361,Y,
+D0362,Y,
+D0365,Y,
+D0370,N,C0: không nêu tên thuốc (sertraline)
+D0371,Y,
+D0372,N,C0: không nêu tên thuốc (evidence cũng không nêu)
+D0378,Y,
+D0379,Y,
+D0388,N,C0: không nêu tên thuốc (fulvestrant)
+D0397,Y,

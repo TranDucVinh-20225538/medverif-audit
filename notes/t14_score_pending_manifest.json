@@ -1,7 +1,11 @@
 {
-  "instances_total": 237,
-  "pending": 237,
-  "scored_in_raw_t14": 0,
+  "instances_total": 233,
+  "pi_excluded": {
+    "excluded_pi_n": 0,
+    "excluded_ids": []
+  },
+  "pending": 0,
+  "scored_in_raw_t14": 233,
   "openrouter_verifiers": [
     "v1_medscore",
     "v4_ragas_nli",

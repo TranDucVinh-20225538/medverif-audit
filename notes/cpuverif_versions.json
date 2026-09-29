@@ -1,0 +1,7 @@
+{
+  "torch": "2.14.0+cpu",
+  "transformers": "5.17.0",
+  "spacy": "3.8.16",
+  "sklearn": "1.9.1",
+  "pytorch_lightning": "2.6.6"
+}

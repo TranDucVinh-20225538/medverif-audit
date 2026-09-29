@@ -1,0 +1,55 @@
+instance_id,base_id,t14_family,PI_ok,note
+D0073__T14-repr-claim__unit_spell,D0073,unit_spell,Y,
+D0026__T14-repr-claim__unit_spell,D0026,unit_spell,Y,
+D0055__T14-repr-claim__unit_spell,D0055,unit_spell,Y,
+D0046__T14-repr-claim__unit_spell,D0046,unit_spell,Y,
+D0017__T14-repr-claim__unit_spell,D0017,unit_spell,Y,
+D0139__T14-repr-claim__unit_spell,D0139,unit_spell,Y,
+D0077__T14-repr-claim__unit_spell,D0077,unit_spell,Y,
+D0164__T14-repr-claim__unit_spell,D0164,unit_spell,Y,
+D0180__T14-repr-claim__unit_spell,D0180,unit_spell,Y,
+D0080__T14-repr-claim__unit_spell,D0080,unit_spell,Y,
+D0053__T14-repr-claim__unit_spell,D0053,unit_spell,Y,
+D0085__T14-repr-claim__unit_spell,D0085,unit_spell,Y,
+D0156__T14-repr-claim__unit_spell,D0156,unit_spell,Y,
+D0007__T14-repr-claim__unit_spell,D0007,unit_spell,Y,
+D0083__T14-repr-claim__unit_spell,D0083,unit_spell,Y,
+D0004__T14-repr-claim__unit_spell,D0004,unit_spell,Y,
+D0066__T14-repr-claim__unit_spell,D0066,unit_spell,N,Sai ngữ pháp: '1 milligrams' (phải là số ít)
+D0126__T14-repr-claim__unit_spell,D0126,unit_spell,Y,
+D0063__T14-repr-claim__unit_spell,D0063,unit_spell,N,Sai ngữ pháp: '1 grams' (phải là số ít)
+D0168__T14-repr-claim__unit_spell,D0168,unit_spell,Y,
+D0106__T14-repr-claim__unit_spell,D0106,unit_spell,Y,
+D0090__T14-repr-claim__unit_spell,D0090,unit_spell,Y,
+D0009__T14-repr-claim__unit_spell,D0009,unit_spell,Y,
+D0042__T14-repr-claim__unit_spell,D0042,unit_spell,Y,
+D0102__T14-repr-claim__unit_spell,D0102,unit_spell,Y,
+D0103__T14-repr-claim__unit_spell,D0103,unit_spell,Y,
+D0114__T14-repr-claim__unit_spell,D0114,unit_spell,Y,
+D0179__T14-repr-claim__unit_spell,D0179,unit_spell,Y,
+D0144__T14-repr-claim__unit_spell,D0144,unit_spell,Y,
+D0045__T14-repr-claim__unit_spell,D0045,unit_spell,Y,
+D0062__T14-repr-claim__spacing,D0062,spacing,Y,
+D0085__T14-repr-claim__spacing,D0085,spacing,Y,
+D0147__T14-repr-claim__spacing,D0147,spacing,Y,
+D0092__T14-repr-claim__spacing,D0092,spacing,Y,
+D0020__T14-repr-claim__spacing,D0020,spacing,Y,
+D0118__T14-repr-claim__spacing,D0118,spacing,Y,
+D0114__T14-repr-claim__spacing,D0114,spacing,Y,
+D0008__T14-repr-claim__spacing,D0008,spacing,Y,
+D0099__T14-repr-claim__spacing,D0099,spacing,Y,
+D0161__T14-repr-claim__spacing,D0161,spacing,Y,
+D0144__T14-repr-claim__spacing,D0144,spacing,Y,
+D0140__T14-repr-claim__spacing,D0140,spacing,Y,
+D0044__T14-repr-claim__spacing,D0044,spacing,Y,
+D0112__T14-repr-claim__spacing,D0112,spacing,Y,
+D0124__T14-repr-claim__spacing,D0124,spacing,Y,
+D0118__T14-repr-claim__symbol_micro,D0118,symbol_micro,N,"'ug' là cách viết ASCII thay cho µg, không chuẩn trong văn bản y khoa"
+D0035__T14-repr-claim__symbol_micro,D0035,symbol_micro,N,"'ug' là cách viết ASCII thay cho µg, không chuẩn trong văn bản y khoa"
+D0053__T14-repr-claim__symbol_micro,D0053,symbol_micro,Y,
+D0062__T14-repr-claim__symbol_micro,D0062,symbol_micro,N,"'ug' là cách viết ASCII thay cho µg, không chuẩn trong văn bản y khoa"
+D0108__T14-repr-claim__symbol_micro,D0108,symbol_micro,N,"'ug' là cách viết ASCII thay cho µg, không chuẩn trong văn bản y khoa"
+D0044__T14-repr-claim__symbol_micro,D0044,symbol_micro,N,"'ug' là cách viết ASCII thay cho µg, không chuẩn trong văn bản y khoa"
+D0046__T14-repr-claim__symbol_micro,D0046,symbol_micro,N,"'ug' là cách viết ASCII thay cho µg, không chuẩn trong văn bản y khoa"
+D0031__T14-repr-claim__symbol_micro,D0031,symbol_micro,N,"'ug' là cách viết ASCII thay cho µg, không chuẩn trong văn bản y khoa"
+D0141__T14-repr-claim__symbol_micro,D0141,symbol_micro,N,"'ug' là cách viết ASCII thay cho µg, không chuẩn trong văn bản y khoa"

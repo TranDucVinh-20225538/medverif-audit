@@ -32,14 +32,25 @@ SCORE_DIRS = [
 ]
 
 
+def _verifier_slug(path: Path) -> str | None:
+    name = path.name
+    if "quarantine" in name or ".legacy." in name:
+        return None
+    if name.endswith(".llama.jsonl"):
+        return name[: -len(".llama.jsonl")]
+    if name.endswith(".jsonl"):
+        return name[: -len(".jsonl")]
+    return None
+
+
 def all_verifier_slugs() -> list[str]:
     slugs: set[str] = set()
     for d in SCORE_DIRS:
         if d.is_dir():
             for p in d.glob("*.jsonl"):
-                if ".legacy." in p.name or ".llama." in p.name or "quarantine" in p.name:
-                    continue
-                slugs.add(p.stem)
+                slug = _verifier_slug(p)
+                if slug:
+                    slugs.add(slug)
     if T6A.is_file():
         for c in json.loads(T6A.read_text()).get("checkers", []):
             slugs.add(c["id"])
@@ -66,9 +77,12 @@ def merged_scores(slug: str) -> dict[str, str]:
                 if cand.is_file():
                     paths.append(cand)
     for d in SCORE_DIRS:
-        cand = d / f"{slug}.jsonl"
-        if cand.is_file():
-            paths.append(cand)
+        llama = d / f"{slug}.llama.jsonl"
+        plain = d / f"{slug}.jsonl"
+        if llama.is_file():
+            paths.append(llama)
+        elif plain.is_file():
+            paths.append(plain)
     seen: set[Path] = set()
     for path in paths:
         if path in seen:

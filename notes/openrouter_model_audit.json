@@ -1,0 +1,645 @@
+{
+  "reports": [
+    {
+      "path": "results/raw/e2_main/v1b_medscore.jsonl",
+      "verifier": "v1b_medscore",
+      "expected_model": "openai/gpt-4o",
+      "expected_provider": "OpenAI",
+      "total": 117,
+      "registry_ok": 117,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "openai/gpt-4o",
+          "provider": "OpenAI",
+          "rows": 117
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/e2_main/v5_ragas_nli.jsonl",
+      "verifier": "v5_ragas_nli",
+      "expected_model": "anthropic/claude-sonnet-4.6",
+      "expected_provider": "Anthropic",
+      "total": 117,
+      "registry_ok": 117,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "anthropic/claude-sonnet-4.6",
+          "provider": "Anthropic",
+          "rows": 117
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t2_full/v1b_medscore.jsonl",
+      "verifier": "v1b_medscore",
+      "expected_model": "openai/gpt-4o",
+      "expected_provider": "OpenAI",
+      "total": 533,
+      "registry_ok": 533,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "openai/gpt-4o",
+          "provider": "OpenAI",
+          "rows": 533
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t2_full/v5_ragas_nli.jsonl",
+      "verifier": "v5_ragas_nli",
+      "expected_model": "anthropic/claude-sonnet-4.6",
+      "expected_provider": "Anthropic",
+      "total": 533,
+      "registry_ok": 533,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "anthropic/claude-sonnet-4.6",
+          "provider": "Anthropic",
+          "rows": 533
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t2_pilot/v1b_medscore.jsonl",
+      "verifier": "v1b_medscore",
+      "expected_model": "openai/gpt-4o",
+      "expected_provider": "OpenAI",
+      "total": 100,
+      "registry_ok": 100,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "openai/gpt-4o",
+          "provider": "OpenAI",
+          "rows": 100
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t2_pilot/v5_ragas_nli.jsonl",
+      "verifier": "v5_ragas_nli",
+      "expected_model": "anthropic/claude-sonnet-4.6",
+      "expected_provider": "Anthropic",
+      "total": 100,
+      "registry_ok": 100,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "anthropic/claude-sonnet-4.6",
+          "provider": "Anthropic",
+          "rows": 100
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t3_smoke/v1b_medscore.jsonl",
+      "verifier": "v1b_medscore",
+      "expected_model": "openai/gpt-4o",
+      "expected_provider": "OpenAI",
+      "total": 1,
+      "registry_ok": 1,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "openai/gpt-4o",
+          "provider": "OpenAI",
+          "rows": 1
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t3_smoke/v5_ragas_nli.jsonl",
+      "verifier": "v5_ragas_nli",
+      "expected_model": "anthropic/claude-sonnet-4.6",
+      "expected_provider": "Anthropic",
+      "total": 1,
+      "registry_ok": 1,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "anthropic/claude-sonnet-4.6",
+          "provider": "Anthropic",
+          "rows": 1
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t3_t2/v1b_medscore.jsonl",
+      "verifier": "v1b_medscore",
+      "expected_model": "openai/gpt-4o",
+      "expected_provider": "OpenAI",
+      "total": 497,
+      "registry_ok": 497,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "openai/gpt-4o",
+          "provider": "OpenAI",
+          "rows": 497
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t3_t2/v5_ragas_nli.jsonl",
+      "verifier": "v5_ragas_nli",
+      "expected_model": "anthropic/claude-sonnet-4.6",
+      "expected_provider": "Anthropic",
+      "total": 497,
+      "registry_ok": 497,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "anthropic/claude-sonnet-4.6",
+          "provider": "Anthropic",
+          "rows": 497
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t4_eco/v1_medscore.jsonl",
+      "verifier": "v1_medscore",
+      "expected_model": "mistralai/mistral-small-24b-instruct-2501",
+      "expected_provider": "DeepInfra",
+      "total": 438,
+      "registry_ok": 438,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "mistralai/mistral-small-24b-instruct-2501",
+          "provider": "DeepInfra",
+          "rows": 438
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t4_eco/v1b_medscore.jsonl",
+      "verifier": "v1b_medscore",
+      "expected_model": "openai/gpt-4o",
+      "expected_provider": "OpenAI",
+      "total": 438,
+      "registry_ok": 437,
+      "wrong_model": 0,
+      "unlogged": 1,
+      "by_model": [
+        {
+          "model": "openai/gpt-4o",
+          "provider": "OpenAI",
+          "rows": 437
+        },
+        {
+          "model": "(no api_model)",
+          "provider": "-",
+          "rows": 1
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t4_eco/v4_ragas_nli.jsonl",
+      "verifier": "v4_ragas_nli",
+      "expected_model": "meta-llama/llama-3.3-70b-instruct",
+      "expected_provider": "DeepInfra",
+      "total": 438,
+      "registry_ok": 0,
+      "wrong_model": 0,
+      "unlogged": 438,
+      "by_model": [
+        {
+          "model": "(no api_model)",
+          "provider": "-",
+          "rows": 438
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": true,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t4_eco/v5_ragas_nli.jsonl",
+      "verifier": "v5_ragas_nli",
+      "expected_model": "anthropic/claude-sonnet-4.6",
+      "expected_provider": "Anthropic",
+      "total": 444,
+      "registry_ok": 444,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "anthropic/claude-sonnet-4.6",
+          "provider": "Anthropic",
+          "rows": 444
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t4c_eco/v1b_medscore.jsonl",
+      "verifier": "v1b_medscore",
+      "expected_model": "openai/gpt-4o",
+      "expected_provider": "OpenAI",
+      "total": 139,
+      "registry_ok": 139,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "openai/gpt-4o",
+          "provider": "OpenAI",
+          "rows": 139
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t4c_eco/v4_ragas_nli.jsonl",
+      "verifier": "v4_ragas_nli",
+      "expected_model": "meta-llama/llama-3.3-70b-instruct",
+      "expected_provider": "DeepInfra",
+      "total": 139,
+      "registry_ok": 0,
+      "wrong_model": 0,
+      "unlogged": 139,
+      "by_model": [
+        {
+          "model": "(no api_model)",
+          "provider": "-",
+          "rows": 139
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": true,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t4c_eco/v5_ragas_nli.jsonl",
+      "verifier": "v5_ragas_nli",
+      "expected_model": "anthropic/claude-sonnet-4.6",
+      "expected_provider": "Anthropic",
+      "total": 139,
+      "registry_ok": 139,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "anthropic/claude-sonnet-4.6",
+          "provider": "Anthropic",
+          "rows": 139
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t7/v1_medscore.jsonl",
+      "verifier": "v1_medscore",
+      "expected_model": "mistralai/mistral-small-24b-instruct-2501",
+      "expected_provider": "DeepInfra",
+      "total": 230,
+      "registry_ok": 230,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "mistralai/mistral-small-24b-instruct-2501",
+          "provider": "DeepInfra",
+          "rows": 230
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t7/v1b_medscore.jsonl",
+      "verifier": "v1b_medscore",
+      "expected_model": "openai/gpt-4o",
+      "expected_provider": "OpenAI",
+      "total": 230,
+      "registry_ok": 230,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "openai/gpt-4o",
+          "provider": "OpenAI",
+          "rows": 230
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t7/v4_ragas_nli.jsonl",
+      "verifier": "v4_ragas_nli",
+      "expected_model": "meta-llama/llama-3.3-70b-instruct",
+      "expected_provider": "DeepInfra",
+      "total": 230,
+      "registry_ok": 0,
+      "wrong_model": 0,
+      "unlogged": 230,
+      "by_model": [
+        {
+          "model": "(no api_model)",
+          "provider": "-",
+          "rows": 230
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": true,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t7/v5_ragas_nli.jsonl",
+      "verifier": "v5_ragas_nli",
+      "expected_model": "anthropic/claude-sonnet-4.6",
+      "expected_provider": "Anthropic",
+      "total": 230,
+      "registry_ok": 230,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "anthropic/claude-sonnet-4.6",
+          "provider": "Anthropic",
+          "rows": 230
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/t8/v1b_medscore.jsonl",
+      "verifier": "v1b_medscore",
+      "expected_model": "openai/gpt-4o",
+      "expected_provider": "OpenAI",
+      "total": 200,
+      "registry_ok": 200,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "openai/gpt-4o",
+          "provider": "OpenAI",
+          "rows": 200
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/v1_medscore.jsonl",
+      "verifier": "v1_medscore",
+      "expected_model": "mistralai/mistral-small-24b-instruct-2501",
+      "expected_provider": "DeepInfra",
+      "total": 3541,
+      "registry_ok": 3536,
+      "wrong_model": 0,
+      "unlogged": 5,
+      "by_model": [
+        {
+          "model": "mistralai/mistral-small-24b-instruct-2501",
+          "provider": "DeepInfra",
+          "rows": 3536
+        },
+        {
+          "model": "(no api_model)",
+          "provider": "-",
+          "rows": 5
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw/v4_ragas_nli.jsonl",
+      "verifier": "v4_ragas_nli",
+      "expected_model": "meta-llama/llama-3.3-70b-instruct",
+      "expected_provider": "DeepInfra",
+      "total": 1085,
+      "registry_ok": 0,
+      "wrong_model": 0,
+      "unlogged": 1085,
+      "by_model": [
+        {
+          "model": "(no api_model)",
+          "provider": "-",
+          "rows": 1085
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": true,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw_m1/t7/v1_medscore.jsonl",
+      "verifier": "v1_medscore",
+      "expected_model": "mistralai/mistral-small-24b-instruct-2501",
+      "expected_provider": "DeepInfra",
+      "total": 345,
+      "registry_ok": 345,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "mistralai/mistral-small-24b-instruct-2501",
+          "provider": "DeepInfra",
+          "rows": 345
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw_m1/t7/v4_ragas_nli.jsonl",
+      "verifier": "v4_ragas_nli",
+      "expected_model": "meta-llama/llama-3.3-70b-instruct",
+      "expected_provider": "DeepInfra",
+      "total": 18,
+      "registry_ok": 18,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "meta-llama/llama-3.3-70b-instruct",
+          "provider": "DeepInfra",
+          "rows": 18
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 24,
+      "proven_llama_file": false,
+      "force_quarantine_file": true
+    },
+    {
+      "path": "results/raw_m1/v1_medscore.jsonl",
+      "verifier": "v1_medscore",
+      "expected_model": "mistralai/mistral-small-24b-instruct-2501",
+      "expected_provider": "DeepInfra",
+      "total": 1306,
+      "registry_ok": 1306,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "mistralai/mistral-small-24b-instruct-2501",
+          "provider": "DeepInfra",
+          "rows": 1306
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw_m1/v4_ragas_nli.jsonl",
+      "verifier": "v4_ragas_nli",
+      "expected_model": "meta-llama/llama-3.3-70b-instruct",
+      "expected_provider": "DeepInfra",
+      "total": 436,
+      "registry_ok": 0,
+      "wrong_model": 0,
+      "unlogged": 436,
+      "by_model": [
+        {
+          "model": "(no api_model)",
+          "provider": "-",
+          "rows": 436
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": true,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw_threshold/v1_medscore.jsonl",
+      "verifier": "v1_medscore",
+      "expected_model": "mistralai/mistral-small-24b-instruct-2501",
+      "expected_provider": "DeepInfra",
+      "total": 221,
+      "registry_ok": 221,
+      "wrong_model": 0,
+      "unlogged": 0,
+      "by_model": [
+        {
+          "model": "mistralai/mistral-small-24b-instruct-2501",
+          "provider": "DeepInfra",
+          "rows": 221
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": false,
+      "force_quarantine_file": false
+    },
+    {
+      "path": "results/raw_threshold/v4_ragas_nli.jsonl",
+      "verifier": "v4_ragas_nli",
+      "expected_model": "meta-llama/llama-3.3-70b-instruct",
+      "expected_provider": "DeepInfra",
+      "total": 221,
+      "registry_ok": 0,
+      "wrong_model": 0,
+      "unlogged": 221,
+      "by_model": [
+        {
+          "model": "(no api_model)",
+          "provider": "-",
+          "rows": 221
+        }
+      ],
+      "bad_ids": [],
+      "quarantined_cumulative": 0,
+      "proven_llama_file": true,
+      "force_quarantine_file": false
+    }
+  ],
+  "quarantine_this_run": []
+}

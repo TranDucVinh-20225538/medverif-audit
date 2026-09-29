@@ -1,0 +1,119 @@
+{
+  "flip_ok_bases": 26,
+  "verifiers": {
+    "v1_medscore": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 25,
+      "e2_pass": 21,
+      "e2_n": 25
+    },
+    "v4_ragas_nli": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 21,
+      "e2_pass": 22,
+      "e2_n": 22
+    },
+    "v2a_minicheck": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 12,
+      "e2_pass": 10,
+      "e2_n": 12
+    },
+    "v3_alignscore": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 12,
+      "e2_pass": 12,
+      "e2_n": 12
+    },
+    "v1b_medscore": {
+      "e1_claim_pass": 1,
+      "e1_claim_n": 26,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "v5_ragas_nli": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 26,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "v1c_medscore": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 26,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "v6_ragas_gpt4o_mini": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 26,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "v6_ragas_haiku45": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 26,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "v6_ragas_llama31_8b": {
+      "e1_claim_pass": 2,
+      "e1_claim_n": 26,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "v6_ragas_mistral_small32": {
+      "e1_claim_pass": 2,
+      "e1_claim_n": 26,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "v2b_bespoke": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 24,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "t6_minicheck_deberta": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 0,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "t6_minicheck_roberta": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 0,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "t6_alignscore_base": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 0,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "t6_summac_conv": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 0,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "t6_summac_zs": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 0,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "t6_hhem": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 0,
+      "e2_pass": 0,
+      "e2_n": 0
+    },
+    "t6_granite_guardian": {
+      "e1_claim_pass": 0,
+      "e1_claim_n": 0,
+      "e2_pass": 0,
+      "e2_n": 0
+    }
+  }
+}

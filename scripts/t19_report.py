@@ -296,10 +296,19 @@ def main() -> None:
     payload = {"instances": len(instances), "models": model_rows}
     OUT_JSON.write_text(json.dumps(payload, indent=2) + "\n")
 
+    qi70 = next((r for r in model_rows if r["slug"] == "llama33_70b_api"), {})
     lines = [
         "# T19 scale sweep (RAGAS-NLI)",
         "",
         f"Cohort: `{INST.relative_to(ROOT)}` (n={len(instances)} instances; non-dose excluded).",
+        "",
+        "**QI definition (all models):** subset **natural INV-unit**; conditioning **| C0 PASS** "
+        f"(verifier-specific); exclusions **non_dose_targets** on main slice; scores under "
+        f"`{RAW.relative_to(ROOT)}/` (70B: `{V4_MAIN.relative_to(ROOT)}` + T14 overlap).",
+        "",
+        f"**70B QI line:** {100*(qi70.get('QI') or 0):.1f}% "
+        f"[{100*(qi70.get('QI_ci') or [0,0])[0]:.1f},{100*(qi70.get('QI_ci') or [0,0])[1]:.1f}], "
+        f"n_inv={qi70.get('n_inv', 0)} — see `notes/reconcile_llama70b_qi.md` (not M1 table 84.9% Qwen; not ~91% NS).",
         "",
         "| Params | Model | QI | NS | US | C0 pass | n(inv) | n(E1) | AUROC C0 vs Conv | AUROC Conv vs Unit |",
         "|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|",

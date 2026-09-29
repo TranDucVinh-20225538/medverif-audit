@@ -1,0 +1,10 @@
+{
+  "cap_usd": 2.0,
+  "spent_usd": 0.0023115100000000006,
+  "counts": {
+    "candidates": 17,
+    "regenerated": 17,
+    "dropped": 9,
+    "fixed": 8
+  }
+}

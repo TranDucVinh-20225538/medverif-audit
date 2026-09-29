@@ -1,0 +1,55 @@
+﻿base_id,PI_ok,note
+D0005,Y,
+D0015,Y,
+D0020,N,C0: thiếu tên thuốc (edoxaban) và bỏ bối cảnh NVAF
+D0026,Y,
+D0027,N,"LOẠI: 60 mL là thể tích khối máu tụ, không phải liều"
+D0029,Y,
+D0038,Y,
+D0043,N,"E1: 1,200 thành ""1,2000"", sai định dạng số"
+D0047,Y,
+D0054,Y,
+D0075,Y,
+D0079,N,"C0: thiếu tên thuốc (methylene blue), khoảng 1 to 2 mg/kg bị rút còn 2"
+D0092,N,C0: thiếu tên thuốc (baricitinib)
+D0099,Y,
+D0109,Y,
+D0119,Y,
+D0121,Y,
+D0122,N,"LOẠI: 1500 mL là lượng máu mất, không phải liều"
+D0140,N,"E1: 1,500 thành ""1,1000"", sai số và sai định dạng"
+D0155,N,C0: thiếu tên thuốc (albiglutide)
+D0167,N,C0: bỏ bối cảnh viêm phổi cộng đồng không nặng
+D0181,Y,
+D0192,Y,
+D0195,N,"C0: bỏ bối cảnh INH, câu thành khuyến cáo chung"
+D0197,Y,
+D0204,N,"C0: ""The specific drug"" gượng, evidence không có tên thuốc"
+D0212,N,"C0+E1: ""The study"" không rõ; sửa ngưỡng ""above 100 mg"" thành 200 mg chưa chắc mâu thuẫn"
+D0221,Y,
+D0227,Y,
+D0238,Y,
+D0239,N,C0: thiếu tên thuốc (alpha-lipoic acid)
+D0243,Y,
+D0249,Y,
+D0257,Y,
+D0259,N,"E1: 5 mg chỉ là liều dùng trong nghiên cứu dược động học, đổi liều không làm claim về thể tích phân bố sai rõ ràng"
+D0263,Y,
+D0267,Y,
+D0272,Y,
+D0285,Y,
+D0300,Y,
+D0303,N,C0: thiếu tên thuốc (fosinopril)
+D0306,N,"C0: chỉ ghi ""the gel"", thiếu metronidazole 0.75%"
+D0308,N,"E1: 10 mg vẫn có thể hiệu quả (evidence nhắc viên 10 mg), không mâu thuẫn rõ"
+D0310,Y,
+D0323,Y,
+D0341,Y,
+D0342,N,"E1: 1200 mg once daily vẫn khớp tổng liều 600 mg x2, mâu thuẫn không rõ"
+D0343,Y,
+D0345,N,"E1: câu sau sửa thành ""60 mg rồi tăng lên 60 mg/d"", tự mâu thuẫn trong câu"
+D0349,Y,
+D0367,N,"LOẠI: 2 mL là sức chứa bao khớp, không phải liều; C0 còn bỏ ""1 to"""
+D0381,Y,
+D0391,Y,
+D0399,Y,

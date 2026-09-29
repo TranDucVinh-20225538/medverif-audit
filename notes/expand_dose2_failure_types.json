@@ -1,0 +1,121 @@
+{
+  "labeled_rows": 54,
+  "pi_ok_y": 34,
+  "pi_ok_n": 20,
+  "y_rate": 0.6296,
+  "gate_threshold": 0.85,
+  "gate_pass": false,
+  "failure_tag_counts": {
+    "missing_drug_or_generic_subject": 9,
+    "c0_context_stripped": 3,
+    "non_dose_volume": 3,
+    "thousands_separator_bug": 2,
+    "threshold_context": 1,
+    "weak_e1_contrast": 2,
+    "other": 3
+  },
+  "examples_by_tag": {
+    "c0_context_stripped": [
+      {
+        "base_id": "D0020",
+        "note": "C0: thi\u1ebfu t\u00ean thu\u1ed1c (edoxaban) v\u00e0 b\u1ecf b\u1ed1i c\u1ea3nh NVAF"
+      },
+      {
+        "base_id": "D0167",
+        "note": "C0: b\u1ecf b\u1ed1i c\u1ea3nh vi\u00eam ph\u1ed5i c\u1ed9ng \u0111\u1ed3ng kh\u00f4ng n\u1eb7ng"
+      },
+      {
+        "base_id": "D0195",
+        "note": "C0: b\u1ecf b\u1ed1i c\u1ea3nh INH, c\u00e2u th\u00e0nh khuy\u1ebfn c\u00e1o chung"
+      }
+    ],
+    "missing_drug_or_generic_subject": [
+      {
+        "base_id": "D0020",
+        "note": "C0: thi\u1ebfu t\u00ean thu\u1ed1c (edoxaban) v\u00e0 b\u1ecf b\u1ed1i c\u1ea3nh NVAF"
+      },
+      {
+        "base_id": "D0079",
+        "note": "C0: thi\u1ebfu t\u00ean thu\u1ed1c (methylene blue), kho\u1ea3ng 1 to 2 mg/kg b\u1ecb r\u00fat c\u00f2n 2"
+      },
+      {
+        "base_id": "D0092",
+        "note": "C0: thi\u1ebfu t\u00ean thu\u1ed1c (baricitinib)"
+      },
+      {
+        "base_id": "D0155",
+        "note": "C0: thi\u1ebfu t\u00ean thu\u1ed1c (albiglutide)"
+      },
+      {
+        "base_id": "D0204",
+        "note": "C0: \"The specific drug\" g\u01b0\u1ee3ng, evidence kh\u00f4ng c\u00f3 t\u00ean thu\u1ed1c"
+      },
+      {
+        "base_id": "D0212",
+        "note": "C0+E1: \"The study\" kh\u00f4ng r\u00f5; s\u1eeda ng\u01b0\u1ee1ng \"above 100 mg\" th\u00e0nh 200 mg ch\u01b0a ch\u1eafc m\u00e2u thu\u1eabn"
+      },
+      {
+        "base_id": "D0239",
+        "note": "C0: thi\u1ebfu t\u00ean thu\u1ed1c (alpha-lipoic acid)"
+      },
+      {
+        "base_id": "D0303",
+        "note": "C0: thi\u1ebfu t\u00ean thu\u1ed1c (fosinopril)"
+      }
+    ],
+    "non_dose_volume": [
+      {
+        "base_id": "D0027",
+        "note": "LO\u1ea0I: 60 mL l\u00e0 th\u1ec3 t\u00edch kh\u1ed1i m\u00e1u t\u1ee5, kh\u00f4ng ph\u1ea3i li\u1ec1u"
+      },
+      {
+        "base_id": "D0122",
+        "note": "LO\u1ea0I: 1500 mL l\u00e0 l\u01b0\u1ee3ng m\u00e1u m\u1ea5t, kh\u00f4ng ph\u1ea3i li\u1ec1u"
+      },
+      {
+        "base_id": "D0367",
+        "note": "LO\u1ea0I: 2 mL l\u00e0 s\u1ee9c ch\u1ee9a bao kh\u1edbp, kh\u00f4ng ph\u1ea3i li\u1ec1u; C0 c\u00f2n b\u1ecf \"1 to\""
+      }
+    ],
+    "other": [
+      {
+        "base_id": "D0259",
+        "note": "E1: 5 mg ch\u1ec9 l\u00e0 li\u1ec1u d\u00f9ng trong nghi\u00ean c\u1ee9u d\u01b0\u1ee3c \u0111\u1ed9ng h\u1ecdc, \u0111\u1ed5i li\u1ec1u kh\u00f4ng l\u00e0m claim v\u1ec1 th\u1ec3 t\u00edch ph\u00e2n b\u1ed1 sai r\u00f5 r\u00e0ng"
+      },
+      {
+        "base_id": "D0308",
+        "note": "E1: 10 mg v\u1eabn c\u00f3 th\u1ec3 hi\u1ec7u qu\u1ea3 (evidence nh\u1eafc vi\u00ean 10 mg), kh\u00f4ng m\u00e2u thu\u1eabn r\u00f5"
+      },
+      {
+        "base_id": "D0345",
+        "note": "E1: c\u00e2u sau s\u1eeda th\u00e0nh \"60 mg r\u1ed3i t\u0103ng l\u00ean 60 mg/d\", t\u1ef1 m\u00e2u thu\u1eabn trong c\u00e2u"
+      }
+    ],
+    "thousands_separator_bug": [
+      {
+        "base_id": "D0043",
+        "note": "E1: 1,200 th\u00e0nh \"1,2000\", sai \u0111\u1ecbnh d\u1ea1ng s\u1ed1"
+      },
+      {
+        "base_id": "D0140",
+        "note": "E1: 1,500 th\u00e0nh \"1,1000\", sai s\u1ed1 v\u00e0 sai \u0111\u1ecbnh d\u1ea1ng"
+      }
+    ],
+    "threshold_context": [
+      {
+        "base_id": "D0212",
+        "note": "C0+E1: \"The study\" kh\u00f4ng r\u00f5; s\u1eeda ng\u01b0\u1ee1ng \"above 100 mg\" th\u00e0nh 200 mg ch\u01b0a ch\u1eafc m\u00e2u thu\u1eabn"
+      }
+    ],
+    "weak_e1_contrast": [
+      {
+        "base_id": "D0212",
+        "note": "C0+E1: \"The study\" kh\u00f4ng r\u00f5; s\u1eeda ng\u01b0\u1ee1ng \"above 100 mg\" th\u00e0nh 200 mg ch\u01b0a ch\u1eafc m\u00e2u thu\u1eabn"
+      },
+      {
+        "base_id": "D0342",
+        "note": "E1: 1200 mg once daily v\u1eabn kh\u1edbp t\u1ed5ng li\u1ec1u 600 mg x2, m\u00e2u thu\u1eabn kh\u00f4ng r\u00f5"
+      }
+    ]
+  }
+}

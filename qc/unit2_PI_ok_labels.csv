@@ -1,0 +1,41 @@
+﻿base_id,original_span,converted_span,PI_ok,note
+D0001,400 mg,0.4 g,N,
+D0006,600 mg,0.6 g,N,
+D0016,0.25 mg/kg,250 mcg/kg,N,
+D0025,100 mg,0.1 g,N,
+D0051,150 mg,0.15 g,N,
+D0061,500 mg,0.5 g,Y,
+D0067,400 mg,0.4 g,N,
+D0069,300 mg,0.3 g,N,
+D0073,240 mg,0.24 g,N,
+D0085,1.0 mg,1000 mcg,N,1 mg → 1000 mcg: giữ như lần trước (N)
+D0086,1 g,1000 mg,Y,
+D0099,1 mg,1000 mcg,N,1 mg → 1000 mcg: giữ như lần trước (N)
+D0115,10 μg,0.01 mg,N,0.01 mg không tự nhiên
+D0127,20 μg,0.02 mg,N,0.02 mg không tự nhiên
+D0141,500 mg,0.5 g,Y,
+D0145,100 mg,0.1 g,N,
+D0154,0.75 mg/kg,750 mcg/kg,N,
+D0159,150 mg,0.15 g,N,
+D0160,500 mL,0.5 L,N,Giống D0096: Y nếu là dịch truyền IV
+D0163,0.5 mg,500 mcg,Y,
+D0168,100 µg,0.1 mg,Y,
+D0171,800 mg,0.8 g,N,
+D0193,25 μg,0.025 mg,N,Y nếu thuốc là levothyroxine (sách hay viết 0.025 mg); không rõ thuốc nên để N
+D0194,200 micrograms,0.2 mg,Y,
+D0220,1500 mg,1.5 g,Y,
+D0223,90 g,90000 mg,N,90000 mg không ai viết
+D0233,2.5 mcg,0.0025 mg,N,0.0025 mg quá nhiều số 0
+D0241,1000 mg,1 g,Y,
+D0260,100 mg,0.1 g,N,
+D0265,200 mg,0.2 g,N,
+D0273,500 mg,0.5 g,Y,
+D0284,500 mg,0.5 g,Y,
+D0289,0.5 mg,500 mcg,Y,
+D0321,4200 mg,4.2 g,Y,
+D0326,900 mg,0.9 g,N,
+D0342,600 mg,0.6 g,N,
+D0370,200 mg,0.2 g,N,
+D0377,1500 mg,1.5 g,Y,
+D0378,0.4 mg/kg,400 mcg/kg,N,
+D0395,1000 mg,1 g,Y,

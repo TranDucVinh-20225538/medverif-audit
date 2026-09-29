@@ -82,18 +82,29 @@ def main() -> None:
         rng = random.Random(args.seed)
         sample_n = max(1, (len(dose_bases) + 3) // 4) if dose_bases else 0
         sample_ids = set(rng.sample(dose_bases, min(sample_n, len(dose_bases))))
-        by_id = {(r["base_id"], r.get("condition")): r for r in inst}
-        for bid in sorted(sample_ids):
-            c0 = by_id.get((bid, "C0"), {})
-            e1 = by_id.get((bid, "E1-claim"), by_id.get((bid, "E1-evid"), {}))
+        c0_by_base = {
+            r["base_id"]: r for r in inst if r.get("type") == "DOSE" and r.get("condition") == "C0"
+        }
+        by_base_e1: dict[str, list[dict]] = {}
+        for r in inst:
+            if r.get("condition") == "E1-claim" and r.get("type") == "DOSE":
+                by_base_e1.setdefault(r["base_id"], []).append(r)
+        sample_list = sorted(sample_ids)
+        for i, bid in enumerate(sample_list):
+            c0 = c0_by_base.get(bid, {})
+            e1_rows = by_base_e1.get(bid, [])
+            mag_pref = "x2" if i % 2 == 0 else "x10"
+            e1 = next((r for r in e1_rows if r.get("magnitude") == mag_pref), None)
+            if not e1 and e1_rows:
+                e1 = sorted(e1_rows, key=lambda r: r.get("magnitude") or "")[0]
+            e1 = e1 or {}
             dose_rows.append(
                 {
                     "base_id": bid,
                     "claim_c0": c0.get("claim", ""),
                     "evidence_c0": c0.get("evidence", ""),
-                    "e1_condition": e1.get("condition", ""),
+                    "e1_magnitude": e1.get("magnitude", ""),
                     "e1_claim": e1.get("claim", ""),
-                    "e1_evidence": e1.get("evidence", ""),
                     "PI_ok": "",
                 }
             )

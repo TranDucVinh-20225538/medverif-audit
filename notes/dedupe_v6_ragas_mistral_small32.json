@@ -1,0 +1,25 @@
+{
+  "instances": "data/t7/instances_e1_unit.jsonl",
+  "n_instances": 230,
+  "scores": "results/raw/t7/v6_ragas_mistral_small32.jsonl",
+  "out": "results/raw/t7/v6_ragas_mistral_small32.jsonl",
+  "input_lines": 192,
+  "duplicate_instance_id": 56,
+  "unknown_instance_id": 0,
+  "stale_content_sha1": 0,
+  "kept": 136,
+  "sample_duplicate_ids": [
+    "D0035__E1-unit-claim__x1000",
+    "D0035__E1-unit-evid__x1000",
+    "D0036__E1-unit-claim__x1000",
+    "D0036__E1-unit-evid__x1000",
+    "D0038__E1-unit-claim__x1000",
+    "D0038__E1-unit-evid__x1000",
+    "D0039__E1-unit-claim__x1000",
+    "D0039__E1-unit-evid__x1000",
+    "D0040__E1-unit-claim__x1000",
+    "D0040__E1-unit-evid__x1000"
+  ],
+  "sample_stale_ids": [],
+  "sample_unknown_ids": []
+}

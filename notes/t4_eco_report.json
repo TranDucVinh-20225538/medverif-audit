@@ -23,12 +23,12 @@
   "n_classifier_changed_value_raw": 2,
   "false_alarm_excludes": [
     [
-      "D0077__eco",
-      "command_r"
-    ],
-    [
       "D0122__eco",
       "deepseek_chat"
+    ],
+    [
+      "D0077__eco",
+      "command_r"
     ]
   ],
   "n_correct_for_false_alarm_labeled": 139,
@@ -115,22 +115,22 @@
     },
     "v4_ragas_nli": {
       "exact_surface_variant": {
-        "n": 26,
-        "fail_rate": 0.11538461538461539,
-        "ci_lo": 0.0,
-        "ci_hi": 0.23076923076923078
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
       },
       "exact_verbatim": {
-        "n": 89,
-        "fail_rate": 0.1348314606741573,
-        "ci_lo": 0.06741573033707865,
-        "ci_hi": 0.21348314606741572
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
       },
       "frequency_rephrased": {
-        "n": 24,
-        "fail_rate": 0.0,
-        "ci_lo": 0.0,
-        "ci_hi": 0.0
+        "n": 0,
+        "fail_rate": null,
+        "ci_lo": null,
+        "ci_hi": null
       }
     },
     "v1_medscore": {
@@ -340,7 +340,7 @@
     "v6_ragas_nli": true,
     "v1b_medscore": true,
     "v5_ragas_nli": true,
-    "v4_ragas_nli": true,
+    "v4_ragas_nli": false,
     "v1_medscore": true,
     "v2a_minicheck": true,
     "v3_alignscore": true,

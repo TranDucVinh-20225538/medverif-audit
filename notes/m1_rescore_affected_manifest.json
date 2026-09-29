@@ -1,0 +1,15 @@
+{
+  "n_affected": 286,
+  "n_residual_inv_unit": 15,
+  "residual_ids_subset_of_affected": true,
+  "purged_lines": {
+    "v2a_minicheck.jsonl": 0,
+    "v3_alignscore.jsonl": 0,
+    "v1_medscore.jsonl": 0,
+    "v4_ragas_nli.jsonl": 0
+  },
+  "paths": {
+    "affected": "data/v3/instances_m1_rescore_affected.jsonl",
+    "node30_pending": "data/v3/instances_m1_pending_node30.jsonl"
+  }
+}

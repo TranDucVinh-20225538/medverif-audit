@@ -1,0 +1,13 @@
+{
+  "gate_threshold_pct": 85,
+  "invalid_reason": "expand_dose_spotcheck_fail",
+  "expand_dose_instances_marked_invalid": 2723,
+  "bases_main": 138,
+  "bases_by_type": {
+    "POLARITY": 138
+  },
+  "instances_main_valid": 623,
+  "instances_threshold_valid": 0,
+  "instances_range_valid": 0,
+  "cpu_early": 623
+}

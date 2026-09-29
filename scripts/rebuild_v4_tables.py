@@ -18,6 +18,7 @@ COMMANDS = [
     [sys.executable, str(ROOT / "scripts/t4c_eco_report.py")],
     [sys.executable, str(ROOT / "scripts/m1_before_after_report.py")],
     [sys.executable, str(ROOT / "scripts/e2_t7_comparison_report.py")],
+    [sys.executable, str(ROOT / "scripts/v4_llama_headline_report.py")],
     [
         sys.executable,
         str(ROOT / "analysis/analyze.py"),
