@@ -1,0 +1,30 @@
+{
+  "summary": {
+    "candidates_stage1": 200,
+    "stage1_bases": 208,
+    "whitelist_inv_bases": 16,
+    "bases_written_main_ext": 16
+  },
+  "funnel": {
+    "textbook_candidates_sent_to_stage1": 200,
+    "stage1_drop_claim_generation_rules": {
+      "span_not_unique_in_claim": 2
+    },
+    "stage1_drop_phi4_claim_validation": 12,
+    "stage1_drop_perturb_rules": 3,
+    "stage1_drop_phi4_inv_validation": 0,
+    "stage1_drops_all": {
+      "validator_no": 12,
+      "span_not_unique_in_claim": 2,
+      "perturb_rule_edit_failed": 3
+    },
+    "stage1_bases_unique": 208,
+    "stage1_candidates_accounted_approx": 225,
+    "post_perturb_instances": 1472,
+    "bases_with_whitelist_inv_unit": 16,
+    "bases_without_whitelist_inv": 192,
+    "whitelist_inv_rate_on_stage1_bases": 0.07692307692307693,
+    "disjointness_pass_on_all_stage1_bases": true,
+    "disjointness_note": ""
+  }
+}

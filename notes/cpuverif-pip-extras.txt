@@ -1,0 +1,3 @@
+# Login-node cpuverif extras (Lane B SummaC). Install:
+#   pip install -i https://pypi.org/simple -r notes/cpuverif-pip-extras.txt
+summac>=0.0.4

@@ -22,7 +22,9 @@
     "data/t14/instances_t14.jsonl": "non-dose: drop 6 valid T14 repr rows",
     "data/v3/t17_downdose.jsonl": "non-dose: drop 24 valid T17 downdose rows",
     "data/t3/instances_inv_families.jsonl": "non-dose: drop 2 valid T3 INV-family rows",
-    "data/v3/instances_main_inv11_m1_gap.jsonl": "INV11 backfill: drop D0176 non-dose; 10 RAW main rows"
+    "data/v3/instances_main_inv11_m1_gap.jsonl": "INV11 backfill: drop D0176 non-dose; 10 RAW main rows",
+    "data/main_ext/bases_main_ext.jsonl": "main_ext v2: rebuild kept after author_whitelist INV (40 smoke → 16 kept)",
+    "data/main_ext/instances_main_ext.jsonl": "main_ext v2: instances for 16 whitelist-kept bases only"
   },
   "allow": []
 }

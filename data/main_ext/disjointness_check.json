@@ -1,0 +1,20 @@
+{
+  "n_bases_checked": 208,
+  "overlap_counts": {
+    "base_id": 0,
+    "source_passage_id": 0,
+    "sentence_hash": 0
+  },
+  "overlap_total": 0,
+  "forbidden_sizes": {
+    "base_ids": 455,
+    "source_passage_ids": 165,
+    "sentence_hashes": 587
+  },
+  "overlap_samples": {
+    "base_id": [],
+    "source_passage_id": [],
+    "sentence_hash": []
+  },
+  "sentence_hash_fn": "sha256 normalize_ws casefold (t15_disjoint)"
+}
