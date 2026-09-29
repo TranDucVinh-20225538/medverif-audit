@@ -1,0 +1,19 @@
+{
+  "n_bases_checked": 2000,
+  "overlap_counts": {
+    "base_id": 0,
+    "source_passage_id": 0,
+    "sentence_hash": 0
+  },
+  "overlap_total": 0,
+  "forbidden_sizes": {
+    "base_ids": 425,
+    "source_passage_ids": 138,
+    "sentence_hashes": 552
+  },
+  "overlap_samples": {
+    "base_id": [],
+    "source_passage_id": [],
+    "sentence_hash": []
+  }
+}
