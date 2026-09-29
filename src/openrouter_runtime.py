@@ -7,7 +7,7 @@ import time
 from dataclasses import dataclass
 from typing import Any
 
-from llm_client import LLMResponse, assert_no_thinking_leak, chat
+from llm_client import LLMResponse, assert_no_thinking_leak, chat, map_concurrent
 
 
 @dataclass
