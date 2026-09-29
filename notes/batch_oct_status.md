@@ -1,32 +1,45 @@
 # Batch Oct status (HPC)
 
-Updated: 2026-09-29 17:12 (UTC+7)
+Updated: 2026-09-29 17:36 (UTC+7)
 
 ## Gates
 
 | Item | Status |
 |------|--------|
-| H0–H2 | Not tracked in-repo; T19 scaffold ready (P1, local GPU). |
-| H3–H4 | — |
-| T14 OR scoring | Background `run_t14_score_openrouter.sh` (check `/tmp/t14_or_score.log`). |
-| **medverif-v3** | **HELD** (`notes/HOLD_medverif_v3`); 61441 cancelled — confirm before resubmit. |
-| Data integrity | `notes/integrity_check_2026-09-29.md`; hooks: shrink guard on `data/` + `results/raw/`. |
-| T15 step 1 | Builder fixed (`span_start_in_sentence`); re-run `scripts/t15_build_training_data.py` (long CPU). |
-| T17 pack | Missing (`data/v3/t17_downdose.jsonl`); T19 runs without T17 until built. |
+| Git `origin/master` | `8d7ad8e` (integrity `5ff57d5` + shrink `71d5389` + T17 `b80917e` + OR lock fix). |
+| **medverif-v3** | **HOLD** (`notes/HOLD_medverif_v3`) — do not resubmit. |
+| **T19** | **Blocked** until user says **HF approved** (`notes/t19_llama_hf_gate.md`). |
+| H2 (M1 OR) | `jobs/run_t1_m1_rescore_openrouter.sh` queued after T17 (`/tmp/t1_m1_h2.log`). |
+| Data integrity | `notes/integrity_check_2026-09-29.md`; shrink allow-list in `notes/allow_data_shrink.json`. |
 
-## T19 scale sweep (P1)
+## T14 OpenRouter (budget ≤ $3)
 
-- **Pack:** `data/t19/instances_t19.jsonl` (n=1060: main DOSE + E1-unit + T14; non-dose excluded).
-- **Local models (1 GPU, serial):** Llama-3.2-1B/3B/3.1-8B Instruct via `jobs/run_t19_scale_sweep.sh`.
-- **70B:** existing `results/raw/v4_ragas_nli.llama.jsonl` + `results/raw/t14/v4_ragas_nli.jsonl` (no rerun).
-- **Outputs:** `notes/t19_scale_sweep.md`, `results/figures/t19_scale.png`.
-- **Slurm:** flock `t19_<slug>`; chain via `jobs/run_t19_submit_chain.sh`.
-- **Blocker:** Meta Llama weights not in `HF_HOME` — accept HF license + run `scripts/t19_prefetch_models.sh` on login node (`notes/t19_llama_hf_gate.md`). Job 61439 cancelled (stuck load, 0 rows).
-- **61439 fix:** `HF_HUB_OFFLINE=1`, progress flush every 20 rows in `scripts/t19_score_jsonl.py`.
+- **Pack:** n=233 (`data/t14/manifest_t14.json`).
+- **Progress (rows / 233):** v1 **233**, v4 **233**, v1b **216**, v5 **128**, v6 judges **0** (resume after T17).
+- **Spend:** **$0.85** / $3.00 (`scripts/t14_openrouter_budget.py`).
+- **Report:** `results/tables/t14_c0_conditional_pass.md` (refreshed; partial until v1b/v5/v6 complete).
+- **Runner:** `jobs/run_t14_score_openrouter.sh` (chain `/tmp/t14_h2_chain.log` after T17).
+- **Fix:** `MEDVERIF_GPU_GLOBAL_SCORE_LOCK=0` so OR jobs are not blocked by `gpu0_scoring.lock`.
+
+## T17 down-dose (A1 done, A2 scoring)
+
+- **Pack:** `data/v3/t17_downdose.jsonl` **n=612**; QC **`qc/t17_sample.csv`** (40 rows).
+- **Scoring:** `jobs/run_t17_score_hpc.sh` → `results/raw/t17/` (budget ≤ **$5**).
+- **Log:** `/tmp/t17_hpc_score.log`, `jobs/logs/t17_hpc_*.log`.
+
+## T15 (CPU, no training)
+
+- **Step 1:** `scripts/t15_build_training_data.py` re-run with `HF_HOME=~/.cache/huggingface` (`/tmp/t15_build.log`).
+- **Next:** `scripts/t15_disjointness_check.py` → `data/t15/disjointness_check.json`, then push (no GPU train).
+
+## 70B QI (paper)
+
+- **Use:** **76.5% QI, n_inv=51** (natural INV-unit | C0, non-dose, Llama-3.3-70B V4).
+- **Not paper QI:** ~91% is **NS** (E1×10), not QI; see `notes/reconcile_llama70b_qi.md`.
 
 ## GPU
 
-- Partition: `defq`, 1×GPU/job, ~4 GPUs/user (vip4 when available).
+- Partition: `defq`; tmlr GPU yielded — reserve for **T19** after HF approval only.
 
 <!-- job-elapsed-table -->
 
@@ -37,7 +50,7 @@ Updated: 2026-09-29 17:12 (UTC+7)
 | 61411 | t3rep-U2-A2 | — | — |  | 00:00:00 | — | CANCELLED |
 | 61412 | t3rep-U3-A2 | — | — |  | 00:00:00 | — | CANCELLED |
 | 61413 | t3rep-U2-A3 | — | — |  | 00:00:00 | — | CANCELLED |
-| 61414 | t3rep-U3-A3 | — | — |  | 00:00:00 | — | CANCELLED |
+| 61414 | t3rep-U3-A4 | — | — |  | 00:00:00 | — | CANCELLED |
 | 61415 | t3rep-U2-A4 | — | — |  | 00:00:00 | — | CANCELLED |
 | 61416 | t3rep-U3-A4 | — | — |  | 00:00:00 | — | CANCELLED |
 | 61417 | t3rep-U2-A5 | — | — |  | 00:00:00 | — | CANCELLED |
@@ -46,4 +59,3 @@ Updated: 2026-09-29 17:12 (UTC+7)
 | 61420 | t3rep-U3-A6 | — | — |  | 00:00:00 | — | CANCELLED |
 | 61421 | t3rep-U1-A5 | — | — |  | 00:00:00 | — | CANCELLED |
 | 61422 | t3rep-U1-A2 | — | — |  | 00:00:00 | — | CANCELLED |
-
