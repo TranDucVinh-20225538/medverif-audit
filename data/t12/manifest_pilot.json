@@ -1,0 +1,15 @@
+{
+  "mode": "pilot",
+  "n_instances": 140,
+  "n_full_scope": 904,
+  "strata": {
+    "C0": 20,
+    "E1-claim_x2": 20,
+    "E1-unit-claim": 20,
+    "E1-unit-evid": 20,
+    "INV-unit": 20,
+    "inv_frequency": 20,
+    "inv_route": 20
+  },
+  "path": "data/t12/instances_pilot.jsonl"
+}

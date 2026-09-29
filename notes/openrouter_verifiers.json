@@ -41,7 +41,7 @@
       "note": "RAGAS default judge when unspecified; pinned for reproducibility."
     },
     "t12_deepeval_faithfulness": {
-      "openrouter_model": "gpt-4o",
+      "openrouter_model": "openai/gpt-4o",
       "provider": "OpenAI",
       "note": "DeepEval FaithfulnessMetric default; via OpenRouter openai/gpt-4o if native key absent."
     },

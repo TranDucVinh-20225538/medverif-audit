@@ -1,0 +1,16 @@
+{
+  "mode": "full",
+  "n_instances": 904,
+  "n_full_scope": 904,
+  "strata": {
+    "C0": 415,
+    "E1-claim_x2": 109,
+    "INV-unit": 66,
+    "other": 34,
+    "inv_route": 28,
+    "inv_frequency": 22,
+    "E1-unit-claim": 115,
+    "E1-unit-evid": 115
+  },
+  "path": "data/t12/instances_full.jsonl"
+}
