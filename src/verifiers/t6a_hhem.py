@@ -16,8 +16,12 @@ VERIFIER_ID = "t6a_hhem"
 def load():
     started = time.perf_counter()
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    tok = AutoTokenizer.from_pretrained(MODEL_ID)
-    model = AutoModelForSequenceClassification.from_pretrained(MODEL_ID).to(device)
+    tok = AutoTokenizer.from_pretrained(
+        MODEL_ID, trust_remote_code=True, use_fast=False
+    )
+    model = AutoModelForSequenceClassification.from_pretrained(
+        MODEL_ID, trust_remote_code=True
+    ).to(device)
     model.eval()
     return (model, tok, device), time.perf_counter() - started
 

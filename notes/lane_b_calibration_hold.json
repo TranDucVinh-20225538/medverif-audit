@@ -1,0 +1,14 @@
+{
+  "pause_downstream": true,
+  "threshold_agreement": 0.97,
+  "blocked_checkers": [
+    "t6a_summac_zs",
+    "t6a_summac_conv"
+  ],
+  "pending_hpc_rescore": [
+    "t6a_hhem",
+    "t6a_granite_guardian"
+  ],
+  "reason": "Summac agreement 67.7% vs node30 under env_id 7e0333729b5da0af; HHEM tokenizer + Granite (vLLM) not yet scored on login cpuverif.",
+  "lane_b_env_id": "7e0333729b5da0af"
+}

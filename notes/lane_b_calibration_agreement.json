@@ -1,0 +1,84 @@
+{
+  "lane_b_env_id": "7e0333729b5da0af",
+  "threshold_agreement": 0.97,
+  "pause_downstream": true,
+  "blocked_checkers": [
+    "t6a_summac_zs",
+    "t6a_summac_conv"
+  ],
+  "checkers": [
+    {
+      "n": 93,
+      "agreement": 1.0,
+      "mean_abs_score_diff": 1.0800337599169824e-07,
+      "hpc_lane_b_env_ids": [
+        "7e0333729b5da0af"
+      ],
+      "checker": "t6a_minicheck_roberta",
+      "node30_file": "t6_minicheck_roberta.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_minicheck_roberta.jsonl"
+    },
+    {
+      "n": 93,
+      "agreement": 0.989247311827957,
+      "mean_abs_score_diff": 0.006819924239509849,
+      "hpc_lane_b_env_ids": [
+        "7e0333729b5da0af"
+      ],
+      "checker": "t6a_minicheck_deberta",
+      "node30_file": "t6_minicheck_deberta.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_minicheck_deberta.jsonl"
+    },
+    {
+      "n": 93,
+      "agreement": 1.0,
+      "mean_abs_score_diff": 1.2648274360965657e-07,
+      "hpc_lane_b_env_ids": [
+        "7e0333729b5da0af"
+      ],
+      "checker": "t6a_alignscore_base",
+      "node30_file": "t6_alignscore_base.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_alignscore_base.jsonl"
+    },
+    {
+      "n": 93,
+      "agreement": 0.6774193548387096,
+      "mean_abs_score_diff": 0.6522234227077695,
+      "hpc_lane_b_env_ids": [
+        "7e0333729b5da0af"
+      ],
+      "checker": "t6a_summac_zs",
+      "node30_file": "t6_summac_zs.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_summac_zs.jsonl"
+    },
+    {
+      "n": 93,
+      "agreement": 0.6774193548387096,
+      "mean_abs_score_diff": 0.20847445293780295,
+      "hpc_lane_b_env_ids": [
+        "7e0333729b5da0af"
+      ],
+      "checker": "t6a_summac_conv",
+      "node30_file": "t6_summac_conv.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_summac_conv.jsonl"
+    },
+    {
+      "n": 0,
+      "agreement": null,
+      "mean_abs_score_diff": null,
+      "hpc_lane_b_env_ids": [],
+      "checker": "t6a_hhem",
+      "node30_file": "t6_hhem.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_hhem.jsonl"
+    },
+    {
+      "n": 0,
+      "agreement": null,
+      "mean_abs_score_diff": null,
+      "hpc_lane_b_env_ids": [],
+      "checker": "t6a_granite_guardian",
+      "node30_file": "t6_granite_guardian.jsonl",
+      "hpc_file": "results/raw/lane_b/calibration_200/t6_granite_guardian.jsonl"
+    }
+  ]
+}
