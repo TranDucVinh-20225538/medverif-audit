@@ -491,10 +491,21 @@ def render_nemo() -> list[str]:
 LEGACY_PRIMARY = frozenset({"t6a_summac_zs", "t6a_granite_guardian"})
 
 
+def granite_allowed() -> bool:
+    path = ROOT / "notes/m1_granite_cpuverif_agreement.json"
+    if not path.is_file():
+        return False
+    doc = json.loads(path.read_text())
+    return bool(doc.get("pass"))
+
+
 def primary_slugs_for_run() -> tuple[str, ...]:
+    slugs = PRIMARY_SLUGS
     if "--skip-legacy" in sys.argv:
-        return tuple(s for s in PRIMARY_SLUGS if s not in LEGACY_PRIMARY)
-    return PRIMARY_SLUGS
+        slugs = tuple(s for s in slugs if s not in LEGACY_PRIMARY)
+    elif not granite_allowed():
+        slugs = tuple(s for s in slugs if s != "t6a_granite_guardian")
+    return slugs
 
 
 def main() -> None:

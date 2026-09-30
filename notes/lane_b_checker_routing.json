@@ -2,13 +2,13 @@
   "cpuverif_checkers": [
     "t6a_minicheck_roberta",
     "t6a_minicheck_deberta",
-    "t6a_alignscore_base"
+    "t6a_alignscore_base",
+    "t6a_granite_guardian"
   ],
   "legacy_checkers": [
     "t6a_summac_zs",
     "t6a_summac_conv",
-    "t6a_hhem",
-    "t6a_granite_guardian"
+    "t6a_hhem"
   ],
   "threshold_agreement": 0.97,
   "legacy_downstream_allowed": [

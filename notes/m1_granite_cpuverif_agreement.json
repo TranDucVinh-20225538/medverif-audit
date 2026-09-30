@@ -1,0 +1,12 @@
+{
+  "checker": "t6a_granite_guardian",
+  "env": "cpuverif",
+  "threshold": 0.95,
+  "pass": false,
+  "status": "pending",
+  "slurm_job": "61613",
+  "na_reason": "cpuverif_legacy KeyError granite (transformers too old); agreement probe submitted on cpuverif (job 61613). Until pass>=95%, Granite omitted from M1-strong primary.",
+  "overall_verdict_agreement": null,
+  "c0_probe": {},
+  "e1_probe": {}
+}

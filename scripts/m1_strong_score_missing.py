@@ -80,17 +80,26 @@ def _subprocess_env() -> dict[str, str]:
 
 
 def score_checker(cid: str, instances: Path, outdir: Path, *, legacy: bool) -> None:
-    conda = os.environ.get("MEDVERIF_LEGACY_CONDA", "cpuverif_legacy")
+    legacy_gpu = os.environ.get("MEDVERIF_LEGACY_GPU") == "1"
     if legacy:
-        py = subprocess.check_output(
+        conda = os.environ.get("MEDVERIF_LEGACY_CONDA", "cpuverif_legacy")
+        clean = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"}
+        py_path = subprocess.check_output(
             ["conda", "run", "-n", conda, "python", "-c", "import sys; print(sys.executable)"],
             text=True,
+            env=clean,
         ).strip()
         profile = "legacy"
-        py_path = py
     else:
         py_path = sys.executable
         profile = "cpuverif"
+    run_env = {
+        **_subprocess_env(),
+        "MEDVERIF_LANE_B_ENV_PROFILE": profile,
+        "PYTHONPATH": f"{ROOT / 'src'}:{ROOT / 'analysis'}:{ROOT / 'scripts'}",
+    }
+    if not (legacy and legacy_gpu):
+        run_env["CUDA_VISIBLE_DEVICES"] = ""
     subprocess.run(
         [
             py_path,
@@ -104,12 +113,7 @@ def score_checker(cid: str, instances: Path, outdir: Path, *, legacy: bool) -> N
         ],
         check=True,
         cwd=str(ROOT),
-        env={
-            **_subprocess_env(),
-            "MEDVERIF_LANE_B_ENV_PROFILE": profile,
-            "CUDA_VISIBLE_DEVICES": "",
-            "PYTHONPATH": f"{ROOT / 'src'}:{ROOT / 'analysis'}:{ROOT / 'scripts'}",
-        },
+        env=run_env,
     )
 
 
@@ -145,7 +149,8 @@ def main() -> None:
                 continue
             print(json.dumps({"score": cid, "pack": pack, "instances": n_inst}), flush=True)
             try:
-                score_checker(cid, inst, outdir, legacy=cid in legacy_checkers())
+                use_legacy = cid in legacy_checkers() and cid != "t6a_granite_guardian"
+                score_checker(cid, inst, outdir, legacy=use_legacy)
             except subprocess.CalledProcessError as exc:
                 print(json.dumps({"error": cid, "pack": pack, "exit": exc.returncode}))
 
