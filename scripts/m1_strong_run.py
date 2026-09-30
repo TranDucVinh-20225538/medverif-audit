@@ -387,7 +387,7 @@ def checker_block(
     down_after_dirs: tuple[Path, ...] = (),
 ) -> dict:
     ns_sc = merge_verdicts(slug, ns_dirs)
-    ns_t17 = merge_verdicts(slug, t17_dirs)
+    ns_t17 = merge_verdicts(slug, (ROOT / "results/raw/lane_b/m1_strong_ns",) + t17_dirs)
     us_before = merge_verdicts(slug, us_before_dirs)
     us_after = merge_verdicts(slug, us_after_dirs)
     down_sc = merge_verdicts(slug, t17_dirs)
