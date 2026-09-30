@@ -1,0 +1,70 @@
+{
+  "nat3_source": "qc/nat3_labels.csv",
+  "inv_unit_total": 62,
+  "nat3_y": 22,
+  "nat3_n": 40,
+  "alignscore_base": {
+    "all_inv_unit": {
+      "n_instances": 62,
+      "n_scored": 21,
+      "blocked_k": 16,
+      "not_blocked_k": 5,
+      "block_rate": 0.7619047619047619,
+      "ci_lo": 0.5714285714285714,
+      "ci_hi": 0.9523809523809523,
+      "fraction": "16/21"
+    },
+    "nat3_y_only": {
+      "n_instances": 22,
+      "n_scored": 20,
+      "blocked_k": 15,
+      "not_blocked_k": 5,
+      "block_rate": 0.75,
+      "ci_lo": 0.55,
+      "ci_hi": 0.9,
+      "fraction": "15/20"
+    },
+    "nat3_n_only": {
+      "n_instances": 40,
+      "n_scored": 1,
+      "blocked_k": 1,
+      "not_blocked_k": 0,
+      "block_rate": 1.0,
+      "ci_lo": 1.0,
+      "ci_hi": 1.0,
+      "fraction": "1/1"
+    }
+  },
+  "alignscore_large": {
+    "all_inv_unit": {
+      "n_instances": 62,
+      "n_scored": 21,
+      "blocked_k": 17,
+      "not_blocked_k": 4,
+      "block_rate": 0.8095238095238095,
+      "ci_lo": 0.6190476190476191,
+      "ci_hi": 0.9523809523809523,
+      "fraction": "17/21"
+    },
+    "nat3_y_only": {
+      "n_instances": 22,
+      "n_scored": 20,
+      "blocked_k": 16,
+      "not_blocked_k": 4,
+      "block_rate": 0.8,
+      "ci_lo": 0.6,
+      "ci_hi": 0.95,
+      "fraction": "16/20"
+    },
+    "nat3_n_only": {
+      "n_instances": 40,
+      "n_scored": 1,
+      "blocked_k": 1,
+      "not_blocked_k": 0,
+      "block_rate": 1.0,
+      "ci_lo": 1.0,
+      "ci_hi": 1.0,
+      "fraction": "1/1"
+    }
+  }
+}
