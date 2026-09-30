@@ -30,7 +30,7 @@ python3 src/score_jsonl.py --verifier v4_ragas_nli --instances "${INST}" \
 python3 scripts/openrouter_budget.py || exit 2
 export MEDVERIF_V1B_OPENROUTER_MODEL=anthropic/claude-sonnet-4.6
 export MEDVERIF_V1B_PROVIDER=Anthropic
-export MEDVERIF_V1B_TOKENIZER_MODEL=HuggingFaceH4/zephyr-7b-beta
+# Default v1b tokenizer (Mistral-Small) — zephyr breaks on newer transformers
 python3 src/score_jsonl.py --verifier v1b_medscore --instances "${INST}" \
   --out "${RAW}/pxm_sonnet_medscore.jsonl"
 
