@@ -27,7 +27,7 @@ _M1_RATE = r"(?:/kg)?(?:/(?:min|day|dose|hr|h|d))?"
 _M1_UNIT_SPEC = rf"(?:(?:{_M1_MASS}|{_M1_VOL}){_M1_RATE}|units)"
 M1_DOSE_RE_SPEC = re.compile(rf"(?<![\w./])({_M1_NUM})\s*({_M1_UNIT_SPEC})(?![\w/])")
 
-M1_DOSE_RE = M1_DOSE_RE_NODE30
+M1_DOSE_RE = M1_DOSE_RE_SPEC
 
 _MASS_TO_MG = {
     "mg": Decimal("1"),
