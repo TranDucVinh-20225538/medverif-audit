@@ -6,7 +6,28 @@ import re
 from decimal import Decimal, InvalidOperation
 from typing import Iterable, List, Tuple
 
-from text_utils import DOSE_RE, format_decimal, parse_decimal
+from text_utils import format_decimal, parse_decimal
+
+# M1 dose regex that produced the node30 M1 texts (commit 02ae97e data; text_utils in stash "pre
+# node30-results merge"). Kept verbatim so those texts stay reproducible.
+_M1_NUM = r"\d{1,3}(?:,\d{3})*(?:\.\d+)?|\d+(?:\.\d+)?"
+_M1_UNIT_NODE30 = (
+    r"(?:mg/kg/min|mg/kg/day|mg/kg/h|mcg/kg/min|mcg/kg/day|mcg/kg/h|"
+    r"mcg/kg|mg/kg|"
+    r"mcg|µg|μg|mg|mL|ml|L|l|g|units|micrograms|milligrams|grams)"
+)
+M1_DOSE_RE_NODE30 = re.compile(rf"(?<![\w./])({_M1_NUM})\s*({_M1_UNIT_NODE30})(?![\w/])")
+
+# Amendment 5 (notes/m1_prereg_amendment5.md): every mass, volume, mass/kg and volume/kg dose with
+# optional rate suffix is rewritten (mass→mg, volume→mL, mass/mass→mg/kg). Concentrations such as
+# mg/dL or mcg/mL are outside the amendment-4 spec and stay untouched.
+_M1_MASS = r"micrograms|milligrams|grams|mcg|µg|μg|mg|g"
+_M1_VOL = r"mL|ml|L|l"
+_M1_RATE = r"(?:/kg)?(?:/(?:min|day|dose|hr|h|d))?"
+_M1_UNIT_SPEC = rf"(?:(?:{_M1_MASS}|{_M1_VOL}){_M1_RATE}|units)"
+M1_DOSE_RE_SPEC = re.compile(rf"(?<![\w./])({_M1_NUM})\s*({_M1_UNIT_SPEC})(?![\w/])")
+
+M1_DOSE_RE = M1_DOSE_RE_NODE30
 
 _MASS_TO_MG = {
     "mg": Decimal("1"),
@@ -44,7 +65,7 @@ def _split_unit(unit: str) -> tuple[str, str]:
 
 def canonicalize_dose_span(number: str, unit: str) -> str:
     """One dose token in canonical mass (mg) or volume (mL) form."""
-    n = parse_decimal(number)
+    n = parse_decimal(number.replace(",", ""))
     base, suffix = _split_unit(unit)
     if base in _MASS_TO_MG:
         mg = n * _MASS_TO_MG[base]
@@ -56,10 +77,11 @@ def canonicalize_dose_span(number: str, unit: str) -> str:
     return f"{format_decimal(n)} {unit}"
 
 
-def normalize_quantities(text: str) -> str:
+def normalize_quantities(text: str, dose_re: re.Pattern | None = None) -> str:
     """Replace each dose match with canonical form; other text unchanged."""
     if not text:
         return text
+    pattern = dose_re or M1_DOSE_RE
 
     def repl(match: re.Match) -> str:
         try:
@@ -67,11 +89,11 @@ def normalize_quantities(text: str) -> str:
         except (ValueError, InvalidOperation):
             return match.group(0)
 
-    return DOSE_RE.sub(repl, text)
+    return pattern.sub(repl, text)
 
 
-def apply_m1_pair(claim: str, evidence: str) -> tuple[str, str]:
-    return normalize_quantities(claim), normalize_quantities(evidence)
+def apply_m1_pair(claim: str, evidence: str, dose_re: re.Pattern | None = None) -> tuple[str, str]:
+    return normalize_quantities(claim, dose_re), normalize_quantities(evidence, dose_re)
 
 
 _FREQ_CANON = (
