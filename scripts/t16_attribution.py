@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from collections import defaultdict
@@ -31,6 +32,18 @@ UNIT_RE = re.compile(
 )
 
 
+def resolve_device() -> torch.device:
+    forced = (os.environ.get("MEDVERIF_T16_DEVICE") or "").strip().lower()
+    if forced in ("cpu", "cuda", "cuda:0"):
+        dev = torch.device(forced)
+        if dev.type == "cuda" and not torch.cuda.is_available():
+            raise RuntimeError(f"MEDVERIF_T16_DEVICE={forced} but torch.cuda.is_available() is False")
+        return dev
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    return torch.device("cpu")
+
+
 def load_minicheck_roberta(ckpt: Path | None):
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
@@ -42,9 +55,19 @@ def load_minicheck_roberta(ckpt: Path | None):
         model_id = "lytang/MiniCheck-RoBERTa-Large"
     cache = str(ROOT / ".cache/huggingface")
     tok = AutoTokenizer.from_pretrained(model_id, cache_dir=cache)
-    model = AutoModelForSequenceClassification.from_pretrained(model_id, cache_dir=cache)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = resolve_device()
+    # Full-precision for IG backward (fp16 often unstable here).
+    dtype = torch.float32
+    model = AutoModelForSequenceClassification.from_pretrained(
+        model_id, cache_dir=cache, torch_dtype=dtype
+    )
     model.to(device).eval()
+    print(
+        json.dumps(
+            {"t16": "load", "model_id": model_id, "device": str(device), "dtype": str(dtype)}
+        ),
+        flush=True,
+    )
     return model, tok, device
 
 
@@ -121,13 +144,21 @@ def subst_tests(model, tok, device, claim: str, evidence: str) -> tuple[float, f
     return base_score - score(unit_claim), base_score - score(num_claim)
 
 
-def run_model(tag: str, ckpt: Path | None, rows: list[dict], limit: int) -> dict:
+def run_model(
+    tag: str,
+    ckpt: Path | None,
+    rows: list[dict],
+    limit: int,
+    *,
+    steps: int,
+    handle,
+) -> dict:
     model, tok, device = load_minicheck_roberta(ckpt)
     todo = rows[:limit] if limit else rows
     by_cond: dict[str, list[dict]] = defaultdict(list)
-    for row in todo:
+    for idx, row in enumerate(todo, start=1):
         claim, evidence = verifier_inputs(row)
-        shares = ig_claim(model, tok, device, claim, evidence)
+        shares = ig_claim(model, tok, device, claim, evidence, steps=steps)
         du, dn = subst_tests(model, tok, device, claim, evidence)
         rec = {
             "instance_id": row["instance_id"],
@@ -137,6 +168,13 @@ def run_model(tag: str, ckpt: Path | None, rows: list[dict], limit: int) -> dict
             "subst_numeral_delta": dn,
         }
         by_cond[row.get("condition", "?")].append(rec)
+        handle.write(json.dumps({"model": tag, **rec}, ensure_ascii=False) + "\n")
+        handle.flush()
+        if idx == 1 or idx % 5 == 0 or idx == len(todo):
+            print(
+                json.dumps({"t16": "progress", "model": tag, "done": idx, "total": len(todo)}),
+                flush=True,
+            )
     return {"model": tag, "by_condition": by_cond}
 
 
@@ -166,10 +204,23 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--report", type=Path, default=ROOT / "notes/t16_report.md")
     parser.add_argument("--fig", type=Path, default=ROOT / "results/figures/t16_attribution.png")
+    parser.add_argument("--ig-steps", type=int, default=int(os.environ.get("MEDVERIF_T16_IG_STEPS", "16")))
     args = parser.parse_args()
     rows = read_jsonl(args.instances)
     raw_out = ROOT / "results/raw/t16/attribution.jsonl"
     raw_out.parent.mkdir(parents=True, exist_ok=True)
+    print(
+        json.dumps(
+            {
+                "t16": "start",
+                "instances": len(rows),
+                "limit": args.limit,
+                "ig_steps": args.ig_steps,
+                "device_policy": os.environ.get("MEDVERIF_T16_DEVICE", "auto"),
+            }
+        ),
+        flush=True,
+    )
 
     models = [
         ("base", None),
@@ -180,8 +231,9 @@ def main() -> None:
     with raw_out.open("w") as handle:
         for tag, ckpt in models:
             if ckpt and not ckpt.is_dir():
+                print(json.dumps({"t16": "skip_model", "tag": tag, "reason": "missing_ckpt"}), flush=True)
                 continue
-            run = run_model(tag, ckpt, rows, args.limit)
+            run = run_model(tag, ckpt, rows, args.limit, steps=args.ig_steps, handle=handle)
             all_runs.append(run)
             means: dict[str, dict[str, float]] = {}
             for cond, recs in run["by_condition"].items():
@@ -194,9 +246,6 @@ def main() -> None:
                 means[cond]["subst_unit_delta"] = float(np.mean([r["subst_unit_delta"] for r in recs]))
                 means[cond]["subst_numeral_delta"] = float(np.mean([r["subst_numeral_delta"] for r in recs]))
             summary["models"].append({"tag": tag, "means": means})
-            for recs in run["by_condition"].values():
-                for r in recs:
-                    handle.write(json.dumps({"model": tag, **r}, ensure_ascii=False) + "\n")
 
     plot(summary, args.fig)
     lines = ["# T16 attribution (MiniCheck-RoBERTa-L)", ""]
