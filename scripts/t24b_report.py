@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from analyze import bootstrap_rate, read_jsonl  # noqa: E402
 from t13_best_of_n_report import score_from_row  # noqa: E402
+from verifier_labels import verifier_display_name  # noqa: E402
 
 INST = ROOT / "data/t24/instances_t24b.jsonl"
 RAW = ROOT / "results/raw/t24b"
@@ -35,6 +36,7 @@ CHECKERS = (
     "t6a_alignscore_base",
     "v2a_minicheck",
     "v3_alignscore",
+    "v2b_bespoke",
     "v4_ragas_nli",
     "v1_medscore",
 )
@@ -104,8 +106,9 @@ def main() -> None:
 
     for slug in CHECKERS:
         scores = load_scores(slug)
+        name = verifier_display_name(slug)
         if not scores:
-            lines.append(f"| {slug} | — (no scores) | | | |")
+            lines.append(f"| {name} | — (no scores) | | | |")
             continue
         cells: list[str] = []
         for cond, _label, mode in CONDITIONS:
@@ -129,7 +132,7 @@ def main() -> None:
                 hit = int(vt == "PASS") if mode == "pass" else int(vt == "FAIL")
                 groups.append((hit, 1))
             cells.append(fmt_boot(bootstrap_rate(groups)))
-        lines.append(f"| {slug} | {' | '.join(cells)} |")
+        lines.append(f"| {name} | {' | '.join(cells)} |")
 
     OUT.write_text("\n".join(lines) + "\n")
     print(f"wrote {OUT}")
