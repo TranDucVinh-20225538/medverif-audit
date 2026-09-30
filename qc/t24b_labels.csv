@@ -1,0 +1,21 @@
+question_id,condition,edit_ok,note
+T24_001,T24b-unit-down,Y,
+T24_002,T24b-unit-down,Y,
+T24_007,T24b-unit-down,Y,
+T24_008,T24b-unit-down,Y,Câu không nêu tên thuốc
+T24_041,T24b-unit-down,Y,Khoảng 250–500: đổi đơn vị chung nên cả khoảng thành mcg; hợp lệ
+T24_056,T24b-unit-down,Y,
+T24_064,T24b-unit-down,Y,
+T24_001,T24b-unit-up,Y,
+T24_008,T24b-unit-up,Y,Câu không nêu tên thuốc
+T24_009,T24b-unit-up,Y,
+T24_019,T24b-unit-up,Y,
+T24_020,T24b-unit-up,Y,75 kg glucose phi lý đến mức hiển nhiên; vẫn hợp lệ ×1000
+T24_022,T24b-unit-up,Y,
+T24_059,T24b-unit-up,Y,2 kg KCl phi lý hiển nhiên; vẫn hợp lệ ×1000
+T24_001,T24b-value-x10,Y,
+T24_006,T24b-value-x10,Y,
+T24_015,T24b-value-x10,N,"N: 1000 μg khởi đầu lớn hơn mức tối đa 500 μg ngay trong câu, tự mâu thuẫn"
+T24_018,T24b-value-x10,Y,
+T24_037,T24b-value-x10,N,"N: ngưỡng '100 mg or less', sửa ngưỡng không phải liều cụ thể"
+T24_048,T24b-value-x10,Y,

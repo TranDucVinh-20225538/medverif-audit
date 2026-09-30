@@ -22,6 +22,10 @@ RAW = ROOT / "results/raw/t24b"
 OUT = ROOT / "notes/t24b_report.md"
 MANIFEST = ROOT / "notes/t24b_build_manifest.json"
 T6_MANIFEST = ROOT / "notes/t6a_eco_checkers.json"
+SPOT_LABELS = ROOT / "qc/t24b_labels.csv"
+
+# Threshold-style doses (not point doses); excluded from all T24b cells per author review.
+EXCLUDED_QUESTIONS = frozenset({"T24_037", "T24_066"})
 
 CONDITIONS = (
     ("T24b-C0", "C0 PASS rate", "pass"),
@@ -73,10 +77,29 @@ def fmt_boot(b: dict) -> str:
     return f"{100*b['rate']:.1f}%{ci} (n={b['den']}, q={b['n_bases']})"
 
 
+def spot_check_summary() -> str:
+    if not SPOT_LABELS.is_file():
+        return ""
+    import csv
+
+    rows = list(csv.DictReader(SPOT_LABELS.open(newline="", encoding="utf-8")))
+    n = len(rows)
+    ok = sum(1 for r in rows if (r.get("edit_ok") or "").strip().upper() == "Y")
+    unit_rows = [r for r in rows if (r.get("condition") or "").startswith("T24b-unit")]
+    unit_ok = sum(1 for r in unit_rows if (r.get("edit_ok") or "").strip().upper() == "Y")
+    return (
+        f"Edit spot-check: `{SPOT_LABELS.relative_to(ROOT)}` — **{ok}/{n}** edits valid; "
+        f"unit-up/down sample **{unit_ok}/{len(unit_rows)}**."
+    )
+
+
 def main() -> None:
     by_q: dict[str, list[dict]] = defaultdict(list)
     for row in read_jsonl(INST):
-        by_q[row["question_id"]].append(row)
+        qid = row["question_id"]
+        if qid in EXCLUDED_QUESTIONS:
+            continue
+        by_q[qid].append(row)
 
     lines = [
         "# T24b — real-RAG dose prevalence & perturbation (P1)",
@@ -85,6 +108,9 @@ def main() -> None:
         "**55** unique Y questions (56 Y minus **T24_003**; duplicate rows excluded). "
         "**8** unique N → appendix only (span-matcher errors). "
         "**0/56** Y answers re-express a unit → **prevalence**, not in-the-wild conversion.",
+        "",
+        spot_check_summary(),
+        f"Excluded from all cells (threshold doses, not point doses): **{', '.join(sorted(EXCLUDED_QUESTIONS))}**.",
         "",
     ]
     if MANIFEST.is_file():
