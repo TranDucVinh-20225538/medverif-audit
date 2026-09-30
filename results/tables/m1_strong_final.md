@@ -93,8 +93,8 @@ Paired rule: a pair needs a parsed BEFORE and a parsed AFTER-M1 verdict on a gat
 | --- | --- | --- | --- | --- | --- | --- | ---: | --- |
 | Mistral-Small-24B (MedScore) | CLAIM | 100.0% [100.0,100.0] (103/103) | 99.1% [97.2,100.0] (106/107) | 99.1% [97.2,100.0] (106/107) | 107 / 107 / 0 | 1/1 | 0.48 | True |
 | Mistral-Small-24B (MedScore) | EVID | 93.2% [88.3,98.1] (96/103) | 59.8% [50.5,69.2] (64/107) | 88.8% [82.2,94.4] (95/107) | 107 / 107 / 0 | 32/1 | 1.77e-07 | True |
-| Llama-3.3-70B (RAGAS NLI) | CLAIM | 100.0% [100.0,100.0] (102/102) | 100.0% [100.0,100.0] (104/104) | 97.1% [93.3,100.0] (101/104) | 104 / 106 / 0 | 0/3 | 0.248 | True |
-| Llama-3.3-70B (RAGAS NLI) | EVID | 91.2% [85.3,96.1] (93/102) | 82.1% [74.5,89.6] (87/106) | 84.9% [77.4,91.5] (90/106) | 106 / 106 / 0 | 11/8 | 0.646 | True |
+| Llama-3.3-70B (RAGAS NLI) | CLAIM | 99.0% [97.1,100.0] (102/103) | 92.5% [86.8,97.2] (98/106) | 97.2% [93.4,100.0] (103/106) | 106 / 107 / 0 | 7/2 | 0.182 | True |
+| Llama-3.3-70B (RAGAS NLI) | EVID | 90.3% [83.5,96.1] (93/103) | 53.8% [44.3,63.2] (57/106) | 84.9% [77.4,91.5] (90/106) | 106 / 106 / 1 | 37/4 | 5.81e-07 | True |
 | Claude Sonnet 4.6 (RAGAS NLI) | CLAIM | 100.0% [100.0,100.0] (103/103) | NA | NA | 0 / 0 / 107 | 0/0 | — | None |
 | Claude Sonnet 4.6 (RAGAS NLI) | EVID | 98.1% [95.1,100.0] (101/103) | NA | NA | 0 / 0 / 107 | 0/0 | — | None |
 
@@ -104,8 +104,8 @@ Paired rule: a pair needs a parsed BEFORE and a parsed AFTER-M1 verdict on a gat
 | --- | --- | --- | --- | --- | --- | --- | ---: | --- |
 | Mistral-Small-24B (MedScore) | CLAIM | 100.0% [100.0,100.0] (95/95) | 100.0% [100.0,100.0] (75/75) | 100.0% [100.0,100.0] (75/75) | 75 / 75 / 0 | 0/0 | — | True |
 | Mistral-Small-24B (MedScore) | EVID | 98.9% [96.8,100.0] (94/95) | 93.3% [86.7,98.7] (70/75) | 96.0% [90.7,100.0] (72/75) | 75 / 75 / 0 | 3/1 | 0.617 | True |
-| Llama-3.3-70B (RAGAS NLI) | CLAIM | 97.9% [94.7,100.0] (93/95) | 89.2% [81.1,95.9] (66/74) | 100.0% [100.0,100.0] (74/74) | 74 / 74 / 0 | 8/0 | 0.0133 | True |
-| Llama-3.3-70B (RAGAS NLI) | EVID | 93.5% [88.2,97.8] (87/93) | 62.2% [51.4,73.0] (46/74) | 98.6% [95.9,100.0] (73/74) | 74 / 74 / 0 | 27/0 | 5.62e-07 | True |
+| Llama-3.3-70B (RAGAS NLI) | CLAIM | 97.9% [94.7,100.0] (93/95) | 89.3% [81.3,96.0] (67/75) | 100.0% [100.0,100.0] (75/75) | 75 / 75 / 0 | 8/0 | 0.0133 | True |
+| Llama-3.3-70B (RAGAS NLI) | EVID | 93.5% [88.2,97.8] (87/93) | 62.7% [52.0,73.3] (47/75) | 98.7% [96.0,100.0] (74/75) | 75 / 75 / 0 | 27/0 | 5.62e-07 | True |
 | Claude Sonnet 4.6 (RAGAS NLI) | CLAIM | 100.0% [100.0,100.0] (95/95) | NA | NA | 0 / 0 / 75 | 0/0 | — | None |
 | Claude Sonnet 4.6 (RAGAS NLI) | EVID | 98.9% [96.8,100.0] (94/95) | NA | NA | 0 / 0 / 75 | 0/0 | — | None |
 
@@ -121,8 +121,8 @@ Side = Bind up AND Bind down, where Bind up compares **US_up after** with NS_x10
 
 ## V4 denominator reconciliation (7338b21 pooled bug)
 
-- **7338b21** pooled E1-unit-claim + E1-unit-evid under one bootstrap → US_up before ≈ **91.0%** (191/210 FAIL instances).
-- **Correct (EVID only, |C0 PASS|, parsed):** **82.1% [74.5,89.6] (87/106)** — matches repair report **n_paired≈114** on E1-unit-evid.
+- **7338b21** pooled E1-unit-claim + E1-unit-evid under one bootstrap → US_up before ≈ **73.2%** (156/213 FAIL instances).
+- **Correct (EVID only, |C0 PASS|, parsed):** **54.2% [43.9,63.6] (58/107)** — matches repair report **n_paired≈114** on E1-unit-evid.
 - **Card/repair (~55.8% PASS / 61 FAIL):** same **evid-only** cohort; 7338b21 **91.1%** was **FAIL rate on pooled 203**, not PASS.
 
 

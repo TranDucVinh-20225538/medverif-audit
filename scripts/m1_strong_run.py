@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from analyze import _c0_pass_bases, _parsed, bootstrap_rate, read_jsonl  # noqa: E402
-from canonical_scores import score_filename  # noqa: E402
+from canonical_scores import _score_file_allowed, score_filename  # noqa: E402
 from m1_gate import instance_gate, pack_coverage  # noqa: E402
 from m1_parse_errors import finalize_and_abort  # noqa: E402
 from non_dose_targets import NON_DOSE_TARGET_BASES  # noqa: E402
@@ -156,7 +156,10 @@ def merge_verdicts(slug: str, dirs: tuple[Path, ...]) -> dict[str, str]:
     out: dict[str, str] = {}
     for d in dirs:
         for name in alt_names:
-            out.update(_read_score_file(d / name))
+            path = d / name
+            if path.is_file() and not _score_file_allowed(path):
+                continue
+            out.update(_read_score_file(path))
     return out
 
 
