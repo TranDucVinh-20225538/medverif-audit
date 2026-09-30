@@ -1,0 +1,24 @@
+{
+ "POLARITY|template": {
+  "approved_labelled": 0,
+  "author_rejected": 0,
+  "text_mismatch": 13,
+  "no_gemini_pass": 29
+ },
+ "POLARITY|llm": {
+  "approved_labelled": 0,
+  "author_rejected": 0,
+  "text_mismatch": 13,
+  "no_gemini_pass": 0
+ },
+ "DOSE|llm": {
+  "approved_labelled": 40,
+  "author_rejected": 17,
+  "text_mismatch": 0,
+  "no_gemini_pass": 0
+ },
+ "pilot_must_reject_approved": [
+  2,
+  4
+ ]
+}

@@ -1,0 +1,762 @@
+{
+ "v2a_minicheck": {
+  "display_name": "MiniCheck-Flan-T5-Large",
+  "family": "small fine-tuned checkers",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 106,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9468085106382979,
+    "lo": 0.8936170212765957,
+    "hi": 0.9893617021276596,
+    "num": 89,
+    "den": 94,
+    "n_bases": 94
+   },
+   "div2_evid": {
+    "rate": 0.9361702127659575,
+    "lo": 0.8829787234042553,
+    "hi": 0.9787234042553191,
+    "num": 88,
+    "den": 94,
+    "n_bases": 94
+   },
+   "div10_claim": {
+    "rate": 0.9263157894736842,
+    "lo": 0.8736842105263158,
+    "hi": 0.9789473684210527,
+    "num": 88,
+    "den": 95,
+    "n_bases": 95
+   },
+   "div10_evid": {
+    "rate": 0.8736842105263158,
+    "lo": 0.8,
+    "hi": 0.9368421052631579,
+    "num": 83,
+    "den": 95,
+    "n_bases": 95
+   }
+  }
+ },
+ "v3_alignscore": {
+  "display_name": "AlignScore-large",
+  "family": "small fine-tuned checkers",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 104,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9782608695652174,
+    "lo": 0.9456521739130435,
+    "hi": 1.0,
+    "num": 90,
+    "den": 92,
+    "n_bases": 92
+   },
+   "div2_evid": {
+    "rate": 0.9782608695652174,
+    "lo": 0.9456521739130435,
+    "hi": 1.0,
+    "num": 90,
+    "den": 92,
+    "n_bases": 92
+   },
+   "div10_claim": {
+    "rate": 0.946236559139785,
+    "lo": 0.8924731182795699,
+    "hi": 0.989247311827957,
+    "num": 88,
+    "den": 93,
+    "n_bases": 93
+   },
+   "div10_evid": {
+    "rate": 0.967741935483871,
+    "lo": 0.9247311827956989,
+    "hi": 1.0,
+    "num": 90,
+    "den": 93,
+    "n_bases": 93
+   }
+  }
+ },
+ "v2b_bespoke": {
+  "display_name": "Bespoke-MiniCheck-7B",
+  "family": "7B fine-tuned checker",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 110,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.979381443298969,
+    "lo": 0.9484536082474226,
+    "hi": 1.0,
+    "num": 95,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div2_evid": {
+    "rate": 0.9690721649484536,
+    "lo": 0.9278350515463918,
+    "hi": 1.0,
+    "num": 94,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div10_claim": {
+    "rate": 0.9693877551020408,
+    "lo": 0.9285714285714286,
+    "hi": 1.0,
+    "num": 95,
+    "den": 98,
+    "n_bases": 98
+   },
+   "div10_evid": {
+    "rate": 0.9591836734693877,
+    "lo": 0.9183673469387755,
+    "hi": 0.9897959183673469,
+    "num": 94,
+    "den": 98,
+    "n_bases": 98
+   }
+  }
+ },
+ "t6a_minicheck_roberta": {
+  "display_name": "MiniCheck-RoBERTa",
+  "family": "small fine-tuned checkers",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 99,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9772727272727273,
+    "lo": 0.9431818181818182,
+    "hi": 1.0,
+    "num": 86,
+    "den": 88,
+    "n_bases": 88
+   },
+   "div2_evid": {
+    "rate": 0.9886363636363636,
+    "lo": 0.9659090909090909,
+    "hi": 1.0,
+    "num": 87,
+    "den": 88,
+    "n_bases": 88
+   },
+   "div10_claim": {
+    "rate": 0.9775280898876404,
+    "lo": 0.9438202247191011,
+    "hi": 1.0,
+    "num": 87,
+    "den": 89,
+    "n_bases": 89
+   },
+   "div10_evid": {
+    "rate": 0.9662921348314607,
+    "lo": 0.9213483146067416,
+    "hi": 1.0,
+    "num": 86,
+    "den": 89,
+    "n_bases": 89
+   }
+  }
+ },
+ "t6a_minicheck_deberta": {
+  "display_name": "MiniCheck-DeBERTa",
+  "family": "small fine-tuned checkers",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 99,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9887640449438202,
+    "lo": 0.9550561797752809,
+    "hi": 1.0,
+    "num": 88,
+    "den": 89,
+    "n_bases": 89
+   },
+   "div2_evid": {
+    "rate": 0.9887640449438202,
+    "lo": 0.9662921348314607,
+    "hi": 1.0,
+    "num": 88,
+    "den": 89,
+    "n_bases": 89
+   },
+   "div10_claim": {
+    "rate": 0.9888888888888889,
+    "lo": 0.9666666666666667,
+    "hi": 1.0,
+    "num": 89,
+    "den": 90,
+    "n_bases": 90
+   },
+   "div10_evid": {
+    "rate": 0.9444444444444444,
+    "lo": 0.9,
+    "hi": 0.9888888888888889,
+    "num": 85,
+    "den": 90,
+    "n_bases": 90
+   }
+  }
+ },
+ "t6a_alignscore_base": {
+  "display_name": "AlignScore-base",
+  "family": "small fine-tuned checkers",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 102,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9777777777777777,
+    "lo": 0.9444444444444444,
+    "hi": 1.0,
+    "num": 88,
+    "den": 90,
+    "n_bases": 90
+   },
+   "div2_evid": {
+    "rate": 0.9888888888888889,
+    "lo": 0.9666666666666667,
+    "hi": 1.0,
+    "num": 89,
+    "den": 90,
+    "n_bases": 90
+   },
+   "div10_claim": {
+    "rate": 0.9120879120879121,
+    "lo": 0.8571428571428571,
+    "hi": 0.967032967032967,
+    "num": 83,
+    "den": 91,
+    "n_bases": 91
+   },
+   "div10_evid": {
+    "rate": 0.9120879120879121,
+    "lo": 0.8461538461538461,
+    "hi": 0.967032967032967,
+    "num": 83,
+    "den": 91,
+    "n_bases": 91
+   }
+  }
+ },
+ "t6a_summac_zs": {
+  "display_name": "SummaC-ZS",
+  "family": "small fine-tuned checkers",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 88,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.975,
+    "lo": 0.9375,
+    "hi": 1.0,
+    "num": 78,
+    "den": 80,
+    "n_bases": 80
+   },
+   "div2_evid": {
+    "rate": 0.9625,
+    "lo": 0.9125,
+    "hi": 1.0,
+    "num": 77,
+    "den": 80,
+    "n_bases": 80
+   },
+   "div10_claim": {
+    "rate": 0.9135802469135802,
+    "lo": 0.8518518518518519,
+    "hi": 0.9629629629629629,
+    "num": 74,
+    "den": 81,
+    "n_bases": 81
+   },
+   "div10_evid": {
+    "rate": 0.9259259259259259,
+    "lo": 0.8641975308641975,
+    "hi": 0.9753086419753086,
+    "num": 75,
+    "den": 81,
+    "n_bases": 81
+   }
+  }
+ },
+ "t6a_summac_conv": {
+  "display_name": "SummaC-Conv",
+  "family": "small fine-tuned checkers",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 82,
+  "cells": {
+   "div2_claim": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   },
+   "div2_evid": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   },
+   "div10_claim": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   },
+   "div10_evid": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   }
+  }
+ },
+ "t6a_hhem": {
+  "display_name": "HHEM",
+  "family": "small fine-tuned checkers",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 107,
+  "cells": {
+   "div2_claim": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   },
+   "div2_evid": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   },
+   "div10_claim": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   },
+   "div10_evid": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   }
+  }
+ },
+ "t6a_granite_guardian": {
+  "display_name": "Granite Guardian 2B",
+  "family": "small fine-tuned checkers",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 109,
+  "cells": {
+   "div2_claim": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   },
+   "div2_evid": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   },
+   "div10_claim": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   },
+   "div10_evid": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "num": 0,
+    "den": 0,
+    "n_bases": 0
+   }
+  }
+ },
+ "v1_medscore": {
+  "display_name": "Mistral-Small-24B (MedScore)",
+  "family": "LLM judges",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 110,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9690721649484536,
+    "lo": 0.9278350515463918,
+    "hi": 1.0,
+    "num": 94,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div2_evid": {
+    "rate": 0.9896907216494846,
+    "lo": 0.9690721649484536,
+    "hi": 1.0,
+    "num": 96,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div10_claim": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 98,
+    "den": 98,
+    "n_bases": 98
+   },
+   "div10_evid": {
+    "rate": 0.9795918367346939,
+    "lo": 0.9489795918367347,
+    "hi": 1.0,
+    "num": 96,
+    "den": 98,
+    "n_bases": 98
+   }
+  }
+ },
+ "v1b_medscore": {
+  "display_name": "GPT-4o (MedScore)",
+  "family": "LLM judges",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 110,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.8865979381443299,
+    "lo": 0.8144329896907216,
+    "hi": 0.9384020618556699,
+    "num": 86,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div2_evid": {
+    "rate": 0.8144329896907216,
+    "lo": 0.7319587628865979,
+    "hi": 0.8868556701030925,
+    "num": 79,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div10_claim": {
+    "rate": 0.9795918367346939,
+    "lo": 0.9489795918367347,
+    "hi": 1.0,
+    "num": 96,
+    "den": 98,
+    "n_bases": 98
+   },
+   "div10_evid": {
+    "rate": 0.7040816326530612,
+    "lo": 0.6122448979591837,
+    "hi": 0.7959183673469388,
+    "num": 69,
+    "den": 98,
+    "n_bases": 98
+   }
+  }
+ },
+ "v1c_medscore": {
+  "display_name": "GPT-4o-mini (MedScore)",
+  "family": "LLM judges",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 109,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9479166666666666,
+    "lo": 0.8958333333333334,
+    "hi": 0.9895833333333334,
+    "num": 91,
+    "den": 96,
+    "n_bases": 96
+   },
+   "div2_evid": {
+    "rate": 0.9166666666666666,
+    "lo": 0.8645833333333334,
+    "hi": 0.96875,
+    "num": 88,
+    "den": 96,
+    "n_bases": 96
+   },
+   "div10_claim": {
+    "rate": 0.9896907216494846,
+    "lo": 0.9690721649484536,
+    "hi": 1.0,
+    "num": 96,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div10_evid": {
+    "rate": 0.9278350515463918,
+    "lo": 0.8762886597938144,
+    "hi": 0.9690721649484536,
+    "num": 90,
+    "den": 97,
+    "n_bases": 97
+   }
+  }
+ },
+ "v4_ragas_nli": {
+  "display_name": "Llama-3.3-70B (RAGAS NLI)",
+  "family": "LLM judges",
+  "n_c0_bases_scored": 109,
+  "n_c0_pass_bases": 109,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9270833333333334,
+    "lo": 0.875,
+    "hi": 0.96875,
+    "num": 89,
+    "den": 96,
+    "n_bases": 96
+   },
+   "div2_evid": {
+    "rate": 0.9270833333333334,
+    "lo": 0.875,
+    "hi": 0.96875,
+    "num": 89,
+    "den": 96,
+    "n_bases": 96
+   },
+   "div10_claim": {
+    "rate": 0.979381443298969,
+    "lo": 0.9484536082474226,
+    "hi": 1.0,
+    "num": 95,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div10_evid": {
+    "rate": 0.9263157894736842,
+    "lo": 0.8736842105263158,
+    "hi": 0.9686842105263156,
+    "num": 88,
+    "den": 95,
+    "n_bases": 95
+   }
+  }
+ },
+ "v5_ragas_nli": {
+  "display_name": "Claude Sonnet 4.6 (RAGAS NLI)",
+  "family": "LLM judges",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 110,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.979381443298969,
+    "lo": 0.9484536082474226,
+    "hi": 1.0,
+    "num": 95,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div2_evid": {
+    "rate": 0.9896907216494846,
+    "lo": 0.9690721649484536,
+    "hi": 1.0,
+    "num": 96,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div10_claim": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 98,
+    "den": 98,
+    "n_bases": 98
+   },
+   "div10_evid": {
+    "rate": 0.9795918367346939,
+    "lo": 0.9489795918367347,
+    "hi": 1.0,
+    "num": 96,
+    "den": 98,
+    "n_bases": 98
+   }
+  }
+ },
+ "v6_ragas_gpt4o_mini": {
+  "display_name": "GPT-4o-mini (RAGAS)",
+  "family": "LLM judges",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 106,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9789473684210527,
+    "lo": 0.9473684210526315,
+    "hi": 1.0,
+    "num": 93,
+    "den": 95,
+    "n_bases": 95
+   },
+   "div2_evid": {
+    "rate": 0.9789473684210527,
+    "lo": 0.9473684210526315,
+    "hi": 1.0,
+    "num": 93,
+    "den": 95,
+    "n_bases": 95
+   },
+   "div10_claim": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 96,
+    "den": 96,
+    "n_bases": 96
+   },
+   "div10_evid": {
+    "rate": 0.9791666666666666,
+    "lo": 0.9479166666666666,
+    "hi": 1.0,
+    "num": 94,
+    "den": 96,
+    "n_bases": 96
+   }
+  }
+ },
+ "v6_ragas_haiku45": {
+  "display_name": "Claude Haiku 4.5 (RAGAS)",
+  "family": "LLM judges",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 107,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9787234042553191,
+    "lo": 0.9468085106382979,
+    "hi": 1.0,
+    "num": 92,
+    "den": 94,
+    "n_bases": 94
+   },
+   "div2_evid": {
+    "rate": 0.9893617021276596,
+    "lo": 0.9680851063829787,
+    "hi": 1.0,
+    "num": 93,
+    "den": 94,
+    "n_bases": 94
+   },
+   "div10_claim": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 95,
+    "den": 95,
+    "n_bases": 95
+   },
+   "div10_evid": {
+    "rate": 0.9894736842105263,
+    "lo": 0.968421052631579,
+    "hi": 1.0,
+    "num": 94,
+    "den": 95,
+    "n_bases": 95
+   }
+  }
+ },
+ "v6_ragas_llama31_8b": {
+  "display_name": "Llama-3.1-8B (RAGAS)",
+  "family": "LLM judges",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 106,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.956989247311828,
+    "lo": 0.9032258064516129,
+    "hi": 0.989247311827957,
+    "num": 89,
+    "den": 93,
+    "n_bases": 93
+   },
+   "div2_evid": {
+    "rate": 0.989247311827957,
+    "lo": 0.967741935483871,
+    "hi": 1.0,
+    "num": 92,
+    "den": 93,
+    "n_bases": 93
+   },
+   "div10_claim": {
+    "rate": 0.9787234042553191,
+    "lo": 0.9468085106382979,
+    "hi": 1.0,
+    "num": 92,
+    "den": 94,
+    "n_bases": 94
+   },
+   "div10_evid": {
+    "rate": 0.9680851063829787,
+    "lo": 0.9361702127659575,
+    "hi": 1.0,
+    "num": 91,
+    "den": 94,
+    "n_bases": 94
+   }
+  }
+ },
+ "v6_ragas_mistral_small32": {
+  "display_name": "Mistral-Small-3.2-24B (RAGAS)",
+  "family": "LLM judges",
+  "n_c0_bases_scored": 110,
+  "n_c0_pass_bases": 110,
+  "cells": {
+   "div2_claim": {
+    "rate": 0.9690721649484536,
+    "lo": 0.9381443298969072,
+    "hi": 1.0,
+    "num": 94,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div2_evid": {
+    "rate": 0.9896907216494846,
+    "lo": 0.9690721649484536,
+    "hi": 1.0,
+    "num": 96,
+    "den": 97,
+    "n_bases": 97
+   },
+   "div10_claim": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 98,
+    "den": 98,
+    "n_bases": 98
+   },
+   "div10_evid": {
+    "rate": 0.9693877551020408,
+    "lo": 0.9285714285714286,
+    "hi": 1.0,
+    "num": 95,
+    "den": 98,
+    "n_bases": 98
+   }
+  }
+ }
+}

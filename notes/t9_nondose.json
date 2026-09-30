@@ -1,0 +1,90 @@
+[
+ {
+  "rail": "AlignScore-base",
+  "cell": "unit error \u00d71000 (claim+evid)",
+  "blocked": 44,
+  "total": 216,
+  "rate": 0.2037037037037037,
+  "lo": 0.13425925925925927,
+  "hi": 0.2777777777777778,
+  "excluded_non_dose": 14,
+  "source": "results/raw/t9/alignscore_rail.jsonl"
+ },
+ {
+  "rail": "AlignScore-base",
+  "cell": "unit error \u00d71000 claim",
+  "blocked": 20,
+  "total": 108,
+  "rate": 0.18518518518518517,
+  "lo": 0.1111111111111111,
+  "hi": 0.25925925925925924,
+  "excluded_non_dose": 7,
+  "source": "results/raw/t9/alignscore_rail.jsonl"
+ },
+ {
+  "rail": "AlignScore-base",
+  "cell": "unit error \u00d71000 evid",
+  "blocked": 24,
+  "total": 108,
+  "rate": 0.2222222222222222,
+  "lo": 0.14814814814814814,
+  "hi": 0.3055555555555556,
+  "excluded_non_dose": 7,
+  "source": "results/raw/t9/alignscore_rail.jsonl"
+ },
+ {
+  "rail": "AlignScore-base",
+  "cell": "value error \u00d72",
+  "blocked": 108,
+  "total": 110,
+  "rate": 0.9818181818181818,
+  "lo": 0.9545454545454546,
+  "hi": 1.0,
+  "excluded_non_dose": 9,
+  "source": "results/raw/t9/alignscore_rail.jsonl"
+ },
+ {
+  "rail": "AlignScore-large",
+  "cell": "unit error \u00d71000 (claim+evid)",
+  "blocked": 107,
+  "total": 216,
+  "rate": 0.49537037037037035,
+  "lo": 0.41203703703703703,
+  "hi": 0.5833333333333334,
+  "excluded_non_dose": 14,
+  "source": "results/raw/t9/alignscore_rail_large.jsonl"
+ },
+ {
+  "rail": "AlignScore-large",
+  "cell": "unit error \u00d71000 claim",
+  "blocked": 60,
+  "total": 108,
+  "rate": 0.5555555555555556,
+  "lo": 0.46296296296296297,
+  "hi": 0.6481481481481481,
+  "excluded_non_dose": 7,
+  "source": "results/raw/t9/alignscore_rail_large.jsonl"
+ },
+ {
+  "rail": "AlignScore-large",
+  "cell": "unit error \u00d71000 evid",
+  "blocked": 47,
+  "total": 108,
+  "rate": 0.4351851851851852,
+  "lo": 0.3425925925925926,
+  "hi": 0.5277777777777778,
+  "excluded_non_dose": 7,
+  "source": "results/raw/t9/alignscore_rail_large.jsonl"
+ },
+ {
+  "rail": "AlignScore-large",
+  "cell": "value error \u00d72",
+  "blocked": 108,
+  "total": 110,
+  "rate": 0.9818181818181818,
+  "lo": 0.9545454545454546,
+  "hi": 1.0,
+  "excluded_non_dose": 9,
+  "source": "results/raw/t9/alignscore_rail_large.jsonl"
+ }
+]

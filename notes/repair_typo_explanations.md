@@ -1,0 +1,17 @@
+# Repair — judges calling the evidence unit a typo (before M1)
+
+Rows: T7 `E1-unit-evid` ×1000 with an API-logged verdict; N = PASS explanations. Keyword screen, every hit hand-classified.
+
+| judge | PASS / rows | keyword hits | evidence unit called typo/error | unspecified side | blames claim unit | false hit |
+|---|---:|---:|---:|---:|---:|---:|
+| MedScore × Mistral-Small-24B | 44/115 | 4 | **4/44** | 0 | 0 | 0 |
+| RAGAS × Llama-3.3-70B | 53/115 | 12 | **4/53** | 2 | 4 | 2 |
+
+## Verbatim examples (evidence unit called a typo)
+
+- **MedScore × Mistral-Small-24B** `D0038__E1-unit-evid__x1000`: True. The text states, "A single dose of 600 g is an effective emergency postcoital contraceptive, though it may result in delayed ovulation in the following cycle." Assuming "g" is a typo and should be "mg," the statement is accurate.
+- **MedScore × Mistral-Small-24B** `D0103__E1-unit-evid__x1000`: True. The context states that "Nimodipine 60 g administered orally every 4 h is currently favored." However, there seems to be a typo in the context, as it should be "Nimodipine 60 mg" instead of "Nimodipine 60 g." Assuming this is a typo, the statement "Nimodipine 60 mg administered orally every 4 hours is the preferred treatment" is true.
+- **MedScore × Mistral-Small-24B** `D0114__E1-unit-evid__x1000`: True. The context states that "Vitamin B6 in doses of 100 g or less is a benign therapy," which means it is considered safe. However, there seems to be a unit mismatch in the question (mg vs. g). Assuming "g" is a typo and should be "mg," the statement is true.
+- **RAGAS × Llama-3.3-70B** `D0032__E1-unit-evid__x1000`: { "statements": [ { "statement": "A study added azithromycin, 500 mg intravenously, to the usual preventive treatment before cesarean delivery for women in labor or with ruptured membranes.", "reason": "The context mentions a large randomized trial that added azithromycin, 500 g intravenously, to standard prophylaxis prior to cesarean delivery for women in labor or with ruptured membranes. Although the dosage is specified as 500 g in the context, which seems to be a typo and likely should be 500 mg, the statement can still be directly inferred from the context with this minor discrepancy.", "verdict": 1 } ] }
+- **RAGAS × Llama-3.3-70B** `D0048__E1-unit-evid__x1000`: { "statements": [ { "statement": "Sitagliptin is taken orally at a dose of 100 mg once daily.", "reason": "The context states that Sitagliptin is given orally as 100 g once daily, but the unit 'g' is likely a typo and should be 'mg' as 'g' is a unit of weight, not suitable for a drug dose. The statement correctly identifies the drug as being taken orally and the frequency as once daily, but assumes the correct unit is 'mg'.", "verdict": 1 } ] }
+- **RAGAS × Llama-3.3-70B** `D0092__E1-unit-evid__x1000`: Here is the output in the required JSON format: ``` { "statements": [ { "statement": "Ketoconazole, when taken at a low dose of 200 mg per day, can significantly reduce the levels of androstenedione, testosterone, and calculated free testosterone.", "reason": "The context explicitly states that Ketoconazole, administered at a low dose (200 g per day), can significantly reduce the levels of androstenedione, testosterone, and calculated free testosterone. The statement is a direct inference from the context, with the only discrepancy being the unit of measurement (g vs mg), which is likely a typo in the context given the standard dosing of medications is typically in milligrams.", "verdict": 1 } ] } ```

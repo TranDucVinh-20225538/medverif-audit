@@ -1,0 +1,34 @@
+{
+ "MedScore \u00d7 Mistral-Small-24B": {
+  "n_rows": 115,
+  "n_pass": 44,
+  "n_hits": 4,
+  "evidence": 4,
+  "unspecified": 0,
+  "claim": 0,
+  "none": 0,
+  "source": "results/raw/t7/v1_medscore.jsonl",
+  "evidence_ids": [
+   "D0038__E1-unit-evid__x1000",
+   "D0103__E1-unit-evid__x1000",
+   "D0114__E1-unit-evid__x1000",
+   "D0180__E1-unit-evid__x1000"
+  ]
+ },
+ "RAGAS \u00d7 Llama-3.3-70B": {
+  "n_rows": 115,
+  "n_pass": 53,
+  "n_hits": 12,
+  "evidence": 4,
+  "unspecified": 2,
+  "claim": 4,
+  "none": 2,
+  "source": "results/raw/t7/v4_ragas_nli.llama.jsonl",
+  "evidence_ids": [
+   "D0032__E1-unit-evid__x1000",
+   "D0048__E1-unit-evid__x1000",
+   "D0092__E1-unit-evid__x1000",
+   "D0116__E1-unit-evid__x1000"
+  ]
+ }
+}
