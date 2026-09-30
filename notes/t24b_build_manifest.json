@@ -1,0 +1,103 @@
+{
+  "p1_questions": 55,
+  "instances_written": 202,
+  "skips": [
+    {
+      "question_id": "T24_006",
+      "reason": "no_unit_down_edit",
+      "span": "200 μg"
+    },
+    {
+      "question_id": "T24_013",
+      "reason": "no_unit_up_edit",
+      "span": "90 mg/kg/day"
+    },
+    {
+      "question_id": "T24_013",
+      "reason": "no_unit_down_edit",
+      "span": "90 mg/kg/day"
+    },
+    {
+      "question_id": "T24_015",
+      "reason": "no_unit_down_edit",
+      "span": "100 μg"
+    },
+    {
+      "question_id": "T24_018",
+      "reason": "no_unit_down_edit",
+      "span": "250 µg"
+    },
+    {
+      "question_id": "T24_023",
+      "reason": "no_unit_up_edit",
+      "span": "25 mg/kg"
+    },
+    {
+      "question_id": "T24_023",
+      "reason": "no_unit_down_edit",
+      "span": "25 mg/kg"
+    },
+    {
+      "question_id": "T24_027",
+      "reason": "no_unit_up_edit",
+      "span": "3 mg/kg"
+    },
+    {
+      "question_id": "T24_027",
+      "reason": "no_unit_down_edit",
+      "span": "3 mg/kg"
+    },
+    {
+      "question_id": "T24_034",
+      "reason": "no_unit_up_edit",
+      "span": "0.5 mg/kg"
+    },
+    {
+      "question_id": "T24_034",
+      "reason": "no_unit_down_edit",
+      "span": "0.5 mg/kg"
+    },
+    {
+      "question_id": "T24_046",
+      "reason": "no_unit_up_edit",
+      "span": "1 mg/kg"
+    },
+    {
+      "question_id": "T24_046",
+      "reason": "no_unit_down_edit",
+      "span": "1 mg/kg"
+    },
+    {
+      "question_id": "T24_051",
+      "reason": "no_unit_down_edit",
+      "span": "2 mL"
+    },
+    {
+      "question_id": "T24_057",
+      "reason": "no_unit_down_edit",
+      "span": "20 μg"
+    },
+    {
+      "question_id": "T24_065",
+      "reason": "no_unit_up_edit",
+      "span": "11 mg/kg"
+    },
+    {
+      "question_id": "T24_065",
+      "reason": "no_unit_down_edit",
+      "span": "11 mg/kg"
+    },
+    {
+      "question_id": "T24_073",
+      "reason": "no_unit_down_edit",
+      "span": "0.5 mL"
+    }
+  ],
+  "appendix_n_unique": 8,
+  "excluded": [
+    "T24_003",
+    "duplicate rows (note)",
+    "N labels (appendix)"
+  ],
+  "prevalence": "0/56 author Y answers re-express a unit (T24 prevalence; not in-the-wild conversion)"
+}

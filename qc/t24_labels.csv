@@ -1,0 +1,81 @@
+﻿question_id,same_quantity_same_context,note
+T24_000,Y,
+T24_001,Y,
+T24_002,Y,
+T24_003,Y,Không phải liều thuốc (30 mL nước pha); cân nhắc loại
+T24_004,Y,
+T24_005,Y,Evidence là liều cefazolin khi dị ứng penicillin chậm (viêm nội tâm mạc); answer bỏ ngữ cảnh này
+T24_006,Y,
+T24_007,Y,
+T24_008,Y,Không nêu tên thuốc (loperamide)
+T24_009,Y,
+T24_010,Y,
+T24_011,Y,
+T24_012,Y,Không phải liều điều trị (liều gây ngừng thở)
+T24_013,Y,Span là cận trên khoảng 80–90 mg/kg/day
+T24_014,N,"Span evidence lấy nhầm 0.6 mg (liều khởi đầu), answer là 1.8 mg liều tối đa"
+T24_015,Y,
+T24_016,N,"Span evidence lấy nhầm 200 μg (cận trên khoảng 50–200), answer là liều khởi đầu 100 μg"
+T24_017,N,"Span evidence lấy nhầm 80 mg verapamil, answer là ergotamine 2 mg"
+T24_018,Y,
+T24_019,Y,
+T24_020,Y,
+T24_021,Y,
+T24_022,Y,
+T24_023,Y,
+T24_024,Y,
+T24_025,Y,
+T24_026,Y,"Liều gây ngộ độc caffeine, không phải liều điều trị"
+T24_027,Y,
+T24_028,Y,Answer và câu không nêu tên thuốc (amphotericin B)
+T24_029,Y,
+T24_030,Y,
+T24_031,Y,
+T24_032,Y,
+T24_033,Y,
+T24_034,Y,
+T24_035,N,Dòng trùng T24_017; span evidence nhầm sang verapamil 80 mg
+T24_036,Y,
+T24_037,Y,"Ngưỡng (≤100 mg), không phải liều cụ thể"
+T24_038,N,"Span evidence lấy nhầm metronidazole 500 mg, answer là clindamycin 300 mg"
+T24_039,Y,
+T24_040,Y,Dòng trùng T24_009
+T24_041,Y,Span là cận trên khoảng 250–500 mg
+T24_042,Y,
+T24_043,Y,Dòng trùng T24_037
+T24_044,Y,Dòng trùng T24_028
+T24_045,Y,"Evidence là khoảng 2.5–5 mg, span là cận trên"
+T24_046,Y,Answer không nêu tên thuốc (dantrolene)
+T24_047,Y,Dòng trùng T24_030
+T24_048,Y,
+T24_049,Y,
+T24_050,Y,
+T24_051,Y,
+T24_052,Y,
+T24_053,N,"Span evidence lấy nhầm infliximab 3–5 mg/kg, answer là etanercept 50 mg"
+T24_054,Y,Dòng trùng T24_007
+T24_055,N,"Span evidence lấy cumulative 120 mg/kg, answer span là liều ngày 1 mg/kg/day"
+T24_056,Y,
+T24_057,Y,"Trích dẫn tài liệu tham khảo, không phải khuyến cáo liều"
+T24_058,Y,Dòng trùng T24_000
+T24_059,Y,
+T24_060,Y,Dòng trùng T24_012
+T24_061,Y,Dòng trùng T24_034
+T24_062,Y,Dòng trùng T24_018
+T24_063,Y,
+T24_064,Y,
+T24_065,Y,
+T24_066,Y,Ngưỡng (≥200 mg/ngày gây bệnh thần kinh)
+T24_067,Y,Dòng trùng T24_030
+T24_068,Y,
+T24_069,Y,Dòng trùng T24_019
+T24_070,Y,Dòng trùng T24_010
+T24_071,Y,Dòng trùng T24_010
+T24_072,N,Dòng trùng T24_053; span evidence nhầm sang infliximab
+T24_073,Y,
+T24_074,Y,
+T24_075,Y,"Liều trong ca lâm sàng, answer thêm câu 'không cần đổi liều' không có trong evidence"
+T24_076,Y,
+T24_077,N,"Span evidence lấy nhầm acyclovir uống 400 mg, answer là IV 5 mg/kg"
+T24_078,N,"Span evidence lấy nhầm ceftriaxone 250 mg, answer là azithromycin 1 g"
+T24_079,Y,Dòng trùng T24_057
