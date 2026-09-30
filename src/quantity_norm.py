@@ -9,7 +9,9 @@ from typing import Iterable, List, Tuple
 from text_utils import format_decimal, parse_decimal
 
 # M1 dose regex that produced the node30 M1 texts (commit 02ae97e data; text_utils in stash "pre
-# node30-results merge"). Kept verbatim so those texts stay reproducible.
+# node30-results merge"). Kept verbatim so those texts stay reproducible: it rebuilds
+# instances_m1_pending_node30 (T1) 942/942 and lane_b/m1_t17_unit_down (US_down) 150/150
+# byte-for-byte (notes/m1_provenance.md).
 _M1_NUM = r"\d{1,3}(?:,\d{3})*(?:\.\d+)?|\d+(?:\.\d+)?"
 _M1_UNIT_NODE30 = (
     r"(?:mg/kg/min|mg/kg/day|mg/kg/h|mcg/kg/min|mcg/kg/day|mcg/kg/h|"
