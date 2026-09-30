@@ -636,10 +636,15 @@ def main() -> None:
     refresh_gate = "--refresh-gate" in sys.argv
     skip_legacy = "--skip-legacy" in sys.argv
     final_mode = "--final" in sys.argv
+    amend5 = "--amend5" in sys.argv
     if final_mode:
         OUT_TABLE = ROOT / "results/tables/m1_strong_final.md"
         OUT_NOTE = ROOT / "notes/m1_strong_final_report.md"
         OUT_JSON = ROOT / "notes/m1_strong_final.json"
+    if final_mode and amend5:
+        OUT_TABLE = ROOT / "results/tables/m1_strong_final_amend5.md"
+        OUT_NOTE = ROOT / "notes/m1_strong_final_amend5_report.md"
+        OUT_JSON = ROOT / "notes/m1_strong_final_amend5.json"
     try:
         import quantulum3  # noqa: F401
         import pint  # noqa: F401
@@ -648,6 +653,10 @@ def main() -> None:
     except ImportError as exc:
         lib_backend = f"partial ({exc})"
 
+    if amend5:
+        global GATE_CACHE
+        GATE_CACHE = ROOT / "results/cache/m1_strong_gate_indep.json"
+        refresh_gate = False
     cache = load_gate_cache(refresh_gate)
     # Amendment 4 + dimension-aware M1-lib not landed until AMEND4 exists and lib matches quantity_norm.
     m1_lib_fixed = AMEND4.is_file() and "_canonical_for_gate" in (ROOT / "src/m1_lib.py").read_text()
@@ -657,6 +666,8 @@ def main() -> None:
         if (refresh_gate and m1_lib_fixed)
         else "pre_amendment4"
     )
+    if amend5:
+        cohort_label = "post_amendment5_indep_gate"
     print(
         f"[m1-strong] gate cache entries: {len(cache)} refresh={refresh_gate} cohort={cohort_label}",
         flush=True,
@@ -719,6 +730,12 @@ def main() -> None:
         print(f"[m1-strong] {verifier_display_name(slug)} ({slug})", flush=True)
         ns_dirs = MAIN_NS_DIRS if slug not in ("v1_medscore", "v4_ragas_nli", "v5_ragas_nli") else MAIN_NS_DIRS + (ROOT / "results/raw/t2_full",)
         us_after_dirs = US_AFTER_DIRS if slug in ("v1_medscore", "v4_ragas_nli", "v5_ragas_nli") else (ROOT / "results/raw/lane_b/m1_t7_e1_unit",)
+        if amend5:
+            us_after_dirs = us_after_dirs + (
+                (ROOT / "results/raw_m1/t7_amend5",)
+                if slug in ("v1_medscore", "v4_ragas_nli", "v5_ragas_nli")
+                else (ROOT / "results/raw/lane_b/m1_t7_e1_unit_amend5",)
+            )
         checkers[slug] = checker_block(
             slug,
             cache=cache,

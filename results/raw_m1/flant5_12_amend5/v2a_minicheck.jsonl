@@ -1,0 +1,12 @@
+{"instance_id": "D0002__INV-claim__unit_conversion", "raw_output": "0.9708545804023743", "score": 0.9708545804023743, "verdict": "PASS", "latency_s": 133.89954504574416, "verifier": "v2a_minicheck"}
+{"instance_id": "D0027__INV-claim__unit_conversion", "raw_output": "0.907727062702179", "score": 0.907727062702179, "verdict": "PASS", "latency_s": 133.89954504574416, "verifier": "v2a_minicheck"}
+{"instance_id": "D0049__INV-claim__unit_conversion", "raw_output": "0.9463837146759033", "score": 0.9463837146759033, "verdict": "PASS", "latency_s": 133.89954504574416, "verifier": "v2a_minicheck"}
+{"instance_id": "D0065__INV-claim__unit_conversion", "raw_output": "0.9724063277244568", "score": 0.9724063277244568, "verdict": "PASS", "latency_s": 133.89954504574416, "verifier": "v2a_minicheck"}
+{"instance_id": "D0070__INV-claim__unit_conversion", "raw_output": "0.9724499583244324", "score": 0.9724499583244324, "verdict": "PASS", "latency_s": 133.89954504574416, "verifier": "v2a_minicheck"}
+{"instance_id": "D0083__INV-claim__unit_conversion", "raw_output": "0.9786658883094788", "score": 0.9786658883094788, "verdict": "PASS", "latency_s": 133.89954504574416, "verifier": "v2a_minicheck"}
+{"instance_id": "D0089__INV-claim__unit_conversion", "raw_output": "0.9800401926040649", "score": 0.9800401926040649, "verdict": "PASS", "latency_s": 133.89954504574416, "verifier": "v2a_minicheck"}
+{"instance_id": "D0096__INV-claim__unit_conversion", "raw_output": "0.9416902661323547", "score": 0.9416902661323547, "verdict": "PASS", "latency_s": 133.89954504574416, "verifier": "v2a_minicheck"}
+{"instance_id": "D0146__INV-claim__unit_conversion", "raw_output": "0.9237114787101746", "score": 0.9237114787101746, "verdict": "PASS", "latency_s": 147.50242686306592, "verifier": "v2a_minicheck"}
+{"instance_id": "D0149__INV-claim__unit_conversion", "raw_output": "0.8985199332237244", "score": 0.8985199332237244, "verdict": "PASS", "latency_s": 147.50242686306592, "verifier": "v2a_minicheck"}
+{"instance_id": "D0164__INV-claim__unit_conversion", "raw_output": "0.9730096459388733", "score": 0.9730096459388733, "verdict": "PASS", "latency_s": 147.50242686306592, "verifier": "v2a_minicheck"}
+{"instance_id": "D0166__INV-claim__unit_conversion", "raw_output": "0.5624000430107117", "score": 0.5624000430107117, "verdict": "PASS", "latency_s": 147.50242686306592, "verifier": "v2a_minicheck"}
