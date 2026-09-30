@@ -18,9 +18,10 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from analyze import read_jsonl  # noqa: E402
 from review_filters import analysis_keep_row  # noqa: E402
-from t13_best_of_n_report import merged_score_rows, score_from_row  # noqa: E402
+from t13_best_of_n_report import score_from_row  # noqa: E402
 
 MAIN = ROOT / "data/v3/instances_main.jsonl"
+REFERENCE = ROOT / "results/raw_node30/t6_granite_guardian.jsonl"
 T6_MANIFEST = ROOT / "notes/t6a_eco_checkers.json"
 OUT = ROOT / "notes/m1_granite_cpuverif_agreement.json"
 CID = "t6a_granite_guardian"
@@ -107,13 +108,13 @@ def main() -> None:
         and r.get("type") == "DOSE"
         and r.get("subset") == "main"
     ]
-    c0 = [r for r in rows if r.get("condition") == "C0"]
-    e1 = [r for r in rows if str(r.get("condition", "")).startswith("E1")]
+    existing = {r["instance_id"]: r for r in read_jsonl(REFERENCE)}
+    c0 = [r for r in rows if r.get("condition") == "C0" and r["instance_id"] in existing]
+    e1 = [r for r in rows if str(r.get("condition", "")).startswith("E1") and r["instance_id"] in existing]
     rng = random.Random(SEED)
     sample_c0 = rng.sample(c0, min(N_C0, len(c0)))
     sample_e1 = rng.sample(e1, min(N_E1, len(e1)))
     sample = sample_c0 + sample_e1
-    existing = merged_score_rows(CID)
 
     with tempfile.TemporaryDirectory(prefix="granite_probe_") as tmp:
         probe = score_probe(sample, Path(tmp))
@@ -136,7 +137,7 @@ def main() -> None:
     payload = {
         "checker": CID,
         "env": "cpuverif",
-        "reference_scores": "merged node30/main (t13 merged_score_rows)",
+        "reference_scores": str(REFERENCE.relative_to(ROOT)),
         "threshold": THRESH,
         "overall_verdict_agreement": overall,
         "pass": ok,
