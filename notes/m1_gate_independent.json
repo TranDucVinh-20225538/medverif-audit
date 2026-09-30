@@ -1,0 +1,110 @@
+{
+ "packs": {
+  "us_up_x1000": {
+   "instances": 214,
+   "inst_gate_pass_new": 214,
+   "inst_gate_pass_old": 214,
+   "spans": 430,
+   "same": 430,
+   "differs": 0,
+   "lib_fail": 0,
+   "m1_fail": 0,
+   "spans_using_micro_alias": 18,
+   "examples": {
+    "differs": [],
+    "lib_fail": [],
+    "m1_fail": []
+   },
+   "instances_dropped": []
+  },
+  "us_down_unit": {
+   "instances": 150,
+   "inst_gate_pass_new": 150,
+   "inst_gate_pass_old": 150,
+   "spans": 300,
+   "same": 300,
+   "differs": 0,
+   "lib_fail": 0,
+   "m1_fail": 0,
+   "spans_using_micro_alias": 0,
+   "examples": {
+    "differs": [],
+    "lib_fail": [],
+    "m1_fail": []
+   },
+   "instances_dropped": []
+  },
+  "ns_x10_claim": {
+   "instances": 106,
+   "inst_gate_pass_new": 106,
+   "inst_gate_pass_old": 106,
+   "spans": 212,
+   "same": 212,
+   "differs": 0,
+   "lib_fail": 0,
+   "m1_fail": 0,
+   "spans_using_micro_alias": 16,
+   "examples": {
+    "differs": [],
+    "lib_fail": [],
+    "m1_fail": []
+   },
+   "instances_dropped": []
+  },
+  "ns_x10_evid": {
+   "instances": 106,
+   "inst_gate_pass_new": 106,
+   "inst_gate_pass_old": 106,
+   "spans": 212,
+   "same": 212,
+   "differs": 0,
+   "lib_fail": 0,
+   "m1_fail": 0,
+   "spans_using_micro_alias": 16,
+   "examples": {
+    "differs": [],
+    "lib_fail": [],
+    "m1_fail": []
+   },
+   "instances_dropped": []
+  },
+  "ns_div10_claim": {
+   "instances": 98,
+   "inst_gate_pass_new": 98,
+   "inst_gate_pass_old": 98,
+   "spans": 196,
+   "same": 196,
+   "differs": 0,
+   "lib_fail": 0,
+   "m1_fail": 0,
+   "spans_using_micro_alias": 12,
+   "examples": {
+    "differs": [],
+    "lib_fail": [],
+    "m1_fail": []
+   },
+   "instances_dropped": []
+  },
+  "ns_div10_evid": {
+   "instances": 98,
+   "inst_gate_pass_new": 98,
+   "inst_gate_pass_old": 98,
+   "spans": 196,
+   "same": 196,
+   "differs": 0,
+   "lib_fail": 0,
+   "m1_fail": 0,
+   "spans_using_micro_alias": 12,
+   "examples": {
+    "differs": [],
+    "lib_fail": [],
+    "m1_fail": []
+   },
+   "instances_dropped": []
+  }
+ },
+ "bases_old": 110,
+ "bases_new": 110,
+ "bases_dropped": [],
+ "bases_added": []
+}
