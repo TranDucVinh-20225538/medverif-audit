@@ -36,36 +36,36 @@
         "n_bases": 96
       },
       "us_claim_up": {
-        "rate": null,
-        "lo": null,
-        "hi": null,
-        "num": 0,
-        "den": 0,
-        "n_bases": 0
+        "rate": 0.3229166666666667,
+        "lo": 0.23958333333333334,
+        "hi": 0.4166666666666667,
+        "num": 31,
+        "den": 96,
+        "n_bases": 96
       },
       "us_evid_up": {
-        "rate": null,
-        "lo": null,
-        "hi": null,
-        "num": 0,
-        "den": 0,
-        "n_bases": 0
+        "rate": 0.20833333333333334,
+        "lo": 0.13541666666666666,
+        "hi": 0.2916666666666667,
+        "num": 20,
+        "den": 96,
+        "n_bases": 96
       },
       "us_claim_down": {
-        "rate": null,
-        "lo": null,
-        "hi": null,
-        "num": 0,
-        "den": 0,
-        "n_bases": 0
+        "rate": 0.07142857142857142,
+        "lo": 0.014285714285714285,
+        "hi": 0.12857142857142856,
+        "num": 5,
+        "den": 70,
+        "n_bases": 70
       },
       "us_evid_down": {
-        "rate": null,
-        "lo": null,
-        "hi": null,
-        "num": 0,
-        "den": 0,
-        "n_bases": 0
+        "rate": 0.05714285714285714,
+        "lo": 0.014285714285714285,
+        "hi": 0.11428571428571428,
+        "num": 4,
+        "den": 70,
+        "n_bases": 70
       }
     },
     "ft": {
@@ -104,36 +104,36 @@
         "n_bases": 99
       },
       "us_claim_up": {
-        "rate": null,
-        "lo": null,
-        "hi": null,
-        "num": 0,
-        "den": 0,
-        "n_bases": 0
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 99,
+        "den": 99,
+        "n_bases": 99
       },
       "us_evid_up": {
-        "rate": null,
-        "lo": null,
-        "hi": null,
-        "num": 0,
-        "den": 0,
-        "n_bases": 0
+        "rate": 0.9797979797979798,
+        "lo": 0.9494949494949495,
+        "hi": 1.0,
+        "num": 97,
+        "den": 99,
+        "n_bases": 99
       },
       "us_claim_down": {
-        "rate": 0.9891304347826086,
-        "lo": 0.967391304347826,
+        "rate": 1.0,
+        "lo": 1.0,
         "hi": 1.0,
-        "num": 91,
-        "den": 92,
-        "n_bases": 92
+        "num": 71,
+        "den": 71,
+        "n_bases": 71
       },
       "us_evid_down": {
-        "rate": 0.9891304347826086,
-        "lo": 0.967391304347826,
+        "rate": 0.9859154929577465,
+        "lo": 0.9577464788732394,
         "hi": 1.0,
-        "num": 91,
-        "den": 92,
-        "n_bases": 92
+        "num": 70,
+        "den": 71,
+        "n_bases": 71
       }
     }
   },

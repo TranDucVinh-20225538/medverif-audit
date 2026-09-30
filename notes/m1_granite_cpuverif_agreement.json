@@ -1,19 +1,19 @@
 {
   "checker": "t6a_granite_guardian",
   "env": "cpuverif",
-  "reference_scores": "merged node30/main (t13 merged_score_rows)",
+  "reference_scores": "results/raw_node30/t6_granite_guardian.jsonl",
   "threshold": 0.95,
   "overall_verdict_agreement": 1.0,
-  "pass": false,
+  "pass": true,
   "c0_probe": {
     "n_sample": 30,
-    "n_compared": 4,
+    "n_compared": 30,
     "verdict_agreement": 1.0
   },
   "e1_probe": {
     "n_sample": 30,
-    "n_compared": 0,
-    "verdict_agreement": 0.0
+    "n_compared": 30,
+    "verdict_agreement": 1.0
   },
-  "na_reason": "Granite cpuverif vs canonical scores <95% or insufficient probes (legacy KeyError granite in cpuverif_legacy)"
+  "na_reason": null
 }

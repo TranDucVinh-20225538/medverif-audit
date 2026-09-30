@@ -2,10 +2,10 @@
 
 Main **DOSE** cohort (`instances_main.jsonl`): non-dose bases excluded, `analysis_keep_row`, bootstrap **1000** × `base_id`, seed **42**. Metrics **| C0 PASS** except C0 row. Same definitions as `scripts/compute_paper_numbers.py`.
 
-| Leg | C0 bases scored | C0 PASS bases | QI all | QI nat | NS (E1-evid FAIL) | US claim↑ | US evid↑ | US claim↓ | US evid↓ |
+| Leg | C0 bases scored | C0 PASS bases | QI all | QI nat | NS (E1-evid FAIL) | US claim↑ (×1000) | US evid↑ (×1000) | US claim↓ (unit-down) | US evid↓ (unit-down) |
 | --- | ---: | ---: | --- | --- | --- | --- | --- | --- | --- |
-| base | 110 | 99 | 5.5% [0.0%, 12.7%] (n=55, q=55) | 0.0% [0.0%, 0.0%] (n=20, q=20) | 94.7% [90.9%, 97.9%] (n=189, q=96) | NA (n=0) | NA (n=0) | NA (n=0) | NA (n=0) |
-| ft | 110 | 102 | 96.5% [91.2%, 100.0%] (n=57, q=57) | 95.2% [85.7%, 100.0%] (n=21, q=21) | 97.9% [95.4%, 100.0%] (n=195, q=99) | NA (n=0) | NA (n=0) | 98.9% [96.7%, 100.0%] (n=92, q=92) | 98.9% [96.7%, 100.0%] (n=92, q=92) |
+| base | 110 | 99 | 5.5% [0.0%, 12.7%] (n=55, q=55) | 0.0% [0.0%, 0.0%] (n=20, q=20) | 94.7% [90.9%, 97.9%] (n=189, q=96) | 32.3% [24.0%, 41.7%] (n=96, q=96) | 20.8% [13.5%, 29.2%] (n=96, q=96) | 7.1% [1.4%, 12.9%] (n=70, q=70) | 5.7% [1.4%, 11.4%] (n=70, q=70) |
+| ft | 110 | 102 | 96.5% [91.2%, 100.0%] (n=57, q=57) | 95.2% [85.7%, 100.0%] (n=21, q=21) | 97.9% [95.4%, 100.0%] (n=195, q=99) | 100.0% [100.0%, 100.0%] (n=99, q=99) | 98.0% [94.9%, 100.0%] (n=99, q=99) | 100.0% [100.0%, 100.0%] (n=71, q=71) | 98.6% [95.8%, 100.0%] (n=71, q=71) |
 
 ## AggreFact test (paired base vs ft)
 
