@@ -23,24 +23,26 @@
       "MEX0580",
       "MEX0590"
     ],
-    "valid_after": 380,
+    "valid_after": 356,
     "dropped_whole_base_rows": 48,
     "dropped_inv_only_rows": 4,
     "non_dose_rows": 48,
+    "retroactive_span_guard_rows": 24,
     "inv_natural_y_rows": 44,
     "natural_y_bases_in_labels": 50
   },
   "t17": {
-    "rows_in": 612,
+    "rows_in": 588,
+    "removed_pi_human_ok_n": 3,
+    "removed_pi_base_down2_reject": 3,
+    "removed_t17_boundary_down_edit": 36,
+    "removed_retroactive_span_guard": 6,
     "pi_reject_ids": [
       "D0071__E1-down2__evid__down2",
       "D0114__E1-down2__evid__down2",
-      "D0116__E1-down2__evid__down2",
-      "D0157__E1-unit-down__claim__unit-down",
-      "D0158__E1-down2__evid__down2"
+      "D0116__E1-down2__evid__down2"
     ],
-    "pack_filter": 66,
-    "pi_n": 9,
-    "valid_after": 516
+    "valid_after": 540,
+    "total_removed": 48
   }
 }

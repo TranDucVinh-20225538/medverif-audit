@@ -1,0 +1,25 @@
+{
+  "bases_total": 100,
+  "bases_excluded": 63,
+  "instances_total": 372,
+  "instances_scoring": 331,
+  "inv_appendix_only": 6,
+  "inv_appendix_path": "data/t18/instances_t18_inv_appendix.jsonl",
+  "families_scoring": {
+    "none": 37,
+    "x2": 111,
+    "div2": 111,
+    "unit_swap": 37,
+    "unit_spell": 35
+  },
+  "excluded_path": "notes/t18_excluded_bases.json",
+  "instances_path": "data/t18/instances_t18.jsonl",
+  "pi_inv_y": [
+    "T180008__INV-claim__unit_conversion",
+    "T180009__INV-claim__unit_conversion",
+    "T180012__INV-claim__unit_conversion",
+    "T180035__INV-claim__unit_conversion",
+    "T180059__INV-claim__unit_conversion",
+    "T180077__INV-claim__unit_conversion"
+  ]
+}

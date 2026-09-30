@@ -1,0 +1,256 @@
+{
+  "excluded": [
+    {
+      "base_id": "T180002",
+      "reason": "range_on_quantity"
+    },
+    {
+      "base_id": "T180003",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180005",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180006",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180007",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180008",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180009",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180010",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180011",
+      "reason": "same_sentence_multiple_metric_units"
+    },
+    {
+      "base_id": "T180017",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180020",
+      "reason": "european_thousands_separator"
+    },
+    {
+      "base_id": "T180021",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180022",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180023",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180024",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180026",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180027",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180028",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180029",
+      "reason": "range_on_quantity"
+    },
+    {
+      "base_id": "T180030",
+      "reason": "range_on_quantity"
+    },
+    {
+      "base_id": "T180032",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180033",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180034",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180035",
+      "reason": "inverse_unit"
+    },
+    {
+      "base_id": "T180036",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180037",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180038",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180039",
+      "reason": "range_on_quantity"
+    },
+    {
+      "base_id": "T180045",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180046",
+      "reason": "inverse_unit"
+    },
+    {
+      "base_id": "T180047",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180049",
+      "reason": "same_sentence_multiple_metric_units"
+    },
+    {
+      "base_id": "T180053",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180054",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180058",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180062",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180063",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180064",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180065",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180066",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180068",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180069",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180071",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180072",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180073",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180074",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180075",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180076",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180077",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180078",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180081",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180082",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180083",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180085",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180088",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180090",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180091",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180092",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180093",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180094",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180096",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180098",
+      "reason": "proper_name_or_geo"
+    },
+    {
+      "base_id": "T180100",
+      "reason": "european_thousands_separator"
+    }
+  ]
+}
