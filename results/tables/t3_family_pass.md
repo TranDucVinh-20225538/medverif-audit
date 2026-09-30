@@ -1,6 +1,6 @@
 # T3 encoder families (PI_ok=Y, valid)
 
-- Label ids (freq/route): **36**; instances in pack: **35**
+- Label ids (freq/route): **36**; instances in pack: **36**
 - Scores resolved per verifier from pack-specific paths (see JSON `score_paths`).
 
 | Verifier | Family | PASS | n |
@@ -57,14 +57,14 @@
 - **t6a_summac_zs**: `results/raw/t3/t6_summac_zs.jsonl, results/raw/e2_main/t6_summac_zs.jsonl, results/raw/t7/t6_summac_zs.jsonl`
 - **v1_medscore**: `results/raw/t3/v1_medscore.jsonl, results/raw/v1_medscore.jsonl`
 - **v1b_medscore**: `results/raw/t3_t2/v1b_medscore.jsonl`
-- **v1c_medscore**: `results/raw/t3_t6b/v1c_medscore.jsonl, results/raw/t6b/full/v1c_medscore.jsonl, results/raw/e2_main/v1c_medscore.jsonl, results/raw/t4_eco/v1c_medscore.jsonl`
+- **v1c_medscore**: `results/raw/t3_t6b/v1c_medscore.jsonl, results/raw/t6b/full/v1c_medscore.jsonl, results/raw/t4_eco/v1c_medscore.jsonl`
 - **v2a_minicheck**: `results/raw/t3/v2a_minicheck.jsonl, results/raw/v2a_minicheck.jsonl`
 - **v2b_bespoke**: `results/raw/t6_bespoke_minicheck.jsonl`
 - **v3_alignscore**: `results/raw/t3/v3_alignscore.jsonl, results/raw/v3_alignscore.jsonl`
-- **v4_ragas_nli**: `results/raw/t3/v4_ragas_nli.jsonl, results/raw/e2_main/v4_ragas_nli.llama.jsonl, results/raw/t4_eco/v4_ragas_nli.llama.jsonl, results/raw/t4c_eco/v4_ragas_nli.llama.jsonl, results/raw/v4_ragas_nli.llama.jsonl`
+- **v4_ragas_nli**: `results/raw/t3/v4_ragas_nli.jsonl, results/raw/t4_eco/v4_ragas_nli.llama.jsonl, results/raw/t4c_eco/v4_ragas_nli.llama.jsonl, results/raw/v4_ragas_nli.llama.jsonl, results/raw/v4_ragas_nli.jsonl`
 - **v5_ragas_nli**: `results/raw/t3_t2/v5_ragas_nli.jsonl`
-- **v6_ragas_gpt4o_mini**: `results/raw/t3_t6b/v6_ragas_gpt4o_mini.jsonl, results/raw/t6b/full/v6_ragas_gpt4o_mini.jsonl, results/raw/e2_main/v6_ragas_gpt4o_mini.jsonl`
-- **v6_ragas_haiku45**: `results/raw/t3_t6b/v6_ragas_haiku45.jsonl, results/raw/t6b/full/v6_ragas_haiku45.jsonl, results/raw/e2_main/v6_ragas_haiku45.jsonl`
-- **v6_ragas_llama31_8b**: `results/raw/t3_t6b/v6_ragas_llama31_8b.jsonl, results/raw/t6b/full/v6_ragas_llama31_8b.jsonl, results/raw/e2_main/v6_ragas_llama31_8b.jsonl`
-- **v6_ragas_mistral_small32**: `results/raw/t3_t6b/v6_ragas_mistral_small32.jsonl, results/raw/t6b/full/v6_ragas_mistral_small32.jsonl, results/raw/e2_main/v6_ragas_mistral_small32.jsonl`
+- **v6_ragas_gpt4o_mini**: `results/raw/t3_t6b/v6_ragas_gpt4o_mini.jsonl, results/raw/t6b/full/v6_ragas_gpt4o_mini.jsonl`
+- **v6_ragas_haiku45**: `results/raw/t3_t6b/v6_ragas_haiku45.jsonl, results/raw/t6b/full/v6_ragas_haiku45.jsonl`
+- **v6_ragas_llama31_8b**: `results/raw/t3_t6b/v6_ragas_llama31_8b.jsonl, results/raw/t6b/full/v6_ragas_llama31_8b.jsonl`
+- **v6_ragas_mistral_small32**: `results/raw/t3_t6b/v6_ragas_mistral_small32.jsonl, results/raw/t6b/full/v6_ragas_mistral_small32.jsonl`
 - **v6_ragas_nli**: `results/raw/t4_eco/v6_ragas_nli.jsonl, results/raw/t4c_eco/v6_ragas_nli.jsonl`

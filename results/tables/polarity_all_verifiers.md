@@ -6,8 +6,8 @@
 
 | Verifier | E1-claim PASS | n | E2 PASS | n |
 |---|---:|---:|---:|---:|
-| v1_medscore | 0 | 25 | 21 | 25 |
-| v4_ragas_nli | 0 | 21 | 22 | 22 |
+| v1_medscore | 0 | 11 | 8 | 11 |
+| v4_ragas_nli | 1 | 26 | 26 | 26 |
 | v2a_minicheck | 0 | 12 | 10 | 12 |
 | v3_alignscore | 0 | 12 | 12 | 12 |
 | v1b_medscore | 1 | 26 | 0 | 0 |

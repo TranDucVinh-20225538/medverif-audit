@@ -2,6 +2,24 @@
 
 Updated: **2026-09-30 ~22:15 UTC+7** · Freeze **Oct 5 23:59** · follow-up deadline (T15-OOD, token analysis) **Oct 3 22:00**
 
+## Oct 1 ~01:15 update (supersedes rows below where they conflict)
+
+- **M1-strong → amendment 5** (`notes/m1_prereg_amendment5.md`, found after final results; criterion unchanged). (1) After-M1 texts were off the amendment-4 spec: 46 rows (23 bases) US_up local pack, 38 (19) US_up API pack, 0 US_down, NS clean. Rescored (job 61850 local; OpenRouter for MedScore/RAGAS). (2) Gate was not independent (both sides one function) → `src/m1_lib_indep.py` (quantulum3+pint): 1546/1546 target spans agree, cohort unchanged (110 bases). **Corrected table** `results/tables/m1_strong_final_amend5.md`; every changed cell in `notes/m1_strong_amend5_changes.md`. **Overall binding 1/8 → 5/8 small checkers** (RoBERTa, AlignScore-large, SummaC-ZS, Bespoke now True; Granite unchanged True). The token-analysis no-op caveat is resolved by this fix.
+- **node30 normalizer** recovered from stash and committed as canonical M1 (`87087da`, T1 942/942, US_down 150/150); spec regex default (`ae8ce5d`).
+- **DeBERTa → cpuverif:** job 61826 done; 10 verdict flips across main/e2/T4-eco/T4c/T7 (`notes/deberta_cpuverif_swap.json`); backups `*.pre_cpuverif.quarantined.jsonl`. Clean change list (baseline regenerated under current code) in `notes/deberta_cpuverif_changes.md`.
+- **Flan-T5 raw_m1 12 rows:** rescored with spec M1 text in cpuverif (`results/raw_m1/flant5_12_amend5/`); disagreement was text drift (old regex), spec-text scores match node30.
+- **Open:** 38 T1 raw_m1 rows are off-spec under amendment 5 (g/kg-type spans; T1 is not in M1-strong) — author decision whether to rescore. Several committed tables were stale vs current code (e.g. polarity V1 n 25→11) — flagged, not yet investigated.
+- **AggreFact 61690:** 82 tasks held until DeBERTa regeneration finishes.
+
+## Oct 1 ~01:15 update (supersedes rows below where they conflict)
+
+- **M1-strong → amendment 5** (`notes/m1_prereg_amendment5.md`, found after final results; criterion unchanged). (1) After-M1 texts were off the amendment-4 spec: 46 rows (23 bases) US_up local pack, 38 (19) US_up API pack, 0 US_down, NS clean. Rescored (job 61850 local; OpenRouter for MedScore/RAGAS). (2) Gate was not independent (both sides one function) → `src/m1_lib_indep.py` (quantulum3+pint): 1546/1546 target spans agree, cohort unchanged (110 bases). **Corrected table** `results/tables/m1_strong_final_amend5.md`; every changed cell in `notes/m1_strong_amend5_changes.md`. **Overall binding 1/8 → 5/8 small checkers** (RoBERTa, AlignScore-large, SummaC-ZS, Bespoke now True; Granite unchanged True). The token-analysis no-op caveat is resolved by this fix.
+- **node30 normalizer** recovered from stash and committed as canonical M1 (`87087da`, T1 942/942, US_down 150/150); spec regex default (`ae8ce5d`).
+- **DeBERTa → cpuverif:** job 61826 done; 10 verdict flips across main/e2/T4-eco/T4c/T7 (`notes/deberta_cpuverif_swap.json`); backups `*.pre_cpuverif.quarantined.jsonl`. Clean change list (baseline regenerated under current code) in `notes/deberta_cpuverif_changes.md`.
+- **Flan-T5 raw_m1 12 rows:** rescored with spec M1 text in cpuverif (`results/raw_m1/flant5_12_amend5/`); disagreement was text drift (old regex), spec-text scores match node30.
+- **Open:** 38 T1 raw_m1 rows are off-spec under amendment 5 (g/kg-type spans; T1 is not in M1-strong) — author decision whether to rescore. Several committed tables were stale vs current code (e.g. polarity V1 n 25→11) — flagged, not yet investigated.
+- **AggreFact 61690:** 82 tasks held until DeBERTa regeneration finishes.
+
 ## Per-task status (current)
 
 | Task | Status | Headline / blocker | Deliverable |

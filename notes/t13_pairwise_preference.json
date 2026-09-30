@@ -297,10 +297,10 @@
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": 0.55,
+          "p_wrong_prefers": 0.6,
           "ci95": [
-            0.35,
-            0.75
+            0.4,
+            0.8
           ],
           "n_pairs": 20
         }
@@ -1285,10 +1285,10 @@
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": 0.55,
+          "p_wrong_prefers": 0.6,
           "ci95": [
-            0.35,
-            0.75
+            0.4,
+            0.8
           ],
           "n_pairs": 20
         }

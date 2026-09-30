@@ -37,7 +37,7 @@
 | t6a_minicheck_roberta | frequency_rephrased | 24 | 0.583 | [0.375, 0.750] | **Y** (p=0.025) |
 | t6a_minicheck_deberta | verbatim | 89 | 0.449 | [0.337, 0.551] |  |
 | t6a_minicheck_deberta | surface_variant | 26 | 0.500 | [0.308, 0.692] |  |
-| t6a_minicheck_deberta | frequency_rephrased | 24 | 0.542 | [0.333, 0.750] |  |
+| t6a_minicheck_deberta | frequency_rephrased | 24 | 0.583 | [0.375, 0.792] |  |
 | t6a_alignscore_base | verbatim | 89 | 0.202 | [0.124, 0.292] |  |
 | t6a_alignscore_base | surface_variant | 26 | 0.346 | [0.154, 0.538] |  |
 | t6a_alignscore_base | frequency_rephrased | 24 | 0.125 | [0.000, 0.250] |  |
@@ -120,7 +120,7 @@
 |---|---:|---:|---|:---:|
 | verbatim | 89 | 0.449 | [0.337, 0.551] |  |
 | surface_variant | 26 | 0.500 | [0.308, 0.692] |  |
-| frequency_rephrased | 24 | 0.542 | [0.333, 0.750] |  |
+| frequency_rephrased | 24 | 0.583 | [0.375, 0.792] |  |
 
 ### t6a_alignscore_base
 | category | n | FAIL rate | 95% CI | sig vs verbatim |

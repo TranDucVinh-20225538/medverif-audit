@@ -117,21 +117,21 @@
     "t6a_minicheck_deberta": {
       "display_name": "MiniCheck-DeBERTa",
       "family": "small fine-tuned checkers",
-      "c0_pass_rate": 0.9,
+      "c0_pass_rate": 0.8909090909090909,
       "n_c0_scored": 110,
-      "n_c0_pass": 99,
+      "n_c0_pass": 98,
       "qi_inv_natural_given_c0": 0.05,
       "n_qi_given_c0": 20,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
-          "p_pass_given_c0": 0.9693877551020408,
-          "n_given_c0": 98
+          "p_pass_given_c0": 0.9690721649484536,
+          "n_given_c0": 97
         },
         "spacing": {
           "label": "spacing",
           "p_pass_given_c0": 1.0,
-          "n_given_c0": 98
+          "n_given_c0": 97
         },
         "symbol_micro": {
           "label": "symbol (mcg/\u00b5g/\u03bcg)",

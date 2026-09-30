@@ -10,7 +10,7 @@ Among **main DOSE** bases where the verifier **PASS**es **C0**, report **P(PASS)
 | AlignScore-base | small fine-tuned checkers | 0.927 (n=110) | 102 | 0.227 (n=22) | 0.990 (n=101) | 1.000 (n=101) | 1.000 (n=7) |
 | Granite Guardian 2B | small fine-tuned checkers | 0.982 (n=110) | 108 | 0.190 (n=21) | 1.000 (n=107) | 1.000 (n=107) | 0.889 (n=9) |
 | HHEM | small fine-tuned checkers | 0.973 (n=110) | 107 | 0.143 (n=21) | — (n=0) | — (n=0) | — (n=0) |
-| MiniCheck-DeBERTa | small fine-tuned checkers | 0.900 (n=110) | 99 | 0.050 (n=20) | 0.969 (n=98) | 1.000 (n=98) | 0.857 (n=7) |
+| MiniCheck-DeBERTa | small fine-tuned checkers | 0.891 (n=110) | 98 | 0.050 (n=20) | 0.969 (n=97) | 1.000 (n=97) | 0.857 (n=7) |
 | MiniCheck-RoBERTa | small fine-tuned checkers | 0.900 (n=110) | 99 | 0.000 (n=20) | 0.990 (n=98) | 1.000 (n=98) | 0.875 (n=8) |
 | SummaC-Conv | small fine-tuned checkers | 0.745 (n=110) | 82 | 0.000 (n=17) | — (n=0) | — (n=0) | — (n=0) |
 | SummaC-ZS | small fine-tuned checkers | 0.800 (n=110) | 88 | 0.059 (n=17) | 1.000 (n=87) | 1.000 (n=87) | 1.000 (n=7) |

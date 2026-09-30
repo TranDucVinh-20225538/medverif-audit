@@ -196,9 +196,9 @@
       },
       "frequency_rephrased": {
         "n": 24,
-        "fail_rate": 0.5416666666666666,
-        "ci_lo": 0.3333333333333333,
-        "ci_hi": 0.75
+        "fail_rate": 0.5833333333333334,
+        "ci_lo": 0.375,
+        "ci_hi": 0.7916666666666666
       }
     },
     "t6a_alignscore_base": {
@@ -427,7 +427,7 @@
         "significant": false
       },
       "frequency_rephrased": {
-        "vs_verbatim_perm_p": 0.27974405118976203,
+        "vs_verbatim_perm_p": 0.1765646870625875,
         "ci_non_overlap": false,
         "significant": false
       }
