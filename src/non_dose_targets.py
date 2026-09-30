@@ -13,6 +13,13 @@ NON_DOSE_TARGET_BASES = frozenset(
         "D0171",
         "D0173",
         "D0176",
+        # main_ext PI: folate urine loss, proteinuria, dietary sodium, iron stores, etc.
+        "MEX0234",
+        "MEX0273",
+        "MEX0468",
+        "MEX0505",
+        "MEX0580",
+        "MEX0590",
     }
 )
 

@@ -27,7 +27,9 @@ def _row_id(row: dict) -> str:
 
 PACKS = (
     ("main_dose", ROOT / "data/v3/instances_main.jsonl"),
+    ("main_ext", ROOT / "data/main_ext/instances_main_ext.jsonl"),
     ("t14", ROOT / "data/t14/instances_t14.jsonl"),
+    ("t17", ROOT / "data/v3/t17_downdose.jsonl"),
     ("t18", ROOT / "data/t18/instances_t18.jsonl"),
     ("t18_medical_expand", ROOT / "data/t18_medical_expand/instances_t18.jsonl"),
 )
@@ -95,10 +97,21 @@ def main() -> None:
         help="score LLM-AggreFact test split only (resume-friendly)",
     )
     parser.add_argument(
+        "--packs-only",
+        action="store_true",
+        help="score card packs only (no AggreFact test)",
+    )
+    parser.add_argument(
         "--aggrefact-leg",
         choices=("both", "base", "ft"),
         default="both",
         help="when scoring AggreFact: base checkpoint, T15 ft, or both (parallel jobs: base + ft)",
+    )
+    parser.add_argument(
+        "--pack-leg",
+        choices=("both", "base", "ft"),
+        default="both",
+        help="when scoring card packs: base (t6a MiniCheck), T15 ft, or both",
     )
     args = parser.parse_args()
 
@@ -118,8 +131,10 @@ def main() -> None:
         rows = read_jsonl(path)
         base_out = raw_root / f"base_{name}.jsonl"
         ft_out = raw_root / f"ft_{name}.jsonl"
-        _score_pack(rows, base_out, use_t15=False, progress_tag=f"base_{name}")
-        _score_pack(rows, ft_out, use_t15=True, progress_tag=f"ft_{name}")
+        if args.pack_leg in ("both", "base"):
+            _score_pack(rows, base_out, use_t15=False, progress_tag=f"base_{name}")
+        if args.pack_leg in ("both", "ft"):
+            _score_pack(rows, ft_out, use_t15=True, progress_tag=f"ft_{name}")
         status_lines.append(
             f"- **{name}:** base `{base_out.relative_to(ROOT)}` ({len(done_ids(base_out))} rows), "
             f"ft `{ft_out.relative_to(ROOT)}` ({len(done_ids(ft_out))} rows)"
@@ -127,7 +142,15 @@ def main() -> None:
 
     # LLM-AggreFact test regression (balanced acc) when test split exists
     agg_test = ROOT / "data/t8/aggrefact/test.jsonl"
-    run_agg = agg_test.is_file() and (args.aggrefact_only or args.packs == "all")
+    # Never score AggreFact on partial pack jobs (e.g. --pack-leg ft without --packs-only).
+    run_agg = (
+        agg_test.is_file()
+        and not args.packs_only
+        and (
+            args.aggrefact_only
+            or (args.packs == "all" and args.pack_leg == "both" and args.aggrefact_leg == "both")
+        )
+    )
     if run_agg:
         rows = read_jsonl(agg_test)
         legs: list[tuple[str, bool]] = []

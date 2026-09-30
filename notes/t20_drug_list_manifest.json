@@ -1,0 +1,6 @@
+{
+  "target": 100,
+  "distinct_drugs_found": 20,
+  "written": 20,
+  "path": "data/t20/drug_list.jsonl"
+}

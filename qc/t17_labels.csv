@@ -1,0 +1,41 @@
+﻿instance_id,span_before,span_after,human_ok,note
+D0114__E1-down2__evid__down2,100 mg,50 mg,N,"câu 'B6 ≤100 mg là an toàn': hạ xuống 50 mg thì vẫn nằm trong khoảng, không làm claim sai"
+D0112__E1-down2__claim__down2,4 mg,2 mg,Y,
+D0169__E1-down2__evid__down2,250 mg,125 mg,Y,
+D0120__E1-down2__claim__down2,25 mg,12.5 mg,Y,
+D0158__E1-down2__evid__down2,100 mL,50 mL,N,không phải liều (lượng nước tiểu/giờ); đã loại ở dose3
+D0099__E1-down2__claim__down2,1200 mg,600 mg,Y,
+D0086__E1-down2__evid__down2,11 mg/kg,5.5 mg/kg,Y,
+D0018__E1-down2__claim__down2,6 g,3 g,Y,
+D0116__E1-down2__evid__down2,50 mL,25 mL,N,không có câu gốc để xác nhận 50 mL là liều; không chắc→N
+D0071__E1-down2__evid__down2,81 mg,40.5 mg,N,40.5 mg aspirin không tự nhiên
+D0102__E1-down2__evid__down2,2 mg/kg,1 mg/kg,Y,
+D0045__E1-down2__evid__down2,50 mg/kg,25 mg/kg,Y,
+D0042__E1-down2__evid__down2,75 g,37.5 g,Y,
+D0035__E1-down2__evid__down2,1000 µg,500 µg,Y,
+D0073__E1-down2__evid__down2,40 mg,20 mg,Y,
+D0100__E1-down10__claim__down10,30 mg,3 mg,Y,dose3 hỏng khi tăng liều; hạ 30→3 mg thì hợp lý
+D0126__E1-down10__evid__down10,5 mg,0.5 mg,Y,
+D0103__E1-down10__evid__down10,60 mg,6 mg,Y,
+D0008__E1-down10__evid__down10,0.5 mL,0.05 mL,Y,0.05 mL hợp lý nếu là liều tiêm
+D0026__E1-down10__claim__down10,200 mg,20 mg,Y,
+D0147__E1-down10__claim__down10,1 mg/kg/day,0.1 mg/kg/day,Y,
+D0069__E1-down10__claim__down10,12 mg,1.2 mg,Y,
+D0046__E1-down10__claim__down10,100 µg,10 µg,Y,10 µg nằm ngoài khoảng 50–200 µg của evidence nên sai thật
+D0180__E1-down10__evid__down10,0.5 mL,0.05 mL,Y,0.05 mL hợp lý nếu là liều tiêm
+D0018__E1-down10__evid__down10,6 g,0.6 g,Y,
+D0018__E1-unit-down__claim__unit-down,6 g,6 mg,Y,
+D0109__E1-unit-down__claim__unit-down,90 mg,90 mcg,Y,
+D0073__E1-unit-down__evid__unit-down,40 mg,40 mcg,Y,
+D0148__E1-unit-down__evid__unit-down,250 mg,250 mcg,Y,
+D0009__E1-unit-down__evid__unit-down,2 g,2 mg,Y,
+D0140__E1-unit-down__claim__unit-down,0.025 mg,0.025 mcg,Y,"0.025 mcg lạ nhưng đúng ngữ pháp, sai 1000×"
+D0144__E1-unit-down__evid__unit-down,100 mg,100 mcg,Y,
+D0088__E1-unit-down__claim__unit-down,2 mg,2 mcg,Y,
+D0157__E1-unit-down__claim__unit-down,1 g,1 mg,N,không phải liều (khối u 1 kg→1 g)
+D0109__E1-unit-down__evid__unit-down,90 mg,90 mcg,Y,
+D0063__E1-unit-down__evid__unit-down,1 g,1 mg,Y,
+D0081__E1-unit-down__evid__unit-down,300 mg,300 mcg,Y,
+D0124__E1-unit-down__evid__unit-down,2 g,2 mg,Y,
+D0063__E1-unit-down__claim__unit-down,1 g,1 mg,Y,
+D0081__E1-unit-down__claim__unit-down,300 mg,300 mcg,Y,

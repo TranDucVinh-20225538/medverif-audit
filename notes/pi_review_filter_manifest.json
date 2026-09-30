@@ -1,0 +1,46 @@
+{
+  "main_ext": {
+    "rows_in": 480,
+    "exclude_whole_base": [
+      "MEX0036",
+      "MEX0130",
+      "MEX0161",
+      "MEX0199",
+      "MEX0256",
+      "MEX0391"
+    ],
+    "exclude_inv_only": [
+      "MEX0075",
+      "MEX0159",
+      "MEX0420",
+      "MEX0533"
+    ],
+    "non_dose_bases": [
+      "MEX0234",
+      "MEX0273",
+      "MEX0468",
+      "MEX0505",
+      "MEX0580",
+      "MEX0590"
+    ],
+    "valid_after": 380,
+    "dropped_whole_base_rows": 48,
+    "dropped_inv_only_rows": 4,
+    "non_dose_rows": 48,
+    "inv_natural_y_rows": 44,
+    "natural_y_bases_in_labels": 50
+  },
+  "t17": {
+    "rows_in": 612,
+    "pi_reject_ids": [
+      "D0071__E1-down2__evid__down2",
+      "D0114__E1-down2__evid__down2",
+      "D0116__E1-down2__evid__down2",
+      "D0157__E1-unit-down__claim__unit-down",
+      "D0158__E1-down2__evid__down2"
+    ],
+    "pack_filter": 66,
+    "pi_n": 9,
+    "valid_after": 516
+  }
+}

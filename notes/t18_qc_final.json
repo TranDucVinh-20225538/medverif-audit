@@ -1,0 +1,6 @@
+{
+  "status": "FINAL",
+  "inv_rows": 92,
+  "qc_path": "qc/t18_sample.csv",
+  "instances_path": "data/t18/instances_t18.jsonl"
+}

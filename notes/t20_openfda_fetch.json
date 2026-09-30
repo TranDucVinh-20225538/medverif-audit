@@ -1,0 +1,18 @@
+{
+  "requested": 20,
+  "hits": 17,
+  "misses": [
+    {
+      "drug": "antibiotics",
+      "error": "not_found"
+    },
+    {
+      "drug": "medications",
+      "error": "not_found"
+    },
+    {
+      "drug": "szithromycin",
+      "error": "not_found"
+    }
+  ]
+}
