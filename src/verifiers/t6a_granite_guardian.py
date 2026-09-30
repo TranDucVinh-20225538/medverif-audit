@@ -38,6 +38,9 @@ def _prob_of_risk_from_logits(logits: torch.Tensor, yes_id: int, no_id: int) -> 
 
 
 def load():
+    from hf_token_env import sanitize_hf_token_env
+
+    sanitize_hf_token_env()
     cache = os.environ.get("HF_HOME") or os.environ.get("HUGGINGFACE_HUB_CACHE")
     started = time.perf_counter()
     tok = AutoTokenizer.from_pretrained(MODEL_ID, trust_remote_code=True, cache_dir=cache)

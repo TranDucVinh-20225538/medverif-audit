@@ -29,6 +29,9 @@ def _summac_transformers_compat() -> None:
 
 
 def load(verifier_id: str):
+    from hf_token_env import sanitize_hf_token_env
+
+    sanitize_hf_token_env()
     _summac_transformers_compat()
     from summac.model_summac import SummaCConv, SummaCZS
 

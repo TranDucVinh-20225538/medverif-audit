@@ -14,6 +14,10 @@ sys.path.insert(0, str(ROOT / "analysis"))
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from hf_token_env import sanitize_hf_token_env
+
+sanitize_hf_token_env()
+
 from analyze import read_jsonl  # noqa: E402
 from lane_b_checker_routing import cpuverif_checkers, legacy_checkers, legacy_downstream_allowed  # noqa: E402
 from review_filters import analysis_keep_row, flip_pi_ok_bases, inv_pi_ok_keys  # noqa: E402
@@ -110,12 +114,16 @@ def score_checker(cid: str, instances: Path, outdir: Path, *, legacy: bool) -> N
 
 
 def main() -> None:
-    build_ns_instances()
+    legacy_only = os.environ.get("MEDVERIF_LEGACY_ONLY") == "1"
+    if not legacy_only:
+        build_ns_instances()
     id_to_jsonl = {c["id"]: c["jsonl"] for c in json.loads(T6_MANIFEST.read_text())["checkers"]}
     allowed_legacy = legacy_downstream_allowed()
     cpu = set(cpuverif_checkers())
 
     for pack, inst in PACKS:
+        if legacy_only and pack == "m1_strong_ns":
+            continue
         if not inst.is_file():
             print(json.dumps({"skip_pack": pack, "reason": "missing instances"}))
             continue
