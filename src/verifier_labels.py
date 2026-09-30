@@ -52,7 +52,7 @@ DISPLAY_NAME: dict[str, str] = {
     "t6a_summac_zs": "SummaC-ZS",
     "t6a_summac_conv": "SummaC-Conv",
     "t6a_hhem": "HHEM",
-    "t6a_granite_guardian": "Granite Guardian",
+    "t6a_granite_guardian": "Granite Guardian 2B",
     "v1_medscore": "Mistral-Small-24B (MedScore)",
     "v1b_medscore": "GPT-4o (MedScore)",
     "v1c_medscore": "GPT-4o-mini (MedScore)",

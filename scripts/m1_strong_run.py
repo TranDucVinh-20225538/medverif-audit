@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""M1-strong steps 1–2: coverage gate, causal US_up/US_down vs NS_x10/NS_div10."""
+"""M1-strong: pre-registered small FT checkers; claim/evid split; McNemar; NeMo non-dose."""
 
 from __future__ import annotations
 
 import json
+import math
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -14,20 +15,29 @@ sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from analyze import _c0_pass_bases, _parsed, bootstrap_rate, read_jsonl  # noqa: E402
+from canonical_scores import score_filename  # noqa: E402
 from m1_gate import instance_gate, pack_coverage  # noqa: E402
 from m1_parse_errors import finalize_and_abort  # noqa: E402
+from non_dose_targets import NON_DOSE_TARGET_BASES  # noqa: E402
 from review_filters import analysis_keep_row, flip_pi_ok_bases, inv_pi_ok_keys  # noqa: E402
+from verifier_labels import DISPLAY_NAME, verifier_display_name  # noqa: E402
 
 OUT_TABLE = ROOT / "results/tables/m1_strong.md"
 OUT_NOTE = ROOT / "notes/m1_strong_report.md"
 OUT_JSON = ROOT / "notes/m1_strong_report.json"
 GATE_CACHE = ROOT / "results/cache/m1_strong_gate.json"
 PREREG = ROOT / "notes/m1_preregistration.md"
-AMEND = ROOT / "notes/m1_prereg_amendment1.md"
+AMEND1 = ROOT / "notes/m1_prereg_amendment1.md"
+AMEND2 = ROOT / "notes/m1_prereg_amendment2.md"
+T6_MANIFEST = ROOT / "notes/t6a_eco_checkers.json"
+T9_SCORES_BASE = ROOT / "results/raw/t9/alignscore_rail.jsonl"
+T9_SCORES_LARGE = ROOT / "results/raw/t9/alignscore_rail_large.jsonl"
 
 MAIN = ROOT / "data/v3/instances_main.jsonl"
 T7 = ROOT / "data/t7/instances_e1_unit.jsonl"
 T17 = ROOT / "data/v3/t17_downdose.jsonl"
+T9_D = ROOT / "data/t9/instances_d_t7_e1_unit.jsonl"
+T9_C = ROOT / "data/t9/instances_c_e1_x2.jsonl"
 
 CRITERION = (
     "Numeral binding is supported for a checker if US_up_after >= NS_x10 - 5 points AND "
@@ -35,22 +45,35 @@ CRITERION = (
     "US_after above NS is expected and not counted against. Evaluated on spans parsed by BOTH M1 and M1-lib."
 )
 
-LOCAL_VERIFIERS = (
-    ("v2a_minicheck", "V2a"),
-    ("v3_alignscore", "V3"),
-    ("t6_minicheck_roberta", "MiniCheck-RoBERTa"),
-    ("t6_alignscore_base", "AlignScore-base"),
-    ("t6_minicheck_deberta", "MiniCheck-DeBERTa"),
-    ("v2b_bespoke", "Bespoke"),
+# Pre-registered primary (decision M: exclude SummaC-Conv, HHEM)
+PRIMARY_SLUGS: tuple[str, ...] = (
+    "t6a_minicheck_roberta",
+    "t6a_minicheck_deberta",
+    "v2a_minicheck",
+    "t6a_alignscore_base",
+    "v3_alignscore",
+    "t6a_summac_zs",
+    "t6a_granite_guardian",
+    "v2b_bespoke",
 )
-API_VERIFIERS = (
-    ("v1_medscore", "V1-Mistral24B", ROOT / "results/raw", ROOT / "results/raw_m1"),
-    ("v4_ragas_nli", "V4-Llama70B", ROOT / "results/raw/t7", ROOT / "results/raw_m1/t7"),
+SECONDARY_SLUGS: tuple[str, ...] = ("v1_medscore", "v4_ragas_nli", "v5_ragas_nli")
+
+V_CODE_MAP = (
+    "Report IDs: **V1** = Mistral-Small-24B (MedScore); **V2a** = MiniCheck-Flan-T5-Large; "
+    "**V3** = AlignScore-large; **V4** = Llama-3.3-70B (RAGAS NLI)."
 )
 
-T17_OR = ROOT / "results/raw/t17"
-T17_CPU = ROOT / "results/raw/lane_b/t17_downdose"
-US_M1 = ROOT / "results/raw/lane_b/m1_t7_e1_unit"
+MAIN_NS_DIRS = (
+    ROOT / "results/raw/lane_b/m1_strong_ns",
+    ROOT / "results/raw_node30",
+    ROOT / "results/raw/e2_main",
+    ROOT / "results/raw",
+    ROOT / "results/raw/t2_full",
+    ROOT / "results/raw/t6b/full",
+)
+T7_BEFORE_DIRS = (ROOT / "results/raw/t7", ROOT / "results/raw/e2_main", ROOT / "results/raw")
+US_AFTER_DIRS = (ROOT / "results/raw/lane_b/m1_t7_e1_unit", ROOT / "results/raw_m1/t7")
+T17_DIRS = (ROOT / "results/raw/t17", ROOT / "results/raw/lane_b/t17_downdose")
 
 _FLIP_Y = flip_pi_ok_bases()
 _INV_KEYS = inv_pi_ok_keys()
@@ -69,7 +92,9 @@ def load_rows(path: Path, *, pred=None) -> list[dict]:
     return out
 
 
-def load_gate_cache() -> dict[str, bool]:
+def load_gate_cache(refresh: bool) -> dict[str, bool]:
+    if refresh and GATE_CACHE.is_file():
+        GATE_CACHE.unlink()
     if GATE_CACHE.is_file():
         return json.loads(GATE_CACHE.read_text())
     return {}
@@ -106,82 +131,116 @@ def on_bases(rows: list[dict], bases: set[str], cache: dict[str, bool]) -> list[
     return [r for r in rows if r["base_id"] in bases and gate_pass(r, cache)]
 
 
-def load_scores(path: Path) -> dict[str, dict]:
+def _read_score_file(path: Path) -> dict[str, str]:
+    out: dict[str, str] = {}
     if not path.is_file():
-        return {}
-    out: dict[str, dict] = {}
+        return out
     for line in path.open():
         if line.strip():
             row = json.loads(line)
-            if row.get("instance_id"):
-                out[row["instance_id"]] = row
+            iid = row.get("instance_id")
+            if iid:
+                out[iid] = row.get("verdict") or ""
     return out
 
 
-def score_path(base: Path, slug: str) -> Path:
-    if slug == "v4_ragas_nli":
-        for name in ("v4_ragas_nli.llama.jsonl", "v4_ragas_nli.jsonl"):
-            p = base / name
-            if p.is_file():
-                return p
-    return base / f"{slug}.jsonl"
-
-
-def merge_scores(*paths: Path) -> dict[str, dict]:
-    out: dict[str, dict] = {}
-    for p in paths:
-        sp = p if p.suffix == ".jsonl" else score_path(p, p.name.replace(".jsonl", ""))
-        if sp.is_file():
-            out.update(load_scores(sp))
-        elif p.is_dir():
-            for slug, _ in LOCAL_VERIFIERS:
-                out.update(load_scores(score_path(p, slug)))
+def merge_verdicts(slug: str, dirs: tuple[Path, ...]) -> dict[str, str]:
+    fname = score_filename(slug)
+    if slug == "v2b_bespoke" and fname == "t6_bespoke_minicheck.jsonl":
+        alt_names = (fname, "v2b_bespoke.jsonl", f"{slug}.jsonl")
+    else:
+        alt_names = (fname, f"{slug}.jsonl")
+    out: dict[str, str] = {}
+    for d in dirs:
+        for name in alt_names:
+            out.update(_read_score_file(d / name))
     return out
 
 
-def load_checker_scores(slug: str, ns_dir: Path, us_dir: Path, t17_dirs: tuple[Path, ...]) -> tuple[dict, dict]:
-    sb = load_scores(score_path(ns_dir, slug))
-    for d in t17_dirs:
-        sb.update(load_scores(score_path(d, slug)))
-    sa = load_scores(score_path(us_dir, slug))
-    return sb, sa
-
-
-def c0_pass_bases_for(bases: set[str], c0_rows: list[dict], scores: dict[str, dict], verifier: str) -> set[str]:
+def c0_pass_bases_for(bases: set[str], c0_rows: list[dict], scores: dict[str, str], verifier: str) -> set[str]:
     joined = []
     for r in c0_rows:
         if r["base_id"] not in bases:
             continue
-        sc = scores.get(r["instance_id"])
-        if not sc:
+        v = scores.get(r["instance_id"])
+        if not v:
             continue
         row = dict(r)
         row["verifier"] = verifier
-        row["verdict"] = sc.get("verdict")
+        row["verdict"] = v
         joined.append(row)
     return _c0_pass_bases(joined) if joined else set()
 
 
-def fail_rate(
+def fail_rate_side(
     inst_rows: list[dict],
-    scores: dict[str, dict],
+    scores: dict[str, str],
     c0_pass: set[str],
     *,
-    condition: str | tuple[str, ...],
+    condition: str,
+    id_substr: str | None = None,
 ) -> dict:
-    conds = (condition,) if isinstance(condition, str) else condition
     by_base: dict[str, list] = defaultdict(list)
     for r in inst_rows:
         if r["base_id"] not in c0_pass:
             continue
-        if r.get("condition") not in conds:
+        if r.get("condition") != condition:
             continue
-        sc = scores.get(r["instance_id"])
-        if not sc or not _parsed({"verdict": sc.get("verdict")}):
+        iid = r.get("instance_id") or ""
+        if id_substr and id_substr not in iid:
             continue
-        by_base[r["base_id"]].append(sc.get("verdict"))
-    groups = [(sum(1 for v in g if v == "FAIL"), len(g)) for g in by_base.values() if g]
+        v = scores.get(r["instance_id"])
+        if not v or not _parsed({"verdict": v}):
+            continue
+        by_base[r["base_id"]].append(v)
+    groups = [(sum(1 for x in g if x == "FAIL"), len(g)) for g in by_base.values() if g]
     return bootstrap_rate(groups)
+
+
+def mcnemar(b: int, c: int) -> tuple[float | None, float | None]:
+    if b + c == 0:
+        return None, None
+    stat = (abs(b - c) - 1) ** 2 / (b + c)
+    p = math.erfc(math.sqrt(stat / 2))
+    return stat, p
+
+
+def paired_us_mcnemar(
+    ids: list[str],
+    iid_base: dict[str, str],
+    c0_pass: set[str],
+    before: dict[str, str],
+    after: dict[str, str],
+) -> dict:
+    b = c = n = unpaired = 0
+    fail_before = fail_after = 0
+    for iid in ids:
+        bid = iid_base.get(iid)
+        if bid not in c0_pass:
+            unpaired += 1
+            continue
+        v0, v1 = before.get(iid), after.get(iid)
+        if not v0 or not v1 or v0 == "PARSE_FAIL" or v1 == "PARSE_FAIL":
+            unpaired += 1
+            continue
+        n += 1
+        f0, f1 = v0 == "FAIL", v1 == "FAIL"
+        fail_before += int(f0)
+        fail_after += int(f1)
+        if not f0 and f1:
+            b += 1
+        elif f0 and not f1:
+            c += 1
+    stat, p = mcnemar(b, c)
+    return {
+        "n_paired": n,
+        "n_unpaired_dropped": unpaired,
+        "fail_before": fail_before,
+        "fail_after": fail_after,
+        "discordant_pass_fail": b,
+        "discordant_fail_pass": c,
+        "mcnemar_p_approx": p,
+    }
 
 
 def pct(st: dict) -> float | None:
@@ -212,7 +271,224 @@ def fmt(st: dict) -> str:
     return f"{p:.1f}%{ci} ({st['num']}/{st['den']})"
 
 
+def nemo_group_metrics(
+    inst_rows: list[dict],
+    score_rows: list[dict],
+    *,
+    exclude_non_dose: bool,
+) -> dict:
+    """T9 rail: blocked=1 catches error. value-error 'pass' = blocked; unit 'pass-through' = not blocked."""
+    by_id = {r["instance_id"]: r for r in score_rows if r.get("instance_id")}
+    flags: list[int] = []
+    for r in inst_rows:
+        if exclude_non_dose and r.get("base_id") in NON_DOSE_TARGET_BASES:
+            continue
+        sc = by_id.get(r["instance_id"])
+        if not sc or sc.get("blocked") is None:
+            continue
+        flags.append(int(sc["blocked"]))
+    if not flags:
+        return {"n": 0, "blocked": 0, "not_blocked": 0, "block_rate": None, "ci": None}
+    n = len(flags)
+    blocked = sum(flags)
+    not_blocked = n - blocked
+    groups = [(blocked, n)]
+    br = bootstrap_rate(groups)
+    return {
+        "n": n,
+        "blocked": blocked,
+        "not_blocked": not_blocked,
+        "block_rate": br["rate"],
+        "ci_lo": br["lo"],
+        "ci_hi": br["hi"],
+    }
+
+
+def checker_block(
+    slug: str,
+    *,
+    cache: dict[str, bool],
+    bases: set[str],
+    c0_rows: list[dict],
+    ns_x10_claim: list[dict],
+    ns_x10_evid: list[dict],
+    ns_div10_claim: list[dict],
+    ns_div10_evid: list[dict],
+    us_up_raw: list[dict],
+    us_up_gate: list[dict],
+    us_down_gate: list[dict],
+    t7_claim_ids: list[str],
+    t7_evid_ids: list[str],
+    iid_base: dict[str, str],
+    ns_dirs: tuple[Path, ...],
+    us_before_dirs: tuple[Path, ...],
+    us_after_dirs: tuple[Path, ...],
+    t17_dirs: tuple[Path, ...],
+) -> dict:
+    ns_sc = merge_verdicts(slug, ns_dirs)
+    ns_t17 = merge_verdicts(slug, t17_dirs)
+    us_before = merge_verdicts(slug, us_before_dirs)
+    us_after = merge_verdicts(slug, us_after_dirs)
+    down_sc = merge_verdicts(slug, t17_dirs)
+
+    c0p = c0_pass_bases_for(bases, c0_rows, ns_sc, slug)
+    side = {}
+    specs: list[tuple[str, list[dict], str, dict[str, str], str | None]] = [
+        ("NS_x10_claim", ns_x10_claim, "E1-claim", ns_sc, None),
+        ("NS_x10_evid", ns_x10_evid, "E1-evid", ns_sc, None),
+        ("NS_div10_claim", ns_div10_claim, "E1-down10", ns_t17, "__claim__"),
+        ("NS_div10_evid", ns_div10_evid, "E1-down10", ns_t17, "__evid__"),
+        ("US_up_before_claim", us_up_raw, "E1-unit-claim", us_before, None),
+        ("US_up_before_evid", us_up_raw, "E1-unit-evid", us_before, None),
+        ("US_up_after_claim", us_up_gate, "E1-unit-claim", us_after, None),
+        ("US_up_after_evid", us_up_gate, "E1-unit-evid", us_after, None),
+        ("US_down_claim", us_down_gate, "E1-unit-down", down_sc, "__claim__"),
+        ("US_down_evid", us_down_gate, "E1-unit-down", down_sc, "__evid__"),
+    ]
+    for label, rows, cond, sc, sub in specs:
+        side[label] = fail_rate_side(rows, sc, c0p, condition=cond, id_substr=sub)
+
+    bind_claim = supported(side["US_up_after_claim"], side["NS_x10_claim"])
+    bind_evid = supported(side["US_up_after_evid"], side["NS_x10_evid"])
+    down_claim = supported(side["US_down_claim"], side["NS_div10_claim"])
+    down_evid = supported(side["US_down_evid"], side["NS_div10_evid"])
+    binding = None
+    if bind_claim is not None and bind_evid is not None:
+        up_ok = bind_claim and bind_evid
+        if down_claim is not None and down_evid is not None:
+            binding = up_ok and down_claim and down_evid
+        else:
+            binding = up_ok
+
+    mcn = {
+        "claim": paired_us_mcnemar(t7_claim_ids, iid_base, c0p, us_before, us_after),
+        "evid": paired_us_mcnemar(t7_evid_ids, iid_base, c0p, us_before, us_after),
+    }
+    return {
+        "display_name": verifier_display_name(slug),
+        "slug": slug,
+        "c0_pass_bases": len(c0p),
+        "metrics": side,
+        "binding_claim": bind_claim,
+        "binding_evid": bind_evid,
+        "binding_overall": binding,
+        "mcnemar": mcn,
+    }
+
+
+def render_primary_table(checkers: dict[str, dict]) -> list[str]:
+    lines = [
+        "## Primary — small fine-tuned checkers (decision M: SummaC-Conv & HHEM excluded)",
+        "",
+        "| Model | Side | NS_x10 FAIL | US_up before FAIL | US_up after FAIL | NS_div10 FAIL | US_down FAIL | Bind? | n paired (McN) | p≈ |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |",
+    ]
+    for slug in PRIMARY_SLUGS:
+        if slug not in checkers:
+            continue
+        ch = checkers[slug]
+        name = ch["display_name"]
+        for side_key, side_label, ns_k, us_a_k, ns_d_k, us_d_k, bind_k, mcn_k in (
+            ("claim", "CLAIM", "NS_x10_claim", "US_up_after_claim", "NS_div10_claim", "US_down_claim", "binding_claim", "claim"),
+            ("evid", "EVID", "NS_x10_evid", "US_up_after_evid", "NS_div10_evid", "US_down_evid", "binding_evid", "evid"),
+        ):
+            m = ch["metrics"]
+            mc = ch["mcnemar"][mcn_k]
+            p = mc["mcnemar_p_approx"]
+            p_s = f"{p:.3g}" if p is not None else "—"
+            before_k = "US_up_before_claim" if side_key == "claim" else "US_up_before_evid"
+            lines.append(
+                f"| {name} | {side_label} | {fmt(m[ns_k])} | {fmt(m[before_k])} | {fmt(m[us_a_k])} | "
+                f"{fmt(m[ns_d_k])} | {fmt(m[us_d_k])} | {ch[bind_k]} | {mc['n_paired']} ({mc['n_unpaired_dropped']} drop) | {p_s} |"
+            )
+    return lines
+
+
+def render_secondary_table(checkers: dict[str, dict]) -> list[str]:
+    lines = [
+        "",
+        "## Secondary — LLM judges (non-primary; same splits)",
+        "",
+        "| Model | Side | NS_x10 FAIL | US_up before | US_up after | NS_div10 | US_down | Bind? | n paired | p≈ |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |",
+    ]
+    for slug in SECONDARY_SLUGS:
+        if slug not in checkers:
+            continue
+        ch = checkers[slug]
+        name = ch["display_name"]
+        for side_label, ns_k, before_k, us_a_k, ns_d_k, us_d_k, bind_k, mcn_k in (
+            ("CLAIM", "NS_x10_claim", "US_up_before_claim", "US_up_after_claim", "NS_div10_claim", "US_down_claim", "binding_claim", "claim"),
+            ("EVID", "NS_x10_evid", "US_up_before_evid", "US_up_after_evid", "NS_div10_evid", "US_down_evid", "binding_evid", "evid"),
+        ):
+            m = ch["metrics"]
+            mc = ch["mcnemar"][mcn_k]
+            p = mc["mcnemar_p_approx"]
+            p_s = f"{p:.3g}" if p is not None else "—"
+            lines.append(
+                f"| {name} | {side_label} | {fmt(m[ns_k])} | {fmt(m[before_k])} | {fmt(m[us_a_k])} | "
+                f"{fmt(m[ns_d_k])} | {fmt(m[us_d_k])} | {ch[bind_k]} | {mc['n_paired']} ({mc['n_unpaired_dropped']} drop) | {p_s} |"
+            )
+    return lines
+
+
+def v4_reconcile(checkers: dict[str, dict]) -> list[str]:
+    ch = checkers.get("v4_ragas_nli")
+    if not ch:
+        return []
+    m = ch["metrics"]
+    pf = m["US_up_before_claim"]["num"] + m["US_up_before_evid"]["num"]
+    pd = m["US_up_before_claim"]["den"] + m["US_up_before_evid"]["den"]
+    pr = 100 * pf / pd if pd else 0
+    evid = m["US_up_before_evid"]
+    return [
+        "",
+        "## V4 denominator reconciliation (7338b21 pooled bug)",
+        "",
+        f"- **7338b21** pooled E1-unit-claim + E1-unit-evid under one bootstrap → US_up before ≈ **{pr:.1f}%** ({pf}/{pd} FAIL instances).",
+        f"- **Correct (EVID only, |C0 PASS|, parsed):** **{fmt(evid)}** — matches repair report **n_paired≈114** on E1-unit-evid.",
+        "- **Card/repair (~55.8% PASS / 61 FAIL):** same **evid-only** cohort; 7338b21 **91.1%** was **FAIL rate on pooled 203**, not PASS.",
+        "",
+    ]
+
+
+def render_nemo() -> list[str]:
+    def read_t9(path: Path) -> list[dict]:
+        return [json.loads(line) for line in path.open() if line.strip()] if path.is_file() else []
+
+    inst_d = read_jsonl(T9_D)
+    inst_c = read_jsonl(T9_C)
+    base_sc = read_t9(T9_SCORES_BASE)
+    large_sc = read_t9(T9_SCORES_LARGE)
+    lines = [
+        "",
+        "## NeMo Guardrails (T9) — after non-dose base exclusion",
+        "",
+        "Group **d** = T7 E1-unit (unit errors); group **c** = E1-claim ×2 (value errors). "
+        "Rail blocks when AlignScore < 0.5. **Value-error detection** = blocked k/n; "
+        "**unit pass-through** = not blocked k/n (177/230 raw = errors slipping past rail).",
+        "",
+        "| Checkpoint | Slice | n | blocked k/n [CI] | not blocked k/n |",
+        "| --- | --- | ---: | --- | --- |",
+    ]
+    for label, sc in ("AlignScore-base", base_sc), ("AlignScore-large", large_sc):
+        for gname, inst in ("unit-error (d)", inst_d), ("value-error (c)", inst_c):
+            met = nemo_group_metrics(inst, sc, exclude_non_dose=True)
+            if not met["n"]:
+                lines.append(f"| {label} | {gname} | 0 | — | — |")
+                continue
+            br = met["block_rate"]
+            ci = f"[{met['ci_lo']:.3f},{met['ci_hi']:.3f}]" if met["ci_lo"] is not None else ""
+            lines.append(
+                f"| {label} | {gname} | {met['n']} | **{met['blocked']}/{met['n']}** ({br:.3f}) {ci} | "
+                f"{met['not_blocked']}/{met['n']} |"
+            )
+    lines.append("")
+    return lines
+
+
 def main() -> None:
+    refresh_gate = "--refresh-gate" in sys.argv
     try:
         import quantulum3  # noqa: F401
         import pint  # noqa: F401
@@ -221,15 +497,19 @@ def main() -> None:
     except ImportError as exc:
         lib_backend = f"partial ({exc})"
 
-    cache = load_gate_cache()
-    print(f"[m1-strong] gate cache entries: {len(cache)}", flush=True)
+    cache = load_gate_cache(refresh_gate)
+    print(f"[m1-strong] gate cache entries: {len(cache)} refresh={refresh_gate}", flush=True)
 
     c0_rows = load_rows(MAIN, pred=lambda r: r.get("condition") == "C0")
     t7_rows = load_rows(T7)
-    t17_rows = load_rows(T17)
+    t7_bases = {r["base_id"] for r in t7_rows}
+    c0_rows = [r for r in c0_rows if r["base_id"] in t7_bases]
+    t7_claim_ids = [r["instance_id"] for r in t7_rows if r.get("condition") == "E1-unit-claim"]
+    t7_evid_ids = [r["instance_id"] for r in t7_rows if r.get("condition") == "E1-unit-evid"]
+    iid_base = {r["instance_id"]: r["base_id"] for r in t7_rows}
 
     us_up_raw = [r for r in t7_rows if r.get("magnitude") == "x1000"]
-    us_down_raw = [r for r in t17_rows if r.get("condition") == "E1-unit-down"]
+    us_down_raw = [r for r in load_rows(T17) if r.get("condition") == "E1-unit-down"]
     ns_x10_claim_raw = load_rows(
         MAIN, pred=lambda r: r.get("condition") == "E1-claim" and r.get("magnitude") == "x10"
     )
@@ -237,10 +517,10 @@ def main() -> None:
         MAIN, pred=lambda r: r.get("condition") == "E1-evid" and r.get("magnitude") == "x10"
     )
     ns_div10_claim_raw = [
-        r for r in t17_rows if r.get("condition") == "E1-down10" and "__claim__" in r.get("instance_id", "")
+        r for r in load_rows(T17) if r.get("condition") == "E1-down10" and "__claim__" in r.get("instance_id", "")
     ]
     ns_div10_evid_raw = [
-        r for r in t17_rows if r.get("condition") == "E1-down10" and "__evid__" in r.get("instance_id", "")
+        r for r in load_rows(T17) if r.get("condition") == "E1-down10" and "__evid__" in r.get("instance_id", "")
     ]
 
     cov_raw = {
@@ -263,38 +543,60 @@ def main() -> None:
     )
     save_gate_cache(cache)
 
-    us_up_pool = on_bases(us_up_raw, bases, cache)
-    us_down_pool = on_bases(us_down_raw, bases, cache)
+    us_up_gate = on_bases(us_up_raw, bases, cache)
+    us_down_gate = on_bases(us_down_raw, bases, cache)
     ns_x10_claim = on_bases(ns_x10_claim_raw, bases, cache)
     ns_x10_evid = on_bases(ns_x10_evid_raw, bases, cache)
     ns_div10_claim = on_bases(ns_div10_claim_raw, bases, cache)
     ns_div10_evid = on_bases(ns_div10_evid_raw, bases, cache)
 
-    payload: dict = {
+    all_slugs = PRIMARY_SLUGS + SECONDARY_SLUGS
+    checkers: dict[str, dict] = {}
+    for slug in all_slugs:
+        print(f"[m1-strong] {verifier_display_name(slug)} ({slug})", flush=True)
+        ns_dirs = MAIN_NS_DIRS if slug not in ("v1_medscore", "v4_ragas_nli", "v5_ragas_nli") else MAIN_NS_DIRS + (ROOT / "results/raw/t2_full",)
+        us_after_dirs = US_AFTER_DIRS if slug in ("v1_medscore", "v4_ragas_nli", "v5_ragas_nli") else (ROOT / "results/raw/lane_b/m1_t7_e1_unit",)
+        checkers[slug] = checker_block(
+            slug,
+            cache=cache,
+            bases=bases,
+            c0_rows=c0_rows,
+            ns_x10_claim=ns_x10_claim,
+            ns_x10_evid=ns_x10_evid,
+            ns_div10_claim=ns_div10_claim,
+            ns_div10_evid=ns_div10_evid,
+            us_up_raw=us_up_raw,
+            us_up_gate=us_up_gate,
+            us_down_gate=us_down_gate,
+            t7_claim_ids=t7_claim_ids,
+            t7_evid_ids=t7_evid_ids,
+            iid_base=iid_base,
+            ns_dirs=ns_dirs,
+            us_before_dirs=T7_BEFORE_DIRS,
+            us_after_dirs=us_after_dirs,
+            t17_dirs=T17_DIRS,
+        )
+
+    payload = {
         "preregistration": str(PREREG),
-        "amendment": str(AMEND),
+        "amendment1": str(AMEND1),
+        "amendment2": str(AMEND2),
+        "decision_M": "exclude t6a_summac_conv, t6a_hhem from primary",
         "criterion_verbatim": CRITERION,
         "m1_lib_backend": lib_backend,
         "gate_cache": str(GATE_CACHE),
         "gate_bases_n": len(bases),
         "coverage_by_pack": cov_raw,
-        "cohorts": {
-            "gate_bases": len(bases),
-            "us_up_n": len(us_up_pool),
-            "us_down_n": len(us_down_pool),
-            "ns_x10_claim_n": len(ns_x10_claim),
-            "ns_x10_evid_n": len(ns_x10_evid),
-            "ns_div10_claim_n": len(ns_div10_claim),
-            "ns_div10_evid_n": len(ns_div10_evid),
-        },
-        "checkers": {},
+        "checkers": checkers,
     }
 
     lines = [
         "# M1-strong (steps 1–2)",
         "",
-        f"Pre-registration: `{PREREG.relative_to(ROOT)}` · Amendment: `{AMEND.relative_to(ROOT)}`",
-        f"M1-lib backend: **{lib_backend}** · Gate bases: **{len(bases)}**",
+        f"Pre-registration: `{PREREG.relative_to(ROOT)}` · Amendments: `{AMEND1.relative_to(ROOT)}`, `{AMEND2.relative_to(ROOT)}`",
+        f"M1-lib backend: **{lib_backend}** · Gate bases: **{len(bases)}** (gate cache refreshed={refresh_gate})",
+        "",
+        V_CODE_MAP,
         "",
         "## Criterion (verbatim)",
         "",
@@ -310,68 +612,18 @@ def main() -> None:
             f"| {key} | {c['instances']} | {c['instances_gate_pass']} | {c['edited_target_spans']} | "
             f"{c['spans_m1_only']} | {c['spans_m1_lib_only']} | {c['spans_both']} |"
         )
-    lines.extend(
-        [
-            "",
-            f"Cohort intersection: **{len(bases)}** bases with ≥1 gated instance across causal packs.",
-            "",
-            "| Checker | NS_x10 evid (gate) | US_up before (all ×1000) | US_up after (gate) | NS_div10 evid | US_down | binding? |",
-            "| --- | --- | --- | --- | --- | --- | --- |",
-        ]
-    )
-
-    t17_dirs = (T17_OR, T17_CPU)
-
-    def eval_verifier(slug: str, label: str, ns_dir: Path, us_dir: Path) -> None:
-        print(f"[m1-strong] checker {label} ({slug})", flush=True)
-        sb, sa = load_checker_scores(slug, ns_dir, us_dir, t17_dirs)
-        if not sb and not sa:
-            return
-        c0p = c0_pass_bases_for(bases, c0_rows, sb, slug)
-        ns_e = fail_rate(ns_x10_evid, sb, c0p, condition="E1-evid")
-        ns_d = fail_rate(ns_div10_evid, sb, c0p, condition="E1-down10") if ns_div10_evid else {"rate": None, "den": 0}
-        us_before = fail_rate(us_up_raw, sa, c0p, condition=("E1-unit-claim", "E1-unit-evid"))
-        us_after = fail_rate(us_up_pool, sa, c0p, condition=("E1-unit-claim", "E1-unit-evid"))
-        us_down = fail_rate(us_down_pool, sa, c0p, condition="E1-unit-down") if us_down_pool else {"rate": None, "den": 0}
-        bind = None
-        if us_after.get("rate") is not None and ns_e.get("rate") is not None:
-            up_ok = supported(us_after, ns_e)
-            down_ok = supported(us_down, ns_d) if us_down.get("den") else None
-            if up_ok is not None and down_ok is None:
-                bind = up_ok
-            elif up_ok is not None and down_ok is not None:
-                bind = up_ok and down_ok
-        payload["checkers"][slug] = {
-            "label": label,
-            "NS_x10_evid": ns_e,
-            "NS_div10_evid": ns_d,
-            "US_up_before": us_before,
-            "US_up_after": us_after,
-            "US_down_after": us_down,
-            "numeral_binding_supported": bind,
-        }
-        lines.append(
-            f"| {label} | {fmt(ns_e)} | {fmt(us_before)} | {fmt(us_after)} | "
-            f"{fmt(ns_d) if ns_div10_evid else 'pending'} | "
-            f"{fmt(us_down) if us_down_pool else 'pending T17 unit-down'} | "
-            f"{bind if bind is not None else 'pending'} |"
-        )
-
-    seen: set[str] = set()
-    for slug, label in LOCAL_VERIFIERS:
-        eval_verifier(slug, label, ROOT / "results/raw", US_M1)
-        seen.add(slug)
-    for slug, label, _raw_d, m1_d in API_VERIFIERS:
-        if slug in seen:
-            continue
-        eval_verifier(slug, label, ROOT / "results/raw", m1_d)
+    lines.append("")
+    lines.extend(render_primary_table(checkers))
+    lines.extend(render_secondary_table(checkers))
+    lines.extend(v4_reconcile(checkers))
+    lines.extend(render_nemo())
 
     OUT_TABLE.parent.mkdir(parents=True, exist_ok=True)
     OUT_TABLE.write_text("\n".join(lines) + "\n")
     OUT_NOTE.write_text(OUT_TABLE.read_text())
-    OUT_JSON.write_text(json.dumps(payload, indent=2) + "\n")
-    finalize_and_abort()
-    print(json.dumps({"wrote": str(OUT_TABLE), "checkers": len(payload["checkers"]), "bases": len(bases)}, indent=2))
+    OUT_JSON.write_text(json.dumps(payload, indent=2, default=float) + "\n")
+    finalize_and_abort(abort_packs=frozenset({"us_up_x1000", "us_down_unit"}))
+    print(json.dumps({"wrote": str(OUT_TABLE), "checkers": len(checkers), "bases": len(bases)}, indent=2))
 
 
 if __name__ == "__main__":

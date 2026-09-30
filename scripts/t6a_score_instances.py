@@ -11,6 +11,10 @@ from pathlib import Path
 ROOT = Path(os.environ.get("MEDVERIF_ROOT", Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(ROOT / "src"))
 
+from hf_token_env import sanitize_hf_token_env
+
+sanitize_hf_token_env()
+
 import cpu_early as ce
 from lane_b_env import append_stamped
 from verifiers.io_utils import done_ids, read_jsonl

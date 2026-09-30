@@ -14,5 +14,6 @@ conda activate vllm
 export PYTHONPATH="${ROOT}/src:${ROOT}/analysis:${ROOT}/scripts"
 PY="${CONDA_PREFIX}/bin/python3"
 echo "m1_strong start $(date -Is) job=${SLURM_JOB_ID}"
+"${PY}" scripts/m1_strong_score_missing.py
 "${PY}" scripts/m1_strong_run.py
 echo "m1_strong done $(date -Is)"
