@@ -1,70 +1,81 @@
 {
-  "valid_label_rows_Y": 35,
+  "manifest_analysis_keep_n": 540,
+  "label_y_n": 35,
+  "filter_ids_n": 540,
   "per_file": [
     {
       "file": "results/raw/t17/v1_medscore.jsonl",
       "lines_in": 612,
       "conflicts": 0,
-      "after_pi_filter": 35
+      "after_filter": 540,
+      "removed_extra_ids": 72
     },
     {
       "file": "results/raw/t17/v1b_medscore.jsonl",
       "lines_in": 612,
       "conflicts": 0,
-      "after_pi_filter": 35
+      "after_filter": 540,
+      "removed_extra_ids": 72
     },
     {
       "file": "results/raw/t17/v1c_medscore.jsonl",
       "lines_in": 588,
       "conflicts": 0,
-      "after_pi_filter": 35
+      "after_filter": 540,
+      "removed_extra_ids": 48
     },
     {
       "file": "results/raw/t17/v4_ragas_nli.llama.jsonl",
       "lines_in": 612,
       "conflicts": 0,
-      "after_pi_filter": 35
+      "after_filter": 540,
+      "removed_extra_ids": 72
     },
     {
       "file": "results/raw/t17/v5_ragas_nli.jsonl",
       "lines_in": 612,
       "conflicts": 0,
-      "after_pi_filter": 35
+      "after_filter": 540,
+      "removed_extra_ids": 72
     },
     {
       "file": "results/raw/t17/v6_ragas_gpt4o_mini.jsonl",
       "lines_in": 612,
       "conflicts": 0,
-      "after_pi_filter": 35
+      "after_filter": 540,
+      "removed_extra_ids": 72
     },
     {
       "file": "results/raw/t17/v6_ragas_haiku45.jsonl",
       "lines_in": 588,
       "conflicts": 0,
-      "after_pi_filter": 35
+      "after_filter": 540,
+      "removed_extra_ids": 48
     },
     {
       "file": "results/raw/t17/v6_ragas_llama31_8b.jsonl",
       "lines_in": 588,
       "conflicts": 0,
-      "after_pi_filter": 35
+      "after_filter": 540,
+      "removed_extra_ids": 48
     },
     {
       "file": "results/raw/t17/v6_ragas_mistral_small32.jsonl",
       "lines_in": 588,
       "conflicts": 0,
-      "after_pi_filter": 35
+      "after_filter": 540,
+      "removed_extra_ids": 48
     }
   ],
   "per_verifier_after_filter": {
-    "v1_medscore": 35,
-    "v1b_medscore": 35,
-    "v1c_medscore": 35,
-    "v4_ragas_nli.llama": 35,
-    "v5_ragas_nli": 35,
-    "v6_ragas_gpt4o_mini": 35,
-    "v6_ragas_haiku45": 35,
-    "v6_ragas_llama31_8b": 35,
-    "v6_ragas_mistral_small32": 35
+    "v1_medscore": 540,
+    "v1b_medscore": 540,
+    "v1c_medscore": 540,
+    "v4_ragas_nli.llama": 540,
+    "v5_ragas_nli": 540,
+    "v6_ragas_gpt4o_mini": 540,
+    "v6_ragas_haiku45": 540,
+    "v6_ragas_llama31_8b": 540,
+    "v6_ragas_mistral_small32": 540
   }
 }
