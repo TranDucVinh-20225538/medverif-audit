@@ -44,7 +44,12 @@ def log_parse_error(component: str, surface: str, exc: BaseException, *, pack: s
         )
 
 
-def finalize_and_abort(*, label: str = "m1-strong", abort_packs: frozenset[str] | None = None) -> None:
+def finalize_and_abort(
+    *,
+    label: str = "m1-strong",
+    abort_packs: frozenset[str] | None = None,
+    exit_on_fail: bool = True,
+) -> None:
     """Print per-pack error totals; exit 2 if any pack exceeds MAX_ERROR_RATE."""
     packs = sorted(set(_span_total) | set(_error_total))
     print(f"[{label}] parse error summary (>{MAX_ERROR_RATE:.0%} aborts):", flush=True)
@@ -60,4 +65,5 @@ def finalize_and_abort(*, label: str = "m1-strong", abort_packs: frozenset[str] 
             failed = True
     if failed:
         print(f"[{label}] ABORT: parse error rate > {MAX_ERROR_RATE:.0%} in at least one pack", flush=True)
-        sys.exit(2)
+        if exit_on_fail:
+            sys.exit(2)

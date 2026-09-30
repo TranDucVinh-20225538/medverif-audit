@@ -19,9 +19,11 @@ def main() -> None:
     check("x2", scale_dose_span("20 mg", Decimal(2)) == "40 mg")
     check("x10", scale_dose_span("20 mg", Decimal(10)) == "200 mg")
     check("x2 decimal", scale_dose_span("0.25 mg", Decimal(2)) == "0.5 mg")
-    check("inv mg", convert_dose_span("500 mg") == "0.5 g")
+    check("inv mg to g", convert_dose_span("1500 mg") == "1.5 g")
     check("inv g", convert_dose_span("1 g") == "1000 mg")
-    check("inv nospace", convert_dose_span("250mg") == "0.25 g")
+    check("inv sub mg", convert_dose_span("0.5 mg") == "500 mcg")
+    check("inv mcg", convert_dose_span("500 mcg") == "0.5 mg")
+    check("inv ug", convert_dose_span("250 µg") == "0.25 mg")
     check("inv tiny skipped", True)
     try:
         convert_dose_span("5 mg")
@@ -34,33 +36,34 @@ def main() -> None:
     except ValueError:
         check("2 mg/kg has no natural unit", True)
 
-    evidence = "Adults may take 500 mg of ibuprofen. Stop if a rash appears."
-    claim = "A common adult dose is 500 mg of ibuprofen."
+    evidence = "Adults may take 1500 mg of ibuprofen. Stop if a rash appears."
+    claim = "A common adult dose is 1500 mg of ibuprofen."
+    span = "1500 mg"
     base = {
         "id": "D0001",
         "type": "DOSE",
         "evidence": evidence,
         "claim": claim,
-        "target_span_evidence": "500 mg",
-        "target_span_claim": "500 mg",
-        "evidence_span_start": evidence.index("500 mg"),
-        "evidence_span_end": evidence.index("500 mg") + len("500 mg"),
-        "claim_span_start": claim.index("500 mg"),
-        "claim_span_end": claim.index("500 mg") + len("500 mg"),
+        "target_span_evidence": span,
+        "target_span_claim": span,
+        "evidence_span_start": evidence.index(span),
+        "evidence_span_end": evidence.index(span) + len(span),
+        "claim_span_start": claim.index(span),
+        "claim_span_end": claim.index(span) + len(span),
     }
     rows, failed = perturb_one(base)
     check("no fail", failed == [])
     by = {(r["condition"], r["magnitude"]): r for r in rows}
     check("n inst", len(rows) == 8)
     ev = by[("E1-evid", "x10")]
-    check("e1 evid confined", "5000 mg" in ev["evidence"] and "500 mg" not in ev["evidence"])
+    check("e1 evid confined", "15000 mg" in ev["evidence"] and span not in ev["evidence"])
     check("e1 evid claim same", ev["claim"] == claim)
     cl = by[("E1-claim", "x2")]
-    check("e1 claim", "1000 mg" in cl["claim"] and cl["evidence"] == evidence)
+    check("e1 claim", "3000 mg" in cl["claim"] and cl["evidence"] == evidence)
     e2 = by[("E2", "x2")]
-    check("e2 both", "1000 mg" in e2["claim"] and "1000 mg" in e2["evidence"])
+    check("e2 both", "3000 mg" in e2["claim"] and "3000 mg" in e2["evidence"])
     inv = by[("INV-claim", "unit_conversion")]
-    check("inv text", "0.5 g" in inv["claim"] and inv["evidence"] == evidence)
+    check("inv text", "1.5 g" in inv["claim"] and inv["evidence"] == evidence)
     check("neighbors kept", "Stop if a rash appears." in ev["evidence"])
 
     evidence_p = "Clonidine should not be given to patients with depression."

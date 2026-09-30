@@ -166,11 +166,17 @@ def chat(
             pt = int(usage.get("prompt_tokens") or 0)
             ct = int(usage.get("completion_tokens") or 0)
             tt = int(usage.get("total_tokens") or pt + ct)
+            if not str(text).strip() or tt == 0:
+                last_err = RuntimeError("OpenRouter returned empty content or zero tokens")
+                if attempt + 1 >= max_retries:
+                    break
+                _retry_sleep(attempt, last_err)
+                continue
             cost = _usage_cost(payload)
             out = LLMResponse(
                 text=text,
-                model=payload.get("model"),
-                provider=_provider_name(payload),
+                model=payload.get("model") or model,
+                provider=_provider_name(payload) or prov,
                 request_id=payload.get("id"),
                 prompt_tokens=pt,
                 completion_tokens=ct,

@@ -1,0 +1,4239 @@
+{
+  "packs": [
+    {
+      "id": "lane_b_m1_t7",
+      "n_instances": 214,
+      "coverage": {
+        "dose_spans": 468,
+        "m1_parsable": 418,
+        "coverage_pct": 89.31623931623932,
+        "failure_counts": {
+          "per_kg_per_day": 46,
+          "range": 4
+        },
+        "failure_examples": {
+          "per_kg_per_day": "that glucocorticoids (e.g., prednisone, 1 mg/kg, as a single daily dose orally, or intravenously) are a reasonable first therapy for both PM and DM. The respons",
+          "range": ".) Infliximab is given intravenously, 3\u20135 mg/kg body weight, and then repeated 2 weeks later, again 6 weeks later, and then at 8-week intervals. Etanercept is g"
+        }
+      },
+      "verifiers": {
+        "t6_alignscore_base": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 2,
+            "n": 107,
+            "examples": [
+              "`D0016__E1-unit-evid__x1000`: 0.759965717792511",
+              "`D0143__E1-unit-evid__x1000`: 0.8506614565849304"
+            ]
+          }
+        },
+        "t6_granite_guardian": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "t6_hhem": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "t6_minicheck_deberta": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 19,
+            "n": 107,
+            "examples": [
+              "`D0011__E1-unit-evid__x1000`: 0.5532019138336182",
+              "`D0013__E1-unit-evid__x1000`: 0.5370256304740906",
+              "`D0026__E1-unit-evid__x1000`: 0.5014413595199585",
+              "`D0036__E1-unit-evid__x1000`: 0.9463419914245605",
+              "`D0038__E1-unit-evid__x1000`: 0.8833045363426208"
+            ]
+          }
+        },
+        "t6_minicheck_roberta": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 1,
+            "n": 107,
+            "examples": [
+              "`D0104__E1-unit-evid__x1000`: 0.8257179856300354"
+            ]
+          }
+        },
+        "t6_summac_conv": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "t6_summac_zs": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v1_medscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v1b_medscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v1c_medscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v2a_minicheck": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 8,
+            "n": 107,
+            "examples": [
+              "`D0016__E1-unit-evid__x1000`: 0.6503533720970154",
+              "`D0025__E1-unit-evid__x1000`: 0.9339961409568787",
+              "`D0036__E1-unit-evid__x1000`: 0.9749954342842102",
+              "`D0048__E1-unit-evid__x1000`: 0.9510093331336975",
+              "`D0055__E1-unit-evid__x1000`: 0.9791982173919678"
+            ]
+          }
+        },
+        "v2b_bespoke": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 107,
+            "examples": []
+          }
+        },
+        "v3_alignscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 2,
+            "n": 107,
+            "examples": [
+              "`D0033__E1-unit-evid__x1000`: 0.5283347368240356",
+              "`D0126__E1-unit-evid__x1000`: 0.7429755926132202"
+            ]
+          }
+        },
+        "v4_ragas_nli": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v4_ragas_nli.legacy": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v5_ragas_nli": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v6_ragas_gpt4o_mini": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v6_ragas_haiku45": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v6_ragas_llama31_8b": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v6_ragas_mistral_small32": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        }
+      }
+    },
+    {
+      "id": "lane_b_m1_main",
+      "n_instances": 692,
+      "coverage": {
+        "dose_spans": 1415,
+        "m1_parsable": 1190,
+        "coverage_pct": 84.09893992932862,
+        "failure_counts": {
+          "per_kg_per_day": 213,
+          "range": 12
+        },
+        "failure_examples": {
+          "per_kg_per_day": "icoids, such as prednisone at a dose of 1 mg/kg as a single daily dose either orally or intravenously, are a reasonable first therapy for both PM and DM.",
+          "range": ".) Infliximab is given intravenously, 3\u20135 mg/kg body weight, and then repeated 2 weeks later, again 6 weeks later, and then at 8-week intervals. Etanercept is g"
+        }
+      },
+      "verifiers": {
+        "t6_alignscore_base": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.19298245614035087,
+                "lo": 0.10526315789473684,
+                "hi": 0.2982456140350877,
+                "num": 11,
+                "den": 57,
+                "n_bases": 57
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9547511312217195,
+                "lo": 0.9230681818181818,
+                "hi": 0.981568934173255,
+                "num": 211,
+                "den": 221,
+                "n_bases": 125
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9457013574660633,
+                "lo": 0.9094919786096256,
+                "hi": 0.9770642201834863,
+                "num": 209,
+                "den": 221,
+                "n_bases": 125
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "t6_minicheck_deberta": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.8727272727272727,
+                "lo": 0.7818181818181819,
+                "hi": 0.9636363636363636,
+                "num": 48,
+                "den": 55,
+                "n_bases": 55
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9812206572769953,
+                "lo": 0.9585253456221198,
+                "hi": 0.995434308841843,
+                "num": 209,
+                "den": 213,
+                "n_bases": 119
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9624413145539906,
+                "lo": 0.9295691602444858,
+                "hi": 0.9904306220095693,
+                "num": 205,
+                "den": 213,
+                "n_bases": 119
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "t6_minicheck_roberta": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9272727272727272,
+                "lo": 0.8545454545454545,
+                "hi": 0.9818181818181818,
+                "num": 51,
+                "den": 55,
+                "n_bases": 55
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9627906976744186,
+                "lo": 0.9360730593607306,
+                "hi": 0.9861127112135177,
+                "num": 207,
+                "den": 215,
+                "n_bases": 122
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9302325581395349,
+                "lo": 0.8930107585307542,
+                "hi": 0.9663501794258373,
+                "num": 200,
+                "den": 215,
+                "n_bases": 122
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v1_medscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.6774193548387096,
+                "lo": 0.5645161290322581,
+                "hi": 0.7903225806451613,
+                "num": 42,
+                "den": 62,
+                "n_bases": 62
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.9954954954954955,
+                "lo": 0.9862385321100917,
+                "hi": 1.0,
+                "num": 221,
+                "den": 222,
+                "n_bases": 118
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.9459459459459459,
+                "lo": 0.9098997187232482,
+                "hi": 0.9776785714285714,
+                "num": 210,
+                "den": 222,
+                "n_bases": 118
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v2a_minicheck": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.08333333333333333,
+                "lo": 0.016666666666666666,
+                "hi": 0.15,
+                "num": 5,
+                "den": 60,
+                "n_bases": 60
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.958139534883721,
+                "lo": 0.9205514238076434,
+                "hi": 0.9861127112135177,
+                "num": 206,
+                "den": 215,
+                "n_bases": 115
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.8930232558139535,
+                "lo": 0.8433179723502304,
+                "hi": 0.9395488157753724,
+                "num": 192,
+                "den": 215,
+                "n_bases": 115
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v2b_bespoke": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.7741935483870968,
+                "lo": 0.6612903225806451,
+                "hi": 0.8709677419354839,
+                "num": 48,
+                "den": 62,
+                "n_bases": 62
+              },
+              "after": {
+                "rate": 0.8032786885245902,
+                "lo": 0.7049180327868853,
+                "hi": 0.9016393442622951,
+                "num": 49,
+                "den": 61,
+                "n_bases": 61
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.9744680851063829,
+                "lo": 0.9519650655021834,
+                "hi": 0.9955951966921709,
+                "num": 229,
+                "den": 235,
+                "n_bases": 131
+              },
+              "after": {
+                "rate": 0.9829787234042553,
+                "lo": 0.9653679653679653,
+                "hi": 0.9957810339325605,
+                "num": 231,
+                "den": 235,
+                "n_bases": 131
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9361702127659575,
+                "lo": 0.8987126312954484,
+                "hi": 0.9699570815450643,
+                "num": 220,
+                "den": 235,
+                "n_bases": 131
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v3_alignscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.24561403508771928,
+                "lo": 0.14035087719298245,
+                "hi": 0.3508771929824561,
+                "num": 14,
+                "den": 57,
+                "n_bases": 57
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.981042654028436,
+                "lo": 0.9532710280373832,
+                "hi": 1.0,
+                "num": 207,
+                "den": 211,
+                "n_bases": 113
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.943127962085308,
+                "lo": 0.9047273982056591,
+                "hi": 0.976306111955647,
+                "num": 199,
+                "den": 211,
+                "n_bases": 113
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v4_ragas_nli": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.7580645161290323,
+                "lo": 0.6451612903225806,
+                "hi": 0.8548387096774194,
+                "num": 47,
+                "den": 62,
+                "n_bases": 62
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.9702127659574468,
+                "lo": 0.9482702642185401,
+                "hi": 0.9911523831703152,
+                "num": 228,
+                "den": 235,
+                "n_bases": 132
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.9234042553191489,
+                "lo": 0.8845930232558139,
+                "hi": 0.9581633542538355,
+                "num": 217,
+                "den": 235,
+                "n_bases": 132
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v4_ragas_nli.legacy": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.8813559322033898,
+                "lo": 0.7966101694915254,
+                "hi": 0.9661016949152542,
+                "num": 52,
+                "den": 59,
+                "n_bases": 59
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.9957264957264957,
+                "lo": 0.9867826790378543,
+                "hi": 1.0,
+                "num": 233,
+                "den": 234,
+                "n_bases": 131
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.9658119658119658,
+                "lo": 0.9307284020327499,
+                "hi": 0.9916335353044323,
+                "num": 226,
+                "den": 234,
+                "n_bases": 132
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        }
+      }
+    },
+    {
+      "id": "lane_c_m1_h2",
+      "n_instances": 854,
+      "coverage": {
+        "dose_spans": 1875,
+        "m1_parsable": 1600,
+        "coverage_pct": 85.33333333333333,
+        "failure_counts": {
+          "per_kg_per_day": 259,
+          "range": 16
+        },
+        "failure_examples": {
+          "per_kg_per_day": "icoids, such as prednisone at a dose of 1 mg/kg as a single daily dose either orally or intravenously, are a reasonable first therapy for both PM and DM.",
+          "range": ".) Infliximab is given intravenously, 3\u20135 mg/kg body weight, and then repeated 2 weeks later, again 6 weeks later, and then at 8-week intervals. Etanercept is g"
+        }
+      },
+      "verifiers": {
+        "v1_medscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.6774193548387096,
+                "lo": 0.5645161290322581,
+                "hi": 0.7903225806451613,
+                "num": 42,
+                "den": 62,
+                "n_bases": 62
+              },
+              "after": {
+                "rate": 0.9180327868852459,
+                "lo": 0.8524590163934426,
+                "hi": 0.9836065573770492,
+                "num": 56,
+                "den": 61,
+                "n_bases": 61
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.995260663507109,
+                "lo": 0.9856459330143541,
+                "hi": 1.0,
+                "num": 210,
+                "den": 211,
+                "n_bases": 107
+              },
+              "after": {
+                "rate": 0.9952153110047847,
+                "lo": 0.9854351172152498,
+                "hi": 1.0,
+                "num": 208,
+                "den": 209,
+                "n_bases": 106
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.95260663507109,
+                "lo": 0.9154929577464789,
+                "hi": 0.9812228511254442,
+                "num": 201,
+                "den": 211,
+                "n_bases": 107
+              },
+              "after": {
+                "rate": 0.9521531100478469,
+                "lo": 0.9134615384615384,
+                "hi": 0.9809523809523809,
+                "num": 199,
+                "den": 209,
+                "n_bases": 106
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9905660377358491,
+                "lo": 0.9716981132075472,
+                "hi": 1.0,
+                "num": 105,
+                "den": 106,
+                "n_bases": 106
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9056603773584906,
+                "lo": 0.8490566037735849,
+                "hi": 0.9622641509433962,
+                "num": 96,
+                "den": 106,
+                "n_bases": 106
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v1b_medscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9672131147540983,
+                "lo": 0.9180327868852459,
+                "hi": 1.0,
+                "num": 59,
+                "den": 61,
+                "n_bases": 61
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9665071770334929,
+                "lo": 0.9425768310636732,
+                "hi": 0.9903846153846154,
+                "num": 202,
+                "den": 209,
+                "n_bases": 106
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.7464114832535885,
+                "lo": 0.6746411483253588,
+                "hi": 0.8076923076923077,
+                "num": 156,
+                "den": 209,
+                "n_bases": 106
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "num": 106,
+                "den": 106,
+                "n_bases": 106
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.2358490566037736,
+                "lo": 0.16037735849056603,
+                "hi": 0.32075471698113206,
+                "num": 25,
+                "den": 106,
+                "n_bases": 106
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v1c_medscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.8852459016393442,
+                "lo": 0.8032786885245902,
+                "hi": 0.9508196721311475,
+                "num": 54,
+                "den": 61,
+                "n_bases": 61
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9712918660287081,
+                "lo": 0.9423076923076923,
+                "hi": 0.9951219512195122,
+                "num": 203,
+                "den": 209,
+                "n_bases": 106
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9425837320574163,
+                "lo": 0.8957345971563981,
+                "hi": 0.9807692307692307,
+                "num": 197,
+                "den": 209,
+                "n_bases": 106
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9811320754716981,
+                "lo": 0.9528301886792453,
+                "hi": 1.0,
+                "num": 104,
+                "den": 106,
+                "n_bases": 106
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.7358490566037735,
+                "lo": 0.6415094339622641,
+                "hi": 0.8113207547169812,
+                "num": 78,
+                "den": 106,
+                "n_bases": 106
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v2a_minicheck": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.08333333333333333,
+                "lo": 0.016666666666666666,
+                "hi": 0.15,
+                "num": 5,
+                "den": 60,
+                "n_bases": 60
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.9556650246305419,
+                "lo": 0.9158311166937589,
+                "hi": 0.9900990099009901,
+                "num": 194,
+                "den": 203,
+                "n_bases": 103
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.8866995073891626,
+                "lo": 0.8341260162601626,
+                "hi": 0.9366781943938842,
+                "num": 180,
+                "den": 203,
+                "n_bases": 103
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v2b_bespoke": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.7741935483870968,
+                "lo": 0.6612903225806451,
+                "hi": 0.8709677419354839,
+                "num": 48,
+                "den": 62,
+                "n_bases": 62
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.9715639810426541,
+                "lo": 0.9433895198068497,
+                "hi": 0.9952158806106174,
+                "num": 205,
+                "den": 211,
+                "n_bases": 107
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v3_alignscore": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.24561403508771928,
+                "lo": 0.14035087719298245,
+                "hi": 0.3508771929824561,
+                "num": 14,
+                "den": 57,
+                "n_bases": 57
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.9798994974874372,
+                "lo": 0.9504826732673267,
+                "hi": 1.0,
+                "num": 195,
+                "den": 199,
+                "n_bases": 101
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.9396984924623115,
+                "lo": 0.8994847977260038,
+                "hi": 0.975,
+                "num": 187,
+                "den": 199,
+                "n_bases": 101
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v4_ragas_nli": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.7580645161290323,
+                "lo": 0.6451612903225806,
+                "hi": 0.8548387096774194,
+                "num": 47,
+                "den": 62,
+                "n_bases": 62
+              },
+              "after": {
+                "rate": 0.8709677419354839,
+                "lo": 0.7899193548387097,
+                "hi": 0.9516129032258065,
+                "num": 54,
+                "den": 62,
+                "n_bases": 62
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 0.9712918660287081,
+                "lo": 0.947108997584541,
+                "hi": 0.9904306220095693,
+                "num": 203,
+                "den": 209,
+                "n_bases": 106
+              },
+              "after": {
+                "rate": 0.995260663507109,
+                "lo": 0.9856459330143541,
+                "hi": 1.0,
+                "num": 210,
+                "den": 211,
+                "n_bases": 107
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.9234449760765551,
+                "lo": 0.8803827751196173,
+                "hi": 0.9619092755585646,
+                "num": 193,
+                "den": 209,
+                "n_bases": 106
+              },
+              "after": {
+                "rate": 0.9715639810426541,
+                "lo": 0.9422241784037558,
+                "hi": 0.9952830188679245,
+                "num": 205,
+                "den": 211,
+                "n_bases": 107
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "num": 107,
+                "den": 107,
+                "n_bases": 107
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.8691588785046729,
+                "lo": 0.8037383177570093,
+                "hi": 0.9252336448598131,
+                "num": 93,
+                "den": 107,
+                "n_bases": 107
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v4_ragas_nli.legacy": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": 0.8813559322033898,
+                "lo": 0.7966101694915254,
+                "hi": 0.9661016949152542,
+                "num": 52,
+                "den": 59,
+                "n_bases": 59
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "num": 209,
+                "den": 209,
+                "n_bases": 106
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": 0.9663461538461539,
+                "lo": 0.927527437737442,
+                "hi": 0.9952153110047847,
+                "num": 201,
+                "den": 208,
+                "n_bases": 106
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v5_ragas_nli": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9516129032258065,
+                "lo": 0.9032258064516129,
+                "hi": 1.0,
+                "num": 59,
+                "den": 62,
+                "n_bases": 62
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "num": 211,
+                "den": 211,
+                "n_bases": 107
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.976303317535545,
+                "lo": 0.9476127819548872,
+                "hi": 1.0,
+                "num": 206,
+                "den": 211,
+                "n_bases": 107
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "num": 107,
+                "den": 107,
+                "n_bases": 107
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.6448598130841121,
+                "lo": 0.5514018691588785,
+                "hi": 0.7289719626168224,
+                "num": 69,
+                "den": 107,
+                "n_bases": 107
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v6_ragas_gpt4o_mini": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9661016949152542,
+                "lo": 0.9152542372881356,
+                "hi": 1.0,
+                "num": 57,
+                "den": 59,
+                "n_bases": 59
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9950738916256158,
+                "lo": 0.985,
+                "hi": 1.0,
+                "num": 202,
+                "den": 203,
+                "n_bases": 103
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9704433497536946,
+                "lo": 0.9316989478718317,
+                "hi": 0.9951219512195122,
+                "num": 197,
+                "den": 203,
+                "n_bases": 103
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9902912621359223,
+                "lo": 0.970873786407767,
+                "hi": 1.0,
+                "num": 102,
+                "den": 103,
+                "n_bases": 103
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9320388349514563,
+                "lo": 0.883495145631068,
+                "hi": 0.970873786407767,
+                "num": 96,
+                "den": 103,
+                "n_bases": 103
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v6_ragas_haiku45": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9833333333333333,
+                "lo": 0.95,
+                "hi": 1.0,
+                "num": 59,
+                "den": 60,
+                "n_bases": 60
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "num": 207,
+                "den": 207,
+                "n_bases": 105
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9758454106280193,
+                "lo": 0.9420219501899535,
+                "hi": 1.0,
+                "num": 202,
+                "den": 207,
+                "n_bases": 105
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "num": 105,
+                "den": 105,
+                "n_bases": 105
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9523809523809523,
+                "lo": 0.9142857142857143,
+                "hi": 0.9904761904761905,
+                "num": 100,
+                "den": 105,
+                "n_bases": 105
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v6_ragas_llama31_8b": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.8813559322033898,
+                "lo": 0.7966101694915254,
+                "hi": 0.9491525423728814,
+                "num": 52,
+                "den": 59,
+                "n_bases": 59
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9852216748768473,
+                "lo": 0.960586255669902,
+                "hi": 1.0,
+                "num": 200,
+                "den": 203,
+                "n_bases": 103
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9704433497536946,
+                "lo": 0.946078431372549,
+                "hi": 0.9902439024390244,
+                "num": 197,
+                "den": 203,
+                "n_bases": 103
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "num": 103,
+                "den": 103,
+                "n_bases": 103
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.7766990291262136,
+                "lo": 0.6893203883495146,
+                "hi": 0.8640776699029126,
+                "num": 80,
+                "den": 103,
+                "n_bases": 103
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        },
+        "v6_ragas_mistral_small32": {
+          "metrics": {
+            "QI": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9838709677419355,
+                "lo": 0.9516129032258065,
+                "hi": 1.0,
+                "num": 61,
+                "den": 62,
+                "n_bases": 62
+              }
+            },
+            "NS_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "num": 211,
+                "den": 211,
+                "n_bases": 107
+              }
+            },
+            "NS_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9383886255924171,
+                "lo": 0.899988038277512,
+                "hi": 0.9718342766881665,
+                "num": 198,
+                "den": 211,
+                "n_bases": 107
+              }
+            },
+            "US_claim": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.9626168224299065,
+                "lo": 0.9252336448598131,
+                "hi": 1.0,
+                "num": 103,
+                "den": 107,
+                "n_bases": 107
+              }
+            },
+            "US_evid": {
+              "before": {
+                "rate": null,
+                "lo": null,
+                "hi": null,
+                "num": 0,
+                "den": 0,
+                "n_bases": 0
+              },
+              "after": {
+                "rate": 0.7663551401869159,
+                "lo": 0.6822429906542056,
+                "hi": 0.8504672897196262,
+                "num": 82,
+                "den": 107,
+                "n_bases": 107
+              }
+            }
+          },
+          "e1_unit_evid_repair": {
+            "before_pass_after": 0,
+            "n": 0,
+            "examples": []
+          }
+        }
+      }
+    }
+  ]
+}

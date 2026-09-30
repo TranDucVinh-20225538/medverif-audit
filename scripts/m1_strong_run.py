@@ -261,6 +261,7 @@ def paired_us(
     """
     n_cand = before_missing = after_missing = 0
     b = c = 0
+    pairs: list[dict] = []
     by_base_before: dict[str, list[int]] = defaultdict(list)
     by_base_after: dict[str, list[int]] = defaultdict(list)
     for r in rows:
@@ -278,6 +279,7 @@ def paired_us(
         if not (ok0 and ok1):
             continue
         f0, f1 = v0 == "FAIL", v1 == "FAIL"
+        pairs.append({"instance_id": iid, "base_id": r["base_id"], "before": v0, "after": v1})
         by_base_before[r["base_id"]].append(int(f0))
         by_base_after[r["base_id"]].append(int(f1))
         if not f0 and f1:
@@ -298,6 +300,7 @@ def paired_us(
         "b_pass_to_fail": b,
         "c_fail_to_pass": c,
         "mcnemar_p_approx": p,
+        "_pairs": pairs,
     }
 
 
@@ -433,7 +436,26 @@ def checker_block(
         bind[s] = {"up": up, "down": down, "side": _and(up, down)}
     binding = _and(bind["claim"]["side"], bind["evid"]["side"])
 
+    ns_rows = {}
+    for s, rows in (("claim", ns_x10_claim), ("evid", ns_x10_evid)):
+        cond = "E1-claim" if s == "claim" else "E1-evid"
+        ns_rows[s] = [
+            {"instance_id": r["instance_id"], "base_id": r["base_id"], "verdict": ns_sc[r["instance_id"]]}
+            for r in rows
+            if r["base_id"] in c0p
+            and r.get("condition") == cond
+            and ns_sc.get(r["instance_id"])
+            and _parsed({"verdict": ns_sc[r["instance_id"]]})
+        ]
+    rows_dump = {
+        "us_up_after_pairs": {s: paired[f"up_{s}"]["_pairs"] for s in ("claim", "evid")},
+        "ns_x10": ns_rows,
+    }
+    for pr in paired.values():
+        pr.pop("_pairs", None)
+
     return {
+        "_rows": rows_dump,
         "display_name": verifier_display_name(slug),
         "slug": slug,
         "c0_pass_bases": len(c0p),
@@ -715,6 +737,11 @@ def main() -> None:
             t17_dirs=T17_DIRS,
             down_after_dirs=DOWN_AFTER_DIRS,
         )
+
+    rows_dump = {slug: ch.pop("_rows") for slug, ch in checkers.items()}
+    if "--dump-rows" in sys.argv:
+        dump = OUT_JSON.with_name(OUT_JSON.stem + "_rows.json")
+        dump.write_text(json.dumps(rows_dump, indent=1) + "\n")
 
     payload = {
         "preregistration": str(PREREG),

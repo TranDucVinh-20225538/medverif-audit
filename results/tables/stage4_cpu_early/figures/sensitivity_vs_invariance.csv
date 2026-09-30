@@ -1,0 +1,11 @@
+verifier,type,invariance,sensitivity_e1_evid,false_pass_e1_evid
+v1_medscore,DOSE,0.666667,0.954338,0.045662
+v1_medscore,POLARITY,1.000000,0.880000,0.120000
+v2a_minicheck,DOSE,0.125000,0.871698,0.128302
+v2a_minicheck,POLARITY,1.000000,1.000000,0.000000
+v2b_bespoke,DOSE,,,
+v2b_bespoke,POLARITY,,,
+v3_alignscore,DOSE,0.285714,0.908745,0.091255
+v3_alignscore,POLARITY,1.000000,1.000000,0.000000
+v4_ragas_nli,DOSE,0.774194,0.932039,0.067961
+v4_ragas_nli,POLARITY,1.000000,0.913043,0.086957

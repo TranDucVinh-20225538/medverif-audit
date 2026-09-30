@@ -1,4 +1,4 @@
-"""RAGAS-NLI only. Qwen3-14B, thinking off, greedy. Statement split is not run."""
+"""RAGAS-NLI only. OpenRouter: Llama-3.3-70B-Instruct (see notes/openrouter_verifiers.json)."""
 
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ def _tokenizer_spec() -> tuple[str, str | None]:
     rev = os.environ.get("MEDVERIF_V4_TOKENIZER_REVISION", "").strip() or None
     if tok:
         return tok, rev
-    or_model = os.environ.get("MEDVERIF_V4_OPENROUTER_MODEL", "qwen/qwen3-14b")
+    or_model = os.environ.get("MEDVERIF_V4_OPENROUTER_MODEL", LLAMA_OR)
     if "llama-3.3-70b" in or_model.lower():
         return LLAMA_TOK, rev
     return MODEL, REVISION
@@ -29,15 +29,13 @@ def load():
     if os.environ.get("MEDVERIF_USE_OPENROUTER", "").lower() in ("1", "true", "yes"):
         from openrouter_runtime import load_openrouter_engine
 
-        or_model = os.environ.get("MEDVERIF_V4_OPENROUTER_MODEL", "qwen/qwen3-14b")
+        or_model = os.environ.get("MEDVERIF_V4_OPENROUTER_MODEL", LLAMA_OR)
         provider = os.environ.get("MEDVERIF_V4_PROVIDER", "DeepInfra")
         extra: dict = {}
         if os.environ.get("MEDVERIF_V4_REASONING_JSON"):
             import json as _json
 
             extra.update(_json.loads(os.environ["MEDVERIF_V4_REASONING_JSON"]))
-        elif "qwen3" in or_model.lower():
-            extra = {"chat_template_kwargs": {"enable_thinking": False}, "reasoning": {"enabled": False}}
         tok_model, tok_rev = _tokenizer_spec()
         suffix = os.environ.get("MEDVERIF_V4_PROMPT_SUFFIX", "")
         return load_openrouter_engine(
@@ -119,19 +117,34 @@ def score_batch(llm, tokenizer, params, pairs: list[dict]) -> list[dict]:
     elapsed = time.perf_counter() - started
     per = elapsed / max(len(pairs), 1)
     rows = []
-    for row, out in zip(pairs, outputs):
+    metas = getattr(llm, "last_meta", [])
+    for i, (row, out) in enumerate(zip(pairs, outputs)):
         raw = out.outputs[0].text if out.outputs else ""
         if os.environ.get("MEDVERIF_USE_OPENROUTER", "").lower() in ("1", "true", "yes"):
             from llm_client import assert_no_thinking_leak
 
             assert_no_thinking_leak(raw)
         verdict, score = parse_verdict(raw)
-        rows.append({
+        rec = {
             "instance_id": row["instance_id"],
             "raw_output": raw,
             "score": score,
             "verdict": verdict,
             "latency_s": per,
             "verifier": "v4_ragas_nli",
-        })
+        }
+        if i < len(metas):
+            m = metas[i]
+            rec.update(
+                {
+                    "api_model": m.model,
+                    "api_provider": m.provider,
+                    "api_request_id": m.request_id,
+                    "api_prompt_tokens": m.prompt_tokens,
+                    "api_completion_tokens": m.completion_tokens,
+                    "api_total_tokens": m.total_tokens,
+                    "api_cost_usd": m.cost_usd,
+                }
+            )
+        rows.append(rec)
     return rows

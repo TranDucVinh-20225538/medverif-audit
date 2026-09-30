@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from decimal import Decimal
 from typing import Callable, List, Optional, Tuple
 
 from text_utils import highlight, levenshtein, outside_identical, replace_span
@@ -12,33 +13,53 @@ MAG_UNIT = "unit_spell"
 MAG_THOUS = "thousands_sep"
 MAG_SPACING = "spacing"
 MAG_SYMBOL = "symbol_micro"
+MAG_SYMBOL_UNICODE = "symbol_micro_unicode"
 
-# Longest-first unit alternates inside the target span only.
-_UNIT_SUBS: List[Tuple[re.Pattern, str]] = [
-    (re.compile(r"\bmg/kg\b", re.I), "milligrams per kilogram"),
-    (re.compile(r"\bmilligrams per kilogram\b", re.I), "mg/kg"),
-    (re.compile(r"\bmcg/kg\b", re.I), "micrograms per kilogram"),
-    (re.compile(r"\bmicrograms per kilogram\b", re.I), "mcg/kg"),
-    (re.compile(r"\b(?:mcg|µg|μg)\b"), "micrograms"),
-    (re.compile(r"\bmicrograms\b", re.I), "mcg"),
-    (re.compile(r"\bmg\b"), "milligrams"),
-    (re.compile(r"\bmilligrams\b", re.I), "mg"),
-    (re.compile(r"\b(?:mL|ml)\b"), "milliliters"),
-    (re.compile(r"\bmilliliters\b", re.I), "mL"),
-    (re.compile(r"\bg\b"), "grams"),
-    (re.compile(r"\bgrams\b", re.I), "g"),
-]
+MICRO_SIGN = "\u00b5"  # µ
+GREEK_MU = "\u03bc"  # μ
+
+_NUM_BEFORE = re.compile(r"(\d+(?:\.\d+)?)\s*$")
 
 _THOUS_COMMA = re.compile(r"(?<![\d.])(\d{1,3}(?:,\d{3})+)(?![\d.])")
 _THOUS_PLAIN = re.compile(r"(?<![\d.])(\d{4,})(?![\d.])")
 
 _SPACE_BEFORE_UNIT = re.compile(
-    r"(\d+(?:\.\d+)?)\s+(mg|g|mcg|µg|μg|ug|mL|ml|milligrams|grams|micrograms|milliliters)\b",
+    r"(\d+(?:\.\d+)?)\s+(mg|g|mcg|µg|μg|mL|ml|milligrams|grams|micrograms|milliliters)\b",
     re.I,
 )
-_COMPACT_DOSE = re.compile(r"(\d+(?:\.\d+)?)(mg|g|mcg|µg|μg|ug|mL|ml)\b", re.I)
-_MICRO_TOKEN = re.compile(r"\b(mcg|µg|μg|ug)\b", re.I)
-_SYMBOL_NEXT = {"mcg": "µg", "µg": "ug", "μg": "ug", "ug": "mcg"}
+_COMPACT_DOSE = re.compile(r"(\d+(?:\.\d+)?)(mg|g|mcg|µg|μg|mL|ml)\b", re.I)
+_MICRO_TOKEN = re.compile(r"\b(mcg|µg|μg)\b")
+_UNICODE_MICRO = re.compile(r"(\d+(?:\.\d+)?)\s*([µμ])g\b")
+
+_SPELL_SINGULAR = {
+    "milligrams": "milligram",
+    "grams": "gram",
+    "micrograms": "microgram",
+    "milliliters": "milliliter",
+    "milligrams per kilogram": "milligram per kilogram",
+    "micrograms per kilogram": "microgram per kilogram",
+}
+
+
+def _numeral_before(span: str, unit_start: int) -> Optional[str]:
+    prefix = span[:unit_start]
+    m = _NUM_BEFORE.search(prefix)
+    return m.group(1) if m else None
+
+
+def _is_exactly_one(numeral: Optional[str]) -> bool:
+    if numeral is None:
+        return False
+    try:
+        return Decimal(numeral) == 1
+    except Exception:
+        return False
+
+
+def _spelled_form(plural_word: str, numeral: Optional[str]) -> str:
+    if _is_exactly_one(numeral):
+        return _SPELL_SINGULAR.get(plural_word.lower(), plural_word)
+    return plural_word
 
 
 def _claim_diff(base: dict, new_span: str, family: str) -> dict:
@@ -82,11 +103,77 @@ def _instance(base: dict, magnitude: str, claim: str, diff: dict, claim_span: st
     }
 
 
+def _sub_once(span: str, pat: re.Pattern, repl_builder: Callable[[re.Match], str]) -> Optional[str]:
+    m = pat.search(span)
+    if not m:
+        return None
+    repl = repl_builder(m)
+    if not repl or repl.lower() == m.group(0).lower():
+        return None
+    return span[: m.start()] + repl + span[m.end() :]
+
+
 def _try_unit_spell(span: str) -> Optional[str]:
-    for pat, repl in _UNIT_SUBS:
-        m = pat.search(span)
-        if m and m.group(0).lower() != repl.lower():
-            return pat.sub(repl, span, count=1)
+    rules: List[Tuple[re.Pattern, Callable[[re.Match, str], Optional[str]]]] = [
+        (
+            re.compile(r"\bmg/kg\b", re.I),
+            lambda m, s: "mg/kg"
+            if m.group(0).lower().startswith("milli")
+            else _spelled_form(
+                "milligrams per kilogram", _numeral_before(s, m.start())
+            ),
+        ),
+        (
+            re.compile(r"\bmilligrams per kilogram\b", re.I),
+            lambda m, s: "mg/kg",
+        ),
+        (
+            re.compile(r"\bmcg/kg\b", re.I),
+            lambda m, s: _spelled_form(
+                "micrograms per kilogram", _numeral_before(s, m.start())
+            ),
+        ),
+        (
+            re.compile(r"\bmicrograms per kilogram\b", re.I),
+            lambda m, s: "mcg/kg",
+        ),
+        (
+            re.compile(r"\b(?:mcg|µg|μg)\b"),
+            lambda m, s: _spelled_form("micrograms", _numeral_before(s, m.start())),
+        ),
+        (
+            re.compile(r"\bmicrograms\b", re.I),
+            lambda m, s: "mcg",
+        ),
+        (
+            re.compile(r"\bmg\b"),
+            lambda m, s: _spelled_form("milligrams", _numeral_before(s, m.start())),
+        ),
+        (
+            re.compile(r"\bmilligrams\b", re.I),
+            lambda m, s: "mg",
+        ),
+        (
+            re.compile(r"\b(?:mL|ml)\b"),
+            lambda m, s: _spelled_form("milliliters", _numeral_before(s, m.start())),
+        ),
+        (
+            re.compile(r"\bmilliliters\b", re.I),
+            lambda m, s: "mL",
+        ),
+        (
+            re.compile(r"\bg\b"),
+            lambda m, s: _spelled_form("grams", _numeral_before(s, m.start())),
+        ),
+        (
+            re.compile(r"\bgrams\b", re.I),
+            lambda m, s: "g",
+        ),
+    ]
+    for pat, fn in rules:
+        out = _sub_once(span, pat, lambda m, p=pat, f=fn: f(m, span))
+        if out:
+            return out
     return None
 
 
@@ -120,14 +207,45 @@ def _try_symbol_micro(span: str) -> Optional[str]:
     if not m:
         return None
     token = m.group(1)
-    nxt = _SYMBOL_NEXT.get(token)
-    if nxt is None and token.lower() == "mcg":
-        nxt = "µg"
-    elif nxt is None and token.lower() == "ug":
+    if token.lower() == "mcg":
+        nxt = f"{MICRO_SIGN}g"
+    elif token.startswith(MICRO_SIGN):
         nxt = "mcg"
-    if not nxt or nxt.lower() == token.lower():
+    elif token.startswith(GREEK_MU):
+        nxt = "mcg"
+    else:
         return None
     return span[: m.start()] + nxt + span[m.end() :]
+
+
+def _try_symbol_unicode(span: str) -> Optional[str]:
+    m = _UNICODE_MICRO.search(span)
+    if not m:
+        return None
+    sign = m.group(2)
+    if sign == MICRO_SIGN:
+        nxt = f"{m.group(1)} {GREEK_MU}g"
+    elif sign == GREEK_MU:
+        nxt = f"{m.group(1)} {MICRO_SIGN}g"
+    else:
+        return None
+    before = span[m.start() : m.end()]
+    after_part = nxt.split()[-1] if " " in nxt else nxt
+    if before.encode("utf-8") == after_part.encode("utf-8"):
+        raise AssertionError(f"unicode micro swap must change codepoints: {before!r}")
+    return span[: m.start()] + nxt + span[m.end() :]
+
+
+def appendix_symbol_unicode_for_base(base: dict) -> Optional[dict]:
+    """Appendix-only µ vs μ (not in main scored pack)."""
+    claim0 = base["claim"]
+    c0, c1 = base["claim_span_start"], base["claim_span_end"]
+    span = claim0[c0:c1]
+    new_span = _try_symbol_unicode(span)
+    if not new_span or new_span == span:
+        return None
+    diff = _claim_diff(base, new_span, MAG_SYMBOL_UNICODE)
+    return _instance(base, MAG_SYMBOL_UNICODE, diff["text"], diff, new_span)
 
 
 def build_for_base(base: dict) -> Tuple[List[dict], List[dict]]:

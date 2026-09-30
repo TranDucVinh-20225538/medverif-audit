@@ -85,6 +85,7 @@ def collect_forbidden(root: Path | None = None) -> dict:
     extra_dirs = [
         root / "data/t17",
         root / "data/t18",
+        root / "data/t18_medical_expand",
         root / "data/t13",
     ]
     for d in extra_dirs:

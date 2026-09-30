@@ -9,11 +9,11 @@ SummaC-Conv and HHEM legacy calibration remain &lt;97% vs node30. **Excluded fro
 - **892 bases** in stage1 continue logs = expand funnel artifact, **not** main_ext scoring cohort.
 - **main_ext** = **60** whitelist INV bases / **60** INV review rows — see `notes/main_ext_cohort_report.md`.
 
-## T15 AggreFact base switch (2026-09-30)
+## T15 AggreFact (2026-09-30)
 
-- GPU cal **200 rows:** HF `lytang/MiniCheck-RoBERTa-Large` vs legacy CPU **MiniCheck lib** base → **69.5%** agreement (not ≥97%).
-- **Action:** full AggreFact rescored on GPU with **HF base + T15 ft** (aligned checkpoints). Legacy CPU partials archived.
-- If GPU jobs stall **>2h**, run `scripts/t15_aggrefact_subsample_eval.py` (3k stratified + bootstrap CI).
+- **Rejected:** raw HF GPU path (69.5% cal vs CPU MiniCheck library — different checker).
+- **Action:** GPU scoring via **MiniCheck library** (`minicheck@b58b9fa`), base + T15 ft same code path; cal gate ≥97% on 200 rows vs CPU library archive.
+- If GPU queue blocked **>2h**, run `scripts/t15_aggrefact_subsample_eval.py` (3k stratified + bootstrap CI) only.
 
 ## Bespoke Lane B gate (job **61523**, 2026-09-30)
 

@@ -10,8 +10,24 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCK_DIR = ROOT / ".cache" / "score_locks"
-# node30: shared GPU scoring lock (keep both paths when merging branches)
+# Legacy single-GPU lock (only when MEDVERIF_GPU_GLOBAL_SCORE_LOCK=legacy)
 GPU_GLOBAL_LOCK = ROOT / "jobs" / "locks" / "gpu0_scoring.lock"
+
+
+def pack_slug_from_out(out: Path) -> str:
+    out = out.resolve()
+    try:
+        rel = out.relative_to(ROOT / "results" / "raw")
+        return rel.parts[0] if rel.parts else "root"
+    except ValueError:
+        return "external"
+
+
+def score_global_lock_path(verifier: str, out: Path) -> Path:
+    """One concurrent scorer per (verifier, pack), not one lock per verifier."""
+    pack = pack_slug_from_out(out)
+    key = f"{verifier}__{pack}".replace("/", "_")
+    return ROOT / "jobs" / "locks" / f"score_{key}.lock"
 
 
 def lock_file(verifier: str, out: Path) -> Path:
@@ -54,13 +70,12 @@ def exclusive_score_lock(verifier: str, out: Path):
     """
     LOCK_DIR.mkdir(parents=True, exist_ok=True)
     lf = lock_file(verifier, out)
-    use_global = os.environ.get("MEDVERIF_GPU_GLOBAL_SCORE_LOCK", "1").lower() not in (
-        "0",
-        "false",
-        "no",
-    )
-    global_handle = None
-    if use_global:
+    mode = os.environ.get("MEDVERIF_GPU_GLOBAL_SCORE_LOCK", "pack").lower()
+    if mode in ("0", "false", "no", "off"):
+        with _flock_path(lf) as local_ok:
+            yield local_ok
+        return
+    if mode in ("1", "true", "yes", "legacy"):
         with _flock_path(GPU_GLOBAL_LOCK) as global_ok:
             if not global_ok:
                 yield False
@@ -68,5 +83,11 @@ def exclusive_score_lock(verifier: str, out: Path):
             with _flock_path(lf) as local_ok:
                 yield local_ok
         return
-    with _flock_path(lf) as local_ok:
-        yield local_ok
+    # default "pack": per (verifier, results/raw/{pack}) — parallel packs OK
+    glp = score_global_lock_path(verifier, out)
+    with _flock_path(glp) as global_ok:
+        if not global_ok:
+            yield False
+            return
+        with _flock_path(lf) as local_ok:
+            yield local_ok

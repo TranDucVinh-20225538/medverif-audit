@@ -12,7 +12,6 @@ CACHE = os.environ.get("HF_HOME") or os.environ.get("HUGGINGFACE_HUB_CACHE")
 MODEL_BY_VERIFIER = {
     "t6a_minicheck_roberta": "roberta-large",
     "t6a_minicheck_deberta": "deberta-v3-large",
-    "t6a_granite_guardian": "Granite-Guardian-3.3-8B",
 }
 
 

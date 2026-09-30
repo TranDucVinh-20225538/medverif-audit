@@ -53,19 +53,19 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": 0.8636363636363636,
+          "p_wrong_prefers": 0.9545454545454546,
           "ci95": [
-            0.6818181818181818,
+            0.8636363636363636,
             1.0
           ],
           "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": 0.7258064516129032,
+          "p_wrong_prefers": 0.8064516129032258,
           "ci95": [
-            0.6129032258064516,
-            0.8225806451612904
+            0.6935483870967742,
+            0.9032258064516129
           ],
           "n_pairs": 62
         },
@@ -89,9 +89,9 @@
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": 0.4,
+          "p_wrong_prefers": 0.45,
           "ci95": [
-            0.2,
+            0.25,
             0.65
           ],
           "n_pairs": 20
@@ -105,19 +105,19 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": 0.6818181818181818,
+          "p_wrong_prefers": 0.7727272727272727,
           "ci95": [
-            0.45454545454545453,
-            0.8636363636363636
+            0.5909090909090909,
+            0.9090909090909091
           ],
           "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": 0.6935483870967742,
+          "p_wrong_prefers": 0.7741935483870968,
           "ci95": [
-            0.5806451612903226,
-            0.8064516129032258
+            0.6612903225806451,
+            0.8709677419354839
           ],
           "n_pairs": 62
         },
@@ -582,10 +582,10 @@
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": 0.16129032258064516,
+          "p_wrong_prefers": 0.1693548387096774,
           "ci95": [
-            0.10483870967741936,
-            0.22580645161290322
+            0.11290322580645161,
+            0.23387096774193547
           ],
           "n_pairs": 62
         },

@@ -353,6 +353,164 @@ def unit_inv_conversion(span: str) -> Optional[Tuple[str, str]]:
     return converted, "natural"
 
 
+_MCG_UNITS = frozenset({"mcg", "µg", "μg", "micrograms"})
+_MG_UNITS = frozenset({"mg", "milligrams"})
+_G_UNITS = frozenset({"g", "grams"})
+
+# Author whitelist for T18+ pack generation (main set frozen on legacy natural rule).
+_AUTHOR_MG_MCG = (
+    (Decimal("0.1"), Decimal("100")),
+    (Decimal("0.025"), Decimal("25")),
+    (Decimal("0.4"), Decimal("400")),
+)
+_AUTHOR_G_MG = (
+    (Decimal("0.5"), Decimal("500")),
+    (Decimal("1"), Decimal("1000")),
+    (Decimal("2"), Decimal("2000")),
+)
+
+
+def _unit_family(unit: str) -> Optional[str]:
+    if unit in _MCG_UNITS:
+        return "mcg"
+    if unit in _MG_UNITS:
+        return "mg"
+    if unit in _G_UNITS:
+        return "g"
+    return None
+
+
+def _pick_mass_unit(family: str, prefer: str) -> str:
+    if family == "mcg":
+        return "mcg" if prefer == "short" else "micrograms"
+    if family == "mg":
+        return "mg" if prefer == "short" else "milligrams"
+    return "g" if prefer == "short" else "grams"
+
+
+def _sentence_has_other_dose_same_unit(sentence: str, span: str, unit: str) -> bool:
+    """True if another dose token in sentence uses the same unit (different numeral)."""
+    span_stripped = span.strip()
+    fam = _unit_family(unit)
+    if fam is None:
+        return False
+    count = 0
+    for m in DOSE_RE.finditer(sentence):
+        token = m.group(0)
+        if _unit_family(m.group(2)) != fam:
+            continue
+        if token == span_stripped:
+            continue
+        count += 1
+    return count > 0
+
+
+def author_whitelist_unit_conversion(span: str, sentence: str) -> Optional[str]:
+    """T18+ INV unit rule: fixed whitelist pairs; skip multi-dose same-unit sentences."""
+    try:
+        num_s, unit = _dose_span_parts(span)
+    except ValueError:
+        return None
+    number = parse_decimal(num_s)
+    if _sentence_has_other_dose_same_unit(sentence, span, unit):
+        return None
+    fam = _unit_family(unit)
+    if fam is None:
+        return None
+    prefer = "short" if unit in {"mg", "g", "mcg", "µg", "μg"} else "long"
+    if fam == "mcg":
+        for mg_val, mcg_val in _AUTHOR_MG_MCG:
+            if number == mcg_val:
+                u = _pick_mass_unit("mg", prefer)
+                return f"{format_decimal(mg_val)} {u}"
+    if fam == "mg":
+        for mg_val, mcg_val in _AUTHOR_MG_MCG:
+            if number == mg_val:
+                u = _pick_mass_unit("mcg", prefer)
+                return f"{format_decimal(mcg_val)} {u}"
+        for g_val, mg_val in _AUTHOR_G_MG:
+            if number == mg_val:
+                g_out = number * Decimal("0.001")
+                if g_out != Decimal("0.5") and g_out < Decimal("1"):
+                    return None
+                u = _pick_mass_unit("g", prefer)
+                return f"{format_decimal(g_out)} {u}"
+    if fam == "g":
+        for g_val, mg_val in _AUTHOR_G_MG:
+            if number == g_val:
+                u = _pick_mass_unit("mg", prefer)
+                return f"{format_decimal(mg_val)} {u}"
+    return None
+
+
+def author_unit_inv_conversion(span: str, sentence: str) -> Optional[Tuple[str, str]]:
+    converted = author_whitelist_unit_conversion(span, sentence)
+    if converted is None:
+        return None
+    return converted, "author_whitelist"
+
+
+# T18 Wikipedia: non-medical metric quantities (exactly one per sentence at extraction time).
+T18_METRIC_UNIT = r"(?:km|cm|kg|kW|mL|ml|L|m|g|W)"
+T18_METRIC_RE = re.compile(
+    rf"(?<![\w./])(\d+(?:\.\d+)?)\s*({T18_METRIC_UNIT})(?![\w/])",
+    re.I,
+)
+
+_T18_METRIC_PAIRS: Tuple[Tuple[str, str, Decimal], ...] = (
+    ("km", "m", Decimal("1000")),
+    ("m", "km", Decimal("0.001")),
+    ("cm", "m", Decimal("0.01")),
+    ("m", "cm", Decimal("100")),
+    ("kg", "g", Decimal("1000")),
+    ("g", "kg", Decimal("0.001")),
+    ("L", "mL", Decimal("1000")),
+    ("l", "ml", Decimal("1000")),
+    ("mL", "L", Decimal("0.001")),
+    ("ml", "L", Decimal("0.001")),
+    ("kW", "W", Decimal("1000")),
+    ("W", "kW", Decimal("0.001")),
+)
+
+
+def t18_metric_matches(text: str) -> List[re.Match]:
+    return list(T18_METRIC_RE.finditer(text))
+
+
+def _norm_t18_unit(unit: str) -> str:
+    if unit.lower() == "ml":
+        return "mL"
+    if unit == "l":
+        return "L"
+    return unit
+
+
+def t18_metric_inv_conversion(span: str, sentence: str = "") -> Optional[Tuple[str, str]]:
+    """Whitelist metric unit rewrite for T18 (km/m/cm, kg/g, L/mL, W/kW)."""
+    del sentence
+    match = T18_METRIC_RE.search(span.strip())
+    if match is None or match.group(0) != span.strip():
+        return None
+    number = parse_decimal(match.group(1))
+    unit = _norm_t18_unit(match.group(2))
+    for src, dst, factor in _T18_METRIC_PAIRS:
+        if unit != _norm_t18_unit(src):
+            continue
+        value = number * factor
+        if Decimal("0.01") <= value <= Decimal("1_000_000"):
+            return f"{format_decimal(value)} {dst}", "t18_metric_whitelist"
+    return None
+
+
+def scale_metric_span(span: str, factor: Decimal) -> str:
+    match = T18_METRIC_RE.search(span.strip())
+    if match is None or match.group(0) != span.strip():
+        raise ValueError(f"not a metric span: {span!r}")
+    number = parse_decimal(match.group(1))
+    unit = match.group(2)
+    return f"{format_decimal(number * factor)} {unit}"
+
+
 def polarity_matches(text: str) -> List[re.Match]:
     return list(POLARITY_RE.finditer(text))
 

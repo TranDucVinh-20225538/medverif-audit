@@ -1,8 +1,8 @@
 {
-  "valid_main_bases": 115,
+  "valid_main_bases": 110,
   "skipped_no_base_row": 0,
-  "instances": 612,
-  "failed_bases": 29,
+  "instances": 588,
+  "failed_bases": 26,
   "path": "data/v3/t17_downdose.jsonl",
   "qc_sample": "qc/t17_sample.csv"
 }

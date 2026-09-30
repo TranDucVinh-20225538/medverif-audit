@@ -5,31 +5,31 @@
       "checker": "t6a_minicheck_roberta",
       "legacy_env": false,
       "n_sample": 30,
-      "n_compared": 4,
-      "missing_main_scores": 26,
+      "n_compared": 30,
+      "missing_main_scores": 0,
       "verdict_agreement": 1.0,
-      "mean_abs_delta_score": 2.086162567138672e-07,
-      "pass_threshold": false
+      "mean_abs_delta_score": 1.7670293649037678e-07,
+      "pass_threshold": true
     },
     {
       "checker": "t6a_minicheck_deberta",
       "legacy_env": false,
       "n_sample": 30,
-      "n_compared": 4,
-      "missing_main_scores": 26,
-      "verdict_agreement": 1.0,
-      "mean_abs_delta_score": 2.1792948246002197e-07,
-      "pass_threshold": false
+      "n_compared": 30,
+      "missing_main_scores": 0,
+      "verdict_agreement": 0.9666666666666667,
+      "mean_abs_delta_score": 0.020914180328448613,
+      "pass_threshold": true
     },
     {
       "checker": "t6a_alignscore_base",
       "legacy_env": false,
       "n_sample": 30,
-      "n_compared": 4,
-      "missing_main_scores": 26,
+      "n_compared": 30,
+      "missing_main_scores": 0,
       "verdict_agreement": 1.0,
-      "mean_abs_delta_score": 2.086162567138672e-07,
-      "pass_threshold": false
+      "mean_abs_delta_score": 9.617457787195841e-08,
+      "pass_threshold": true
     },
     {
       "checker": "v2a_minicheck",
@@ -55,21 +55,21 @@
       "checker": "t6a_summac_zs",
       "legacy_env": true,
       "n_sample": 30,
-      "n_compared": 4,
-      "missing_main_scores": 26,
+      "n_compared": 30,
+      "missing_main_scores": 0,
       "verdict_agreement": 1.0,
-      "mean_abs_delta_score": 0.0007069497369229794,
-      "pass_threshold": false
+      "mean_abs_delta_score": 0.0006554669079681237,
+      "pass_threshold": true
     },
     {
       "checker": "t6a_granite_guardian",
       "legacy_env": false,
       "n_sample": 30,
-      "n_compared": 4,
-      "missing_main_scores": 26,
+      "n_compared": 30,
+      "missing_main_scores": 0,
       "verdict_agreement": 1.0,
-      "mean_abs_delta_score": 0.0051068030297756195,
-      "pass_threshold": false
+      "mean_abs_delta_score": 0.0051619650485614935,
+      "pass_threshold": true
     }
   ]
 }

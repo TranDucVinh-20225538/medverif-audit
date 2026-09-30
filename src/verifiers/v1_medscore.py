@@ -64,7 +64,13 @@ def render(tokenizer, evidence: str, claim: str) -> str:
 
 
 def score_batch(llm, tokenizer, params, pairs: list[dict]) -> list[dict]:
-    prompts = [render(tokenizer, row["evidence"], row["claim"]) for row in pairs]
+    from verifiers.preprocess import verifier_inputs
+
+    prompts = [
+        render(tokenizer, evidence, claim)
+        for row in pairs
+        for claim, evidence in [verifier_inputs(row)]
+    ]
     started = time.perf_counter()
     outputs = llm.generate(prompts, params)
     elapsed = time.perf_counter() - started

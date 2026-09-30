@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import List, Tuple
 
-from text_utils import e1_unit_only_swap, highlight, outside_identical, replace_span
+from text_utils import e1_unit_only_swap, highlight, normalize_micro_sign, outside_identical, replace_span
 
 MAGNITUDE = "x1000"
 
@@ -65,8 +65,8 @@ def build_e1_unit_for_base(base: dict) -> Tuple[List[dict], List[dict]]:
     failures: List[dict] = []
     if base.get("type") != "DOSE":
         return [], failures
-    claim0 = base["claim"]
-    evid0 = base["evidence"]
+    claim0 = normalize_micro_sign(base["claim"])
+    evid0 = normalize_micro_sign(base["evidence"])
     c0, c1 = base["claim_span_start"], base["claim_span_end"]
     e0, e1 = base["evidence_span_start"], base["evidence_span_end"]
     cspan = claim0[c0:c1]

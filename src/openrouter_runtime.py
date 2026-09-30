@@ -48,9 +48,9 @@ class OpenRouterEngine:
         max_tokens = getattr(params, "max_tokens", None) or self.max_tokens
         temperature = getattr(params, "temperature", 0.0)
         seed = getattr(params, "seed", 42)
-        outs: list[_GenOut] = []
-        self.last_meta = []
-        for prompt in prompts:
+        workers = int(os.environ.get("MEDVERIF_OR_BATCH_WORKERS", "8"))
+
+        def _one(prompt: str) -> tuple[LLMResponse, _GenOut]:
             user = prompt + (self.prompt_suffix or "")
             resp = chat(
                 model=self.model,
@@ -63,12 +63,14 @@ class OpenRouterEngine:
                 extra_body=self.extra_body or None,
                 refuse_reasoning_only=self.refuse_reasoning_only,
             )
-            self.last_meta.append(resp)
             text = resp.text
             if self.assert_no_thinking:
                 assert_no_thinking_leak(text)
-            outs.append(_GenOut(outputs=[_GenPiece(text=text)]))
-        return outs
+            return resp, _GenOut(outputs=[_GenPiece(text=text)])
+
+        pairs = map_concurrent(_one, prompts, max_workers=workers)
+        self.last_meta = [p[0] for p in pairs]
+        return [p[1] for p in pairs]
 
     def get_tokenizer(self):
         return self.tokenizer
@@ -120,7 +122,11 @@ def load_tokenizer(model: str, revision: str | None = None):
     kwargs: dict[str, Any] = {"trust_remote_code": True}
     if revision:
         kwargs["revision"] = revision
-    cache = os.environ.get("HUGGINGFACE_HUB_CACHE")
+    cache = (os.environ.get("HUGGINGFACE_HUB_CACHE") or "").strip()
+    if not cache:
+        hf_home = (os.environ.get("HF_HOME") or "").strip()
+        if hf_home:
+            cache = os.path.join(hf_home, "hub")
     if cache:
         kwargs["cache_dir"] = cache
     token = os.environ.get("HF_TOKEN") or os.environ.get("HUGGING_FACE_HUB_TOKEN")

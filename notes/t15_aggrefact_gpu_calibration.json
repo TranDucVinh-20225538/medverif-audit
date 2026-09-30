@@ -1,7 +1,12 @@
 {
   "leg": "base",
+  "path": "minicheck_library_gpu",
+  "minicheck_commit": "b58b9fa69acbd1015ec970fa65dd752413a053d2",
+  "published_aggrefact_bacc_reference": 0.73,
+  "cal_subset_balanced_acc": 0.93,
+  "cal_subset_n": 200,
   "n": 200,
-  "verdict_agreement": 0.695,
-  "mean_abs_score_diff": 0.2609921657294035,
-  "pass": false
+  "verdict_agreement": 1.0,
+  "mean_abs_score_diff": 2.8304755687713625e-07,
+  "pass": true
 }

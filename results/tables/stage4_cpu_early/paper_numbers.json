@@ -1,0 +1,4574 @@
+{
+  "stamp": null,
+  "n_bootstrap": 1000,
+  "seed": 42,
+  "n_joined_rows": 4452,
+  "n_flagged_instances": 21,
+  "figure_titles": [
+    "PASS rate by verifier and condition",
+    "sensitivity vs invariance",
+    "dose magnitude curve",
+    "kappa matrix"
+  ],
+  "main": [
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "n": 848,
+      "parse_fail": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 848
+      },
+      "c0_pass": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 114,
+        "den": 114,
+        "n_bases": 114
+      },
+      "inv_pass": {
+        "rate": 0.6666666666666666,
+        "lo": 0.5606060606060606,
+        "hi": 0.7727272727272727,
+        "num": 44,
+        "den": 66,
+        "n_bases": 66
+      },
+      "e1_evid_false_pass": {
+        "rate": 0.045662100456621,
+        "lo": 0.01809954751131222,
+        "hi": 0.0821917808219178,
+        "num": 10,
+        "den": 219,
+        "n_bases": 111
+      },
+      "e1_claim_false_pass": {
+        "rate": 0.0091324200913242,
+        "lo": 0.0,
+        "hi": 0.0228310502283105,
+        "num": 2,
+        "den": 219,
+        "n_bases": 111
+      },
+      "gap_evid": {
+        "rate": 0.6210045662100456,
+        "lo": 0.5010574415775456,
+        "hi": 0.7322258054882953,
+        "num": null,
+        "den": null,
+        "n_bases": 114,
+        "inv_num": 44,
+        "inv_den": 66,
+        "e1_num": 10,
+        "e1_den": 219
+      },
+      "gap_claim": {
+        "rate": 0.6575342465753424,
+        "lo": 0.535537518037518,
+        "hi": 0.7623475078162579,
+        "num": null,
+        "den": null,
+        "n_bases": 114,
+        "inv_num": 44,
+        "inv_den": 66,
+        "e1_num": 2,
+        "e1_den": 219
+      },
+      "x2_evid": {
+        "rate": 0.027522935779816515,
+        "lo": 0.0,
+        "hi": 0.06422018348623854,
+        "num": 3,
+        "den": 109,
+        "n_bases": 109
+      },
+      "x10_evid": {
+        "rate": 0.06363636363636363,
+        "lo": 0.01818181818181818,
+        "hi": 0.11818181818181818,
+        "num": 7,
+        "den": 110,
+        "n_bases": 110
+      },
+      "x2_claim": {
+        "rate": 0.01834862385321101,
+        "lo": 0.0,
+        "hi": 0.045871559633027525,
+        "num": 2,
+        "den": 109,
+        "n_bases": 109
+      },
+      "x10_claim": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 110,
+        "n_bases": 110
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "n": 182,
+      "parse_fail": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 182
+      },
+      "c0_pass": {
+        "rate": 0.9782608695652174,
+        "lo": 0.9347826086956522,
+        "hi": 1.0,
+        "num": 45,
+        "den": 46,
+        "n_bases": 46
+      },
+      "inv_pass": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 33,
+        "den": 33,
+        "n_bases": 33
+      },
+      "e1_evid_false_pass": {
+        "rate": 0.12,
+        "lo": 0.0,
+        "hi": 0.28,
+        "num": 3,
+        "den": 25,
+        "n_bases": 25
+      },
+      "e1_claim_false_pass": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 25,
+        "n_bases": 25
+      },
+      "gap_evid": {
+        "rate": 0.88,
+        "lo": 0.7407407407407407,
+        "hi": 1.0,
+        "num": null,
+        "den": null,
+        "n_bases": 45,
+        "inv_num": 33,
+        "inv_den": 33,
+        "e1_num": 3,
+        "e1_den": 25
+      },
+      "gap_claim": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": null,
+        "den": null,
+        "n_bases": 45,
+        "inv_num": 33,
+        "inv_den": 33,
+        "e1_num": 0,
+        "e1_den": 25
+      },
+      "x2_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x2_claim": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x10_claim": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "n": 1049,
+      "parse_fail": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1049
+      },
+      "c0_pass": {
+        "rate": 0.958041958041958,
+        "lo": 0.9230769230769231,
+        "hi": 0.986013986013986,
+        "num": 137,
+        "den": 143,
+        "n_bases": 143
+      },
+      "inv_pass": {
+        "rate": 0.125,
+        "lo": 0.046875,
+        "hi": 0.21875,
+        "num": 8,
+        "den": 64,
+        "n_bases": 64
+      },
+      "e1_evid_false_pass": {
+        "rate": 0.12830188679245283,
+        "lo": 0.08613428643300353,
+        "hi": 0.17739220891025176,
+        "num": 34,
+        "den": 265,
+        "n_bases": 134
+      },
+      "e1_claim_false_pass": {
+        "rate": 0.04150943396226415,
+        "lo": 0.015151515151515152,
+        "hi": 0.07257177851202,
+        "num": 11,
+        "den": 265,
+        "n_bases": 134
+      },
+      "gap_evid": {
+        "rate": -0.0033018867924528295,
+        "lo": -0.07112587713385228,
+        "hi": 0.06851944580144384,
+        "num": null,
+        "den": null,
+        "n_bases": 137,
+        "inv_num": 8,
+        "inv_den": 64,
+        "e1_num": 34,
+        "e1_den": 265
+      },
+      "gap_claim": {
+        "rate": 0.08349056603773586,
+        "lo": 0.014969198491562844,
+        "hi": 0.1575784104599192,
+        "num": null,
+        "den": null,
+        "n_bases": 137,
+        "inv_num": 8,
+        "inv_den": 64,
+        "e1_num": 11,
+        "e1_den": 265
+      },
+      "x2_evid": {
+        "rate": 0.07575757575757576,
+        "lo": 0.03787878787878788,
+        "hi": 0.12121212121212122,
+        "num": 10,
+        "den": 132,
+        "n_bases": 132
+      },
+      "x10_evid": {
+        "rate": 0.18045112781954886,
+        "lo": 0.12011278195488723,
+        "hi": 0.24812030075187969,
+        "num": 24,
+        "den": 133,
+        "n_bases": 133
+      },
+      "x2_claim": {
+        "rate": 0.030303030303030304,
+        "lo": 0.007575757575757576,
+        "hi": 0.06060606060606061,
+        "num": 4,
+        "den": 132,
+        "n_bases": 132
+      },
+      "x10_claim": {
+        "rate": 0.05263157894736842,
+        "lo": 0.015037593984962405,
+        "hi": 0.09022556390977443,
+        "num": 7,
+        "den": 133,
+        "n_bases": 133
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "n": 140,
+      "parse_fail": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 140
+      },
+      "c0_pass": {
+        "rate": 0.9347826086956522,
+        "lo": 0.8478260869565217,
+        "hi": 1.0,
+        "num": 43,
+        "den": 46,
+        "n_bases": 46
+      },
+      "inv_pass": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 31,
+        "den": 31,
+        "n_bases": 31
+      },
+      "e1_evid_false_pass": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      },
+      "e1_claim_false_pass": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      },
+      "gap_evid": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": null,
+        "den": null,
+        "n_bases": 43,
+        "inv_num": 31,
+        "inv_den": 31,
+        "e1_num": 0,
+        "e1_den": 12
+      },
+      "gap_claim": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": null,
+        "den": null,
+        "n_bases": 43,
+        "inv_num": 31,
+        "inv_den": 31,
+        "e1_num": 0,
+        "e1_den": 12
+      },
+      "x2_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x2_claim": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x10_claim": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "n": 1049,
+      "parse_fail": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1049
+      },
+      "c0_pass": {
+        "rate": 0.951048951048951,
+        "lo": 0.916083916083916,
+        "hi": 0.9790209790209791,
+        "num": 136,
+        "den": 143,
+        "n_bases": 143
+      },
+      "inv_pass": {
+        "rate": 0.2857142857142857,
+        "lo": 0.1746031746031746,
+        "hi": 0.3968253968253968,
+        "num": 18,
+        "den": 63,
+        "n_bases": 63
+      },
+      "e1_evid_false_pass": {
+        "rate": 0.09125475285171103,
+        "lo": 0.04650268336314848,
+        "hi": 0.13689519054944416,
+        "num": 24,
+        "den": 263,
+        "n_bases": 133
+      },
+      "e1_claim_false_pass": {
+        "rate": 0.034220532319391636,
+        "lo": 0.011363636363636364,
+        "hi": 0.06439393939393939,
+        "num": 9,
+        "den": 263,
+        "n_bases": 133
+      },
+      "gap_evid": {
+        "rate": 0.19445953286257467,
+        "lo": 0.09424263236763235,
+        "hi": 0.3081504474153415,
+        "num": null,
+        "den": null,
+        "n_bases": 136,
+        "inv_num": 18,
+        "inv_den": 63,
+        "e1_num": 24,
+        "e1_den": 263
+      },
+      "gap_claim": {
+        "rate": 0.25149375339489405,
+        "lo": 0.1502074992696879,
+        "hi": 0.36373894749719915,
+        "num": null,
+        "den": null,
+        "n_bases": 136,
+        "inv_num": 18,
+        "inv_den": 63,
+        "e1_num": 9,
+        "e1_den": 263
+      },
+      "x2_evid": {
+        "rate": 0.061068702290076333,
+        "lo": 0.022900763358778626,
+        "hi": 0.10687022900763359,
+        "num": 8,
+        "den": 131,
+        "n_bases": 131
+      },
+      "x10_evid": {
+        "rate": 0.12121212121212122,
+        "lo": 0.06818181818181818,
+        "hi": 0.17424242424242425,
+        "num": 16,
+        "den": 132,
+        "n_bases": 132
+      },
+      "x2_claim": {
+        "rate": 0.022900763358778626,
+        "lo": 0.0,
+        "hi": 0.05343511450381679,
+        "num": 3,
+        "den": 131,
+        "n_bases": 131
+      },
+      "x10_claim": {
+        "rate": 0.045454545454545456,
+        "lo": 0.015151515151515152,
+        "hi": 0.08333333333333333,
+        "num": 6,
+        "den": 132,
+        "n_bases": 132
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "n": 140,
+      "parse_fail": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 140
+      },
+      "c0_pass": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 46,
+        "den": 46,
+        "n_bases": 46
+      },
+      "inv_pass": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 34,
+        "den": 34,
+        "n_bases": 34
+      },
+      "e1_evid_false_pass": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      },
+      "e1_claim_false_pass": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      },
+      "gap_evid": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": null,
+        "den": null,
+        "n_bases": 46,
+        "inv_num": 34,
+        "inv_den": 34,
+        "e1_num": 0,
+        "e1_den": 12
+      },
+      "gap_claim": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": null,
+        "den": null,
+        "n_bases": 46,
+        "inv_num": 34,
+        "inv_den": 34,
+        "e1_num": 0,
+        "e1_den": 12
+      },
+      "x2_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x2_claim": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x10_claim": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "n": 862,
+      "parse_fail": {
+        "rate": 0.03480278422273782,
+        "lo": null,
+        "hi": null,
+        "num": 30,
+        "den": 862
+      },
+      "c0_pass": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 112,
+        "den": 112,
+        "n_bases": 110
+      },
+      "inv_pass": {
+        "rate": 0.7741935483870968,
+        "lo": 0.6612903225806451,
+        "hi": 0.8713709677419351,
+        "num": 48,
+        "den": 62,
+        "n_bases": 62
+      },
+      "e1_evid_false_pass": {
+        "rate": 0.06796116504854369,
+        "lo": 0.030295454545454546,
+        "hi": 0.11059027777777776,
+        "num": 14,
+        "den": 206,
+        "n_bases": 105
+      },
+      "e1_claim_false_pass": {
+        "rate": 0.03317535545023697,
+        "lo": 0.009802725968436154,
+        "hi": 0.0616187090950124,
+        "num": 7,
+        "den": 211,
+        "n_bases": 106
+      },
+      "gap_evid": {
+        "rate": 0.7062323833385531,
+        "lo": 0.5773274739077513,
+        "hi": 0.8188822953428668,
+        "num": null,
+        "den": null,
+        "n_bases": 110,
+        "inv_num": 48,
+        "inv_den": 62,
+        "e1_num": 14,
+        "e1_den": 206
+      },
+      "gap_claim": {
+        "rate": 0.7410181929368598,
+        "lo": 0.6201469644700259,
+        "hi": 0.8482267664745845,
+        "num": null,
+        "den": null,
+        "n_bases": 110,
+        "inv_num": 48,
+        "inv_den": 62,
+        "e1_num": 7,
+        "e1_den": 211
+      },
+      "x2_evid": {
+        "rate": 0.038834951456310676,
+        "lo": 0.0,
+        "hi": 0.07766990291262135,
+        "num": 4,
+        "den": 103,
+        "n_bases": 101
+      },
+      "x10_evid": {
+        "rate": 0.0970873786407767,
+        "lo": 0.04807692307692308,
+        "hi": 0.1553398058252427,
+        "num": 10,
+        "den": 103,
+        "n_bases": 101
+      },
+      "x2_claim": {
+        "rate": 0.057692307692307696,
+        "lo": 0.01904761904761905,
+        "hi": 0.10679611650485436,
+        "num": 6,
+        "den": 104,
+        "n_bases": 102
+      },
+      "x10_claim": {
+        "rate": 0.009345794392523364,
+        "lo": 0.0,
+        "hi": 0.028846153846153848,
+        "num": 1,
+        "den": 107,
+        "n_bases": 104
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "n": 182,
+      "parse_fail": {
+        "rate": 0.07142857142857142,
+        "lo": null,
+        "hi": null,
+        "num": 13,
+        "den": 182
+      },
+      "c0_pass": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 44,
+        "den": 44,
+        "n_bases": 44
+      },
+      "inv_pass": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 31,
+        "den": 31,
+        "n_bases": 31
+      },
+      "e1_evid_false_pass": {
+        "rate": 0.08695652173913043,
+        "lo": 0.0,
+        "hi": 0.21739130434782608,
+        "num": 2,
+        "den": 23,
+        "n_bases": 23
+      },
+      "e1_claim_false_pass": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 21,
+        "n_bases": 21
+      },
+      "gap_evid": {
+        "rate": 0.9130434782608696,
+        "lo": 0.7894736842105263,
+        "hi": 1.0,
+        "num": null,
+        "den": null,
+        "n_bases": 44,
+        "inv_num": 31,
+        "inv_den": 31,
+        "e1_num": 2,
+        "e1_den": 23
+      },
+      "gap_claim": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": null,
+        "den": null,
+        "n_bases": 44,
+        "inv_num": 31,
+        "inv_den": 31,
+        "e1_num": 0,
+        "e1_den": 21
+      },
+      "x2_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x2_claim": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "x10_claim": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    }
+  ],
+  "false_pass_split": [
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "all": {
+        "rate": 0.045662100456621,
+        "lo": 0.01809954751131222,
+        "hi": 0.0821917808219178,
+        "num": 10,
+        "den": 219,
+        "n_bases": 111
+      },
+      "without_multi": {
+        "rate": 0.03686635944700461,
+        "lo": 0.013761467889908258,
+        "hi": 0.06572769953051644,
+        "num": 8,
+        "den": 217,
+        "n_bases": 110
+      },
+      "multi_only": {
+        "rate": 1.0,
+        "lo": null,
+        "hi": null,
+        "num": 2,
+        "den": 2,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "all": {
+        "rate": 0.0091324200913242,
+        "lo": 0.0,
+        "hi": 0.0228310502283105,
+        "num": 2,
+        "den": 219,
+        "n_bases": 111
+      },
+      "without_multi": {
+        "rate": 0.009216589861751152,
+        "lo": 0.0,
+        "hi": 0.02325853075418387,
+        "num": 2,
+        "den": 217,
+        "n_bases": 110
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 2,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "all": {
+        "rate": 0.12,
+        "lo": 0.0,
+        "hi": 0.28,
+        "num": 3,
+        "den": 25,
+        "n_bases": 25
+      },
+      "without_multi": {
+        "rate": 0.125,
+        "lo": 0.0,
+        "hi": 0.25,
+        "num": 3,
+        "den": 24,
+        "n_bases": 24
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "all": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 25,
+        "n_bases": 25
+      },
+      "without_multi": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 24,
+        "n_bases": 24
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "all": {
+        "rate": 0.12830188679245283,
+        "lo": 0.08613428643300353,
+        "hi": 0.17739220891025176,
+        "num": 34,
+        "den": 265,
+        "n_bases": 134
+      },
+      "without_multi": {
+        "rate": 0.11494252873563218,
+        "lo": 0.07278309514444299,
+        "hi": 0.1635136998229472,
+        "num": 30,
+        "den": 261,
+        "n_bases": 132
+      },
+      "multi_only": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 4,
+        "den": 4,
+        "n_bases": 2
+      },
+      "n_multi_bases": 2
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "all": {
+        "rate": 0.04150943396226415,
+        "lo": 0.015151515151515152,
+        "hi": 0.07257177851202,
+        "num": 11,
+        "den": 265,
+        "n_bases": 134
+      },
+      "without_multi": {
+        "rate": 0.0421455938697318,
+        "lo": 0.015209125475285171,
+        "hi": 0.07633587786259542,
+        "num": 11,
+        "den": 261,
+        "n_bases": 132
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 4,
+        "n_bases": 2
+      },
+      "n_multi_bases": 2
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "all": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      },
+      "without_multi": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 11,
+        "n_bases": 11
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "all": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      },
+      "without_multi": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 11,
+        "n_bases": 11
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "all": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "without_multi": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "multi_only": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "n_multi_bases": 0
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "all": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "without_multi": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "multi_only": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "n_multi_bases": 0
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "all": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "without_multi": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "multi_only": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "n_multi_bases": 0
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "all": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "without_multi": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "multi_only": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "n_multi_bases": 0
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "all": {
+        "rate": 0.09125475285171103,
+        "lo": 0.04650268336314848,
+        "hi": 0.13689519054944416,
+        "num": 24,
+        "den": 263,
+        "n_bases": 133
+      },
+      "without_multi": {
+        "rate": 0.07722007722007722,
+        "lo": 0.03861003861003861,
+        "hi": 0.1211056219362745,
+        "num": 20,
+        "den": 259,
+        "n_bases": 131
+      },
+      "multi_only": {
+        "rate": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "num": 4,
+        "den": 4,
+        "n_bases": 2
+      },
+      "n_multi_bases": 2
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "all": {
+        "rate": 0.034220532319391636,
+        "lo": 0.011363636363636364,
+        "hi": 0.06439393939393939,
+        "num": 9,
+        "den": 263,
+        "n_bases": 133
+      },
+      "without_multi": {
+        "rate": 0.03474903474903475,
+        "lo": 0.011538461538461539,
+        "hi": 0.06226288910505836,
+        "num": 9,
+        "den": 259,
+        "n_bases": 131
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 4,
+        "n_bases": 2
+      },
+      "n_multi_bases": 2
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "all": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      },
+      "without_multi": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 11,
+        "n_bases": 11
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "all": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      },
+      "without_multi": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 11,
+        "n_bases": 11
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "all": {
+        "rate": 0.06796116504854369,
+        "lo": 0.030295454545454546,
+        "hi": 0.11059027777777776,
+        "num": 14,
+        "den": 206,
+        "n_bases": 105
+      },
+      "without_multi": {
+        "rate": 0.058823529411764705,
+        "lo": 0.02512562814070352,
+        "hi": 0.10146158716758125,
+        "num": 12,
+        "den": 204,
+        "n_bases": 104
+      },
+      "multi_only": {
+        "rate": 1.0,
+        "lo": null,
+        "hi": null,
+        "num": 2,
+        "den": 2,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "all": {
+        "rate": 0.03317535545023697,
+        "lo": 0.009802725968436154,
+        "hi": 0.0616187090950124,
+        "num": 7,
+        "den": 211,
+        "n_bases": 106
+      },
+      "without_multi": {
+        "rate": 0.028708133971291867,
+        "lo": 0.009478672985781991,
+        "hi": 0.05289100241545893,
+        "num": 6,
+        "den": 209,
+        "n_bases": 105
+      },
+      "multi_only": {
+        "rate": 0.5,
+        "lo": null,
+        "hi": null,
+        "num": 1,
+        "den": 2,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "all": {
+        "rate": 0.08695652173913043,
+        "lo": 0.0,
+        "hi": 0.21739130434782608,
+        "num": 2,
+        "den": 23,
+        "n_bases": 23
+      },
+      "without_multi": {
+        "rate": 0.09090909090909091,
+        "lo": 0.0,
+        "hi": 0.22727272727272727,
+        "num": 2,
+        "den": 22,
+        "n_bases": 22
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "all": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 21,
+        "n_bases": 21
+      },
+      "without_multi": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 20,
+        "n_bases": 20
+      },
+      "multi_only": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      },
+      "n_multi_bases": 1
+    }
+  ],
+  "false_pass_by_evidence_len": [
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": 0.2,
+        "lo": 0.0,
+        "hi": 0.6,
+        "num": 2,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.026785714285714284,
+        "lo": 0.0,
+        "hi": 0.061946902654867256,
+        "num": 3,
+        "den": 112,
+        "n_bases": 57
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.05154639175257732,
+        "lo": 0.01020408163265306,
+        "hi": 0.10529115341545349,
+        "num": 5,
+        "den": 97,
+        "n_bases": 49
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.008928571428571428,
+        "lo": 0.0,
+        "hi": 0.02703316953316953,
+        "num": 1,
+        "den": 112,
+        "n_bases": 57
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.010309278350515464,
+        "lo": 0.0,
+        "hi": 0.03158734602463605,
+        "num": 1,
+        "den": 97,
+        "n_bases": 49
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.23076923076923078,
+        "lo": 0.0,
+        "hi": 0.46153846153846156,
+        "num": 3,
+        "den": 13,
+        "n_bases": 13
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 13,
+        "n_bases": 13
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": 0.16666666666666666,
+        "lo": 0.0,
+        "hi": 0.5,
+        "num": 2,
+        "den": 12,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.06666666666666667,
+        "lo": 0.01680672268907563,
+        "hi": 0.125,
+        "num": 8,
+        "den": 120,
+        "n_bases": 61
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.183206106870229,
+        "lo": 0.10850626118067978,
+        "hi": 0.2636055320648344,
+        "num": 24,
+        "den": 131,
+        "n_bases": 66
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 2,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": 0.16666666666666666,
+        "lo": 0.0,
+        "hi": 0.5,
+        "num": 2,
+        "den": 12,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.008333333333333333,
+        "lo": 0.0,
+        "hi": 0.025210084033613446,
+        "num": 1,
+        "den": 120,
+        "n_bases": 61
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.061068702290076333,
+        "lo": 0.015267175572519083,
+        "hi": 0.11538461538461539,
+        "num": 8,
+        "den": 131,
+        "n_bases": 66
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 2,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.05555555555555555,
+        "lo": 0.015625,
+        "hi": 0.1111333333333333,
+        "num": 7,
+        "den": 126,
+        "n_bases": 64
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.13385826771653545,
+        "lo": 0.06297982283464566,
+        "hi": 0.2109375,
+        "num": 17,
+        "den": 127,
+        "n_bases": 64
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.015873015873015872,
+        "lo": 0.0,
+        "hi": 0.040008064516129024,
+        "num": 2,
+        "den": 126,
+        "n_bases": 64
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.05511811023622047,
+        "lo": 0.015625,
+        "hi": 0.11023622047244094,
+        "num": 7,
+        "den": 127,
+        "n_bases": 64
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": 0.2,
+        "lo": 0.0,
+        "hi": 0.6,
+        "num": 2,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.009345794392523364,
+        "lo": 0.0,
+        "hi": 0.02885315533980582,
+        "num": 1,
+        "den": 107,
+        "n_bases": 54
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.12359550561797752,
+        "lo": 0.05181214134702508,
+        "hi": 0.20235405471421583,
+        "num": 11,
+        "den": 89,
+        "n_bases": 46
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.03636363636363636,
+        "lo": 0.008849557522123894,
+        "hi": 0.0747839887145124,
+        "num": 4,
+        "den": 110,
+        "n_bases": 56
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.03296703296703297,
+        "lo": 0.0,
+        "hi": 0.07692307692307693,
+        "num": 3,
+        "den": 91,
+        "n_bases": 45
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.15384615384615385,
+        "lo": 0.0,
+        "hi": 0.38461538461538464,
+        "num": 2,
+        "den": 13,
+        "n_bases": 13
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 10
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 200)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[200, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 12
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 800)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 9,
+        "n_bases": 9
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[800, 1600)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1600, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    }
+  ],
+  "false_pass_by_span_position": [
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.05555555555555555,
+        "lo": 0.0,
+        "hi": 0.12857142857142856,
+        "num": 4,
+        "den": 72,
+        "n_bases": 37
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.030534351145038167,
+        "lo": 0.0,
+        "hi": 0.061080446271285956,
+        "num": 4,
+        "den": 131,
+        "n_bases": 66
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.3333333333333333,
+        "lo": 0.0,
+        "hi": 1.0,
+        "num": 2,
+        "den": 6,
+        "n_bases": 3
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.0136986301369863,
+        "lo": 0.0,
+        "hi": 0.041666666666666664,
+        "num": 1,
+        "den": 73,
+        "n_bases": 37
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.007575757575757576,
+        "lo": 0.0,
+        "hi": 0.023076923076923078,
+        "num": 1,
+        "den": 132,
+        "n_bases": 67
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 4,
+        "n_bases": 2
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.16666666666666666,
+        "lo": 0.0,
+        "hi": 0.5,
+        "num": 1,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.14285714285714285,
+        "lo": 0.0,
+        "hi": 0.42857142857142855,
+        "num": 1,
+        "den": 7,
+        "n_bases": 7
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.09090909090909091,
+        "lo": 0.0,
+        "hi": 0.2727272727272727,
+        "num": 1,
+        "den": 11,
+        "n_bases": 11
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 7,
+        "n_bases": 7
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 11,
+        "n_bases": 11
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.06097560975609756,
+        "lo": 0.0,
+        "hi": 0.13253012048192772,
+        "num": 5,
+        "den": 82,
+        "n_bases": 42
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.16149068322981366,
+        "lo": 0.09316770186335403,
+        "hi": 0.23128636006289305,
+        "num": 26,
+        "den": 161,
+        "n_bases": 81
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.25,
+        "lo": 0.0,
+        "hi": 0.5833333333333334,
+        "num": 3,
+        "den": 12,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.024096385542168676,
+        "lo": 0.0,
+        "hi": 0.07228915662650602,
+        "num": 2,
+        "den": 83,
+        "n_bases": 42
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.04938271604938271,
+        "lo": 0.012345679012345678,
+        "hi": 0.09321192703828914,
+        "num": 8,
+        "den": 162,
+        "n_bases": 82
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.1,
+        "lo": 0.0,
+        "hi": 0.3,
+        "num": 1,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 3,
+        "n_bases": 3
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 8,
+        "n_bases": 8
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 3,
+        "n_bases": 3
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 8,
+        "n_bases": 8
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.1125,
+        "lo": 0.0375,
+        "hi": 0.2073170731707317,
+        "num": 9,
+        "den": 80,
+        "n_bases": 41
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.07453416149068323,
+        "lo": 0.025,
+        "hi": 0.12588225017470292,
+        "num": 12,
+        "den": 161,
+        "n_bases": 81
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.3,
+        "lo": 0.0,
+        "hi": 0.7,
+        "num": 3,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 12,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.024691358024691357,
+        "lo": 0.0,
+        "hi": 0.06172839506172839,
+        "num": 2,
+        "den": 81,
+        "n_bases": 41
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.043209876543209874,
+        "lo": 0.012269938650306749,
+        "hi": 0.08701190805870944,
+        "num": 7,
+        "den": 162,
+        "n_bases": 82
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 8,
+        "n_bases": 4
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 3,
+        "n_bases": 3
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 8,
+        "n_bases": 8
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 3,
+        "n_bases": 3
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 8,
+        "n_bases": 8
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.056338028169014086,
+        "lo": 0.0,
+        "hi": 0.13043478260869565,
+        "num": 4,
+        "den": 71,
+        "n_bases": 35
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.058333333333333334,
+        "lo": 0.016666666666666666,
+        "hi": 0.1034830367074527,
+        "num": 7,
+        "den": 120,
+        "n_bases": 62
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.6,
+        "lo": 0.0,
+        "hi": 1.0,
+        "num": 3,
+        "den": 5,
+        "n_bases": 3
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.041666666666666664,
+        "lo": 0.0,
+        "hi": 0.09336486486486484,
+        "num": 3,
+        "den": 72,
+        "n_bases": 36
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.031746031746031744,
+        "lo": 0.007575757575757576,
+        "hi": 0.06349206349206349,
+        "num": 4,
+        "den": 126,
+        "n_bases": 63
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 3,
+        "n_bases": 2
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.16666666666666666,
+        "lo": 0.0,
+        "hi": 0.5,
+        "num": 1,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.16666666666666666,
+        "lo": 0.0,
+        "hi": 0.5,
+        "num": 1,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 10,
+        "n_bases": 10
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-evid",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[0, 50)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 5,
+        "n_bases": 5
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[50, 150)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 6,
+        "n_bases": 6
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[150, 400)",
+      "stat": {
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "num": 0,
+        "den": 9,
+        "n_bases": 9
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[400, 1000)",
+      "stat": {
+        "rate": 0.0,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 1,
+        "n_bases": 1
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "[1000, inf)",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "condition": "E1-claim",
+      "bin": "not_found",
+      "stat": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      }
+    }
+  ],
+  "auroc": [
+    {
+      "verifier": "v1_medscore",
+      "type": "DOSE",
+      "auroc_c0_vs_e1": null,
+      "n_pos": 0,
+      "n_neg": 0
+    },
+    {
+      "verifier": "v1_medscore",
+      "type": "POLARITY",
+      "auroc_c0_vs_e1": null,
+      "n_pos": 0,
+      "n_neg": 0
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "DOSE",
+      "auroc_c0_vs_e1": 0.9759261809668089,
+      "n_pos": 137,
+      "n_neg": 530
+    },
+    {
+      "verifier": "v2a_minicheck",
+      "type": "POLARITY",
+      "auroc_c0_vs_e1": 1.0,
+      "n_pos": 43,
+      "n_neg": 24
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "DOSE",
+      "auroc_c0_vs_e1": null,
+      "n_pos": 0,
+      "n_neg": 0
+    },
+    {
+      "verifier": "v2b_bespoke",
+      "type": "POLARITY",
+      "auroc_c0_vs_e1": null,
+      "n_pos": 0,
+      "n_neg": 0
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "DOSE",
+      "auroc_c0_vs_e1": 0.9853919704764035,
+      "n_pos": 136,
+      "n_neg": 526
+    },
+    {
+      "verifier": "v3_alignscore",
+      "type": "POLARITY",
+      "auroc_c0_vs_e1": 1.0,
+      "n_pos": 46,
+      "n_neg": 24
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "DOSE",
+      "auroc_c0_vs_e1": 0.9748201438848921,
+      "n_pos": 112,
+      "n_neg": 417
+    },
+    {
+      "verifier": "v4_ragas_nli",
+      "type": "POLARITY",
+      "auroc_c0_vs_e1": 0.9772727272727273,
+      "n_pos": 44,
+      "n_neg": 44
+    }
+  ],
+  "checklist": "/data2/hpcshared/medverif-audit/results/tables/stage4_cpu_early/tables/phenomenon_checklist.md"
+}

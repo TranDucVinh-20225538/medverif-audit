@@ -1,9 +1,49 @@
 {
-  "requested": 20,
-  "hits": 17,
+  "requested": 194,
+  "hits": 115,
   "misses": [
     {
+      "drug": "taken",
+      "error": "not_found"
+    },
+    {
+      "drug": "taking",
+      "error": "not_found"
+    },
+    {
+      "drug": "starting",
+      "error": "not_found"
+    },
+    {
+      "drug": "birth",
+      "error": "not_found"
+    },
+    {
+      "drug": "through",
+      "error": "not_found"
+    },
+    {
       "drug": "antibiotics",
+      "error": "not_found"
+    },
+    {
+      "drug": "becoming",
+      "error": "not_found"
+    },
+    {
+      "drug": "compared",
+      "error": "not_found"
+    },
+    {
+      "drug": "exactly",
+      "error": "not_found"
+    },
+    {
+      "drug": "hsv-2",
+      "error": "not_found"
+    },
+    {
+      "drug": "intake",
       "error": "not_found"
     },
     {
@@ -11,7 +51,271 @@
       "error": "not_found"
     },
     {
+      "drug": "pregnant",
+      "error": "not_found"
+    },
+    {
+      "drug": "thyroxin",
+      "error": "not_found"
+    },
+    {
+      "drug": "acetylsalicylate",
+      "error": "not_found"
+    },
+    {
+      "drug": "addition",
+      "error": "not_found"
+    },
+    {
+      "drug": "adolescents",
+      "error": "not_found"
+    },
+    {
+      "drug": "alone",
+      "error": "not_found"
+    },
+    {
+      "drug": "amount",
+      "error": "not_found"
+    },
+    {
+      "drug": "androstenedione",
+      "error": "not_found"
+    },
+    {
+      "drug": "approved",
+      "error": "not_found"
+    },
+    {
+      "drug": "assisted",
+      "error": "not_found"
+    },
+    {
+      "drug": "basal",
+      "error": "not_found"
+    },
+    {
+      "drug": "catecholamine",
+      "error": "not_found"
+    },
+    {
+      "drug": "chemotherapy",
+      "error": "not_found"
+    },
+    {
+      "drug": "ciproloxacin",
+      "error": "not_found"
+    },
+    {
+      "drug": "cluster",
+      "error": "not_found"
+    },
+    {
+      "drug": "combined",
+      "error": "not_found"
+    },
+    {
+      "drug": "conditions",
+      "error": "not_found"
+    },
+    {
+      "drug": "congestive",
+      "error": "not_found"
+    },
+    {
+      "drug": "cumulative",
+      "error": "not_found"
+    },
+    {
+      "drug": "diluted",
+      "error": "not_found"
+    },
+    {
+      "drug": "disseminated",
+      "error": "not_found"
+    },
+    {
+      "drug": "diuretics",
+      "error": "not_found"
+    },
+    {
+      "drug": "documented",
+      "error": "not_found"
+    },
+    {
+      "drug": "febrile",
+      "error": "not_found"
+    },
+    {
+      "drug": "giardiasis",
+      "error": "not_found"
+    },
+    {
+      "drug": "giving",
+      "error": "not_found"
+    },
+    {
+      "drug": "high-dose",
+      "error": "not_found"
+    },
+    {
+      "drug": "increased",
+      "error": "not_found"
+    },
+    {
+      "drug": "indicate",
+      "error": "not_found"
+    },
+    {
+      "drug": "ingest",
+      "error": "not_found"
+    },
+    {
+      "drug": "intermittent",
+      "error": "not_found"
+    },
+    {
+      "drug": "intermittively",
+      "error": "not_found"
+    },
+    {
+      "drug": "interval",
+      "error": "not_found"
+    },
+    {
+      "drug": "intramuscularly",
+      "error": "not_found"
+    },
+    {
+      "drug": "known",
+      "error": "not_found"
+    },
+    {
+      "drug": "latent",
+      "error": "not_found"
+    },
+    {
+      "drug": "loading",
+      "error": "not_found"
+    },
+    {
+      "drug": "maternal",
+      "error": "not_found"
+    },
+    {
+      "drug": "medroxyprogesteroneacetate",
+      "error": "not_found"
+    },
+    {
+      "drug": "neuropathies",
+      "error": "not_found"
+    },
+    {
+      "drug": "nodular",
+      "error": "not_found"
+    },
+    {
+      "drug": "occasionally",
+      "error": "not_found"
+    },
+    {
+      "drug": "occur",
+      "error": "not_found"
+    },
+    {
+      "drug": "perhaps",
+      "error": "not_found"
+    },
+    {
+      "drug": "postexposure",
+      "error": "not_found"
+    },
+    {
+      "drug": "prbcs",
+      "error": "not_found"
+    },
+    {
+      "drug": "provide",
+      "error": "not_found"
+    },
+    {
+      "drug": "received",
+      "error": "not_found"
+    },
+    {
+      "drug": "recurrence",
+      "error": "not_found"
+    },
+    {
+      "drug": "relatively",
+      "error": "not_found"
+    },
+    {
+      "drug": "respond",
+      "error": "not_found"
+    },
+    {
+      "drug": "ruptured",
+      "error": "not_found"
+    },
+    {
+      "drug": "showed",
+      "error": "not_found"
+    },
+    {
+      "drug": "shown",
+      "error": "not_found"
+    },
+    {
+      "drug": "slower",
+      "error": "not_found"
+    },
+    {
+      "drug": "specifically",
+      "error": "not_found"
+    },
+    {
+      "drug": "started",
+      "error": "not_found"
+    },
+    {
+      "drug": "subsequent",
+      "error": "not_found"
+    },
+    {
       "drug": "szithromycin",
+      "error": "not_found"
+    },
+    {
+      "drug": "tenuous",
+      "error": "not_found"
+    },
+    {
+      "drug": "therefore",
+      "error": "not_found"
+    },
+    {
+      "drug": "tolerate",
+      "error": "not_found"
+    },
+    {
+      "drug": "trichomoniasis",
+      "error": "not_found"
+    },
+    {
+      "drug": "typically",
+      "error": "not_found"
+    },
+    {
+      "drug": "unconsciousness",
+      "error": "not_found"
+    },
+    {
+      "drug": "urate",
+      "error": "not_found"
+    },
+    {
+      "drug": "wernicke",
       "error": "not_found"
     }
   ]

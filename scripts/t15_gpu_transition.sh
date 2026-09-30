@@ -4,8 +4,8 @@ set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
 cd "${ROOT}"
 CAL="${ROOT}/notes/t15_aggrefact_gpu_calibration.json"
-if [[ ! -f "${CAL}" ]] || ! python3 -c "import json,sys; d=json.load(open('${CAL}')); sys.exit(0 if d.get('pass') else 1)"; then
-  echo "FATAL: calibration did not pass — see ${CAL}"
+if [[ ! -f "${CAL}" ]] || ! python3 -c "import json,sys; d=json.load(open('${CAL}')); sys.exit(0 if d.get('pass') and d.get('path')=='minicheck_library_gpu' else 1)"; then
+  echo "FATAL: MiniCheck library GPU calibration did not pass — see ${CAL}"
   exit 1
 fi
 scancel -u "${USER}" -n t15_aggrefac -n t15_agg_ft 2>/dev/null || true

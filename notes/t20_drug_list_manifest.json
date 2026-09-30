@@ -1,6 +1,7 @@
 {
-  "target": 100,
-  "distinct_drugs_found": 20,
-  "written": 20,
+  "target": 80,
+  "distinct_drugs_found": 194,
+  "written": 194,
+  "openfda_vocab_size": 61,
   "path": "data/t20/drug_list.jsonl"
 }

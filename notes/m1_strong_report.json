@@ -7,6 +7,9 @@
   "m1_lib_backend": "quantulum3+pint",
   "gate_cache": "/data2/hpcshared/medverif-audit/results/cache/m1_strong_gate.json",
   "gate_bases_n": 104,
+  "cohort_label": "pre-amendment-4-draft-gate",
+  "amendment4_present": true,
+  "m1_lib_dimension_fix": false,
   "coverage_by_pack": {
     "us_up_x1000": {
       "instances": 214,
@@ -608,6 +611,226 @@
         }
       }
     },
+    "t6a_summac_zs": {
+      "display_name": "SummaC-ZS",
+      "slug": "t6a_summac_zs",
+      "c0_pass_bases": 82,
+      "metrics": {
+        "NS_x10_claim": {
+          "rate": 0.9493670886075949,
+          "lo": 0.8987341772151899,
+          "hi": 0.9873417721518988,
+          "num": 75,
+          "den": 79,
+          "n_bases": 79
+        },
+        "NS_x10_evid": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "NS_div10_claim": {
+          "rate": 0.92,
+          "lo": 0.8533333333333334,
+          "hi": 0.9733333333333334,
+          "num": 69,
+          "den": 75,
+          "n_bases": 75
+        },
+        "NS_div10_evid": {
+          "rate": 0.9333333333333333,
+          "lo": 0.8796666666666667,
+          "hi": 0.9866666666666667,
+          "num": 70,
+          "den": 75,
+          "n_bases": 75
+        },
+        "US_up_before_claim": {
+          "rate": 0.2804878048780488,
+          "lo": 0.1951219512195122,
+          "hi": 0.3780487804878049,
+          "num": 23,
+          "den": 82,
+          "n_bases": 82
+        },
+        "US_up_before_evid": {
+          "rate": 0.24390243902439024,
+          "lo": 0.15853658536585366,
+          "hi": 0.35365853658536583,
+          "num": 20,
+          "den": 82,
+          "n_bases": 82
+        },
+        "US_up_after_claim": {
+          "rate": 0.8428571428571429,
+          "lo": 0.7571428571428571,
+          "hi": 0.9285714285714286,
+          "num": 59,
+          "den": 70,
+          "n_bases": 70
+        },
+        "US_up_after_evid": {
+          "rate": 0.7714285714285715,
+          "lo": 0.6710714285714285,
+          "hi": 0.8714285714285714,
+          "num": 54,
+          "den": 70,
+          "n_bases": 70
+        },
+        "US_down_claim": {
+          "rate": 0.06451612903225806,
+          "lo": 0.016129032258064516,
+          "hi": 0.12903225806451613,
+          "num": 4,
+          "den": 62,
+          "n_bases": 62
+        },
+        "US_down_evid": {
+          "rate": 0.04838709677419355,
+          "lo": 0.0,
+          "hi": 0.11290322580645161,
+          "num": 3,
+          "den": 62,
+          "n_bases": 62
+        }
+      },
+      "binding_claim": true,
+      "binding_evid": null,
+      "binding_overall": null,
+      "mcnemar": {
+        "claim": {
+          "n_paired": 82,
+          "n_unpaired_dropped": 25,
+          "fail_before": 23,
+          "fail_after": 59,
+          "discordant_pass_fail": 36,
+          "discordant_fail_pass": 0,
+          "mcnemar_p_approx": 5.433087474176228e-09
+        },
+        "evid": {
+          "n_paired": 82,
+          "n_unpaired_dropped": 25,
+          "fail_before": 20,
+          "fail_after": 54,
+          "discordant_pass_fail": 35,
+          "discordant_fail_pass": 1,
+          "mcnemar_p_approx": 3.7979124931775475e-08
+        }
+      }
+    },
+    "t6a_granite_guardian": {
+      "display_name": "Granite Guardian 2B",
+      "slug": "t6a_granite_guardian",
+      "c0_pass_bases": 101,
+      "metrics": {
+        "NS_x10_claim": {
+          "rate": 0.8556701030927835,
+          "lo": 0.7835051546391752,
+          "hi": 0.9175257731958762,
+          "num": 83,
+          "den": 97,
+          "n_bases": 97
+        },
+        "NS_x10_evid": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "NS_div10_claim": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "NS_div10_evid": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "US_up_before_claim": {
+          "rate": 0.42574257425742573,
+          "lo": 0.33663366336633666,
+          "hi": 0.5247524752475248,
+          "num": 43,
+          "den": 101,
+          "n_bases": 101
+        },
+        "US_up_before_evid": {
+          "rate": 0.18811881188118812,
+          "lo": 0.1188118811881188,
+          "hi": 0.27722772277227725,
+          "num": 19,
+          "den": 101,
+          "n_bases": 101
+        },
+        "US_up_after_claim": {
+          "rate": 0.9444444444444444,
+          "lo": 0.8333333333333334,
+          "hi": 1.0,
+          "num": 17,
+          "den": 18,
+          "n_bases": 18
+        },
+        "US_up_after_evid": {
+          "rate": 0.6111111111111112,
+          "lo": 0.3888888888888889,
+          "hi": 0.8333333333333334,
+          "num": 11,
+          "den": 18,
+          "n_bases": 18
+        },
+        "US_down_claim": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "US_down_evid": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      },
+      "binding_claim": true,
+      "binding_evid": null,
+      "binding_overall": null,
+      "mcnemar": {
+        "claim": {
+          "n_paired": 20,
+          "n_unpaired_dropped": 87,
+          "fail_before": 7,
+          "fail_after": 18,
+          "discordant_pass_fail": 11,
+          "discordant_fail_pass": 0,
+          "mcnemar_p_approx": 0.002568831527022717
+        },
+        "evid": {
+          "n_paired": 20,
+          "n_unpaired_dropped": 87,
+          "fail_before": 5,
+          "fail_after": 11,
+          "discordant_pass_fail": 6,
+          "discordant_fail_pass": 0,
+          "mcnemar_p_approx": 0.041226833337163676
+        }
+      }
+    },
     "v2b_bespoke": {
       "display_name": "Bespoke-MiniCheck-7B",
       "slug": "v2b_bespoke",
@@ -1048,7 +1271,5 @@
         }
       }
     }
-  },
-  "cohort_label": "pre_amendment4",
-  "run_job": "61606"
+  }
 }

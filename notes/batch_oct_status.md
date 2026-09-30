@@ -1,5 +1,39 @@
 # Batch Oct status (HPC)
 
+Updated: **2026-09-30 ~22:15 UTC+7** · Freeze **Oct 5 23:59** · follow-up deadline (T15-OOD, token analysis) **Oct 3 22:00**
+
+## Per-task status (current)
+
+| Task | Status | Headline / blocker | Deliverable |
+| --- | --- | --- | --- |
+| **M1-strong** | **done — accepted** (`8939e6c`) | 110 gate bases, post-amendment-4; paired before/after, McNemar b/c, Bind on AFTER up AND down; Granite row (cpuverif agreement 60/60). **Open caveat:** 40/214 US_up ×1000 rows (mg/kg→g/kg 30, mL→L 10) are M1 no-ops (checker-side `quantity_norm` DOSE_RE lacks g/kg, L); sensitivity in token-analysis note; accepted table unchanged pending author decision | `results/tables/m1_strong_final.md`, `notes/m1_strong_final.json` |
+| **T13** | done (main), unchanged this batch | Pairwise ×1000 vs INV-nat; encoders n=22 (node30 subset) | `results/tables/t13_pairwise_preference.md` |
+| **T14** | **running** — job **61617** (rerun approved once) | Env agreement **passed** for every small checker (100% verdict agreement, 30/30 each); scored RoBERTa, DeBERTa, AlignScore-base, SummaC-ZS (227 each); Granite in progress. Table pasted when job ends | `results/raw/t14/`, `notes/t14_env_agreement.json` |
+| **T15 card** | **done — accepted** (`7fa88c2`) | Main DOSE base vs ft; US up (T7 ×1000) + US down (unit-down) from same pipeline | `notes/t15_report.md`, `notes/t15_card.json` |
+| **T15-OOD** | **scored; T18 base cross-check open** | T24b (53 q, T24_037/T24_066 excluded): ft C0 88.7%, value×10 97.9%, unit up 100%, unit down 100% vs base 84.9 / 100 / 59.0 / 11.8. T18 Wikipedia: base and ft 100% in every cell. Base T24b = existing scores 202/202; base T18 disagrees with earlier `results/raw/t18` RoBERTa on 8/74 same-text rows (large score gaps) → re-scoring those 8 in cpuverif before citing T18 | `notes/t15_ood_report.md`, `notes/t15_ood_card.json`, `data/t18/instances_t18_t15ood.jsonl` |
+| **Token analysis** | **done — EXPLORATORY** | US_up after split by "original numeral survives as a token" per checker tokenizer; NS_x10 control (flag=yes n=0 for most single-token-number tokenizers). Found the M1 no-op caveat above | `notes/m1_token_overlap_exploratory.md` |
+| **T18** | **appendix; scores partial** | Reviewed pack 372 rows (337 valid, 37 bases, ×2/÷2 + unit_swap + unit_spell; no ×10). Scores: RoBERTa 372, V1/V2b/V4 337, DeBERTa 124 (partial); AlignScore/SummaC/Granite not scored. Old T15 `base/ft_t18` (736) are from pre-review build `7d8e919` — do not cite | `results/raw/t18/` |
+| **main_ext** | **partial** (PI labels present) | 480 instances; RoBERTa 480, V1 380, V4 380, Bespoke 356, DeBERTa 44; other small checkers not scored | `results/raw/main_ext/`, `qc/main_ext_labels.csv` |
+| **T19 3B/8B** | **scored; report stale** | Local 3B 1703/1703 but **623 PARSE_FAIL (36.6%)**; local 8B 1703/1703 with 31 PARSE_FAIL (finished 01:53, after `notes/t19_scale_sweep.md` was written at 00:43, so its "8B local NA" row is stale). Needs report regen before citing | `results/raw/t19/llama32_3b_instruct.jsonl`, `llama31_8b_instruct.jsonl` |
+
+## Preregistration / amendment hashes (`git log --format='%h %ad' -- <file>`)
+
+| File | Commit | Date |
+| --- | --- | --- |
+| `notes/m1_preregistration.md` | `d3833a3` | 2026-09-30 15:16:10 +0700 |
+| `notes/m1_prereg_amendment1.md` | `8fe6441` | 2026-09-30 15:45:30 +0700 |
+| `notes/m1_prereg_amendment2.md` | `4eb9df5` | 2026-09-30 15:59:00 +0700 |
+| amendment 3 | **no file** | only "narrow parse abort to us_up/us_down (amendment 3 code)" in this note; implemented as `abort_packs` in `scripts/m1_strong_run.py` |
+| `notes/m1_prereg_amendment4.md` | `2d9563c` | 2026-09-30 19:39:11 +0700 |
+
+## Spend
+
+- OpenRouter: ~$12.84 remaining before the M1 US_down V1/V4 API run (~300 calls, ~$0.04); no API used for T15-OOD or token analysis.
+
+---
+
+## Previous snapshot (2026-09-30 ~17:45)
+
 Updated: **2026-09-30 ~17:45 UTC+7** · Freeze **Oct 5 23:59** (no extension)
 
 ## Slurm queue (toandq)

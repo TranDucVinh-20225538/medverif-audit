@@ -6,10 +6,11 @@ import argparse
 import json
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from typing import Dict, List
+from typing import Callable, Dict, List, Optional, Tuple
 
 from text_utils import (
     convert_dose_span,
+    expand_dose_numeric_bounds,
     flip_cue,
     flip_mechanism,
     highlight,
@@ -19,7 +20,10 @@ from text_utils import (
     parse_decimal,
     replace_span,
     rephrase_polarity_cue,
+    scale_dose_in_context,
     scale_dose_span,
+    scale_metric_span,
+    t18_metric_inv_conversion,
 )
 
 
@@ -49,6 +53,29 @@ def _dose_factor_ok(old_span: str, new_span: str, factor: Decimal) -> bool:
         return new / old == factor
     except InvalidOperation:
         return False
+
+
+def _dose_factor_ok_in_context(
+    text: str, start: int, end: int, new_span: str, factor: Decimal
+) -> bool:
+    s, e = expand_dose_numeric_bounds(text, start, end)
+    return _dose_factor_ok(text[s:e], new_span, factor)
+
+
+def _dose_diff(before: str, start: int, end: int, factor: Decimal, where: str) -> dict:
+    s, e = expand_dose_numeric_bounds(before, start, end)
+    edited, new_span = scale_dose_in_context(before, start, end, factor)
+    span_before = before[s:e]
+    return {
+        "where": where,
+        "span_before": span_before,
+        "span_after": new_span,
+        "edit_distance": levenshtein(before, edited),
+        "confined_to_span": outside_identical(before, edited, s, e, new_span),
+        "highlight_before": highlight(before, s, e),
+        "highlight_after": highlight(edited, s, s + len(new_span)),
+        "text": edited,
+    }
 
 
 def _instance(
@@ -82,7 +109,26 @@ def _instance(
     }
 
 
-def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
+UnitInvFn = Callable[[str, str], Optional[Tuple[str, str]]]
+
+
+def _default_unit_inv(claim: str, span: str) -> Optional[Tuple[str, str]]:
+    from text_utils import unit_inv_conversion
+
+    return unit_inv_conversion(span)
+
+
+def _author_unit_inv(claim: str, span: str) -> Optional[Tuple[str, str]]:
+    from text_utils import author_unit_inv_conversion
+
+    return author_unit_inv_conversion(span, claim)
+
+
+def perturb_one(
+    base: dict,
+    *,
+    unit_inv_fn: UnitInvFn | None = None,
+) -> tuple[List[dict], List[dict]]:
     """Return (instances, failures). Failures mean the whole base is dropped."""
     failures = []
     instances = []
@@ -126,16 +172,25 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
     try:
         if base["type"] == "DOSE":
             variants = []
-            for factor, mag in ((Decimal(2), "x2"), (Decimal(10), "x10")):
-                new_span = scale_dose_span(espan, factor)
-                if not _dose_factor_ok(espan, new_span, factor):
-                    raise ValueError(f"factor check failed for {mag}")
-                variants.append((mag, new_span))
-            from text_utils import unit_inv_conversion
-
-            pair = unit_inv_conversion(cspan)
-            if pair:
-                inv_span, unit_inv_source = pair
+            if base.get("t18_metric"):
+                for factor, mag in ((Decimal(2), "x2"), (Decimal(10), "x10")):
+                    new_span = scale_metric_span(espan, factor)
+                    if not _dose_factor_ok(espan, new_span, factor):
+                        raise ValueError(f"factor check failed for {mag}")
+                    variants.append((mag, factor))
+                pair = t18_metric_inv_conversion(cspan, claim0)
+                if pair:
+                    inv_span, unit_inv_source = pair
+            else:
+                for factor, mag in ((Decimal(2), "x2"), (Decimal(10), "x10")):
+                    _, new_span = scale_dose_in_context(evid0, e0, e1, factor)
+                    if not _dose_factor_ok_in_context(evid0, e0, e1, new_span, factor):
+                        raise ValueError(f"factor check failed for {mag}")
+                    variants.append((mag, factor))
+                inv_lookup = unit_inv_fn if unit_inv_fn is not None else _default_unit_inv
+                pair = inv_lookup(claim0, cspan)
+                if pair:
+                    inv_span, unit_inv_source = pair
         else:
             mech = flip_mechanism(espan)
             if base.get("pol_flip_not_lexical") and mech == "lexical":
@@ -147,15 +202,32 @@ def perturb_one(base: dict) -> tuple[List[dict], List[dict]]:
         failures.append({"base_id": base["id"], "reason": "rule_edit_failed", "detail": str(exc)})
         return [], failures
 
-    for mag, new_span in variants:
-        evid_edit = _diff(evid0, evid0, e0, e1, new_span, "evidence")
-        claim_edit = _diff(claim0, claim0, c0, c1, new_span, "claim")
+    for mag, payload in variants:
+        if base["type"] == "DOSE":
+            factor = payload
+            if base.get("t18_metric"):
+                new_span = scale_metric_span(espan, factor)
+                evid_edit = _diff(evid0, evid0, e0, e1, new_span, "evidence")
+                claim_edit = _diff(claim0, claim0, c0, c1, new_span, "claim")
+            else:
+                evid_edit = _dose_diff(evid0, e0, e1, factor, "evidence")
+                claim_edit = _dose_diff(claim0, c0, c1, factor, "claim")
+                new_span = evid_edit["span_after"]
+        else:
+            new_span = payload
+            evid_edit = _diff(evid0, evid0, e0, e1, new_span, "evidence")
+            claim_edit = _diff(claim0, claim0, c0, c1, new_span, "claim")
         if not evid_edit["confined_to_span"] or not claim_edit["confined_to_span"]:
             failures.append({"base_id": base["id"], "reason": "edit_not_confined", "magnitude": mag})
             return [], failures
         if base["type"] == "DOSE":
-            factor = Decimal(10) if mag == "x10" else Decimal(2)
-            if not _dose_factor_ok(espan, new_span, factor):
+            factor = payload
+            ok = (
+                _dose_factor_ok(espan, new_span, factor)
+                if base.get("t18_metric")
+                else _dose_factor_ok_in_context(evid0, e0, e1, new_span, factor)
+            )
+            if not ok:
                 failures.append({"base_id": base["id"], "reason": "dose_factor", "magnitude": mag})
                 return [], failures
         both = {
@@ -230,7 +302,16 @@ def main() -> None:
     parser.add_argument("--base", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--failures", type=Path, required=True)
+    parser.add_argument(
+        "--unit-inv-policy",
+        choices=("frozen", "author_whitelist"),
+        default="frozen",
+        help="frozen=legacy natural_unit_conversion (main); author_whitelist=T18+ rule",
+    )
     args = parser.parse_args()
+    unit_inv_fn: UnitInvFn | None = None
+    if args.unit_inv_policy == "author_whitelist":
+        unit_inv_fn = _author_unit_inv
     instances: List[dict] = []
     failures: List[dict] = []
     n_base = 0
@@ -240,7 +321,7 @@ def main() -> None:
             if not line:
                 continue
             n_base += 1
-            got, failed = perturb_one(json.loads(line))
+            got, failed = perturb_one(json.loads(line), unit_inv_fn=unit_inv_fn)
             if failed:
                 failures.extend(failed)
                 continue

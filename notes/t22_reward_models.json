@@ -1,0 +1,24 @@
+{
+  "models": [
+    {
+      "model_id": "internlm/internlm2-7b-reward",
+      "slug": "internlm2_7b_reward",
+      "revision": "853c9e6e0f71862785dd0b8eefca9609f8e720cb",
+      "rewardbench_v1_note": "open seq-classifier; excludes Qwen/Gemini"
+    },
+    {
+      "model_id": "sfairXC/FsfairX-LLaMA3-RM-v0.1",
+      "slug": "fsfairx_llama3_rm_v01",
+      "revision": "94fad49f1b3227aa8b566f415a335adb68ec544c",
+      "rewardbench_v1_note": "open seq-classifier; excludes Qwen/Gemini"
+    },
+    {
+      "model_id": "internlm/internlm2-1_8b-reward",
+      "slug": "internlm2_1_8b_reward",
+      "revision": "25f3593492ab4625ce00fce8c5e67802d6e702ca",
+      "rewardbench_v1_note": "open seq-classifier; excludes Qwen/Gemini"
+    }
+  ],
+  "instances": 996,
+  "device": "cuda"
+}

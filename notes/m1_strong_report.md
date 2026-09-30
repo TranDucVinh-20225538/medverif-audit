@@ -1,8 +1,9 @@
 # M1-strong (steps 1–2)
 
+**Cohort:** `pre-amendment-4-draft-gate` · amendment4 file: True · M1-lib dimension fix in code: False
+
 Pre-registration: `notes/m1_preregistration.md` · Amendments: `notes/m1_prereg_amendment1.md`, `notes/m1_prereg_amendment2.md`
 M1-lib backend: **quantulum3+pint** · Gate bases: **104** (gate cache refreshed=False)
-
 Report IDs: **V1** = Mistral-Small-24B (MedScore); **V2a** = MiniCheck-Flan-T5-Large; **V3** = AlignScore-large; **V4** = Llama-3.3-70B (RAGAS NLI).
 
 ## Criterion (verbatim)
@@ -34,10 +35,10 @@ Report IDs: **V1** = Mistral-Small-24B (MedScore); **V2a** = MiniCheck-Flan-T5-L
 | AlignScore-base | EVID | NA | 12.6% [6.3,20.0] (12/95) | 60.8% [50.6,70.9] (48/79) | 91.8% [85.9,96.5] (78/85) | 9.9% [4.2,16.9] (7/71) | None | 95 (12 drop) | 1.88e-08 |
 | AlignScore-large | CLAIM | 96.7% [93.5,100.0] (89/92) | 54.2% [44.8,63.5] (52/96) | 96.3% [91.5,100.0] (79/82) | 94.2% [89.5,98.8] (81/86) | 12.2% [5.4,18.9] (9/74) | True | 96 (11 drop) | 1.52e-08 |
 | AlignScore-large | EVID | 89.1% [82.6,94.6] (82/92) | 40.6% [31.2,50.0] (39/96) | 79.3% [70.7,87.8] (65/82) | 96.5% [91.9,100.0] (83/86) | 10.8% [4.1,17.6] (8/74) | True | 96 (11 drop) | 4.93e-07 |
-| SummaC-ZS | CLAIM | 94.9% [89.9,98.7] (75/79) | 28.0% [19.5,37.8] (23/82) | 71.4% [42.9,100.0] (5/7) | NA | NA | True | 8 (99 drop) | 0.0736 |
-| SummaC-ZS | EVID | NA | 24.4% [15.9,35.4] (20/82) | 57.1% [14.3,85.7] (4/7) | NA | NA | None | 8 (99 drop) | 0.134 |
-| Granite Guardian 2B | CLAIM | 85.6% [78.4,91.8] (83/97) | 42.6% [33.7,52.5] (43/101) | NA | NA | NA | None | 0 (107 drop) | — |
-| Granite Guardian 2B | EVID | NA | 18.8% [11.9,27.7] (19/101) | NA | NA | NA | None | 0 (107 drop) | — |
+| SummaC-ZS | CLAIM | 94.9% [89.9,98.7] (75/79) | 28.0% [19.5,37.8] (23/82) | 84.3% [75.7,92.9] (59/70) | 92.0% [85.3,97.3] (69/75) | 6.5% [1.6,12.9] (4/62) | True | 82 (25 drop) | 5.43e-09 |
+| SummaC-ZS | EVID | NA | 24.4% [15.9,35.4] (20/82) | 77.1% [67.1,87.1] (54/70) | 93.3% [88.0,98.7] (70/75) | 4.8% [0.0,(None, None)] (3/62) | None | 82 (25 drop) | 3.8e-08 |
+| Granite Guardian 2B | CLAIM | 85.6% [78.4,91.8] (83/97) | 42.6% [33.7,52.5] (43/101) | 94.4% [83.3,100.0] (17/18) | NA | NA | True | 20 (87 drop) | 0.00257 |
+| Granite Guardian 2B | EVID | NA | 18.8% [11.9,27.7] (19/101) | 61.1% [38.9,83.3] (11/18) | NA | NA | None | 20 (87 drop) | 0.0412 |
 | Bespoke-MiniCheck-7B | CLAIM | 98.0% [94.9,100.0] (96/98) | 66.7% [57.8,74.5] (68/102) | 100.0% [100.0,100.0] (85/85) | 96.7% [92.3,100.0] (88/91) | 80.0% [70.7,89.3] (60/75) | True | 102 (5 drop) | 1.19e-07 |
 | Bespoke-MiniCheck-7B | EVID | NA | 36.3% [27.5,46.1] (37/102) | 75.3% [65.9,83.5] (64/85) | 96.7% [92.3,100.0] (88/91) | 38.7% [28.0,49.3] (29/75) | None | 102 (5 drop) | 2.54e-08 |
 

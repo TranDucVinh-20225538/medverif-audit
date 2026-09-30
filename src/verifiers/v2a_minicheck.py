@@ -32,8 +32,14 @@ def load():
 def score_batch(model, rows: list[dict]) -> list[dict]:
     import time
 
-    docs = [row["evidence"] for row in rows]
-    claims = [row["claim"] for row in rows]
+    from verifiers.preprocess import verifier_inputs
+
+    docs = []
+    claims = []
+    for row in rows:
+        claim, evidence = verifier_inputs(row)
+        claims.append(claim)
+        docs.append(evidence)
     started = time.perf_counter()
     labels, probs, _chunks, _per = model.score(docs, claims)
     elapsed = time.perf_counter() - started
