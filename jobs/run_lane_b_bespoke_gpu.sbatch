@@ -15,9 +15,10 @@ source "${ROOT}/jobs/lib/flock.sh"
 source "${ROOT}/jobs/lib/gpu_graceful.sh"
 medverif_acquire_lock lane_b_bespoke_gpu
 source /data2/shared/apps/conda/etc/profile.d/conda.sh
-conda activate cpuverif
-export PYTHONPATH="${ROOT}/src"
+conda activate vllm
+export PYTHONPATH="${ROOT}/src:${ROOT}/.cache/src/MiniCheck"
 export MEDVERIF_GPU_GLOBAL_SCORE_LOCK=1
-export HF_HOME="${ROOT}/.cache/huggingface"
+source "${ROOT}/jobs/lib/hf_env.sh"
+medverif_hf_env
 gpu_graceful_init
 bash jobs/run_lane_b_bespoke_gpu.sh

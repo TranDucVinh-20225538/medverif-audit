@@ -113,6 +113,23 @@ def main() -> None:
         "Full QVC table (QI/NS/US, McNemar, CIs): extend with `qvc/evaluate/card.py` on joined rows.",
         "",
     ]
+    import subprocess
+
+    try:
+        proc = subprocess.run(
+            [sys.executable, str(ROOT / "scripts/t15_aggrefact_report.py")],
+            capture_output=True,
+            text=True,
+            check=False,
+            cwd=str(ROOT),
+        )
+        if proc.stdout.strip():
+            status_lines.extend(["", proc.stdout.strip()])
+        elif proc.returncode:
+            status_lines.append(f"- **AggreFact report:** failed ({proc.stderr[:200]})")
+    except Exception as exc:
+        status_lines.append(f"- **AggreFact report:** skipped ({exc})")
+
     args.report.write_text("\n".join(status_lines) + "\n")
     print(json.dumps({"report": str(args.report)}, indent=2))
 

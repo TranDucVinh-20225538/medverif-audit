@@ -14,5 +14,10 @@
   "legacy_downstream_allowed": [
     "t6a_granite_guardian",
     "t6a_summac_zs"
-  ]
+  ],
+  "excluded_from_new_packs": [
+    "t6a_summac_conv",
+    "t6a_hhem"
+  ],
+  "excluded_reason": "decision M 2026-09-30: calibration <97% vs node30; paper uses node30 main-card only"
 }

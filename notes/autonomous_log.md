@@ -2,16 +2,13 @@
 
 | Time (+07) | Job | Cause | Fix | Commit |
 |------------|-----|-------|-----|--------|
-| 01:00 | lane_c | Missing `verifiers.v6_ragas_*` modules | Thin v6 wrappers + resume script skips complete rows | (see HEAD) |
-| 01:00 | main_ext | 892 vs ~60 confusion | `main_ext_cohort_report.md` + INV review CSV (60 rows) | (see HEAD) |
-| 01:00 | t15_eval | AggreFact rows lack `instance_id` | `_row_id()` + eval-only job | (see HEAD) |
-| 01:00 | t18 | `max_shards` AttributeError | Use `parquet_shards`; built 100 bases / 736 inst | (see HEAD) |
-| 01:00 | legacy_cal | HHEM tokenizer/model mismatch on tf 4.30.2 | `predict()` + cpuverif load; Granite via cpuverif | (see HEAD) |
-| 01:00 | t19 | 3B POL + 8B not queued | `run_t19_submit_8b_pol.sh` → Slurm 61482/61483 | (see HEAD) |
-| 01:00 | lane_b_t17 | “24 gap” | 588/588 valid done; 24 invalid `non_dose_target` | (see HEAD) |
-| 01:00 | bespoke_gpu | deferred | Slurm 61484 (exclude node002) | (see HEAD) |
-| 01:00 | H8 | — | `v4_legacy_agreement_report.py` | 7d8e919 |
-| 01:15 | t19_8b | Incomplete HF cache + offline | `medverif_hf_offline_if_cached` + online 61485 | (HEAD) |
-| 01:15 | t15_eval | AggreFact `doc` not mapped to evidence | `_normalize_rows` + skip empty pairs | (HEAD) |
-| 01:16 | H7 | Registry assert blocked gpt-4o v4 | `MEDVERIF_SKIP_OPENROUTER_REGISTRY_ASSERT` | 6cc584d |
-| 01:17 | bespoke_gpu | ExcNodeList node002,004 | Resubmit 61486 after 61485, exclude node004 only | — |
+| 01:00 | lane_c | Missing v6 modules | v6 wrappers + resume script | 7d8e919 |
+| 01:15 | t19_8b | HF offline + incomplete cache | `medverif_hf_offline_if_cached` | f5e96af |
+| 01:15 | t15_eval | AggreFact `doc`→evidence | normalize + dedupe jsonl | f5e96af |
+| 01:16 | H7 | Registry assert vs gpt-4o v4 | `MEDVERIF_SKIP_OPENROUTER_REGISTRY_ASSERT` | 6cc584d |
+| 30/9 AM | decision_M | SummaC-Conv/HHEM &lt;97% | excluded from new packs; decision-log M | (pending push) |
+| 30/9 AM | lane_c_repair | `load_joined_from_records(..., verifier=)` | remove broken call in repair report | (pending push) |
+| 30/9 AM | bespoke | missing `v2b_bespoke` | `src/verifiers/v2b_bespoke.py` + vllm sbatch | (pending push) |
+| 30/9 AM | OR baseline | new day $10 cap | `lane_or_night_budget.py reset-baseline` | — |
+| 30/9 AM | t15 | duplicate AggreFact lines | `jsonl_dedupe_instance.py` + resume eval | — |
+| 30/9 AM | T20–T23 | — | gated on 6 prerequisites (`notes/t20_t23_gate.md`) | — |

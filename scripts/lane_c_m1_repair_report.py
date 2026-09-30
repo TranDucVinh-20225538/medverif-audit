@@ -61,9 +61,6 @@ def main() -> None:
         if not before and not after:
             lines.append(f"| {label} | — | NA | NA |")
             continue
-        for tag, rows in (("before", before), ("after", after)):
-            if rows:
-                load_joined_from_records(instances, rows, verifier=slug)
         # minimal: INV-unit FAIL rate | C0 pass
         lines.append(f"| {label} | INV-unit PASS | see raw | see raw_m1 |")
     lines.append("")

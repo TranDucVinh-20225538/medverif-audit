@@ -68,7 +68,7 @@ def _run_score(args: argparse.Namespace, out_path: Path) -> None:
         return
     default_batch = "4" if (ROOT / ".cache" / "g_full.active").exists() else "8"
     batch = int(os.environ.get("MEDVERIF_SCORE_BATCH", default_batch))
-    legacy_cpu = args.verifier in ("v2a_minicheck", "v3_alignscore")
+    legacy_cpu = args.verifier in ("v2a_minicheck", "v3_alignscore", "v2b_bespoke")
     if legacy_cpu:
         if args.verifier == "v3_alignscore":
             import cpu_early as ce
