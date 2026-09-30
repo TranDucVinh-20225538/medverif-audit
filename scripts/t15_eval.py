@@ -94,6 +94,12 @@ def main() -> None:
         action="store_true",
         help="score LLM-AggreFact test split only (resume-friendly)",
     )
+    parser.add_argument(
+        "--aggrefact-leg",
+        choices=("both", "base", "ft"),
+        default="both",
+        help="when scoring AggreFact: base checkpoint, T15 ft, or both (parallel jobs: base + ft)",
+    )
     args = parser.parse_args()
 
     raw_root = ROOT / "results/raw/t15"
@@ -124,7 +130,12 @@ def main() -> None:
     run_agg = agg_test.is_file() and (args.aggrefact_only or args.packs == "all")
     if run_agg:
         rows = read_jsonl(agg_test)
-        for tag, use_t15 in (("base", False), ("ft", True)):
+        legs: list[tuple[str, bool]] = []
+        if args.aggrefact_leg in ("both", "base"):
+            legs.append(("base", False))
+        if args.aggrefact_leg in ("both", "ft"):
+            legs.append(("ft", True))
+        for tag, use_t15 in legs:
             out = raw_root / f"{tag}_aggrefact_test.jsonl"
             _score_pack(rows, out, use_t15=use_t15, progress_tag=f"{tag}_aggrefact_test")
         status_lines.append("- **AggreFact test:** scored under `results/raw/t15/*_aggrefact_test.jsonl`")
@@ -140,20 +151,26 @@ def main() -> None:
     ]
     import subprocess
 
-    try:
-        proc = subprocess.run(
-            [sys.executable, str(ROOT / "scripts/t15_aggrefact_report.py")],
-            capture_output=True,
-            text=True,
-            check=False,
-            cwd=str(ROOT),
+    write_report = args.aggrefact_leg == "both" or not args.aggrefact_only
+    if not write_report:
+        status_lines.append(
+            f"- **AggreFact report:** deferred (partial leg={args.aggrefact_leg})"
         )
-        if proc.stdout.strip():
-            status_lines.extend(["", proc.stdout.strip()])
-        elif proc.returncode:
-            status_lines.append(f"- **AggreFact report:** failed ({proc.stderr[:200]})")
-    except Exception as exc:
-        status_lines.append(f"- **AggreFact report:** skipped ({exc})")
+    else:
+        try:
+            proc = subprocess.run(
+                [sys.executable, str(ROOT / "scripts/t15_aggrefact_report.py")],
+                capture_output=True,
+                text=True,
+                check=False,
+                cwd=str(ROOT),
+            )
+            if proc.stdout.strip():
+                status_lines.extend(["", proc.stdout.strip()])
+            elif proc.returncode:
+                status_lines.append(f"- **AggreFact report:** failed ({proc.stderr[:200]})")
+        except Exception as exc:
+            status_lines.append(f"- **AggreFact report:** skipped ({exc})")
 
     args.report.write_text("\n".join(status_lines) + "\n")
     print(json.dumps({"report": str(args.report)}, indent=2))

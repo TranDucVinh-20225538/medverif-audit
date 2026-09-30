@@ -30,5 +30,5 @@ source "${ROOT}/jobs/lib/hf_env.sh"
 medverif_hf_env
 
 echo "t15 aggrefact-only start $(date -Is)"
-python3 -u scripts/t15_eval.py --aggrefact-only
+python3 -u scripts/t15_eval.py --aggrefact-only --aggrefact-leg base
 echo "t15 aggrefact-only done $(date -Is)"
