@@ -15,7 +15,7 @@ submit m1_strong jobs/run_m1_strong.sbatch
 
 submit m1_repair <<'SB'
 #!/bin/bash
-#SBATCH --partition=cpu
+#SBATCH --partition=defq
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
 #SBATCH --time=01:00:00
@@ -33,7 +33,7 @@ SB
 
 submit t9_nat3 <<'SB'
 #!/bin/bash
-#SBATCH --partition=cpu
+#SBATCH --partition=defq
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
 #SBATCH --time=00:30:00
@@ -49,7 +49,7 @@ SB
 
 submit t24_mini <<'SB'
 #!/bin/bash
-#SBATCH --partition=cpu
+#SBATCH --partition=defq
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
 #SBATCH --time=01:30:00

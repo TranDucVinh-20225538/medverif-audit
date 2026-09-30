@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=m1_strong
-#SBATCH --partition=cpu
+#SBATCH --partition=defq
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G
 #SBATCH --time=02:00:00
