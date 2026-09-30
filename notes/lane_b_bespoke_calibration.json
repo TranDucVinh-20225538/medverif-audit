@@ -1,0 +1,24 @@
+{
+  "threshold_agreement": 0.97,
+  "node30_ref": "results/raw_node30/t6_bespoke_minicheck.jsonl",
+  "hpc_file": "results/raw/lane_b/calibration_200/v2b_bespoke.jsonl",
+  "calibration_ids": 200,
+  "proceed_lane_b_packs": true,
+  "n": 93,
+  "agreement": 0.989247311827957,
+  "mean_abs_score_diff": 0.014187497998657646,
+  "hpc_rows": 200,
+  "bad_precision_rows": [],
+  "sample_hpc_meta": {
+    "instance_id": "P0132__E1-evid__flip",
+    "raw_output": "0.053395366865894404",
+    "score": 0.053395366865894404,
+    "verdict": "FAIL",
+    "latency_s": 0.05387429828988388,
+    "verifier": "v2b_bespoke",
+    "model": "bespokelabs/Bespoke-MiniCheck-7B",
+    "version": "bespoke-minicheck-7b;minicheck@b58b9fa;bf16;P(Yes);thr>0.5;device_map=auto;max_memory_bf16_policy",
+    "quantized": false,
+    "precision": "bf16"
+  }
+}
