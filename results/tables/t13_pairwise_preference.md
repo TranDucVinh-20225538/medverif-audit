@@ -14,15 +14,15 @@ Cells: **P(wrong ≥ correct)** [95% cluster-bootstrap CI] **(n=…)**; **ties c
 
 | model | family | mode | (1) ×1000 vs INV nat | (1′) ×1000 vs INV all | (2′) evid×1000 vs C0 |
 |---|---|---|---|---|---|
+| MiniCheck-RoBERTa | small fine-tuned checkers | continuous | 1.000 [1.000, 1.000] (n=22) | 0.984 [0.952, 1.000] (n=62) | 0.047 [0.009, 0.093] (n=107) |
+| SummaC-ZS | small fine-tuned checkers | continuous | 1.000 [1.000, 1.000] (n=22) | 0.984 [0.952, 1.000] (n=62) | 0.117 [0.061, 0.182] (n=107) |
+| HHEM | small fine-tuned checkers | continuous | 1.000 [1.000, 1.000] (n=22) | 1.000 [1.000, 1.000] (n=62) | 0.374 [0.290, 0.467] (n=107) |
 | MiniCheck-Flan-T5-Large | small fine-tuned checkers | continuous | 0.955 [0.864, 1.000] (n=22) | 0.806 [0.694, 0.903] (n=62) | 0.093 [0.047, 0.159] (n=107) |
+| SummaC-Conv | small fine-tuned checkers | continuous | 0.955 [0.886, 1.000] (n=22) | 0.927 [0.871, 0.976] (n=62) | 0.131 [0.084, 0.187] (n=107) |
+| MiniCheck-DeBERTa | small fine-tuned checkers | continuous | 0.909 [0.773, 1.000] (n=22) | 0.903 [0.823, 0.968] (n=62) | 0.056 [0.019, 0.103] (n=107) |
+| AlignScore-base | small fine-tuned checkers | continuous | 0.909 [0.773, 1.000] (n=22) | 0.952 [0.887, 1.000] (n=62) | 0.159 [0.093, 0.224] (n=107) |
+| Granite Guardian 2B | small fine-tuned checkers | continuous | 0.864 [0.682, 1.000] (n=22) | 0.919 [0.839, 0.984] (n=62) | 0.051 [0.014, 0.098] (n=107) |
 | AlignScore-large | small fine-tuned checkers | continuous | 0.773 [0.591, 0.909] (n=22) | 0.774 [0.661, 0.871] (n=62) | 0.065 [0.019, 0.112] (n=107) |
-| MiniCheck-RoBERTa | small fine-tuned checkers | continuous | — | — | 0.045 [0.000, 0.136] (n=22) |
-| MiniCheck-DeBERTa | small fine-tuned checkers | continuous | — | — | 0.045 [0.000, 0.136] (n=22) |
-| AlignScore-base | small fine-tuned checkers | continuous | — | — | 0.182 [0.045, 0.364] (n=22) |
-| SummaC-ZS | small fine-tuned checkers | continuous | — | — | 0.159 [0.045, 0.318] (n=22) |
-| SummaC-Conv | small fine-tuned checkers | continuous | — | — | 0.182 [0.068, 0.295] (n=22) |
-| HHEM | small fine-tuned checkers | continuous | — | — | 0.364 [0.182, 0.591] (n=22) |
-| Granite Guardian | small fine-tuned checkers | continuous | — | — | 0.045 [0.000, 0.136] (n=22) |
 | Bespoke-MiniCheck-7B | 7B fine-tuned checker | continuous | 0.227 [0.045, 0.409] (n=22) | 0.226 [0.129, 0.339] (n=62) | 0.028 [0.000, 0.065] (n=107) |
 | Llama-3.1-8B (RAGAS) | LLM judges | continuous | 0.500 [0.364, 0.636] (n=22) | 0.484 [0.411, 0.556] (n=62) | 0.274 [0.226, 0.321] (n=106) |
 | GPT-4o-mini (MedScore) | LLM judges | continuous | 0.318 [0.227, 0.409] (n=22) | 0.347 [0.274, 0.419] (n=62) | 0.290 [0.238, 0.336] (n=107) |
@@ -38,13 +38,13 @@ Cells: **P(wrong ≥ correct)** [95% cluster-bootstrap CI] **(n=…)**; **ties c
 
 | model | (2) ×1000 vs C0 | (3) E1×2 vs INV |
 |---|---|---|
-| AlignScore-base | 0.136 [0.000, 0.273] (n=22) | — |
-| Granite Guardian | 0.000 [0.000, 0.000] (n=22) | — |
-| HHEM | 0.364 [0.182, 0.591] (n=22) | — |
-| MiniCheck-DeBERTa | 0.000 [0.000, 0.000] (n=22) | — |
-| MiniCheck-RoBERTa | 0.000 [0.000, 0.000] (n=22) | — |
-| SummaC-Conv | 0.205 [0.091, 0.318] (n=22) | — |
-| SummaC-ZS | 0.364 [0.182, 0.591] (n=22) | — |
+| AlignScore-base | 0.140 [0.075, 0.206] (n=107) | 0.200 [0.050, 0.400] (n=20) |
+| Granite Guardian 2B | 0.000 [0.000, 0.000] (n=107) | 0.400 [0.200, 0.600] (n=20) |
+| HHEM | 0.327 [0.243, 0.421] (n=107) | 1.000 [1.000, 1.000] (n=20) |
+| MiniCheck-DeBERTa | 0.000 [0.000, 0.000] (n=107) | 0.550 [0.350, 0.750] (n=20) |
+| MiniCheck-RoBERTa | 0.056 [0.019, 0.103] (n=107) | 0.250 [0.100, 0.450] (n=20) |
+| SummaC-Conv | 0.136 [0.089, 0.187] (n=107) | 0.300 [0.150, 0.475] (n=20) |
+| SummaC-ZS | 0.243 [0.159, 0.327] (n=107) | 0.300 [0.100, 0.500] (n=20) |
 | MiniCheck-Flan-T5-Large | 0.093 [0.037, 0.150] (n=107) | 0.450 [0.250, 0.650] (n=20) |
 | AlignScore-large | 0.028 [0.000, 0.065] (n=107) | 0.100 [0.000, 0.250] (n=20) |
 | Bespoke-MiniCheck-7B | 0.000 [0.000, 0.000] (n=107) | 0.100 [0.000, 0.250] (n=20) |

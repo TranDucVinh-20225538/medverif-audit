@@ -209,48 +209,48 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9838709677419355,
           "ci95": [
-            NaN,
-            NaN
+            0.9516129032258065,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.0,
+          "p_wrong_prefers": 0.056074766355140186,
           "ci95": [
-            0.0,
-            0.0
+            0.018691588785046728,
+            0.102803738317757
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.045454545454545456,
+          "p_wrong_prefers": 0.04672897196261682,
           "ci95": [
-            0.0,
-            0.13636363636363635
+            0.009345794392523364,
+            0.09345794392523364
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.25,
           "ci95": [
-            NaN,
-            NaN
+            0.1,
+            0.45
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -261,21 +261,21 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9090909090909091,
           "ci95": [
-            NaN,
-            NaN
+            0.7727272727272727,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9032258064516129,
           "ci95": [
-            NaN,
-            NaN
+            0.8225806451612904,
+            0.967741935483871
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
@@ -284,25 +284,25 @@
             0.0,
             0.0
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.045454545454545456,
+          "p_wrong_prefers": 0.056074766355140186,
           "ci95": [
-            0.0,
-            0.13636363636363635
+            0.018691588785046728,
+            0.102803738317757
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.55,
           "ci95": [
-            NaN,
-            NaN
+            0.35,
+            0.75
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -313,48 +313,48 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9090909090909091,
           "ci95": [
-            NaN,
-            NaN
+            0.7727272727272727,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9516129032258065,
           "ci95": [
-            NaN,
-            NaN
+            0.8870967741935484,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.13636363636363635,
+          "p_wrong_prefers": 0.14018691588785046,
           "ci95": [
-            0.0,
-            0.2727272727272727
+            0.07476635514018691,
+            0.205607476635514
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.18181818181818182,
+          "p_wrong_prefers": 0.1588785046728972,
           "ci95": [
-            0.045454545454545456,
-            0.36363636363636365
+            0.09345794392523364,
+            0.22429906542056074
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.2,
           "ci95": [
-            NaN,
-            NaN
+            0.05,
+            0.4
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -365,48 +365,48 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9838709677419355,
           "ci95": [
-            NaN,
-            NaN
+            0.9516129032258065,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.36363636363636365,
+          "p_wrong_prefers": 0.24299065420560748,
           "ci95": [
-            0.18181818181818182,
-            0.5909090909090909
+            0.1588785046728972,
+            0.32710280373831774
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.1590909090909091,
+          "p_wrong_prefers": 0.11682242990654206,
           "ci95": [
-            0.045454545454545456,
-            0.3181818181818182
+            0.06074766355140187,
+            0.1822429906542056
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.3,
           "ci95": [
-            NaN,
-            NaN
+            0.1,
+            0.5
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -417,48 +417,48 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9545454545454546,
           "ci95": [
-            NaN,
-            NaN
+            0.8863636363636364,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9274193548387096,
           "ci95": [
-            NaN,
-            NaN
+            0.8709677419354839,
+            0.9758064516129032
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.20454545454545456,
+          "p_wrong_prefers": 0.13551401869158877,
           "ci95": [
-            0.09090909090909091,
-            0.3181818181818182
+            0.08878504672897196,
+            0.18691588785046728
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.18181818181818182,
+          "p_wrong_prefers": 0.1308411214953271,
           "ci95": [
-            0.06818181818181818,
-            0.29545454545454547
+            0.08411214953271028,
+            0.18691588785046728
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.3,
           "ci95": [
-            NaN,
-            NaN
+            0.15,
+            0.475
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -469,73 +469,73 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.36363636363636365,
+          "p_wrong_prefers": 0.32710280373831774,
           "ci95": [
-            0.18181818181818182,
-            0.5909090909090909
+            0.24299065420560748,
+            0.4205607476635514
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.36363636363636365,
+          "p_wrong_prefers": 0.37383177570093457,
           "ci95": [
-            0.18181818181818182,
-            0.5909090909090909
+            0.2897196261682243,
+            0.4672897196261682
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
     "t6a_granite_guardian": {
       "score_mode": "continuous",
       "family": "small fine-tuned checkers",
-      "display_name": "Granite Guardian",
+      "display_name": "Granite Guardian 2B",
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.8636363636363636,
           "ci95": [
-            NaN,
-            NaN
+            0.6818181818181818,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9193548387096774,
           "ci95": [
-            NaN,
-            NaN
+            0.8387096774193549,
+            0.9838709677419355
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
@@ -544,25 +544,25 @@
             0.0,
             0.0
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.045454545454545456,
+          "p_wrong_prefers": 0.0514018691588785,
           "ci95": [
-            0.0,
-            0.13636363636363635
+            0.014018691588785047,
+            0.09813084112149532
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.4,
           "ci95": [
-            NaN,
-            NaN
+            0.2,
+            0.6
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -1041,48 +1041,48 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9090909090909091,
           "ci95": [
-            NaN,
-            NaN
+            0.7727272727272727,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9516129032258065,
           "ci95": [
-            NaN,
-            NaN
+            0.8870967741935484,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.13636363636363635,
+          "p_wrong_prefers": 0.14018691588785046,
           "ci95": [
-            0.0,
-            0.2727272727272727
+            0.07476635514018691,
+            0.205607476635514
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.18181818181818182,
+          "p_wrong_prefers": 0.1588785046728972,
           "ci95": [
-            0.045454545454545456,
-            0.36363636363636365
+            0.09345794392523364,
+            0.22429906542056074
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.2,
           "ci95": [
-            NaN,
-            NaN
+            0.05,
+            0.4
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -1145,21 +1145,21 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.8636363636363636,
           "ci95": [
-            NaN,
-            NaN
+            0.6818181818181818,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9193548387096774,
           "ci95": [
-            NaN,
-            NaN
+            0.8387096774193549,
+            0.9838709677419355
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
@@ -1168,25 +1168,25 @@
             0.0,
             0.0
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.045454545454545456,
+          "p_wrong_prefers": 0.0514018691588785,
           "ci95": [
-            0.0,
-            0.13636363636363635
+            0.014018691588785047,
+            0.09813084112149532
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.4,
           "ci95": [
-            NaN,
-            NaN
+            0.2,
+            0.6
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -1197,48 +1197,48 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.36363636363636365,
+          "p_wrong_prefers": 0.32710280373831774,
           "ci95": [
-            0.18181818181818182,
-            0.5909090909090909
+            0.24299065420560748,
+            0.4205607476635514
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.36363636363636365,
+          "p_wrong_prefers": 0.37383177570093457,
           "ci95": [
-            0.18181818181818182,
-            0.5909090909090909
+            0.2897196261682243,
+            0.4672897196261682
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -1249,21 +1249,21 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9090909090909091,
           "ci95": [
-            NaN,
-            NaN
+            0.7727272727272727,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9032258064516129,
           "ci95": [
-            NaN,
-            NaN
+            0.8225806451612904,
+            0.967741935483871
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
@@ -1272,25 +1272,25 @@
             0.0,
             0.0
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.045454545454545456,
+          "p_wrong_prefers": 0.056074766355140186,
           "ci95": [
-            0.0,
-            0.13636363636363635
+            0.018691588785046728,
+            0.102803738317757
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.55,
           "ci95": [
-            NaN,
-            NaN
+            0.35,
+            0.75
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -1301,48 +1301,48 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9838709677419355,
           "ci95": [
-            NaN,
-            NaN
+            0.9516129032258065,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.0,
+          "p_wrong_prefers": 0.056074766355140186,
           "ci95": [
-            0.0,
-            0.0
+            0.018691588785046728,
+            0.102803738317757
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.045454545454545456,
+          "p_wrong_prefers": 0.04672897196261682,
           "ci95": [
-            0.0,
-            0.13636363636363635
+            0.009345794392523364,
+            0.09345794392523364
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.25,
           "ci95": [
-            NaN,
-            NaN
+            0.1,
+            0.45
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -1353,48 +1353,48 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9545454545454546,
           "ci95": [
-            NaN,
-            NaN
+            0.8863636363636364,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9274193548387096,
           "ci95": [
-            NaN,
-            NaN
+            0.8709677419354839,
+            0.9758064516129032
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.20454545454545456,
+          "p_wrong_prefers": 0.13551401869158877,
           "ci95": [
-            0.09090909090909091,
-            0.3181818181818182
+            0.08878504672897196,
+            0.18691588785046728
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.18181818181818182,
+          "p_wrong_prefers": 0.1308411214953271,
           "ci95": [
-            0.06818181818181818,
-            0.29545454545454547
+            0.08411214953271028,
+            0.18691588785046728
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.3,
           "ci95": [
-            NaN,
-            NaN
+            0.15,
+            0.475
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },
@@ -1405,48 +1405,48 @@
       "pairs": {
         "x1000_vs_inv": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 1.0,
           "ci95": [
-            NaN,
-            NaN
+            1.0,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 22
         },
         "x1000_vs_inv_all": {
           "label": "E1-unit-claim\u00d71000 vs INV-unit (all)",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.9838709677419355,
           "ci95": [
-            NaN,
-            NaN
+            0.9516129032258065,
+            1.0
           ],
-          "n_pairs": 0
+          "n_pairs": 62
         },
         "x1000_vs_c0": {
           "label": "E1-unit-claim\u00d71000 vs C0",
-          "p_wrong_prefers": 0.36363636363636365,
+          "p_wrong_prefers": 0.24299065420560748,
           "ci95": [
-            0.18181818181818182,
-            0.5909090909090909
+            0.1588785046728972,
+            0.32710280373831774
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "evid_x1000_vs_c0": {
           "label": "E1-unit-evid\u00d71000 vs C0",
-          "p_wrong_prefers": 0.1590909090909091,
+          "p_wrong_prefers": 0.11682242990654206,
           "ci95": [
-            0.045454545454545456,
-            0.3181818181818182
+            0.06074766355140187,
+            0.1822429906542056
           ],
-          "n_pairs": 22
+          "n_pairs": 107
         },
         "e1x2_vs_inv": {
           "label": "E1-claim\u00d72 vs INV-unit natural",
-          "p_wrong_prefers": NaN,
+          "p_wrong_prefers": 0.3,
           "ci95": [
-            NaN,
-            NaN
+            0.1,
+            0.5
           ],
-          "n_pairs": 0
+          "n_pairs": 20
         }
       }
     },

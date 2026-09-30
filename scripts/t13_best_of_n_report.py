@@ -36,6 +36,7 @@ OUT_FIG = ROOT / "results/figures/t13_pairwise_x1000_vs_inv.png"
 LEGACY_JSON = ROOT / "notes/t13_best_of_n_legacy.json"
 
 SCORE_DIRS = [
+    ROOT / "results/raw_node30",
     ROOT / "results/raw/e2_main",
     ROOT / "results/raw/t4_eco",
     ROOT / "results/raw/t4c_eco",
