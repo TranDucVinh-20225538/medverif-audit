@@ -1,6 +1,6 @@
 # Audit snapshot
 
-Built: 2026-09-29T13:25:09.061964+00:00
+Built: 2026-09-30T06:28:18.629107+00:00
 
 Recompute paper numbers:
 
@@ -22,6 +22,7 @@ python scripts/compute_paper_numbers.py
 
 - `qc/e1_pol_review.csv`
 - `qc/inv_manual_review.csv`
+- `qc/nat3_labels.csv`
 - `qc/unit_naturalness.csv`
 - `qc/dose3_labels.csv`
 - `qc/t7_PI_ok_labels.csv`
@@ -73,7 +74,13 @@ python scripts/compute_paper_numbers.py
 - `results/raw/t14/v5_ragas_nli.jsonl`
 - `results/raw/t17/v1_medscore.jsonl`
 - `results/raw/t17/v1b_medscore.jsonl`
+- `results/raw/t17/v1c_medscore.jsonl`
+- `results/raw/t17/v4_ragas_nli.llama.jsonl`
 - `results/raw/t17/v5_ragas_nli.jsonl`
+- `results/raw/t17/v6_ragas_gpt4o_mini.jsonl`
+- `results/raw/t17/v6_ragas_haiku45.jsonl`
+- `results/raw/t17/v6_ragas_llama31_8b.jsonl`
+- `results/raw/t17/v6_ragas_mistral_small32.jsonl`
 - `results/raw/t3/t6_alignscore_base.jsonl`
 - `results/raw/t3/t6_granite_guardian.jsonl`
 - `results/raw/t3/t6_hhem.jsonl`

@@ -1,14 +1,14 @@
 {
-  "pause_downstream": true,
+  "pause_downstream": false,
+  "pause_downstream_cpuverif": false,
   "threshold_agreement": 0.97,
-  "blocked_checkers": [
+  "blocked_checkers_cpuverif": [],
+  "legacy_hold_checkers": [
     "t6a_summac_zs",
-    "t6a_summac_conv"
-  ],
-  "pending_hpc_rescore": [
+    "t6a_summac_conv",
     "t6a_hhem",
     "t6a_granite_guardian"
   ],
-  "reason": "Summac agreement 67.7% vs node30 under env_id 7e0333729b5da0af; HHEM tokenizer + Granite (vLLM) not yet scored on login cpuverif.",
+  "reason": "cpuverif trio passes calibration; SummaC/HHEM/Granite held for cpuverif_legacy.",
   "lane_b_env_id": "7e0333729b5da0af"
 }

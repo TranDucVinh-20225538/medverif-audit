@@ -1,0 +1,32 @@
+{
+  "pxm_gpt4o_ragas": {
+    "label": "openai/gpt-4o \u00d7 RAGAS-NLI",
+    "cohorts": {
+      "E1-unit-evid": {
+        "pass_rate": 0.14953271028037382,
+        "n_pass": 16,
+        "n": 107
+      },
+      "E2-x2": {
+        "pass_rate": 0.9743589743589743,
+        "n_pass": 114,
+        "n": 117
+      }
+    }
+  },
+  "pxm_sonnet_medscore": {
+    "label": "anthropic/claude-sonnet-4.6 \u00d7 MedScore-provided",
+    "cohorts": {
+      "E1-unit-evid": {
+        "pass_rate": 0.7102803738317757,
+        "n_pass": 76,
+        "n": 107
+      },
+      "E2-x2": {
+        "pass_rate": 0.9743589743589743,
+        "n_pass": 114,
+        "n": 117
+      }
+    }
+  }
+}

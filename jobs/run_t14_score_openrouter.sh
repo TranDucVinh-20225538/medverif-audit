@@ -3,11 +3,15 @@
 set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
 source "${ROOT}/jobs/lib/flock.sh"
+source "${ROOT}/jobs/lib/hf_env.sh"
 medverif_acquire_lock t14_or_score
 
 cd "${ROOT}"
+medverif_hf_env
 set -a && source ~/kkk/openrouter.env && set +a
 export PYTHONPATH="${ROOT}/src"
+source /data2/shared/apps/conda/etc/profile.d/conda.sh
+conda activate vllm
 export MEDVERIF_USE_OPENROUTER=1
 export MEDVERIF_API_LEDGER=1
 export MEDVERIF_GPU_GLOBAL_SCORE_LOCK=0

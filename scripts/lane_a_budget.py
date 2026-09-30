@@ -12,7 +12,7 @@ LEDGER = ROOT / "notes/lane_a_spend.json"
 
 
 def cap() -> float:
-    return float(os.environ.get("MEDVERIF_LANE_A_CAP_USD", "2"))
+    return float(os.environ.get("MEDVERIF_LANE_A_CAP_USD", "3"))
 
 
 def spent() -> float:

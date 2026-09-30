@@ -1,0 +1,47 @@
+{
+  "bases_read": 100,
+  "bases_failed": 8,
+  "instances": 736,
+  "failures": [
+    {
+      "base_id": "T180005",
+      "reason": "rule_edit_failed",
+      "detail": "factor check failed for x2"
+    },
+    {
+      "base_id": "T180006",
+      "reason": "rule_edit_failed",
+      "detail": "factor check failed for x2"
+    },
+    {
+      "base_id": "T180015",
+      "reason": "rule_edit_failed",
+      "detail": "factor check failed for x2"
+    },
+    {
+      "base_id": "T180019",
+      "reason": "rule_edit_failed",
+      "detail": "factor check failed for x2"
+    },
+    {
+      "base_id": "T180048",
+      "reason": "rule_edit_failed",
+      "detail": "factor check failed for x2"
+    },
+    {
+      "base_id": "T180072",
+      "reason": "rule_edit_failed",
+      "detail": "factor check failed for x2"
+    },
+    {
+      "base_id": "T180086",
+      "reason": "rule_edit_failed",
+      "detail": "factor check failed for x2"
+    },
+    {
+      "base_id": "T180097",
+      "reason": "rule_edit_failed",
+      "detail": "factor check failed for x2"
+    }
+  ]
+}

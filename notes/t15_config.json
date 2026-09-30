@@ -1,0 +1,18 @@
+{
+  "base_checkpoint": "lytang/MiniCheck-RoBERTa-Large",
+  "best_checkpoint_dir": "/data2/hpcshared/medverif-audit/.cache/checkpoints/t15_roberta/best",
+  "train_file": "data/t15/train.jsonl",
+  "dev_file": "data/t15/dev.jsonl",
+  "n_train": 21023,
+  "n_dev": 2343,
+  "hyperparameters": {
+    "seed": 42,
+    "epochs": 3.0,
+    "lr": 2e-05,
+    "batch_size": 8,
+    "max_length": 512,
+    "threshold": 0.5,
+    "input_format": "evidence + eos + claim (MiniCheck RoBERTa)"
+  },
+  "finished_at": "2026-09-29T14:59:11.756081+00:00"
+}

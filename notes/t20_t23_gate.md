@@ -1,16 +1,36 @@
-# T20–T23 gate (2026-09-30)
+# T20–T23 gate (updated 2026-09-30)
 
-**Do not start T20–T23 until today's six prerequisites are done.**
+**Freeze target: Oct 5** (unchanged).
+
+## Decoupled from T15 (Decision **N**)
+
+- **Audit zip (#6)** and **T20 / T22 / T23** do **not** wait for full T15 AggreFact 29k eval.
+- T15 scores may be appended to a later audit snapshot revision.
+- **T15** tracks separately: GPU full eval **or** 3k stratified subsample + bootstrap CI (`notes/t15_report.md`).
+
+## Prerequisites to **open T20 steps 1–4, T22, T23**
 
 | # | Item | Status |
 |---|------|--------|
-| 1 | Lane C v6 Llama-8B + Mistral-Small (854 each) | IN PROGRESS (`v6_ragas_llama31_8b` partial) |
-| 2 | Bespoke GPU (Lane B packs, no main_ext/T18) | IN PROGRESS (Slurm 61514) |
-| 3 | T15 AggreFact + `notes/t15_report.md` | IN PROGRESS (~14k/29k base AggreFact) |
-| 4 | T16 IG + `notes/t16_report.md` | IN PROGRESS (CPU job) |
-| 5 | H7 prompt×model (232 rows) | IN PROGRESS (resume run) |
-| 6 | `canonical_sources.tsv` + `audit_snapshot.zip` | PENDING (after 1–5) |
+| 1 | Lane C v6 (854× judges) | **DONE** |
+| 2 | Bespoke Lane B (valid packs) | **DONE** |
+| 3 | T16 + report | **DONE** |
+| 4 | H7 prompt×model | **DONE** |
+| 5 | `canonical_sources.tsv` + `audit_snapshot.zip` | **DONE** (2026-09-30) |
+| 6 | T15 AggreFact report | **PARALLEL** (not blocking) |
 
-**T20–T23 caps (when started):** total OR **$12**; T20 wild **$2**, T21 **$3**, T23 **$5**. Frozen: `data/v3/instances_main*`.
+## Open now
 
-**Order after gate:** T20 steps 1–4 ∥ T21 steps 1–4 → T22 (GPU, after Bespoke) → T23 → post-review scoring (T20 wild, T21, main_ext, T18).
+- **T20** steps 1–4 (wild pack build + review CSV; **no** verifier scoring until PI returns review).
+- **T21** steps 1–4 (same pattern).
+- **T22** GPU verifiers (after Bespoke cal — already passed).
+- **T23** OR cap **$5** (total T20–23 OR **$12**).
+
+## Still blocked
+
+- **main_ext / T18** instance scoring until PI returns **FINAL** review CSVs (`release/pi_final_review_packs.zip`).
+- **T20 wild / T21** scoring until PI review CSVs returned.
+
+## Caps
+
+Total OR **$12** for T20–T23; T20 wild **$2**, T21 **$3**, T23 **$5**. Frozen: `data/v3/instances_main*`.

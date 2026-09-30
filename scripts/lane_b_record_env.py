@@ -18,9 +18,11 @@ def main() -> None:
 
     p = argparse.ArgumentParser()
     p.add_argument("--reason", default="lane_b_record_env")
+    p.add_argument("--legacy", action="store_true", help="write notes/lane_b_env_legacy.json")
     args = p.parse_args()
-    doc = record_lane_b_env(reason=args.reason)
-    print(json.dumps({"written": str(ENV_JSON.relative_to(ROOT)), "env_id": doc["env_id"]}, indent=2))
+    doc = record_lane_b_env(reason=args.reason, legacy=args.legacy)
+    path = ENV_JSON if not args.legacy else ROOT / "notes/lane_b_env_legacy.json"
+    print(json.dumps({"written": str(path.relative_to(ROOT)), "env_id": doc["env_id"]}, indent=2))
 
 
 if __name__ == "__main__":

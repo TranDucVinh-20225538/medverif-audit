@@ -1,0 +1,7 @@
+{
+  "warning": "NOT T18 — medical dose expand-pool shortcut from Lane A v1 (2026-09-29).",
+  "renamed_from": "data/t18/",
+  "instances_path": "data/t18_medical_expand/instances_t18.jsonl",
+  "bases_path": "data/t18_medical_expand/bases_t18.jsonl",
+  "canonical_t18": "data/t18/ (Wikipedia non-medical, notes/t18_manifest.json)"
+}

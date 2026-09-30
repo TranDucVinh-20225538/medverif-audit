@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Lane B: T6-A CPU (+ V2a/V3) on login node; resume; per-pack under results/raw/lane_b/<pack>/.
+# Lane B: T6-A CPU trio (+ V2a/V3) on login node; legacy checkers in cpuverif_legacy job.
 set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
 source "${ROOT}/jobs/lib/flock.sh"
@@ -17,6 +17,7 @@ export CUDA_VISIBLE_DEVICES=""
 export HF_HOME="${ROOT}/.cache/huggingface"
 export HUGGINGFACE_HUB_CACHE="${HF_HOME}/hub"
 export MEDVERIF_SCORE_FLUSH_EVERY=20
+export MEDVERIF_LANE_B_ENV_PROFILE=cpuverif
 export ALIGNScore_SRC="${ROOT}/.cache/src/AlignScore/src"
 export PYTHONPATH="${ALIGNScore_SRC}:${PYTHONPATH}"
 
@@ -25,7 +26,6 @@ python3 -c "import summac" 2>/dev/null || PIP_INDEX_URL=https://pypi.org/simple 
 python3 scripts/lane_b_record_env.py --reason lane_b_job_start
 python3 scripts/lane_b_build_packs.py
 
-# Migrate flat legacy scores into pack subdirs (resume-safe)
 LEG="${ROOT}/results/raw/lane_b"
 mkdir -p "${LEG}/calibration_200"
 for f in "${LEG}"/t6_*.jsonl; do
@@ -44,9 +44,9 @@ score_pack() {
     echo "lane B ${pack}: nothing to commit"
   else
     /usr/bin/git -C "${ROOT}" commit -m "$(cat <<EOF
-feat(lane_b): HPC scores for ${pack} (T6-A + V2a/V3)
+feat(lane_b): HPC scores for ${pack} (cpuverif trio + V2a/V3)
 
-env=hpc; skip rows already scored / node30 overlap.
+env=hpc cpuverif; legacy checkers skipped.
 
 EOF
 )"
@@ -55,18 +55,16 @@ EOF
 }
 
 python3 scripts/lane_b_recalibrate.py --if-stale || {
-  echo "Lane B PAUSED: calibration agreement <97% for one or more checkers (see notes/lane_b_calibration_agreement.md)"
+  echo "Lane B PAUSED: cpuverif trio calibration agreement <97% (see notes/lane_b_calibration_agreement.md)"
   exit 0
 }
 
 score_pack main_e1_evid "${ROOT}/data/lane_b/main_e1_evid.jsonl"
 python3 scripts/lane_b_calibration_report.py
 
-# node30 leftovers (same verifiers; skip if raw_node30 complete)
 score_pack t17_downdose "${ROOT}/data/v3/t17_downdose.jsonl"
 score_pack t14_pending "${ROOT}/data/v3/instances_t14_pending_node30.jsonl"
 
-# M1 T7 E1-unit + main slices (MEDVERIF_M1=1 for API paths in score_jsonl when used)
 export MEDVERIF_M1=1
 python3 scripts/lane_b_build_m1_packs.py
 score_pack m1_t7_e1_unit "${ROOT}/data/lane_b/m1_t7_e1_unit.jsonl"
@@ -79,4 +77,4 @@ export MEDVERIF_M1=1
 score_pack m1_plus_v2v3 "${ROOT}/data/lane_b/m1_plus_930.jsonl" || echo "WARN: m1_plus pack optional"
 
 echo "lane B CPU queue done $(date -Is)"
-echo "Bespoke-7B: submit jobs/run_lane_b_bespoke_gpu.sh when a GPU frees (after T19/T15)"
+echo "Legacy checkers: run jobs/run_lane_b_legacy_cpuverif.sh after cpuverif_legacy cal"

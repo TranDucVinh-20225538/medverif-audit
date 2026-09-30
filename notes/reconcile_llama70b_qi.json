@@ -12,12 +12,12 @@
       "conditioning": "C0 PASS (verifier-specific)",
       "exclusions": "analysis_keep_row (PI flip / INV manual gates)",
       "result": {
-        "rate": null,
-        "lo": null,
-        "hi": null,
-        "num": 0,
-        "den": 0,
-        "n_bases": 0
+        "rate": 0.8181818181818182,
+        "lo": 0.5454545454545454,
+        "hi": 1.0,
+        "num": 9,
+        "den": 11,
+        "n_bases": 11
       }
     },
     "m1_cohort_llama70_INV_all_magnitudes": {

@@ -9,17 +9,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "scripts"))
 
+from lane_b_checker_routing import cpuverif_checkers, legacy_checkers  # noqa: E402
 from verifiers.io_utils import read_jsonl  # noqa: E402
 
 CAL = ROOT / "data/lane_b/calibration_200.jsonl"
 HPC_DIR = ROOT / "results/raw/lane_b/calibration_200"
 NODE30 = ROOT / "results/raw_node30"
-OUT = ROOT / "notes/lane_b_calibration_agreement.json"
-MD = ROOT / "notes/lane_b_calibration_agreement.md"
-ENV_JSON = ROOT / "notes/lane_b_env.json"
 
-CHECKERS = (
+ALL_CHECKERS = (
     ("t6a_minicheck_roberta", "t6_minicheck_roberta.jsonl"),
     ("t6a_minicheck_deberta", "t6_minicheck_deberta.jsonl"),
     ("t6a_alignscore_base", "t6_alignscore_base.jsonl"),
@@ -66,17 +65,30 @@ def compare(ref: dict[str, dict], hpc: dict[str, dict], ids: set[str]) -> dict:
     }
 
 
-def main() -> None:
+def run_report(*, legacy: bool) -> None:
+    if legacy:
+        checker_ids = set(legacy_checkers())
+        env_json = ROOT / "notes/lane_b_env_legacy.json"
+        out_json = ROOT / "notes/lane_b_calibration_agreement_legacy.json"
+        out_md = ROOT / "notes/lane_b_calibration_agreement_legacy.md"
+        title = "# Lane B legacy calibration vs node30"
+    else:
+        checker_ids = set(cpuverif_checkers())
+        env_json = ROOT / "notes/lane_b_env.json"
+        out_json = ROOT / "notes/lane_b_calibration_agreement.json"
+        out_md = ROOT / "notes/lane_b_calibration_agreement.md"
+        title = "# Lane B cpuverif calibration vs node30"
+
     cal_ids = {r["instance_id"] for r in read_jsonl(CAL)}
     env_id = None
-    if ENV_JSON.is_file():
+    if env_json.is_file():
         try:
-            env_id = json.loads(ENV_JSON.read_text()).get("env_id")
+            env_id = json.loads(env_json.read_text()).get("env_id")
         except json.JSONDecodeError:
             pass
     rows = []
     lines = [
-        "# Lane B calibration vs node30",
+        title,
         "",
         f"Calibration ids: {len(cal_ids)}",
         f"HPC dir: `{HPC_DIR.relative_to(ROOT)}`",
@@ -85,7 +97,9 @@ def main() -> None:
         "| Checker | n | agreement | mean |Δscore| | env_ids |",
         "|---|---:|---:|---:|---|",
     ]
-    for cid, fname in CHECKERS:
+    for cid, fname in ALL_CHECKERS:
+        if cid not in checker_ids:
+            continue
         ref = by_id(NODE30 / fname)
         hpc = by_id(HPC_DIR / fname)
         stat = compare(ref, hpc, cal_ids)
@@ -103,16 +117,25 @@ def main() -> None:
     blocked = [r["checker"] for r in rows if r.get("agreement") is not None and r["agreement"] < 0.97]
     doc = {
         "lane_b_env_id": env_id,
+        "profile": "legacy" if legacy else "cpuverif",
         "threshold_agreement": 0.97,
-        "pause_downstream": bool(blocked),
         "blocked_checkers": blocked,
         "checkers": rows,
     }
-    OUT.write_text(json.dumps(doc, indent=2) + "\n")
+    out_json.write_text(json.dumps(doc, indent=2) + "\n")
     if blocked:
-        lines.extend(["", f"**PAUSE downstream packs** (agreement < 97%): {', '.join(blocked)}"])
-    MD.write_text("\n".join(lines) + "\n")
-    print(OUT.read_text())
+        lines.extend(["", f"**Excluded from Lane B packs** (agreement < 97%): {', '.join(blocked)}"])
+    out_md.write_text("\n".join(lines) + "\n")
+    print(out_json.read_text())
+
+
+def main() -> None:
+    import argparse
+
+    p = argparse.ArgumentParser()
+    p.add_argument("--legacy", action="store_true")
+    args = p.parse_args()
+    run_report(legacy=args.legacy)
 
 
 if __name__ == "__main__":

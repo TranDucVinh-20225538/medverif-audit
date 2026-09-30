@@ -1,5 +1,5 @@
 {
-  "instances": 1623,
+  "instances": 1703,
   "bootstrap": {
     "n": 1000,
     "seed": 42,
@@ -14,7 +14,9 @@
     "NS_claim_T17_down2/down10": "P(FAIL | T17 E1-down2 or E1-down10, | C0 PASS)",
     "US_claim_x1000": "P(FAIL | E1-unit-claim x1000, | C0 PASS)",
     "US_evid_x1000": "P(FAIL | E1-unit-evid x1000, | C0 PASS)",
-    "US_T17_unit_down": "P(FAIL | T17 E1-unit-down, | C0 PASS)"
+    "US_T17_unit_down": "P(FAIL | T17 E1-unit-down, | C0 PASS)",
+    "Rephrase_PASS": "P(PASS | POL INV-claim rephrase, | POL C0 PASS) main pack",
+    "T14_repr_PASS": "P(PASS | T14-repr-claim) t14 pack; by_family in T14_repr_by_family"
   },
   "models": [
     {
@@ -22,7 +24,7 @@
       "label": "1B (local)",
       "params_b": 1.0,
       "n_scored": 1516,
-      "n_instances_cohort": 1623,
+      "n_instances_cohort": 1703,
       "n_c0_pass_bases": 92,
       "n_bases_qi_all": 49,
       "n_bases_qi_nat": 17,
@@ -106,114 +108,177 @@
         "n_pass_or_fail": 9,
         "n_bases": 64
       },
+      "n_pol_c0_pass_bases": 0,
       "E2_PASS": null,
-      "Rephrase_PASS": {
+      "Rephrase_PASS": null,
+      "T14_repr_PASS": {
         "rate": 0.9009433962264151,
         "ci_lo": 0.8504616461239785,
         "ci_hi": 0.9439382139148494,
         "n": 212,
         "n_pass_or_fail": 191,
         "n_bases": 105
+      },
+      "T14_repr_by_family": {
+        "spacing": {
+          "rate": 0.8613861386138614,
+          "ci_lo": 0.7920792079207921,
+          "ci_hi": 0.9306930693069307,
+          "n": 101,
+          "n_pass_or_fail": 87,
+          "n_bases": 101
+        },
+        "unit_spell": {
+          "rate": 0.9313725490196079,
+          "ci_lo": 0.8823529411764706,
+          "ci_hi": 0.9803921568627451,
+          "n": 102,
+          "n_pass_or_fail": 95,
+          "n_bases": 102
+        },
+        "symbol_micro": {
+          "rate": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 9,
+          "n_pass_or_fail": 9,
+          "n_bases": 9
+        }
       }
     },
     {
       "slug": "llama32_3b",
       "label": "3B (local)",
       "params_b": 3.0,
-      "n_scored": 40,
-      "n_instances_cohort": 1623,
-      "n_c0_pass_bases": 5,
-      "n_bases_qi_all": 0,
-      "n_bases_qi_nat": 0,
+      "n_scored": 1039,
+      "n_instances_cohort": 1703,
+      "n_c0_pass_bases": 56,
+      "n_bases_qi_all": 23,
+      "n_bases_qi_nat": 9,
       "C0": {
-        "rate": 0.8333333333333334,
-        "ci_lo": 0.5,
-        "ci_hi": 1.0,
-        "n": 6,
-        "n_pass_or_fail": 5,
-        "n_bases": 6
+        "rate": 0.875,
+        "ci_lo": 0.796484375,
+        "ci_hi": 0.953125,
+        "n": 64,
+        "n_pass_or_fail": 56,
+        "n_bases": 64
       },
       "QI_all": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.13043478260869565,
+        "ci_lo": 0.0,
+        "ci_hi": 0.2608695652173913,
+        "n": 23,
+        "n_pass_or_fail": 3,
+        "n_bases": 23
       },
       "QI_nat": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.2222222222222222,
+        "ci_lo": 0.0,
+        "ci_hi": 0.4444444444444444,
+        "n": 9,
+        "n_pass_or_fail": 2,
+        "n_bases": 9
       },
       "NS_claim": {
-        "rate": 0.9,
-        "ci_lo": 0.7,
-        "ci_hi": 1.0,
-        "n": 10,
-        "n_pass_or_fail": 9,
-        "n_bases": 5
+        "rate": 0.9139784946236559,
+        "ci_lo": 0.8437236657303371,
+        "ci_hi": 0.9687580541237113,
+        "n": 93,
+        "n_pass_or_fail": 85,
+        "n_bases": 52
       },
       "NS_evid": {
-        "rate": 0.875,
-        "ci_lo": 0.6666666666666666,
-        "ci_hi": 1.0,
-        "n": 8,
-        "n_pass_or_fail": 7,
-        "n_bases": 5
+        "rate": 0.7741935483870968,
+        "ci_lo": 0.6705848930481283,
+        "ci_hi": 0.8645833333333334,
+        "n": 93,
+        "n_pass_or_fail": 72,
+        "n_bases": 51
       },
       "NS_claim_T17_down2": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.898989898989899,
+        "ci_lo": 0.8282828282828283,
+        "ci_hi": 0.96,
+        "n": 99,
+        "n_pass_or_fail": 89,
+        "n_bases": 50
       },
       "NS_claim_T17_down10": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.8723404255319149,
+        "ci_lo": 0.7956518124376455,
+        "ci_hi": 0.9387909709338281,
+        "n": 94,
+        "n_pass_or_fail": 82,
+        "n_bases": 52
       },
       "US_claim_x1000": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 1.0,
+        "ci_lo": 1.0,
+        "ci_hi": 1.0,
+        "n": 48,
+        "n_pass_or_fail": 48,
+        "n_bases": 48
       },
       "US_evid_x1000": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.673469387755102,
+        "ci_lo": 0.5510204081632653,
+        "ci_hi": 0.7959183673469388,
+        "n": 49,
+        "n_pass_or_fail": 33,
+        "n_bases": 49
       },
       "US_T17_unit_down": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.8028169014084507,
+        "ci_lo": 0.6857142857142857,
+        "ci_hi": 0.9027777777777778,
+        "n": 71,
+        "n_pass_or_fail": 57,
+        "n_bases": 39
       },
+      "n_pol_c0_pass_bases": 0,
       "E2_PASS": null,
-      "Rephrase_PASS": null
+      "Rephrase_PASS": null,
+      "T14_repr_PASS": {
+        "rate": 0.9139072847682119,
+        "ci_lo": 0.85031450936539,
+        "ci_hi": 0.966008920124341,
+        "n": 151,
+        "n_pass_or_fail": 138,
+        "n_bases": 86
+      },
+      "T14_repr_by_family": {
+        "spacing": {
+          "rate": 0.9259259259259259,
+          "ci_lo": 0.8641975308641975,
+          "ci_hi": 0.9753086419753086,
+          "n": 81,
+          "n_pass_or_fail": 75,
+          "n_bases": 81
+        },
+        "unit_spell": {
+          "rate": 0.9193548387096774,
+          "ci_lo": 0.8387096774193549,
+          "ci_hi": 0.9838709677419355,
+          "n": 62,
+          "n_pass_or_fail": 57,
+          "n_bases": 62
+        },
+        "symbol_micro": {
+          "rate": 0.75,
+          "ci_lo": 0.5,
+          "ci_hi": 1.0,
+          "n": 8,
+          "n_pass_or_fail": 6,
+          "n_bases": 8
+        }
+      }
     },
     {
       "slug": "llama31_8b_local",
       "label": "8B (local)",
       "params_b": 8.0,
       "n_scored": 0,
-      "n_instances_cohort": 1623,
+      "n_instances_cohort": 1703,
       "n_c0_pass_bases": 0,
       "n_bases_qi_all": 0,
       "n_bases_qi_nat": 0,
@@ -297,8 +362,11 @@
         "n_pass_or_fail": 0,
         "n_bases": 0
       },
+      "n_pol_c0_pass_bases": 0,
       "E2_PASS": null,
       "Rephrase_PASS": null,
+      "T14_repr_PASS": null,
+      "T14_repr_by_family": {},
       "api8b_agreement": {
         "n": 0,
         "agreement": null,
@@ -310,8 +378,8 @@
       "slug": "llama31_8b_api",
       "label": "8B (API)",
       "params_b": 8.0,
-      "n_scored": 807,
-      "n_instances_cohort": 1623,
+      "n_scored": 1475,
+      "n_instances_cohort": 1703,
       "n_c0_pass_bases": 106,
       "n_bases_qi_all": 58,
       "n_bases_qi_nat": 22,
@@ -356,20 +424,20 @@
         "n_bases": 103
       },
       "NS_claim_T17_down2": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.9761904761904762,
+        "ci_lo": 0.9523809523809523,
+        "ci_hi": 0.9952380952380953,
+        "n": 210,
+        "n_pass_or_fail": 205,
+        "n_bases": 105
       },
       "NS_claim_T17_down10": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.9714285714285714,
+        "ci_lo": 0.9428571428571428,
+        "ci_hi": 0.9952380952380953,
+        "n": 210,
+        "n_pass_or_fail": 204,
+        "n_bases": 105
       },
       "US_claim_x1000": {
         "rate": 0.8349514563106796,
@@ -388,22 +456,32 @@
         "n_bases": 103
       },
       "US_T17_unit_down": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.7328767123287672,
+        "ci_lo": 0.6506849315068494,
+        "ci_hi": 0.8082191780821918,
+        "n": 146,
+        "n_pass_or_fail": 107,
+        "n_bases": 73
       },
+      "n_pol_c0_pass_bases": 46,
       "E2_PASS": null,
-      "Rephrase_PASS": null
+      "Rephrase_PASS": {
+        "rate": 1.0,
+        "ci_lo": 1.0,
+        "ci_hi": 1.0,
+        "n": 34,
+        "n_pass_or_fail": 34,
+        "n_bases": 34
+      },
+      "T14_repr_PASS": null,
+      "T14_repr_by_family": {}
     },
     {
       "slug": "llama33_70b_api",
       "label": "70B (API Llama-3.3)",
       "params_b": 70.0,
-      "n_scored": 816,
-      "n_instances_cohort": 1623,
+      "n_scored": 1482,
+      "n_instances_cohort": 1703,
       "n_c0_pass_bases": 109,
       "n_bases_qi_all": 62,
       "n_bases_qi_nat": 22,
@@ -448,20 +526,20 @@
         "n_bases": 106
       },
       "NS_claim_T17_down2": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.9259259259259259,
+        "ci_lo": 0.8796296296296297,
+        "ci_hi": 0.9629629629629629,
+        "n": 216,
+        "n_pass_or_fail": 200,
+        "n_bases": 108
       },
       "NS_claim_T17_down10": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.9532710280373832,
+        "ci_lo": 0.9158779781492694,
+        "ci_hi": 0.9813953488372092,
+        "n": 214,
+        "n_pass_or_fail": 204,
+        "n_bases": 108
       },
       "US_claim_x1000": {
         "rate": null,
@@ -480,22 +558,59 @@
         "n_bases": 0
       },
       "US_T17_unit_down": {
-        "rate": null,
-        "ci_lo": null,
-        "ci_hi": null,
-        "n": 0,
-        "n_pass_or_fail": 0,
-        "n_bases": 0
+        "rate": 0.756578947368421,
+        "ci_lo": 0.6907894736842105,
+        "ci_hi": 0.8223684210526315,
+        "n": 152,
+        "n_pass_or_fail": 115,
+        "n_bases": 76
       },
+      "n_pol_c0_pass_bases": 46,
       "E2_PASS": null,
       "Rephrase_PASS": {
+        "rate": 1.0,
+        "ci_lo": 1.0,
+        "ci_hi": 1.0,
+        "n": 34,
+        "n_pass_or_fail": 34,
+        "n_bases": 34
+      },
+      "T14_repr_PASS": {
         "rate": 1.0,
         "ci_lo": 1.0,
         "ci_hi": 1.0,
         "n": 227,
         "n_pass_or_fail": 227,
         "n_bases": 109
+      },
+      "T14_repr_by_family": {
+        "spacing": {
+          "rate": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 109,
+          "n_pass_or_fail": 109,
+          "n_bases": 109
+        },
+        "unit_spell": {
+          "rate": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 109,
+          "n_pass_or_fail": 109,
+          "n_bases": 109
+        },
+        "symbol_micro": {
+          "rate": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 9,
+          "n_pass_or_fail": 9,
+          "n_bases": 9
+        }
       }
     }
-  ]
+  ],
+  "intersection_c0_pass_bases": [],
+  "intersection_local_models": []
 }

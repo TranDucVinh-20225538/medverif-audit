@@ -24,10 +24,15 @@ submit_one() {
       return 0
     fi
   fi
+  local mem_gb=48
+  if [[ "${slug}" == *8b* ]]; then
+    mem_gb=96
+  fi
   export MEDVERIF_T19_SLUG="${slug}"
   export MEDVERIF_T19_HF_MODEL="${model}"
   export MEDVERIF_T19_OUT="${out}"
-  sbatch --job-name="t19-${slug}" jobs/run_t19_model.sbatch
+  export MEDVERIF_REQ_MEM_GB="${mem_gb}"
+  sbatch -w node002 --mem="${mem_gb}G" --exclude=node004 --job-name="t19-${slug}" jobs/run_t19_model.sbatch
 }
 
 # Serial chain via dependency would queue all at once — user asked serial: submit only first missing.

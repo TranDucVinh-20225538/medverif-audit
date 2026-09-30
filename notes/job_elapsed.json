@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-29T17:12:58+07:00",
+  "updated": "2026-09-30T01:53:57+07:00",
   "jobs": [
     {
       "job_id": "61353",
@@ -850,6 +850,91 @@
       "state": "CANCELLED",
       "started": "2026-09-28T16:48:05",
       "ended": "2026-09-28T17:29:06"
+    },
+    {
+      "job_id": "61464",
+      "job_name": "t19-report",
+      "machine": "hpc",
+      "partition": "defq",
+      "node": "node002",
+      "pack": "notes/t19_scale_sweep.md",
+      "verifier": "t19_report",
+      "n_rows": 0,
+      "wall": "00:00:06",
+      "wall_s": 6,
+      "gpu_type": null,
+      "api_spend_usd": null,
+      "state": "RUNNING",
+      "started": "2026-09-29T20:11:56+07:00",
+      "ended": "Unknown"
+    },
+    {
+      "job_id": "61469",
+      "job_name": "t19-llama32_1b",
+      "machine": "hpc",
+      "partition": "defq",
+      "node": "node002",
+      "pack": "data/t19/instances_t19.jsonl",
+      "verifier": "t19_ragas_local/llama32_1b",
+      "n_rows": 1623,
+      "wall": "00:30:37",
+      "wall_s": 1837,
+      "gpu_type": "NVIDIA A100-SXM4-80GB",
+      "api_spend_usd": null,
+      "state": "RUNNING",
+      "started": "2026-09-29T20:37:54+07:00",
+      "ended": "Unknown"
+    },
+    {
+      "job_id": "61477",
+      "job_name": "t19-llama32_3b",
+      "machine": "hpc",
+      "partition": "defq",
+      "node": "node002",
+      "pack": "data/t19/instances_t19.jsonl",
+      "verifier": "t19_ragas_local/llama32_3b",
+      "n_rows": 1623,
+      "wall": "01:21:58",
+      "wall_s": 4918,
+      "gpu_type": "NVIDIA A100-SXM4-80GB",
+      "api_spend_usd": null,
+      "state": "RUNNING",
+      "started": "2026-09-29T21:45:35+07:00",
+      "ended": "Unknown"
+    },
+    {
+      "job_id": "61483",
+      "job_name": "t19-llama32_3b_pol",
+      "machine": "hpc",
+      "partition": "defq",
+      "node": "node002",
+      "pack": "data/t19/instances_t19.jsonl",
+      "verifier": "t19_ragas_local/llama32_3b_pol",
+      "n_rows": 1703,
+      "wall": "00:04:42",
+      "wall_s": 282,
+      "gpu_type": "NVIDIA A100-SXM4-80GB",
+      "api_spend_usd": null,
+      "state": "RUNNING",
+      "started": "2026-09-30T01:00:04+07:00",
+      "ended": "Unknown"
+    },
+    {
+      "job_id": "61485",
+      "job_name": "t19-llama31_8b_local",
+      "machine": "hpc",
+      "partition": "defq",
+      "node": "node002",
+      "pack": "data/t19/instances_t19.jsonl",
+      "verifier": "t19_ragas_local/llama31_8b_local",
+      "n_rows": 1703,
+      "wall": "00:38:21",
+      "wall_s": 2301,
+      "gpu_type": "NVIDIA A100-SXM4-80GB",
+      "api_spend_usd": null,
+      "state": "RUNNING",
+      "started": "2026-09-30T01:15:37+07:00",
+      "ended": "Unknown"
     }
   ]
 }

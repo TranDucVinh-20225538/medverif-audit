@@ -22,7 +22,7 @@ dest.mkdir(parents=True, exist_ok=True)
 for i in (0, 1):
     name = f"20231101.en/train-{i:05d}-of-00041.parquet"
     p = hf_hub_download(repo_id=repo, repo_type="dataset", filename=name)
-    target = dest / name
+    target = dest / Path(name).name
     if not target.exists() or target.stat().st_size != Path(p).stat().st_size:
         shutil.copy2(p, target)
     print("ok", target, target.stat().st_size)

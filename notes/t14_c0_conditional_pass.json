@@ -13,11 +13,11 @@
     "v2a_minicheck": {
       "display_name": "MiniCheck-Flan-T5-Large",
       "family": "small fine-tuned checkers",
-      "c0_pass_rate": 0.9652173913043478,
-      "n_c0_scored": 115,
-      "n_c0_pass": 111,
-      "qi_inv_natural_given_c0": 0.09090909090909091,
-      "n_qi_given_c0": 55,
+      "c0_pass_rate": 0.9636363636363636,
+      "n_c0_scored": 110,
+      "n_c0_pass": 106,
+      "qi_inv_natural_given_c0": 0.045454545454545456,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
@@ -39,11 +39,11 @@
     "v3_alignscore": {
       "display_name": "AlignScore-large",
       "family": "small fine-tuned checkers",
-      "c0_pass_rate": 0.9478260869565217,
-      "n_c0_scored": 115,
-      "n_c0_pass": 109,
-      "qi_inv_natural_given_c0": 0.24074074074074073,
-      "n_qi_given_c0": 54,
+      "c0_pass_rate": 0.9454545454545454,
+      "n_c0_scored": 110,
+      "n_c0_pass": 104,
+      "qi_inv_natural_given_c0": 0.19047619047619047,
+      "n_qi_given_c0": 21,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
@@ -66,10 +66,10 @@
       "display_name": "Bespoke-MiniCheck-7B",
       "family": "7B fine-tuned checker",
       "c0_pass_rate": 1.0,
-      "n_c0_scored": 115,
-      "n_c0_pass": 115,
-      "qi_inv_natural_given_c0": 0.8035714285714286,
-      "n_qi_given_c0": 56,
+      "n_c0_scored": 110,
+      "n_c0_pass": 110,
+      "qi_inv_natural_given_c0": 0.8181818181818182,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
@@ -274,20 +274,20 @@
       "display_name": "Mistral-Small-24B (MedScore)",
       "family": "LLM judges",
       "c0_pass_rate": 1.0,
-      "n_c0_scored": 115,
-      "n_c0_pass": 115,
-      "qi_inv_natural_given_c0": 0.6607142857142857,
-      "n_qi_given_c0": 56,
+      "n_c0_scored": 110,
+      "n_c0_pass": 110,
+      "qi_inv_natural_given_c0": 0.6363636363636364,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
           "p_pass_given_c0": 1.0,
-          "n_given_c0": 112
+          "n_given_c0": 109
         },
         "spacing": {
           "label": "spacing",
           "p_pass_given_c0": 1.0,
-          "n_given_c0": 112
+          "n_given_c0": 109
         },
         "symbol_micro": {
           "label": "symbol (mcg/\u00b5g/\u03bcg)",
@@ -300,20 +300,20 @@
       "display_name": "GPT-4o (MedScore)",
       "family": "LLM judges",
       "c0_pass_rate": 1.0,
-      "n_c0_scored": 115,
-      "n_c0_pass": 115,
-      "qi_inv_natural_given_c0": 0.9642857142857143,
-      "n_qi_given_c0": 56,
+      "n_c0_scored": 110,
+      "n_c0_pass": 110,
+      "qi_inv_natural_given_c0": 1.0,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
-          "p_pass_given_c0": 0.9902912621359223,
-          "n_given_c0": 103
+          "p_pass_given_c0": 0.9900990099009901,
+          "n_given_c0": 101
         },
         "spacing": {
           "label": "spacing",
           "p_pass_given_c0": 1.0,
-          "n_given_c0": 104
+          "n_given_c0": 102
         },
         "symbol_micro": {
           "label": "symbol (mcg/\u00b5g/\u03bcg)",
@@ -325,11 +325,11 @@
     "v1c_medscore": {
       "display_name": "GPT-4o-mini (MedScore)",
       "family": "LLM judges",
-      "c0_pass_rate": 0.991304347826087,
-      "n_c0_scored": 115,
-      "n_c0_pass": 114,
-      "qi_inv_natural_given_c0": 0.509090909090909,
-      "n_qi_given_c0": 55,
+      "c0_pass_rate": 0.990909090909091,
+      "n_c0_scored": 110,
+      "n_c0_pass": 109,
+      "qi_inv_natural_given_c0": 0.5,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
@@ -352,20 +352,20 @@
       "display_name": "Llama-3.3-70B (RAGAS NLI)",
       "family": "LLM judges",
       "c0_pass_rate": 1.0,
-      "n_c0_scored": 111,
-      "n_c0_pass": 111,
-      "qi_inv_natural_given_c0": 0.7735849056603774,
-      "n_qi_given_c0": 53,
+      "n_c0_scored": 110,
+      "n_c0_pass": 110,
+      "qi_inv_natural_given_c0": 0.7272727272727273,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
           "p_pass_given_c0": 1.0,
-          "n_given_c0": 108
+          "n_given_c0": 109
         },
         "spacing": {
           "label": "spacing",
           "p_pass_given_c0": 1.0,
-          "n_given_c0": 108
+          "n_given_c0": 109
         },
         "symbol_micro": {
           "label": "symbol (mcg/\u00b5g/\u03bcg)",
@@ -378,10 +378,10 @@
       "display_name": "Claude Sonnet 4.6 (RAGAS NLI)",
       "family": "LLM judges",
       "c0_pass_rate": 1.0,
-      "n_c0_scored": 115,
-      "n_c0_pass": 115,
-      "qi_inv_natural_given_c0": 0.9642857142857143,
-      "n_qi_given_c0": 56,
+      "n_c0_scored": 110,
+      "n_c0_pass": 110,
+      "qi_inv_natural_given_c0": 1.0,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
@@ -403,11 +403,11 @@
     "v6_ragas_gpt4o_mini": {
       "display_name": "GPT-4o-mini (RAGAS)",
       "family": "LLM judges",
-      "c0_pass_rate": 0.9652173913043478,
-      "n_c0_scored": 115,
-      "n_c0_pass": 111,
-      "qi_inv_natural_given_c0": 0.7777777777777778,
-      "n_qi_given_c0": 54,
+      "c0_pass_rate": 0.9636363636363636,
+      "n_c0_scored": 110,
+      "n_c0_pass": 106,
+      "qi_inv_natural_given_c0": 0.8636363636363636,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
@@ -429,11 +429,11 @@
     "v6_ragas_haiku45": {
       "display_name": "Claude Haiku 4.5 (RAGAS)",
       "family": "LLM judges",
-      "c0_pass_rate": 0.9739130434782609,
-      "n_c0_scored": 115,
-      "n_c0_pass": 112,
-      "qi_inv_natural_given_c0": 0.9636363636363636,
-      "n_qi_given_c0": 55,
+      "c0_pass_rate": 0.9727272727272728,
+      "n_c0_scored": 110,
+      "n_c0_pass": 107,
+      "qi_inv_natural_given_c0": 1.0,
+      "n_qi_given_c0": 21,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
@@ -455,11 +455,11 @@
     "v6_ragas_llama31_8b": {
       "display_name": "Llama-3.1-8B (RAGAS)",
       "family": "LLM judges",
-      "c0_pass_rate": 0.9649122807017544,
-      "n_c0_scored": 114,
-      "n_c0_pass": 110,
-      "qi_inv_natural_given_c0": 0.2692307692307692,
-      "n_qi_given_c0": 52,
+      "c0_pass_rate": 0.9724770642201835,
+      "n_c0_scored": 109,
+      "n_c0_pass": 106,
+      "qi_inv_natural_given_c0": 0.2727272727272727,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
@@ -482,10 +482,10 @@
       "display_name": "Mistral-Small-3.2-24B (RAGAS)",
       "family": "LLM judges",
       "c0_pass_rate": 1.0,
-      "n_c0_scored": 115,
-      "n_c0_pass": 115,
-      "qi_inv_natural_given_c0": 0.9642857142857143,
-      "n_qi_given_c0": 56,
+      "n_c0_scored": 110,
+      "n_c0_pass": 110,
+      "qi_inv_natural_given_c0": 1.0,
+      "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",

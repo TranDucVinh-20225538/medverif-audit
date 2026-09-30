@@ -1,21 +1,9 @@
 #!/usr/bin/env bash
-# T8b: build supported sample, v1b score (≤$3), report. Encoders: run_t8b_aggrefact_node30.sh
+# T8b: DISABLED (2026-09-29 PI review: 10/40 genuine mismatches, mostly trivial formatting).
 set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
-source "${ROOT}/jobs/lib/flock.sh"
-medverif_acquire_lock t8b_aggrefact
-
-cd "${ROOT}"
-export PYTHONPATH="${ROOT}/src"
-export MEDVERIF_T8_BUDGET_USD="${MEDVERIF_T8B_BUDGET_USD:-3}"
-export MEDVERIF_T8_BUDGET_SCOPE=t8b
-
-if [[ ! -f "${ROOT}/notes/t8_mismatch_qc_approved" ]]; then
-  echo "T8b blocked: label qc/t8_mismatch_check.csv (PI_ok Y/N), then:"
-  echo "  python3 scripts/t8_mismatch_qc_report.py --approve-if-precision"
-  echo "Requires precision >= 80% before build/score."
-  exit 0
-fi
+echo "T8b DISABLED: see notes/t8b_DROPPED.md and REPORT.md Threats (LLM-AggreFact mismatch detector dropped)."
+exit 1
 
 if [[ ! -f "${ROOT}/data/t8/aggrefact/dev.jsonl" ]]; then
   set -a && source ~/kkk/openrouter.env && set +a

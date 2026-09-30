@@ -9,7 +9,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 NOTES = ROOT / "notes" / "expand_budget.json"
-LEDGER = ROOT / "data" / "expand" / "stage1" / "api_spend.jsonl"
+LEDGER = Path(
+    os.environ.get(
+        "MEDVERIF_EXPAND_LEDGER",
+        str(ROOT / "data" / "expand" / "stage1" / "api_spend.jsonl"),
+    )
+)
 
 
 class ExpandBudgetStop(RuntimeError):
@@ -17,10 +22,12 @@ class ExpandBudgetStop(RuntimeError):
 
 
 def cap_usd() -> float:
+    if os.environ.get("MEDVERIF_EXPAND_BUDGET_USD"):
+        return float(os.environ["MEDVERIF_EXPAND_BUDGET_USD"])
     if NOTES.is_file():
         data = json.loads(NOTES.read_text())
         return float(data.get("cap_usd", 30))
-    return float(os.environ.get("MEDVERIF_EXPAND_BUDGET_USD", "30"))
+    return 30.0
 
 
 def spent_usd() -> float:
@@ -42,6 +49,16 @@ def record_cost(cost: float | None, *, cand_id: str, phase: str) -> None:
     row = {"cand_id": cand_id, "phase": phase, "cost_usd": float(cost)}
     with LEDGER.open("a") as handle:
         handle.write(json.dumps(row) + "\n")
+    if os.environ.get("MEDVERIF_LANE_A_SYNC") == "1":
+        import sys
+
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import lane_a_budget as lab  # noqa: WPS433
+
+        try:
+            lab.record(float(cost), phase=f"or:{phase}")
+        except RuntimeError as exc:
+            raise ExpandBudgetStop(str(exc)) from exc
 
 
 def assert_ok() -> dict:

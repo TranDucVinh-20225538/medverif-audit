@@ -2,8 +2,8 @@
   "conda_env": "cpuverif",
   "python": "3.11.16",
   "host_role": "hpc_login",
-  "recorded_at": "2026-09-29T16:11:21.585196+00:00",
-  "reason": "calibration_force_rescore",
+  "recorded_at": "2026-09-29T16:50:36.923182+00:00",
+  "reason": "lane_b_env_stabilize",
   "packages": {
     "transformers": "5.17.0",
     "torch": "2.14.0+cpu",
@@ -20,5 +20,6 @@
       "clone_path": "/data2/hpcshared/medverif-audit/.cache/src/AlignScore"
     }
   },
-  "env_id": "7e0333729b5da0af"
+  "env_id": "7e0333729b5da0af",
+  "profile": "cpuverif"
 }

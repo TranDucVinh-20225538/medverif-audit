@@ -1,13 +1,14 @@
 {
-  "valid_unit_inv_instances": 88,
-  "valid_unit_inv_bases_all": 88,
+  "valid_unit_inv_instances": 79,
+  "valid_unit_inv_bases_all": 79,
   "by_source": {
-    "rule": 19,
-    "legacy": 69
+    "rule": 11,
+    "legacy": 56,
+    "unknown": 12
   },
-  "natural_bases_effective_Y": 42,
-  "natural_from_PI_only": 22,
-  "old_legacy_bases": 69,
-  "new_rule_only_bases": 19,
+  "natural_bases_effective_Y": 68,
+  "natural_from_PI_only": 0,
+  "old_legacy_bases": 68,
+  "new_rule_only_bases": 11,
   "csv_unit_naturalness_rows": 58
 }

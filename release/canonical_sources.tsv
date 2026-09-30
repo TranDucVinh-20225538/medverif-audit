@@ -1,6 +1,6 @@
 verifier	pack_id	score_path	reason	overlap_n	overlap_agreement
-v2a_minicheck	main_dose	results/raw/v2a_minicheck.jsonl	equal/full coverage on HPC (843 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
-v3_alignscore	main_dose	results/raw/v3_alignscore.jsonl	equal/full coverage on HPC (843 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v2a_minicheck	main_dose	results/raw/v2a_minicheck.jsonl	HPC fuller pack coverage (814 vs node30=804); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v3_alignscore	main_dose	results/raw/v3_alignscore.jsonl	HPC fuller pack coverage (814 vs node30=804); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
 v2b_bespoke	main_dose	results/raw/t6_bespoke_minicheck.jsonl	prefer HPC when both exist		
 t6a_minicheck_roberta	main_dose	results/raw_node30/t6_minicheck_roberta.jsonl	node30-only local verifier scores		
 t6a_minicheck_deberta	main_dose	results/raw_node30/t6_minicheck_deberta.jsonl	node30-only local verifier scores		
@@ -30,8 +30,8 @@ t6a_hhem	pol	results/raw_node30/t6_hhem.jsonl	POL flip-ok pending rows (42) merg
 t6a_granite_guardian	pol	results/raw_node30/t6_granite_guardian.jsonl	POL flip-ok pending rows (42) merged into node30 root encoders at node30-results@c48093b; no separate pol* score files on branch.		
 v1_medscore	pol	results/raw/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v4_ragas_nli	pol	results/raw/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
-v2a_minicheck	cpu_early	results/raw_node30/v2a_minicheck.jsonl	node30 encoder has fuller pack coverage (1192 vs HPC=1150 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
-v3_alignscore	cpu_early	results/raw_node30/v3_alignscore.jsonl	node30 encoder has fuller pack coverage (1192 vs HPC=1150 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v2a_minicheck	cpu_early	results/raw_node30/v2a_minicheck.jsonl	node30 encoder has fuller pack coverage (1169 vs HPC=1137 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v3_alignscore	cpu_early	results/raw_node30/v3_alignscore.jsonl	node30 encoder has fuller pack coverage (1169 vs HPC=1137 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
 v2b_bespoke	cpu_early	results/raw/t6_bespoke_minicheck.jsonl	prefer HPC when both exist		
 t6a_minicheck_roberta	cpu_early	results/raw_node30/t6_minicheck_roberta.jsonl	node30-only local verifier scores		
 t6a_minicheck_deberta	cpu_early	results/raw_node30/t6_minicheck_deberta.jsonl	node30-only local verifier scores		
@@ -42,8 +42,8 @@ t6a_hhem	cpu_early	results/raw_node30/t6_hhem.jsonl	node30-only local verifier s
 t6a_granite_guardian	cpu_early	results/raw_node30/t6_granite_guardian.jsonl	node30-only local verifier scores		
 v1_medscore	cpu_early	results/raw/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v4_ragas_nli	cpu_early	results/raw/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
-v2a_minicheck	m1_before	results/raw_node30/v2a_minicheck.jsonl	node30 encoder has fuller pack coverage (1192 vs HPC=1150 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
-v3_alignscore	m1_before	results/raw_node30/v3_alignscore.jsonl	node30 encoder has fuller pack coverage (1192 vs HPC=1150 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v2a_minicheck	m1_before	results/raw_node30/v2a_minicheck.jsonl	node30 encoder has fuller pack coverage (1169 vs HPC=1137 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
+v3_alignscore	m1_before	results/raw_node30/v3_alignscore.jsonl	node30 encoder has fuller pack coverage (1169 vs HPC=1137 required ids); overlap verdict agreement=1.0000 on n=1403.	1403	1.000000
 v2b_bespoke	m1_before	results/raw/t6_bespoke_minicheck.jsonl	prefer HPC when both exist		
 t6a_minicheck_roberta	m1_before	results/raw_node30/t6_minicheck_roberta.jsonl	node30-only local verifier scores		
 t6a_minicheck_deberta	m1_before	results/raw_node30/t6_minicheck_deberta.jsonl	node30-only local verifier scores		
@@ -72,7 +72,6 @@ v1_medscore	t7	results/raw/t7/v1_medscore.jsonl	API/OpenRouter verifier: HPC res
 v1b_medscore	t7	results/raw/t7/v1b_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v1c_medscore	t7	results/raw/t7/v1c_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v4_ragas_nli	t7	results/raw/t7/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
-v4_ragas_nli	t17	results/raw/t17/v4_ragas_nli.llama.jsonl	T17 downdose; 612 rows api_model=meta-llama/llama-3.3-70b-instruct (renamed from v4_ragas_nli.jsonl).		
 v5_ragas_nli	t7	results/raw/t7/v5_ragas_nli.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v6_ragas_gpt4o_mini	t7	results/raw/t7/v6_ragas_gpt4o_mini.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v6_ragas_haiku45	t7	results/raw/t7/v6_ragas_haiku45.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
@@ -83,7 +82,13 @@ v1b_medscore	t14	results/raw/t14/v1b_medscore.jsonl	API/OpenRouter verifier: HPC
 v5_ragas_nli	t14	results/raw/t14/v5_ragas_nli.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v1_medscore	t17	results/raw/t17/v1_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v1b_medscore	t17	results/raw/t17/v1b_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v1c_medscore	t17	results/raw/t17/v1c_medscore.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v4_ragas_nli	t17	results/raw/t17/v4_ragas_nli.llama.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v5_ragas_nli	t17	results/raw/t17/v5_ragas_nli.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_gpt4o_mini	t17	results/raw/t17/v6_ragas_gpt4o_mini.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_haiku45	t17	results/raw/t17/v6_ragas_haiku45.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_llama31_8b	t17	results/raw/t17/v6_ragas_llama31_8b.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
+v6_ragas_mistral_small32	t17	results/raw/t17/v6_ragas_mistral_small32.jsonl	API/OpenRouter verifier: HPC results/raw (authoritative).		
 v2a_minicheck	t3	results/raw/t3/v2a_minicheck.jsonl	equal/full coverage on HPC (59 required ids); overlap verdict agreement=1.0000 on n=59.	59	1.000000
 v3_alignscore	t3	results/raw/t3/v3_alignscore.jsonl	equal/full coverage on HPC (59 required ids); overlap verdict agreement=1.0000 on n=59.	59	1.000000
 v2b_bespoke	t3	results/raw_node30/t3/t6_bespoke_minicheck.jsonl	node30-only local verifier scores		

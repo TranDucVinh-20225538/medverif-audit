@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# T8b supported sample: V2, V3, 7× T6-A, Bespoke (+ merge into results/raw/t8 for report).
+# T8b: DISABLED (2026-09-29). See notes/t8b_DROPPED.md.
 set -euo pipefail
+echo "T8b node30 DISABLED."
+exit 1
 ROOT="${MEDVERIF_ROOT:-/root/medverif-audit}"
 cd "${ROOT}"
 export PYTHONPATH="${ROOT}/src"

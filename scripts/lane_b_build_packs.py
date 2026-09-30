@@ -10,7 +10,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "scripts"))
 
+from lane_a_instance_filters import lane_b_e1_evid_row  # noqa: E402
 from verifiers.io_utils import read_jsonl  # noqa: E402
 
 CPU_EARLY = ROOT / "data/v3/instances_cpu_early.jsonl"
@@ -38,13 +40,12 @@ def main() -> None:
         for row in cal:
             handle.write(json.dumps(row, ensure_ascii=False) + "\n")
 
-    evid = [
-        r
+    raw_e1 = sum(
+        1
         for r in read_jsonl(MAIN)
-        if r.get("valid", True)
-        and r.get("subset") == "main"
-        and r.get("condition") == "E1-evid"
-    ]
+        if r.get("subset") == "main" and r.get("condition") == "E1-evid" and r.get("valid", True)
+    )
+    evid = [r for r in read_jsonl(MAIN) if lane_b_e1_evid_row(r)]
     with OUT_E1.open("w") as handle:
         for row in evid:
             handle.write(json.dumps(row, ensure_ascii=False) + "\n")
@@ -53,8 +54,12 @@ def main() -> None:
         "calibration_n": len(cal),
         "calibration_path": str(OUT_CAL.relative_to(ROOT)),
         "e1_evid_n": len(evid),
+        "e1_evid_n_raw_valid": raw_e1,
+        "e1_evid_filter": "non_dose_targets + valid + analysis_keep_row (POL flip_ok)",
         "e1_evid_path": str(OUT_E1.relative_to(ROOT)),
         "node30_overlap_pool": len(pool),
+        "note_221": "independent_audit_gaps.md cites 221 E1-evid; current main JSONL has "
+        f"{raw_e1} valid rows — non-dose bases already removed from pack; filtered n={len(evid)}",
     }
     MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n")
     print(json.dumps(manifest, indent=2))

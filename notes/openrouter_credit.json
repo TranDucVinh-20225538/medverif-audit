@@ -1,7 +1,7 @@
 {
   "limit": 50,
-  "usage": 19.48374872,
-  "limit_remaining": 30.51625128,
+  "usage": 34.53063761,
+  "limit_remaining": 15.46936239,
   "label": "sk-or-v1-30b...eb2",
   "is_free_tier": false,
   "raw_keys": [

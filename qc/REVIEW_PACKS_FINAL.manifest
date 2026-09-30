@@ -1,0 +1,10 @@
+# FINAL review packs (2026-09-30)
+
+Generation complete for these cohorts. Return labeled CSV to unfreeze scoring.
+
+- **qc/main_ext_review.csv** — main_ext whitelist INV (60 rows)
+  - rows (excl header): 60
+- **qc/t18_sample.csv** — T18 Wikipedia pack QC sample
+  - rows (excl header): 92
+- **qc/t17_sample.csv** — T17 downdose QC sample
+  - rows (excl header): 40

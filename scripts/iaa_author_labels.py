@@ -51,12 +51,22 @@ def load_author_label_tables() -> dict:
             k: (r.get(k) or "").strip().upper()
             for k in ("C0_ok", "E1x2_ok", "E1x10_ok", "PI_ok")
         }
+    dose_pi = {
+        r["base_id"]: (r.get("PI_ok") or "").strip().upper()
+        for r in _read(ROOT / "qc/dose_PI_ok_labels.csv")
+    }
+    dose_audit = {
+        r["base_id"]: (r.get("PI_ok") or "").strip().upper()
+        for r in _read(ROOT / "qc/main_dose_audit.csv")
+    }
     return {
         "nat3": nat3,
         "inv_inst": inv_inst,
         "inv_manual": inv_manual,
         "flip_pi": flip_pi,
         "dose3": dose3,
+        "dose_pi": dose_pi,
+        "dose_audit": dose_audit,
     }
 
 
@@ -101,6 +111,10 @@ def author_q2_label(inst: dict, tables: dict | None = None) -> tuple[str | None,
             v = d3.get("PI_ok")
         if v in ("Y", "N"):
             return v, "dose3"
+        for src, tab in (("dose_PI_ok", tables["dose_pi"]), ("main_dose_audit", tables["dose_audit"])):
+            v = tab.get(bid)
+            if v in ("Y", "N"):
+                return v, src
 
     return None, "missing"
 

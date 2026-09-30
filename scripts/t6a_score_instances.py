@@ -21,7 +21,6 @@ MINICHECK_IDS = frozenset(
     {
         "t6a_minicheck_roberta",
         "t6a_minicheck_deberta",
-        "t6a_granite_guardian",
     }
 )
 SUMMAC_IDS = frozenset({"t6a_summac_zs", "t6a_summac_conv"})
@@ -37,10 +36,16 @@ def score_checker(checker_id: str, rows: list[dict], out_path: Path) -> None:
         from verifiers import t6a_minicheck as mc
 
         model, _ = mc.load(checker_id)
-        step = 1 if checker_id == "t6a_granite_guardian" else 4
+        step = 4
         for offset in range(0, len(todo), step):
             chunk = todo[offset : offset + step]
             append_stamped(out_path, mc.score_batch(model, chunk, checker_id))
+    elif checker_id == "t6a_granite_guardian":
+        from verifiers import t6a_granite_guardian as gg
+
+        bundle, _ = gg.load()
+        for row in todo:
+            append_stamped(out_path, gg.score_batch(bundle, [row]))
     elif checker_id == "t6a_alignscore_base":
         from verifiers import t6a_alignscore_base as asb
 

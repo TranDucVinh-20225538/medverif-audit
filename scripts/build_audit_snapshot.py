@@ -286,6 +286,11 @@ def main() -> None:
             zf.write(CANONICAL_TSV, arcname=CANONICAL_TSV.relative_to(ROOT).as_posix())
             manifest["files"].append(CANONICAL_TSV.relative_to(ROOT).as_posix())
         zf.writestr("release/manifest.json", json.dumps(manifest, indent=2) + "\n")
+        t15_note = (
+            "T15 AggreFact full eval may be in progress (GPU) or subsample — "
+            "not required for this snapshot (Decision N, 2026-09-30).\n"
+        )
+        zf.writestr("release/T15_STATUS.txt", t15_note)
     size_mb = OUT_ZIP.stat().st_size / (1024 * 1024)
     print(json.dumps({"zip": str(OUT_ZIP), "size_bytes": OUT_ZIP.stat().st_size, "size_mb": round(size_mb, 2)}))
 
