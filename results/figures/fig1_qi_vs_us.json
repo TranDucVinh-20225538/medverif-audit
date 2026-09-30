@@ -1,0 +1,602 @@
+[
+ {
+  "slug": "v2a_minicheck",
+  "label": "MiniCheck-Flan-T5-Large",
+  "family": "small fine-tuned checkers",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.08333333333333333,
+   "lo": 0.016666666666666666,
+   "hi": 0.15,
+   "num": 5,
+   "den": 60,
+   "n_bases": 60
+  },
+  "us_claim_up": {
+   "rate": 0.5242718446601942,
+   "lo": 0.42718446601941745,
+   "hi": 0.6116504854368932,
+   "num": 54,
+   "den": 103,
+   "n_bases": 103
+  },
+  "ns": {
+   "rate": 0.8866995073891626,
+   "lo": 0.8341260162601626,
+   "hi": 0.9366781943938842,
+   "num": 180,
+   "den": 203,
+   "n_bases": 103
+  }
+ },
+ {
+  "slug": "v3_alignscore",
+  "label": "AlignScore-large",
+  "family": "small fine-tuned checkers",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.24561403508771928,
+   "lo": 0.14035087719298245,
+   "hi": 0.3508771929824561,
+   "num": 14,
+   "den": 57,
+   "n_bases": 57
+  },
+  "us_claim_up": {
+   "rate": 0.5346534653465347,
+   "lo": 0.43564356435643564,
+   "hi": 0.6336633663366337,
+   "num": 54,
+   "den": 101,
+   "n_bases": 101
+  },
+  "ns": {
+   "rate": 0.9396984924623115,
+   "lo": 0.8994847977260038,
+   "hi": 0.975,
+   "num": 187,
+   "den": 199,
+   "n_bases": 101
+  }
+ },
+ {
+  "slug": "v2b_bespoke",
+  "label": "Bespoke-MiniCheck-7B",
+  "family": "7B fine-tuned checker",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.7741935483870968,
+   "lo": 0.6612903225806451,
+   "hi": 0.8709677419354839,
+   "num": 48,
+   "den": 62,
+   "n_bases": 62
+  },
+  "us_claim_up": {
+   "rate": 0.6728971962616822,
+   "lo": 0.5887850467289719,
+   "hi": 0.7663551401869159,
+   "num": 72,
+   "den": 107,
+   "n_bases": 107
+  },
+  "ns": {
+   "rate": 0.9383886255924171,
+   "lo": 0.9004620853080568,
+   "hi": 0.9712952836637047,
+   "num": 198,
+   "den": 211,
+   "n_bases": 107
+  }
+ },
+ {
+  "slug": "t6a_minicheck_roberta",
+  "label": "MiniCheck-RoBERTa",
+  "family": "small fine-tuned checkers",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.05454545454545454,
+   "lo": 0.0,
+   "hi": 0.12727272727272726,
+   "num": 3,
+   "den": 55,
+   "n_bases": 55
+  },
+  "us_claim_up": {
+   "rate": 0.3333333333333333,
+   "lo": 0.25,
+   "hi": 0.4270833333333333,
+   "num": 32,
+   "den": 96,
+   "n_bases": 96
+  },
+  "ns": {
+   "rate": 0.9470899470899471,
+   "lo": 0.9090786901270772,
+   "hi": 0.9790575916230366,
+   "num": 179,
+   "den": 189,
+   "n_bases": 96
+  }
+ },
+ {
+  "slug": "t6a_minicheck_deberta",
+  "label": "MiniCheck-DeBERTa",
+  "family": "small fine-tuned checkers",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.03571428571428571,
+   "lo": 0.0,
+   "hi": 0.08928571428571429,
+   "num": 2,
+   "den": 56,
+   "n_bases": 56
+  },
+  "us_claim_up": {
+   "rate": 0.8645833333333334,
+   "lo": 0.8020833333333334,
+   "hi": 0.9270833333333334,
+   "num": 83,
+   "den": 96,
+   "n_bases": 96
+  },
+  "ns": {
+   "rate": 0.9583333333333334,
+   "lo": 0.9214659685863874,
+   "hi": 0.9895846826424871,
+   "num": 184,
+   "den": 192,
+   "n_bases": 97
+  }
+ },
+ {
+  "slug": "t6a_alignscore_base",
+  "label": "AlignScore-base",
+  "family": "small fine-tuned checkers",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.19298245614035087,
+   "lo": 0.10526315789473684,
+   "hi": 0.2982456140350877,
+   "num": 11,
+   "den": 57,
+   "n_bases": 57
+  },
+  "us_claim_up": {
+   "rate": 0.12121212121212122,
+   "lo": 0.06060606060606061,
+   "hi": 0.1919191919191919,
+   "num": 12,
+   "den": 99,
+   "n_bases": 99
+  },
+  "ns": {
+   "rate": 0.9435897435897436,
+   "lo": 0.9020618556701031,
+   "hi": 0.9792772821964639,
+   "num": 184,
+   "den": 195,
+   "n_bases": 99
+  }
+ },
+ {
+  "slug": "t6a_summac_zs",
+  "label": "SummaC-ZS",
+  "family": "small fine-tuned checkers",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.13725490196078433,
+   "lo": 0.058823529411764705,
+   "hi": 0.23578431372548975,
+   "num": 7,
+   "den": 51,
+   "n_bases": 51
+  },
+  "us_claim_up": {
+   "rate": 0.27058823529411763,
+   "lo": 0.17647058823529413,
+   "hi": 0.36470588235294116,
+   "num": 23,
+   "den": 85,
+   "n_bases": 85
+  },
+  "ns": {
+   "rate": 0.9644970414201184,
+   "lo": 0.9289940828402367,
+   "hi": 0.9940828402366864,
+   "num": 163,
+   "den": 169,
+   "n_bases": 86
+  }
+ },
+ {
+  "slug": "t6a_summac_conv",
+  "label": "SummaC-Conv",
+  "family": "small fine-tuned checkers",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.02127659574468085,
+   "lo": 0.0,
+   "hi": 0.0851063829787234,
+   "num": 1,
+   "den": 47,
+   "n_bases": 47
+  },
+  "us_claim_up": {
+   "rate": 0.5443037974683544,
+   "lo": 0.43037974683544306,
+   "hi": 0.6582278481012658,
+   "num": 43,
+   "den": 79,
+   "n_bases": 79
+  },
+  "ns": {
+   "rate": null,
+   "lo": null,
+   "hi": null,
+   "num": 0,
+   "den": 0,
+   "n_bases": 0
+  }
+ },
+ {
+  "slug": "t6a_hhem",
+  "label": "HHEM",
+  "family": "small fine-tuned checkers",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.0847457627118644,
+   "lo": 0.01694915254237288,
+   "hi": 0.15254237288135594,
+   "num": 5,
+   "den": 59,
+   "n_bases": 59
+  },
+  "us_claim_up": {
+   "rate": 0.009615384615384616,
+   "lo": 0.0,
+   "hi": 0.028846153846153848,
+   "num": 1,
+   "den": 104,
+   "n_bases": 104
+  },
+  "ns": {
+   "rate": null,
+   "lo": null,
+   "hi": null,
+   "num": 0,
+   "den": 0,
+   "n_bases": 0
+  }
+ },
+ {
+  "slug": "t6a_granite_guardian",
+  "label": "Granite Guardian 2B",
+  "family": "small fine-tuned checkers",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.1935483870967742,
+   "lo": 0.0967741935483871,
+   "hi": 0.2903225806451613,
+   "num": 12,
+   "den": 62,
+   "n_bases": 62
+  },
+  "us_claim_up": {
+   "rate": 0.4339622641509434,
+   "lo": 0.33962264150943394,
+   "hi": 0.5283018867924528,
+   "num": 46,
+   "den": 106,
+   "n_bases": 106
+  },
+  "ns": {
+   "rate": null,
+   "lo": null,
+   "hi": null,
+   "num": 0,
+   "den": 0,
+   "n_bases": 0
+  }
+ },
+ {
+  "slug": "v1_medscore",
+  "label": "Mistral-Small-24B (MedScore)",
+  "family": "LLM judges",
+  "cost_per_1k": 0.026281446229913474,
+  "qi_all": {
+   "rate": 0.6774193548387096,
+   "lo": 0.5645161290322581,
+   "hi": 0.7903225806451613,
+   "num": 42,
+   "den": 62,
+   "n_bases": 62
+  },
+  "us_claim_up": {
+   "rate": 0.9906542056074766,
+   "lo": 0.9719626168224299,
+   "hi": 1.0,
+   "num": 106,
+   "den": 107,
+   "n_bases": 107
+  },
+  "ns": {
+   "rate": 0.95260663507109,
+   "lo": 0.9154929577464789,
+   "hi": 0.9812228511254442,
+   "num": 201,
+   "den": 211,
+   "n_bases": 107
+  }
+ },
+ {
+  "slug": "v1b_medscore",
+  "label": "GPT-4o (MedScore)",
+  "family": "LLM judges",
+  "cost_per_1k": 1.0790151515151516,
+  "qi_all": {
+   "rate": 0.967741935483871,
+   "lo": 0.9193548387096774,
+   "hi": 1.0,
+   "num": 60,
+   "den": 62,
+   "n_bases": 62
+  },
+  "us_claim_up": {
+   "rate": 0.9813084112149533,
+   "lo": 0.9532710280373832,
+   "hi": 1.0,
+   "num": 105,
+   "den": 107,
+   "n_bases": 107
+  },
+  "ns": {
+   "rate": 0.7298578199052133,
+   "lo": 0.6666666666666666,
+   "hi": 0.7914937852096933,
+   "num": 154,
+   "den": 211,
+   "n_bases": 107
+  }
+ },
+ {
+  "slug": "v1c_medscore",
+  "label": "GPT-4o-mini (MedScore)",
+  "family": "LLM judges",
+  "cost_per_1k": 0.059903030303030305,
+  "qi_all": {
+   "rate": 0.45901639344262296,
+   "lo": 0.32786885245901637,
+   "hi": 0.5901639344262295,
+   "num": 28,
+   "den": 61,
+   "n_bases": 61
+  },
+  "us_claim_up": {
+   "rate": 0.8962264150943396,
+   "lo": 0.839622641509434,
+   "hi": 0.9528301886792453,
+   "num": 95,
+   "den": 106,
+   "n_bases": 106
+  },
+  "ns": {
+   "rate": 0.9521531100478469,
+   "lo": 0.912610703291499,
+   "hi": 0.9856476418318524,
+   "num": 199,
+   "den": 209,
+   "n_bases": 106
+  }
+ },
+ {
+  "slug": "v4_ragas_nli",
+  "label": "Llama-3.3-70B (RAGAS NLI)",
+  "family": "LLM judges",
+  "cost_per_1k": 0.12501516728624537,
+  "qi_all": {
+   "rate": 0.7580645161290323,
+   "lo": 0.6451612903225806,
+   "hi": 0.8548387096774194,
+   "num": 47,
+   "den": 62,
+   "n_bases": 62
+  },
+  "us_claim_up": {
+   "rate": 0.9245283018867925,
+   "lo": 0.8679245283018868,
+   "hi": 0.9716981132075472,
+   "num": 98,
+   "den": 106,
+   "n_bases": 106
+  },
+  "ns": {
+   "rate": 0.9234449760765551,
+   "lo": 0.8803827751196173,
+   "hi": 0.9619092755585646,
+   "num": 193,
+   "den": 209,
+   "n_bases": 106
+  }
+ },
+ {
+  "slug": "v5_ragas_nli",
+  "label": "Claude Sonnet 4.6 (RAGAS NLI)",
+  "family": "LLM judges",
+  "cost_per_1k": 4.926590909090909,
+  "qi_all": {
+   "rate": 0.967741935483871,
+   "lo": 0.9193548387096774,
+   "hi": 1.0,
+   "num": 60,
+   "den": 62,
+   "n_bases": 62
+  },
+  "us_claim_up": {
+   "rate": 0.9813084112149533,
+   "lo": 0.9532710280373832,
+   "hi": 1.0,
+   "num": 105,
+   "den": 107,
+   "n_bases": 107
+  },
+  "ns": {
+   "rate": 0.981042654028436,
+   "lo": 0.9523809523809523,
+   "hi": 1.0,
+   "num": 207,
+   "den": 211,
+   "n_bases": 107
+  }
+ },
+ {
+  "slug": "v6_ragas_gpt4o_mini",
+  "label": "GPT-4o-mini (RAGAS)",
+  "family": "LLM judges",
+  "cost_per_1k": 0.1960729797979798,
+  "qi_all": {
+   "rate": 0.7413793103448276,
+   "lo": 0.6206896551724138,
+   "hi": 0.8448275862068966,
+   "num": 43,
+   "den": 58,
+   "n_bases": 58
+  },
+  "us_claim_up": {
+   "rate": 0.9223300970873787,
+   "lo": 0.8737864077669902,
+   "hi": 0.970873786407767,
+   "num": 95,
+   "den": 103,
+   "n_bases": 103
+  },
+  "ns": {
+   "rate": 0.9704433497536946,
+   "lo": 0.9316989478718317,
+   "hi": 0.9951219512195122,
+   "num": 197,
+   "den": 203,
+   "n_bases": 103
+  }
+ },
+ {
+  "slug": "v6_ragas_haiku45",
+  "label": "Claude Haiku 4.5 (RAGAS)",
+  "family": "LLM judges",
+  "cost_per_1k": 1.6995622895622897,
+  "qi_all": {
+   "rate": 0.9661016949152542,
+   "lo": 0.9152542372881356,
+   "hi": 1.0,
+   "num": 57,
+   "den": 59,
+   "n_bases": 59
+  },
+  "us_claim_up": {
+   "rate": 0.9807692307692307,
+   "lo": 0.9519230769230769,
+   "hi": 1.0,
+   "num": 102,
+   "den": 104,
+   "n_bases": 104
+  },
+  "ns": {
+   "rate": 0.975609756097561,
+   "lo": 0.9423007246376811,
+   "hi": 1.0,
+   "num": 200,
+   "den": 205,
+   "n_bases": 104
+  }
+ },
+ {
+  "slug": "v6_ragas_llama31_8b",
+  "label": "Llama-3.1-8B (RAGAS)",
+  "family": "LLM judges",
+  "cost_per_1k": 0.022356195286195285,
+  "qi_all": {
+   "rate": 0.27586206896551724,
+   "lo": 0.1724137931034483,
+   "hi": 0.39655172413793105,
+   "num": 16,
+   "den": 58,
+   "n_bases": 58
+  },
+  "us_claim_up": {
+   "rate": 0.8349514563106796,
+   "lo": 0.7669902912621359,
+   "hi": 0.8934466019417474,
+   "num": 86,
+   "den": 103,
+   "n_bases": 103
+  },
+  "ns": {
+   "rate": 0.9556650246305419,
+   "lo": 0.9261083743842364,
+   "hi": 0.9803921568627451,
+   "num": 194,
+   "den": 203,
+   "n_bases": 103
+  }
+ },
+ {
+  "slug": "v6_ragas_mistral_small32",
+  "label": "Mistral-Small-3.2-24B (RAGAS)",
+  "family": "LLM judges",
+  "cost_per_1k": 0.09016978114478115,
+  "qi_all": {
+   "rate": 0.967741935483871,
+   "lo": 0.9193548387096774,
+   "hi": 1.0,
+   "num": 60,
+   "den": 62,
+   "n_bases": 62
+  },
+  "us_claim_up": {
+   "rate": 0.9158878504672897,
+   "lo": 0.8598130841121495,
+   "hi": 0.9626168224299065,
+   "num": 98,
+   "den": 107,
+   "n_bases": 107
+  },
+  "ns": {
+   "rate": 0.9383886255924171,
+   "lo": 0.8957221846084406,
+   "hi": 0.9717014350252459,
+   "num": 198,
+   "den": 211,
+   "n_bases": 107
+  }
+ },
+ {
+  "slug": "t15_ft",
+  "label": "MiniCheck-RoBERTa T15-ft",
+  "family": "T15 fine-tuned (ours)",
+  "cost_per_1k": null,
+  "qi_all": {
+   "rate": 0.9649122807017544,
+   "lo": 0.9122807017543859,
+   "hi": 1.0,
+   "num": 55,
+   "den": 57,
+   "n_bases": 57
+  },
+  "us_claim_up": {
+   "rate": 1.0,
+   "lo": 1.0,
+   "hi": 1.0,
+   "num": 99,
+   "den": 99,
+   "n_bases": 99
+  },
+  "ns": {
+   "rate": 0.9794871794871794,
+   "lo": 0.9536082474226805,
+   "hi": 1.0,
+   "num": 191,
+   "den": 195,
+   "n_bases": 99
+  }
+ }
+]
