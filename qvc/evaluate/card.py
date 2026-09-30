@@ -45,7 +45,8 @@ def evaluate(
     }
     by_family: dict[str, list[int]] = defaultdict(list)
     inv_hits: list[int] = []
-    e1_fail: list[int] = []
+    e1_evid_fail: list[int] = []
+    us_unit_fail: list[int] = []
     for row in items:
         v = verifier_fn(row["claim"], row["evidence"])
         if v == "PARSE_FAIL":
@@ -56,17 +57,19 @@ def evaluate(
         if cond == "INV-claim" and bid in c0_pass_bases:
             inv_hits.append(int(v == "PASS"))
             by_family[fam].append(int(v == "PASS"))
-        if cond.startswith("E1") and bid in c0_pass_bases:
-            e1_fail.append(int(v == "FAIL"))
+        if cond == "E1-evid" and bid in c0_pass_bases:
+            e1_evid_fail.append(int(v == "FAIL"))
+        if cond in ("E1-unit-claim", "E1-unit-evid", "E1-unit") and bid in c0_pass_bases:
+            us_unit_fail.append(int(v == "FAIL"))
     qi, qi_lo, qi_hi = _bootstrap_rate(inv_hits)
-    ns, ns_lo, ns_hi = _bootstrap_rate(e1_fail)
-    us = qi
+    ns, ns_lo, ns_hi = _bootstrap_rate(e1_evid_fail)
+    us, us_lo, us_hi = _bootstrap_rate(us_unit_fail)
     md = [
         "# Quantity Validity Card",
         "",
         f"- **QI** (INV-unit pass | C0): {_pct(qi)} [{_pct(qi_lo)}, {_pct(qi_hi)}] n={len(inv_hits)}",
-        f"- **NS** (E1 FAIL | C0): {_pct(ns)} [{_pct(ns_lo)}, {_pct(ns_hi)}] n={len(e1_fail)}",
-        f"- **US**: {_pct(us)}",
+        f"- **NS** (E1-evid FAIL | C0): {_pct(ns)} [{_pct(ns_lo)}, {_pct(ns_hi)}] n={len(e1_evid_fail)}",
+        f"- **US** (E1-unit FAIL | C0): {_pct(us)} [{_pct(us_lo)}, {_pct(us_hi)}] n={len(us_unit_fail)}",
         "",
     ]
     for fam, vals in sorted(by_family.items()):
@@ -77,8 +80,10 @@ def evaluate(
         "NS": ns,
         "NS_ci": [ns_lo, ns_hi],
         "US": us,
+        "US_ci": [us_lo, us_hi],
         "n_inv": len(inv_hits),
-        "n_e1": len(e1_fail),
+        "n_e1": len(e1_evid_fail),
+        "n_us": len(us_unit_fail),
         "by_family": {k: _rate(sum(v), len(v)) for k, v in by_family.items()},
     }
     return {"json": payload, "markdown": "\n".join(md) + "\n"}
