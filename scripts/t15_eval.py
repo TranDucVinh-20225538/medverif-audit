@@ -44,13 +44,21 @@ def _normalize_rows(rows: list[dict]) -> list[dict]:
     return out
 
 
-def _score_pack(rows: list[dict], out: Path, *, use_t15: bool) -> None:
+def _log_progress(tag: str, n_done: int, total: int) -> None:
+    print(json.dumps({"t15": tag, "progress": n_done, "total": total}), flush=True)
+
+
+def _score_pack(rows: list[dict], out: Path, *, use_t15: bool, progress_tag: str) -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     rows = _normalize_rows(rows)
-    todo = [r for r in rows if r.get("valid", True) and r["instance_id"] not in done_ids(out)]
+    already = done_ids(out)
+    todo = [r for r in rows if r.get("valid", True) and r["instance_id"] not in already]
     todo = [r for r in todo if (r.get("claim") or "").strip() and (r.get("evidence") or "").strip()]
+    total_target = len(already) + len(todo)
     if not todo:
+        _log_progress(progress_tag, len(already), total_target)
         return
+    _log_progress(progress_tag, len(already), total_target)
     if use_t15:
         from verifiers import t15_minicheck_roberta as t15
 
@@ -58,6 +66,9 @@ def _score_pack(rows: list[dict], out: Path, *, use_t15: bool) -> None:
         step = 8
         for off in range(0, len(todo), step):
             append_jsonl(out, t15.score_batch(bundle, todo[off : off + step]))
+            n = len(already) + min(off + step, len(todo))
+            if off == 0 or (off // step) % 25 == 0 or off + step >= len(todo):
+                _log_progress(progress_tag, n, total_target)
     else:
         from verifiers import t6a_minicheck as mc
 
@@ -65,6 +76,9 @@ def _score_pack(rows: list[dict], out: Path, *, use_t15: bool) -> None:
         step = 4
         for off in range(0, len(todo), step):
             append_jsonl(out, mc.score_batch(model, todo[off : off + step], "t6a_minicheck_roberta"))
+            n = len(already) + min(off + step, len(todo))
+            if off == 0 or (off // step) % 50 == 0 or off + step >= len(todo):
+                _log_progress(progress_tag, n, total_target)
 
 
 def main() -> None:
@@ -75,12 +89,20 @@ def main() -> None:
         default="all",
         help="comma-separated pack names or 'all' (default)",
     )
+    parser.add_argument(
+        "--aggrefact-only",
+        action="store_true",
+        help="score LLM-AggreFact test split only (resume-friendly)",
+    )
     args = parser.parse_args()
 
     raw_root = ROOT / "results/raw/t15"
     status_lines = ["# T15 evaluation (auto draft)", ""]
 
     want = {p.strip() for p in args.packs.split(",")} if args.packs != "all" else None
+    if args.aggrefact_only:
+        want = set()
+
     for name, path in PACKS:
         if want is not None and name not in want:
             continue
@@ -90,8 +112,8 @@ def main() -> None:
         rows = read_jsonl(path)
         base_out = raw_root / f"base_{name}.jsonl"
         ft_out = raw_root / f"ft_{name}.jsonl"
-        _score_pack(rows, base_out, use_t15=False)
-        _score_pack(rows, ft_out, use_t15=True)
+        _score_pack(rows, base_out, use_t15=False, progress_tag=f"base_{name}")
+        _score_pack(rows, ft_out, use_t15=True, progress_tag=f"ft_{name}")
         status_lines.append(
             f"- **{name}:** base `{base_out.relative_to(ROOT)}` ({len(done_ids(base_out))} rows), "
             f"ft `{ft_out.relative_to(ROOT)}` ({len(done_ids(ft_out))} rows)"
@@ -99,13 +121,16 @@ def main() -> None:
 
     # LLM-AggreFact test regression (balanced acc) when test split exists
     agg_test = ROOT / "data/t8/aggrefact/test.jsonl"
-    if agg_test.is_file():
+    run_agg = agg_test.is_file() and (args.aggrefact_only or args.packs == "all")
+    if run_agg:
         rows = read_jsonl(agg_test)
         for tag, use_t15 in (("base", False), ("ft", True)):
             out = raw_root / f"{tag}_aggrefact_test.jsonl"
-            _score_pack(rows, out, use_t15=use_t15)
+            _score_pack(rows, out, use_t15=use_t15, progress_tag=f"{tag}_aggrefact_test")
         status_lines.append("- **AggreFact test:** scored under `results/raw/t15/*_aggrefact_test.jsonl`")
-    else:
+    elif args.aggrefact_only:
+        status_lines.append("- **AggreFact:** missing `data/t8/aggrefact/test.jsonl`")
+    elif not agg_test.is_file() and args.packs == "all":
         status_lines.append("- **AggreFact:** skipped (run `scripts/t8_download_aggrefact.py` first)")
 
     status_lines += [

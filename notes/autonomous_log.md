@@ -13,3 +13,4 @@
 | 30/9 AM | t15 | duplicate AggreFact lines | `jsonl_dedupe_instance.py` + resume eval | — |
 | 30/9 AM | T20–T23 | — | gated on 6 prerequisites (`notes/t20_t23_gate.md`) | — |
 | 30/9 10:30 | 61514→61523 | bespoke packs before cal | `lane_b_bespoke_calibration_gate.py`; cal-first in `run_lane_b_bespoke_gpu.sh`; **98.9%** (n=93) | — |
+| 30/9 ~11:35 | t15_eval | stuck at 14372 agg (T16 RAM hog) | kill T16 dup; `--aggrefact-only` + sbatch `run_t15_aggrefact.sbatch` | — |
