@@ -1,0 +1,7 @@
+{
+  "n": 80,
+  "filled_rows": 80,
+  "cap_usd": 2.0,
+  "model": "mistralai/mistral-small-3.2-24b-instruct",
+  "status": "bm25+or"
+}
