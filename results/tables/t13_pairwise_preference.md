@@ -26,8 +26,8 @@ Cells: **P(wrong ≥ correct)** [95% cluster-bootstrap CI] **(n=…)**; **ties c
 | Bespoke-MiniCheck-7B | 7B fine-tuned checker | continuous | 0.227 [0.045, 0.409] (n=22) | 0.226 [0.129, 0.339] (n=62) | 0.028 [0.000, 0.065] (n=107) |
 | Llama-3.1-8B (RAGAS) | LLM judges | continuous | 0.500 [0.364, 0.636] (n=22) | 0.484 [0.411, 0.556] (n=62) | 0.274 [0.226, 0.321] (n=106) |
 | GPT-4o-mini (MedScore) | LLM judges | continuous | 0.318 [0.227, 0.409] (n=22) | 0.347 [0.274, 0.419] (n=62) | 0.290 [0.238, 0.336] (n=107) |
-| Mistral-Small-24B (MedScore) | LLM judges | continuous | 0.205 [0.114, 0.295] (n=22) | 0.169 [0.113, 0.234] (n=62) | 0.056 [0.028, 0.089] (n=107) |
-| Llama-3.3-70B (RAGAS NLI) | LLM judges | continuous | 0.159 [0.068, 0.250] (n=22) | 0.137 [0.081, 0.202] (n=62) | 0.075 [0.042, 0.113] (n=106) |
+| Llama-3.3-70B (RAGAS NLI) | LLM judges | continuous | 0.262 [0.167, 0.381] (n=21) | 0.180 [0.123, 0.246] (n=61) | 0.229 [0.182, 0.276] (n=107) |
+| Mistral-Small-24B (MedScore) | LLM judges | continuous | 0.182 [0.091, 0.273] (n=22) | 0.169 [0.113, 0.234] (n=62) | 0.201 [0.154, 0.248] (n=107) |
 | GPT-4o-mini (RAGAS) | LLM judges | continuous | 0.114 [0.045, 0.205] (n=22) | 0.194 [0.137, 0.258] (n=62) | 0.145 [0.103, 0.187] (n=107) |
 | Mistral-Small-3.2-24B (RAGAS) | LLM judges | continuous | 0.091 [0.023, 0.182] (n=22) | 0.081 [0.040, 0.129] (n=62) | 0.266 [0.220, 0.313] (n=107) |
 | GPT-4o (MedScore) | LLM judges | continuous | 0.000 [0.000, 0.000] (n=22) | 0.032 [0.008, 0.065] (n=62) | 0.435 [0.402, 0.463] (n=107) |
@@ -51,7 +51,7 @@ Cells: **P(wrong ≥ correct)** [95% cluster-bootstrap CI] **(n=…)**; **ties c
 | Mistral-Small-24B (MedScore) | 0.005 [0.000, 0.014] (n=107) | 0.175 [0.075, 0.275] (n=20) |
 | GPT-4o (MedScore) | 0.009 [0.000, 0.023] (n=107) | 0.075 [0.000, 0.150] (n=20) |
 | GPT-4o-mini (MedScore) | 0.061 [0.028, 0.098] (n=107) | 0.275 [0.175, 0.375] (n=20) |
-| Llama-3.3-70B (RAGAS NLI) | 0.014 [0.000, 0.033] (n=107) | 0.200 [0.100, 0.300] (n=20) |
+| Llama-3.3-70B (RAGAS NLI) | 0.038 [0.014, 0.066] (n=106) | 0.200 [0.100, 0.300] (n=20) |
 | Claude Sonnet 4.6 (RAGAS NLI) | 0.009 [0.000, 0.023] (n=107) | 0.000 [0.000, 0.000] (n=20) |
 | GPT-4o-mini (RAGAS) | 0.056 [0.028, 0.089] (n=107) | 0.075 [0.000, 0.175] (n=20) |
 | Claude Haiku 4.5 (RAGAS) | 0.023 [0.005, 0.047] (n=107) | 0.000 [0.000, 0.000] (n=20) |

@@ -46,8 +46,6 @@ SCORE_DIRS = [
     ROOT / "results/raw/t3_t6b",
     ROOT / "results/raw/t6b/full",
     ROOT / "results/raw/t2_full",
-    ROOT / "results/raw_m1",
-    ROOT / "results/raw_m1/t7",
     ROOT / "results/raw",
 ]
 

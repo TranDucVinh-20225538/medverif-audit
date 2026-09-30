@@ -108,7 +108,10 @@ def main() -> None:
         # Also merge T14 raw scores (same slug filenames under results/raw/t14)
         t14_dir = ROOT / "results/raw/t14"
         if t14_dir.is_dir():
-            for name in (f"{slug}.jsonl", f"{slug}.llama.jsonl"):
+            names = [f"{slug}.jsonl", f"{slug}.llama.jsonl"]
+            if slug.startswith("t6a_"):
+                names.append(f"t6_{slug[4:]}.jsonl")
+            for name in names:
                 path = t14_dir / name
                 if path.is_file():
                     for row in read_jsonl(path):
