@@ -1,0 +1,62 @@
+{
+ "results/raw_node30/t6_minicheck_deberta.jsonl": {
+  "rows": 561,
+  "replaced": 536,
+  "verdict_flips": 2,
+  "backup": "results/raw_node30/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ },
+ "results/raw/e2_main/t6_minicheck_deberta.jsonl": {
+  "rows": 119,
+  "replaced": 115,
+  "verdict_flips": 1,
+  "backup": "results/raw/e2_main/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ },
+ "results/raw/t3/t6_minicheck_deberta.jsonl": {
+  "rows": 59,
+  "replaced": 59,
+  "verdict_flips": 0,
+  "backup": "results/raw/t3/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ },
+ "results/raw_node30/t3/t6_minicheck_deberta.jsonl": {
+  "rows": 59,
+  "replaced": 59,
+  "verdict_flips": 0,
+  "backup": "results/raw_node30/t3/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ },
+ "results/raw/t4_eco/t6_minicheck_deberta.jsonl": {
+  "rows": 438,
+  "replaced": 438,
+  "verdict_flips": 5,
+  "backup": "results/raw/t4_eco/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ },
+ "results/raw_node30/t4_eco/t6_minicheck_deberta.jsonl": {
+  "rows": 438,
+  "replaced": 438,
+  "verdict_flips": 5,
+  "backup": "results/raw_node30/t4_eco/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ },
+ "results/raw/t4c_eco/t6_minicheck_deberta.jsonl": {
+  "rows": 139,
+  "replaced": 139,
+  "verdict_flips": 1,
+  "backup": "results/raw/t4c_eco/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ },
+ "results/raw_node30/t4c_eco/t6_minicheck_deberta.jsonl": {
+  "rows": 139,
+  "replaced": 139,
+  "verdict_flips": 1,
+  "backup": "results/raw_node30/t4c_eco/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ },
+ "results/raw/t7/t6_minicheck_deberta.jsonl": {
+  "rows": 230,
+  "replaced": 230,
+  "verdict_flips": 1,
+  "backup": "results/raw/t7/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ },
+ "results/raw_node30/t7/t6_minicheck_deberta.jsonl": {
+  "rows": 230,
+  "replaced": 230,
+  "verdict_flips": 1,
+  "backup": "results/raw_node30/t7/t6_minicheck_deberta.pre_cpuverif.quarantined.jsonl"
+ }
+}
