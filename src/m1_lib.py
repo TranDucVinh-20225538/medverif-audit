@@ -1,4 +1,4 @@
-"""M1-lib: quantulum3 quantity extraction + pint conversion (independent of M1 regex)."""
+"""M1-lib: quantulum3 quantity extraction + dimension-aware canonicalization (M1-aligned)."""
 
 from __future__ import annotations
 
@@ -57,40 +57,27 @@ def apply_unit_aliases(text: str) -> str:
     return out
 
 
-def _get_ureg():
-    import pint  # noqa: PLC0415
+def _canonical_for_gate(surface: str) -> str | None:
+    """Same canonical dose token as M1 (mass→mg, volume→mL, mg/kg, /day, /dose)."""
+    from quantity_norm import canonicalize_dose_span  # noqa: PLC0415
+    from text_utils import DOSE_RE  # noqa: PLC0415
 
-    ureg = pint.UnitRegistry(autoconvert_offset_to_baseunit=True)
-    ureg.define("mcg = microgram = µg = μg")
-    return ureg
-
-
-_MASS = {"mg": 1.0, "g": 1000.0, "mcg": 0.001, "µg": 0.001, "μg": 0.001}
-
-
-def _hand_to_mg(value: float, unit_str: str) -> str | None:
-    u = unit_str.strip().split("/")[0]
-    if u not in _MASS:
-        return None
-    mg = value * _MASS[u]
-    s = f"{mg:.6f}".rstrip("0").rstrip(".")
-    return f"{s} mg"
-
-
-def _to_mg_string(value: float, unit_str: str) -> str | None:
+    s = apply_unit_aliases(surface.strip())
+    m = DOSE_RE.search(s)
+    if not m:
+        m = _HEURISTIC.search(s)
+        if not m:
+            return None
+        num, unit = m.group(1), m.group(2).strip()
+    else:
+        num, unit = m.group(1), m.group(2)
     try:
-        ureg = _get_ureg()
-        q = value * ureg(unit_str)
-        mg = q.to("milligram").magnitude
-        s = f"{mg:.6f}".rstrip("0").rstrip(".")
-        return f"{s} mg"
-    except ImportError:
-        return _hand_to_mg(value, unit_str.split("/")[0])
+        return canonicalize_dose_span(num, unit)
     except Exception as exc:
         from m1_parse_errors import log_parse_error  # noqa: PLC0415
 
-        log_parse_error("m1_lib.pint", f"{value} {unit_str}", exc)
-        return _hand_to_mg(value, unit_str.split("/")[0])
+        log_parse_error("m1_lib.canonical", surface.strip(), exc)
+        return None
 
 
 def _extract_quantulum(text: str) -> list[tuple[int, int, str]]:
@@ -115,29 +102,14 @@ def extract_lib_spans(text: str) -> tuple[LibSpan, ...]:
     text = apply_unit_aliases(text or "")
     try:
         raw = _extract_quantulum(text)
-        backend = "quantulum3"
     except ImportError:
         raw = _extract_heuristic(text)
-        backend = "heuristic_fallback"
     spans: list[LibSpan] = []
     for start, end, surface in raw:
-        parsed = False
-        canon = None
-        m = _HEURISTIC.search(surface) if backend == "heuristic_fallback" else re.match(
-            r"^\s*(\d+(?:\.\d+)?)\s*(.+?)\s*$", surface.strip()
+        canon = _canonical_for_gate(surface)
+        spans.append(
+            LibSpan(surface=surface, start=start, end=end, canonical_mg=canon, parsed=canon is not None)
         )
-        if m:
-            try:
-                val = float(m.group(1).replace(",", ""))
-                unit = m.group(2).strip()
-                canon = _to_mg_string(val, unit)
-                parsed = canon is not None
-            except Exception as exc:
-                from m1_parse_errors import log_parse_error  # noqa: PLC0415
-
-                log_parse_error("m1_lib.extract", surface, exc)
-                parsed = False
-        spans.append(LibSpan(surface=surface, start=start, end=end, canonical_mg=canon, parsed=parsed))
     return tuple(spans)
 
 
@@ -190,55 +162,11 @@ def edited_span_surfaces(row: dict) -> list[str]:
 
 
 def m1_canonical_mg_for_surface(surface: str) -> str | None:
-    from quantity_norm import canonicalize_dose_span  # noqa: PLC0415
-    from text_utils import DOSE_RE as dose_re, parse_decimal  # noqa: PLC0415
-
-    m = dose_re.search(surface.strip())
-    if not m:
-        return None
-    try:
-        canon = canonicalize_dose_span(m.group(1), m.group(2))
-        m2 = dose_re.search(canon)
-        if not m2:
-            return None
-        val = float(parse_decimal(m2.group(1)))
-        unit = m2.group(2).split("/")[0].lower()
-        return _to_mg_string(val, unit)
-    except Exception as exc:
-        from m1_parse_errors import log_parse_error  # noqa: PLC0415
-
-        log_parse_error("m1.canonical_mg", surface.strip(), exc)
-        return None
+    return _canonical_for_gate(surface)
 
 
 def lib_canonical_mg_for_surface(surface: str) -> str | None:
-    s = apply_unit_aliases(surface.strip())
-    m = _HEURISTIC.search(s)
-    if not m:
-        try:
-            from quantulum3 import parser as qp  # noqa: PLC0415
-
-            for q in qp.parse(s):
-                if q.unit and q.value is not None:
-                    unit = str(q.unit.name).lower()
-                    if unit in ("gram", "grams"):
-                        unit = "g"
-                    if unit in ("milligram", "milligrams"):
-                        unit = "mg"
-                    if unit in ("microgram", "micrograms"):
-                        unit = "mcg"
-                    return _to_mg_string(float(q.value), unit)
-        except ImportError:
-            return None
-        return None
-    try:
-        val = float(m.group(1).replace(",", ""))
-        return _to_mg_string(val, m.group(2).strip())
-    except Exception as exc:
-        from m1_parse_errors import log_parse_error  # noqa: PLC0415
-
-        log_parse_error("m1_lib.lib_canonical", surface.strip(), exc)
-        return None
+    return _canonical_for_gate(surface)
 
 
 def instance_in_intersection(row: dict, dose_re: re.Pattern | None = None) -> bool:

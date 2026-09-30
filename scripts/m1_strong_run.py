@@ -29,6 +29,7 @@ GATE_CACHE = ROOT / "results/cache/m1_strong_gate.json"
 PREREG = ROOT / "notes/m1_preregistration.md"
 AMEND1 = ROOT / "notes/m1_prereg_amendment1.md"
 AMEND2 = ROOT / "notes/m1_prereg_amendment2.md"
+AMEND4 = ROOT / "notes/m1_prereg_amendment4.md"
 T6_MANIFEST = ROOT / "notes/t6a_eco_checkers.json"
 T9_SCORES_BASE = ROOT / "results/raw/t9/alignscore_rail.jsonl"
 T9_SCORES_LARGE = ROOT / "results/raw/t9/alignscore_rail_large.jsonl"
@@ -383,7 +384,7 @@ def render_primary_table(checkers: dict[str, dict]) -> list[str]:
         "| Model | Side | NS_x10 FAIL | US_up before FAIL | US_up after FAIL | NS_div10 FAIL | US_down FAIL | Bind? | n paired (McN) | p≈ |",
         "| --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |",
     ]
-    for slug in PRIMARY_SLUGS:
+    for slug in primary_slugs_for_run():
         if slug not in checkers:
             continue
         ch = checkers[slug]
@@ -487,8 +488,24 @@ def render_nemo() -> list[str]:
     return lines
 
 
+LEGACY_PRIMARY = frozenset({"t6a_summac_zs", "t6a_granite_guardian"})
+
+
+def primary_slugs_for_run() -> tuple[str, ...]:
+    if "--skip-legacy" in sys.argv:
+        return tuple(s for s in PRIMARY_SLUGS if s not in LEGACY_PRIMARY)
+    return PRIMARY_SLUGS
+
+
 def main() -> None:
+    global OUT_TABLE, OUT_NOTE, OUT_JSON
     refresh_gate = "--refresh-gate" in sys.argv
+    skip_legacy = "--skip-legacy" in sys.argv
+    final_mode = "--final" in sys.argv
+    if final_mode:
+        OUT_TABLE = ROOT / "results/tables/m1_strong_final.md"
+        OUT_NOTE = ROOT / "notes/m1_strong_final_report.md"
+        OUT_JSON = ROOT / "notes/m1_strong_final.json"
     try:
         import quantulum3  # noqa: F401
         import pint  # noqa: F401
@@ -498,7 +515,18 @@ def main() -> None:
         lib_backend = f"partial ({exc})"
 
     cache = load_gate_cache(refresh_gate)
-    print(f"[m1-strong] gate cache entries: {len(cache)} refresh={refresh_gate}", flush=True)
+    # Amendment 4 + dimension-aware M1-lib not landed until AMEND4 exists and lib matches quantity_norm.
+    m1_lib_fixed = AMEND4.is_file() and "_canonical_for_gate" in (ROOT / "src/m1_lib.py").read_text()
+    final_mode = "--final" in sys.argv
+    cohort_label = (
+        "post_amendment4_fixed_gate"
+        if (refresh_gate and m1_lib_fixed)
+        else "pre_amendment4"
+    )
+    print(
+        f"[m1-strong] gate cache entries: {len(cache)} refresh={refresh_gate} cohort={cohort_label}",
+        flush=True,
+    )
 
     c0_rows = load_rows(MAIN, pred=lambda r: r.get("condition") == "C0")
     t7_rows = load_rows(T7)
@@ -550,7 +578,8 @@ def main() -> None:
     ns_div10_claim = on_bases(ns_div10_claim_raw, bases, cache)
     ns_div10_evid = on_bases(ns_div10_evid_raw, bases, cache)
 
-    all_slugs = PRIMARY_SLUGS + SECONDARY_SLUGS
+    primary_slugs = primary_slugs_for_run()
+    all_slugs = primary_slugs + SECONDARY_SLUGS
     checkers: dict[str, dict] = {}
     for slug in all_slugs:
         print(f"[m1-strong] {verifier_display_name(slug)} ({slug})", flush=True)
@@ -581,21 +610,45 @@ def main() -> None:
         "preregistration": str(PREREG),
         "amendment1": str(AMEND1),
         "amendment2": str(AMEND2),
+        "amendment4": str(AMEND4) if AMEND4.is_file() else None,
         "decision_M": "exclude t6a_summac_conv, t6a_hhem from primary",
         "criterion_verbatim": CRITERION,
         "m1_lib_backend": lib_backend,
         "gate_cache": str(GATE_CACHE),
         "gate_bases_n": len(bases),
+        "cohort_label": cohort_label,
+        "amendment4_present": AMEND4.is_file(),
+        "m1_lib_dimension_fix": m1_lib_fixed,
         "coverage_by_pack": cov_raw,
         "checkers": checkers,
     }
+    pre_arch = ROOT / "notes/m1_strong_report_pre_amendment4.json"
+    if final_mode and pre_arch.is_file():
+        pre = json.loads(pre_arch.read_text())
+        payload["cohort_pre_amendment4"] = {
+            "cohort_label": pre.get("cohort_label", "pre_amendment4"),
+            "gate_bases_n": pre.get("gate_bases_n"),
+            "coverage_by_pack": pre.get("coverage_by_pack"),
+            "artifact_json": str(pre_arch.relative_to(ROOT)),
+            "artifact_md": "results/tables/m1_strong_pre_amendment4.md",
+        }
 
     lines = [
-        "# M1-strong (steps 1–2)",
+        "# M1-strong (steps 1–2)" + (" — **final**" if final_mode else ""),
         "",
-        f"Pre-registration: `{PREREG.relative_to(ROOT)}` · Amendments: `{AMEND1.relative_to(ROOT)}`, `{AMEND2.relative_to(ROOT)}`",
+        f"**Cohort:** `{cohort_label}` · amendment4 file: {AMEND4.is_file()} · M1-lib dimension fix in code: {m1_lib_fixed}",
+        "",
+        f"Pre-registration: `{PREREG.relative_to(ROOT)}` · Amendments: `{AMEND1.relative_to(ROOT)}`, `{AMEND2.relative_to(ROOT)}`"
+        + (f", `{AMEND4.relative_to(ROOT)}`" if AMEND4.is_file() else ""),
         f"M1-lib backend: **{lib_backend}** · Gate bases: **{len(bases)}** (gate cache refreshed={refresh_gate})",
-        "",
+    ]
+    if skip_legacy:
+        lines += [
+            "",
+            "**Note:** SummaC-ZS / Granite Guardian omitted (`--skip-legacy`); append after GPU legacy rescore.",
+            "",
+        ]
+    lines += [
         V_CODE_MAP,
         "",
         "## Criterion (verbatim)",
@@ -617,12 +670,28 @@ def main() -> None:
     lines.extend(render_secondary_table(checkers))
     lines.extend(v4_reconcile(checkers))
     lines.extend(render_nemo())
+    if final_mode and pre_arch.is_file():
+        pre = json.loads(pre_arch.read_text())
+        lines.extend(
+            [
+                "",
+                "## Dual cohort (amendment 4)",
+                "",
+                f"- **Pre-amendment-4 draft** (`pre_amendment4`, job 61606): gate bases **{pre.get('gate_bases_n')}** — "
+                f"`results/tables/m1_strong_pre_amendment4.md`",
+                f"- **Post-amendment-4 final** (`{cohort_label}`): gate bases **{len(bases)}** — this file.",
+                "",
+            ]
+        )
 
     OUT_TABLE.parent.mkdir(parents=True, exist_ok=True)
     OUT_TABLE.write_text("\n".join(lines) + "\n")
     OUT_NOTE.write_text(OUT_TABLE.read_text())
     OUT_JSON.write_text(json.dumps(payload, indent=2, default=float) + "\n")
-    finalize_and_abort(abort_packs=frozenset({"us_up_x1000", "us_down_unit"}))
+    finalize_and_abort(
+        abort_packs=frozenset({"us_up_x1000", "us_down_unit"}),
+        exit_on_fail=not skip_legacy,
+    )
     print(json.dumps({"wrote": str(OUT_TABLE), "checkers": len(checkers), "bases": len(bases)}, indent=2))
 
 
