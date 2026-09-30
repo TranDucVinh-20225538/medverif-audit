@@ -1,0 +1,421 @@
+{
+  "preregistration": "/data2/hpcshared/medverif-audit/notes/m1_preregistration.md",
+  "amendment": "/data2/hpcshared/medverif-audit/notes/m1_prereg_amendment1.md",
+  "criterion_verbatim": "Numeral binding is supported for a checker if US_up_after >= NS_x10 - 5 points AND US_down_after >= NS_div10 - 5 points, or the 95% cluster-bootstrap CIs overlap. US_after above NS is expected and not counted against. Evaluated on spans parsed by BOTH M1 and M1-lib.",
+  "m1_lib_backend": "quantulum3+pint",
+  "gate_cache": "/data2/hpcshared/medverif-audit/results/cache/m1_strong_gate.json",
+  "gate_bases_n": 104,
+  "coverage_by_pack": {
+    "us_up_x1000": {
+      "instances": 214,
+      "instances_gate_pass": 170,
+      "edited_target_spans": 430,
+      "spans_m1_only": 0,
+      "spans_m1_lib_only": 34,
+      "spans_both": 376
+    },
+    "us_down_unit": {
+      "instances": 150,
+      "instances_gate_pass": 150,
+      "edited_target_spans": 300,
+      "spans_m1_only": 0,
+      "spans_m1_lib_only": 0,
+      "spans_both": 300
+    },
+    "ns_x10_claim": {
+      "instances": 106,
+      "instances_gate_pass": 100,
+      "edited_target_spans": 212,
+      "spans_m1_only": 0,
+      "spans_m1_lib_only": 0,
+      "spans_both": 200
+    },
+    "ns_x10_evid": {
+      "instances": 106,
+      "instances_gate_pass": 100,
+      "edited_target_spans": 212,
+      "spans_m1_only": 0,
+      "spans_m1_lib_only": 0,
+      "spans_both": 200
+    },
+    "ns_div10_claim": {
+      "instances": 98,
+      "instances_gate_pass": 93,
+      "edited_target_spans": 196,
+      "spans_m1_only": 0,
+      "spans_m1_lib_only": 0,
+      "spans_both": 186
+    },
+    "ns_div10_evid": {
+      "instances": 98,
+      "instances_gate_pass": 93,
+      "edited_target_spans": 196,
+      "spans_m1_only": 0,
+      "spans_m1_lib_only": 0,
+      "spans_both": 186
+    }
+  },
+  "cohorts": {
+    "gate_bases": 104,
+    "us_up_n": 170,
+    "us_down_n": 150,
+    "ns_x10_claim_n": 100,
+    "ns_x10_evid_n": 100,
+    "ns_div10_claim_n": 93,
+    "ns_div10_evid_n": 93
+  },
+  "checkers": {
+    "v2a_minicheck": {
+      "label": "V2a",
+      "NS_x10_evid": {
+        "rate": 0.8333333333333334,
+        "lo": 0.7604166666666666,
+        "hi": 0.90625,
+        "num": 80,
+        "den": 96,
+        "n_bases": 96
+      },
+      "NS_div10_evid": {
+        "rate": 0.8888888888888888,
+        "lo": 0.8222222222222222,
+        "hi": 0.9444444444444444,
+        "num": 80,
+        "den": 90,
+        "n_bases": 90
+      },
+      "US_up_before": {
+        "rate": 0.673469387755102,
+        "lo": 0.6071428571428571,
+        "hi": 0.7397959183673469,
+        "num": 132,
+        "den": 196,
+        "n_bases": 98
+      },
+      "US_up_after": {
+        "rate": 0.7530120481927711,
+        "lo": 0.6927710843373494,
+        "hi": 0.8072289156626506,
+        "num": 125,
+        "den": 166,
+        "n_bases": 83
+      },
+      "US_down_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "numeral_binding_supported": true
+    },
+    "v3_alignscore": {
+      "label": "V3",
+      "NS_x10_evid": {
+        "rate": 0.8936170212765957,
+        "lo": 0.8297872340425532,
+        "hi": 0.9574468085106383,
+        "num": 84,
+        "den": 94,
+        "n_bases": 94
+      },
+      "NS_div10_evid": {
+        "rate": 0.9659090909090909,
+        "lo": 0.9204545454545454,
+        "hi": 1.0,
+        "num": 85,
+        "den": 88,
+        "n_bases": 88
+      },
+      "US_up_before": {
+        "rate": 0.8020833333333334,
+        "lo": 0.734375,
+        "hi": 0.8645833333333334,
+        "num": 154,
+        "den": 192,
+        "n_bases": 96
+      },
+      "US_up_after": {
+        "rate": 0.8780487804878049,
+        "lo": 0.823170731707317,
+        "hi": 0.926829268292683,
+        "num": 144,
+        "den": 164,
+        "n_bases": 82
+      },
+      "US_down_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "numeral_binding_supported": true
+    },
+    "t6_minicheck_roberta": {
+      "label": "MiniCheck-RoBERTa",
+      "NS_x10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "NS_div10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_up_before": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_up_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_down_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "numeral_binding_supported": null
+    },
+    "t6_alignscore_base": {
+      "label": "AlignScore-base",
+      "NS_x10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "NS_div10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_up_before": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_up_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_down_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "numeral_binding_supported": null
+    },
+    "t6_minicheck_deberta": {
+      "label": "MiniCheck-DeBERTa",
+      "NS_x10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "NS_div10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_up_before": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_up_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_down_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "numeral_binding_supported": null
+    },
+    "v2b_bespoke": {
+      "label": "Bespoke",
+      "NS_x10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "NS_div10_evid": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_up_before": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_up_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_down_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "numeral_binding_supported": null
+    },
+    "v1_medscore": {
+      "label": "V1-Mistral24B",
+      "NS_x10_evid": {
+        "rate": 0.93,
+        "lo": 0.88,
+        "hi": 0.98,
+        "num": 93,
+        "den": 100,
+        "n_bases": 100
+      },
+      "NS_div10_evid": {
+        "rate": 0.978494623655914,
+        "lo": 0.946236559139785,
+        "hi": 1.0,
+        "num": 91,
+        "den": 93,
+        "n_bases": 93
+      },
+      "US_up_before": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_up_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "US_down_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "numeral_binding_supported": null
+    },
+    "v4_ragas_nli": {
+      "label": "V4-Llama70B",
+      "NS_x10_evid": {
+        "rate": 0.9,
+        "lo": 0.84,
+        "hi": 0.96,
+        "num": 90,
+        "den": 100,
+        "n_bases": 100
+      },
+      "NS_div10_evid": {
+        "rate": 0.9230769230769231,
+        "lo": 0.8571428571428571,
+        "hi": 0.967032967032967,
+        "num": 84,
+        "den": 91,
+        "n_bases": 91
+      },
+      "US_up_before": {
+        "rate": 0.9113300492610837,
+        "lo": 0.8712871287128713,
+        "hi": 0.9505011461737306,
+        "num": 185,
+        "den": 203,
+        "n_bases": 102
+      },
+      "US_up_after": {
+        "rate": 0.9230769230769231,
+        "lo": 0.8816568047337278,
+        "hi": 0.9588235294117647,
+        "num": 156,
+        "den": 169,
+        "n_bases": 85
+      },
+      "US_down_after": {
+        "rate": null,
+        "lo": null,
+        "hi": null,
+        "num": 0,
+        "den": 0,
+        "n_bases": 0
+      },
+      "numeral_binding_supported": true
+    }
+  }
+}
