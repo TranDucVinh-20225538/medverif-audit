@@ -128,8 +128,13 @@ def main() -> None:
     failed_any = False
     with tempfile.TemporaryDirectory(prefix="t14_env_probe_") as tmp:
         probe_root = Path(tmp)
+        id_to_jsonl = {c["id"]: c["jsonl"] for c in json.loads(T6_MANIFEST.read_text())["checkers"]}
         for cid, legacy in CHECKERS:
-            existing = merged_score_rows(cid)
+            existing = {}
+            node30 = ROOT / "results/raw_node30" / id_to_jsonl.get(cid, f"{cid}.jsonl")
+            if node30.is_file():
+                existing = {r["instance_id"]: r for r in read_jsonl(node30)}
+            existing.update(merged_score_rows(cid))
             probe = score_probe(cid, legacy, sample, probe_root / cid)
             agree = 0
             compared = 0
