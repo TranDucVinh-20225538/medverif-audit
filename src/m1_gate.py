@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from m1_lib import edited_span_surfaces, lib_canonical_mg_for_surface, m1_canonical_mg_for_surface
-from text_utils import parse_decimal
+from m1_parse_errors import note_span, set_pack
 
 
 @dataclass(frozen=True)
@@ -24,6 +24,7 @@ def _norm_surface(s: str) -> str:
 
 def target_span_gate(surface: str) -> SpanGateResult:
     s = _norm_surface(surface)
+    note_span()
     m1_mg = m1_canonical_mg_for_surface(s)
     lib_mg = lib_canonical_mg_for_surface(s)
     m1_ok = m1_mg is not None
@@ -47,8 +48,9 @@ def instance_gate(row: dict) -> tuple[bool, list[SpanGateResult]]:
     return ok, results
 
 
-def pack_coverage(rows: list[dict]) -> dict:
+def pack_coverage(rows: list[dict], *, pack_name: str = "unknown") -> dict:
     """Per-pack edited-span counts: M1-only, M1-lib-only, both."""
+    set_pack(pack_name)
     m1_only = lib_only = both = 0
     targets_n = 0
     inst_pass = 0

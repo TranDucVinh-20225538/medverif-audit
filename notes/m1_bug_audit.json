@@ -1,0 +1,33 @@
+{
+  "bug": "m1_canonical_mg_for_surface missing parse_decimal import (NameError swallowed)",
+  "introduced": "dd98330",
+  "fixed_before_non_na_m1_strong": true,
+  "shared_m1_normalizer_unaffected": "src/quantity_norm.py imports parse_decimal from text_utils",
+  "affected_code_path": "M1-strong gate only (m1_lib.m1_canonical_mg_for_surface \u2192 m1_gate)",
+  "not_affected": [
+    "results/raw_m1/* (apply_m1_pair / normalize_quantities)",
+    "results/raw/lane_b/m1_t7_e1_unit/*",
+    "Verifier score jsonl (M1 text rewrite at score time)"
+  ],
+  "artifact_superseded_if_generated_under_bug": [
+    "results/tables/m1_strong.md",
+    "notes/m1_strong_report.md",
+    "notes/m1_strong_report.json",
+    "results/cache/m1_strong_gate.json (partial runs)"
+  ],
+  "spans_false_m1_fail_under_bug_by_pack": {
+    "us_up_x1000": {
+      "edited_target_spans_dose_regex": 93
+    },
+    "ns_x10_claim": {
+      "edited_target_spans_dose_regex": 105
+    },
+    "ns_x10_evid": {
+      "edited_target_spans_dose_regex": 105
+    },
+    "ns_div10": {
+      "edited_target_spans_dose_regex": 97
+    }
+  },
+  "total_dose_regex_edited_spans_affected": 400
+}

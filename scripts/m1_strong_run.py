@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from analyze import _c0_pass_bases, _parsed, bootstrap_rate, read_jsonl  # noqa: E402
 from m1_gate import instance_gate, pack_coverage  # noqa: E402
+from m1_parse_errors import finalize_and_abort  # noqa: E402
 from review_filters import analysis_keep_row, flip_pi_ok_bases, inv_pi_ok_keys  # noqa: E402
 
 OUT_TABLE = ROOT / "results/tables/m1_strong.md"
@@ -243,12 +244,12 @@ def main() -> None:
     ]
 
     cov_raw = {
-        "us_up_x1000": pack_coverage(us_up_raw),
-        "us_down_unit": pack_coverage(us_down_raw),
-        "ns_x10_claim": pack_coverage(ns_x10_claim_raw),
-        "ns_x10_evid": pack_coverage(ns_x10_evid_raw),
-        "ns_div10_claim": pack_coverage(ns_div10_claim_raw),
-        "ns_div10_evid": pack_coverage(ns_div10_evid_raw),
+        "us_up_x1000": pack_coverage(us_up_raw, pack_name="us_up_x1000"),
+        "us_down_unit": pack_coverage(us_down_raw, pack_name="us_down_unit"),
+        "ns_x10_claim": pack_coverage(ns_x10_claim_raw, pack_name="ns_x10_claim"),
+        "ns_x10_evid": pack_coverage(ns_x10_evid_raw, pack_name="ns_x10_evid"),
+        "ns_div10_claim": pack_coverage(ns_div10_claim_raw, pack_name="ns_div10_claim"),
+        "ns_div10_evid": pack_coverage(ns_div10_evid_raw, pack_name="ns_div10_evid"),
     }
 
     bases = gate_bases(
@@ -369,6 +370,7 @@ def main() -> None:
     OUT_TABLE.write_text("\n".join(lines) + "\n")
     OUT_NOTE.write_text(OUT_TABLE.read_text())
     OUT_JSON.write_text(json.dumps(payload, indent=2) + "\n")
+    finalize_and_abort()
     print(json.dumps({"wrote": str(OUT_TABLE), "checkers": len(payload["checkers"]), "bases": len(bases)}, indent=2))
 
 

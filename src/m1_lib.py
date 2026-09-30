@@ -86,7 +86,10 @@ def _to_mg_string(value: float, unit_str: str) -> str | None:
         return f"{s} mg"
     except ImportError:
         return _hand_to_mg(value, unit_str.split("/")[0])
-    except Exception:
+    except Exception as exc:
+        from m1_parse_errors import log_parse_error  # noqa: PLC0415
+
+        log_parse_error("m1_lib.pint", f"{value} {unit_str}", exc)
         return _hand_to_mg(value, unit_str.split("/")[0])
 
 
@@ -129,7 +132,10 @@ def extract_lib_spans(text: str) -> tuple[LibSpan, ...]:
                 unit = m.group(2).strip()
                 canon = _to_mg_string(val, unit)
                 parsed = canon is not None
-            except Exception:
+            except Exception as exc:
+                from m1_parse_errors import log_parse_error  # noqa: PLC0415
+
+                log_parse_error("m1_lib.extract", surface, exc)
                 parsed = False
         spans.append(LibSpan(surface=surface, start=start, end=end, canonical_mg=canon, parsed=parsed))
     return tuple(spans)
@@ -154,7 +160,10 @@ def intersection_spans(text: str) -> tuple[str, ...]:
         try:
             canonicalize_dose_span(m.group(1), m.group(2))
             m1_ok.add(surf.strip().lower())
-        except Exception:
+        except Exception as exc:
+            from m1_parse_errors import log_parse_error  # noqa: PLC0415
+
+            log_parse_error("m1.intersection_spans", surf, exc)
             continue
     lib_ok: set[str] = set()
     for sp in extract_lib_spans(text):
@@ -195,7 +204,10 @@ def m1_canonical_mg_for_surface(surface: str) -> str | None:
         val = float(parse_decimal(m2.group(1)))
         unit = m2.group(2).split("/")[0].lower()
         return _to_mg_string(val, unit)
-    except Exception:
+    except Exception as exc:
+        from m1_parse_errors import log_parse_error  # noqa: PLC0415
+
+        log_parse_error("m1.canonical_mg", surface.strip(), exc)
         return None
 
 
@@ -219,8 +231,14 @@ def lib_canonical_mg_for_surface(surface: str) -> str | None:
         except ImportError:
             return None
         return None
-    val = float(m.group(1).replace(",", ""))
-    return _to_mg_string(val, m.group(2).strip())
+    try:
+        val = float(m.group(1).replace(",", ""))
+        return _to_mg_string(val, m.group(2).strip())
+    except Exception as exc:
+        from m1_parse_errors import log_parse_error  # noqa: PLC0415
+
+        log_parse_error("m1_lib.lib_canonical", surface.strip(), exc)
+        return None
 
 
 def instance_in_intersection(row: dict, dose_re: re.Pattern | None = None) -> bool:
