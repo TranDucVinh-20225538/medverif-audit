@@ -66,6 +66,7 @@ V_CODE_MAP = (
 
 MAIN_NS_DIRS = (
     ROOT / "results/raw/lane_b/m1_strong_ns",
+    ROOT / "results/raw/lane_b/main_e1_evid",
     ROOT / "results/raw_node30",
     ROOT / "results/raw/e2_main",
     ROOT / "results/raw",
@@ -75,6 +76,7 @@ MAIN_NS_DIRS = (
 T7_BEFORE_DIRS = (ROOT / "results/raw/t7", ROOT / "results/raw/e2_main", ROOT / "results/raw")
 US_AFTER_DIRS = (ROOT / "results/raw/lane_b/m1_t7_e1_unit", ROOT / "results/raw_m1/t7")
 T17_DIRS = (ROOT / "results/raw/t17", ROOT / "results/raw/lane_b/t17_downdose")
+DOWN_AFTER_DIRS = (ROOT / "results/raw/lane_b/m1_t17_unit_down",)
 
 _FLIP_Y = flip_pi_ok_bases()
 _INV_KEYS = inv_pi_ok_keys()
@@ -244,12 +246,67 @@ def paired_us_mcnemar(
     }
 
 
+def paired_us(
+    rows: list[dict],
+    c0_pass: set[str],
+    before: dict[str, str],
+    after: dict[str, str],
+    *,
+    condition: str,
+    id_substr: str | None = None,
+) -> dict:
+    """Pair = gated row on a C0-PASS base with a parsed before AND a parsed after verdict.
+
+    Rows missing either score are excluded from the pair (never imputed as PASS).
+    """
+    n_cand = before_missing = after_missing = 0
+    b = c = 0
+    by_base_before: dict[str, list[int]] = defaultdict(list)
+    by_base_after: dict[str, list[int]] = defaultdict(list)
+    for r in rows:
+        if r["base_id"] not in c0_pass or r.get("condition") != condition:
+            continue
+        iid = r.get("instance_id") or ""
+        if id_substr and id_substr not in iid:
+            continue
+        n_cand += 1
+        v0, v1 = before.get(iid), after.get(iid)
+        ok0 = bool(v0) and _parsed({"verdict": v0})
+        ok1 = bool(v1) and _parsed({"verdict": v1})
+        before_missing += int(not ok0)
+        after_missing += int(not ok1)
+        if not (ok0 and ok1):
+            continue
+        f0, f1 = v0 == "FAIL", v1 == "FAIL"
+        by_base_before[r["base_id"]].append(int(f0))
+        by_base_after[r["base_id"]].append(int(f1))
+        if not f0 and f1:
+            b += 1
+        elif f0 and not f1:
+            c += 1
+    groups0 = [(sum(g), len(g)) for g in by_base_before.values()]
+    groups1 = [(sum(g), len(g)) for g in by_base_after.values()]
+    _, p = mcnemar(b, c)
+    return {
+        "n_candidates": n_cand,
+        "n_before_scored": n_cand - before_missing,
+        "n_after_scored": n_cand - after_missing,
+        "n_after_missing": after_missing,
+        "n_pairs": sum(len(g) for g in by_base_after.values()),
+        "before": bootstrap_rate(groups0),
+        "after": bootstrap_rate(groups1),
+        "b_pass_to_fail": b,
+        "c_fail_to_pass": c,
+        "mcnemar_p_approx": p,
+    }
+
+
 def pct(st: dict) -> float | None:
     return None if not st or st.get("rate") is None else round(100 * st["rate"], 1)
 
 
 def ci_overlap(a: dict, b: dict) -> bool | None:
-    if not a.get("lo") or not b.get("lo"):
+    if a.get("lo") is None or b.get("lo") is None:
         return None
     return not (a["hi"] < b["lo"] or b["hi"] < a["lo"])
 
@@ -267,8 +324,10 @@ def fmt(st: dict) -> str:
     p = pct(st)
     if p is None:
         return "NA"
-    lo, hi = pct({"rate": st["lo"]}), pct({"rate": st["hi"]}) if st.get("lo") else (None, None)
-    ci = f" [{lo},{hi}]" if lo is not None else ""
+    if st.get("lo") is not None and st.get("hi") is not None:
+        ci = f" [{pct({'rate': st['lo']})},{pct({'rate': st['hi']})}]"
+    else:
+        ci = ""
     return f"{p:.1f}%{ci} ({st['num']}/{st['den']})"
 
 
@@ -325,12 +384,14 @@ def checker_block(
     us_before_dirs: tuple[Path, ...],
     us_after_dirs: tuple[Path, ...],
     t17_dirs: tuple[Path, ...],
+    down_after_dirs: tuple[Path, ...] = (),
 ) -> dict:
     ns_sc = merge_verdicts(slug, ns_dirs)
     ns_t17 = merge_verdicts(slug, t17_dirs)
     us_before = merge_verdicts(slug, us_before_dirs)
     us_after = merge_verdicts(slug, us_after_dirs)
     down_sc = merge_verdicts(slug, t17_dirs)
+    down_after = merge_verdicts(slug, down_after_dirs) if down_after_dirs else {}
 
     c0p = c0_pass_bases_for(bases, c0_rows, ns_sc, slug)
     side = {}
@@ -349,88 +410,125 @@ def checker_block(
     for label, rows, cond, sc, sub in specs:
         side[label] = fail_rate_side(rows, sc, c0p, condition=cond, id_substr=sub)
 
-    bind_claim = supported(side["US_up_after_claim"], side["NS_x10_claim"])
-    bind_evid = supported(side["US_up_after_evid"], side["NS_x10_evid"])
-    down_claim = supported(side["US_down_claim"], side["NS_div10_claim"])
-    down_evid = supported(side["US_down_evid"], side["NS_div10_evid"])
-    binding = None
-    if bind_claim is not None and bind_evid is not None:
-        up_ok = bind_claim and bind_evid
-        if down_claim is not None and down_evid is not None:
-            binding = up_ok and down_claim and down_evid
-        else:
-            binding = up_ok
-
-    mcn = {
-        "claim": paired_us_mcnemar(t7_claim_ids, iid_base, c0p, us_before, us_after),
-        "evid": paired_us_mcnemar(t7_evid_ids, iid_base, c0p, us_before, us_after),
+    paired = {
+        "up_claim": paired_us(us_up_gate, c0p, us_before, us_after, condition="E1-unit-claim"),
+        "up_evid": paired_us(us_up_gate, c0p, us_before, us_after, condition="E1-unit-evid"),
+        "down_claim": paired_us(
+            us_down_gate, c0p, down_sc, down_after, condition="E1-unit-down", id_substr="__claim__"
+        ),
+        "down_evid": paired_us(
+            us_down_gate, c0p, down_sc, down_after, condition="E1-unit-down", id_substr="__evid__"
+        ),
     }
+
+    def _and(*vals: bool | None) -> bool | None:
+        if any(v is None for v in vals):
+            return None
+        return all(vals)
+
+    bind = {}
+    for s in ("claim", "evid"):
+        up = supported(paired[f"up_{s}"]["after"], side[f"NS_x10_{s}"])
+        down = supported(paired[f"down_{s}"]["after"], side[f"NS_div10_{s}"])
+        bind[s] = {"up": up, "down": down, "side": _and(up, down)}
+    binding = _and(bind["claim"]["side"], bind["evid"]["side"])
+
     return {
         "display_name": verifier_display_name(slug),
         "slug": slug,
         "c0_pass_bases": len(c0p),
         "metrics": side,
-        "binding_claim": bind_claim,
-        "binding_evid": bind_evid,
+        "paired": paired,
+        "bind": bind,
+        "binding_claim": bind["claim"]["side"],
+        "binding_evid": bind["evid"]["side"],
         "binding_overall": binding,
-        "mcnemar": mcn,
     }
 
 
-def render_primary_table(checkers: dict[str, dict]) -> list[str]:
+def _paired_cells(pr: dict) -> str:
+    p = pr["mcnemar_p_approx"]
+    p_s = f"{p:.3g}" if p is not None else "—"
+    return (
+        f"{fmt(pr['before'])} | {fmt(pr['after'])} | "
+        f"{pr['n_pairs']} / {pr['n_after_scored']} / {pr['n_after_missing']} | "
+        f"{pr['b_pass_to_fail']}/{pr['c_fail_to_pass']} | {p_s}"
+    )
+
+
+def render_checker_table(checkers: dict[str, dict], slugs: tuple[str, ...], title: str) -> list[str]:
     lines = [
-        "## Primary — small fine-tuned checkers (decision M: SummaC-Conv & HHEM excluded)",
         "",
-        "| Model | Side | NS_x10 FAIL | US_up before FAIL | US_up after FAIL | NS_div10 FAIL | US_down FAIL | Bind? | n paired (McN) | p≈ |",
-        "| --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |",
+        f"## {title}",
+        "",
+        "Paired rule: a pair needs a parsed BEFORE and a parsed AFTER-M1 verdict on a gated row of a C0-PASS base; "
+        "rows missing either score are excluded, never counted as PASS. "
+        "`n` = n_pairs / n_after_scored / n_after_missing (of gated candidates). "
+        "b = PASS→FAIL, c = FAIL→PASS (McNemar, continuity-corrected).",
+        "",
+        "### US_up (×1000) vs NS_x10",
+        "",
+        "| Model | Side | NS_x10 FAIL | US_up before | US_up after | n | b/c | p≈ | Bind up |",
+        "| --- | --- | --- | --- | --- | --- | --- | ---: | --- |",
     ]
-    for slug in primary_slugs_for_run():
+    for slug in slugs:
         if slug not in checkers:
             continue
         ch = checkers[slug]
-        name = ch["display_name"]
-        for side_key, side_label, ns_k, us_a_k, ns_d_k, us_d_k, bind_k, mcn_k in (
-            ("claim", "CLAIM", "NS_x10_claim", "US_up_after_claim", "NS_div10_claim", "US_down_claim", "binding_claim", "claim"),
-            ("evid", "EVID", "NS_x10_evid", "US_up_after_evid", "NS_div10_evid", "US_down_evid", "binding_evid", "evid"),
-        ):
-            m = ch["metrics"]
-            mc = ch["mcnemar"][mcn_k]
-            p = mc["mcnemar_p_approx"]
-            p_s = f"{p:.3g}" if p is not None else "—"
-            before_k = "US_up_before_claim" if side_key == "claim" else "US_up_before_evid"
+        for s, lab in (("claim", "CLAIM"), ("evid", "EVID")):
             lines.append(
-                f"| {name} | {side_label} | {fmt(m[ns_k])} | {fmt(m[before_k])} | {fmt(m[us_a_k])} | "
-                f"{fmt(m[ns_d_k])} | {fmt(m[us_d_k])} | {ch[bind_k]} | {mc['n_paired']} ({mc['n_unpaired_dropped']} drop) | {p_s} |"
+                f"| {ch['display_name']} | {lab} | {fmt(ch['metrics'][f'NS_x10_{s}'])} | "
+                f"{_paired_cells(ch['paired'][f'up_{s}'])} | {ch['bind'][s]['up']} |"
             )
+    lines += [
+        "",
+        "### US_down (unit-down) vs NS_div10",
+        "",
+        "| Model | Side | NS_div10 FAIL | US_down before | US_down after | n | b/c | p≈ | Bind down |",
+        "| --- | --- | --- | --- | --- | --- | --- | ---: | --- |",
+    ]
+    for slug in slugs:
+        if slug not in checkers:
+            continue
+        ch = checkers[slug]
+        for s, lab in (("claim", "CLAIM"), ("evid", "EVID")):
+            lines.append(
+                f"| {ch['display_name']} | {lab} | {fmt(ch['metrics'][f'NS_div10_{s}'])} | "
+                f"{_paired_cells(ch['paired'][f'down_{s}'])} | {ch['bind'][s]['down']} |"
+            )
+    lines += [
+        "",
+        "### Bind? (criterion uses AFTER values only)",
+        "",
+        "Side = Bind up AND Bind down, where Bind up compares **US_up after** with NS_x10 and Bind down compares "
+        "**US_down after** with NS_div10 (pass if after >= NS - 5 points, or 95% CIs overlap). "
+        "None = an input is NA (e.g. after-M1 scores missing).",
+        "",
+        "| Model | CLAIM (up, down → side) | EVID (up, down → side) | Overall |",
+        "| --- | --- | --- | --- |",
+    ]
+    for slug in slugs:
+        if slug not in checkers:
+            continue
+        ch = checkers[slug]
+        bc, be = ch["bind"]["claim"], ch["bind"]["evid"]
+        lines.append(
+            f"| {ch['display_name']} | {bc['up']}, {bc['down']} → **{bc['side']}** | "
+            f"{be['up']}, {be['down']} → **{be['side']}** | **{ch['binding_overall']}** |"
+        )
     return lines
+
+
+def render_primary_table(checkers: dict[str, dict]) -> list[str]:
+    return render_checker_table(
+        checkers,
+        primary_slugs_for_run(),
+        "Primary — small fine-tuned checkers (decision M: SummaC-Conv & HHEM excluded)",
+    )
 
 
 def render_secondary_table(checkers: dict[str, dict]) -> list[str]:
-    lines = [
-        "",
-        "## Secondary — LLM judges (non-primary; same splits)",
-        "",
-        "| Model | Side | NS_x10 FAIL | US_up before | US_up after | NS_div10 | US_down | Bind? | n paired | p≈ |",
-        "| --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |",
-    ]
-    for slug in SECONDARY_SLUGS:
-        if slug not in checkers:
-            continue
-        ch = checkers[slug]
-        name = ch["display_name"]
-        for side_label, ns_k, before_k, us_a_k, ns_d_k, us_d_k, bind_k, mcn_k in (
-            ("CLAIM", "NS_x10_claim", "US_up_before_claim", "US_up_after_claim", "NS_div10_claim", "US_down_claim", "binding_claim", "claim"),
-            ("EVID", "NS_x10_evid", "US_up_before_evid", "US_up_after_evid", "NS_div10_evid", "US_down_evid", "binding_evid", "evid"),
-        ):
-            m = ch["metrics"]
-            mc = ch["mcnemar"][mcn_k]
-            p = mc["mcnemar_p_approx"]
-            p_s = f"{p:.3g}" if p is not None else "—"
-            lines.append(
-                f"| {name} | {side_label} | {fmt(m[ns_k])} | {fmt(m[before_k])} | {fmt(m[us_a_k])} | "
-                f"{fmt(m[ns_d_k])} | {fmt(m[us_d_k])} | {ch[bind_k]} | {mc['n_paired']} ({mc['n_unpaired_dropped']} drop) | {p_s} |"
-            )
-    return lines
+    return render_checker_table(checkers, SECONDARY_SLUGS, "Secondary — LLM judges (non-primary; same splits)")
 
 
 def v4_reconcile(checkers: dict[str, dict]) -> list[str]:
@@ -615,6 +713,7 @@ def main() -> None:
             us_before_dirs=T7_BEFORE_DIRS,
             us_after_dirs=us_after_dirs,
             t17_dirs=T17_DIRS,
+            down_after_dirs=DOWN_AFTER_DIRS,
         )
 
     payload = {

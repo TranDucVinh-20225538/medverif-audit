@@ -30,6 +30,7 @@ PACKS = (
     ("main_ext", ROOT / "data/main_ext/instances_main_ext.jsonl"),
     ("t14", ROOT / "data/t14/instances_t14.jsonl"),
     ("t17", ROOT / "data/v3/t17_downdose.jsonl"),
+    ("t7", ROOT / "data/t7/instances_e1_unit.jsonl"),
     ("t18", ROOT / "data/t18/instances_t18.jsonl"),
     ("t18_medical_expand", ROOT / "data/t18_medical_expand/instances_t18.jsonl"),
 )

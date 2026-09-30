@@ -18,6 +18,8 @@ MAIN = ROOT / "data/v3/instances_main.jsonl"
 T7_SRC = ROOT / "data/t7/instances_e1_unit.jsonl"
 OUT_T7 = ROOT / "data/lane_b/m1_t7_e1_unit.jsonl"
 OUT_MAIN = ROOT / "data/lane_b/m1_main_inv_e1_c0.jsonl"
+T17_SRC = ROOT / "data/v3/t17_downdose.jsonl"
+OUT_T17 = ROOT / "data/lane_b/m1_t17_unit_down.jsonl"
 
 
 def _m1_enrich(row: dict) -> dict:
@@ -56,7 +58,25 @@ def main() -> None:
         for row in main_rows:
             handle.write(json.dumps(row, ensure_ascii=False) + "\n")
 
-    print(json.dumps({"m1_t7_e1_unit": len(t7_rows), "m1_main_inv_e1_c0": len(main_rows)}, indent=2))
+    t17_rows = [
+        _m1_enrich(r)
+        for r in read_jsonl(T17_SRC)
+        if r.get("valid", True) and r.get("condition") == "E1-unit-down"
+    ]
+    with OUT_T17.open("w") as handle:
+        for row in sorted(t17_rows, key=lambda r: r["instance_id"]):
+            handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+    print(
+        json.dumps(
+            {
+                "m1_t7_e1_unit": len(t7_rows),
+                "m1_main_inv_e1_c0": len(main_rows),
+                "m1_t17_unit_down": len(t17_rows),
+            },
+            indent=2,
+        )
+    )
 
 
 if __name__ == "__main__":

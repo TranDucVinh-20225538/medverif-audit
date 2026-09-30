@@ -135,13 +135,13 @@ def metrics_block(block: list[dict], cond: set[str]) -> dict:
     us_claim_down = bootstrap_rate(
         _fail_groups(
             block,
-            lambda r: r["base_id"] in c0 and r.get("condition") == "E1-down10" and "__claim__" in r.get("instance_id", ""),
+            lambda r: r["base_id"] in c0 and r.get("condition") == "E1-unit-down" and "__claim__" in r.get("instance_id", ""),
         )
     )
     us_evid_down = bootstrap_rate(
         _fail_groups(
             block,
-            lambda r: r["base_id"] in c0 and r.get("condition") == "E1-down10" and "__evid__" in r.get("instance_id", ""),
+            lambda r: r["base_id"] in c0 and r.get("condition") == "E1-unit-down" and "__evid__" in r.get("instance_id", ""),
         )
     )
     c0_stat = bootstrap_rate(_pass_groups(block, lambda r: r.get("condition") == "C0"))
@@ -255,7 +255,7 @@ def main() -> None:
         "Metrics **| C0 PASS** except C0 row. Same definitions as `scripts/compute_paper_numbers.py`.",
         "",
         "| Leg | C0 bases scored | C0 PASS bases | QI all | QI nat | NS (E1-evid FAIL) | "
-        "US claim↑ | US evid↑ | US claim↓ | US evid↓ |",
+        "US claim↑ (×1000) | US evid↑ (×1000) | US claim↓ (unit-down) | US evid↓ (unit-down) |",
         "| --- | ---: | ---: | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for leg in ("base", "ft"):
