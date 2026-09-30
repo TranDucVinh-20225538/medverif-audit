@@ -26,8 +26,8 @@
 | Bespoke-MiniCheck-7B | EVID | 77.3% [65.9, 88.6] (n=44) | 72.1% [58.1, 83.8] (n=43) | 20 | 0 | NA (n=0) | 89.3% [82.5, 95.1] (n=103) | 0 |
 | Mistral-Small-24B (MedScore) | CLAIM | 100.0% [100.0, 100.0] (n=15) | 98.6% [95.8, 100.0] (n=72) | 20 | 0 | 100.0% [100.0, 100.0] (n=24) | 100.0% [100.0, 100.0] (n=79) | 0 |
 | Mistral-Small-24B (MedScore) | EVID | 93.3% [80.0, 100.0] (n=15) | 91.7% [84.7, 97.2] (n=72) | 20 | 0 | 91.7% [79.2, 100.0] (n=24) | 93.7% [87.3, 98.7] (n=79) | 0 |
-| Llama-3.3-70B (RAGAS NLI) | CLAIM | 100.0% [100.0, 100.0] (n=28) | 98.2% [93.0, 100.0] (n=57) | 19 | 0 | 100.0% [100.0, 100.0] (n=32) | 100.0% [100.0, 100.0] (n=70) | 0 |
-| Llama-3.3-70B (RAGAS NLI) | EVID | 71.4% [53.6, 89.3] (n=28) | 91.4% [82.8, 98.3] (n=58) | 20 | 0 | 84.4% [71.9, 96.9] (n=32) | 94.3% [88.6, 98.6] (n=70) | 0 |
+| Llama-3.3-70B (RAGAS NLI) | CLAIM | 100.0% [100.0, 100.0] (n=28) | 98.3% [94.8, 100.0] (n=58) | 20 | 0 | 100.0% [100.0, 100.0] (n=32) | 98.6% [95.8, 100.0] (n=71) | 0 |
+| Llama-3.3-70B (RAGAS NLI) | EVID | 71.4% [53.6, 89.3] (n=28) | 91.4% [82.8, 98.3] (n=58) | 20 | 0 | 81.2% [65.6, 93.8] (n=32) | 94.4% [88.7, 98.6] (n=71) | 0 |
 
 Tokenizers: MiniCheck-RoBERTa = `lytang/MiniCheck-RoBERTa-Large`; MiniCheck-DeBERTa = `lytang/MiniCheck-DeBERTa-v3-Large`; MiniCheck-Flan-T5-Large = `lytang/MiniCheck-Flan-T5-Large`; AlignScore-base = `roberta-base`; AlignScore-large = `roberta-large`; SummaC-ZS = `tals/albert-xlarge-vitaminc-mnli`; Granite Guardian 2B = `ibm-granite/granite-guardian-3.0-2b`; Bespoke-MiniCheck-7B = `bespokelabs/Bespoke-MiniCheck-7B`; Mistral-Small-24B (MedScore) = `mistralai/Mistral-Small-24B-Instruct-2501`; Llama-3.3-70B (RAGAS NLI) = `meta-llama/Llama-3.1-8B-Instruct`.
 - Llama-3.3-70B (RAGAS NLI): proxy: Llama-3.1-8B-Instruct tokenizer (same Llama-3 vocabulary as 3.3-70B)
@@ -56,5 +56,5 @@ Checker-side M1 (`src/quantity_norm.py` DOSE_RE) has no `g/kg` or `L`, so **40/2
 | Bespoke-MiniCheck-7B | EVID | 67.3% [57.9, 75.7] (n=107) | 74.7% [65.5, 82.8] (n=87) | 35.0% [15.0, 55.0] (n=20) | 89.3% [82.5, 95.1] (n=103) |
 | Mistral-Small-24B (MedScore) | CLAIM | 99.1% [97.2, 100.0] (n=107) | 98.9% [96.6, 100.0] (n=87) | 100.0% [100.0, 100.0] (n=20) | 100.0% [100.0, 100.0] (n=103) |
 | Mistral-Small-24B (MedScore) | EVID | 88.8% [82.2, 94.4] (n=107) | 92.0% [86.2, 96.6] (n=87) | 75.0% [55.0, 90.0] (n=20) | 93.2% [88.3, 98.1] (n=103) |
-| Llama-3.3-70B (RAGAS NLI) | CLAIM | 97.1% [93.3, 100.0] (n=104) | 98.8% [96.5, 100.0] (n=85) | 89.5% [73.7, 100.0] (n=19) | 100.0% [100.0, 100.0] (n=102) |
-| Llama-3.3-70B (RAGAS NLI) | EVID | 84.9% [77.4, 91.5] (n=106) | 84.9% [76.7, 91.9] (n=86) | 85.0% [70.0, 100.0] (n=20) | 91.2% [85.3, 96.1] (n=102) |
+| Llama-3.3-70B (RAGAS NLI) | CLAIM | 97.2% [93.4, 100.0] (n=106) | 98.8% [96.5, 100.0] (n=86) | 90.0% [75.0, 100.0] (n=20) | 99.0% [97.1, 100.0] (n=103) |
+| Llama-3.3-70B (RAGAS NLI) | EVID | 84.9% [77.4, 91.5] (n=106) | 84.9% [76.7, 91.9] (n=86) | 85.0% [70.0, 100.0] (n=20) | 90.3% [83.5, 96.1] (n=103) |
