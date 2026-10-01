@@ -11,8 +11,10 @@
 set -euo pipefail
 ROOT=/data2/hpcshared/medverif-audit
 cd "${ROOT}"
-export PYTHONUNBUFFERED=1 MPLBACKEND=Agg
-PY=/usr/bin/python3
+export PYTHONUNBUFFERED=1 MPLBACKEND=Agg PYTHONNOUSERSITE=1
+unset PYTHONPATH
+# compute-node /usr/bin/python3 (3.12) lacks matplotlib/quantulum3/pint; the vllm env has all three
+PY=/data2/cmdir/home/toandq/.conda/envs/vllm/bin/python
 GIT=/usr/bin/git
 ZIP_COMMIT_MAX_MB=95
 
