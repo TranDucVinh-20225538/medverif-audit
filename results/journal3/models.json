@@ -1,7 +1,7 @@
 {
  "_meta": {
-  "hub_cache": "/data2/cmdir/home/toandq/.cache/huggingface/hub",
-  "free_gb": 39530.6,
+  "hub_cache": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub",
+  "free_gb": 39457.1,
   "need_gb_new": 0.0,
   "check_only": false
  },
@@ -15,7 +15,8 @@
   "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
   "cached": true,
   "size_gb": 15.23,
-  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28"
+  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28",
+  "refs_main": true
  },
  "llama31_8b": {
   "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
@@ -26,8 +27,9 @@
   "status": "ok",
   "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
   "cached": true,
-  "size_gb": 15.99,
-  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659"
+  "size_gb": 16.06,
+  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
+  "refs_main": true
  },
  "medgemma_4b": {
   "hf_id": "google/medgemma-4b-it",
@@ -39,7 +41,8 @@
   "revision": "290cda5eeccbee130f987c4ad74a59ae6f196408",
   "cached": true,
   "size_gb": 8.6,
-  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--google--medgemma-4b-it/snapshots/290cda5eeccbee130f987c4ad74a59ae6f196408"
+  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--google--medgemma-4b-it/snapshots/290cda5eeccbee130f987c4ad74a59ae6f196408",
+  "refs_main": true
  },
  "qwen25_0p5b": {
   "hf_id": "Qwen/Qwen2.5-0.5B-Instruct",
@@ -51,7 +54,8 @@
   "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
   "cached": true,
   "size_gb": 0.99,
-  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775"
+  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+  "refs_main": true
  },
  "qwen25_1p5b": {
   "hf_id": "Qwen/Qwen2.5-1.5B-Instruct",
@@ -63,7 +67,8 @@
   "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
   "cached": true,
   "size_gb": 3.09,
-  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "refs_main": true
  },
  "qwen25_3b": {
   "hf_id": "Qwen/Qwen2.5-3B-Instruct",
@@ -75,7 +80,8 @@
   "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
   "cached": true,
   "size_gb": 6.17,
-  "local_path": "/data2/cmdir/home/toandq/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1"
+  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "refs_main": true
  },
  "qwen25_14b": {
   "hf_id": "Qwen/Qwen2.5-14B-Instruct",
@@ -87,6 +93,7 @@
   "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
   "cached": true,
   "size_gb": 29.54,
-  "local_path": "/data2/cmdir/home/toandq/.cache/huggingface/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
+  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "refs_main": true
  }
 }

@@ -1,0 +1,15 @@
+{
+ "stage": "J3_JG_llama31_8b",
+ "finished": "2026-10-01T20:31:10+0700",
+ "slurm_job": "62179_1",
+ "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+ "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+ "backend": "vllm",
+ "backend_version": "0.8.3",
+ "packs": [
+  "card",
+  "rag",
+  "rd"
+ ],
+ "secs": 258
+}

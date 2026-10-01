@@ -1,0 +1,15 @@
+{
+ "stage": "J3_JG_qwen25_14b",
+ "finished": "2026-10-01T20:38:43+0700",
+ "slurm_job": "62179_6",
+ "hf_id": "Qwen/Qwen2.5-14B-Instruct",
+ "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+ "backend": "vllm",
+ "backend_version": "0.8.3",
+ "packs": [
+  "card",
+  "rag",
+  "rd"
+ ],
+ "secs": 452
+}
