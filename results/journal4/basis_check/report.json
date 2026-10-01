@@ -1,0 +1,4648 @@
+{
+ "generated": "2026-10-01T23:58:51+0700",
+ "rule_version": "basis-check-1",
+ "freeze_commit": "fdb95de68b376340946f2e251040d3006c20072e",
+ "rule_sha256": "92e07d56071023e27aae43be470413de03fb27b452f1e8f76516be3d31270376",
+ "rd_file": "results/journal2/real_dose/instances.jsonl",
+ "subset_sizes": {
+  "all": 1451,
+  "flagged47": 47,
+  "true12": 12,
+  "non_flagged47": 1404,
+  "auto_correct": 1062,
+  "auto_match_other_context": 183,
+  "auto_value_error": 93,
+  "auto_time_ambiguous": 50,
+  "auto_unverifiable": 16,
+  "precheck_parser_artifact_answer_correct": 12,
+  "precheck_different_indication_or_population": 14,
+  "precheck_value_error_misclassified": 6,
+  "precheck_ambiguous": 3
+ },
+ "status": {
+  "full": {
+   "all": {
+    "flag": {
+     "k": 25,
+     "n": 1451,
+     "pct": 1.7,
+     "ci95": [
+      1.2,
+      2.5
+     ]
+    },
+    "pass": {
+     "k": 1403,
+     "n": 1451,
+     "pct": 96.7,
+     "ci95": [
+      95.6,
+      97.5
+     ]
+    },
+    "abstain": {
+     "k": 20,
+     "n": 1451,
+     "pct": 1.4,
+     "ci95": [
+      0.9,
+      2.1
+     ]
+    },
+    "no_dose": {
+     "k": 3,
+     "n": 1451,
+     "pct": 0.2,
+     "ci95": [
+      0.1,
+      0.6
+     ]
+    }
+   },
+   "flagged47": {
+    "flag": {
+     "k": 19,
+     "n": 47,
+     "pct": 40.4,
+     "ci95": [
+      27.6,
+      54.7
+     ]
+    },
+    "pass": {
+     "k": 24,
+     "n": 47,
+     "pct": 51.1,
+     "ci95": [
+      37.2,
+      64.7
+     ]
+    },
+    "abstain": {
+     "k": 4,
+     "n": 47,
+     "pct": 8.5,
+     "ci95": [
+      3.4,
+      19.9
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 47,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      7.6
+     ]
+    }
+   },
+   "true12": {
+    "flag": {
+     "k": 12,
+     "n": 12,
+     "pct": 100.0,
+     "ci95": [
+      75.7,
+      100.0
+     ]
+    },
+    "pass": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "abstain": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    }
+   },
+   "non_flagged47": {
+    "flag": {
+     "k": 6,
+     "n": 1404,
+     "pct": 0.4,
+     "ci95": [
+      0.2,
+      0.9
+     ]
+    },
+    "pass": {
+     "k": 1379,
+     "n": 1404,
+     "pct": 98.2,
+     "ci95": [
+      97.4,
+      98.8
+     ]
+    },
+    "abstain": {
+     "k": 16,
+     "n": 1404,
+     "pct": 1.1,
+     "ci95": [
+      0.7,
+      1.8
+     ]
+    },
+    "no_dose": {
+     "k": 3,
+     "n": 1404,
+     "pct": 0.2,
+     "ci95": [
+      0.1,
+      0.6
+     ]
+    }
+   },
+   "auto_correct": {
+    "flag": {
+     "k": 3,
+     "n": 1062,
+     "pct": 0.3,
+     "ci95": [
+      0.1,
+      0.8
+     ]
+    },
+    "pass": {
+     "k": 1059,
+     "n": 1062,
+     "pct": 99.7,
+     "ci95": [
+      99.2,
+      99.9
+     ]
+    },
+    "abstain": {
+     "k": 0,
+     "n": 1062,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      0.4
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 1062,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      0.4
+     ]
+    }
+   },
+   "auto_match_other_context": {
+    "flag": {
+     "k": 0,
+     "n": 183,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      2.1
+     ]
+    },
+    "pass": {
+     "k": 183,
+     "n": 183,
+     "pct": 100.0,
+     "ci95": [
+      97.9,
+      100.0
+     ]
+    },
+    "abstain": {
+     "k": 0,
+     "n": 183,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      2.1
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 183,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      2.1
+     ]
+    }
+   },
+   "auto_value_error": {
+    "flag": {
+     "k": 1,
+     "n": 93,
+     "pct": 1.1,
+     "ci95": [
+      0.2,
+      5.8
+     ]
+    },
+    "pass": {
+     "k": 86,
+     "n": 93,
+     "pct": 92.5,
+     "ci95": [
+      85.3,
+      96.3
+     ]
+    },
+    "abstain": {
+     "k": 6,
+     "n": 93,
+     "pct": 6.5,
+     "ci95": [
+      3.0,
+      13.4
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 93,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      4.0
+     ]
+    }
+   },
+   "auto_time_ambiguous": {
+    "flag": {
+     "k": 1,
+     "n": 50,
+     "pct": 2.0,
+     "ci95": [
+      0.4,
+      10.5
+     ]
+    },
+    "pass": {
+     "k": 49,
+     "n": 50,
+     "pct": 98.0,
+     "ci95": [
+      89.5,
+      99.6
+     ]
+    },
+    "abstain": {
+     "k": 0,
+     "n": 50,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      7.1
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 50,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      7.1
+     ]
+    }
+   },
+   "auto_unverifiable": {
+    "flag": {
+     "k": 1,
+     "n": 16,
+     "pct": 6.2,
+     "ci95": [
+      1.1,
+      28.3
+     ]
+    },
+    "pass": {
+     "k": 2,
+     "n": 16,
+     "pct": 12.5,
+     "ci95": [
+      3.5,
+      36.0
+     ]
+    },
+    "abstain": {
+     "k": 10,
+     "n": 16,
+     "pct": 62.5,
+     "ci95": [
+      38.6,
+      81.5
+     ]
+    },
+    "no_dose": {
+     "k": 3,
+     "n": 16,
+     "pct": 18.8,
+     "ci95": [
+      6.6,
+      43.0
+     ]
+    }
+   },
+   "precheck_parser_artifact_answer_correct": {
+    "flag": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "pass": {
+     "k": 12,
+     "n": 12,
+     "pct": 100.0,
+     "ci95": [
+      75.7,
+      100.0
+     ]
+    },
+    "abstain": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    }
+   },
+   "precheck_different_indication_or_population": {
+    "flag": {
+     "k": 4,
+     "n": 14,
+     "pct": 28.6,
+     "ci95": [
+      11.7,
+      54.6
+     ]
+    },
+    "pass": {
+     "k": 9,
+     "n": 14,
+     "pct": 64.3,
+     "ci95": [
+      38.8,
+      83.7
+     ]
+    },
+    "abstain": {
+     "k": 1,
+     "n": 14,
+     "pct": 7.1,
+     "ci95": [
+      1.3,
+      31.5
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 14,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      21.5
+     ]
+    }
+   },
+   "precheck_value_error_misclassified": {
+    "flag": {
+     "k": 2,
+     "n": 6,
+     "pct": 33.3,
+     "ci95": [
+      9.7,
+      70.0
+     ]
+    },
+    "pass": {
+     "k": 3,
+     "n": 6,
+     "pct": 50.0,
+     "ci95": [
+      18.8,
+      81.2
+     ]
+    },
+    "abstain": {
+     "k": 1,
+     "n": 6,
+     "pct": 16.7,
+     "ci95": [
+      3.0,
+      56.4
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 6,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      39.0
+     ]
+    }
+   },
+   "precheck_ambiguous": {
+    "flag": {
+     "k": 1,
+     "n": 3,
+     "pct": 33.3,
+     "ci95": [
+      6.1,
+      79.2
+     ]
+    },
+    "pass": {
+     "k": 0,
+     "n": 3,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      56.2
+     ]
+    },
+    "abstain": {
+     "k": 2,
+     "n": 3,
+     "pct": 66.7,
+     "ci95": [
+      20.8,
+      93.9
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 3,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      56.2
+     ]
+    }
+   }
+  },
+  "strict": {
+   "all": {
+    "flag": {
+     "k": 11,
+     "n": 1451,
+     "pct": 0.8,
+     "ci95": [
+      0.4,
+      1.4
+     ]
+    },
+    "pass": {
+     "k": 1403,
+     "n": 1451,
+     "pct": 96.7,
+     "ci95": [
+      95.6,
+      97.5
+     ]
+    },
+    "abstain": {
+     "k": 34,
+     "n": 1451,
+     "pct": 2.3,
+     "ci95": [
+      1.7,
+      3.3
+     ]
+    },
+    "no_dose": {
+     "k": 3,
+     "n": 1451,
+     "pct": 0.2,
+     "ci95": [
+      0.1,
+      0.6
+     ]
+    }
+   },
+   "flagged47": {
+    "flag": {
+     "k": 7,
+     "n": 47,
+     "pct": 14.9,
+     "ci95": [
+      7.4,
+      27.7
+     ]
+    },
+    "pass": {
+     "k": 24,
+     "n": 47,
+     "pct": 51.1,
+     "ci95": [
+      37.2,
+      64.7
+     ]
+    },
+    "abstain": {
+     "k": 16,
+     "n": 47,
+     "pct": 34.0,
+     "ci95": [
+      22.2,
+      48.3
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 47,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      7.6
+     ]
+    }
+   },
+   "true12": {
+    "flag": {
+     "k": 6,
+     "n": 12,
+     "pct": 50.0,
+     "ci95": [
+      25.4,
+      74.6
+     ]
+    },
+    "pass": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "abstain": {
+     "k": 6,
+     "n": 12,
+     "pct": 50.0,
+     "ci95": [
+      25.4,
+      74.6
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    }
+   },
+   "non_flagged47": {
+    "flag": {
+     "k": 4,
+     "n": 1404,
+     "pct": 0.3,
+     "ci95": [
+      0.1,
+      0.7
+     ]
+    },
+    "pass": {
+     "k": 1379,
+     "n": 1404,
+     "pct": 98.2,
+     "ci95": [
+      97.4,
+      98.8
+     ]
+    },
+    "abstain": {
+     "k": 18,
+     "n": 1404,
+     "pct": 1.3,
+     "ci95": [
+      0.8,
+      2.0
+     ]
+    },
+    "no_dose": {
+     "k": 3,
+     "n": 1404,
+     "pct": 0.2,
+     "ci95": [
+      0.1,
+      0.6
+     ]
+    }
+   },
+   "auto_correct": {
+    "flag": {
+     "k": 3,
+     "n": 1062,
+     "pct": 0.3,
+     "ci95": [
+      0.1,
+      0.8
+     ]
+    },
+    "pass": {
+     "k": 1059,
+     "n": 1062,
+     "pct": 99.7,
+     "ci95": [
+      99.2,
+      99.9
+     ]
+    },
+    "abstain": {
+     "k": 0,
+     "n": 1062,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      0.4
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 1062,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      0.4
+     ]
+    }
+   },
+   "auto_match_other_context": {
+    "flag": {
+     "k": 0,
+     "n": 183,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      2.1
+     ]
+    },
+    "pass": {
+     "k": 183,
+     "n": 183,
+     "pct": 100.0,
+     "ci95": [
+      97.9,
+      100.0
+     ]
+    },
+    "abstain": {
+     "k": 0,
+     "n": 183,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      2.1
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 183,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      2.1
+     ]
+    }
+   },
+   "auto_value_error": {
+    "flag": {
+     "k": 0,
+     "n": 93,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      4.0
+     ]
+    },
+    "pass": {
+     "k": 86,
+     "n": 93,
+     "pct": 92.5,
+     "ci95": [
+      85.3,
+      96.3
+     ]
+    },
+    "abstain": {
+     "k": 7,
+     "n": 93,
+     "pct": 7.5,
+     "ci95": [
+      3.7,
+      14.7
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 93,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      4.0
+     ]
+    }
+   },
+   "auto_time_ambiguous": {
+    "flag": {
+     "k": 1,
+     "n": 50,
+     "pct": 2.0,
+     "ci95": [
+      0.4,
+      10.5
+     ]
+    },
+    "pass": {
+     "k": 49,
+     "n": 50,
+     "pct": 98.0,
+     "ci95": [
+      89.5,
+      99.6
+     ]
+    },
+    "abstain": {
+     "k": 0,
+     "n": 50,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      7.1
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 50,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      7.1
+     ]
+    }
+   },
+   "auto_unverifiable": {
+    "flag": {
+     "k": 0,
+     "n": 16,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      19.4
+     ]
+    },
+    "pass": {
+     "k": 2,
+     "n": 16,
+     "pct": 12.5,
+     "ci95": [
+      3.5,
+      36.0
+     ]
+    },
+    "abstain": {
+     "k": 11,
+     "n": 16,
+     "pct": 68.8,
+     "ci95": [
+      44.4,
+      85.8
+     ]
+    },
+    "no_dose": {
+     "k": 3,
+     "n": 16,
+     "pct": 18.8,
+     "ci95": [
+      6.6,
+      43.0
+     ]
+    }
+   },
+   "precheck_parser_artifact_answer_correct": {
+    "flag": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "pass": {
+     "k": 12,
+     "n": 12,
+     "pct": 100.0,
+     "ci95": [
+      75.7,
+      100.0
+     ]
+    },
+    "abstain": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    }
+   },
+   "precheck_different_indication_or_population": {
+    "flag": {
+     "k": 0,
+     "n": 14,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      21.5
+     ]
+    },
+    "pass": {
+     "k": 9,
+     "n": 14,
+     "pct": 64.3,
+     "ci95": [
+      38.8,
+      83.7
+     ]
+    },
+    "abstain": {
+     "k": 5,
+     "n": 14,
+     "pct": 35.7,
+     "ci95": [
+      16.3,
+      61.2
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 14,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      21.5
+     ]
+    }
+   },
+   "precheck_value_error_misclassified": {
+    "flag": {
+     "k": 1,
+     "n": 6,
+     "pct": 16.7,
+     "ci95": [
+      3.0,
+      56.4
+     ]
+    },
+    "pass": {
+     "k": 3,
+     "n": 6,
+     "pct": 50.0,
+     "ci95": [
+      18.8,
+      81.2
+     ]
+    },
+    "abstain": {
+     "k": 2,
+     "n": 6,
+     "pct": 33.3,
+     "ci95": [
+      9.7,
+      70.0
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 6,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      39.0
+     ]
+    }
+   },
+   "precheck_ambiguous": {
+    "flag": {
+     "k": 0,
+     "n": 3,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      56.2
+     ]
+    },
+    "pass": {
+     "k": 0,
+     "n": 3,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      56.2
+     ]
+    },
+    "abstain": {
+     "k": 3,
+     "n": 3,
+     "pct": 100.0,
+     "ci95": [
+      43.8,
+      100.0
+     ]
+    },
+    "no_dose": {
+     "k": 0,
+     "n": 3,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      56.2
+     ]
+    }
+   }
+  }
+ },
+ "flag_types": {
+  "full": {
+   "all": {
+    "basis_dropped_unpaired": 12,
+    "time_basis": 2,
+    "basis_changed_unpaired": 2,
+    "basis_dropped": 5,
+    "unit_kind": 2,
+    "basis_changed": 2
+   },
+   "flagged47": {
+    "basis_dropped_unpaired": 10,
+    "time_basis": 1,
+    "basis_changed_unpaired": 2,
+    "basis_dropped": 3,
+    "unit_kind": 1,
+    "basis_changed": 2
+   },
+   "true12": {
+    "time_basis": 1,
+    "basis_dropped_unpaired": 6,
+    "basis_dropped": 3,
+    "unit_kind": 1,
+    "basis_changed": 1
+   },
+   "non_flagged47": {
+    "basis_dropped": 2,
+    "unit_kind": 1,
+    "time_basis": 1,
+    "basis_dropped_unpaired": 2
+   },
+   "auto_correct": {
+    "basis_dropped": 2,
+    "unit_kind": 1
+   },
+   "auto_match_other_context": {},
+   "auto_value_error": {
+    "basis_dropped_unpaired": 1
+   },
+   "auto_time_ambiguous": {
+    "time_basis": 1
+   },
+   "auto_unverifiable": {
+    "basis_dropped_unpaired": 1
+   },
+   "precheck_parser_artifact_answer_correct": {},
+   "precheck_different_indication_or_population": {
+    "basis_dropped_unpaired": 4
+   },
+   "precheck_value_error_misclassified": {
+    "basis_changed_unpaired": 1,
+    "basis_changed": 1
+   },
+   "precheck_ambiguous": {
+    "basis_changed_unpaired": 1
+   }
+  },
+  "strict": {
+   "all": {
+    "time_basis": 2,
+    "basis_dropped": 5,
+    "unit_kind": 2,
+    "basis_changed": 2
+   },
+   "flagged47": {
+    "time_basis": 1,
+    "basis_dropped": 3,
+    "unit_kind": 1,
+    "basis_changed": 2
+   },
+   "true12": {
+    "time_basis": 1,
+    "basis_dropped": 3,
+    "unit_kind": 1,
+    "basis_changed": 1
+   },
+   "non_flagged47": {
+    "basis_dropped": 2,
+    "unit_kind": 1,
+    "time_basis": 1
+   },
+   "auto_correct": {
+    "basis_dropped": 2,
+    "unit_kind": 1
+   },
+   "auto_match_other_context": {},
+   "auto_value_error": {},
+   "auto_time_ambiguous": {
+    "time_basis": 1
+   },
+   "auto_unverifiable": {},
+   "precheck_parser_artifact_answer_correct": {},
+   "precheck_different_indication_or_population": {},
+   "precheck_value_error_misclassified": {
+    "basis_changed": 1
+   },
+   "precheck_ambiguous": {}
+  }
+ },
+ "true12_cases": [
+  {
+   "check_id": "RDQ0050",
+   "instance_id": "RD_ivermectin_1__gpt4o_mini__closed",
+   "drug": "ivermectin",
+   "mechanism": "dropped_basis",
+   "label_dose": "150 mcg/kg",
+   "answer_dose": "15 mg",
+   "full": "basis_dropped_unpaired",
+   "strict": "abstain"
+  },
+  {
+   "check_id": "RDQ0109",
+   "instance_id": "RD_glyburide_1__gpt4o_mini__closed",
+   "drug": "glyburide",
+   "mechanism": "unit_kind",
+   "label_dose": "20 units",
+   "answer_dose": "20 mg",
+   "full": "unit_kind",
+   "strict": "unit_kind"
+  },
+  {
+   "check_id": "RDQ0126",
+   "instance_id": "RD_buspirone_1__gpt4o_mini__closed",
+   "drug": "buspirone",
+   "mechanism": "dropped_basis",
+   "label_dose": "1 mg per kg",
+   "answer_dose": "1 mg",
+   "full": "basis_dropped",
+   "strict": "basis_dropped"
+  },
+  {
+   "check_id": "RDQ0137",
+   "instance_id": "RD_ethambutol_1__gemma3_27b__closed",
+   "drug": "ethambutol",
+   "mechanism": "lb_vs_kg",
+   "label_dose": "15 mg/kg",
+   "answer_dose": "15 mg",
+   "full": "basis_changed",
+   "strict": "basis_changed"
+  },
+  {
+   "check_id": "RDQ0145",
+   "instance_id": "RD_losartan_0__gemma3_27b__grounded",
+   "drug": "losartan",
+   "mechanism": "dropped_basis",
+   "label_dose": "0.7 mg per kg",
+   "answer_dose": "0.7 mg",
+   "full": "basis_dropped",
+   "strict": "basis_dropped"
+  },
+  {
+   "check_id": "RDQ0165",
+   "instance_id": "RD_filgrastim_1__gemma3_27b__closed",
+   "drug": "filgrastim",
+   "mechanism": "dropped_basis",
+   "label_dose": "5 mcg/kg/day",
+   "answer_dose": "300 mcg",
+   "full": "basis_dropped_unpaired",
+   "strict": "abstain"
+  },
+  {
+   "check_id": "RDQ0210",
+   "instance_id": "RD_tacrolimus_0__gemma3_27b__closed",
+   "drug": "tacrolimus",
+   "mechanism": "dropped_basis",
+   "label_dose": "0.2 mg/kg/day",
+   "answer_dose": "0.2 mg",
+   "full": "basis_dropped",
+   "strict": "basis_dropped"
+  },
+  {
+   "check_id": "RDQ0222",
+   "instance_id": "RD_cyclophosphamide_1__gpt4o_mini__closed",
+   "drug": "cyclophosphamide",
+   "mechanism": "dropped_basis",
+   "label_dose": "10 mg per kg",
+   "answer_dose": "500 mg",
+   "full": "basis_dropped_unpaired",
+   "strict": "abstain"
+  },
+  {
+   "check_id": "RDQ0228",
+   "instance_id": "RD_clonidine_0__gpt4o_mini__closed",
+   "drug": "clonidine",
+   "mechanism": "time_basis",
+   "label_dose": "0.1 mg/day",
+   "answer_dose": "0.1 mg/week",
+   "full": "time_basis",
+   "strict": "time_basis"
+  },
+  {
+   "check_id": "RDQ0247",
+   "instance_id": "RD_ivermectin_1__gemma3_27b__closed",
+   "drug": "ivermectin",
+   "mechanism": "dropped_basis",
+   "label_dose": "150 mcg/kg",
+   "answer_dose": "15 mg",
+   "full": "basis_dropped_unpaired",
+   "strict": "abstain"
+  },
+  {
+   "check_id": "RDQ0258",
+   "instance_id": "RD_epinephrine_0__gemma3_27b__closed",
+   "drug": "epinephrine",
+   "mechanism": "dropped_basis",
+   "label_dose": "0.05 mcg/kg/min",
+   "answer_dose": "1-4 micrograms per minute",
+   "full": "basis_dropped_unpaired",
+   "strict": "abstain"
+  },
+  {
+   "check_id": "RDQ0263",
+   "instance_id": "RD_ceftriaxone_0__gemma3_27b__closed",
+   "drug": "ceftriaxone",
+   "mechanism": "dropped_basis",
+   "label_dose": "50 to 75 mg/kg",
+   "answer_dose": "500 mg",
+   "full": "basis_dropped_unpaired",
+   "strict": "abstain"
+  }
+ ],
+ "flagged_outside_flagged47": {
+  "n": 6,
+  "by_auto_class": {
+   "correct": 3,
+   "time_ambiguous": 1,
+   "value_error": 1,
+   "unverifiable": 1
+  },
+  "by_rule": {
+   "R1": 4,
+   "R2": 2
+  },
+  "by_flag_type": {
+   "basis_dropped": 2,
+   "unit_kind": 1,
+   "time_basis": 1,
+   "basis_dropped_unpaired": 2
+  }
+ },
+ "combined": {
+  "MiniCheck-RoBERTa": {
+   "group": "journal2 paper checkers",
+   "file": "results/journal2/real_dose/scores/t6_minicheck_roberta.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 3,
+     "n": 12,
+     "pct": 25.0,
+     "ci95": [
+      8.9,
+      53.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "buspirone",
+     "losartan",
+     "tacrolimus"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 15,
+     "n": 47,
+     "pct": 31.9,
+     "ci95": [
+      20.4,
+      46.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 818,
+     "n": 1062,
+     "pct": 77.0,
+     "ci95": [
+      74.4,
+      79.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 816,
+     "n": 1062,
+     "pct": 76.8,
+     "ci95": [
+      74.2,
+      79.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 816,
+     "n": 1062,
+     "pct": 76.8,
+     "ci95": [
+      74.2,
+      79.3
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 912,
+     "n": 1404,
+     "pct": 65.0,
+     "ci95": [
+      62.4,
+      67.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 909,
+     "n": 1404,
+     "pct": 64.7,
+     "ci95": [
+      62.2,
+      67.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 909,
+     "n": 1404,
+     "pct": 64.7,
+     "ci95": [
+      62.2,
+      67.2
+     ]
+    }
+   }
+  },
+  "MiniCheck-DeBERTa": {
+   "group": "journal2 paper checkers",
+   "file": "results/journal2/real_dose/scores/t6_minicheck_deberta.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 1,
+     "n": 12,
+     "pct": 8.3,
+     "ci95": [
+      1.5,
+      35.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "losartan"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 7,
+     "n": 47,
+     "pct": 14.9,
+     "ci95": [
+      7.4,
+      27.7
+     ]
+    },
+    "combined_pass_full": {
+     "k": 6,
+     "n": 47,
+     "pct": 12.8,
+     "ci95": [
+      6.0,
+      25.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 6,
+     "n": 47,
+     "pct": 12.8,
+     "ci95": [
+      6.0,
+      25.2
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 760,
+     "n": 1062,
+     "pct": 71.6,
+     "ci95": [
+      68.8,
+      74.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 759,
+     "n": 1062,
+     "pct": 71.5,
+     "ci95": [
+      68.7,
+      74.1
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 759,
+     "n": 1062,
+     "pct": 71.5,
+     "ci95": [
+      68.7,
+      74.1
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 847,
+     "n": 1404,
+     "pct": 60.3,
+     "ci95": [
+      57.7,
+      62.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 845,
+     "n": 1404,
+     "pct": 60.2,
+     "ci95": [
+      57.6,
+      62.7
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 845,
+     "n": 1404,
+     "pct": 60.2,
+     "ci95": [
+      57.6,
+      62.7
+     ]
+    }
+   }
+  },
+  "AlignScore-base": {
+   "group": "journal2 paper checkers",
+   "file": "results/journal2/real_dose/scores/t6_alignscore_base.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 3,
+     "n": 12,
+     "pct": 25.0,
+     "ci95": [
+      8.9,
+      53.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "ethambutol",
+     "losartan",
+     "tacrolimus"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 13,
+     "n": 47,
+     "pct": 27.7,
+     "ci95": [
+      16.9,
+      41.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 907,
+     "n": 1062,
+     "pct": 85.4,
+     "ci95": [
+      83.2,
+      87.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 906,
+     "n": 1062,
+     "pct": 85.3,
+     "ci95": [
+      83.1,
+      87.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 906,
+     "n": 1062,
+     "pct": 85.3,
+     "ci95": [
+      83.1,
+      87.3
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 1036,
+     "n": 1404,
+     "pct": 73.8,
+     "ci95": [
+      71.4,
+      76.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 1034,
+     "n": 1404,
+     "pct": 73.6,
+     "ci95": [
+      71.3,
+      75.9
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1034,
+     "n": 1404,
+     "pct": 73.6,
+     "ci95": [
+      71.3,
+      75.9
+     ]
+    }
+   }
+  },
+  "MiniCheck-Flan-T5-Large": {
+   "group": "journal2 paper checkers",
+   "file": "results/journal2/real_dose/scores/v2a_minicheck.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 2,
+     "n": 12,
+     "pct": 16.7,
+     "ci95": [
+      4.7,
+      44.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1,
+     "n": 12,
+     "pct": 8.3,
+     "ci95": [
+      1.5,
+      35.4
+     ]
+    },
+    "slipped_checker": [
+     "buspirone",
+     "epinephrine"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "epinephrine"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 13,
+     "n": 47,
+     "pct": 27.7,
+     "ci95": [
+      16.9,
+      41.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 11,
+     "n": 47,
+     "pct": 23.4,
+     "ci95": [
+      13.6,
+      37.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 774,
+     "n": 1062,
+     "pct": 72.9,
+     "ci95": [
+      70.1,
+      75.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 772,
+     "n": 1062,
+     "pct": 72.7,
+     "ci95": [
+      69.9,
+      75.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 772,
+     "n": 1062,
+     "pct": 72.7,
+     "ci95": [
+      69.9,
+      75.3
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 861,
+     "n": 1404,
+     "pct": 61.3,
+     "ci95": [
+      58.7,
+      63.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 858,
+     "n": 1404,
+     "pct": 61.1,
+     "ci95": [
+      58.5,
+      63.6
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 858,
+     "n": 1404,
+     "pct": 61.1,
+     "ci95": [
+      58.5,
+      63.6
+     ]
+    }
+   }
+  },
+  "AlignScore-large": {
+   "group": "journal2 paper checkers",
+   "file": "results/journal2/real_dose/scores/v3_alignscore.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 3,
+     "n": 12,
+     "pct": 25.0,
+     "ci95": [
+      8.9,
+      53.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "ethambutol",
+     "losartan",
+     "tacrolimus"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 15,
+     "n": 47,
+     "pct": 31.9,
+     "ci95": [
+      20.4,
+      46.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 927,
+     "n": 1062,
+     "pct": 87.3,
+     "ci95": [
+      85.1,
+      89.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 926,
+     "n": 1062,
+     "pct": 87.2,
+     "ci95": [
+      85.0,
+      89.1
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 926,
+     "n": 1062,
+     "pct": 87.2,
+     "ci95": [
+      85.0,
+      89.1
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 1041,
+     "n": 1404,
+     "pct": 74.1,
+     "ci95": [
+      71.8,
+      76.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 1040,
+     "n": 1404,
+     "pct": 74.1,
+     "ci95": [
+      71.7,
+      76.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1040,
+     "n": 1404,
+     "pct": 74.1,
+     "ci95": [
+      71.7,
+      76.3
+     ]
+    }
+   }
+  },
+  "Llama-3.3-70B RAGAS": {
+   "group": "journal2 paper checkers",
+   "file": "results/journal2/real_dose/scores/v4_ragas_nli.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 1,
+     "n": 12,
+     "pct": 8.3,
+     "ci95": [
+      1.5,
+      35.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "ethambutol"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 13,
+     "n": 47,
+     "pct": 27.7,
+     "ci95": [
+      16.9,
+      41.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 824,
+     "n": 1062,
+     "pct": 77.6,
+     "ci95": [
+      75.0,
+      80.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 823,
+     "n": 1062,
+     "pct": 77.5,
+     "ci95": [
+      74.9,
+      79.9
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 823,
+     "n": 1062,
+     "pct": 77.5,
+     "ci95": [
+      74.9,
+      79.9
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 912,
+     "n": 1404,
+     "pct": 65.0,
+     "ci95": [
+      62.4,
+      67.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 911,
+     "n": 1404,
+     "pct": 64.9,
+     "ci95": [
+      62.4,
+      67.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 911,
+     "n": 1404,
+     "pct": 64.9,
+     "ci95": [
+      62.4,
+      67.3
+     ]
+    }
+   }
+  },
+  "MedScore (Mistral-Small-24B)": {
+   "group": "journal2 paper checkers",
+   "file": "results/journal2/real_dose/scores/v1_medscore.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 1,
+     "n": 12,
+     "pct": 8.3,
+     "ci95": [
+      1.5,
+      35.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "losartan"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 14,
+     "n": 47,
+     "pct": 29.8,
+     "ci95": [
+      18.7,
+      44.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 13,
+     "n": 47,
+     "pct": 27.7,
+     "ci95": [
+      16.9,
+      41.8
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 13,
+     "n": 47,
+     "pct": 27.7,
+     "ci95": [
+      16.9,
+      41.8
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 812,
+     "n": 1062,
+     "pct": 76.5,
+     "ci95": [
+      73.8,
+      78.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 810,
+     "n": 1062,
+     "pct": 76.3,
+     "ci95": [
+      73.6,
+      78.7
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 810,
+     "n": 1062,
+     "pct": 76.3,
+     "ci95": [
+      73.6,
+      78.7
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 897,
+     "n": 1404,
+     "pct": 63.9,
+     "ci95": [
+      61.3,
+      66.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 894,
+     "n": 1404,
+     "pct": 63.7,
+     "ci95": [
+      61.1,
+      66.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 895,
+     "n": 1404,
+     "pct": 63.7,
+     "ci95": [
+      61.2,
+      66.2
+     ]
+    }
+   }
+  },
+  "FT alignscore_large_base": {
+   "group": "journal3 FT on real doses",
+   "file": "results/journal3/ft/scores/alignscore_large_base__rd_raw.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 3,
+     "n": 12,
+     "pct": 25.0,
+     "ci95": [
+      8.9,
+      53.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "ethambutol",
+     "losartan",
+     "tacrolimus"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 15,
+     "n": 47,
+     "pct": 31.9,
+     "ci95": [
+      20.4,
+      46.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 927,
+     "n": 1062,
+     "pct": 87.3,
+     "ci95": [
+      85.1,
+      89.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 926,
+     "n": 1062,
+     "pct": 87.2,
+     "ci95": [
+      85.0,
+      89.1
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 926,
+     "n": 1062,
+     "pct": 87.2,
+     "ci95": [
+      85.0,
+      89.1
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 1041,
+     "n": 1404,
+     "pct": 74.1,
+     "ci95": [
+      71.8,
+      76.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 1040,
+     "n": 1404,
+     "pct": 74.1,
+     "ci95": [
+      71.7,
+      76.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1040,
+     "n": 1404,
+     "pct": 74.1,
+     "ci95": [
+      71.7,
+      76.3
+     ]
+    }
+   }
+  },
+  "FT alignscore_large_r0.5": {
+   "group": "journal3 FT on real doses",
+   "file": "results/journal3/ft/scores/alignscore_large_r0.5__rd_raw.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 4,
+     "n": 12,
+     "pct": 33.3,
+     "ci95": [
+      13.8,
+      60.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 2,
+     "n": 12,
+     "pct": 16.7,
+     "ci95": [
+      4.7,
+      44.8
+     ]
+    },
+    "slipped_checker": [
+     "buspirone",
+     "ceftriaxone",
+     "epinephrine",
+     "losartan"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "ceftriaxone",
+     "epinephrine"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 18,
+     "n": 47,
+     "pct": 38.3,
+     "ci95": [
+      25.8,
+      52.6
+     ]
+    },
+    "combined_pass_full": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 15,
+     "n": 47,
+     "pct": 31.9,
+     "ci95": [
+      20.4,
+      46.2
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 854,
+     "n": 1062,
+     "pct": 80.4,
+     "ci95": [
+      77.9,
+      82.7
+     ]
+    },
+    "combined_pass_full": {
+     "k": 853,
+     "n": 1062,
+     "pct": 80.3,
+     "ci95": [
+      77.8,
+      82.6
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 853,
+     "n": 1062,
+     "pct": 80.3,
+     "ci95": [
+      77.8,
+      82.6
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 962,
+     "n": 1404,
+     "pct": 68.5,
+     "ci95": [
+      66.0,
+      70.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 960,
+     "n": 1404,
+     "pct": 68.4,
+     "ci95": [
+      65.9,
+      70.8
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 961,
+     "n": 1404,
+     "pct": 68.4,
+     "ci95": [
+      66.0,
+      70.8
+     ]
+    }
+   }
+  },
+  "FT alignscore_large_r1": {
+   "group": "journal3 FT on real doses",
+   "file": "results/journal3/ft/scores/alignscore_large_r1__rd_raw.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 7,
+     "n": 12,
+     "pct": 58.3,
+     "ci95": [
+      32.0,
+      80.7
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 3,
+     "n": 12,
+     "pct": 25.0,
+     "ci95": [
+      8.9,
+      53.2
+     ]
+    },
+    "slipped_checker": [
+     "buspirone",
+     "cyclophosphamide",
+     "epinephrine",
+     "ethambutol",
+     "filgrastim",
+     "losartan",
+     "tacrolimus"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "cyclophosphamide",
+     "epinephrine",
+     "filgrastim"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 17,
+     "n": 47,
+     "pct": 36.2,
+     "ci95": [
+      24.0,
+      50.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 9,
+     "n": 47,
+     "pct": 19.1,
+     "ci95": [
+      10.4,
+      32.5
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 13,
+     "n": 47,
+     "pct": 27.7,
+     "ci95": [
+      16.9,
+      41.8
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 849,
+     "n": 1062,
+     "pct": 79.9,
+     "ci95": [
+      77.4,
+      82.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 848,
+     "n": 1062,
+     "pct": 79.8,
+     "ci95": [
+      77.3,
+      82.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 848,
+     "n": 1062,
+     "pct": 79.8,
+     "ci95": [
+      77.3,
+      82.2
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 948,
+     "n": 1404,
+     "pct": 67.5,
+     "ci95": [
+      65.0,
+      69.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 946,
+     "n": 1404,
+     "pct": 67.4,
+     "ci95": [
+      64.9,
+      69.8
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 947,
+     "n": 1404,
+     "pct": 67.5,
+     "ci95": [
+      65.0,
+      69.9
+     ]
+    }
+   }
+  },
+  "FT alignscore_large_r2": {
+   "group": "journal3 FT on real doses",
+   "file": "results/journal3/ft/scores/alignscore_large_r2__rd_raw.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 5,
+     "n": 12,
+     "pct": 41.7,
+     "ci95": [
+      19.3,
+      68.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 3,
+     "n": 12,
+     "pct": 25.0,
+     "ci95": [
+      8.9,
+      53.2
+     ]
+    },
+    "slipped_checker": [
+     "ceftriaxone",
+     "cyclophosphamide",
+     "epinephrine",
+     "ethambutol",
+     "losartan"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "ceftriaxone",
+     "cyclophosphamide",
+     "epinephrine"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 15,
+     "n": 47,
+     "pct": 31.9,
+     "ci95": [
+      20.4,
+      46.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 8,
+     "n": 47,
+     "pct": 17.0,
+     "ci95": [
+      8.9,
+      30.1
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 850,
+     "n": 1062,
+     "pct": 80.0,
+     "ci95": [
+      77.5,
+      82.3
+     ]
+    },
+    "combined_pass_full": {
+     "k": 850,
+     "n": 1062,
+     "pct": 80.0,
+     "ci95": [
+      77.5,
+      82.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 850,
+     "n": 1062,
+     "pct": 80.0,
+     "ci95": [
+      77.5,
+      82.3
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 949,
+     "n": 1404,
+     "pct": 67.6,
+     "ci95": [
+      65.1,
+      70.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 947,
+     "n": 1404,
+     "pct": 67.5,
+     "ci95": [
+      65.0,
+      69.9
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 948,
+     "n": 1404,
+     "pct": 67.5,
+     "ci95": [
+      65.0,
+      69.9
+     ]
+    }
+   }
+  },
+  "FT minicheck_ft5_base": {
+   "group": "journal3 FT on real doses",
+   "file": "results/journal3/ft/scores/minicheck_ft5_base__rd_raw.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 2,
+     "n": 12,
+     "pct": 16.7,
+     "ci95": [
+      4.7,
+      44.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1,
+     "n": 12,
+     "pct": 8.3,
+     "ci95": [
+      1.5,
+      35.4
+     ]
+    },
+    "slipped_checker": [
+     "buspirone",
+     "epinephrine"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "epinephrine"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 13,
+     "n": 47,
+     "pct": 27.7,
+     "ci95": [
+      16.9,
+      41.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 11,
+     "n": 47,
+     "pct": 23.4,
+     "ci95": [
+      13.6,
+      37.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 774,
+     "n": 1062,
+     "pct": 72.9,
+     "ci95": [
+      70.1,
+      75.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 772,
+     "n": 1062,
+     "pct": 72.7,
+     "ci95": [
+      69.9,
+      75.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 772,
+     "n": 1062,
+     "pct": 72.7,
+     "ci95": [
+      69.9,
+      75.3
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 861,
+     "n": 1404,
+     "pct": 61.3,
+     "ci95": [
+      58.7,
+      63.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 858,
+     "n": 1404,
+     "pct": 61.1,
+     "ci95": [
+      58.5,
+      63.6
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 858,
+     "n": 1404,
+     "pct": 61.1,
+     "ci95": [
+      58.5,
+      63.6
+     ]
+    }
+   }
+  },
+  "FT minicheck_ft5_r0.5": {
+   "group": "journal3 FT on real doses",
+   "file": "results/journal3/ft/scores/minicheck_ft5_r0.5__rd_raw.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 4,
+     "n": 12,
+     "pct": 33.3,
+     "ci95": [
+      13.8,
+      60.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 2,
+     "n": 12,
+     "pct": 16.7,
+     "ci95": [
+      4.7,
+      44.8
+     ]
+    },
+    "slipped_checker": [
+     "buspirone",
+     "clonidine",
+     "epinephrine",
+     "filgrastim"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "epinephrine",
+     "filgrastim"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 21,
+     "n": 47,
+     "pct": 44.7,
+     "ci95": [
+      31.4,
+      58.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 14,
+     "n": 47,
+     "pct": 29.8,
+     "ci95": [
+      18.7,
+      44.0
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 18,
+     "n": 47,
+     "pct": 38.3,
+     "ci95": [
+      25.8,
+      52.6
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 841,
+     "n": 1062,
+     "pct": 79.2,
+     "ci95": [
+      76.6,
+      81.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 839,
+     "n": 1062,
+     "pct": 79.0,
+     "ci95": [
+      76.4,
+      81.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 839,
+     "n": 1062,
+     "pct": 79.0,
+     "ci95": [
+      76.4,
+      81.3
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 949,
+     "n": 1404,
+     "pct": 67.6,
+     "ci95": [
+      65.1,
+      70.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 946,
+     "n": 1404,
+     "pct": 67.4,
+     "ci95": [
+      64.9,
+      69.8
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 947,
+     "n": 1404,
+     "pct": 67.5,
+     "ci95": [
+      65.0,
+      69.9
+     ]
+    }
+   }
+  },
+  "FT minicheck_ft5_r1": {
+   "group": "journal3 FT on real doses",
+   "file": "results/journal3/ft/scores/minicheck_ft5_r1__rd_raw.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 3,
+     "n": 12,
+     "pct": 25.0,
+     "ci95": [
+      8.9,
+      53.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1,
+     "n": 12,
+     "pct": 8.3,
+     "ci95": [
+      1.5,
+      35.4
+     ]
+    },
+    "slipped_checker": [
+     "buspirone",
+     "epinephrine",
+     "losartan"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "epinephrine"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 20,
+     "n": 47,
+     "pct": 42.6,
+     "ci95": [
+      29.5,
+      56.7
+     ]
+    },
+    "combined_pass_full": {
+     "k": 14,
+     "n": 47,
+     "pct": 29.8,
+     "ci95": [
+      18.7,
+      44.0
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 17,
+     "n": 47,
+     "pct": 36.2,
+     "ci95": [
+      24.0,
+      50.5
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 842,
+     "n": 1062,
+     "pct": 79.3,
+     "ci95": [
+      76.7,
+      81.6
+     ]
+    },
+    "combined_pass_full": {
+     "k": 842,
+     "n": 1062,
+     "pct": 79.3,
+     "ci95": [
+      76.7,
+      81.6
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 842,
+     "n": 1062,
+     "pct": 79.3,
+     "ci95": [
+      76.7,
+      81.6
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 942,
+     "n": 1404,
+     "pct": 67.1,
+     "ci95": [
+      64.6,
+      69.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 942,
+     "n": 1404,
+     "pct": 67.1,
+     "ci95": [
+      64.6,
+      69.5
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 942,
+     "n": 1404,
+     "pct": 67.1,
+     "ci95": [
+      64.6,
+      69.5
+     ]
+    }
+   }
+  },
+  "FT minicheck_ft5_r2": {
+   "group": "journal3 FT on real doses",
+   "file": "results/journal3/ft/scores/minicheck_ft5_r2__rd_raw.jsonl",
+   "verdict_rule": "stored verdict / score > 0.5",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 4,
+     "n": 12,
+     "pct": 33.3,
+     "ci95": [
+      13.8,
+      60.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1,
+     "n": 12,
+     "pct": 8.3,
+     "ci95": [
+      1.5,
+      35.4
+     ]
+    },
+    "slipped_checker": [
+     "buspirone",
+     "clonidine",
+     "epinephrine",
+     "losartan"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "epinephrine"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 17,
+     "n": 47,
+     "pct": 36.2,
+     "ci95": [
+      24.0,
+      50.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 11,
+     "n": 47,
+     "pct": 23.4,
+     "ci95": [
+      13.6,
+      37.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 13,
+     "n": 47,
+     "pct": 27.7,
+     "ci95": [
+      16.9,
+      41.8
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 828,
+     "n": 1062,
+     "pct": 78.0,
+     "ci95": [
+      75.4,
+      80.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 826,
+     "n": 1062,
+     "pct": 77.8,
+     "ci95": [
+      75.2,
+      80.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 826,
+     "n": 1062,
+     "pct": 77.8,
+     "ci95": [
+      75.2,
+      80.2
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 929,
+     "n": 1404,
+     "pct": 66.2,
+     "ci95": [
+      63.7,
+      68.6
+     ]
+    },
+    "combined_pass_full": {
+     "k": 927,
+     "n": 1404,
+     "pct": 66.0,
+     "ci95": [
+      63.5,
+      68.5
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 927,
+     "n": 1404,
+     "pct": 66.0,
+     "ci95": [
+      63.5,
+      68.5
+     ]
+    }
+   }
+  },
+  "judge llama31_8b": {
+   "group": "journal3 small local LLM judges",
+   "file": "results/journal3/judges/scores/llama31_8b__rd.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 1,
+    "checker_pass": {
+     "k": 3,
+     "n": 12,
+     "pct": 25.0,
+     "ci95": [
+      8.9,
+      53.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "ethambutol",
+     "losartan",
+     "tacrolimus"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 3,
+    "checker_pass": {
+     "k": 18,
+     "n": 47,
+     "pct": 38.3,
+     "ci95": [
+      25.8,
+      52.6
+     ]
+    },
+    "combined_pass_full": {
+     "k": 15,
+     "n": 47,
+     "pct": 31.9,
+     "ci95": [
+      20.4,
+      46.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 15,
+     "n": 47,
+     "pct": 31.9,
+     "ci95": [
+      20.4,
+      46.2
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 36,
+    "checker_pass": {
+     "k": 923,
+     "n": 1062,
+     "pct": 86.9,
+     "ci95": [
+      84.7,
+      88.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 922,
+     "n": 1062,
+     "pct": 86.8,
+     "ci95": [
+      84.6,
+      88.7
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 922,
+     "n": 1062,
+     "pct": 86.8,
+     "ci95": [
+      84.6,
+      88.7
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 57,
+    "checker_pass": {
+     "k": 1055,
+     "n": 1404,
+     "pct": 75.1,
+     "ci95": [
+      72.8,
+      77.3
+     ]
+    },
+    "combined_pass_full": {
+     "k": 1053,
+     "n": 1404,
+     "pct": 75.0,
+     "ci95": [
+      72.7,
+      77.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1053,
+     "n": 1404,
+     "pct": 75.0,
+     "ci95": [
+      72.7,
+      77.2
+     ]
+    }
+   }
+  },
+  "judge medgemma_4b": {
+   "group": "journal3 small local LLM judges",
+   "file": "results/journal3/judges/scores/medgemma_4b__rd.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 5,
+     "n": 12,
+     "pct": 41.7,
+     "ci95": [
+      19.3,
+      68.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 2,
+     "n": 12,
+     "pct": 16.7,
+     "ci95": [
+      4.7,
+      44.8
+     ]
+    },
+    "slipped_checker": [
+     "epinephrine",
+     "ethambutol",
+     "ivermectin",
+     "losartan",
+     "tacrolimus"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "epinephrine",
+     "ivermectin"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 25,
+     "n": 47,
+     "pct": 53.2,
+     "ci95": [
+      39.2,
+      66.7
+     ]
+    },
+    "combined_pass_full": {
+     "k": 19,
+     "n": 47,
+     "pct": 40.4,
+     "ci95": [
+      27.6,
+      54.7
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 22,
+     "n": 47,
+     "pct": 46.8,
+     "ci95": [
+      33.3,
+      60.8
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 1001,
+     "n": 1062,
+     "pct": 94.3,
+     "ci95": [
+      92.7,
+      95.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 998,
+     "n": 1062,
+     "pct": 94.0,
+     "ci95": [
+      92.4,
+      95.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 998,
+     "n": 1062,
+     "pct": 94.0,
+     "ci95": [
+      92.4,
+      95.3
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 1214,
+     "n": 1404,
+     "pct": 86.5,
+     "ci95": [
+      84.6,
+      88.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 1209,
+     "n": 1404,
+     "pct": 86.1,
+     "ci95": [
+      84.2,
+      87.8
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1210,
+     "n": 1404,
+     "pct": 86.2,
+     "ci95": [
+      84.3,
+      87.9
+     ]
+    }
+   }
+  },
+  "judge qwen25_0p5b": {
+   "group": "journal3 small local LLM judges",
+   "file": "results/journal3/judges/scores/qwen25_0p5b__rd.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 12,
+     "n": 12,
+     "pct": 100.0,
+     "ci95": [
+      75.7,
+      100.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 6,
+     "n": 12,
+     "pct": 50.0,
+     "ci95": [
+      25.4,
+      74.6
+     ]
+    },
+    "slipped_checker": [
+     "buspirone",
+     "ceftriaxone",
+     "clonidine",
+     "cyclophosphamide",
+     "epinephrine",
+     "ethambutol",
+     "filgrastim",
+     "glyburide",
+     "ivermectin",
+     "ivermectin",
+     "losartan",
+     "tacrolimus"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": [
+     "ceftriaxone",
+     "cyclophosphamide",
+     "epinephrine",
+     "filgrastim",
+     "ivermectin",
+     "ivermectin"
+    ]
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 4,
+    "checker_pass": {
+     "k": 41,
+     "n": 47,
+     "pct": 87.2,
+     "ci95": [
+      74.8,
+      94.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 24,
+     "n": 47,
+     "pct": 51.1,
+     "ci95": [
+      37.2,
+      64.7
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 35,
+     "n": 47,
+     "pct": 74.5,
+     "ci95": [
+      60.5,
+      84.7
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 50,
+    "checker_pass": {
+     "k": 972,
+     "n": 1062,
+     "pct": 91.5,
+     "ci95": [
+      89.7,
+      93.1
+     ]
+    },
+    "combined_pass_full": {
+     "k": 969,
+     "n": 1062,
+     "pct": 91.2,
+     "ci95": [
+      89.4,
+      92.8
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 969,
+     "n": 1062,
+     "pct": 91.2,
+     "ci95": [
+      89.4,
+      92.8
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 67,
+    "checker_pass": {
+     "k": 1269,
+     "n": 1404,
+     "pct": 90.4,
+     "ci95": [
+      88.7,
+      91.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 1263,
+     "n": 1404,
+     "pct": 90.0,
+     "ci95": [
+      88.3,
+      91.4
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 1265,
+     "n": 1404,
+     "pct": 90.1,
+     "ci95": [
+      88.4,
+      91.6
+     ]
+    }
+   }
+  },
+  "judge qwen25_14b": {
+   "group": "journal3 small local LLM judges",
+   "file": "results/journal3/judges/scores/qwen25_14b__rd.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 2,
+     "n": 12,
+     "pct": 16.7,
+     "ci95": [
+      4.7,
+      44.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "ethambutol",
+     "losartan"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 2,
+    "checker_pass": {
+     "k": 12,
+     "n": 47,
+     "pct": 25.5,
+     "ci95": [
+      15.3,
+      39.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 63,
+    "checker_pass": {
+     "k": 656,
+     "n": 1062,
+     "pct": 61.8,
+     "ci95": [
+      58.8,
+      64.6
+     ]
+    },
+    "combined_pass_full": {
+     "k": 655,
+     "n": 1062,
+     "pct": 61.7,
+     "ci95": [
+      58.7,
+      64.6
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 655,
+     "n": 1062,
+     "pct": 61.7,
+     "ci95": [
+      58.7,
+      64.6
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 88,
+    "checker_pass": {
+     "k": 715,
+     "n": 1404,
+     "pct": 50.9,
+     "ci95": [
+      48.3,
+      53.5
+     ]
+    },
+    "combined_pass_full": {
+     "k": 714,
+     "n": 1404,
+     "pct": 50.9,
+     "ci95": [
+      48.2,
+      53.5
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 714,
+     "n": 1404,
+     "pct": 50.9,
+     "ci95": [
+      48.2,
+      53.5
+     ]
+    }
+   }
+  },
+  "judge qwen25_1p5b": {
+   "group": "journal3 small local LLM judges",
+   "file": "results/journal3/judges/scores/qwen25_1p5b__rd.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 6,
+    "checker_pass": {
+     "k": 2,
+     "n": 12,
+     "pct": 16.7,
+     "ci95": [
+      4.7,
+      44.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "ethambutol",
+     "losartan"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 18,
+    "checker_pass": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 7,
+     "n": 47,
+     "pct": 14.9,
+     "ci95": [
+      7.4,
+      27.7
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 7,
+     "n": 47,
+     "pct": 14.9,
+     "ci95": [
+      7.4,
+      27.7
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 279,
+    "checker_pass": {
+     "k": 657,
+     "n": 1062,
+     "pct": 61.9,
+     "ci95": [
+      58.9,
+      64.7
+     ]
+    },
+    "combined_pass_full": {
+     "k": 655,
+     "n": 1062,
+     "pct": 61.7,
+     "ci95": [
+      58.7,
+      64.6
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 655,
+     "n": 1062,
+     "pct": 61.7,
+     "ci95": [
+      58.7,
+      64.6
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 385,
+    "checker_pass": {
+     "k": 776,
+     "n": 1404,
+     "pct": 55.3,
+     "ci95": [
+      52.7,
+      57.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 773,
+     "n": 1404,
+     "pct": 55.1,
+     "ci95": [
+      52.4,
+      57.6
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 773,
+     "n": 1404,
+     "pct": 55.1,
+     "ci95": [
+      52.4,
+      57.6
+     ]
+    }
+   }
+  },
+  "judge qwen25_3b": {
+   "group": "journal3 small local LLM judges",
+   "file": "results/journal3/judges/scores/qwen25_3b__rd.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 5,
+    "checker_pass": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 17,
+    "checker_pass": {
+     "k": 3,
+     "n": 47,
+     "pct": 6.4,
+     "ci95": [
+      2.2,
+      17.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 3,
+     "n": 47,
+     "pct": 6.4,
+     "ci95": [
+      2.2,
+      17.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 3,
+     "n": 47,
+     "pct": 6.4,
+     "ci95": [
+      2.2,
+      17.2
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 260,
+    "checker_pass": {
+     "k": 404,
+     "n": 1062,
+     "pct": 38.0,
+     "ci95": [
+      35.2,
+      41.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 403,
+     "n": 1062,
+     "pct": 37.9,
+     "ci95": [
+      35.1,
+      40.9
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 403,
+     "n": 1062,
+     "pct": 37.9,
+     "ci95": [
+      35.1,
+      40.9
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 356,
+    "checker_pass": {
+     "k": 426,
+     "n": 1404,
+     "pct": 30.3,
+     "ci95": [
+      28.0,
+      32.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 425,
+     "n": 1404,
+     "pct": 30.3,
+     "ci95": [
+      27.9,
+      32.7
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 425,
+     "n": 1404,
+     "pct": 30.3,
+     "ci95": [
+      27.9,
+      32.7
+     ]
+    }
+   }
+  },
+  "judge qwen25_7b": {
+   "group": "journal3 small local LLM judges",
+   "file": "results/journal3/judges/scores/qwen25_7b__rd.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 1,
+    "checker_pass": {
+     "k": 3,
+     "n": 12,
+     "pct": 25.0,
+     "ci95": [
+      8.9,
+      53.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [
+     "ethambutol",
+     "losartan",
+     "tacrolimus"
+    ],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 9,
+    "checker_pass": {
+     "k": 13,
+     "n": 47,
+     "pct": 27.7,
+     "ci95": [
+      16.9,
+      41.8
+     ]
+    },
+    "combined_pass_full": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 1062,
+    "of": 1062,
+    "parse_fail": 122,
+    "checker_pass": {
+     "k": 764,
+     "n": 1062,
+     "pct": 71.9,
+     "ci95": [
+      69.2,
+      74.6
+     ]
+    },
+    "combined_pass_full": {
+     "k": 762,
+     "n": 1062,
+     "pct": 71.8,
+     "ci95": [
+      69.0,
+      74.4
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 762,
+     "n": 1062,
+     "pct": 71.8,
+     "ci95": [
+      69.0,
+      74.4
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 1404,
+    "of": 1404,
+    "parse_fail": 184,
+    "checker_pass": {
+     "k": 852,
+     "n": 1404,
+     "pct": 60.7,
+     "ci95": [
+      58.1,
+      63.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 849,
+     "n": 1404,
+     "pct": 60.5,
+     "ci95": [
+      57.9,
+      63.0
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 849,
+     "n": 1404,
+     "pct": 60.5,
+     "ci95": [
+      57.9,
+      63.0
+     ]
+    }
+   }
+  },
+  "frontier anthropic_claude-opus-5.5": {
+   "group": "journal4 frontier (subset only)",
+   "file": "results/journal4/frontier/anthropic_claude-opus-5.5.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 4,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 2,
+     "n": 4,
+     "pct": 50.0,
+     "ci95": [
+      15.0,
+      85.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 2,
+     "n": 4,
+     "pct": 50.0,
+     "ci95": [
+      15.0,
+      85.0
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 2,
+     "n": 4,
+     "pct": 50.0,
+     "ci95": [
+      15.0,
+      85.0
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 6,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 2,
+     "n": 6,
+     "pct": 33.3,
+     "ci95": [
+      9.7,
+      70.0
+     ]
+    },
+    "combined_pass_full": {
+     "k": 2,
+     "n": 6,
+     "pct": 33.3,
+     "ci95": [
+      9.7,
+      70.0
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 2,
+     "n": 6,
+     "pct": 33.3,
+     "ci95": [
+      9.7,
+      70.0
+     ]
+    }
+   }
+  },
+  "frontier google_gemini-3.1-pro-preview": {
+   "group": "journal4 frontier (subset only)",
+   "file": "results/journal4/frontier/google_gemini-3.1-pro-preview.jsonl",
+   "verdict_rule": "strict paper parser (PARSE_FAIL = not PASS)",
+   "true12": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_full": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 0,
+     "n": 12,
+     "pct": 0.0,
+     "ci95": [
+      0.0,
+      24.3
+     ]
+    },
+    "slipped_checker": [],
+    "slipped_combined_full": [],
+    "slipped_combined_strict": []
+   },
+   "flagged47": {
+    "scored": 47,
+    "of": 47,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    },
+    "combined_pass_full": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 10,
+     "n": 47,
+     "pct": 21.3,
+     "ci95": [
+      12.0,
+      34.9
+     ]
+    }
+   },
+   "auto_correct": {
+    "scored": 4,
+    "of": 1062,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 3,
+     "n": 4,
+     "pct": 75.0,
+     "ci95": [
+      30.1,
+      95.4
+     ]
+    },
+    "combined_pass_full": {
+     "k": 3,
+     "n": 4,
+     "pct": 75.0,
+     "ci95": [
+      30.1,
+      95.4
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 3,
+     "n": 4,
+     "pct": 75.0,
+     "ci95": [
+      30.1,
+      95.4
+     ]
+    }
+   },
+   "non_flagged47": {
+    "scored": 6,
+    "of": 1404,
+    "parse_fail": 0,
+    "checker_pass": {
+     "k": 3,
+     "n": 6,
+     "pct": 50.0,
+     "ci95": [
+      18.8,
+      81.2
+     ]
+    },
+    "combined_pass_full": {
+     "k": 3,
+     "n": 6,
+     "pct": 50.0,
+     "ci95": [
+      18.8,
+      81.2
+     ]
+    },
+    "combined_pass_strict": {
+     "k": 3,
+     "n": 6,
+     "pct": 50.0,
+     "ci95": [
+      18.8,
+      81.2
+     ]
+    }
+   }
+  }
+ }
+}

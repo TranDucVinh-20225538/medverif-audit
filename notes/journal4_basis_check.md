@@ -52,3 +52,30 @@ indication mismatches with the same basis, IU<->mg factors, numbers in tables wh
   rate, combined "checker PASS AND not flagged") is run afterwards by `scripts/journal4/basis_check_eval.py` and committed
   separately under `results/journal4/basis_check/`. `basis_check.py` must not be edited after this commit; problems found in
   the evaluation are reported, not fixed (verify with `git log -- scripts/journal4/basis_check.py`).
+
+## Evaluation (added in the follow-up commit; rule unchanged since the freeze commit fdb95de)
+
+`python scripts/journal4/basis_check_eval.py` -> `results/journal4/basis_check/{report.md,report.json,per_item.jsonl,flagged_outside_flagged47.csv}`.
+
+* DEV recall (optimistic, see above): full 12/12 true12, 19/47 flagged47; strict 6/12, 7/47. The 6 true12 errors only the
+  full variant catches are all R2 (unpaired: ivermectin x2, filgrastim, cyclophosphamide, ceftriaxone, epinephrine).
+* False-alarm proxy: full flags 6/1404 (0.4%) of the answers outside flagged47 and 3/1062 (0.3%) of `auto_correct`;
+  strict 4/1404, 3/1062. Abstain (full): 20/1451 (1.4%) overall, 0/1062 auto_correct; no_dose 3 (concentration-only answers).
+* Combined "checker PASS AND not flagged" (full): 0/12 true12 errors slip through for every checker/judge with RD scores
+  (DEV, by construction), at a cost of <=0.3 points PASS on auto_correct.
+* The 6 flagged answers outside flagged47 — **provisional reading by the agent (Grok Bot), not human-verified**:
+  - allopurinol (gemma3_27b, closed; auto `correct`): "100 mg orally every 8 to 12 hours" vs label pediatric
+    "100 mg/m 2 ... every 8 hours to 12 hours" -> looks like a REAL dropped /m² that the auto extractor missed (v1 lost the
+    superscript in the target sentence, so the auto label is itself a parser artifact).
+  - hydroxychloroquine (gemma3_27b, closed; auto `value_error`): "pediatric >= 31 kg ... 310 mg" vs "6.5 mg/kg up to 400 mg"
+    -> looks like a REAL dropped weight basis (R2).
+  - lamotrigine (gpt4o_mini, closed; auto `time_ambiguous`): "no more rapidly than 50 mg every week" vs "50 to 100 mg/day
+    every week" -> ambiguous: E4 read the titration interval "every week" as a /week basis; the answer does omit "/day".
+  - glucagon (gpt4o_mini, closed; auto `correct`): "1 mg (1 unit)" vs "1 mg (1 mL)" -> FALSE ALARM (unit_kind; glucagon
+    1 mg = 1 unit is a legitimate equivalence; the 1 mg itself matched).
+  - ivermectin (gpt4o_mini, closed; auto `correct`): "200 micrograms (mcg) of ivermectin per kg" -> FALSE ALARM (parser: the
+    "(mcg)" parenthesis defeats extension E2).
+  - sulfamethoxazole (gemma3_27b, closed; auto `unverifiable`): "200 mg/40 mg per teaspoonful" -> FALSE ALARM (a per-teaspoon
+    product strength is not recognised as a concentration; R2 then compares it with the pediatric mg/kg doses).
+* Known parsing limits seen in the outputs: parenthetical unit restatements, "per teaspoonful" strengths, titration intervals
+  read as a time basis, coincidental small-integer numeral pairs in R1 (e.g. "1.5-3 g/m²" paired with "3 mg per kg").
