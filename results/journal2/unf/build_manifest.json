@@ -1,0 +1,20 @@
+{
+ "mode": "evidence",
+ "rows": 1178,
+ "bases": 110,
+ "changed": 637,
+ "by_condition": {
+  "C0|changed": 31,
+  "C0|same": 79,
+  "E1-claim|changed": 59,
+  "E1-claim|same": 152,
+  "E1-evid|changed": 59,
+  "E1-evid|same": 152,
+  "E1-unit-claim|changed": 107,
+  "E1-unit-down|changed": 150,
+  "E1-unit-evid|changed": 107,
+  "E2|changed": 62,
+  "E2|same": 158,
+  "INV-claim|changed": 62
+ }
+}

@@ -1,0 +1,131 @@
+{
+ "retrieved": "2026-10-01T07:24:33+0000",
+ "api": "https://api.fda.gov/drug/label.json",
+ "query": "openfda.generic_name.exact:<DRUG> AND product_type HUMAN PRESCRIPTION DRUG AND _exists_:dosage_and_administration; sort effective_time:desc; limit 1 (fallback: generic_name word match)",
+ "n_target": 200,
+ "n_labels": 200,
+ "n_in_dose_bases": 72,
+ "lexicon_size": 264,
+ "lexicon_in_dose_bases": [
+  "acetaminophen",
+  "acyclovir",
+  "adalimumab",
+  "allopurinol",
+  "amoxicillin",
+  "ampicillin",
+  "atorvastatin",
+  "azathioprine",
+  "azithromycin",
+  "cefazolin",
+  "cefixime",
+  "ceftriaxone",
+  "ciprofloxacin",
+  "clarithromycin",
+  "clindamycin",
+  "clonidine",
+  "cyclophosphamide",
+  "daptomycin",
+  "dexamethasone",
+  "diphenhydramine",
+  "doxycycline",
+  "epinephrine",
+  "erythromycin",
+  "ethambutol",
+  "ferrous",
+  "fluconazole",
+  "folic",
+  "furosemide",
+  "gabapentin",
+  "gentamicin",
+  "heparin",
+  "hydrochlorothiazide",
+  "insulin",
+  "isoniazid",
+  "ivermectin",
+  "lidocaine",
+  "linezolid",
+  "magnesium",
+  "methylprednisolone",
+  "metronidazole",
+  "mirtazapine",
+  "morphine",
+  "mycophenolate",
+  "naloxone",
+  "omeprazole",
+  "penicillin",
+  "phenytoin",
+  "potassium",
+  "prednisolone",
+  "prednisone",
+  "pregabalin",
+  "promethazine",
+  "propranolol",
+  "propylthiouracil",
+  "rifampin",
+  "sitagliptin",
+  "sodium",
+  "sulfamethoxazole",
+  "sumatriptan",
+  "tamoxifen",
+  "testosterone",
+  "topiramate",
+  "trimethoprim",
+  "valacyclovir",
+  "vancomycin",
+  "verapamil",
+  "voriconazole",
+  "warfarin",
+  "acetazolamide",
+  "amphotericin",
+  "calcium",
+  "dantrolene",
+  "etomidate",
+  "glucagon",
+  "octreotide"
+ ],
+ "misses": [
+  {
+   "drug": "clindamycin",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "erythromycin",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "ferrous",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "cetirizine",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "diclofenac",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "fluticasone",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "fosfomycin",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "loratadine",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "minocycline",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "nitroglycerin",
+   "why": "no_dose_span"
+  }
+ ],
+ "max_chars": 8000,
+ "labels_sha256": "a2526701dddc134357e192d12f7e6cb2324f926fb44d1837e2270f2900890f88",
+ "script": "scripts/journal2/rd_fetch_labels.py"
+}

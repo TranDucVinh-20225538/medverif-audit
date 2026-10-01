@@ -1,0 +1,165 @@
+#!/usr/bin/env python3
+"""(RD-5) Report: how often naturally occurring dose errors PASS each checker (CPU, no API).
+
+Rates are PASS / (PASS + FAIL) over scored rows (PARSE_FAIL excluded and counted), with Wilson 95% CIs
+and drug-clustered bootstrap 95% CIs (10,000 resamples).  Strata: automatic class (correct, all
+errors, unit-type errors = unit_error + basis_error, value errors), split by answer condition
+(grounded / closed) and generator.  If the human columns of qc/real_dose_errors_check.csv are
+filled, the same table is recomputed on human-confirmed errors (Y) and the auto-flag precision is
+reported.
+
+Outputs: notes/real_dose_errors.md, results/journal2/real_dose/report.json
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import sys
+from collections import Counter, defaultdict
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from jr2_common import JUDGES, RD, RD_CAP_USD, RD_QC, ROOT, cluster_boot, log, mark_done, rd_spent_usd, read_jsonl, wilson  # noqa: E402
+
+QC = RD_QC
+NOTE = ROOT / "notes/real_dose_errors.md"
+CHECKERS = [("t6_minicheck_roberta.jsonl", "MiniCheck-RoBERTa"), ("t6_minicheck_deberta.jsonl", "MiniCheck-DeBERTa"),
+            ("t6_alignscore_base.jsonl", "AlignScore-base"), ("v2a_minicheck.jsonl", "MiniCheck-Flan-T5-Large"),
+            ("v3_alignscore.jsonl", "AlignScore-large"), ("v4_ragas_nli.jsonl", "Llama-3.3-70B (RAGAS NLI)"),
+            ("v1_medscore.jsonl", "Mistral-Small-24B (MedScore)")]
+ERR = {"unit_error", "basis_error", "value_error"}
+
+
+def verdicts(path: Path) -> dict:
+    out = {}
+    for r in read_jsonl(path):
+        v = r.get("verdict")
+        if v in ("PASS", "FAIL", "PARSE_FAIL"):
+            out[r["instance_id"]] = v
+        elif r.get("score") is not None:
+            out[r["instance_id"]] = "PASS" if float(r["score"]) > 0.5 else "FAIL"
+    return out
+
+
+def stat(rows, vd, n_boot):
+    by = defaultdict(lambda: [0, 0])
+    pf = 0
+    for r in rows:
+        v = vd.get(r["instance_id"])
+        if v == "PARSE_FAIL":
+            pf += 1
+        if v not in ("PASS", "FAIL"):
+            continue
+        by[r["drug"]][0] += v == "PASS"
+        by[r["drug"]][1] += 1
+    k = sum(a for a, _ in by.values())
+    n = sum(b for _, b in by.values())
+    w = wilson(k, n)
+    b = cluster_boot([tuple(x) for x in by.values()], n_boot)
+    return {"k": k, "n": n, "rate": (k / n) if n else None, "wilson": w, "boot": b, "n_drugs": len(by), "parse_fail": pf,
+            "unscored": sum(1 for r in rows if r["instance_id"] not in vd)}
+
+
+def fmt(s) -> str:
+    if not s["n"]:
+        return "NA (n=0)"
+    lo, hi = s["boot"]
+    ci = "[%.1f, %.1f]" % (100 * lo, 100 * hi) if lo is not None else "[%.1f, %.1f]w" % (100 * s["wilson"][0], 100 * s["wilson"][1])
+    return "%.1f%% %s (%d/%d)" % (100 * s["rate"], ci, s["k"], s["n"])
+
+
+def human_labels() -> dict:
+    out = {}
+    if not QC.is_file():
+        return out
+    with QC.open(encoding="utf-8-sig") as fh:
+        for r in csv.DictReader(fh):
+            lab = (r.get("human_answer_dose_is_error (Y/N/unclear)") or "").strip().upper()
+            if lab:
+                out[r["instance_id"]] = {"is_error": lab[:1], "type": (r.get("human_error_type (unit/basis/value/context/none)") or "").strip().lower()}
+    return out
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--boot", type=int, default=10000)
+    ap.add_argument("--out-md", default=str(NOTE))
+    args = ap.parse_args()
+    inst = read_jsonl(RD / "instances.jsonl")
+    if not inst:
+        raise SystemExit("no instances (run rd_extract.py)")
+    ext = read_jsonl(RD / "extract_rows.jsonl")
+    strata = {
+        "correct (auto)": lambda r: r["auto_class"] == "correct",
+        "  of which natural conversions": lambda r: r["auto_class"] == "correct" and r.get("auto_subtype") == "correct_converted",
+        "all errors (auto)": lambda r: r["auto_class"] in ERR,
+        "unit-type errors": lambda r: r["auto_class"] in ("unit_error", "basis_error"),
+        "  unit_error (same numeral, other unit)": lambda r: r["auto_class"] == "unit_error",
+        "value errors": lambda r: r["auto_class"] == "value_error",
+    }
+    hl = human_labels()
+    if hl:
+        strata["human-confirmed errors"] = lambda r: hl.get(r["instance_id"], {}).get("is_error") == "Y"
+        strata["human-confirmed unit/basis errors"] = lambda r: hl.get(r["instance_id"], {}).get("is_error") == "Y" and \
+            hl[r["instance_id"]]["type"] in ("unit", "basis")
+    res = {"cap_usd": RD_CAP_USD, "spent_usd": round(rd_spent_usd(), 4), "n_instances": len(inst),
+           "class_counts": dict(Counter(r["auto_class"] for r in ext)),
+           "class_by_condition": dict(Counter("%s|%s" % (r["condition"], r["auto_class"]) for r in ext)),
+           "checkers": {}}
+    md = ["# Real-world dose errors: do naturally occurring errors pass the checkers?", "",
+          "Generated by `scripts/journal2/rd_report.py`. Labels: `data/real_labels/labels.jsonl` (openFDA SPL dosage "
+          "sections); questions/answers/extraction under `results/journal2/real_dose/`; human verification sheet "
+          "`qc/real_dose_errors_check.csv`. API spend (real-dose ledger): **$%.4f** of $%.2f." % (res["spent_usd"], RD_CAP_USD), "",
+          "Rates = PASS share among scored rows (PASS on an error = the error got through). CIs: drug-clustered bootstrap "
+          "(%d resamples); `w` = Wilson when <2 drugs. Classes are AUTOMATIC (rule-based) until the QC sheet is filled." % args.boot, "",
+          "## Answer classes (automatic)", "", "| condition | " + " | ".join(sorted(res["class_counts"])) + " |",
+          "|---|" + "---|" * len(res["class_counts"])]
+    for cond in ("grounded", "closed"):
+        md.append("| %s | %s |" % (cond, " | ".join(str(res["class_by_condition"].get("%s|%s" % (cond, c), 0)) for c in sorted(res["class_counts"]))))
+    sub = Counter("%s/%s" % (r["auto_class"], r.get("subtype")) for r in ext if r["auto_class"] in ERR)
+    md += ["", "Error subtypes: " + ", ".join("%s %d" % kv for kv in sorted(sub.items())), ""]
+    for cond_name, cond_pred in (("all answers", lambda r: True), ("grounded", lambda r: r["answer_condition"] == "grounded"),
+                                 ("closed-book", lambda r: r["answer_condition"] == "closed")):
+        md += ["## PASS rate by class — %s" % cond_name, "", "| checker | " + " | ".join(s.strip() for s in strata) + " |",
+               "|---|" + "---|" * len(strata)]
+        for fname, name in CHECKERS:
+            p = RD / "scores" / fname
+            if not p.is_file():
+                md.append("| %s | %s |" % (name, " | ".join(["not scored"] * len(strata))))
+                continue
+            vd = verdicts(p)
+            cells = []
+            for sname, pred in strata.items():
+                s = stat([r for r in inst if cond_pred(r) and pred(r)], vd, args.boot)
+                res["checkers"].setdefault(name, {}).setdefault(cond_name, {})[sname.strip()] = s
+                cells.append(fmt(s))
+            md.append("| %s | %s |" % (name, " | ".join(cells)))
+        md.append("")
+    if hl:
+        flagged = [r for r in ext if r["auto_class"] in ERR and r["instance_id"] in hl]
+        conf = sum(1 for r in flagged if hl[r["instance_id"]]["is_error"] == "Y")
+        ctrl = [r for r in ext if r["auto_class"] == "correct" and r["instance_id"] in hl]
+        miss = sum(1 for r in ctrl if hl[r["instance_id"]]["is_error"] == "Y")
+        res["human"] = {"labelled": len(hl), "flag_precision": [conf, len(flagged)], "control_errors": [miss, len(ctrl)]}
+        md += ["## Human verification", "", "Labelled rows: %d. Auto-flag precision: %d/%d. Errors among 'correct' controls: %d/%d."
+               % (len(hl), conf, len(flagged), miss, len(ctrl)), ""]
+    else:
+        md += ["## Human verification", "", "Not yet done: fill the two `human_*` columns of `qc/real_dose_errors_check.csv` "
+               "and rerun this script (no API) to get human-confirmed rates and auto-flag precision.", ""]
+    md += ["## Caveats", "",
+           "- Automatic flags compare the answer's first dose with the doses of ONE label sentence; answers that are right for "
+           "another population/indication in the excerpt are `match_other_context` and excluded; per-day vs per-dose "
+           "(`time_ambiguous`) and quantity kinds absent from the target (`unverifiable`) are excluded.",
+           "- Closed-book answers are checked against the label excerpt; a closed-book 'error' may be a legitimate dose from "
+           "another label/regimen (human column decides).", "- Checker verdicts use each checker's default operating point "
+           "(the paper's: MiniCheck prob>0.5, AlignScore >0.5, judges' parsed verdicts).", ""]
+    Path(args.out_md).write_text("\n".join(md) + "\n", encoding="utf-8")
+    (RD / "report.json").write_text(json.dumps(res, indent=1, default=str) + "\n")
+    mark_done("RD5_report", spent_usd=res["spent_usd"])
+    log("RD5_report", wrote=str(args.out_md), spent=res["spent_usd"])
+
+
+if __name__ == "__main__":
+    main()
