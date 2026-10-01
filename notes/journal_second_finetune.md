@@ -21,7 +21,14 @@ Reference (published MiniCheck-RoBERTa base vs ft): see `notes/t15_report.md` / 
 
 | model | macro BAcc [95% CI] | n |
 |---|---|---|
-| (data/t8/aggrefact/test.jsonl not available on this machine -- rerun this script on the HPC) | | |
+| alignscore_large_base | 0.7116 [0.6849, 0.7590] | 3000 |
+| alignscore_large_r0.5 | 0.7116 [0.6846, 0.7578] | 3000 |
+| alignscore_large_r1 | 0.7144 [0.6891, 0.7582] | 3000 |
+| alignscore_large_r2 | 0.7170 [0.6909, 0.7605] | 3000 |
+| minicheck_ft5_base | 0.7836 [0.7429, 0.8077] | 3000 |
+| minicheck_ft5_r0.5 | 0.7687 [0.7264, 0.7926] | 3000 |
+| minicheck_ft5_r1 | 0.7824 [0.7405, 0.8071] | 3000 |
+| minicheck_ft5_r2 | 0.7286 [0.7046, 0.7780] | 3000 |
 
 ## Out-of-template real RAG: T24b (C0-conditional; bootstrap over questions)
 
