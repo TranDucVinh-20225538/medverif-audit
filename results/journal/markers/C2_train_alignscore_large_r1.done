@@ -1,0 +1,6 @@
+{
+  "stage": "C2_train_alignscore_large_r1",
+  "finished": "2026-10-01T13:43:58+0700",
+  "slurm_job": "62066",
+  "best_dev_loss": 0.03853050463268874
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "B4_small",
+  "finished": "2026-10-01T18:27:38+0700",
+  "slurm_job": "62059",
+  "checkers": [
+    "t6a_minicheck_roberta",
+    "t6a_minicheck_deberta",
+    "t6a_alignscore_base",
+    "v2a_minicheck",
+    "v3_alignscore"
+  ]
+}

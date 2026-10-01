@@ -1,0 +1,9 @@
+{
+  "stage": "B4_judges",
+  "finished": "2026-10-01T15:08:16+0700",
+  "slurm_job": "62058",
+  "judges": [
+    "v4_ragas_nli",
+    "v1_medscore"
+  ]
+}

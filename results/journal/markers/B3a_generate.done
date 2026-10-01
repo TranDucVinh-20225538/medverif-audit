@@ -1,0 +1,7 @@
+{
+  "stage": "B3a_generate",
+  "finished": "2026-10-01T13:33:36+0700",
+  "slurm_job": "62058",
+  "answers": 400,
+  "expected": 400
+}

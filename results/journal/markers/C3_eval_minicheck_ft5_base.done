@@ -1,0 +1,13 @@
+{
+  "stage": "C3_eval_minicheck_ft5_base",
+  "finished": "2026-10-01T16:15:40+0700",
+  "slurm_job": "62097",
+  "weights": "lytang/MiniCheck-Flan-T5-Large (library default)",
+  "rows": {
+    "main_dose": 996,
+    "t7": 214,
+    "t24b": 202,
+    "rag": 1622,
+    "aggrefact": 3000
+  }
+}

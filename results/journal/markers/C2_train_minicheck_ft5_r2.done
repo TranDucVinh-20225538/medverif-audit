@@ -1,0 +1,6 @@
+{
+  "stage": "C2_train_minicheck_ft5_r2",
+  "finished": "2026-10-01T15:53:22+0700",
+  "slurm_job": "62062",
+  "best_dev_loss": 0.07157821745209864
+}

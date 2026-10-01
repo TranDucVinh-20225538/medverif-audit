@@ -1,0 +1,13 @@
+{
+  "stage": "C3_eval_minicheck_ft5_r1",
+  "finished": "2026-10-01T16:23:51+0700",
+  "slurm_job": "62099",
+  "weights": "/data2/hpcshared/medverif-audit/.cache/checkpoints/jr_minicheck_ft5_r1/best",
+  "rows": {
+    "main_dose": 996,
+    "t7": 214,
+    "t24b": 202,
+    "rag": 1622,
+    "aggrefact": 3000
+  }
+}

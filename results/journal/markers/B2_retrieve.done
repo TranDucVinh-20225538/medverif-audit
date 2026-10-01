@@ -1,0 +1,13 @@
+{
+  "stage": "B2_retrieve",
+  "finished": "2026-10-01T13:29:18+0700",
+  "slurm_job": "62057",
+  "n": 200,
+  "gold_recall": {
+    "bm25@3": 0.765,
+    "dense@3": 0.58,
+    "hybrid@3": 0.75
+  },
+  "dense_model": "ncbi/MedCPT-Article-Encoder",
+  "corpus_chunks": 125847
+}

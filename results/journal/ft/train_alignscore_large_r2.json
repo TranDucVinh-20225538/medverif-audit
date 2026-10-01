@@ -1,0 +1,39 @@
+{
+  "model": "alignscore_large",
+  "ratio": "2",
+  "base_checkpoint": "yzha/AlignScore@8509e78/AlignScore-large.ckpt",
+  "best_dev_loss": 0.04726870277279617,
+  "best_dir": "/data2/hpcshared/medverif-audit/.cache/checkpoints/jr_alignscore_large_r2",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.0921673089976753,
+      "dev_loss": 0.05640476639968841,
+      "secs": 415
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.036033178940216855,
+      "dev_loss": 0.05002140988028563,
+      "secs": 408
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.009572315510646474,
+      "dev_loss": 0.04726870277279617,
+      "secs": 399
+    }
+  ],
+  "hyperparameters": {
+    "seed": 42,
+    "epochs": 3,
+    "lr": 2e-05,
+    "batch_size": 8,
+    "max_length": 512,
+    "optimizer": "AdamW wd=0, linear decay, no warmup",
+    "threshold": 0.5,
+    "amp": "torch.float16"
+  },
+  "n_train": 31524,
+  "n_dev": 2343
+}

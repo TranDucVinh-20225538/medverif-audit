@@ -1,0 +1,14 @@
+{
+  "stage": "B1_questions",
+  "finished": "2026-10-01T13:18:36+0700",
+  "slurm_job": "62056",
+  "valid_questions": 200,
+  "candidates": 280,
+  "chunks": 125847,
+  "dose_sentences": 1541,
+  "drop_t15_train_or_t24": 563,
+  "drop_main_or_pack_sentence_hash": 17,
+  "drop_main_or_pack_source_passage_id": 1,
+  "eligible_after_filters": 960,
+  "books": 14
+}

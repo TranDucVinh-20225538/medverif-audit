@@ -1,0 +1,12 @@
+{
+  "stage": "C1_ft_data",
+  "finished": "2026-10-01T13:13:55+0700",
+  "slurm_job": "62061",
+  "n_dose_train": 10508,
+  "n_anli_in_t15_train": 10515,
+  "n_dev": 2343,
+  "dev_label_counts": {
+    "SUPPORTED": 649,
+    "UNSUPPORTED": 1694
+  }
+}

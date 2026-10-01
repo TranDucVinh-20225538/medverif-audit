@@ -1,0 +1,6 @@
+{
+  "stage": "A_threshold",
+  "finished": "2026-10-01T13:15:37+0700",
+  "slurm_job": "62055",
+  "out_md": "/data2/hpcshared/medverif-audit/notes/threshold_robustness.md"
+}

@@ -1,0 +1,3901 @@
+{
+ "boot": 10000,
+ "seed": 20261001,
+ "grid": 400,
+ "checkers": {
+  "t6a_minicheck_roberta": {
+   "display": "MiniCheck-RoBERTa",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.5007977783679962,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    0.3205876648426056,
+    0.23076359182596207
+   ],
+   "youden_all": 0.23076359182596207,
+   "n_rows": 918,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 0.9838709677419355,
+     "max_joint_acc_bound": 0.016129032258064502,
+     "n_paired_natural": 22,
+     "floor_natural": 1.0,
+     "auc_conv_vs_swap": 0.09179981911365692
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 0.967741935483871,
+     "max_joint_acc_bound": 0.032258064516129004,
+     "n_paired_natural": 22,
+     "floor_natural": 1.0,
+     "auc_conv_vs_swap": 0.07717817304793488
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 0.9272727272727272,
+    "qi_all": 0.17857142857142858,
+    "qi_nat": 0.1,
+    "ns": 0.9230769230769231,
+    "us_claim_up": 0.15151515151515152,
+    "us_evid_up": 0.0707070707070707,
+    "t": 0.34396520256996155
+   },
+   "points": {
+    "default": {
+     "threshold": 0.5007977783679962,
+     "c0_pass_rate": {
+      "rate": 0.9,
+      "lo": 0.8363636363636363,
+      "hi": 0.9545454545454546,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.05454545454545454,
+      "lo": 0.0,
+      "hi": 0.12727272727272726,
+      "den": 55,
+      "n_bases": 55
+     },
+     "qi_nat": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "den": 20,
+      "n_bases": 20
+     },
+     "ns": {
+      "rate": 0.9470899470899471,
+      "lo": 0.9086021505376344,
+      "hi": 0.9790575916230366,
+      "den": 189,
+      "n_bases": 96
+     },
+     "us_claim_up": {
+      "rate": 0.3333333333333333,
+      "lo": 0.23958333333333334,
+      "hi": 0.4270833333333333,
+      "den": 96,
+      "n_bases": 96
+     },
+     "us_evid_up": {
+      "rate": 0.20833333333333334,
+      "lo": 0.13541666666666666,
+      "hi": 0.2916666666666667,
+      "den": 96,
+      "n_bases": 96
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": 0.27567562833428383,
+     "c0_pass_rate": {
+      "rate": 0.9454545454545454,
+      "lo": 0.9,
+      "hi": 0.9818181818181818,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.24561403508771928,
+      "lo": 0.14035087719298245,
+      "hi": 0.3684210526315789,
+      "den": 57,
+      "n_bases": 57
+     },
+     "qi_nat": {
+      "rate": 0.15,
+      "lo": 0.0,
+      "hi": 0.3,
+      "den": 20,
+      "n_bases": 20
+     },
+     "ns": {
+      "rate": 0.9095477386934674,
+      "lo": 0.8636363636363636,
+      "hi": 0.95,
+      "den": 199,
+      "n_bases": 101
+     },
+     "us_claim_up": {
+      "rate": 0.04950495049504951,
+      "lo": 0.009900990099009901,
+      "hi": 0.09900990099009901,
+      "den": 101,
+      "n_bases": 101
+     },
+     "us_evid_up": {
+      "rate": 0.039603960396039604,
+      "lo": 0.009900990099009901,
+      "hi": 0.07920792079207921,
+      "den": 101,
+      "n_bases": 101
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": 0.23076359182596207,
+     "c0_pass_rate": {
+      "rate": 0.9636363636363636,
+      "lo": 0.9272727272727272,
+      "hi": 0.990909090909091,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.2542372881355932,
+      "lo": 0.15254237288135594,
+      "hi": 0.3728813559322034,
+      "den": 59,
+      "n_bases": 59
+     },
+     "qi_nat": {
+      "rate": 0.15,
+      "lo": 0.0,
+      "hi": 0.3,
+      "den": 20,
+      "n_bases": 20
+     },
+     "ns": {
+      "rate": 0.9113300492610837,
+      "lo": 0.8634146341463415,
+      "hi": 0.9512195121951219,
+      "den": 203,
+      "n_bases": 103
+     },
+     "us_claim_up": {
+      "rate": 0.02912621359223301,
+      "lo": 0.0,
+      "hi": 0.06796116504854369,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_evid_up": {
+      "rate": 0.038834951456310676,
+      "lo": 0.009708737864077669,
+      "hi": 0.07766990291262135,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.34396520256996155,
+     "c0_pass_rate": {
+      "rate": 0.9272727272727272,
+      "lo": 0.8727272727272727,
+      "hi": 0.9727272727272728,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.17857142857142858,
+      "lo": 0.08928571428571429,
+      "hi": 0.2857142857142857,
+      "den": 56,
+      "n_bases": 56
+     },
+     "qi_nat": {
+      "rate": 0.1,
+      "lo": 0.0,
+      "hi": 0.25,
+      "den": 20,
+      "n_bases": 20
+     },
+     "ns": {
+      "rate": 0.9230769230769231,
+      "lo": 0.8789433811802232,
+      "hi": 0.9593908629441624,
+      "den": 195,
+      "n_bases": 99
+     },
+     "us_claim_up": {
+      "rate": 0.15151515151515152,
+      "lo": 0.08080808080808081,
+      "hi": 0.2222222222222222,
+      "den": 99,
+      "n_bases": 99
+     },
+     "us_evid_up": {
+      "rate": 0.0707070707070707,
+      "lo": 0.030303030303030304,
+      "hi": 0.12121212121212122,
+      "den": 99,
+      "n_bases": 99
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  },
+  "t6a_minicheck_deberta": {
+   "display": "MiniCheck-DeBERTa",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.5002290904521942,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    0.18817033618688583,
+    0.20391377806663513
+   ],
+   "youden_all": 0.18817033618688583,
+   "n_rows": 918,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 0.9032258064516129,
+     "max_joint_acc_bound": 0.09677419354838712,
+     "n_paired_natural": 22,
+     "floor_natural": 0.9090909090909091,
+     "auc_conv_vs_swap": 0.1629484473922219
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 0.967741935483871,
+     "max_joint_acc_bound": 0.032258064516129004,
+     "n_paired_natural": 22,
+     "floor_natural": 0.9545454545454546,
+     "auc_conv_vs_swap": 0.09918601145613506
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 0.9636363636363636,
+    "qi_all": 0.23333333333333334,
+    "qi_nat": 0.18181818181818182,
+    "ns": 0.7192118226600985,
+    "us_claim_up": 0.21359223300970873,
+    "us_evid_up": 0.10679611650485436,
+    "t": 0.08989033102989197
+   },
+   "points": {
+    "default": {
+     "threshold": 0.5002290904521942,
+     "c0_pass_rate": {
+      "rate": 0.8909090909090909,
+      "lo": 0.8272727272727273,
+      "hi": 0.9454545454545454,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.03636363636363636,
+      "lo": 0.0,
+      "hi": 0.09090909090909091,
+      "den": 55,
+      "n_bases": 55
+     },
+     "qi_nat": {
+      "rate": 0.05,
+      "lo": 0.0,
+      "hi": 0.15,
+      "den": 20,
+      "n_bases": 20
+     },
+     "ns": {
+      "rate": 0.9578947368421052,
+      "lo": 0.9206349206349206,
+      "hi": 0.9894736842105263,
+      "den": 190,
+      "n_bases": 96
+     },
+     "us_claim_up": {
+      "rate": 0.8631578947368421,
+      "lo": 0.7894736842105263,
+      "hi": 0.9263157894736842,
+      "den": 95,
+      "n_bases": 95
+     },
+     "us_evid_up": {
+      "rate": 0.7263157894736842,
+      "lo": 0.631578947368421,
+      "hi": 0.8105263157894737,
+      "den": 95,
+      "n_bases": 95
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": 0.19604205712676048,
+     "c0_pass_rate": {
+      "rate": 0.9545454545454546,
+      "lo": 0.9090909090909091,
+      "hi": 0.990909090909091,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.1016949152542373,
+      "lo": 0.03389830508474576,
+      "hi": 0.1864406779661017,
+      "den": 59,
+      "n_bases": 59
+     },
+     "qi_nat": {
+      "rate": 0.09523809523809523,
+      "lo": 0.0,
+      "hi": 0.23809523809523808,
+      "den": 21,
+      "n_bases": 21
+     },
+     "ns": {
+      "rate": 0.9257425742574258,
+      "lo": 0.8823529411764706,
+      "hi": 0.9607843137254902,
+      "den": 202,
+      "n_bases": 102
+     },
+     "us_claim_up": {
+      "rate": 0.5980392156862745,
+      "lo": 0.5,
+      "hi": 0.696078431372549,
+      "den": 102,
+      "n_bases": 102
+     },
+     "us_evid_up": {
+      "rate": 0.2549019607843137,
+      "lo": 0.16666666666666666,
+      "hi": 0.3431372549019608,
+      "den": 102,
+      "n_bases": 102
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": 0.18817033618688583,
+     "c0_pass_rate": {
+      "rate": 0.9636363636363636,
+      "lo": 0.9272727272727272,
+      "hi": 0.990909090909091,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.11666666666666667,
+      "lo": 0.05,
+      "hi": 0.2,
+      "den": 60,
+      "n_bases": 60
+     },
+     "qi_nat": {
+      "rate": 0.13636363636363635,
+      "lo": 0.0,
+      "hi": 0.2727272727272727,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.9261083743842364,
+      "lo": 0.885,
+      "hi": 0.964824120603015,
+      "den": 203,
+      "n_bases": 103
+     },
+     "us_claim_up": {
+      "rate": 0.5728155339805825,
+      "lo": 0.47572815533980584,
+      "hi": 0.6699029126213593,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_evid_up": {
+      "rate": 0.24271844660194175,
+      "lo": 0.1650485436893204,
+      "hi": 0.3300970873786408,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.08989033102989197,
+     "c0_pass_rate": {
+      "rate": 0.9636363636363636,
+      "lo": 0.9272727272727272,
+      "hi": 0.990909090909091,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.23333333333333334,
+      "lo": 0.13333333333333333,
+      "hi": 0.35,
+      "den": 60,
+      "n_bases": 60
+     },
+     "qi_nat": {
+      "rate": 0.18181818181818182,
+      "lo": 0.045454545454545456,
+      "hi": 0.36363636363636365,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.7192118226600985,
+      "lo": 0.6435643564356436,
+      "hi": 0.7920792079207921,
+      "den": 203,
+      "n_bases": 103
+     },
+     "us_claim_up": {
+      "rate": 0.21359223300970873,
+      "lo": 0.13592233009708737,
+      "hi": 0.2912621359223301,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_evid_up": {
+      "rate": 0.10679611650485436,
+      "lo": 0.04854368932038835,
+      "hi": 0.17475728155339806,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  },
+  "t6a_alignscore_base": {
+   "display": "AlignScore-base",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.5028809607028961,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    0.3028133660554886,
+    0.4652244448661804
+   ],
+   "youden_all": 0.2890256345272064,
+   "n_rows": 918,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 0.9516129032258065,
+     "max_joint_acc_bound": 0.048387096774193505,
+     "n_paired_natural": 22,
+     "floor_natural": 0.9090909090909091,
+     "auc_conv_vs_swap": 0.11576725957190231
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 0.9838709677419355,
+     "max_joint_acc_bound": 0.016129032258064502,
+     "n_paired_natural": 22,
+     "floor_natural": 0.9545454545454546,
+     "auc_conv_vs_swap": 0.11531504371419958
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 0.9,
+    "qi_all": 0.2,
+    "qi_nat": 0.22727272727272727,
+    "ns": 0.9476439790575916,
+    "us_claim_up": 0.21875,
+    "us_evid_up": 0.2604166666666667,
+    "t": 0.6754051446914673
+   },
+   "points": {
+    "default": {
+     "threshold": 0.5028809607028961,
+     "c0_pass_rate": {
+      "rate": 0.9272727272727272,
+      "lo": 0.8727272727272727,
+      "hi": 0.9727272727272728,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.19298245614035087,
+      "lo": 0.10526315789473684,
+      "hi": 0.2982456140350877,
+      "den": 57,
+      "n_bases": 57
+     },
+     "qi_nat": {
+      "rate": 0.22727272727272727,
+      "lo": 0.045454545454545456,
+      "hi": 0.4090909090909091,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.9435897435897436,
+      "lo": 0.9030612244897959,
+      "hi": 0.9792746113989638,
+      "den": 195,
+      "n_bases": 99
+     },
+     "us_claim_up": {
+      "rate": 0.12121212121212122,
+      "lo": 0.06060606060606061,
+      "hi": 0.1919191919191919,
+      "den": 99,
+      "n_bases": 99
+     },
+     "us_evid_up": {
+      "rate": 0.16161616161616163,
+      "lo": 0.09090909090909091,
+      "hi": 0.24242424242424243,
+      "den": 99,
+      "n_bases": 99
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": 0.3840189054608345,
+     "c0_pass_rate": {
+      "rate": 0.9363636363636364,
+      "lo": 0.8909090909090909,
+      "hi": 0.9818181818181818,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.3157894736842105,
+      "lo": 0.19298245614035087,
+      "hi": 0.43859649122807015,
+      "den": 57,
+      "n_bases": 57
+     },
+     "qi_nat": {
+      "rate": 0.2727272727272727,
+      "lo": 0.09090909090909091,
+      "hi": 0.45454545454545453,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.934010152284264,
+      "lo": 0.8934010152284264,
+      "hi": 0.9695431472081218,
+      "den": 197,
+      "n_bases": 100
+     },
+     "us_claim_up": {
+      "rate": 0.11,
+      "lo": 0.05,
+      "hi": 0.18,
+      "den": 100,
+      "n_bases": 100
+     },
+     "us_evid_up": {
+      "rate": 0.13,
+      "lo": 0.07,
+      "hi": 0.2,
+      "den": 100,
+      "n_bases": 100
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": 0.2890256345272064,
+     "c0_pass_rate": {
+      "rate": 0.9727272727272728,
+      "lo": 0.9363636363636364,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.3389830508474576,
+      "lo": 0.22033898305084745,
+      "hi": 0.4576271186440678,
+      "den": 59,
+      "n_bases": 59
+     },
+     "qi_nat": {
+      "rate": 0.3181818181818182,
+      "lo": 0.13636363636363635,
+      "hi": 0.5,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.9170731707317074,
+      "lo": 0.8743961352657005,
+      "hi": 0.9558823529411765,
+      "den": 205,
+      "n_bases": 104
+     },
+     "us_claim_up": {
+      "rate": 0.125,
+      "lo": 0.0673076923076923,
+      "hi": 0.19230769230769232,
+      "den": 104,
+      "n_bases": 104
+     },
+     "us_evid_up": {
+      "rate": 0.09615384615384616,
+      "lo": 0.04807692307692308,
+      "hi": 0.15384615384615385,
+      "den": 104,
+      "n_bases": 104
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.6754051446914673,
+     "c0_pass_rate": {
+      "rate": 0.9,
+      "lo": 0.8454545454545455,
+      "hi": 0.9545454545454546,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.2,
+      "lo": 0.10909090909090909,
+      "hi": 0.3090909090909091,
+      "den": 55,
+      "n_bases": 55
+     },
+     "qi_nat": {
+      "rate": 0.22727272727272727,
+      "lo": 0.045454545454545456,
+      "hi": 0.4090909090909091,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.9476439790575916,
+      "lo": 0.9067357512953368,
+      "hi": 0.9792746113989638,
+      "den": 191,
+      "n_bases": 97
+     },
+     "us_claim_up": {
+      "rate": 0.21875,
+      "lo": 0.14583333333333334,
+      "hi": 0.3020833333333333,
+      "den": 96,
+      "n_bases": 96
+     },
+     "us_evid_up": {
+      "rate": 0.2604166666666667,
+      "lo": 0.17708333333333334,
+      "hi": 0.3541666666666667,
+      "den": 96,
+      "n_bases": 96
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  },
+  "v2a_minicheck": {
+   "display": "MiniCheck-Flan-T5-Large",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.5041311532258987,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    0.524585410952568,
+    0.30115877091884613
+   ],
+   "youden_all": 0.524585410952568,
+   "n_rows": 1028,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 0.8064516129032258,
+     "max_joint_acc_bound": 0.19354838709677424,
+     "n_paired_natural": 22,
+     "floor_natural": 0.9545454545454546,
+     "auc_conv_vs_swap": 0.20063310220078384
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 0.9354838709677419,
+     "max_joint_acc_bound": 0.06451612903225812,
+     "n_paired_natural": 22,
+     "floor_natural": 0.8181818181818182,
+     "auc_conv_vs_swap": 0.09345794392523364
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 0.990909090909091,
+    "qi_all": 0.2786885245901639,
+    "qi_nat": 0.22727272727272727,
+    "ns": 0.8181818181818182,
+    "us_claim_up": 0.3018867924528302,
+    "us_evid_up": 0.09433962264150944,
+    "t": 0.1852860525250435
+   },
+   "points": {
+    "default": {
+     "threshold": 0.5041311532258987,
+     "c0_pass_rate": {
+      "rate": 0.9636363636363636,
+      "lo": 0.9272727272727272,
+      "hi": 0.990909090909091,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.08333333333333333,
+      "lo": 0.016666666666666666,
+      "hi": 0.15,
+      "den": 60,
+      "n_bases": 60
+     },
+     "qi_nat": {
+      "rate": 0.045454545454545456,
+      "lo": 0.0,
+      "hi": 0.13636363636363635,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.8866995073891626,
+      "lo": 0.8325123152709359,
+      "hi": 0.9359605911330049,
+      "den": 203,
+      "n_bases": 103
+     },
+     "us_claim_up": {
+      "rate": 0.5242718446601942,
+      "lo": 0.42718446601941745,
+      "hi": 0.6213592233009708,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_evid_up": {
+      "rate": 0.21359223300970873,
+      "lo": 0.13592233009708737,
+      "hi": 0.2912621359223301,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": 0.4128720909357071,
+     "c0_pass_rate": {
+      "rate": 0.9636363636363636,
+      "lo": 0.9272727272727272,
+      "hi": 0.990909090909091,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.11666666666666667,
+      "lo": 0.05,
+      "hi": 0.2,
+      "den": 60,
+      "n_bases": 60
+     },
+     "qi_nat": {
+      "rate": 0.09090909090909091,
+      "lo": 0.0,
+      "hi": 0.22727272727272727,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.8669950738916257,
+      "lo": 0.8088235294117647,
+      "hi": 0.9215686274509803,
+      "den": 203,
+      "n_bases": 103
+     },
+     "us_claim_up": {
+      "rate": 0.46601941747572817,
+      "lo": 0.36893203883495146,
+      "hi": 0.5631067961165048,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_evid_up": {
+      "rate": 0.1941747572815534,
+      "lo": 0.11650485436893204,
+      "hi": 0.27184466019417475,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": 0.524585410952568,
+     "c0_pass_rate": {
+      "rate": 0.9636363636363636,
+      "lo": 0.9272727272727272,
+      "hi": 0.990909090909091,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.08333333333333333,
+      "lo": 0.016666666666666666,
+      "hi": 0.15,
+      "den": 60,
+      "n_bases": 60
+     },
+     "qi_nat": {
+      "rate": 0.045454545454545456,
+      "lo": 0.0,
+      "hi": 0.13636363636363635,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.8866995073891626,
+      "lo": 0.8325123152709359,
+      "hi": 0.9359605911330049,
+      "den": 203,
+      "n_bases": 103
+     },
+     "us_claim_up": {
+      "rate": 0.5242718446601942,
+      "lo": 0.42718446601941745,
+      "hi": 0.6213592233009708,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_evid_up": {
+      "rate": 0.22330097087378642,
+      "lo": 0.14563106796116504,
+      "hi": 0.3106796116504854,
+      "den": 103,
+      "n_bases": 103
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.1852860525250435,
+     "c0_pass_rate": {
+      "rate": 0.990909090909091,
+      "lo": 0.9727272727272728,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.2786885245901639,
+      "lo": 0.16393442622950818,
+      "hi": 0.39344262295081966,
+      "den": 61,
+      "n_bases": 61
+     },
+     "qi_nat": {
+      "rate": 0.22727272727272727,
+      "lo": 0.045454545454545456,
+      "hi": 0.4090909090909091,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.8181818181818182,
+      "lo": 0.7523809523809524,
+      "hi": 0.8792270531400966,
+      "den": 209,
+      "n_bases": 106
+     },
+     "us_claim_up": {
+      "rate": 0.3018867924528302,
+      "lo": 0.2169811320754717,
+      "hi": 0.3867924528301887,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_evid_up": {
+      "rate": 0.09433962264150944,
+      "lo": 0.04716981132075472,
+      "hi": 0.1509433962264151,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  },
+  "v3_alignscore": {
+   "display": "AlignScore-large",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.5016768127679825,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    0.32633477449417114,
+    0.7497559189796448
+   ],
+   "youden_all": 0.32633477449417114,
+   "n_rows": 1028,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 0.7741935483870968,
+     "max_joint_acc_bound": 0.22580645161290325,
+     "n_paired_natural": 22,
+     "floor_natural": 0.7727272727272727,
+     "auc_conv_vs_swap": 0.37940910461260174
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 0.8548387096774194,
+     "max_joint_acc_bound": 0.14516129032258063,
+     "n_paired_natural": 22,
+     "floor_natural": 0.7727272727272727,
+     "auc_conv_vs_swap": 0.29936689779921616
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 0.9727272727272728,
+    "qi_all": 0.423728813559322,
+    "qi_nat": 0.2727272727272727,
+    "ns": 0.8926829268292683,
+    "us_claim_up": 0.41346153846153844,
+    "us_evid_up": 0.3076923076923077,
+    "t": 0.2087499126791954
+   },
+   "points": {
+    "default": {
+     "threshold": 0.5016768127679825,
+     "c0_pass_rate": {
+      "rate": 0.9454545454545454,
+      "lo": 0.9,
+      "hi": 0.9818181818181818,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.24561403508771928,
+      "lo": 0.14035087719298245,
+      "hi": 0.3508771929824561,
+      "den": 57,
+      "n_bases": 57
+     },
+     "qi_nat": {
+      "rate": 0.19047619047619047,
+      "lo": 0.047619047619047616,
+      "hi": 0.38095238095238093,
+      "den": 21,
+      "n_bases": 21
+     },
+     "ns": {
+      "rate": 0.9396984924623115,
+      "lo": 0.8994974874371859,
+      "hi": 0.9748743718592965,
+      "den": 199,
+      "n_bases": 101
+     },
+     "us_claim_up": {
+      "rate": 0.5346534653465347,
+      "lo": 0.43564356435643564,
+      "hi": 0.6336633663366337,
+      "den": 101,
+      "n_bases": 101
+     },
+     "us_evid_up": {
+      "rate": 0.40594059405940597,
+      "lo": 0.3069306930693069,
+      "hi": 0.504950495049505,
+      "den": 101,
+      "n_bases": 101
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": 0.538045346736908,
+     "c0_pass_rate": {
+      "rate": 0.9363636363636364,
+      "lo": 0.8909090909090909,
+      "hi": 0.9818181818181818,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.22807017543859648,
+      "lo": 0.12280701754385964,
+      "hi": 0.3333333333333333,
+      "den": 57,
+      "n_bases": 57
+     },
+     "qi_nat": {
+      "rate": 0.14285714285714285,
+      "lo": 0.0,
+      "hi": 0.2857142857142857,
+      "den": 21,
+      "n_bases": 21
+     },
+     "ns": {
+      "rate": 0.949238578680203,
+      "lo": 0.9090909090909091,
+      "hi": 0.9797979797979798,
+      "den": 197,
+      "n_bases": 100
+     },
+     "us_claim_up": {
+      "rate": 0.59,
+      "lo": 0.49,
+      "hi": 0.69,
+      "den": 100,
+      "n_bases": 100
+     },
+     "us_evid_up": {
+      "rate": 0.44,
+      "lo": 0.34,
+      "hi": 0.54,
+      "den": 100,
+      "n_bases": 100
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": 0.32633477449417114,
+     "c0_pass_rate": {
+      "rate": 0.9727272727272728,
+      "lo": 0.9363636363636364,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.3050847457627119,
+      "lo": 0.1864406779661017,
+      "hi": 0.423728813559322,
+      "den": 59,
+      "n_bases": 59
+     },
+     "qi_nat": {
+      "rate": 0.18181818181818182,
+      "lo": 0.045454545454545456,
+      "hi": 0.36363636363636365,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.9170731707317074,
+      "lo": 0.8682926829268293,
+      "hi": 0.9605911330049262,
+      "den": 205,
+      "n_bases": 104
+     },
+     "us_claim_up": {
+      "rate": 0.47115384615384615,
+      "lo": 0.375,
+      "hi": 0.5673076923076923,
+      "den": 104,
+      "n_bases": 104
+     },
+     "us_evid_up": {
+      "rate": 0.34615384615384615,
+      "lo": 0.25961538461538464,
+      "hi": 0.4423076923076923,
+      "den": 104,
+      "n_bases": 104
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.2087499126791954,
+     "c0_pass_rate": {
+      "rate": 0.9727272727272728,
+      "lo": 0.9363636363636364,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.423728813559322,
+      "lo": 0.3050847457627119,
+      "hi": 0.5423728813559322,
+      "den": 59,
+      "n_bases": 59
+     },
+     "qi_nat": {
+      "rate": 0.2727272727272727,
+      "lo": 0.09090909090909091,
+      "hi": 0.45454545454545453,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.8926829268292683,
+      "lo": 0.8398058252427184,
+      "hi": 0.9411764705882353,
+      "den": 205,
+      "n_bases": 104
+     },
+     "us_claim_up": {
+      "rate": 0.41346153846153844,
+      "lo": 0.3173076923076923,
+      "hi": 0.5096153846153846,
+      "den": 104,
+      "n_bases": 104
+     },
+     "us_evid_up": {
+      "rate": 0.3076923076923077,
+      "lo": 0.22115384615384615,
+      "hi": 0.40384615384615385,
+      "den": 104,
+      "n_bases": 104
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  },
+  "v2b_bespoke": {
+   "display": "Bespoke-MiniCheck-7B",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.5153228872683414,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    0.6788056894883983,
+    0.6489972355548326
+   ],
+   "youden_all": 0.6788056894883983,
+   "n_rows": 918,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 0.22580645161290322,
+     "max_joint_acc_bound": 0.7741935483870968,
+     "n_paired_natural": 22,
+     "floor_natural": 0.22727272727272727,
+     "auc_conv_vs_swap": 0.791377750979801
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 0.46774193548387094,
+     "max_joint_acc_bound": 0.532258064516129,
+     "n_paired_natural": 22,
+     "floor_natural": 0.4090909090909091,
+     "auc_conv_vs_swap": 0.5860717515827555
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 1.0,
+    "qi_all": 0.7580645161290323,
+    "qi_nat": 0.8181818181818182,
+    "ns": 0.966824644549763,
+    "us_claim_up": 0.7476635514018691,
+    "us_evid_up": 0.37383177570093457,
+    "t": 0.5618212676911141
+   },
+   "points": {
+    "default": {
+     "threshold": 0.5153228872683414,
+     "c0_pass_rate": {
+      "rate": 1.0,
+      "lo": 1.0,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.7741935483870968,
+      "lo": 0.6612903225806451,
+      "hi": 0.8709677419354839,
+      "den": 62,
+      "n_bases": 62
+     },
+     "qi_nat": {
+      "rate": 0.8181818181818182,
+      "lo": 0.6363636363636364,
+      "hi": 0.9545454545454546,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.9383886255924171,
+      "lo": 0.9004739336492891,
+      "hi": 0.9715639810426541,
+      "den": 211,
+      "n_bases": 107
+     },
+     "us_claim_up": {
+      "rate": 0.6728971962616822,
+      "lo": 0.5794392523364486,
+      "hi": 0.7570093457943925,
+      "den": 107,
+      "n_bases": 107
+     },
+     "us_evid_up": {
+      "rate": 0.3644859813084112,
+      "lo": 0.27102803738317754,
+      "hi": 0.45794392523364486,
+      "den": 107,
+      "n_bases": 107
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": 0.6639014625216154,
+     "c0_pass_rate": {
+      "rate": 0.990909090909091,
+      "lo": 0.9727272727272728,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.639344262295082,
+      "lo": 0.5245901639344263,
+      "hi": 0.7540983606557377,
+      "den": 61,
+      "n_bases": 61
+     },
+     "qi_nat": {
+      "rate": 0.6363636363636364,
+      "lo": 0.4090909090909091,
+      "hi": 0.8181818181818182,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.9715639810426541,
+      "lo": 0.9389671361502347,
+      "hi": 0.9952835725042076,
+      "den": 211,
+      "n_bases": 107
+     },
+     "us_claim_up": {
+      "rate": 0.8584905660377359,
+      "lo": 0.7924528301886793,
+      "hi": 0.9245283018867925,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_evid_up": {
+      "rate": 0.5566037735849056,
+      "lo": 0.46226415094339623,
+      "hi": 0.6509433962264151,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": 0.6788056894883983,
+     "c0_pass_rate": {
+      "rate": 0.990909090909091,
+      "lo": 0.9727272727272728,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.6065573770491803,
+      "lo": 0.4913934426229512,
+      "hi": 0.7213114754098361,
+      "den": 61,
+      "n_bases": 61
+     },
+     "qi_nat": {
+      "rate": 0.5909090909090909,
+      "lo": 0.36363636363636365,
+      "hi": 0.7727272727272727,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.976303317535545,
+      "lo": 0.9483568075117371,
+      "hi": 0.9953051643192489,
+      "den": 211,
+      "n_bases": 107
+     },
+     "us_claim_up": {
+      "rate": 0.8584905660377359,
+      "lo": 0.7830188679245284,
+      "hi": 0.9245283018867925,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_evid_up": {
+      "rate": 0.5943396226415094,
+      "lo": 0.5,
+      "hi": 0.6886792452830188,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.5618212676911141,
+     "c0_pass_rate": {
+      "rate": 1.0,
+      "lo": 1.0,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.7580645161290323,
+      "lo": 0.6451612903225806,
+      "hi": 0.8548387096774194,
+      "den": 62,
+      "n_bases": 62
+     },
+     "qi_nat": {
+      "rate": 0.8181818181818182,
+      "lo": 0.6363636363636364,
+      "hi": 0.9545454545454546,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.966824644549763,
+      "lo": 0.933649289099526,
+      "hi": 0.9906542056074766,
+      "den": 211,
+      "n_bases": 107
+     },
+     "us_claim_up": {
+      "rate": 0.7476635514018691,
+      "lo": 0.6635514018691588,
+      "hi": 0.822429906542056,
+      "den": 107,
+      "n_bases": 107
+     },
+     "us_evid_up": {
+      "rate": 0.37383177570093457,
+      "lo": 0.2803738317757009,
+      "hi": 0.4672897196261682,
+      "den": 107,
+      "n_bases": 107
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  },
+  "t6a_summac_zs": {
+   "display": "SummaC-ZS",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.49820180237293243,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    -0.07183837890625,
+    -0.1356201171875
+   ],
+   "youden_all": -0.1816791808232665,
+   "n_rows": 918,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 0.9838709677419355,
+     "max_joint_acc_bound": 0.016129032258064502,
+     "n_paired_natural": 22,
+     "floor_natural": 1.0,
+     "auc_conv_vs_swap": 0.15895387398251432
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 0.9516129032258065,
+     "max_joint_acc_bound": 0.048387096774193505,
+     "n_paired_natural": 22,
+     "floor_natural": 0.9545454545454546,
+     "auc_conv_vs_swap": 0.1412420862224902
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 0.8727272727272727,
+    "qi_all": 0.23636363636363636,
+    "qi_nat": 0.10526315789473684,
+    "ns": 0.9453551912568307,
+    "us_claim_up": 0.20430107526881722,
+    "us_evid_up": 0.12903225806451613,
+    "t": 0.23089885711669922
+   },
+   "points": {
+    "default": {
+     "threshold": 0.49820180237293243,
+     "c0_pass_rate": {
+      "rate": 0.8,
+      "lo": 0.7272727272727273,
+      "hi": 0.8727272727272727,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.13725490196078433,
+      "lo": 0.058823529411764705,
+      "hi": 0.23529411764705882,
+      "den": 51,
+      "n_bases": 51
+     },
+     "qi_nat": {
+      "rate": 0.058823529411764705,
+      "lo": 0.0,
+      "hi": 0.17647058823529413,
+      "den": 17,
+      "n_bases": 17
+     },
+     "ns": {
+      "rate": 0.9644970414201184,
+      "lo": 0.9289940828402367,
+      "hi": 0.994012867122897,
+      "den": 169,
+      "n_bases": 86
+     },
+     "us_claim_up": {
+      "rate": 0.27058823529411763,
+      "lo": 0.17647058823529413,
+      "hi": 0.36470588235294116,
+      "den": 85,
+      "n_bases": 85
+     },
+     "us_evid_up": {
+      "rate": 0.23529411764705882,
+      "lo": 0.15294117647058825,
+      "hi": 0.32941176470588235,
+      "den": 85,
+      "n_bases": 85
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": -0.103729248046875,
+     "c0_pass_rate": {
+      "rate": 0.9454545454545454,
+      "lo": 0.9,
+      "hi": 0.9818181818181818,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.39655172413793105,
+      "lo": 0.27586206896551724,
+      "hi": 0.5172413793103449,
+      "den": 58,
+      "n_bases": 58
+     },
+     "qi_nat": {
+      "rate": 0.23809523809523808,
+      "lo": 0.09523809523809523,
+      "hi": 0.42857142857142855,
+      "den": 21,
+      "n_bases": 21
+     },
+     "ns": {
+      "rate": 0.8944723618090452,
+      "lo": 0.839175676361606,
+      "hi": 0.9444444444444444,
+      "den": 199,
+      "n_bases": 101
+     },
+     "us_claim_up": {
+      "rate": 0.1188118811881188,
+      "lo": 0.0594059405940594,
+      "hi": 0.18811881188118812,
+      "den": 101,
+      "n_bases": 101
+     },
+     "us_evid_up": {
+      "rate": 0.0891089108910891,
+      "lo": 0.039603960396039604,
+      "hi": 0.1485148514851485,
+      "den": 101,
+      "n_bases": 101
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": -0.1816791808232665,
+     "c0_pass_rate": {
+      "rate": 0.9818181818181818,
+      "lo": 0.9545454545454546,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.4262295081967213,
+      "lo": 0.3114754098360656,
+      "hi": 0.5573770491803278,
+      "den": 61,
+      "n_bases": 61
+     },
+     "qi_nat": {
+      "rate": 0.22727272727272727,
+      "lo": 0.045454545454545456,
+      "hi": 0.4090909090909091,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": 0.8792270531400966,
+      "lo": 0.8229588469606618,
+      "hi": 0.9320388349514563,
+      "den": 207,
+      "n_bases": 105
+     },
+     "us_claim_up": {
+      "rate": 0.08571428571428572,
+      "lo": 0.0380952380952381,
+      "hi": 0.14285714285714285,
+      "den": 105,
+      "n_bases": 105
+     },
+     "us_evid_up": {
+      "rate": 0.09523809523809523,
+      "lo": 0.047619047619047616,
+      "hi": 0.1523809523809524,
+      "den": 105,
+      "n_bases": 105
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.23089885711669922,
+     "c0_pass_rate": {
+      "rate": 0.8727272727272727,
+      "lo": 0.8090909090909091,
+      "hi": 0.9363636363636364,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.23636363636363636,
+      "lo": 0.12727272727272726,
+      "hi": 0.34545454545454546,
+      "den": 55,
+      "n_bases": 55
+     },
+     "qi_nat": {
+      "rate": 0.10526315789473684,
+      "lo": 0.0,
+      "hi": 0.2631578947368421,
+      "den": 19,
+      "n_bases": 19
+     },
+     "ns": {
+      "rate": 0.9453551912568307,
+      "lo": 0.8967391304347826,
+      "hi": 0.9836956521739131,
+      "den": 183,
+      "n_bases": 93
+     },
+     "us_claim_up": {
+      "rate": 0.20430107526881722,
+      "lo": 0.12903225806451613,
+      "hi": 0.2903225806451613,
+      "den": 93,
+      "n_bases": 93
+     },
+     "us_evid_up": {
+      "rate": 0.12903225806451613,
+      "lo": 0.06451612903225806,
+      "hi": 0.20430107526881722,
+      "den": 93,
+      "n_bases": 93
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  },
+  "t6a_summac_conv": {
+   "display": "SummaC-Conv",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.5077893435955048,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    0.22278261929750443,
+    0.2247031033039093
+   ],
+   "youden_all": 0.22278261929750443,
+   "n_rows": 707,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 0.967741935483871,
+     "max_joint_acc_bound": 0.032258064516129004,
+     "n_paired_natural": 22,
+     "floor_natural": 1.0,
+     "auc_conv_vs_swap": 0.17071148628278565
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 0.9838709677419355,
+     "max_joint_acc_bound": 0.016129032258064502,
+     "n_paired_natural": 22,
+     "floor_natural": 1.0,
+     "auc_conv_vs_swap": 0.15676816400361773
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 0.8909090909090909,
+    "qi_all": 0.37037037037037035,
+    "qi_nat": 0.10526315789473684,
+    "ns": null,
+    "us_claim_up": 0.14736842105263157,
+    "us_evid_up": 0.12631578947368421,
+    "t": 0.22343110293149948
+   },
+   "points": {
+    "default": {
+     "threshold": 0.5077893435955048,
+     "c0_pass_rate": {
+      "rate": 0.7454545454545455,
+      "lo": 0.6636363636363637,
+      "hi": 0.8272727272727273,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.02127659574468085,
+      "lo": 0.0,
+      "hi": 0.06382978723404255,
+      "den": 47,
+      "n_bases": 47
+     },
+     "qi_nat": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "den": 17,
+      "n_bases": 17
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.5443037974683544,
+      "lo": 0.43037974683544306,
+      "hi": 0.6582278481012658,
+      "den": 79,
+      "n_bases": 79
+     },
+     "us_evid_up": {
+      "rate": 0.6329113924050633,
+      "lo": 0.5316455696202531,
+      "hi": 0.7341772151898734,
+      "den": 79,
+      "n_bases": 79
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": 0.22374286130070686,
+     "c0_pass_rate": {
+      "rate": 0.8727272727272727,
+      "lo": 0.8090909090909091,
+      "hi": 0.9272727272727272,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.32075471698113206,
+      "lo": 0.20754716981132076,
+      "hi": 0.4528301886792453,
+      "den": 53,
+      "n_bases": 53
+     },
+     "qi_nat": {
+      "rate": 0.1111111111111111,
+      "lo": 0.0,
+      "hi": 0.2777777777777778,
+      "den": 18,
+      "n_bases": 18
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.23655913978494625,
+      "lo": 0.15053763440860216,
+      "hi": 0.3225806451612903,
+      "den": 93,
+      "n_bases": 93
+     },
+     "us_evid_up": {
+      "rate": 0.22580645161290322,
+      "lo": 0.13978494623655913,
+      "hi": 0.3118279569892473,
+      "den": 93,
+      "n_bases": 93
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": 0.22278261929750443,
+     "c0_pass_rate": {
+      "rate": 0.9272727272727272,
+      "lo": 0.8727272727272727,
+      "hi": 0.9727272727272728,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.39285714285714285,
+      "lo": 0.26785714285714285,
+      "hi": 0.5178571428571429,
+      "den": 56,
+      "n_bases": 56
+     },
+     "qi_nat": {
+      "rate": 0.15,
+      "lo": 0.0,
+      "hi": 0.3,
+      "den": 20,
+      "n_bases": 20
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.06060606060606061,
+      "lo": 0.020202020202020204,
+      "hi": 0.1111111111111111,
+      "den": 99,
+      "n_bases": 99
+     },
+     "us_evid_up": {
+      "rate": 0.04040404040404041,
+      "lo": 0.010101010101010102,
+      "hi": 0.08080808080808081,
+      "den": 99,
+      "n_bases": 99
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.22343110293149948,
+     "c0_pass_rate": {
+      "rate": 0.8909090909090909,
+      "lo": 0.8272727272727273,
+      "hi": 0.9454545454545454,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.37037037037037035,
+      "lo": 0.24074074074074073,
+      "hi": 0.5,
+      "den": 54,
+      "n_bases": 54
+     },
+     "qi_nat": {
+      "rate": 0.10526315789473684,
+      "lo": 0.0,
+      "hi": 0.2631578947368421,
+      "den": 19,
+      "n_bases": 19
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.14736842105263157,
+      "lo": 0.08421052631578947,
+      "hi": 0.22105263157894736,
+      "den": 95,
+      "n_bases": 95
+     },
+     "us_evid_up": {
+      "rate": 0.12631578947368421,
+      "lo": 0.06315789473684211,
+      "hi": 0.2,
+      "den": 95,
+      "n_bases": 95
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  },
+  "t6a_hhem": {
+   "display": "HHEM",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.5036772042512894,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    0.821716845035553,
+    0.8048312664031982
+   ],
+   "youden_all": 0.8053426742553711,
+   "n_rows": 707,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 1.0,
+     "max_joint_acc_bound": 0.0,
+     "n_paired_natural": 22,
+     "floor_natural": 1.0,
+     "auc_conv_vs_swap": 0.009496533011757612
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 1.0,
+     "max_joint_acc_bound": 0.0,
+     "n_paired_natural": 22,
+     "floor_natural": 1.0,
+     "auc_conv_vs_swap": 0.02547482665058788
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 0.9363636363636364,
+    "qi_all": 0.03571428571428571,
+    "qi_nat": 0.09523809523809523,
+    "ns": null,
+    "us_claim_up": 0.02,
+    "us_evid_up": 0.06,
+    "t": 0.6726208329200745
+   },
+   "points": {
+    "default": {
+     "threshold": 0.5036772042512894,
+     "c0_pass_rate": {
+      "rate": 0.9727272727272728,
+      "lo": 0.9363636363636364,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.0847457627118644,
+      "lo": 0.01694915254237288,
+      "hi": 0.15254237288135594,
+      "den": 59,
+      "n_bases": 59
+     },
+     "qi_nat": {
+      "rate": 0.14285714285714285,
+      "lo": 0.0,
+      "hi": 0.3333333333333333,
+      "den": 21,
+      "n_bases": 21
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.009615384615384616,
+      "lo": 0.0,
+      "hi": 0.028846153846153848,
+      "den": 104,
+      "n_bases": 104
+     },
+     "us_evid_up": {
+      "rate": 0.04807692307692308,
+      "lo": 0.009615384615384616,
+      "hi": 0.09615384615384616,
+      "den": 104,
+      "n_bases": 104
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": 0.8132740557193756,
+     "c0_pass_rate": {
+      "rate": 0.8727272727272727,
+      "lo": 0.8090909090909091,
+      "hi": 0.9363636363636364,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "den": 52,
+      "n_bases": 52
+     },
+     "qi_nat": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "den": 20,
+      "n_bases": 20
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.043010752688172046,
+      "lo": 0.010752688172043012,
+      "hi": 0.08602150537634409,
+      "den": 93,
+      "n_bases": 93
+     },
+     "us_evid_up": {
+      "rate": 0.06451612903225806,
+      "lo": 0.021505376344086023,
+      "hi": 0.11827956989247312,
+      "den": 93,
+      "n_bases": 93
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": 0.8053426742553711,
+     "c0_pass_rate": {
+      "rate": 0.8909090909090909,
+      "lo": 0.8272727272727273,
+      "hi": 0.9454545454545454,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "den": 54,
+      "n_bases": 54
+     },
+     "qi_nat": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "den": 20,
+      "n_bases": 20
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.042105263157894736,
+      "lo": 0.010526315789473684,
+      "hi": 0.08421052631578947,
+      "den": 95,
+      "n_bases": 95
+     },
+     "us_evid_up": {
+      "rate": 0.07368421052631578,
+      "lo": 0.031578947368421054,
+      "hi": 0.12631578947368421,
+      "den": 95,
+      "n_bases": 95
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.6726208329200745,
+     "c0_pass_rate": {
+      "rate": 0.9363636363636364,
+      "lo": 0.8909090909090909,
+      "hi": 0.9818181818181818,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.03571428571428571,
+      "lo": 0.0,
+      "hi": 0.08928571428571429,
+      "den": 56,
+      "n_bases": 56
+     },
+     "qi_nat": {
+      "rate": 0.09523809523809523,
+      "lo": 0.0,
+      "hi": 0.23809523809523808,
+      "den": 21,
+      "n_bases": 21
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.02,
+      "lo": 0.0,
+      "hi": 0.05,
+      "den": 100,
+      "n_bases": 100
+     },
+     "us_evid_up": {
+      "rate": 0.06,
+      "lo": 0.02,
+      "hi": 0.11,
+      "den": 100,
+      "n_bases": 100
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  },
+  "t6a_granite_guardian": {
+   "display": "Granite Guardian 2B",
+   "orientation": 1,
+   "default_threshold_reproduced": 0.48438841104507446,
+   "default_reproduction_agreement": 1.0,
+   "youden_fold_thresholds": [
+    0.5768257826566696,
+    0.5926587581634521
+   ],
+   "youden_all": 0.5926587581634521,
+   "n_rows": 707,
+   "inversion_floor": {
+    "claim": {
+     "n_bases_paired": 62,
+     "floor": 0.9193548387096774,
+     "max_joint_acc_bound": 0.08064516129032262,
+     "n_paired_natural": 22,
+     "floor_natural": 0.8636363636363636,
+     "auc_conv_vs_swap": 0.26447090744648777
+    },
+    "evid": {
+     "n_bases_paired": 62,
+     "floor": 0.9838709677419355,
+     "max_joint_acc_bound": 0.016129032258064502,
+     "n_paired_natural": 22,
+     "floor_natural": 0.9545454545454546,
+     "auc_conv_vs_swap": 0.13069038287609286
+    }
+   },
+   "feasible_claim": [],
+   "feasible_evid": [],
+   "oracle": {
+    "c0_pass_rate": 0.990909090909091,
+    "qi_all": 0.3387096774193548,
+    "qi_nat": 0.4090909090909091,
+    "ns": null,
+    "us_claim_up": 0.33962264150943394,
+    "us_evid_up": 0.14150943396226415,
+    "t": 0.29421043395996094
+   },
+   "points": {
+    "default": {
+     "threshold": 0.48438841104507446,
+     "c0_pass_rate": {
+      "rate": 0.990909090909091,
+      "lo": 0.9727272727272728,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.1935483870967742,
+      "lo": 0.0967741935483871,
+      "hi": 0.2903225806451613,
+      "den": 62,
+      "n_bases": 62
+     },
+     "qi_nat": {
+      "rate": 0.18181818181818182,
+      "lo": 0.045454545454545456,
+      "hi": 0.36363636363636365,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.4339622641509434,
+      "lo": 0.33962264150943394,
+      "hi": 0.5283018867924528,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_evid_up": {
+      "rate": 0.20754716981132076,
+      "lo": 0.1320754716981132,
+      "hi": 0.2830188679245283,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-CF": {
+     "threshold": 0.5847422704100609,
+     "c0_pass_rate": {
+      "rate": 0.9818181818181818,
+      "lo": 0.9545454545454546,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.18032786885245902,
+      "lo": 0.08196721311475409,
+      "hi": 0.2786885245901639,
+      "den": 61,
+      "n_bases": 61
+     },
+     "qi_nat": {
+      "rate": 0.14285714285714285,
+      "lo": 0.0,
+      "hi": 0.2857142857142857,
+      "den": 21,
+      "n_bases": 21
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.47619047619047616,
+      "lo": 0.38095238095238093,
+      "hi": 0.5714285714285714,
+      "den": 105,
+      "n_bases": 105
+     },
+     "us_evid_up": {
+      "rate": 0.26666666666666666,
+      "lo": 0.18095238095238095,
+      "hi": 0.3523809523809524,
+      "den": 105,
+      "n_bases": 105
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "Youden-all": {
+     "threshold": 0.5926587581634521,
+     "c0_pass_rate": {
+      "rate": 0.9818181818181818,
+      "lo": 0.9545454545454546,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.18032786885245902,
+      "lo": 0.08196721311475409,
+      "hi": 0.2786885245901639,
+      "den": 61,
+      "n_bases": 61
+     },
+     "qi_nat": {
+      "rate": 0.14285714285714285,
+      "lo": 0.0,
+      "hi": 0.2857142857142857,
+      "den": 21,
+      "n_bases": 21
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.47619047619047616,
+      "lo": 0.38095238095238093,
+      "hi": 0.5714285714285714,
+      "den": 105,
+      "n_bases": 105
+     },
+     "us_evid_up": {
+      "rate": 0.2761904761904762,
+      "lo": 0.19047619047619047,
+      "hi": 0.3619047619047619,
+      "den": 105,
+      "n_bases": 105
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    },
+    "oracle": {
+     "threshold": 0.29421043395996094,
+     "c0_pass_rate": {
+      "rate": 0.990909090909091,
+      "lo": 0.9727272727272728,
+      "hi": 1.0,
+      "den": 110,
+      "n_bases": 110
+     },
+     "qi_all": {
+      "rate": 0.3387096774193548,
+      "lo": 0.22580645161290322,
+      "hi": 0.45161290322580644,
+      "den": 62,
+      "n_bases": 62
+     },
+     "qi_nat": {
+      "rate": 0.4090909090909091,
+      "lo": 0.22727272727272727,
+      "hi": 0.5909090909090909,
+      "den": 22,
+      "n_bases": 22
+     },
+     "ns": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_claim_up": {
+      "rate": 0.33962264150943394,
+      "lo": 0.25471698113207547,
+      "hi": 0.4339622641509434,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_evid_up": {
+      "rate": 0.14150943396226415,
+      "lo": 0.07547169811320754,
+      "hi": 0.20754716981132076,
+      "den": 106,
+      "n_bases": 106
+     },
+     "us_claim_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     },
+     "us_evid_down": {
+      "rate": null,
+      "lo": null,
+      "hi": null,
+      "den": 0,
+      "n_bases": 0
+     }
+    }
+   }
+  }
+ },
+ "card_ci": {
+  "v2a_minicheck": {
+   "c0_pass_rate": {
+    "rate": 0.9636363636363636,
+    "lo": 0.9272727272727272,
+    "hi": 0.990909090909091,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.08333333333333333,
+    "lo": 0.016666666666666666,
+    "hi": 0.15,
+    "den": 60,
+    "n_bases": 60
+   },
+   "qi_nat": {
+    "rate": 0.045454545454545456,
+    "lo": 0.0,
+    "hi": 0.13636363636363635,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.8866995073891626,
+    "lo": 0.8325123152709359,
+    "hi": 0.9359605911330049,
+    "den": 203,
+    "n_bases": 103
+   },
+   "us_claim_up": {
+    "rate": 0.5242718446601942,
+    "lo": 0.42718446601941745,
+    "hi": 0.6213592233009708,
+    "den": 103,
+    "n_bases": 103
+   },
+   "us_evid_up": {
+    "rate": 0.21359223300970873,
+    "lo": 0.13592233009708737,
+    "hi": 0.2912621359223301,
+    "den": 103,
+    "n_bases": 103
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v3_alignscore": {
+   "c0_pass_rate": {
+    "rate": 0.9454545454545454,
+    "lo": 0.9,
+    "hi": 0.9818181818181818,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.24561403508771928,
+    "lo": 0.14035087719298245,
+    "hi": 0.3508771929824561,
+    "den": 57,
+    "n_bases": 57
+   },
+   "qi_nat": {
+    "rate": 0.19047619047619047,
+    "lo": 0.047619047619047616,
+    "hi": 0.38095238095238093,
+    "den": 21,
+    "n_bases": 21
+   },
+   "ns": {
+    "rate": 0.9396984924623115,
+    "lo": 0.8994974874371859,
+    "hi": 0.9748743718592965,
+    "den": 199,
+    "n_bases": 101
+   },
+   "us_claim_up": {
+    "rate": 0.5346534653465347,
+    "lo": 0.43564356435643564,
+    "hi": 0.6336633663366337,
+    "den": 101,
+    "n_bases": 101
+   },
+   "us_evid_up": {
+    "rate": 0.40594059405940597,
+    "lo": 0.3069306930693069,
+    "hi": 0.504950495049505,
+    "den": 101,
+    "n_bases": 101
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v2b_bespoke": {
+   "c0_pass_rate": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.7741935483870968,
+    "lo": 0.6612903225806451,
+    "hi": 0.8709677419354839,
+    "den": 62,
+    "n_bases": 62
+   },
+   "qi_nat": {
+    "rate": 0.8181818181818182,
+    "lo": 0.6363636363636364,
+    "hi": 0.9545454545454546,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.9383886255924171,
+    "lo": 0.9004739336492891,
+    "hi": 0.9715639810426541,
+    "den": 211,
+    "n_bases": 107
+   },
+   "us_claim_up": {
+    "rate": 0.6728971962616822,
+    "lo": 0.5794392523364486,
+    "hi": 0.7570093457943925,
+    "den": 107,
+    "n_bases": 107
+   },
+   "us_evid_up": {
+    "rate": 0.3644859813084112,
+    "lo": 0.27102803738317754,
+    "hi": 0.45794392523364486,
+    "den": 107,
+    "n_bases": 107
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "t6a_minicheck_roberta": {
+   "c0_pass_rate": {
+    "rate": 0.9,
+    "lo": 0.8363636363636363,
+    "hi": 0.9545454545454546,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.05454545454545454,
+    "lo": 0.0,
+    "hi": 0.12727272727272726,
+    "den": 55,
+    "n_bases": 55
+   },
+   "qi_nat": {
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "den": 20,
+    "n_bases": 20
+   },
+   "ns": {
+    "rate": 0.9470899470899471,
+    "lo": 0.9086021505376344,
+    "hi": 0.9790575916230366,
+    "den": 189,
+    "n_bases": 96
+   },
+   "us_claim_up": {
+    "rate": 0.3333333333333333,
+    "lo": 0.23958333333333334,
+    "hi": 0.4270833333333333,
+    "den": 96,
+    "n_bases": 96
+   },
+   "us_evid_up": {
+    "rate": 0.20833333333333334,
+    "lo": 0.13541666666666666,
+    "hi": 0.2916666666666667,
+    "den": 96,
+    "n_bases": 96
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "t6a_minicheck_deberta": {
+   "c0_pass_rate": {
+    "rate": 0.8909090909090909,
+    "lo": 0.8272727272727273,
+    "hi": 0.9454545454545454,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.03636363636363636,
+    "lo": 0.0,
+    "hi": 0.09090909090909091,
+    "den": 55,
+    "n_bases": 55
+   },
+   "qi_nat": {
+    "rate": 0.05,
+    "lo": 0.0,
+    "hi": 0.15,
+    "den": 20,
+    "n_bases": 20
+   },
+   "ns": {
+    "rate": 0.9578947368421052,
+    "lo": 0.9206349206349206,
+    "hi": 0.9894736842105263,
+    "den": 190,
+    "n_bases": 96
+   },
+   "us_claim_up": {
+    "rate": 0.8631578947368421,
+    "lo": 0.7894736842105263,
+    "hi": 0.9263157894736842,
+    "den": 95,
+    "n_bases": 95
+   },
+   "us_evid_up": {
+    "rate": 0.7263157894736842,
+    "lo": 0.631578947368421,
+    "hi": 0.8105263157894737,
+    "den": 95,
+    "n_bases": 95
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "t6a_alignscore_base": {
+   "c0_pass_rate": {
+    "rate": 0.9272727272727272,
+    "lo": 0.8727272727272727,
+    "hi": 0.9727272727272728,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.19298245614035087,
+    "lo": 0.10526315789473684,
+    "hi": 0.2982456140350877,
+    "den": 57,
+    "n_bases": 57
+   },
+   "qi_nat": {
+    "rate": 0.22727272727272727,
+    "lo": 0.045454545454545456,
+    "hi": 0.4090909090909091,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.9435897435897436,
+    "lo": 0.9030612244897959,
+    "hi": 0.9792746113989638,
+    "den": 195,
+    "n_bases": 99
+   },
+   "us_claim_up": {
+    "rate": 0.12121212121212122,
+    "lo": 0.06060606060606061,
+    "hi": 0.1919191919191919,
+    "den": 99,
+    "n_bases": 99
+   },
+   "us_evid_up": {
+    "rate": 0.16161616161616163,
+    "lo": 0.09090909090909091,
+    "hi": 0.24242424242424243,
+    "den": 99,
+    "n_bases": 99
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "t6a_summac_zs": {
+   "c0_pass_rate": {
+    "rate": 0.8,
+    "lo": 0.7272727272727273,
+    "hi": 0.8727272727272727,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.13725490196078433,
+    "lo": 0.058823529411764705,
+    "hi": 0.23529411764705882,
+    "den": 51,
+    "n_bases": 51
+   },
+   "qi_nat": {
+    "rate": 0.058823529411764705,
+    "lo": 0.0,
+    "hi": 0.17647058823529413,
+    "den": 17,
+    "n_bases": 17
+   },
+   "ns": {
+    "rate": 0.9644970414201184,
+    "lo": 0.9289940828402367,
+    "hi": 0.994012867122897,
+    "den": 169,
+    "n_bases": 86
+   },
+   "us_claim_up": {
+    "rate": 0.27058823529411763,
+    "lo": 0.17647058823529413,
+    "hi": 0.36470588235294116,
+    "den": 85,
+    "n_bases": 85
+   },
+   "us_evid_up": {
+    "rate": 0.23529411764705882,
+    "lo": 0.15294117647058825,
+    "hi": 0.32941176470588235,
+    "den": 85,
+    "n_bases": 85
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "t6a_summac_conv": {
+   "c0_pass_rate": {
+    "rate": 0.7454545454545455,
+    "lo": 0.6636363636363637,
+    "hi": 0.8272727272727273,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.02127659574468085,
+    "lo": 0.0,
+    "hi": 0.06382978723404255,
+    "den": 47,
+    "n_bases": 47
+   },
+   "qi_nat": {
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "den": 17,
+    "n_bases": 17
+   },
+   "ns": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_claim_up": {
+    "rate": 0.5443037974683544,
+    "lo": 0.43037974683544306,
+    "hi": 0.6582278481012658,
+    "den": 79,
+    "n_bases": 79
+   },
+   "us_evid_up": {
+    "rate": 0.6329113924050633,
+    "lo": 0.5316455696202531,
+    "hi": 0.7341772151898734,
+    "den": 79,
+    "n_bases": 79
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "t6a_hhem": {
+   "c0_pass_rate": {
+    "rate": 0.9727272727272728,
+    "lo": 0.9363636363636364,
+    "hi": 1.0,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.0847457627118644,
+    "lo": 0.01694915254237288,
+    "hi": 0.15254237288135594,
+    "den": 59,
+    "n_bases": 59
+   },
+   "qi_nat": {
+    "rate": 0.14285714285714285,
+    "lo": 0.0,
+    "hi": 0.3333333333333333,
+    "den": 21,
+    "n_bases": 21
+   },
+   "ns": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_claim_up": {
+    "rate": 0.009615384615384616,
+    "lo": 0.0,
+    "hi": 0.028846153846153848,
+    "den": 104,
+    "n_bases": 104
+   },
+   "us_evid_up": {
+    "rate": 0.04807692307692308,
+    "lo": 0.009615384615384616,
+    "hi": 0.09615384615384616,
+    "den": 104,
+    "n_bases": 104
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "t6a_granite_guardian": {
+   "c0_pass_rate": {
+    "rate": 0.990909090909091,
+    "lo": 0.9727272727272728,
+    "hi": 1.0,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.1935483870967742,
+    "lo": 0.0967741935483871,
+    "hi": 0.2903225806451613,
+    "den": 62,
+    "n_bases": 62
+   },
+   "qi_nat": {
+    "rate": 0.18181818181818182,
+    "lo": 0.045454545454545456,
+    "hi": 0.36363636363636365,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_claim_up": {
+    "rate": 0.4339622641509434,
+    "lo": 0.33962264150943394,
+    "hi": 0.5283018867924528,
+    "den": 106,
+    "n_bases": 106
+   },
+   "us_evid_up": {
+    "rate": 0.20754716981132076,
+    "lo": 0.1320754716981132,
+    "hi": 0.2830188679245283,
+    "den": 106,
+    "n_bases": 106
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v1_medscore": {
+   "c0_pass_rate": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 109,
+    "n_bases": 109
+   },
+   "qi_all": {
+    "rate": 0.6885245901639344,
+    "lo": 0.5737704918032787,
+    "hi": 0.8032786885245902,
+    "den": 61,
+    "n_bases": 61
+   },
+   "qi_nat": {
+    "rate": 0.6363636363636364,
+    "lo": 0.4090909090909091,
+    "hi": 0.8181818181818182,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.9521531100478469,
+    "lo": 0.9142857142857143,
+    "hi": 0.9810448895645175,
+    "den": 209,
+    "n_bases": 106
+   },
+   "us_claim_up": {
+    "rate": 0.9905660377358491,
+    "lo": 0.9716981132075472,
+    "hi": 1.0,
+    "den": 106,
+    "n_bases": 106
+   },
+   "us_evid_up": {
+    "rate": 0.6037735849056604,
+    "lo": 0.5094339622641509,
+    "hi": 0.6981132075471698,
+    "den": 106,
+    "n_bases": 106
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v1b_medscore": {
+   "c0_pass_rate": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.967741935483871,
+    "lo": 0.9193548387096774,
+    "hi": 1.0,
+    "den": 62,
+    "n_bases": 62
+   },
+   "qi_nat": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.7298578199052133,
+    "lo": 0.6619047619047619,
+    "hi": 0.7942583732057417,
+    "den": 211,
+    "n_bases": 107
+   },
+   "us_claim_up": {
+    "rate": 0.9813084112149533,
+    "lo": 0.9532710280373832,
+    "hi": 1.0,
+    "den": 107,
+    "n_bases": 107
+   },
+   "us_evid_up": {
+    "rate": 0.1308411214953271,
+    "lo": 0.07476635514018691,
+    "hi": 0.19626168224299065,
+    "den": 107,
+    "n_bases": 107
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v1c_medscore": {
+   "c0_pass_rate": {
+    "rate": 0.990909090909091,
+    "lo": 0.9727272727272728,
+    "hi": 1.0,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.45901639344262296,
+    "lo": 0.32786885245901637,
+    "hi": 0.5901639344262295,
+    "den": 61,
+    "n_bases": 61
+   },
+   "qi_nat": {
+    "rate": 0.5,
+    "lo": 0.2727272727272727,
+    "hi": 0.6818181818181818,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.9521531100478469,
+    "lo": 0.912621359223301,
+    "hi": 0.9856459330143541,
+    "den": 209,
+    "n_bases": 106
+   },
+   "us_claim_up": {
+    "rate": 0.8962264150943396,
+    "lo": 0.839622641509434,
+    "hi": 0.9528301886792453,
+    "den": 106,
+    "n_bases": 106
+   },
+   "us_evid_up": {
+    "rate": 0.4339622641509434,
+    "lo": 0.33962264150943394,
+    "hi": 0.5283018867924528,
+    "den": 106,
+    "n_bases": 106
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v4_ragas_nli": {
+   "c0_pass_rate": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 109,
+    "n_bases": 109
+   },
+   "qi_all": {
+    "rate": 0.7580645161290323,
+    "lo": 0.6451612903225806,
+    "hi": 0.8548387096774194,
+    "den": 62,
+    "n_bases": 62
+   },
+   "qi_nat": {
+    "rate": 0.7272727272727273,
+    "lo": 0.5454545454545454,
+    "hi": 0.9090909090909091,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.9234449760765551,
+    "lo": 0.8798076923076923,
+    "hi": 0.9619047619047619,
+    "den": 209,
+    "n_bases": 106
+   },
+   "us_claim_up": {
+    "rate": 0.9245283018867925,
+    "lo": 0.8679245283018868,
+    "hi": 0.9716981132075472,
+    "den": 106,
+    "n_bases": 106
+   },
+   "us_evid_up": {
+    "rate": 0.5420560747663551,
+    "lo": 0.4485981308411215,
+    "hi": 0.6355140186915887,
+    "den": 107,
+    "n_bases": 107
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v5_ragas_nli": {
+   "c0_pass_rate": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.967741935483871,
+    "lo": 0.9193548387096774,
+    "hi": 1.0,
+    "den": 62,
+    "n_bases": 62
+   },
+   "qi_nat": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.981042654028436,
+    "lo": 0.9523809523809523,
+    "hi": 1.0,
+    "den": 211,
+    "n_bases": 107
+   },
+   "us_claim_up": {
+    "rate": 0.9813084112149533,
+    "lo": 0.9532710280373832,
+    "hi": 1.0,
+    "den": 107,
+    "n_bases": 107
+   },
+   "us_evid_up": {
+    "rate": 0.6822429906542056,
+    "lo": 0.5887850467289719,
+    "hi": 0.7663551401869159,
+    "den": 107,
+    "n_bases": 107
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v6_ragas_gpt4o_mini": {
+   "c0_pass_rate": {
+    "rate": 0.9636363636363636,
+    "lo": 0.9272727272727272,
+    "hi": 0.990909090909091,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.7413793103448276,
+    "lo": 0.6206896551724138,
+    "hi": 0.8448275862068966,
+    "den": 58,
+    "n_bases": 58
+   },
+   "qi_nat": {
+    "rate": 0.8636363636363636,
+    "lo": 0.6818181818181818,
+    "hi": 1.0,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.9704433497536946,
+    "lo": 0.9359605911330049,
+    "hi": 0.9950980392156863,
+    "den": 203,
+    "n_bases": 103
+   },
+   "us_claim_up": {
+    "rate": 0.9223300970873787,
+    "lo": 0.8640776699029126,
+    "hi": 0.970873786407767,
+    "den": 103,
+    "n_bases": 103
+   },
+   "us_evid_up": {
+    "rate": 0.7378640776699029,
+    "lo": 0.6504854368932039,
+    "hi": 0.8155339805825242,
+    "den": 103,
+    "n_bases": 103
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v6_ragas_haiku45": {
+   "c0_pass_rate": {
+    "rate": 0.9727272727272728,
+    "lo": 0.9363636363636364,
+    "hi": 1.0,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.9661016949152542,
+    "lo": 0.9152542372881356,
+    "hi": 1.0,
+    "den": 59,
+    "n_bases": 59
+   },
+   "qi_nat": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 21,
+    "n_bases": 21
+   },
+   "ns": {
+    "rate": 0.975609756097561,
+    "lo": 0.9420289855072463,
+    "hi": 1.0,
+    "den": 205,
+    "n_bases": 104
+   },
+   "us_claim_up": {
+    "rate": 0.9807692307692307,
+    "lo": 0.9519230769230769,
+    "hi": 1.0,
+    "den": 104,
+    "n_bases": 104
+   },
+   "us_evid_up": {
+    "rate": 0.8846153846153846,
+    "lo": 0.8173076923076923,
+    "hi": 0.9423076923076923,
+    "den": 104,
+    "n_bases": 104
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v6_ragas_llama31_8b": {
+   "c0_pass_rate": {
+    "rate": 0.9724770642201835,
+    "lo": 0.9357798165137615,
+    "hi": 1.0,
+    "den": 109,
+    "n_bases": 109
+   },
+   "qi_all": {
+    "rate": 0.27586206896551724,
+    "lo": 0.1724137931034483,
+    "hi": 0.39655172413793105,
+    "den": 58,
+    "n_bases": 58
+   },
+   "qi_nat": {
+    "rate": 0.2727272727272727,
+    "lo": 0.09090909090909091,
+    "hi": 0.45454545454545453,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.9556650246305419,
+    "lo": 0.9261083743842364,
+    "hi": 0.9803921568627451,
+    "den": 203,
+    "n_bases": 103
+   },
+   "us_claim_up": {
+    "rate": 0.8349514563106796,
+    "lo": 0.7572815533980582,
+    "hi": 0.9029126213592233,
+    "den": 103,
+    "n_bases": 103
+   },
+   "us_evid_up": {
+    "rate": 0.47572815533980584,
+    "lo": 0.3786407766990291,
+    "hi": 0.5728155339805825,
+    "den": 103,
+    "n_bases": 103
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  },
+  "v6_ragas_mistral_small32": {
+   "c0_pass_rate": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.967741935483871,
+    "lo": 0.9193548387096774,
+    "hi": 1.0,
+    "den": 62,
+    "n_bases": 62
+   },
+   "qi_nat": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.9383886255924171,
+    "lo": 0.8957345971563981,
+    "hi": 0.972056755285363,
+    "den": 211,
+    "n_bases": 107
+   },
+   "us_claim_up": {
+    "rate": 0.9158878504672897,
+    "lo": 0.8598130841121495,
+    "hi": 0.9626168224299065,
+    "den": 107,
+    "n_bases": 107
+   },
+   "us_evid_up": {
+    "rate": 0.4672897196261682,
+    "lo": 0.37383177570093457,
+    "hi": 0.5607476635514018,
+    "den": 107,
+    "n_bases": 107
+   },
+   "us_claim_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   },
+   "us_evid_down": {
+    "rate": null,
+    "lo": null,
+    "hi": null,
+    "den": 0,
+    "n_bases": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,39 @@
+{
+  "model": "minicheck_ft5",
+  "ratio": "2",
+  "base_checkpoint": "lytang/MiniCheck-Flan-T5-Large@96eafd0",
+  "best_dev_loss": 0.07157821745209864,
+  "best_dir": "/data2/hpcshared/medverif-audit/.cache/checkpoints/jr_minicheck_ft5_r2",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.16083295407981887,
+      "dev_loss": 0.07865648926901533,
+      "secs": 1349
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.08415964347092748,
+      "dev_loss": 0.07157821745209864,
+      "secs": 1407
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.054719073991584884,
+      "dev_loss": 0.08157995335062843,
+      "secs": 1412
+    }
+  ],
+  "hyperparameters": {
+    "seed": 42,
+    "epochs": 3,
+    "lr": 2e-05,
+    "batch_size": 8,
+    "max_length": 512,
+    "optimizer": "AdamW wd=0, linear decay, no warmup",
+    "threshold": 0.5,
+    "amp": "torch.bfloat16"
+  },
+  "n_train": 31524,
+  "n_dev": 2343
+}

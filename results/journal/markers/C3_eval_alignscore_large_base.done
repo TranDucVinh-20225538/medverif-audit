@@ -1,0 +1,13 @@
+{
+  "stage": "C3_eval_alignscore_large_base",
+  "finished": "2026-10-01T16:00:34+0700",
+  "slurm_job": "62092",
+  "weights": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--yzha--AlignScore/snapshots/8509e78d25bb914939fc585c626500c9b2944249/AlignScore-large.ckpt",
+  "rows": {
+    "main_dose": 996,
+    "t7": 214,
+    "t24b": 202,
+    "rag": 1622,
+    "aggrefact": 3000
+  }
+}

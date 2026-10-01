@@ -1,0 +1,41 @@
+{
+  "n_dose_train": 10508,
+  "n_anli_in_t15_train": 10515,
+  "n_dev": 2343,
+  "dev_label_counts": {
+    "SUPPORTED": 649,
+    "UNSUPPORTED": 1694
+  },
+  "ratios": {
+    "0.5": {
+      "n_train": 15762,
+      "n_anli": 5254,
+      "effective_ratio": 0.5,
+      "label_counts": {
+        "UNSUPPORTED": 11596,
+        "SUPPORTED": 4166
+      },
+      "note": "dose + seeded subset of original ANLI rows"
+    },
+    "1": {
+      "n_train": 21023,
+      "n_anli": 10515,
+      "effective_ratio": 1.0007,
+      "label_counts": {
+        "UNSUPPORTED": 15125,
+        "SUPPORTED": 5898
+      },
+      "note": "identical to data/t15/train.jsonl"
+    },
+    "2": {
+      "n_train": 31524,
+      "n_anli": 21016,
+      "effective_ratio": 2.0,
+      "label_counts": {
+        "UNSUPPORTED": 22283,
+        "SUPPORTED": 9241
+      },
+      "note": "dose + original ANLI + 10501 extra ANLI rows"
+    }
+  }
+}

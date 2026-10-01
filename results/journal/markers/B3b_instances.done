@@ -1,0 +1,22 @@
+{
+  "stage": "B3b_instances",
+  "finished": "2026-10-01T13:33:36+0700",
+  "slurm_job": "62058",
+  "answers": 400,
+  "instances": 1622,
+  "status_counts": {
+    "unmatched": 9,
+    "matched": 340,
+    "skip_RAG-conv": 191,
+    "RAG-value-x2": 340,
+    "RAG-value-x10": 340,
+    "RAG-unit-up": 252,
+    "RAG-unit-down": 201,
+    "RAG-conv": 149,
+    "no_dose_in_answer": 51,
+    "skip_RAG-unit-up": 88,
+    "skip_RAG-unit-down": 139
+  },
+  "human_check_rows": 61,
+  "human_check_file": "qc/jr_rag_human_check.csv"
+}
