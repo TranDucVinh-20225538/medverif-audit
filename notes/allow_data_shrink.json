@@ -29,7 +29,8 @@
     "results/raw/t17/v4_ragas_nli.llama.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)",
     "results/raw/t17/v5_ragas_nli.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)",
     "results/raw/t17/v6_ragas_gpt4o_mini.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)",
-    "results/raw/t17/v6_ragas_haiku45.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)"
+    "results/raw/t17/v6_ragas_haiku45.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)",
+    "results/raw/v1_medscore.jsonl": "Oct 1 decision 5: exclude 5 rows without API metadata (moved to results/raw/v1_medscore.no_api_meta.quarantined.jsonl)"
   },
   "allow": []
 }

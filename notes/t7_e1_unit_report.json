@@ -85,8 +85,8 @@
       "e1_unit_fail_rate": 0.8043478260869565,
       "e1_unit_n_scored": 230,
       "e1_unit_n_cohort": 230,
-      "e1_claim_x2_x10_fail_rate": 0.9951690821256038,
-      "e1_claim_n_scored": 207,
+      "e1_claim_x2_x10_fail_rate": 0.9951456310679612,
+      "e1_claim_n_scored": 206,
       "e1_claim_n_cohort": 207,
       "inv_unit_pass_rate": 0.6774193548387096,
       "inv_unit_n_scored": 62,
@@ -290,13 +290,13 @@
       "e1_evid_den_c0": 19
     },
     "v1_medscore": {
-      "n_c0_pass_bases": 108,
-      "e1_claim_fail_rate_c0": 0.9907407407407407,
-      "e1_claim_n_c0": 108,
-      "e1_claim_den_c0": 108,
-      "e1_evid_fail_rate_c0": 0.6018518518518519,
-      "e1_evid_n_c0": 108,
-      "e1_evid_den_c0": 108
+      "n_c0_pass_bases": 107,
+      "e1_claim_fail_rate_c0": 0.9906542056074766,
+      "e1_claim_n_c0": 107,
+      "e1_claim_den_c0": 107,
+      "e1_evid_fail_rate_c0": 0.6074766355140186,
+      "e1_evid_n_c0": 107,
+      "e1_evid_den_c0": 107
     },
     "v1b_medscore": {
       "n_c0_pass_bases": 108,

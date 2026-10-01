@@ -82,12 +82,12 @@ def balanced_acc(rows: list[dict], scored: list[dict]) -> dict:
     common = [iid for iid in labels if iid in by_id]
     if not common:
         return {"n": 0, "balanced_acc": None}
-    ok = sum(
-        1
-        for iid in common
-        if (1 if by_id[iid]["verdict"] == "PASS" else 0) == labels[iid]
-    )
-    return {"n": len(common), "balanced_acc": ok / len(common)}
+    pairs = [(1 if by_id[iid]["verdict"] == "PASS" else 0, labels[iid]) for iid in common]
+    pos = [p for p, y in pairs if y == 1]
+    neg = [p for p, y in pairs if y == 0]
+    tpr = sum(pos) / len(pos) if pos else float("nan")
+    tnr = sum(1 - p for p in neg) / len(neg) if neg else float("nan")
+    return {"n": len(common), "balanced_acc": (tpr + tnr) / 2}
 
 
 def main() -> int:

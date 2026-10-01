@@ -27,12 +27,12 @@ def read_scores(path: Path) -> dict[str, dict]:
 def bal_acc(scores: dict[str, dict], labels: dict[str, int], ids: list[str]) -> float:
     if not ids:
         return float("nan")
-    ok = 0
-    for iid in ids:
-        pred = 1 if scores[iid]["verdict"] == "PASS" else 0
-        if pred == labels[iid]:
-            ok += 1
-    return ok / len(ids)
+    pairs = [(1 if scores[iid]["verdict"] == "PASS" else 0, labels[iid]) for iid in ids]
+    pos = [p for p, y in pairs if y == 1]
+    neg = [p for p, y in pairs if y == 0]
+    tpr = sum(pos) / len(pos) if pos else float("nan")
+    tnr = sum(1 - p for p in neg) / len(neg) if neg else float("nan")
+    return (tpr + tnr) / 2
 
 
 def bootstrap_ci(base_ok: list[bool], ft_ok: list[bool], n_boot: int = 2000) -> tuple[float, float]:

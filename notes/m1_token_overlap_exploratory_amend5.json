@@ -1,0 +1,1392 @@
+{
+  "t6a_minicheck_roberta": {
+    "tokenizer": "lytang/MiniCheck-RoBERTa-Large",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.9032258064516129,
+          "lo": 0.8056451612903226,
+          "hi": 1.0,
+          "num": 28,
+          "den": 31,
+          "n_bases": 31
+        },
+        "no": {
+          "rate": 0.9538461538461539,
+          "lo": 0.8923076923076924,
+          "hi": 1.0,
+          "num": 62,
+          "den": 65,
+          "n_bases": 65
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.9456521739130435,
+          "lo": 0.8913043478260869,
+          "hi": 0.9891304347826086,
+          "num": 87,
+          "den": 92,
+          "n_bases": 92
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.9375,
+          "lo": 0.8854166666666666,
+          "hi": 0.9791666666666666,
+          "num": 90,
+          "den": 96,
+          "n_bases": 96
+        },
+        "m1_changed": {
+          "rate": 0.9375,
+          "lo": 0.8854166666666666,
+          "hi": 0.9791666666666666,
+          "num": 90,
+          "den": 96,
+          "n_bases": 96
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.6,
+          "lo": 0.43333333333333335,
+          "hi": 0.7666666666666667,
+          "num": 18,
+          "den": 30,
+          "n_bases": 30
+        },
+        "no": {
+          "rate": 0.9393939393939394,
+          "lo": 0.8787878787878788,
+          "hi": 0.9848484848484849,
+          "num": 62,
+          "den": 66,
+          "n_bases": 66
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.9239130434782609,
+          "lo": 0.8695652173913043,
+          "hi": 0.9782608695652174,
+          "num": 85,
+          "den": 92,
+          "n_bases": 92
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.8333333333333334,
+          "lo": 0.75,
+          "hi": 0.8958333333333334,
+          "num": 80,
+          "den": 96,
+          "n_bases": 96
+        },
+        "m1_changed": {
+          "rate": 0.8333333333333334,
+          "lo": 0.75,
+          "hi": 0.8958333333333334,
+          "num": 80,
+          "den": 96,
+          "n_bases": 96
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  },
+  "t6a_minicheck_deberta": {
+    "tokenizer": "lytang/MiniCheck-DeBERTa-v3-Large",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.9259259259259259,
+          "lo": 0.8518518518518519,
+          "hi": 0.9814814814814815,
+          "num": 50,
+          "den": 54,
+          "n_bases": 54
+        },
+        "no": {
+          "rate": 0.9512195121951219,
+          "lo": 0.8780487804878049,
+          "hi": 1.0,
+          "num": 39,
+          "den": 41,
+          "n_bases": 41
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.967391304347826,
+          "lo": 0.9239130434782609,
+          "hi": 1.0,
+          "num": 89,
+          "den": 92,
+          "n_bases": 92
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.9368421052631579,
+          "lo": 0.8842105263157894,
+          "hi": 0.9789473684210527,
+          "num": 89,
+          "den": 95,
+          "n_bases": 95
+        },
+        "m1_changed": {
+          "rate": 0.9368421052631579,
+          "lo": 0.8842105263157894,
+          "hi": 0.9789473684210527,
+          "num": 89,
+          "den": 95,
+          "n_bases": 95
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.35185185185185186,
+          "lo": 0.2222222222222222,
+          "hi": 0.5,
+          "num": 19,
+          "den": 54,
+          "n_bases": 54
+        },
+        "no": {
+          "rate": 0.9024390243902439,
+          "lo": 0.8048780487804879,
+          "hi": 0.975609756097561,
+          "num": 37,
+          "den": 41,
+          "n_bases": 41
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.9347826086956522,
+          "lo": 0.8804347826086957,
+          "hi": 0.9782608695652174,
+          "num": 86,
+          "den": 92,
+          "n_bases": 92
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.5894736842105263,
+          "lo": 0.4842105263157895,
+          "hi": 0.6842105263157895,
+          "num": 56,
+          "den": 95,
+          "n_bases": 95
+        },
+        "m1_changed": {
+          "rate": 0.5894736842105263,
+          "lo": 0.4842105263157895,
+          "hi": 0.6842105263157895,
+          "num": 56,
+          "den": 95,
+          "n_bases": 95
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  },
+  "v2a_minicheck": {
+    "tokenizer": "lytang/MiniCheck-Flan-T5-Large",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 50,
+          "den": 50,
+          "n_bases": 50
+        },
+        "no": {
+          "rate": 0.9245283018867925,
+          "lo": 0.8490566037735849,
+          "hi": 0.9811320754716981,
+          "num": 49,
+          "den": 53,
+          "n_bases": 53
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.9494949494949495,
+          "lo": 0.898989898989899,
+          "hi": 0.98989898989899,
+          "num": 94,
+          "den": 99,
+          "n_bases": 99
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.9611650485436893,
+          "lo": 0.9223300970873787,
+          "hi": 0.9902912621359223,
+          "num": 99,
+          "den": 103,
+          "n_bases": 103
+        },
+        "m1_changed": {
+          "rate": 0.9611650485436893,
+          "lo": 0.9223300970873787,
+          "hi": 0.9902912621359223,
+          "num": 99,
+          "den": 103,
+          "n_bases": 103
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.24,
+          "lo": 0.12,
+          "hi": 0.36049999999999954,
+          "num": 12,
+          "den": 50,
+          "n_bases": 50
+        },
+        "no": {
+          "rate": 0.8490566037735849,
+          "lo": 0.7358490566037735,
+          "hi": 0.9433962264150944,
+          "num": 45,
+          "den": 53,
+          "n_bases": 53
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.8383838383838383,
+          "lo": 0.7575757575757576,
+          "hi": 0.9090909090909091,
+          "num": 83,
+          "den": 99,
+          "n_bases": 99
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.5533980582524272,
+          "lo": 0.46601941747572817,
+          "hi": 0.6504854368932039,
+          "num": 57,
+          "den": 103,
+          "n_bases": 103
+        },
+        "m1_changed": {
+          "rate": 0.5533980582524272,
+          "lo": 0.46601941747572817,
+          "hi": 0.6504854368932039,
+          "num": 57,
+          "den": 103,
+          "n_bases": 103
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  },
+  "t6a_alignscore_base": {
+    "tokenizer": "roberta-base",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.8709677419354839,
+          "lo": 0.7419354838709677,
+          "hi": 0.967741935483871,
+          "num": 27,
+          "den": 31,
+          "n_bases": 31
+        },
+        "no": {
+          "rate": 0.8970588235294118,
+          "lo": 0.8235294117647058,
+          "hi": 0.9705882352941176,
+          "num": 61,
+          "den": 68,
+          "n_bases": 68
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.9157894736842105,
+          "lo": 0.8526315789473684,
+          "hi": 0.968421052631579,
+          "num": 87,
+          "den": 95,
+          "n_bases": 95
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.8888888888888888,
+          "lo": 0.8282828282828283,
+          "hi": 0.9494949494949495,
+          "num": 88,
+          "den": 99,
+          "n_bases": 99
+        },
+        "m1_changed": {
+          "rate": 0.8888888888888888,
+          "lo": 0.8282828282828283,
+          "hi": 0.9494949494949495,
+          "num": 88,
+          "den": 99,
+          "n_bases": 99
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.16666666666666666,
+          "lo": 0.03333333333333333,
+          "hi": 0.3,
+          "num": 5,
+          "den": 30,
+          "n_bases": 30
+        },
+        "no": {
+          "rate": 0.8405797101449275,
+          "lo": 0.7536231884057971,
+          "hi": 0.9130434782608695,
+          "num": 58,
+          "den": 69,
+          "n_bases": 69
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.9052631578947369,
+          "lo": 0.8421052631578947,
+          "hi": 0.9578947368421052,
+          "num": 86,
+          "den": 95,
+          "n_bases": 95
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.6363636363636364,
+          "lo": 0.5452020202020201,
+          "hi": 0.7275252525252524,
+          "num": 63,
+          "den": 99,
+          "n_bases": 99
+        },
+        "m1_changed": {
+          "rate": 0.6363636363636364,
+          "lo": 0.5452020202020201,
+          "hi": 0.7275252525252524,
+          "num": 63,
+          "den": 99,
+          "n_bases": 99
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  },
+  "v3_alignscore": {
+    "tokenizer": "roberta-large",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.9375,
+          "lo": 0.84375,
+          "hi": 1.0,
+          "num": 30,
+          "den": 32,
+          "n_bases": 32
+        },
+        "no": {
+          "rate": 0.9855072463768116,
+          "lo": 0.9565217391304348,
+          "hi": 1.0,
+          "num": 68,
+          "den": 69,
+          "n_bases": 69
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.9690721649484536,
+          "lo": 0.9278350515463918,
+          "hi": 1.0,
+          "num": 94,
+          "den": 97,
+          "n_bases": 97
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.9702970297029703,
+          "lo": 0.9306930693069307,
+          "hi": 1.0,
+          "num": 98,
+          "den": 101,
+          "n_bases": 101
+        },
+        "m1_changed": {
+          "rate": 0.9702970297029703,
+          "lo": 0.9306930693069307,
+          "hi": 1.0,
+          "num": 98,
+          "den": 101,
+          "n_bases": 101
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.7096774193548387,
+          "lo": 0.5483870967741935,
+          "hi": 0.8709677419354839,
+          "num": 22,
+          "den": 31,
+          "n_bases": 31
+        },
+        "no": {
+          "rate": 0.8571428571428571,
+          "lo": 0.7714285714285715,
+          "hi": 0.9285714285714286,
+          "num": 60,
+          "den": 70,
+          "n_bases": 70
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.8969072164948454,
+          "lo": 0.8350515463917526,
+          "hi": 0.9484536082474226,
+          "num": 87,
+          "den": 97,
+          "n_bases": 97
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.8118811881188119,
+          "lo": 0.7326732673267327,
+          "hi": 0.8811881188118812,
+          "num": 82,
+          "den": 101,
+          "n_bases": 101
+        },
+        "m1_changed": {
+          "rate": 0.8118811881188119,
+          "lo": 0.7326732673267327,
+          "hi": 0.8811881188118812,
+          "num": 82,
+          "den": 101,
+          "n_bases": 101
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  },
+  "t6a_summac_zs": {
+    "tokenizer": "tals/albert-xlarge-vitaminc-mnli",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.8157894736842105,
+          "lo": 0.6842105263157895,
+          "hi": 0.9217105263157889,
+          "num": 31,
+          "den": 38,
+          "n_bases": 38
+        },
+        "no": {
+          "rate": 0.9148936170212766,
+          "lo": 0.8297872340425532,
+          "hi": 0.9787234042553191,
+          "num": 43,
+          "den": 47,
+          "n_bases": 47
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.9512195121951219,
+          "lo": 0.9024390243902439,
+          "hi": 0.9878048780487805,
+          "num": 78,
+          "den": 82,
+          "n_bases": 82
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.8705882352941177,
+          "lo": 0.7997058823529413,
+          "hi": 0.9411764705882353,
+          "num": 74,
+          "den": 85,
+          "n_bases": 85
+        },
+        "m1_changed": {
+          "rate": 0.8705882352941177,
+          "lo": 0.7997058823529413,
+          "hi": 0.9411764705882353,
+          "num": 74,
+          "den": 85,
+          "n_bases": 85
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.6578947368421053,
+          "lo": 0.5,
+          "hi": 0.8157894736842105,
+          "num": 25,
+          "den": 38,
+          "n_bases": 38
+        },
+        "no": {
+          "rate": 0.9361702127659575,
+          "lo": 0.851063829787234,
+          "hi": 1.0,
+          "num": 44,
+          "den": 47,
+          "n_bases": 47
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.9390243902439024,
+          "lo": 0.8902439024390244,
+          "hi": 0.9878048780487805,
+          "num": 77,
+          "den": 82,
+          "n_bases": 82
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.8117647058823529,
+          "lo": 0.7176470588235294,
+          "hi": 0.8941176470588236,
+          "num": 69,
+          "den": 85,
+          "n_bases": 85
+        },
+        "m1_changed": {
+          "rate": 0.8117647058823529,
+          "lo": 0.7176470588235294,
+          "hi": 0.8941176470588236,
+          "num": 69,
+          "den": 85,
+          "n_bases": 85
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  },
+  "t6a_granite_guardian": {
+    "tokenizer": "ibm-granite/granite-guardian-3.0-2b",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 25,
+          "den": 25,
+          "n_bases": 25
+        },
+        "no": {
+          "rate": 0.9753086419753086,
+          "lo": 0.9382716049382716,
+          "hi": 1.0,
+          "num": 79,
+          "den": 81,
+          "n_bases": 81
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.9583333333333334,
+          "lo": 0.875,
+          "hi": 1.0,
+          "num": 23,
+          "den": 24,
+          "n_bases": 24
+        },
+        "no": {
+          "rate": 0.8333333333333334,
+          "lo": 0.7435897435897436,
+          "hi": 0.9102564102564102,
+          "num": 65,
+          "den": 78,
+          "n_bases": 78
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.9811320754716981,
+          "lo": 0.9528301886792453,
+          "hi": 1.0,
+          "num": 104,
+          "den": 106,
+          "n_bases": 106
+        },
+        "m1_changed": {
+          "rate": 0.9811320754716981,
+          "lo": 0.9528301886792453,
+          "hi": 1.0,
+          "num": 104,
+          "den": 106,
+          "n_bases": 106
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.92,
+          "lo": 0.8,
+          "hi": 1.0,
+          "num": 23,
+          "den": 25,
+          "n_bases": 25
+        },
+        "no": {
+          "rate": 0.7407407407407407,
+          "lo": 0.6419753086419753,
+          "hi": 0.8271604938271605,
+          "num": 60,
+          "den": 81,
+          "n_bases": 81
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.875,
+          "lo": 0.75,
+          "hi": 1.0,
+          "num": 21,
+          "den": 24,
+          "n_bases": 24
+        },
+        "no": {
+          "rate": 0.6282051282051282,
+          "lo": 0.5128205128205128,
+          "hi": 0.7307692307692307,
+          "num": 49,
+          "den": 78,
+          "n_bases": 78
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.7830188679245284,
+          "lo": 0.7075471698113207,
+          "hi": 0.8584905660377359,
+          "num": 83,
+          "den": 106,
+          "n_bases": 106
+        },
+        "m1_changed": {
+          "rate": 0.7830188679245284,
+          "lo": 0.7075471698113207,
+          "hi": 0.8584905660377359,
+          "num": 83,
+          "den": 106,
+          "n_bases": 106
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  },
+  "v2b_bespoke": {
+    "tokenizer": "bespokelabs/Bespoke-MiniCheck-7B",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 57,
+          "den": 57,
+          "n_bases": 57
+        },
+        "no": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 50,
+          "den": 50,
+          "n_bases": 50
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.970873786407767,
+          "lo": 0.9320388349514563,
+          "hi": 1.0,
+          "num": 100,
+          "den": 103,
+          "n_bases": 103
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 107,
+          "den": 107,
+          "n_bases": 107
+        },
+        "m1_changed": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 107,
+          "den": 107,
+          "n_bases": 107
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.7719298245614035,
+          "lo": 0.6666666666666666,
+          "hi": 0.8771929824561403,
+          "num": 44,
+          "den": 57,
+          "n_bases": 57
+        },
+        "no": {
+          "rate": 0.78,
+          "lo": 0.6795000000000001,
+          "hi": 0.88,
+          "num": 39,
+          "den": 50,
+          "n_bases": 50
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        },
+        "no": {
+          "rate": 0.8932038834951457,
+          "lo": 0.8252427184466019,
+          "hi": 0.9514563106796117,
+          "num": 92,
+          "den": 103,
+          "n_bases": 103
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.7757009345794392,
+          "lo": 0.6915887850467289,
+          "hi": 0.8413551401869157,
+          "num": 83,
+          "den": 107,
+          "n_bases": 107
+        },
+        "m1_changed": {
+          "rate": 0.7757009345794392,
+          "lo": 0.6915887850467289,
+          "hi": 0.8413551401869157,
+          "num": 83,
+          "den": 107,
+          "n_bases": 107
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  },
+  "v1_medscore": {
+    "tokenizer": "mistralai/Mistral-Small-24B-Instruct-2501",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 25,
+          "den": 25,
+          "n_bases": 25
+        },
+        "no": {
+          "rate": 0.9878048780487805,
+          "lo": 0.9634146341463414,
+          "hi": 1.0,
+          "num": 81,
+          "den": 82,
+          "n_bases": 82
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 24,
+          "den": 24,
+          "n_bases": 24
+        },
+        "no": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 79,
+          "den": 79,
+          "n_bases": 79
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.9906542056074766,
+          "lo": 0.9719626168224299,
+          "hi": 1.0,
+          "num": 106,
+          "den": 107,
+          "n_bases": 107
+        },
+        "m1_changed": {
+          "rate": 0.9906542056074766,
+          "lo": 0.9719626168224299,
+          "hi": 1.0,
+          "num": 106,
+          "den": 107,
+          "n_bases": 107
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.92,
+          "lo": 0.8,
+          "hi": 1.0,
+          "num": 23,
+          "den": 25,
+          "n_bases": 25
+        },
+        "no": {
+          "rate": 0.926829268292683,
+          "lo": 0.8658536585365854,
+          "hi": 0.975609756097561,
+          "num": 76,
+          "den": 82,
+          "n_bases": 82
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.9166666666666666,
+          "lo": 0.7916666666666666,
+          "hi": 1.0,
+          "num": 22,
+          "den": 24,
+          "n_bases": 24
+        },
+        "no": {
+          "rate": 0.9367088607594937,
+          "lo": 0.8734177215189873,
+          "hi": 0.9873417721518988,
+          "num": 74,
+          "den": 79,
+          "n_bases": 79
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.9252336448598131,
+          "lo": 0.8691588785046729,
+          "hi": 0.9719626168224299,
+          "num": 99,
+          "den": 107,
+          "n_bases": 107
+        },
+        "m1_changed": {
+          "rate": 0.9252336448598131,
+          "lo": 0.8691588785046729,
+          "hi": 0.9719626168224299,
+          "num": 99,
+          "den": 107,
+          "n_bases": 107
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  },
+  "v4_ragas_nli": {
+    "tokenizer": "meta-llama/Llama-3.1-8B-Instruct",
+    "claim": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 29,
+          "den": 29,
+          "n_bases": 29
+        },
+        "no": {
+          "rate": 0.987012987012987,
+          "lo": 0.961038961038961,
+          "hi": 1.0,
+          "num": 76,
+          "den": 77,
+          "n_bases": 77
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "num": 32,
+          "den": 32,
+          "n_bases": 32
+        },
+        "no": {
+          "rate": 0.9859154929577465,
+          "lo": 0.9577464788732394,
+          "hi": 1.0,
+          "num": 70,
+          "den": 71,
+          "n_bases": 71
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.9905660377358491,
+          "lo": 0.9716981132075472,
+          "hi": 1.0,
+          "num": 105,
+          "den": 106,
+          "n_bases": 106
+        },
+        "m1_changed": {
+          "rate": 0.9905660377358491,
+          "lo": 0.9716981132075472,
+          "hi": 1.0,
+          "num": 105,
+          "den": 106,
+          "n_bases": 106
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    },
+    "evid": {
+      "us_up_after": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.7241379310344828,
+          "lo": 0.5517241379310345,
+          "hi": 0.896551724137931,
+          "num": 21,
+          "den": 29,
+          "n_bases": 29
+        },
+        "no": {
+          "rate": 0.935064935064935,
+          "lo": 0.8701298701298701,
+          "hi": 0.987012987012987,
+          "num": 72,
+          "den": 77,
+          "n_bases": 77
+        }
+      },
+      "ns_x10": {
+        "unresolved": 0,
+        "m1_noop": 0,
+        "yes": {
+          "rate": 0.8125,
+          "lo": 0.65625,
+          "hi": 0.9375,
+          "num": 26,
+          "den": 32,
+          "n_bases": 32
+        },
+        "no": {
+          "rate": 0.9436619718309859,
+          "lo": 0.8873239436619719,
+          "hi": 0.9859154929577465,
+          "num": 67,
+          "den": 71,
+          "n_bases": 71
+        }
+      },
+      "sensitivity": {
+        "all": {
+          "rate": 0.8773584905660378,
+          "lo": 0.8113207547169812,
+          "hi": 0.9339622641509434,
+          "num": 93,
+          "den": 106,
+          "n_bases": 106
+        },
+        "m1_changed": {
+          "rate": 0.8773584905660378,
+          "lo": 0.8113207547169812,
+          "hi": 0.9339622641509434,
+          "num": 93,
+          "den": 106,
+          "n_bases": 106
+        },
+        "noop": {
+          "rate": null,
+          "lo": null,
+          "hi": null,
+          "num": 0,
+          "den": 0,
+          "n_bases": 0
+        }
+      }
+    }
+  }
+}

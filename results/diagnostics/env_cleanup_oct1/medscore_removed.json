@@ -1,0 +1,10 @@
+{
+ "ids": [
+  "D0001__C0__none",
+  "D0001__E1-evid__x2",
+  "D0001__E1-claim__x2",
+  "D0001__E2__x2",
+  "D0001__E1-evid__x10"
+ ],
+ "backup": "results/raw/v1_medscore.no_api_meta.quarantined.jsonl"
+}

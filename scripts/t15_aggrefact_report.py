@@ -4,10 +4,13 @@
 from __future__ import annotations
 
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from t15_card_report import aggrefact_bacc  # noqa: E402
 
 
 def read_scores(path: Path) -> dict[str, dict]:
@@ -33,29 +36,16 @@ def main() -> None:
         labels[iid] = int(row["label"])
         by_ds[row.get("dataset", "?")].append(iid)
 
-    base = read_scores(ROOT / "results/raw/t15/base_aggrefact_test.jsonl")
-    ft = read_scores(ROOT / "results/raw/t15/ft_aggrefact_test.jsonl")
-    common = sorted(set(labels) & set(base) & set(ft))
-    lines = ["## AggreFact test (paired base vs ft)", ""]
-
-    def bal_acc(scores: dict[str, dict], ids: list[str]) -> tuple[float, int]:
-        if not ids:
-            return float("nan"), 0
-        ok = 0
-        for iid in ids:
-            pred = 1 if scores[iid]["verdict"] == "PASS" else 0
-            if pred == labels[iid]:
-                ok += 1
-        return ok / len(ids), len(ids)
-
+    raw = ROOT / "results/raw/t15_cpuverif"
+    base = read_scores(raw / "base_aggrefact_test.jsonl")
+    ft = read_scores(raw / "ft_aggrefact_test.jsonl")
+    common = set(labels) & set(base) & set(ft)
+    lines = ["## AggreFact test (paired base vs ft; env cpuverif)", ""]
     for tag, scores in (("base", base), ("ft", ft)):
-        acc, n = bal_acc(scores, common)
-        lines.append(f"- **{tag}** overall balanced acc={acc:.4f} (n={n} paired)")
-        for ds, ids in sorted(by_ds.items()):
-            sub = [i for i in ids if i in common]
-            a, nn = bal_acc(scores, sub)
-            if nn:
-                lines.append(f"  - {ds}: {a:.4f} (n={nn})")
+        r = aggrefact_bacc(scores, labels, by_ds, common)
+        lines.append(f"- **{tag}** LLM-AggreFact BAcc (macro over datasets)={r['macro_bacc']:.4f} · micro BAcc={r['micro_bacc']:.4f} "
+                     f"· accuracy={r['accuracy']:.4f} (n={r['n']} paired)")
+        lines += [f"  - {ds}: BAcc {v['bacc']:.4f} (n={v['n']})" for ds, v in r["per_dataset"].items()]
     print("\n".join(lines))
     return lines
 

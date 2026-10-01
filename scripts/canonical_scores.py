@@ -110,6 +110,73 @@ def _score_file_allowed(path: Path) -> bool:
     return True
 
 
+MINICHECK_CPUVERIF_DIR = ROOT / "results/raw/minicheck_cpuverif"
+MINICHECK_CPUVERIF_FILES = {
+    "t6_minicheck_roberta.jsonl": "t6a_minicheck_roberta",
+    "t6_minicheck_deberta.jsonl": "t6a_minicheck_deberta",
+    "v2a_minicheck.jsonl": "v2a_minicheck",
+}
+MINICHECK_CPUVERIF_GROUPS = {
+    "results/raw_node30": "main",
+    "results/raw": "main",
+    "results/raw/e2_main": "main",
+    "results/raw/t7": "t7",
+    "results/raw_node30/t7": "t7",
+    "results/raw/t3": "t3",
+    "results/raw_node30/t3": "t3",
+    "results/raw/t4_eco": "t4_eco",
+    "results/raw_node30/t4_eco": "t4_eco",
+    "results/raw/t4c_eco": "t4c_eco",
+    "results/raw_node30/t4c_eco": "t4c_eco",
+}
+_CPUVERIF_CACHE: dict[Path, dict[str, dict]] = {}
+
+
+def minicheck_cpuverif_path(path: Path) -> Path | None:
+    """cpuverif (reference env) rescore of the same rows as a MiniCheck score file, if one exists.
+
+    Rows are only interchangeable for ids that came from `path` itself: after-M1 packs reuse
+    instance ids with different text, so callers must restrict the overlay to that file's ids."""
+    slug = MINICHECK_CPUVERIF_FILES.get(path.name)
+    if slug is None:
+        return None
+    try:
+        rel_dir = path.resolve().parent.relative_to(ROOT).as_posix()
+    except ValueError:
+        return None
+    group = MINICHECK_CPUVERIF_GROUPS.get(rel_dir)
+    if group is None:
+        return None
+    cpu = MINICHECK_CPUVERIF_DIR / f"{slug}__{group}.jsonl"
+    return cpu if cpu.is_file() else None
+
+
+def minicheck_cpuverif_rows(path: Path) -> dict[str, dict]:
+    cpu = minicheck_cpuverif_path(path)
+    if cpu is None:
+        return {}
+    if cpu not in _CPUVERIF_CACHE:
+        rows: dict[str, dict] = {}
+        for line in cpu.open():
+            if line.strip():
+                r = json.loads(line)
+                if r.get("instance_id"):
+                    rows[r["instance_id"]] = r
+        _CPUVERIF_CACHE[cpu] = rows
+    return _CPUVERIF_CACHE[cpu]
+
+
+def reference_env_rows(path: Path) -> list[dict]:
+    """Rows of a score file, with MiniCheck rows replaced by their cpuverif rescore where one exists."""
+    cpu = minicheck_cpuverif_rows(path)
+    out = []
+    for line in path.open():
+        if line.strip():
+            r = json.loads(line)
+            out.append(cpu.get(r.get("instance_id"), r))
+    return out
+
+
 def candidate_path(root_key: str, dir_suffix: str, verifier: str) -> Path | None:
     if root_key == "hpc_m1":
         base = SCORE_ROOTS["hpc_m1"]

@@ -212,7 +212,7 @@ def aggrefact_section() -> list[str]:
 
     base = read_raw("base")
     ft = read_raw("ft")
-    lines = [
+    lines: list[str] = [
         "## AggreFact test (paired base vs ft)",
         "",
         f"- env: **{agg_env}** (`{agg_raw.relative_to(ROOT)}`)",
@@ -220,22 +220,42 @@ def aggrefact_section() -> list[str]:
         "",
     ]
 
-    def bal_acc(scores: dict[str, dict], ids: list[str]) -> tuple[float, int]:
-        if not ids:
-            return float("nan"), 0
-        ok = sum(1 for iid in ids if (1 if scores[iid]["verdict"] == "PASS" else 0) == labels[iid])
-        return ok / len(ids), len(ids)
-
-    common = sorted(set(labels) & set(base) & set(ft))
-    for tag, scores in (("base", base), ("ft", ft)):
-        acc, n = bal_acc(scores, common)
-        lines.append(f"- **{tag}** overall balanced acc={acc:.4f} (n={n} paired)")
-        for ds, ids in sorted(by_ds.items()):
-            sub = [i for i in ids if i in common]
-            a, nn = bal_acc(scores, sub)
-            if nn:
-                lines.append(f"  - {ds}: {a:.4f} (n={nn})")
+    common = set(labels) & set(base) & set(ft)
+    res = {tag: aggrefact_bacc(scores, labels, by_ds, common) for tag, scores in (("base", base), ("ft", ft))}
+    lines += [
+        "Metric: balanced accuracy = (TPR + TNR) / 2 per dataset; **LLM-AggreFact BAcc = unweighted mean over the "
+        f"{len(res['base']['per_dataset'])} datasets**. Micro BAcc pools all rows; accuracy shown for reference only.",
+        "",
+    ]
+    for tag in ("base", "ft"):
+        r = res[tag]
+        lines.append(f"- **{tag}** LLM-AggreFact BAcc (macro over datasets)={r['macro_bacc']:.4f} · micro BAcc={r['micro_bacc']:.4f} "
+                     f"· accuracy={r['accuracy']:.4f} (n={r['n']} paired)")
+    lines += ["", "| Dataset | n | base BAcc | ft BAcc | Δ (ft − base) |", "| --- | ---: | ---: | ---: | ---: |"]
+    for ds, b in res["base"]["per_dataset"].items():
+        f = res["ft"]["per_dataset"][ds]
+        lines.append(f"| {ds} | {b['n']} | {b['bacc']:.4f} | {f['bacc']:.4f} | {f['bacc'] - b['bacc']:+.4f} |")
     return lines
+
+
+def _bacc(pairs: list[tuple[int, int]]) -> float:
+    """Balanced accuracy from (pred, label) pairs; label 1 = supported."""
+    pos = [p for p, y in pairs if y == 1]
+    neg = [p for p, y in pairs if y == 0]
+    tpr = sum(pos) / len(pos) if pos else float("nan")
+    tnr = sum(1 - p for p in neg) / len(neg) if neg else float("nan")
+    return (tpr + tnr) / 2
+
+
+def aggrefact_bacc(scores: dict[str, dict], labels: dict[str, int], by_ds: dict[str, list[str]], common: set[str]) -> dict:
+    per, allp = {}, []
+    for ds, ids in sorted(by_ds.items()):
+        pairs = [(1 if scores[i]["verdict"] == "PASS" else 0, labels[i]) for i in ids if i in common]
+        if pairs:
+            per[ds] = {"n": len(pairs), "bacc": _bacc(pairs)}
+            allp += pairs
+    return {"macro_bacc": sum(v["bacc"] for v in per.values()) / len(per), "micro_bacc": _bacc(allp),
+            "accuracy": sum(p == y for p, y in allp) / len(allp), "n": len(allp), "per_dataset": per}
 
 
 def main() -> None:

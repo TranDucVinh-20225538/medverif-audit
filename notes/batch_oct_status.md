@@ -4,6 +4,7 @@ Updated: **2026-09-30 ~22:15 UTC+7** · Freeze **Oct 5 23:59** · follow-up dead
 
 ## Oct 1 decisions (author)
 
+- **Env cleanup job 62017 done Oct 01 10:46:** decisions 1–8 applied; `paper_numbers_final.md` 640 numbers (reference 449, checked 156, UNCHECKED 20, node30-only 10, n/a (human labels) 5); report `notes/env_cleanup_oct1.md`.
 - **Polarity MedScore E2 n:** **11 is correct** (8/11; matches author's independent card). The old n=25 came from `results/raw_m1/v1_medscore.jsonl` (M1-normalized T1 rescore, mistral-small-24b): current loader 11 rows + 14 E2 rows found only in that file reproduce the old 21/25 exactly. No paper loader reads `results/raw_m1/` (`t7_e1_unit_report.SCORE_DIRS`), so it is excluded. No further action.
 - **T1 raw_m1 38 off-spec rows: SUPERSEDED, not rescored** (T1 is not in the paper). Recorded in `notes/m1_prereg_amendment5.md` §1.
 - **Amendment 5 note** rewritten (spec fixed in amendment 4; 84 scored texts off-spec; fixed after results were seen; criterion unchanged; both results reported). Side by side: `notes/m1_strong_amend5_side_by_side.md` (`scripts/m1_amend5_side_by_side.py`).
