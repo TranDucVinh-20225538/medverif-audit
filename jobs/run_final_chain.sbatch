@@ -16,6 +16,9 @@ unset PYTHONPATH
 # compute-node /usr/bin/python3 (3.12) lacks matplotlib/quantulum3/pint; the vllm env has all three
 PY=/data2/cmdir/home/toandq/.conda/envs/vllm/bin/python
 GIT=/usr/bin/git
+# compute nodes cannot auto-detect a committer email; reuse the identity of the last commit
+export GIT_AUTHOR_NAME="$("${GIT}" log -1 --format=%an)" GIT_AUTHOR_EMAIL="$("${GIT}" log -1 --format=%ae)"
+export GIT_COMMITTER_NAME="${GIT_AUTHOR_NAME}" GIT_COMMITTER_EMAIL="${GIT_AUTHOR_EMAIL}"
 ZIP_COMMIT_MAX_MB=95
 
 echo "=== [1/4] Figure 1 $(date -Is)"

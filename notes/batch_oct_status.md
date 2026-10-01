@@ -8,6 +8,7 @@ Updated: **2026-09-30 ~22:15 UTC+7** · Freeze **Oct 5 23:59** · follow-up dead
 - **T1 raw_m1 38 off-spec rows: SUPERSEDED, not rescored** (T1 is not in the paper). Recorded in `notes/m1_prereg_amendment5.md` §1.
 - **Amendment 5 note** rewritten (spec fixed in amendment 4; 84 scored texts off-spec; fixed after results were seen; criterion unchanged; both results reported). Side by side: `notes/m1_strong_amend5_side_by_side.md` (`scripts/m1_amend5_side_by_side.py`).
 - **Final chain (one sbatch):** Figure 1 final, audit zip v3 (with AggreFact), `paper_numbers_final.md` from amend5 → job ID / ETA below when submitted.
+- **Final chain job 62016 done Oct 01 10:19:** Figure 1 final (18 points, HHEM/SummaC-Conv excluded); `paper_numbers_final.md` from amendment 5 (640 numbers: reference 397, UNCHECKED 146, checked 82, node30-only 10, n/a (human labels) 5); audit zip v3 1867 files, 79 MB, committed.
 
 ## Oct 1 ~01:15 update (supersedes rows below where they conflict)
 

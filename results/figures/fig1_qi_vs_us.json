@@ -210,66 +210,6 @@
   }
  },
  {
-  "slug": "t6a_summac_conv",
-  "label": "SummaC-Conv",
-  "family": "small fine-tuned checkers",
-  "cost_per_1k": null,
-  "qi_all": {
-   "rate": 0.02127659574468085,
-   "lo": 0.0,
-   "hi": 0.0851063829787234,
-   "num": 1,
-   "den": 47,
-   "n_bases": 47
-  },
-  "us_claim_up": {
-   "rate": 0.5443037974683544,
-   "lo": 0.43037974683544306,
-   "hi": 0.6582278481012658,
-   "num": 43,
-   "den": 79,
-   "n_bases": 79
-  },
-  "ns": {
-   "rate": null,
-   "lo": null,
-   "hi": null,
-   "num": 0,
-   "den": 0,
-   "n_bases": 0
-  }
- },
- {
-  "slug": "t6a_hhem",
-  "label": "HHEM",
-  "family": "small fine-tuned checkers",
-  "cost_per_1k": null,
-  "qi_all": {
-   "rate": 0.0847457627118644,
-   "lo": 0.01694915254237288,
-   "hi": 0.15254237288135594,
-   "num": 5,
-   "den": 59,
-   "n_bases": 59
-  },
-  "us_claim_up": {
-   "rate": 0.009615384615384616,
-   "lo": 0.0,
-   "hi": 0.028846153846153848,
-   "num": 1,
-   "den": 104,
-   "n_bases": 104
-  },
-  "ns": {
-   "rate": null,
-   "lo": null,
-   "hi": null,
-   "num": 0,
-   "den": 0,
-   "n_bases": 0
-  }
- },
- {
   "slug": "t6a_granite_guardian",
   "label": "Granite Guardian 2B",
   "family": "small fine-tuned checkers",
