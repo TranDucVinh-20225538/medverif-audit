@@ -1,0 +1,18 @@
+{
+ "built_from_commit": "6d0b7d8",
+ "n_rows": 958,
+ "n_bases": 110,
+ "by_src_condition": {
+  "main|C0|none": 110,
+  "main|E1-evid|x2": 105,
+  "main|E1-claim|x2": 105,
+  "main|E1-evid|x10": 106,
+  "main|E1-claim|x10": 106,
+  "main|INV-claim|unit_conversion": 62,
+  "t7|E1-unit-claim|x1000": 107,
+  "t7|E1-unit-evid|x1000": 107,
+  "t17|E1-unit-down|unit-down": 150
+ },
+ "n_natural_inv": 22,
+ "sha256": "703e0c26f07149cf120c5255ba48f9d66c2d6a92a994ef9317935d211ab79ed2"
+}
