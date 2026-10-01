@@ -1,0 +1,2 @@
+pydantic>=2  # prompt rendering (scripts/journal3/j3_ragas_prompt.py); on Python 3.8 pip resolves to pydantic 2.10.x
+numpy        # report (scripts/journal3/j3_report.py); on Python 3.8 numpy 1.24.x
