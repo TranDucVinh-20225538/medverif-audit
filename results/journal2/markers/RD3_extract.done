@@ -1,0 +1,19 @@
+{
+  "stage": "RD3_extract",
+  "finished": "2026-10-01T15:06:49+0700",
+  "slurm_job": "62079",
+  "answers": 1456,
+  "instances": 1451,
+  "subtypes": {
+    "unit_error|per_m2": 5,
+    "unit_error|per_kg": 8,
+    "value_error|other": 92,
+    "basis_error|per_kg": 30,
+    "basis_error|per_m2": 2,
+    "unit_error|time_basis": 1,
+    "value_error|decimal_shift": 1,
+    "unit_error|unit_kind": 1
+  },
+  "qc_rows": 266,
+  "qc_file": "qc/real_dose_errors_check.csv"
+}

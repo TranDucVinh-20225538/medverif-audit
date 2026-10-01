@@ -1,0 +1,1810 @@
+{
+ "cap_usd": 5.0,
+ "spent_usd": 0.2422,
+ "n_instances": 1451,
+ "class_counts": {
+  "correct": 1062,
+  "match_other_context": 183,
+  "unit_error": 15,
+  "time_ambiguous": 50,
+  "value_error": 93,
+  "basis_error": 32,
+  "no_dose": 5,
+  "unverifiable": 16
+ },
+ "class_by_condition": {
+  "grounded|correct": 668,
+  "grounded|match_other_context": 46,
+  "grounded|unit_error": 7,
+  "grounded|time_ambiguous": 3,
+  "grounded|value_error": 1,
+  "grounded|basis_error": 2,
+  "grounded|no_dose": 1,
+  "closed|value_error": 92,
+  "closed|basis_error": 30,
+  "closed|match_other_context": 137,
+  "closed|correct": 394,
+  "closed|unit_error": 8,
+  "closed|time_ambiguous": 47,
+  "closed|unverifiable": 16,
+  "closed|no_dose": 4
+ },
+ "checkers": {
+  "MiniCheck-RoBERTa": {
+   "all answers": {
+    "correct (auto)": {
+     "k": 818,
+     "n": 1062,
+     "rate": 0.7702448210922788,
+     "wilson": [
+      0.7439969563220226,
+      0.7945446768796627
+     ],
+     "boot": [
+      0.7439143135345667,
+      0.7955182072829131
+     ],
+     "n_drugs": 197,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 3,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.5614970356393196
+     ],
+     "boot": [
+      0.0,
+      0.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 18,
+     "n": 140,
+     "rate": 0.12857142857142856,
+     "wilson": [
+      0.08289788989789551,
+      0.19408385925256913
+     ],
+     "boot": [
+      0.06428571428571428,
+      0.19852941176470587
+     ],
+     "n_drugs": 76,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 15,
+     "n": 47,
+     "rate": 0.3191489361702128,
+     "wilson": [
+      0.20395378674545978,
+      0.461673432180508
+     ],
+     "boot": [
+      0.16279069767441862,
+      0.4772727272727273
+     ],
+     "n_drugs": 26,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 11,
+     "n": 15,
+     "rate": 0.7333333333333333,
+     "wilson": [
+      0.48049565748447975,
+      0.8910254675038264
+     ],
+     "boot": [
+      0.45454545454545453,
+      0.9375
+     ],
+     "n_drugs": 10,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 3,
+     "n": 93,
+     "rate": 0.03225806451612903,
+     "wilson": [
+      0.011030612730090532,
+      0.09059382575920594
+     ],
+     "boot": [
+      0.0,
+      0.07446808510638298
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "grounded": {
+    "correct (auto)": {
+     "k": 597,
+     "n": 668,
+     "rate": 0.8937125748502994,
+     "wilson": [
+      0.8680476362360229,
+      0.9148751695042762
+     ],
+     "boot": [
+      0.8670605612998523,
+      0.9187592319054653
+     ],
+     "n_drugs": 196,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 0,
+     "rate": null,
+     "wilson": [
+      null,
+      null
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 0,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 9,
+     "n": 10,
+     "rate": 0.9,
+     "wilson": [
+      0.5958499704752279,
+      0.982123787103926
+     ],
+     "boot": [
+      0.6666666666666666,
+      1.0
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 9,
+     "n": 9,
+     "rate": 1.0,
+     "wilson": [
+      0.700854948272956,
+      1.0
+     ],
+     "boot": [
+      1.0,
+      1.0
+     ],
+     "n_drugs": 7,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 7,
+     "n": 7,
+     "rate": 1.0,
+     "wilson": [
+      0.6456695613241317,
+      1.0
+     ],
+     "boot": [
+      1.0,
+      1.0
+     ],
+     "n_drugs": 5,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 0,
+     "n": 1,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.7934506882081973
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 1,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "closed-book": {
+    "correct (auto)": {
+     "k": 221,
+     "n": 394,
+     "rate": 0.5609137055837563,
+     "wilson": [
+      0.5115561137494697,
+      0.6090949620206947
+     ],
+     "boot": [
+      0.5191815856777494,
+      0.6019417475728155
+     ],
+     "n_drugs": 165,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 3,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.5614970356393196
+     ],
+     "boot": [
+      0.0,
+      0.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 9,
+     "n": 130,
+     "rate": 0.06923076923076923,
+     "wilson": [
+      0.036847118965439726,
+      0.12634191875019962
+     ],
+     "boot": [
+      0.029850746268656716,
+      0.11666666666666667
+     ],
+     "n_drugs": 75,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 6,
+     "n": 38,
+     "rate": 0.15789473684210525,
+     "wilson": [
+      0.07443863371721297,
+      0.3041681191266144
+     ],
+     "boot": [
+      0.05128205128205128,
+      0.2857142857142857
+     ],
+     "n_drugs": 24,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 4,
+     "n": 8,
+     "rate": 0.5,
+     "wilson": [
+      0.21521606069626764,
+      0.7847839393037324
+     ],
+     "boot": [
+      0.125,
+      0.875
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 3,
+     "n": 92,
+     "rate": 0.03260869565217391,
+     "wilson": [
+      0.01115117732423098,
+      0.09153360018406106
+     ],
+     "boot": [
+      0.0,
+      0.075
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   }
+  },
+  "MiniCheck-DeBERTa": {
+   "all answers": {
+    "correct (auto)": {
+     "k": 760,
+     "n": 1062,
+     "rate": 0.7156308851224106,
+     "wilson": [
+      0.6877601446561904,
+      0.7419472908949801
+     ],
+     "boot": [
+      0.6866096866096866,
+      0.7436619718309859
+     ],
+     "n_drugs": 197,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 1,
+     "n": 3,
+     "rate": 0.3333333333333333,
+     "wilson": [
+      0.06149194402093078,
+      0.7923404011921757
+     ],
+     "boot": [
+      0.0,
+      0.5
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 9,
+     "n": 140,
+     "rate": 0.06428571428571428,
+     "wilson": [
+      0.03418636020229411,
+      0.11765761476267401
+     ],
+     "boot": [
+      0.02586206896551724,
+      0.1103448275862069
+     ],
+     "n_drugs": 76,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 7,
+     "n": 47,
+     "rate": 0.14893617021276595,
+     "wilson": [
+      0.07406719956120218,
+      0.27685622541273525
+     ],
+     "boot": [
+      0.046511627906976744,
+      0.2727272727272727
+     ],
+     "n_drugs": 26,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 5,
+     "n": 15,
+     "rate": 0.3333333333333333,
+     "wilson": [
+      0.15176324343669478,
+      0.582864524428801
+     ],
+     "boot": [
+      0.08333333333333333,
+      0.5789473684210527
+     ],
+     "n_drugs": 10,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 2,
+     "n": 93,
+     "rate": 0.021505376344086023,
+     "wilson": [
+      0.005917499755160559,
+      0.07505462697526918
+     ],
+     "boot": [
+      0.0,
+      0.056179775280898875
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "grounded": {
+    "correct (auto)": {
+     "k": 572,
+     "n": 668,
+     "rate": 0.8562874251497006,
+     "wilson": [
+      0.8276461247392617,
+      0.8808543610637465
+     ],
+     "boot": [
+      0.8255451713395638,
+      0.8850226928895613
+     ],
+     "n_drugs": 196,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 0,
+     "rate": null,
+     "wilson": [
+      null,
+      null
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 0,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 5,
+     "n": 10,
+     "rate": 0.5,
+     "wilson": [
+      0.23659308901147935,
+      0.7634069109885206
+     ],
+     "boot": [
+      0.2,
+      0.8
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 5,
+     "n": 9,
+     "rate": 0.5555555555555556,
+     "wilson": [
+      0.26665129180087416,
+      0.8112214802294544
+     ],
+     "boot": [
+      0.25,
+      0.875
+     ],
+     "n_drugs": 7,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 4,
+     "n": 7,
+     "rate": 0.5714285714285714,
+     "wilson": [
+      0.25045836275303557,
+      0.8417801460075546
+     ],
+     "boot": [
+      0.2222222222222222,
+      1.0
+     ],
+     "n_drugs": 5,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 0,
+     "n": 1,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.7934506882081973
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 1,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "closed-book": {
+    "correct (auto)": {
+     "k": 188,
+     "n": 394,
+     "rate": 0.47715736040609136,
+     "wilson": [
+      0.4282968814056206,
+      0.5264589651805678
+     ],
+     "boot": [
+      0.4300254452926209,
+      0.5243243243243243
+     ],
+     "n_drugs": 165,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 1,
+     "n": 3,
+     "rate": 0.3333333333333333,
+     "wilson": [
+      0.06149194402093078,
+      0.7923404011921757
+     ],
+     "boot": [
+      0.0,
+      0.5
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 4,
+     "n": 130,
+     "rate": 0.03076923076923077,
+     "wilson": [
+      0.012029284231198617,
+      0.07644448899476564
+     ],
+     "boot": [
+      0.007194244604316547,
+      0.06451612903225806
+     ],
+     "n_drugs": 75,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 2,
+     "n": 38,
+     "rate": 0.05263157894736842,
+     "wilson": [
+      0.014554208016066841,
+      0.17285462262586127
+     ],
+     "boot": [
+      0.0,
+      0.14285714285714285
+     ],
+     "n_drugs": 24,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 1,
+     "n": 8,
+     "rate": 0.125,
+     "wilson": [
+      0.022417491199971912,
+      0.47088818505608376
+     ],
+     "boot": [
+      0.0,
+      0.375
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 2,
+     "n": 92,
+     "rate": 0.021739130434782608,
+     "wilson": [
+      0.005982041175027729,
+      0.07583494046136413
+     ],
+     "boot": [
+      0.0,
+      0.056818181818181816
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   }
+  },
+  "AlignScore-base": {
+   "all answers": {
+    "correct (auto)": {
+     "k": 907,
+     "n": 1062,
+     "rate": 0.8540489642184558,
+     "wilson": [
+      0.8315388888591648,
+      0.8740069441855518
+     ],
+     "boot": [
+      0.8316086547507056,
+      0.875829383886256
+     ],
+     "n_drugs": 197,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 3,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.5614970356393196
+     ],
+     "boot": [
+      0.0,
+      0.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 19,
+     "n": 140,
+     "rate": 0.1357142857142857,
+     "wilson": [
+      0.08863473689335005,
+      0.2022512093888364
+     ],
+     "boot": [
+      0.07586206896551724,
+      0.20279720279720279
+     ],
+     "n_drugs": 76,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 13,
+     "n": 47,
+     "rate": 0.2765957446808511,
+     "wilson": [
+      0.16936563302126245,
+      0.4175856374166977
+     ],
+     "boot": [
+      0.13636363636363635,
+      0.42857142857142855
+     ],
+     "n_drugs": 26,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 8,
+     "n": 15,
+     "rate": 0.5333333333333333,
+     "wilson": [
+      0.3011697987531101,
+      0.751904647673791
+     ],
+     "boot": [
+      0.25,
+      0.8333333333333334
+     ],
+     "n_drugs": 10,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 6,
+     "n": 93,
+     "rate": 0.06451612903225806,
+     "wilson": [
+      0.029901431443733403,
+      0.1336799423221633
+     ],
+     "boot": [
+      0.019801980198019802,
+      0.12631578947368421
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "grounded": {
+    "correct (auto)": {
+     "k": 650,
+     "n": 668,
+     "rate": 0.9730538922155688,
+     "wilson": [
+      0.9578096419051806,
+      0.9828884821021747
+     ],
+     "boot": [
+      0.9585185185185185,
+      0.9862595419847329
+     ],
+     "n_drugs": 196,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 0,
+     "rate": null,
+     "wilson": [
+      null,
+      null
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 0,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 6,
+     "n": 10,
+     "rate": 0.6,
+     "wilson": [
+      0.3126737679211953,
+      0.831819671473593
+     ],
+     "boot": [
+      0.3076923076923077,
+      0.8888888888888888
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 6,
+     "n": 9,
+     "rate": 0.6666666666666666,
+     "wilson": [
+      0.35420213352505864,
+      0.8794161825659264
+     ],
+     "boot": [
+      0.36363636363636365,
+      1.0
+     ],
+     "n_drugs": 7,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 4,
+     "n": 7,
+     "rate": 0.5714285714285714,
+     "wilson": [
+      0.25045836275303557,
+      0.8417801460075546
+     ],
+     "boot": [
+      0.2222222222222222,
+      1.0
+     ],
+     "n_drugs": 5,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 0,
+     "n": 1,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.7934506882081973
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 1,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "closed-book": {
+    "correct (auto)": {
+     "k": 257,
+     "n": 394,
+     "rate": 0.6522842639593909,
+     "wilson": [
+      0.6039931368648287,
+      0.6976345525605824
+     ],
+     "boot": [
+      0.6005221932114883,
+      0.7027027027027027
+     ],
+     "n_drugs": 165,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 3,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.5614970356393196
+     ],
+     "boot": [
+      0.0,
+      0.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 13,
+     "n": 130,
+     "rate": 0.1,
+     "wilson": [
+      0.05937548777142936,
+      0.16358576153595
+     ],
+     "boot": [
+      0.05,
+      0.15671641791044777
+     ],
+     "n_drugs": 75,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 7,
+     "n": 38,
+     "rate": 0.18421052631578946,
+     "wilson": [
+      0.0922176513511272,
+      0.334188582043175
+     ],
+     "boot": [
+      0.075,
+      0.3157894736842105
+     ],
+     "n_drugs": 24,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 4,
+     "n": 8,
+     "rate": 0.5,
+     "wilson": [
+      0.21521606069626764,
+      0.7847839393037324
+     ],
+     "boot": [
+      0.125,
+      0.875
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 6,
+     "n": 92,
+     "rate": 0.06521739130434782,
+     "wilson": [
+      0.030230203146299976,
+      0.13505796197769263
+     ],
+     "boot": [
+      0.011904761904761904,
+      0.12745098039215685
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   }
+  },
+  "MiniCheck-Flan-T5-Large": {
+   "all answers": {
+    "correct (auto)": {
+     "k": 774,
+     "n": 1062,
+     "rate": 0.7288135593220338,
+     "wilson": [
+      0.70128642305492,
+      0.7546913360670643
+     ],
+     "boot": [
+      0.6971375807940905,
+      0.76
+     ],
+     "n_drugs": 197,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 1,
+     "n": 3,
+     "rate": 0.3333333333333333,
+     "wilson": [
+      0.06149194402093078,
+      0.7923404011921757
+     ],
+     "boot": [
+      0.0,
+      1.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 15,
+     "n": 140,
+     "rate": 0.10714285714285714,
+     "wilson": [
+      0.06601211675653912,
+      0.16925704099876002
+     ],
+     "boot": [
+      0.050359712230215826,
+      0.17266187050359713
+     ],
+     "n_drugs": 76,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 13,
+     "n": 47,
+     "rate": 0.2765957446808511,
+     "wilson": [
+      0.16936563302126245,
+      0.4175856374166977
+     ],
+     "boot": [
+      0.1282051282051282,
+      0.43478260869565216
+     ],
+     "n_drugs": 26,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 9,
+     "n": 15,
+     "rate": 0.6,
+     "wilson": [
+      0.35746829954344506,
+      0.8017550397372577
+     ],
+     "boot": [
+      0.25,
+      0.8421052631578947
+     ],
+     "n_drugs": 10,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 2,
+     "n": 93,
+     "rate": 0.021505376344086023,
+     "wilson": [
+      0.005917499755160559,
+      0.07505462697526918
+     ],
+     "boot": [
+      0.0,
+      0.054945054945054944
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "grounded": {
+    "correct (auto)": {
+     "k": 543,
+     "n": 668,
+     "rate": 0.812874251497006,
+     "wilson": [
+      0.781539839600148,
+      0.840630755075603
+     ],
+     "boot": [
+      0.7739130434782608,
+      0.8497023809523809
+     ],
+     "n_drugs": 196,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 0,
+     "rate": null,
+     "wilson": [
+      null,
+      null
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 0,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 7,
+     "n": 10,
+     "rate": 0.7,
+     "wilson": [
+      0.3967781453459709,
+      0.892208733443606
+     ],
+     "boot": [
+      0.3333333333333333,
+      0.9285714285714286
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 7,
+     "n": 9,
+     "rate": 0.7777777777777778,
+     "wilson": [
+      0.4525889666922117,
+      0.9367748934594303
+     ],
+     "boot": [
+      0.42857142857142855,
+      1.0
+     ],
+     "n_drugs": 7,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 6,
+     "n": 7,
+     "rate": 0.8571428571428571,
+     "wilson": [
+      0.486872167860775,
+      0.9743203759421759
+     ],
+     "boot": [
+      0.5,
+      1.0
+     ],
+     "n_drugs": 5,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 0,
+     "n": 1,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.7934506882081973
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 1,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "closed-book": {
+    "correct (auto)": {
+     "k": 231,
+     "n": 394,
+     "rate": 0.5862944162436549,
+     "wilson": [
+      0.5370594349189196,
+      0.6338629224221467
+     ],
+     "boot": [
+      0.5390243902439025,
+      0.6335877862595419
+     ],
+     "n_drugs": 165,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 1,
+     "n": 3,
+     "rate": 0.3333333333333333,
+     "wilson": [
+      0.06149194402093078,
+      0.7923404011921757
+     ],
+     "boot": [
+      0.0,
+      1.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 8,
+     "n": 130,
+     "rate": 0.06153846153846154,
+     "wilson": [
+      0.03150928499520798,
+      0.11673669982249635
+     ],
+     "boot": [
+      0.024,
+      0.1044776119402985
+     ],
+     "n_drugs": 75,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 6,
+     "n": 38,
+     "rate": 0.15789473684210525,
+     "wilson": [
+      0.07443863371721297,
+      0.3041681191266144
+     ],
+     "boot": [
+      0.05263157894736842,
+      0.2857142857142857
+     ],
+     "n_drugs": 24,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 3,
+     "n": 8,
+     "rate": 0.375,
+     "wilson": [
+      0.13684428473912286,
+      0.694257607346229
+     ],
+     "boot": [
+      0.125,
+      0.75
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 2,
+     "n": 92,
+     "rate": 0.021739130434782608,
+     "wilson": [
+      0.005982041175027729,
+      0.07583494046136413
+     ],
+     "boot": [
+      0.0,
+      0.05555555555555555
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   }
+  },
+  "AlignScore-large": {
+   "all answers": {
+    "correct (auto)": {
+     "k": 927,
+     "n": 1062,
+     "rate": 0.8728813559322034,
+     "wilson": [
+      0.851494443198354,
+      0.891580423518954
+     ],
+     "boot": [
+      0.853219696969697,
+      0.8916900093370682
+     ],
+     "n_drugs": 197,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 3,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.5614970356393196
+     ],
+     "boot": [
+      0.0,
+      0.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 17,
+     "n": 140,
+     "rate": 0.12142857142857143,
+     "wilson": [
+      0.07721261435376861,
+      0.18586493766497417
+     ],
+     "boot": [
+      0.05921052631578947,
+      0.1891891891891892
+     ],
+     "n_drugs": 76,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 15,
+     "n": 47,
+     "rate": 0.3191489361702128,
+     "wilson": [
+      0.20395378674545978,
+      0.461673432180508
+     ],
+     "boot": [
+      0.16216216216216217,
+      0.4782608695652174
+     ],
+     "n_drugs": 26,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 12,
+     "n": 15,
+     "rate": 0.8,
+     "wilson": [
+      0.5481455107594471,
+      0.9295245070826608
+     ],
+     "boot": [
+      0.5,
+      1.0
+     ],
+     "n_drugs": 10,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 2,
+     "n": 93,
+     "rate": 0.021505376344086023,
+     "wilson": [
+      0.005917499755160559,
+      0.07505462697526918
+     ],
+     "boot": [
+      0.0,
+      0.054945054945054944
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "grounded": {
+    "correct (auto)": {
+     "k": 648,
+     "n": 668,
+     "rate": 0.9700598802395209,
+     "wilson": [
+      0.9542082004429414,
+      0.9805361379694307
+     ],
+     "boot": [
+      0.9551569506726457,
+      0.9833836858006042
+     ],
+     "n_drugs": 196,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 0,
+     "rate": null,
+     "wilson": [
+      null,
+      null
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 0,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 9,
+     "n": 10,
+     "rate": 0.9,
+     "wilson": [
+      0.5958499704752279,
+      0.982123787103926
+     ],
+     "boot": [
+      0.6666666666666666,
+      1.0
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 9,
+     "n": 9,
+     "rate": 1.0,
+     "wilson": [
+      0.700854948272956,
+      1.0
+     ],
+     "boot": [
+      1.0,
+      1.0
+     ],
+     "n_drugs": 7,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 7,
+     "n": 7,
+     "rate": 1.0,
+     "wilson": [
+      0.6456695613241317,
+      1.0
+     ],
+     "boot": [
+      1.0,
+      1.0
+     ],
+     "n_drugs": 5,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 0,
+     "n": 1,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.7934506882081973
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 1,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "closed-book": {
+    "correct (auto)": {
+     "k": 279,
+     "n": 394,
+     "rate": 0.7081218274111675,
+     "wilson": [
+      0.6613937946293204,
+      0.7508307142520748
+     ],
+     "boot": [
+      0.6622340425531915,
+      0.7539267015706806
+     ],
+     "n_drugs": 165,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 3,
+     "rate": 0.0,
+     "wilson": [
+      0.0,
+      0.5614970356393196
+     ],
+     "boot": [
+      0.0,
+      0.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 8,
+     "n": 130,
+     "rate": 0.06153846153846154,
+     "wilson": [
+      0.03150928499520798,
+      0.11673669982249635
+     ],
+     "boot": [
+      0.023622047244094488,
+      0.10483870967741936
+     ],
+     "n_drugs": 75,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 6,
+     "n": 38,
+     "rate": 0.15789473684210525,
+     "wilson": [
+      0.07443863371721297,
+      0.3041681191266144
+     ],
+     "boot": [
+      0.05263157894736842,
+      0.2857142857142857
+     ],
+     "n_drugs": 24,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 5,
+     "n": 8,
+     "rate": 0.625,
+     "wilson": [
+      0.30574239265377096,
+      0.8631557152608771
+     ],
+     "boot": [
+      0.25,
+      1.0
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 2,
+     "n": 92,
+     "rate": 0.021739130434782608,
+     "wilson": [
+      0.005982041175027729,
+      0.07583494046136413
+     ],
+     "boot": [
+      0.0,
+      0.05434782608695652
+     ],
+     "n_drugs": 58,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   }
+  },
+  "Llama-3.3-70B (RAGAS NLI)": {
+   "all answers": {
+    "correct (auto)": {
+     "k": 807,
+     "n": 1029,
+     "rate": 0.7842565597667639,
+     "wilson": [
+      0.7580911838776565,
+      0.8083074584015104
+     ],
+     "boot": [
+      0.75426944971537,
+      0.8135593220338984
+     ],
+     "n_drugs": 197,
+     "parse_fail": 0,
+     "unscored": 33
+    },
+    "of which natural conversions": {
+     "k": 3,
+     "n": 3,
+     "rate": 1.0,
+     "wilson": [
+      0.43850296436068037,
+      1.0
+     ],
+     "boot": [
+      1.0,
+      1.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 15,
+     "n": 128,
+     "rate": 0.1171875,
+     "wilson": [
+      0.07231682321834759,
+      0.18436615927022826
+     ],
+     "boot": [
+      0.056910569105691054,
+      0.18181818181818182
+     ],
+     "n_drugs": 70,
+     "parse_fail": 0,
+     "unscored": 12
+    },
+    "unit-type errors": {
+     "k": 13,
+     "n": 45,
+     "rate": 0.28888888888888886,
+     "wilson": [
+      0.17730082412256962,
+      0.43368540693622215
+     ],
+     "boot": [
+      0.14583333333333334,
+      0.4318181818181818
+     ],
+     "n_drugs": 25,
+     "parse_fail": 0,
+     "unscored": 2
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 8,
+     "n": 14,
+     "rate": 0.5714285714285714,
+     "wilson": [
+      0.3259064441752893,
+      0.7861920121957136
+     ],
+     "boot": [
+      0.25,
+      0.8571428571428571
+     ],
+     "n_drugs": 9,
+     "parse_fail": 0,
+     "unscored": 1
+    },
+    "value errors": {
+     "k": 2,
+     "n": 83,
+     "rate": 0.024096385542168676,
+     "wilson": [
+      0.0066331660810336895,
+      0.08366309312868926
+     ],
+     "boot": [
+      0.0,
+      0.06097560975609756
+     ],
+     "n_drugs": 52,
+     "parse_fail": 0,
+     "unscored": 10
+    }
+   },
+   "grounded": {
+    "correct (auto)": {
+     "k": 556,
+     "n": 668,
+     "rate": 0.8323353293413174,
+     "wilson": [
+      0.8021234578920461,
+      0.8587467431510961
+     ],
+     "boot": [
+      0.7982456140350878,
+      0.864696734059098
+     ],
+     "n_drugs": 196,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "of which natural conversions": {
+     "k": 0,
+     "n": 0,
+     "rate": null,
+     "wilson": [
+      null,
+      null
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 0,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 8,
+     "n": 10,
+     "rate": 0.8,
+     "wilson": [
+      0.4901624691221323,
+      0.9433178490622331
+     ],
+     "boot": [
+      0.5555555555555556,
+      1.0
+     ],
+     "n_drugs": 8,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit-type errors": {
+     "k": 7,
+     "n": 9,
+     "rate": 0.7777777777777778,
+     "wilson": [
+      0.4525889666922117,
+      0.9367748934594303
+     ],
+     "boot": [
+      0.5,
+      1.0
+     ],
+     "n_drugs": 7,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 5,
+     "n": 7,
+     "rate": 0.7142857142857143,
+     "wilson": [
+      0.3589344495310541,
+      0.9177810767507166
+     ],
+     "boot": [
+      0.4,
+      1.0
+     ],
+     "n_drugs": 5,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "value errors": {
+     "k": 1,
+     "n": 1,
+     "rate": 1.0,
+     "wilson": [
+      0.2065493117918027,
+      1.0
+     ],
+     "boot": [
+      null,
+      null
+     ],
+     "n_drugs": 1,
+     "parse_fail": 0,
+     "unscored": 0
+    }
+   },
+   "closed-book": {
+    "correct (auto)": {
+     "k": 251,
+     "n": 361,
+     "rate": 0.6952908587257618,
+     "wilson": [
+      0.6459594374039362,
+      0.7405097989387336
+     ],
+     "boot": [
+      0.6422764227642277,
+      0.7459016393442623
+     ],
+     "n_drugs": 162,
+     "parse_fail": 0,
+     "unscored": 33
+    },
+    "of which natural conversions": {
+     "k": 3,
+     "n": 3,
+     "rate": 1.0,
+     "wilson": [
+      0.43850296436068037,
+      1.0
+     ],
+     "boot": [
+      1.0,
+      1.0
+     ],
+     "n_drugs": 2,
+     "parse_fail": 0,
+     "unscored": 0
+    },
+    "all errors (auto)": {
+     "k": 7,
+     "n": 118,
+     "rate": 0.059322033898305086,
+     "wilson": [
+      0.02902976472245538,
+      0.11740199212870014
+     ],
+     "boot": [
+      0.022900763358778626,
+      0.10526315789473684
+     ],
+     "n_drugs": 69,
+     "parse_fail": 0,
+     "unscored": 12
+    },
+    "unit-type errors": {
+     "k": 6,
+     "n": 36,
+     "rate": 0.16666666666666666,
+     "wilson": [
+      0.07870447549101488,
+      0.31890794448823795
+     ],
+     "boot": [
+      0.05714285714285714,
+      0.2903225806451613
+     ],
+     "n_drugs": 23,
+     "parse_fail": 0,
+     "unscored": 2
+    },
+    "unit_error (same numeral, other unit)": {
+     "k": 3,
+     "n": 7,
+     "rate": 0.42857142857142855,
+     "wilson": [
+      0.15821985399244537,
+      0.7495416372469643
+     ],
+     "boot": [
+      0.14285714285714285,
+      0.8571428571428571
+     ],
+     "n_drugs": 7,
+     "parse_fail": 0,
+     "unscored": 1
+    },
+    "value errors": {
+     "k": 1,
+     "n": 82,
+     "rate": 0.012195121951219513,
+     "wilson": [
+      0.002155992057983412,
+      0.0658933975659014
+     ],
+     "boot": [
+      0.0,
+      0.03896103896103896
+     ],
+     "n_drugs": 52,
+     "parse_fail": 0,
+     "unscored": 10
+    }
+   }
+  }
+ }
+}

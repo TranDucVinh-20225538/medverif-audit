@@ -1,0 +1,9 @@
+{
+  "stage": "RD1_questions",
+  "finished": "2026-10-01T14:53:23+0700",
+  "slurm_job": "62079",
+  "labels": 200,
+  "questions": 364,
+  "drugs_with_question": 197,
+  "out": "/data2/hpcshared/medverif-audit/results/journal2/real_dose/questions.jsonl"
+}

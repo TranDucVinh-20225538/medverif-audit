@@ -1,0 +1,33 @@
+{
+ "answers": 1456,
+ "instances": 1451,
+ "by_condition_class": {
+  "closed|basis_error": 30,
+  "closed|correct": 394,
+  "closed|match_other_context": 137,
+  "closed|no_dose": 4,
+  "closed|time_ambiguous": 47,
+  "closed|unit_error": 8,
+  "closed|unverifiable": 16,
+  "closed|value_error": 92,
+  "grounded|basis_error": 2,
+  "grounded|correct": 668,
+  "grounded|match_other_context": 46,
+  "grounded|no_dose": 1,
+  "grounded|time_ambiguous": 3,
+  "grounded|unit_error": 7,
+  "grounded|value_error": 1
+ },
+ "subtypes": {
+  "unit_error|per_m2": 5,
+  "unit_error|per_kg": 8,
+  "value_error|other": 92,
+  "basis_error|per_kg": 30,
+  "basis_error|per_m2": 2,
+  "unit_error|time_basis": 1,
+  "value_error|decimal_shift": 1,
+  "unit_error|unit_kind": 1
+ },
+ "qc_rows": 266,
+ "qc_file": "qc/real_dose_errors_check.csv"
+}

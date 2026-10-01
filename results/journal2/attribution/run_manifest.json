@@ -1,0 +1,21 @@
+{
+ "items": 486,
+ "bases": 107,
+ "by_cond": {
+  "C0": 107,
+  "value-x10": 103,
+  "INV-conv": 62,
+  "swap-claim": 107,
+  "swap-evid": 107
+ },
+ "models": [
+  "mc_roberta",
+  "mc_ft5",
+  "as_large"
+ ],
+ "steps": 128,
+ "device": "cuda",
+ "torch": "2.6.0+cu124",
+ "finished": "2026-10-01T15:40:34+0700",
+ "slurm_job": "62083"
+}
