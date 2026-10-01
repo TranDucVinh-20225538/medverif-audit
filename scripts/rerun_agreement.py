@@ -66,7 +66,9 @@ def load_env() -> None:
             line = line.strip()
             if not line or line.startswith("#") or "=" not in line:
                 continue
-            k, v = line.removeprefix("export ").split("=", 1)
+            if line.startswith("export "):
+                line = line[len("export "):]
+            k, v = line.split("=", 1)
             os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
         break
 
@@ -129,17 +131,75 @@ def est_cost(slug: str, stored: dict[str, dict], ids: list[str]) -> float:
     return per * len(ids) * 1.25  # 25% safety margin
 
 
-def set_judge_env(slug: str) -> None:
+T6_MODELS = ROOT / "notes/t6_models.json"
+
+
+def _stored_pin(stored: dict[str, dict], ids: list[str]) -> tuple[str | None, str | None, int]:
+    """Majority (api_model, api_provider) over the stored rows of the sampled ids."""
+    from collections import Counter
+
+    c: Counter = Counter()
+    for i in ids:
+        r = stored.get(i) or {}
+        m = (r.get("api_model") or r.get("openrouter_model") or r.get("model") or "").strip() or None
+        pr = (r.get("api_provider") or r.get("provider") or "").strip() or None
+        c[(m, pr)] += 1
+    if not c:
+        return None, None, 0
+    (m, pr), n = c.most_common(1)[0]
+    return m, pr, n
+
+
+def resolve_spec(slug: str, stored: dict[str, dict], ids: list[str]) -> dict:
+    """Model/provider pin for one judge.
+
+    Order: notes/openrouter_verifiers.json (registry) -> notes/t6_models.json (T6-B zoo, e.g. v1c_medscore) ->
+    majority api_model/api_provider of the stored verdict rows being compared. The result must agree with the
+    stored rows (else the rerun would not test the same config)."""
     from verifier_registry import expected_openrouter
 
+    spec, source = None, None
+    reg = expected_openrouter(slug)
+    if reg and reg.get("openrouter_model"):
+        spec, source = {"openrouter_model": reg["openrouter_model"], "provider": reg.get("provider")}, "registry"
+    if spec is None and T6_MODELS.is_file():
+        for m in json.loads(T6_MODELS.read_text()).get("t6b_openrouter", []):
+            if m.get("slug") == slug and m.get("openrouter_model"):
+                spec, source = {"openrouter_model": m["openrouter_model"], "provider": m.get("provider")}, "t6_models"
+                break
+    sm, sp, sn = _stored_pin(stored, ids)
+    if spec is None and sm:
+        spec, source = {"openrouter_model": sm, "provider": sp}, "stored_rows"
+    problems = []
+    if spec is None:
+        problems.append("no model pin found (registry, t6_models.json, stored rows)")
+    else:
+        if not spec.get("provider"):
+            if sp:
+                spec["provider"] = sp
+            else:
+                problems.append("no provider pin")
+        if not sm:
+            problems.append("stored rows carry no api_model")
+        elif spec["openrouter_model"].lower() not in sm.lower():
+            problems.append(f"model pin {spec['openrouter_model']!r} != stored rows {sm!r}")
+        if sp and spec.get("provider") and spec["provider"].lower() != sp.lower():
+            problems.append(f"provider pin {spec['provider']!r} != stored rows {sp!r}")
+        if sn < len(ids):
+            problems.append(f"only {sn}/{len(ids)} stored rows carry the majority model/provider")
+    return {"judge": slug, "module": JUDGES[slug][0], "openrouter_model": (spec or {}).get("openrouter_model"),
+            "provider": (spec or {}).get("provider"), "source": source, "stored_model": sm, "stored_provider": sp,
+            "stored_rows_matching": sn, "problems": problems}
+
+
+def set_judge_env(slug: str, spec: dict) -> None:
     module, mkey, pkey = JUDGES[slug]
-    spec = expected_openrouter(slug)
     for k in list(os.environ):
         if k.startswith("MEDVERIF_V6_") or k in ("MEDVERIF_M1",):
             del os.environ[k]
     os.environ["MEDVERIF_USE_OPENROUTER"] = "1"
     os.environ[mkey] = spec["openrouter_model"]
-    os.environ[pkey] = spec.get("provider") or ""
+    os.environ[pkey] = spec["provider"]
     if module == "v6_ragas_nli":
         os.environ["MEDVERIF_V6_VERIFIER_SLUG"] = slug
 
@@ -158,6 +218,14 @@ def main() -> None:
     rows = candidate_rows()
     stored = {j: stored_rows(j) for j in judges}
     sample = build_sample(rows, stored)
+    specs = {j: resolve_spec(j, stored[j], sample[j]) for j in judges}
+    for j in judges:
+        sp = specs[j]
+        print(json.dumps({k: sp[k] for k in ("judge", "openrouter_model", "provider", "source", "stored_model",
+                                              "stored_provider", "stored_rows_matching", "problems")}))
+    bad = {j: specs[j]["problems"] for j in judges if specs[j]["problems"]}
+    if bad:
+        sys.exit(f"SPEC CHECK FAILED (no API call made): {json.dumps(bad)}")
     plan = []
     for j in judges:
         ids = sample[j]
@@ -200,7 +268,7 @@ def main() -> None:
         todo = [i for i in sample[j] if i not in done]
         if not todo:
             continue
-        set_judge_env(j)
+        set_judge_env(j, specs[j])
         module_name = JUDGES[j][0]
         sys.modules.pop(f"verifiers.{module_name}", None)
         module = importlib.import_module(f"verifiers.{module_name}")
@@ -218,7 +286,8 @@ def main() -> None:
                 st = stored[j].get(r["instance_id"]) or {}
                 c = r.get("api_cost_usd")
                 spent += float(c) if isinstance(c, (int, float)) else per_call
-                r.update({"judge": j, "stratum": stratum(rows[r["instance_id"]]), "stored_verdict": st.get("verdict"),
+                r.update({"judge": j, "pinned_model": specs[j]["openrouter_model"],
+                          "pinned_provider": specs[j]["provider"], "stratum": stratum(rows[r["instance_id"]]), "stored_verdict": st.get("verdict"),
                           "stored_api_model": st.get("api_model"), "stored_api_provider": st.get("api_provider"),
                           "identical": r.get("verdict") == st.get("verdict"), "rerun_at_utc": stamp})
             append_jsonl(out, scored)
