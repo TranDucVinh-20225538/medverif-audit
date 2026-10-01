@@ -5,7 +5,8 @@ env is derived per score row, following each table's loader (same directories, s
   API             row carries api_model / openrouter_model / api_provider
   cpuverif        lane_b_env_profile=cpuverif, or results/raw/{t15_cpuverif,minicheck_cpuverif}
   cpuverif_legacy lane_b_env_profile=legacy
-  vllm            results/raw/t15 (GPU env), Bespoke-MiniCheck-7B (GPU bf16), T9 NeMo AlignScore server
+  vllm            results/raw/t15 (GPU env), Bespoke-MiniCheck-7B (GPU bf16; reference env by design)
+  nemo            T9 NeMo Guardrails AlignScore rails (reference env by design)
   node30          results/raw_node30 rows without env metadata (covered by agreement checks; HHEM and
                   SummaC-Conv are node30-only main-card numbers, agreement NA, decision M)
   unrecorded      local score file without env metadata
@@ -39,6 +40,11 @@ OUT_JSON = ROOT / "notes/paper_numbers_final.json"
 REFERENCE = {"cpuverif", "API"}
 LEGACY_OK = {"t6a_summac_zs", "t6a_summac_conv", "t6_summac_zs", "t6_summac_conv"}
 NODE30_ONLY = {"t6a_hhem", "t6a_summac_conv"}
+# Author decisions (Oct 1): the supported backend is the reference env for these checkers.
+REF_BY_DESIGN = {
+    "v2b_bespoke": ("vllm", "reference env = vllm (by design)"),
+    "t9": ("nemo", "reference env = nemo (by design)"),
+}
 SCRIPT = "scripts/paper_numbers_final.py"
 
 
@@ -89,7 +95,7 @@ def row_env(path: Path, row: dict) -> str:
     if "bespoke" in path.name or "bespoke" in str(row.get("model", "")).lower():
         return "vllm"
     if rel.startswith("results/raw/t9/"):
-        return "vllm"
+        return "nemo"
     if rel.startswith("results/raw_node30/"):
         return "node30"
     return "unrecorded"
@@ -146,6 +152,11 @@ def load_agreement() -> dict[str, str]:
             txt = " + ".join(f"{k} {round(g[k]['verdict_agreement'] * g[k]['n_compared'])}/{g[k]['n_compared']}"
                              for k in ("c0_probe", "e1_probe") if k in g)
             ev.setdefault(g["reference_scores"], f"cpuverif probe {txt}")
+    p = ROOT / "notes/env_probe_cpuverif.json"
+    if p.is_file():
+        for rel, r in json.loads(p.read_text()).items():
+            if r.get("pass"):
+                ev[rel] = f"{r['reference_env']} 30-row probe {r['verdict_agree']}/{r['n_compared']}"
     p = ROOT / "notes/t14_env_agreement.json"
     if p.is_file():
         t6 = {c["id"]: c["jsonl"] for c in json.loads((ROOT / "notes/t6a_eco_checkers.json").read_text())["checkers"]}
@@ -168,6 +179,9 @@ def env_cell(win: dict[str, tuple[Path, str]], ids: set[str], slug: str, source:
             envs[e] += 1
             files[str(p.relative_to(ROOT))] += 1
     ok_envs = REFERENCE | ({"cpuverif_legacy"} if slug in LEGACY_OK else set())
+    by_design = REF_BY_DESIGN.get(slug)
+    if by_design:
+        ok_envs = ok_envs | {by_design[0]}
     checks = []
     unchecked = []
     for f in files:
@@ -185,6 +199,8 @@ def env_cell(win: dict[str, tuple[Path, str]], ids: set[str], slug: str, source:
     else:
         label = " + ".join(f"{e} {n}" for e, n in envs.most_common())
     status = "reference" if set(envs) <= ok_envs else ("checked" if not unchecked else "UNCHECKED")
+    if by_design and by_design[0] in envs:
+        checks = [by_design[1]] + checks
     if slug in NODE30_ONLY:
         label, checks, unchecked, status = "node30", ["NA (node30-only main-card number, decision M)"], [], "node30-only"
     return {
@@ -495,8 +511,10 @@ def section_t24b() -> None:
             break
         cells = [c.strip() for c in line.strip("|").split("|")]
         name = cells[0]
-        win = winners([ROOT / "results/raw/t24b" / T24B_FILES[name]])
-        cell = env_cell(win, set(win), "t24b", src)
+        fname = T24B_FILES[name]
+        slug = fname.removesuffix(".jsonl").replace("t6_", "t6a_", 1) if fname.startswith("t6_") else fname.removesuffix(".jsonl")
+        win = winners([ROOT / "results/raw/t24b" / fname])
+        cell = env_cell(win, set(win), slug, src)
         cell["script"] = "scripts/t24b_report.py"
         for col, val in zip(cols[1:], cells[1:]):
             n = re.search(r"n=(\d+)", val)
@@ -634,7 +652,8 @@ def main() -> None:
         "- **cpuverif** — reference env for local checkers (torch cpu, transformers 5.x).",
         "- **cpuverif_legacy** — reference env for SummaC-ZS.",
         "- **API** — hosted LLM judges via OpenRouter (row has `api_model`/`api_provider`).",
-        "- **vllm** — GPU env (`results/raw/t15`, Bespoke-MiniCheck-7B bf16, T9 NeMo AlignScore server).",
+        "- **vllm** — GPU env (`results/raw/t15`; Bespoke-MiniCheck-7B bf16, where vllm is the reference env by design).",
+        "- **nemo** — NeMo Guardrails' own env for the T9 AlignScore rails (reference env by design).",
         "- **node30** — `results/raw_node30` rows; each file needs an agreement check vs cpuverif (listed), except HHEM/SummaC-Conv (NA by decision).",
         "- **unrecorded** — local score file with no env metadata.",
         "",

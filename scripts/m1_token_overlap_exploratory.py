@@ -24,12 +24,22 @@ sys.path.insert(0, str(ROOT / "src"))
 from analyze import N_BOOT, SEED, bootstrap_rate, read_jsonl  # noqa: E402
 from verifier_labels import verifier_display_name  # noqa: E402
 
-ROWS = ROOT / "notes/m1_strong_final_rows.json"
+AMEND5 = "--amend5" in sys.argv
+ROWS = ROOT / ("notes/m1_strong_final_amend5_rows.json" if AMEND5 else "notes/m1_strong_final_rows.json")
+FINAL_JSON = ROOT / ("notes/m1_strong_final_amend5.json" if AMEND5 else "notes/m1_strong_final.json")
+TABLE = "results/tables/m1_strong_final_amend5.md" if AMEND5 else "results/tables/m1_strong_final.md"
 AFTER = ROOT / "data/lane_b/m1_t7_e1_unit.jsonl"
+# amendment 5: after-M1 texts actually scored = base pack overlaid with the spec-M1 rebuilds (last wins)
+AFTER_PACKS = {
+    "local": (AFTER, ROOT / "data/lane_b/m1_t7_e1_unit_amend5.jsonl"),
+    "api": (ROOT / "data/t7/instances_e1_unit_m1_pending.jsonl", ROOT / "data/t7/instances_e1_unit_m1_amend5.jsonl"),
+}
+API_SLUGS = {"v1_medscore", "v4_ragas_nli", "v5_ragas_nli"}
 RAW_T7 = ROOT / "data/t7/instances_e1_unit.jsonl"
 MAIN = ROOT / "data/v3/instances_main.jsonl"
-OUT = ROOT / "notes/m1_token_overlap_exploratory.md"
-OUT_JSON = ROOT / "notes/m1_token_overlap_exploratory.json"
+SUFFIX = "_amend5" if AMEND5 else ""
+OUT = ROOT / f"notes/m1_token_overlap_exploratory{SUFFIX}.md"
+OUT_JSON = ROOT / f"notes/m1_token_overlap_exploratory{SUFFIX}.json"
 HF = ROOT / ".cache/huggingface"
 
 TOKENIZERS = {
@@ -108,12 +118,21 @@ def flag(tok, text: str, spans: list[tuple[int, int]], original: str) -> bool:
     return False
 
 
-def m1_noop_ids() -> set[str]:
+def after_rows(group: str = "local") -> dict[str, dict]:
+    if not AMEND5:
+        return {r["instance_id"]: r for r in read_jsonl(AFTER)}
+    out: dict[str, dict] = {}
+    for p in AFTER_PACKS[group]:
+        out.update({r["instance_id"]: r for r in read_jsonl(p)})
+    return out
+
+
+def m1_noop_ids(group: str = "local") -> set[str]:
     """US_up rows whose after-M1 text equals the raw text (checker-side M1 regex lacks e.g. g/kg, L)."""
     raw = {r["instance_id"]: r for r in read_jsonl(RAW_T7)}
     return {
         r["instance_id"]
-        for r in read_jsonl(AFTER)
+        for r in after_rows(group).values()
         if r["instance_id"] in raw
         and (r["claim"], r["evidence"]) == (raw[r["instance_id"]]["claim"], raw[r["instance_id"]]["evidence"])
     }
@@ -126,8 +145,8 @@ def after_rate(rows: list[dict]) -> dict:
     return bootstrap_rate([(sum(v), len(v)) for v in by.values()])
 
 
-def us_up_items() -> dict[str, dict]:
-    after = {r["instance_id"]: r for r in read_jsonl(AFTER)}
+def us_up_items(group: str = "local") -> dict[str, dict]:
+    after = after_rows(group)
     raw = {r["instance_id"]: r for r in read_jsonl(RAW_T7)}
     items = {}
     for iid, a in after.items():
@@ -193,13 +212,21 @@ def fmt(st: dict) -> str:
 def main() -> None:
     os.environ.setdefault("TRANSFORMERS_VERBOSITY", "error")
     dump = json.loads(ROWS.read_text())
-    us_items, ns, noop = us_up_items(), ns_items(), m1_noop_ids()
+    groups = ("local", "api") if AMEND5 else ("local",)
+    us_by = {g: us_up_items(g) for g in groups}
+    noop_by = {g: m1_noop_ids(g) for g in groups}
+    ns = ns_items()
+
+    def grp(slug: str) -> str:
+        return "api" if AMEND5 and slug in API_SLUGS else "local"
     result = {}
     lines = [
         "# EXPLORATORY — numeral-token survival after M1 (not preregistered)",
         "",
         "**Exploratory analysis; not part of the preregistered M1-strong criterion.** Rows = exactly the "
-        "pairs/rows behind `results/tables/m1_strong_final.md` (C0-PASS bases, parsed scores).",
+        f"pairs/rows behind `{TABLE}` (C0-PASS bases, parsed scores)."
+        + (" After-M1 texts = amendment-5 texts actually scored (base pack overlaid with the spec-M1 rebuilds; "
+           "API judges use their own pack)." if AMEND5 else ""),
         "",
         "- **Flag (US_up after-M1):** tokenize the after-M1 text with the checker's own tokenizer; flag = yes if a "
         "token overlapping the numeral M1 introduced (e.g. `500000`) has surface exactly equal to the original "
@@ -217,7 +244,7 @@ def main() -> None:
         tok = load_tokenizer(tname)
         result[slug] = {"tokenizer": tname}
         for s in ("claim", "evid"):
-            us = split(dump[slug]["us_up_after_pairs"][s], us_items, tok, "after", noop)
+            us = split(dump[slug]["us_up_after_pairs"][s], us_by[grp(slug)], tok, "after", noop_by[grp(slug)])
             nsr = split(dump[slug]["ns_x10"][s], ns, tok, "verdict")
             result[slug][s] = {"us_up_after": us, "ns_x10": nsr}
             lines.append(
@@ -226,19 +253,32 @@ def main() -> None:
             )
     lines += ["", "Tokenizers: " + "; ".join(f"{verifier_display_name(k)} = `{v}`" for k, v in TOKENIZERS.items()) + "."]
     lines += [f"- {verifier_display_name(k)}: {v}" for k, v in TOKENIZER_NOTES.items()]
-    lines += [
-        "",
-        "## Caveat found here — M1 no-op rows inside the US_up after pairs (sensitivity, not a revision)",
-        "",
-        f"Checker-side M1 (`src/quantity_norm.py` DOSE_RE) has no `g/kg` or `L`, so **{len(noop)}/214** US_up ×1000 rows "
-        "(mg/kg→g/kg, mL→L) are unchanged by M1; the gate still passes them because M1-lib and M1 agree (both unchanged). "
-        "In `m1_strong_final` these count as after-M1 pairs although the checker saw the before input. "
-        "US_down after (150/150 changed) and NS (no M1) are unaffected. The accepted table is **not** changed.",
-        "",
+    noop = noop_by["local"]
+    if AMEND5:
+        caveat = [
+            "",
+            "## M1 no-op rows after amendment 5",
+            "",
+            f"Local pack: **{len(noop)}/214** US_up ×1000 rows unchanged by M1; API pack: **{len(noop_by['api'])}** rows "
+            "(pre-amendment-5: 40/214 local). Sensitivity split below for reference.",
+            "",
+        ]
+    else:
+        caveat = [
+            "",
+            "## Caveat found here — M1 no-op rows inside the US_up after pairs (sensitivity, not a revision)",
+            "",
+            f"Checker-side M1 (`src/quantity_norm.py` DOSE_RE) has no `g/kg` or `L`, so **{len(noop)}/214** US_up ×1000 rows "
+            "(mg/kg→g/kg, mL→L) are unchanged by M1; the gate still passes them because M1-lib and M1 agree (both unchanged). "
+            "In `m1_strong_final` these count as after-M1 pairs although the checker saw the before input. "
+            "US_down after (150/150 changed) and NS (no M1) are unaffected. The accepted table is **not** changed.",
+            "",
+        ]
+    lines += caveat + [
         "| Model | Side | US_up after (as reported) | US_up after, M1-changed rows only | US_up after, no-op rows only | NS_x10 |",
         "| --- | --- | --- | --- | --- | --- |",
     ]
-    final = json.loads((ROOT / "notes/m1_strong_final.json").read_text())["checkers"]
+    final = json.loads(FINAL_JSON.read_text())["checkers"]
     for slug in TOKENIZERS:
         if slug not in dump:
             continue
@@ -246,8 +286,9 @@ def main() -> None:
             rows = dump[slug]["us_up_after_pairs"][s]
             if not rows:
                 continue
-            keep = [r for r in rows if r["instance_id"] not in noop]
-            only = [r for r in rows if r["instance_id"] in noop]
+            nop = noop_by[grp(slug)]
+            keep = [r for r in rows if r["instance_id"] not in nop]
+            only = [r for r in rows if r["instance_id"] in nop]
             result[slug][s]["sensitivity"] = {"all": after_rate(rows), "m1_changed": after_rate(keep), "noop": after_rate(only)}
             lines.append(
                 f"| {verifier_display_name(slug)} | {s.upper()} | {fmt(after_rate(rows))} | {fmt(after_rate(keep))} | "
