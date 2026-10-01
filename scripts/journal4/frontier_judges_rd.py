@@ -16,8 +16,9 @@ path) and the chain-3 local judges (scripts/journal3/j3_judge_score.py):
                  the value actually sent is stored per row), lowest reasoning effort, max output tokens small but with
                  headroom for hidden reasoning tokens (reasoning tokens count against the cap on all three providers).
 Providers (plain HTTPS via urllib, no SDK needed): openai (Responses API; --openai-api chat for Chat Completions),
-anthropic (Messages API), gemini (generateContent), mock (canned outputs, no network) ; keys from OPENAI_API_KEY /
-ANTHROPIC_API_KEY / GEMINI_API_KEY (GOOGLE_API_KEY accepted for gemini).  Keys are never printed or stored.
+anthropic (Messages API), gemini (generateContent), openrouter (OpenAI-compatible Chat Completions; --model = OpenRouter id,
+billed cost + upstream provider logged per row), mock (canned outputs, no network) ; keys from OPENAI_API_KEY /
+ANTHROPIC_API_KEY / GEMINI_API_KEY (GOOGLE_API_KEY accepted for gemini) / OPENROUTER_API_KEY.  Keys are never printed or stored.
 
 Packs/subsets:  --pack rd (default): all | adjudicable (correct + auto errors, skips the 249 not-adjudicable rows) |
                 flagged47 (auto unit-type = unit_error + basis_error) | true12 (AI-precheck true_unit_error) | smoke (10 rows:
@@ -87,6 +88,7 @@ PROVIDERS = OrderedDict([
     ("openai", {"model": "gpt-6-astra", "env": ["OPENAI_API_KEY"], "effort": "low"}),
     ("anthropic", {"model": "claude-opus-5-5", "env": ["ANTHROPIC_API_KEY"], "effort": "low"}),
     ("gemini", {"model": "gemini-3.1-pro-preview", "env": ["GEMINI_API_KEY", "GOOGLE_API_KEY"], "effort": "low"}),
+    ("openrouter", {"model": "google/gemini-3.1-pro-preview", "env": ["OPENROUTER_API_KEY"], "effort": "low"}),
     ("mock", {"model": "mock-judge", "env": [], "effort": "low"}),
 ])
 # USD per 1M tokens (input, output incl. reasoning/thinking tokens); standard tier, prompts < 200k tokens.
@@ -98,11 +100,14 @@ PRICES = {
     "claude-opus-5": (5.0, 25.0), "claude-sonnet-5": (2.0, 10.0), "claude-haiku-4-5": (1.0, 5.0),
     "claude-haiku-4-5-20251001": (1.0, 5.0),
     "gemini-3.1-pro-preview": (2.0, 12.0), "gemini-3-flash-preview": (0.50, 3.0),
+    # OpenRouter ids (openrouter.ai/api/v1/models, checked 2026-10-01; reasoning billed as output)
+    "google/gemini-3.1-pro-preview": (2.0, 12.0), "anthropic/claude-opus-5.5": (4.0, 20.0),
+    "anthropic/claude-sonnet-5.5": (2.0, 10.0),
     "mock-judge": (10.0, 50.0),  # priced like the most expensive default so the guard is exercised in tests
 }
 # chars per token used for the PRE-RUN estimate only (measured 4.39 chars/token for this prompt with the Llama-3 tokenizer;
 # 4.0 is conservative; Claude's tokenizer since Opus 4.7 produces ~35% more tokens for English -> 3.0)
-CHARS_PER_TOKEN = {"openai": 4.0, "anthropic": 3.0, "gemini": 4.0, "mock": 4.0}
+CHARS_PER_TOKEN = {"openai": 4.0, "anthropic": 3.0, "gemini": 4.0, "openrouter": 3.0, "mock": 4.0}
 RETRYABLE = {408, 409, 425, 429, 500, 502, 503, 504, 520, 522, 524, 529}
 
 
@@ -270,6 +275,20 @@ class Provider:
 class OpenAIProvider(Provider):
     name = "openai"
 
+    def chat(self, base: str, hdr: dict, body: dict) -> dict:
+        r = http_post(base + "/chat/completions", hdr, body, self.timeout)
+        if r.get("error"):  # OpenRouter can return HTTP 200 with an upstream error object
+            err = r["error"]
+            raise ApiError(int(err.get("code") or 502) if str(err.get("code") or "").isdigit() else 502, json.dumps(err)[:600])
+        ch = (r.get("choices") or [{}])[0]
+        u = r.get("usage") or {}
+        return {"text": (ch.get("message") or {}).get("content") or "", "prompt_tokens": u.get("prompt_tokens"),
+                "output_tokens": u.get("completion_tokens"),
+                "reasoning_tokens": (u.get("completion_tokens_details") or {}).get("reasoning_tokens"),
+                "finish": ch.get("finish_reason"), "incomplete": ch.get("finish_reason") == "length",
+                "api_model": r.get("model"), "request_id": r.get("id"), "temperature_sent": body.get("temperature"),
+                "served_provider": r.get("provider"), "cost_reported": u.get("cost")}
+
     def call(self, prompt: str) -> dict:
         base = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
         hdr = {"Authorization": "Bearer " + self.key()}
@@ -280,14 +299,7 @@ class OpenAIProvider(Provider):
                 body["reasoning_effort"] = self.effort
             if t is not None:
                 body["temperature"] = t
-            r = http_post(base + "/chat/completions", hdr, body, self.timeout)
-            ch = (r.get("choices") or [{}])[0]
-            u = r.get("usage") or {}
-            return {"text": (ch.get("message") or {}).get("content") or "", "prompt_tokens": u.get("prompt_tokens"),
-                    "output_tokens": u.get("completion_tokens"),
-                    "reasoning_tokens": (u.get("completion_tokens_details") or {}).get("reasoning_tokens"),
-                    "finish": ch.get("finish_reason"), "incomplete": ch.get("finish_reason") == "length",
-                    "api_model": r.get("model"), "request_id": r.get("id"), "temperature_sent": t}
+            return self.chat(base, hdr, body)
         body = {"model": self.model, "input": [{"role": "user", "content": prompt}], "max_output_tokens": self.max_out, "store": False}
         if self.effort:
             body["reasoning"] = {"effort": self.effort}
@@ -308,6 +320,23 @@ class OpenAIProvider(Provider):
                 "reasoning_tokens": (u.get("output_tokens_details") or {}).get("reasoning_tokens"),
                 "finish": ((r.get("incomplete_details") or {}).get("reason") if inc else r.get("status")) or ("refusal" if refusal else None),
                 "incomplete": inc, "api_model": r.get("model"), "request_id": r.get("id"), "temperature_sent": t}
+
+
+class OpenRouterProvider(OpenAIProvider):
+    """OpenAI-compatible Chat Completions on openrouter.ai; served model + upstream provider + billed cost logged per row."""
+    name = "openrouter"
+
+    def call(self, prompt: str) -> dict:
+        base = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1").rstrip("/")
+        hdr = {"Authorization": "Bearer " + self.key(), "X-Title": "medverif-audit journal4"}
+        t = self.temp()
+        body = {"model": self.model, "messages": [{"role": "user", "content": prompt}], "max_tokens": self.max_out,
+                "usage": {"include": True}}
+        if self.effort:
+            body["reasoning"] = {"effort": self.effort, "exclude": True}
+        if t is not None:
+            body["temperature"] = t
+        return self.chat(base, hdr, body)
 
 
 class AnthropicProvider(Provider):
@@ -397,7 +426,8 @@ class MockProvider(Provider):
                 "temperature_sent": self.temp()}
 
 
-PROVIDER_CLS = {"openai": OpenAIProvider, "anthropic": AnthropicProvider, "gemini": GeminiProvider, "mock": MockProvider}
+PROVIDER_CLS = {"openai": OpenAIProvider, "anthropic": AnthropicProvider, "gemini": GeminiProvider,
+                "openrouter": OpenRouterProvider, "mock": MockProvider}
 
 
 # ---------------------------------------------------------------- cost
@@ -526,6 +556,8 @@ def run_scoring(args, rows: List[dict], out: Path) -> dict:
             budget.settle(reserved, 0.0)
             return r, None, e
         cost = budget.cost(res.get("prompt_tokens"), res.get("output_tokens"))
+        if res.get("cost_reported") is not None:  # provider-billed (OpenRouter); never undercount vs the price table
+            cost = max(cost, float(res["cost_reported"]))
         budget.settle(reserved, cost)
         vs, ss = parse_strict(res["text"])
         vl, _ = parse_lenient(res["text"])
@@ -534,7 +566,8 @@ def run_scoring(args, rows: List[dict], out: Path) -> dict:
                "prompt_tokens": res.get("prompt_tokens"), "output_tokens": res.get("output_tokens"),
                "reasoning_tokens": res.get("reasoning_tokens"), "cost_usd": round(cost, 7), "latency_s": res.get("latency_s"),
                "attempts": res.get("attempts"), "provider": args.provider, "model": args.model, "api_model": res.get("api_model"),
-               "request_id": res.get("request_id"), "effort": effort, "temperature_sent": res.get("temperature_sent"),
+               "request_id": res.get("request_id"), "served_provider": res.get("served_provider"),
+               "cost_reported_usd": res.get("cost_reported"), "effort": effort, "temperature_sent": res.get("temperature_sent"),
                "max_output_tokens": args.max_output_tokens, "prompt": PROMPT_ID_J4,
                "prompt_sha1": hashlib.sha1(prompt.encode("utf-8")).hexdigest(), "verifier": "j4_" + slugify(args.model),
                "script": SCRIPT_VERSION, "ts": now_ts(), "auto_class": r.get("auto_class") or r.get("condition")}
@@ -781,7 +814,7 @@ def write_report(args, rows: List[dict], out_dir: Path) -> dict:
 # ---------------------------------------------------------------- main
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0], formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--provider", choices=list(PROVIDERS), help="openai | anthropic | gemini | mock")
+    ap.add_argument("--provider", choices=list(PROVIDERS), help="openai | anthropic | gemini | openrouter | mock")
     ap.add_argument("--model", help="model id (default per provider: %s)" % ", ".join("%s=%s" % (k, v["model"]) for k, v in PROVIDERS.items()))
     ap.add_argument("--pack", choices=["rd", "card"], default="rd")
     ap.add_argument("--subset", default="smoke", help="rd: all|adjudicable|flagged47|true12|smoke ; card: all|smoke (default smoke)")

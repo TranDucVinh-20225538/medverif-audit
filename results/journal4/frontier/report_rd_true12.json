@@ -1,0 +1,3294 @@
+{
+ "generated_by": "scripts/journal4/frontier_judges_rd.py",
+ "generated_at": "2026-10-01 23:45 UTC+7",
+ "pack": "rd",
+ "subset": "true12",
+ "n_rows": 12,
+ "prompt": "ragas_nli@298b682 via j3_ragas_prompt.nli_prompt; raw single user message, no system prompt (API path = v5/v6)",
+ "prompt_matches_src": true,
+ "lenient_regex": "\"verdict\"\\s*:\\s*\"?([01])\\b",
+ "frontier": {
+  "anthropic/claude-opus-5.5": {
+   "info": {
+    "file": "results/journal4/frontier/anthropic_claude-opus-5.5.jsonl",
+    "provider": "openrouter",
+    "api_model": [
+     "anthropic/claude-opus-5.5"
+    ],
+    "effort": "low",
+    "temperature_sent": [
+     "0.0"
+    ],
+    "max_output_tokens": 2048,
+    "rows_in_subset": 12,
+    "rows_in_file": 53,
+    "parse_fail_strict": 0,
+    "parse_fail_lenient": 0,
+    "incomplete": 0,
+    "mean_prompt_tokens": 1563.5,
+    "mean_output_tokens": 216.16666666666666,
+    "mean_reasoning_tokens": 0.0,
+    "cost_usd_subset": 0.12693,
+    "cost_usd_file": 0.55249,
+    "cost_per_row_usd": 0.010577499999999998
+   },
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 6,
+      "n": 6,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "unit-type": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 6,
+      "n": 6,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "unit-type": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   }
+  },
+  "google/gemini-3.1-pro-preview": {
+   "info": {
+    "file": "results/journal4/frontier/google_gemini-3.1-pro-preview.jsonl",
+    "provider": "openrouter",
+    "api_model": [
+     "google/gemini-3.1-pro-preview"
+    ],
+    "effort": "low",
+    "temperature_sent": [
+     "0.0"
+    ],
+    "max_output_tokens": 2048,
+    "rows_in_subset": 12,
+    "rows_in_file": 53,
+    "parse_fail_strict": 0,
+    "parse_fail_lenient": 0,
+    "incomplete": 0,
+    "mean_prompt_tokens": 1055.5,
+    "mean_output_tokens": 595.4166666666666,
+    "mean_reasoning_tokens": 464.25,
+    "cost_usd_subset": 0.11107,
+    "cost_usd_file": 0.48646,
+    "cost_per_row_usd": 0.009255833333333333
+   },
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 6,
+      "n": 6,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "unit-type": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 6,
+      "n": 6,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "unit-type": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   }
+  }
+ },
+ "ref": {
+  "Llama-3.3-70B RAGAS (paper)": {
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 5,
+      "n": 6,
+      "rate": 83.33333333333333,
+      "ci": [
+       50.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "unit-type": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 5,
+      "n": 6,
+      "rate": 83.33333333333333,
+      "ci": [
+       50.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "unit-type": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     }
+    }
+   }
+  },
+  "Mistral-Small-24B MedScore (paper)": {
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 5,
+      "n": 6,
+      "rate": 83.33333333333333,
+      "ci": [
+       50.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "unit-type": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 5,
+      "n": 6,
+      "rate": 83.33333333333333,
+      "ci": [
+       50.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "unit-type": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     }
+    }
+   }
+  },
+  "MiniCheck-DeBERTa (paper)": {
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 5,
+      "n": 6,
+      "rate": 83.33333333333333,
+      "ci": [
+       50.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "unit-type": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 5,
+      "n": 6,
+      "rate": 83.33333333333333,
+      "ci": [
+       50.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 11,
+      "n": 12,
+      "rate": 91.66666666666667,
+      "ci": [
+       72.72727272727273,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "unit-type": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 1,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       0.0,
+       272.7272727272727
+      ]
+     }
+    }
+   }
+  },
+  "MiniCheck-Flan-T5-Large (paper)": {
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 5,
+      "n": 6,
+      "rate": 83.33333333333333,
+      "ci": [
+       50.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     },
+     "unit-type": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 5,
+      "n": 6,
+      "rate": 83.33333333333333,
+      "ci": [
+       50.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     },
+     "unit-type": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     }
+    }
+   }
+  },
+  "AlignScore-large (paper)": {
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 9,
+      "n": 12,
+      "rate": 75.0,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 9,
+      "n": 12,
+      "rate": 75.0,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 3,
+      "n": 6,
+      "rate": 50.0,
+      "ci": [
+       0.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 9,
+      "n": 12,
+      "rate": 75.0,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 3,
+      "n": 12,
+      "rate": 250.0,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "unit-type": {
+      "k": 3,
+      "n": 12,
+      "rate": 250.0,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 3,
+      "n": 12,
+      "rate": 250.0,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 9,
+      "n": 12,
+      "rate": 75.0,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 9,
+      "n": 12,
+      "rate": 75.0,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 3,
+      "n": 6,
+      "rate": 50.0,
+      "ci": [
+       0.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 9,
+      "n": 12,
+      "rate": 75.0,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 3,
+      "n": 12,
+      "rate": 250.0,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "unit-type": {
+      "k": 3,
+      "n": 12,
+      "rate": 250.0,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 3,
+      "n": 12,
+      "rate": 250.0,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     }
+    }
+   }
+  },
+  "judge llama31_8b (chain 3, vLLM)": {
+   "rd_strict": {
+    "scored": 11,
+    "of": 12,
+    "parse_fail": 1,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 8,
+      "n": 11,
+      "rate": 72.72727272727273,
+      "ci": [
+       44.44444444444444,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 8,
+      "n": 11,
+      "rate": 72.72727272727273,
+      "ci": [
+       44.44444444444444,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 3,
+      "n": 6,
+      "rate": 50.0,
+      "ci": [
+       0.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 8,
+      "n": 11,
+      "rate": 72.72727272727273,
+      "ci": [
+       44.44444444444444,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 3,
+      "n": 11,
+      "rate": 272.72727272727275,
+      "ci": [
+       0.0,
+       555.5555555555555
+      ]
+     },
+     "unit-type": {
+      "k": 3,
+      "n": 11,
+      "rate": 272.72727272727275,
+      "ci": [
+       0.0,
+       555.5555555555555
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 11,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 3,
+      "n": 11,
+      "rate": 272.72727272727275,
+      "ci": [
+       0.0,
+       555.5555555555555
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 9,
+      "n": 12,
+      "rate": 75.0,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 9,
+      "n": 12,
+      "rate": 75.0,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 3,
+      "n": 6,
+      "rate": 50.0,
+      "ci": [
+       0.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 9,
+      "n": 12,
+      "rate": 75.0,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 3,
+      "n": 12,
+      "rate": 250.0,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "unit-type": {
+      "k": 3,
+      "n": 12,
+      "rate": 250.0,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 3,
+      "n": 12,
+      "rate": 250.0,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     }
+    }
+   }
+  },
+  "judge medgemma_4b (chain 3, vLLM)": {
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 7,
+      "n": 12,
+      "rate": 58.333333333333336,
+      "ci": [
+       33.33333333333333,
+       81.81818181818183
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 7,
+      "n": 12,
+      "rate": 58.333333333333336,
+      "ci": [
+       33.33333333333333,
+       81.81818181818183
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 3,
+      "n": 6,
+      "rate": 50.0,
+      "ci": [
+       0.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 7,
+      "n": 12,
+      "rate": 58.333333333333336,
+      "ci": [
+       33.33333333333333,
+       81.81818181818183
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 5,
+      "n": 12,
+      "rate": 416.6666666666667,
+      "ci": [
+       181.8181818181818,
+       666.6666666666666
+      ]
+     },
+     "unit-type": {
+      "k": 5,
+      "n": 12,
+      "rate": 416.6666666666667,
+      "ci": [
+       181.8181818181818,
+       666.6666666666666
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 5,
+      "n": 12,
+      "rate": 416.6666666666667,
+      "ci": [
+       181.8181818181818,
+       666.6666666666666
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 7,
+      "n": 12,
+      "rate": 58.333333333333336,
+      "ci": [
+       33.33333333333333,
+       81.81818181818183
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 7,
+      "n": 12,
+      "rate": 58.333333333333336,
+      "ci": [
+       33.33333333333333,
+       81.81818181818183
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 3,
+      "n": 6,
+      "rate": 50.0,
+      "ci": [
+       0.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 7,
+      "n": 12,
+      "rate": 58.333333333333336,
+      "ci": [
+       33.33333333333333,
+       81.81818181818183
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 5,
+      "n": 12,
+      "rate": 416.6666666666667,
+      "ci": [
+       181.8181818181818,
+       666.6666666666666
+      ]
+     },
+     "unit-type": {
+      "k": 5,
+      "n": 12,
+      "rate": 416.6666666666667,
+      "ci": [
+       181.8181818181818,
+       666.6666666666666
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 5,
+      "n": 12,
+      "rate": 416.6666666666667,
+      "ci": [
+       181.8181818181818,
+       666.6666666666666
+      ]
+     }
+    }
+   }
+  },
+  "judge qwen25_0p5b (chain 3, vLLM)": {
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 0,
+      "n": 6,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 12,
+      "n": 12,
+      "rate": 1000.0,
+      "ci": [
+       1000.0,
+       1000.0
+      ]
+     },
+     "unit-type": {
+      "k": 12,
+      "n": 12,
+      "rate": 1000.0,
+      "ci": [
+       1000.0,
+       1000.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 12,
+      "n": 12,
+      "rate": 1000.0,
+      "ci": [
+       1000.0,
+       1000.0
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 0,
+      "n": 6,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 12,
+      "n": 12,
+      "rate": 1000.0,
+      "ci": [
+       1000.0,
+       1000.0
+      ]
+     },
+     "unit-type": {
+      "k": 12,
+      "n": 12,
+      "rate": 1000.0,
+      "ci": [
+       1000.0,
+       1000.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 12,
+      "n": 12,
+      "rate": 1000.0,
+      "ci": [
+       1000.0,
+       1000.0
+      ]
+     }
+    }
+   }
+  },
+  "judge qwen25_14b (chain 3, vLLM)": {
+   "rd_strict": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 4,
+      "n": 6,
+      "rate": 66.66666666666667,
+      "ci": [
+       25.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     },
+     "unit-type": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 4,
+      "n": 6,
+      "rate": 66.66666666666667,
+      "ci": [
+       25.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 10,
+      "n": 12,
+      "rate": 83.33333333333333,
+      "ci": [
+       58.333333333333336,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     },
+     "unit-type": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 2,
+      "n": 12,
+      "rate": 166.66666666666666,
+      "ci": [
+       0.0,
+       416.6666666666667
+      ]
+     }
+    }
+   }
+  },
+  "judge qwen25_1p5b (chain 3, vLLM)": {
+   "rd_strict": {
+    "scored": 6,
+    "of": 12,
+    "parse_fail": 6,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 4,
+      "n": 6,
+      "rate": 66.66666666666667,
+      "ci": [
+       25.0,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 4,
+      "n": 6,
+      "rate": 66.66666666666667,
+      "ci": [
+       25.0,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 2,
+      "n": 4,
+      "rate": 50.0,
+      "ci": [
+       0.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 4,
+      "n": 6,
+      "rate": 66.66666666666667,
+      "ci": [
+       25.0,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 2,
+      "n": 6,
+      "rate": 333.3333333333333,
+      "ci": [
+       0.0,
+       750.0
+      ]
+     },
+     "unit-type": {
+      "k": 2,
+      "n": 6,
+      "rate": 333.3333333333333,
+      "ci": [
+       0.0,
+       750.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 6,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 2,
+      "n": 6,
+      "rate": 333.3333333333333,
+      "ci": [
+       0.0,
+       750.0
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 10,
+    "of": 12,
+    "parse_fail": 2,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 7,
+      "n": 10,
+      "rate": 70.0,
+      "ci": [
+       37.5,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 7,
+      "n": 10,
+      "rate": 70.0,
+      "ci": [
+       37.5,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 3,
+      "n": 5,
+      "rate": 60.0,
+      "ci": [
+       11.562500000000053,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 7,
+      "n": 10,
+      "rate": 70.0,
+      "ci": [
+       37.5,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 3,
+      "n": 10,
+      "rate": 300.0,
+      "ci": [
+       0.0,
+       625.0
+      ]
+     },
+     "unit-type": {
+      "k": 3,
+      "n": 10,
+      "rate": 300.0,
+      "ci": [
+       0.0,
+       625.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 10,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 3,
+      "n": 10,
+      "rate": 300.0,
+      "ci": [
+       0.0,
+       625.0
+      ]
+     }
+    }
+   }
+  },
+  "judge qwen25_3b (chain 3, vLLM)": {
+   "rd_strict": {
+    "scored": 7,
+    "of": 12,
+    "parse_fail": 5,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 7,
+      "n": 7,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 7,
+      "n": 7,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 4,
+      "n": 4,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 7,
+      "n": 7,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 0,
+      "n": 7,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "unit-type": {
+      "k": 0,
+      "n": 7,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 7,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 0,
+      "n": 7,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 12,
+    "of": 12,
+    "parse_fail": 0,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 6,
+      "n": 6,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 12,
+      "n": 12,
+      "rate": 100.0,
+      "ci": [
+       100.0,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "unit-type": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 0,
+      "n": 12,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   }
+  },
+  "judge qwen25_7b (chain 3, vLLM)": {
+   "rd_strict": {
+    "scored": 11,
+    "of": 12,
+    "parse_fail": 1,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 8,
+      "n": 11,
+      "rate": 72.72727272727273,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 8,
+      "n": 11,
+      "rate": 72.72727272727273,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 3,
+      "n": 6,
+      "rate": 50.0,
+      "ci": [
+       0.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 8,
+      "n": 11,
+      "rate": 72.72727272727273,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 3,
+      "n": 11,
+      "rate": 272.72727272727275,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "unit-type": {
+      "k": 3,
+      "n": 11,
+      "rate": 272.72727272727275,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 11,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 3,
+      "n": 11,
+      "rate": 272.72727272727275,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     }
+    }
+   },
+   "rd_lenient": {
+    "scored": 11,
+    "of": 12,
+    "parse_fail": 1,
+    "groups": {
+     "correct PASS": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "any err FAIL": {
+      "k": 8,
+      "n": 11,
+      "rate": 72.72727272727273,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "unit-type FAIL": {
+      "k": 8,
+      "n": 11,
+      "rate": 72.72727272727273,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     },
+     "same-numeral FAIL": {
+      "k": 3,
+      "n": 6,
+      "rate": 50.0,
+      "ci": [
+       0.0,
+       100.0
+      ]
+     },
+     "value FAIL": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "ci": [
+       null,
+       null
+      ]
+     },
+     "precheck-true FAIL": {
+      "k": 8,
+      "n": 11,
+      "rate": 72.72727272727273,
+      "ci": [
+       45.45454545454545,
+       100.0
+      ]
+     }
+    },
+    "slips": {
+     "any": {
+      "k": 3,
+      "n": 11,
+      "rate": 272.72727272727275,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "unit-type": {
+      "k": 3,
+      "n": 11,
+      "rate": 272.72727272727275,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     },
+     "value": {
+      "k": 0,
+      "n": 11,
+      "rate": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "precheck-true": {
+      "k": 3,
+      "n": 11,
+      "rate": 272.72727272727275,
+      "ci": [
+       0.0,
+       545.4545454545454
+      ]
+     }
+    }
+   }
+  }
+ },
+ "true12": [
+  {
+   "instance_id": "RD_ivermectin_1__gpt4o_mini__closed",
+   "check_id": "RDQ0050",
+   "drug": "ivermectin",
+   "label_dose": "150 mcg/kg",
+   "answer_dose": "15 mg",
+   "mechanism": "dropped_basis",
+   "existing": {
+    "MC-R": "FAIL",
+    "MC-D": "FAIL",
+    "AS-b": "FAIL",
+    "MC-T5": "FAIL",
+    "AS-L": "FAIL",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "FAIL",
+    "medgemma_4b": "FAIL",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "PARSE_FAIL",
+    "qwen25_3b": "FAIL",
+    "qwen25_7b": "PARSE_FAIL"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_glyburide_1__gpt4o_mini__closed",
+   "check_id": "RDQ0109",
+   "drug": "glyburide",
+   "label_dose": "20 units",
+   "answer_dose": "20 mg",
+   "mechanism": "unit_kind",
+   "existing": {
+    "MC-R": "FAIL",
+    "MC-D": "FAIL",
+    "AS-b": "FAIL",
+    "MC-T5": "FAIL",
+    "AS-L": "FAIL",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "FAIL",
+    "medgemma_4b": "FAIL",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "FAIL",
+    "qwen25_3b": "FAIL",
+    "qwen25_7b": "FAIL"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_buspirone_1__gpt4o_mini__closed",
+   "check_id": "RDQ0126",
+   "drug": "buspirone",
+   "label_dose": "1 mg per kg",
+   "answer_dose": "1 mg",
+   "mechanism": "dropped_basis",
+   "existing": {
+    "MC-R": "PASS",
+    "MC-D": "FAIL",
+    "AS-b": "FAIL",
+    "MC-T5": "PASS",
+    "AS-L": "FAIL",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "FAIL",
+    "medgemma_4b": "FAIL",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "FAIL",
+    "qwen25_3b": "FAIL",
+    "qwen25_7b": "FAIL"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_ethambutol_1__gemma3_27b__closed",
+   "check_id": "RDQ0137",
+   "drug": "ethambutol",
+   "label_dose": "15 mg/kg",
+   "answer_dose": "15 mg",
+   "mechanism": "lb_vs_kg",
+   "existing": {
+    "MC-R": "FAIL",
+    "MC-D": "FAIL",
+    "AS-b": "PASS",
+    "MC-T5": "FAIL",
+    "AS-L": "PASS",
+    "L70B": "PASS",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "PASS",
+    "medgemma_4b": "PASS",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "PASS",
+    "qwen25_1p5b": "PASS",
+    "qwen25_3b": "FAIL",
+    "qwen25_7b": "PASS"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_losartan_0__gemma3_27b__grounded",
+   "check_id": "RDQ0145",
+   "drug": "losartan",
+   "label_dose": "0.7 mg per kg",
+   "answer_dose": "0.7 mg",
+   "mechanism": "dropped_basis",
+   "existing": {
+    "MC-R": "PASS",
+    "MC-D": "PASS",
+    "AS-b": "PASS",
+    "MC-T5": "FAIL",
+    "AS-L": "PASS",
+    "L70B": "FAIL",
+    "MedS": "PASS"
+   },
+   "chain3": {
+    "llama31_8b": "PASS",
+    "medgemma_4b": "PASS",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "PASS",
+    "qwen25_1p5b": "PASS",
+    "qwen25_3b": "PARSE_FAIL",
+    "qwen25_7b": "PASS"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_filgrastim_1__gemma3_27b__closed",
+   "check_id": "RDQ0165",
+   "drug": "filgrastim",
+   "label_dose": "5 mcg/kg/day",
+   "answer_dose": "300 mcg",
+   "mechanism": "dropped_basis",
+   "existing": {
+    "MC-R": "FAIL",
+    "MC-D": "FAIL",
+    "AS-b": "FAIL",
+    "MC-T5": "FAIL",
+    "AS-L": "FAIL",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "FAIL",
+    "medgemma_4b": "FAIL",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "PARSE_FAIL",
+    "qwen25_3b": "PARSE_FAIL",
+    "qwen25_7b": "FAIL"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_tacrolimus_0__gemma3_27b__closed",
+   "check_id": "RDQ0210",
+   "drug": "tacrolimus",
+   "label_dose": "0.2 mg/kg/day",
+   "answer_dose": "0.2 mg",
+   "mechanism": "dropped_basis",
+   "existing": {
+    "MC-R": "PASS",
+    "MC-D": "FAIL",
+    "AS-b": "PASS",
+    "MC-T5": "FAIL",
+    "AS-L": "PASS",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "PASS",
+    "medgemma_4b": "PASS",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "PARSE_FAIL",
+    "qwen25_3b": "PARSE_FAIL",
+    "qwen25_7b": "PASS"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_cyclophosphamide_1__gpt4o_mini__closed",
+   "check_id": "RDQ0222",
+   "drug": "cyclophosphamide",
+   "label_dose": "10 mg per kg",
+   "answer_dose": "500 mg",
+   "mechanism": "dropped_basis",
+   "existing": {
+    "MC-R": "FAIL",
+    "MC-D": "FAIL",
+    "AS-b": "FAIL",
+    "MC-T5": "FAIL",
+    "AS-L": "FAIL",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "PARSE_FAIL",
+    "medgemma_4b": "FAIL",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "PARSE_FAIL",
+    "qwen25_3b": "FAIL",
+    "qwen25_7b": "FAIL"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_clonidine_0__gpt4o_mini__closed",
+   "check_id": "RDQ0228",
+   "drug": "clonidine",
+   "label_dose": "0.1 mg/day",
+   "answer_dose": "0.1 mg/week",
+   "mechanism": "time_basis",
+   "existing": {
+    "MC-R": "FAIL",
+    "MC-D": "FAIL",
+    "AS-b": "FAIL",
+    "MC-T5": "FAIL",
+    "AS-L": "FAIL",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "FAIL",
+    "medgemma_4b": "FAIL",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "PARSE_FAIL",
+    "qwen25_3b": "FAIL",
+    "qwen25_7b": "FAIL"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_ivermectin_1__gemma3_27b__closed",
+   "check_id": "RDQ0247",
+   "drug": "ivermectin",
+   "label_dose": "150 mcg/kg",
+   "answer_dose": "15 mg",
+   "mechanism": "dropped_basis",
+   "existing": {
+    "MC-R": "FAIL",
+    "MC-D": "FAIL",
+    "AS-b": "FAIL",
+    "MC-T5": "FAIL",
+    "AS-L": "FAIL",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "FAIL",
+    "medgemma_4b": "PASS",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "FAIL",
+    "qwen25_3b": "FAIL",
+    "qwen25_7b": "FAIL"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_epinephrine_0__gemma3_27b__closed",
+   "check_id": "RDQ0258",
+   "drug": "epinephrine",
+   "label_dose": "0.05 mcg/kg/min",
+   "answer_dose": "1-4 micrograms per minute",
+   "mechanism": "dropped_basis",
+   "existing": {
+    "MC-R": "FAIL",
+    "MC-D": "FAIL",
+    "AS-b": "FAIL",
+    "MC-T5": "PASS",
+    "AS-L": "FAIL",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "FAIL",
+    "medgemma_4b": "PASS",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "FAIL",
+    "qwen25_3b": "PARSE_FAIL",
+    "qwen25_7b": "FAIL"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  },
+  {
+   "instance_id": "RD_ceftriaxone_0__gemma3_27b__closed",
+   "check_id": "RDQ0263",
+   "drug": "ceftriaxone",
+   "label_dose": "50 to 75 mg/kg",
+   "answer_dose": "500 mg",
+   "mechanism": "dropped_basis",
+   "existing": {
+    "MC-R": "FAIL",
+    "MC-D": "FAIL",
+    "AS-b": "FAIL",
+    "MC-T5": "FAIL",
+    "AS-L": "FAIL",
+    "L70B": "FAIL",
+    "MedS": "FAIL"
+   },
+   "chain3": {
+    "llama31_8b": "FAIL",
+    "medgemma_4b": "FAIL",
+    "qwen25_0p5b": "PASS",
+    "qwen25_14b": "FAIL",
+    "qwen25_1p5b": "PARSE_FAIL",
+    "qwen25_3b": "PARSE_FAIL",
+    "qwen25_7b": "FAIL"
+   },
+   "frontier": {
+    "anthropic/claude-opus-5.5": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    },
+    "google/gemini-3.1-pro-preview": {
+     "strict": "FAIL",
+     "lenient": "FAIL"
+    }
+   }
+  }
+ ]
+}
