@@ -17,7 +17,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from analyze import N_BOOT, SEED, bootstrap_rate, read_jsonl  # noqa: E402
 from t24b_report import EXCLUDED_QUESTIONS  # noqa: E402
 
-RAW = ROOT / "results/raw/t15"
+RAW = ROOT / "results/raw/t15_cpuverif"
 T24B = ROOT / "data/t24/instances_t24b.jsonl"
 T18 = ROOT / "data/t18/instances_t18.jsonl"
 T18_OOD = ROOT / "data/t18/instances_t18_t15ood.jsonl"
@@ -128,6 +128,8 @@ def report() -> None:
     lines = [
         "# T15 OOD — base vs fine-tuned MiniCheck-RoBERTa",
         "",
+        "Scores: reference env **cpuverif** (`results/raw/t15_cpuverif/`); vllm-env scores superseded "
+        "(ft agreement 202/202 T24b, 106/106 T18; base T18 97/106 → see `notes/env_divergence.md`). "
         f"Perturbation cells are FAIL rates among units whose C0 is PASS. Bootstrap {N_BOOT} × cluster "
         f"(T24b: question_id; T18: base_id), seed {SEED}. n = instances, q = clusters.",
         "",

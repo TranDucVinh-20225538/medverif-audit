@@ -38,8 +38,14 @@ def _use_cpu_patch(model_name: str) -> None:
 
 
 def load(verifier_id: str):
+    import minicheck.inference as inference
     from minicheck.minicheck import MiniCheck
 
+    if getattr(inference.Inferencer, "_medverif_ckpt_patched", False):
+        raise RuntimeError(
+            "Inferencer.__init__ is patched to the T15 checkpoint in this process; "
+            "stock MiniCheck would load fine-tuned weights. Score base and ft in separate processes."
+        )
     model_name = MODEL_BY_VERIFIER[verifier_id]
     _use_cpu_patch(model_name)
     started = time.perf_counter()
