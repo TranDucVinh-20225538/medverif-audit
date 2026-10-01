@@ -7,9 +7,9 @@
     "data/expand/instances_pending_node30.jsonl": "integrity #4 expand node30 pending rebuild",
     "data/expand/instances_pending_t6a.jsonl": "integrity #5 expand T6-A pending",
     "data/expand/instances_score_pending.jsonl": "integrity #6 expand OR pending",
-    "data/t14/instances_t14.jsonl": "integrity #7 T14 PI + non-dose D0077/D0164 → n=233",
+    "data/t14/instances_t14.jsonl": "non-dose: drop 6 valid T14 repr rows",
     "data/t14/instances_t14_pending_openrouter.jsonl": "integrity #8 T14 OR pending sync",
-    "data/t3/instances_inv_families.jsonl": "integrity #9 drop D0164 inv family row",
+    "data/t3/instances_inv_families.jsonl": "non-dose: drop 2 valid T3 INV-family rows",
     "data/v3/instances_cpu_early.jsonl": "integrity #10 non-dose af440ee −9 rows",
     "data/v3/instances_inv_families.jsonl": "integrity #11 non-dose D0164",
     "data/v3/instances_t14.jsonl": "integrity #14 v3 mirror T14 n=233",
@@ -19,13 +19,17 @@
     "data/v3/instances_cpu_main.jsonl": "non-dose: mirror valid main CPU slice",
     "data/v3/instances_audit.jsonl": "non-dose: invalidate non-dose_target on main subset",
     "data/t7/instances_e1_unit.jsonl": "non-dose: drop 6 valid E1-unit rows",
-    "data/t14/instances_t14.jsonl": "non-dose: drop 6 valid T14 repr rows",
     "data/v3/t17_downdose.jsonl": "non-dose: drop 24 valid T17 downdose rows",
-    "data/t3/instances_inv_families.jsonl": "non-dose: drop 2 valid T3 INV-family rows",
     "data/v3/instances_main_inv11_m1_gap.jsonl": "INV11 backfill: drop D0176 non-dose; 10 RAW main rows",
     "data/main_ext/bases_main_ext.jsonl": "main_ext v2: rebuild kept after author_whitelist INV (40 smoke → 16 kept)",
     "data/main_ext/instances_main_ext.jsonl": "main_ext v2: instances for 16 whitelist-kept bases only",
-    "data/t18/instances_t18.jsonl": "T18 PI review: drop INV conversions except 6 appendix; rebuild value/unit_spell pack"
+    "data/t18/instances_t18.jsonl": "T18 PI review: drop INV conversions except 6 appendix; rebuild value/unit_spell pack",
+    "results/raw/t17/v1_medscore.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)",
+    "results/raw/t17/v1b_medscore.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)",
+    "results/raw/t17/v4_ragas_nli.llama.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)",
+    "results/raw/t17/v5_ragas_nli.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)",
+    "results/raw/t17/v6_ragas_gpt4o_mini.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)",
+    "results/raw/t17/v6_ragas_haiku45.jsonl": "T17 dedupe + author-valid filter 612→540 (6cb0b13)"
   },
   "allow": []
 }
