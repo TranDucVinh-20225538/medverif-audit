@@ -1,16 +1,25 @@
 {
- "built_at": "2026-10-01T04:21:42.954473+00:00",
- "git_head": "ee1ba479f1976f7dd5b591dd329cb06e5eedaf85",
- "scrubbed_files": 452,
- "scrub_replacements": 129706,
- "excluded_by_policy": [
-  "qc/iaa_answer_key.jsonl",
-  "qc/iaa_key_DO_NOT_SHARE.csv",
-  "data/t15_cpuverif_chunks",
-  "data/minicheck_cpuverif_chunks",
-  "data/smoke"
- ],
- "zip_sha256": "5b3722ffb99065b393893361ae9878b8109fd511bc3aee60573d3bb0b31e590b",
- "zip_bytes": 83587557,
- "n_files": 1873
+ "built_at": "2026-10-01T05:07:47.872827+00:00",
+ "git_head": "7043858",
+ "scrubber": "scripts/scrub_audit_v4.py",
+ "files_renamed_gpu_label": 107,
+ "counts": {
+  "gpu_host_label": 1238,
+  "files_changed": 242,
+  "rule_06-><repo>": 18,
+  "rule_13->computeA": 13,
+  "rule_14->computeB": 26,
+  "rule_10->~/<secrets-dir>/": 58,
+  "rule_15->computeC": 36,
+  "vn_text_lines": 20,
+  "vn_json_strings": 22,
+  "rule_12-><login-node>": 1,
+  "vn_note_cells": 501,
+  "label_LOAI": 13,
+  "rule_00-><attachments>/": 3,
+  "code_keywords": 10
+ },
+ "n_files": 1873,
+ "zip_bytes": 83578894,
+ "zip_sha256": "24286fbdefa5c7722b19de698aa58eb0601ade667080e700e67960258a2002f8"
 }
