@@ -1,0 +1,40 @@
+{
+  "version": "iaa_v1",
+  "seed": 20261001,
+  "n_items": 150,
+  "targets": {
+    "conversion": 25,
+    "polarity_flip": 25,
+    "rephrase": 20,
+    "freq_route": 20,
+    "unit_edit": 20,
+    "value_edit": 20,
+    "base_claim": 20
+  },
+  "counts_per_stratum": {
+    "conversion": 25,
+    "polarity_flip": 25,
+    "rephrase": 20,
+    "freq_route": 20,
+    "unit_edit": 20,
+    "value_edit": 20,
+    "base_claim": 20
+  },
+  "note": "Accepted/rejected balance per stratum is recorded only in private_key.jsonl. Sheet is blind: no author labels, no rule outputs, no instance ids, shuffled.",
+  "sources": {
+    "conversion": "data/v3/instances_main.jsonl INV-claim unit_conversion (main 110) + qc/nat3_labels.csv",
+    "polarity_flip": "qc/e1_pol_review.csv text + qc/flip_PI_ok_labels.csv; evidence = POLARITY C0",
+    "rephrase": "qc/inv_manual_review.csv (POLARITY/template); evidence = POLARITY C0",
+    "freq_route": "data/t3/instances_inv_families.jsonl + qc/inv_claim_PI_ok_labels.csv (inv_frequency, inv_route)",
+    "unit_edit": "data/t7/instances_e1_unit.jsonl + qc/t7_PI_ok_labels.csv (main 110 bases)",
+    "value_edit": "data/v3/instances_main.jsonl E1-claim x2/x10 + qc/dose3_labels.csv E1x2_ok/E1x10_ok",
+    "base_claim": "data/v3/instances_main.jsonl C0 + qc/dose3_labels.csv C0_ok"
+  },
+  "files": [
+    "annotation_sheet.xlsx",
+    "annotation_sheet.csv",
+    "GUIDELINES_en.md",
+    "GUIDELINES_vi.md",
+    "private_key.jsonl (DO NOT SHARE with annotators)"
+  ]
+}
