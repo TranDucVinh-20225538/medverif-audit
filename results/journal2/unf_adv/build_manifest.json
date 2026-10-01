@@ -1,0 +1,41 @@
+{
+ "items": 298,
+ "anchors": 58,
+ "bases": 58,
+ "by_label": {
+  "SUPPORTED": 146,
+  "UNSUPPORTED": 152
+ },
+ "by_family": {
+  "micro": 34,
+  "milligram": 16,
+  "gram": 18,
+  "per_kg": 22,
+  "per_kg_day": 16,
+  "per_m2": 20,
+  "units": 24,
+  "volume": 22,
+  "spacing": 12,
+  "number_format": 22,
+  "range": 22,
+  "fraction": 12,
+  "words": 24,
+  "uppercase": 12,
+  "punctuation": 16,
+  "basis_drop": 6
+ },
+ "base_sources": {
+  "unf_cohort_C0": 48,
+  "real_dose_label_excerpt(template claim)": 10
+ },
+ "v1_parse_acc": 0.594,
+ "v2_parse_acc_posthoc": 0.9799,
+ "anchor_v1_parse_ok": 58,
+ "bases_dropped_by_sanity_filter": {
+  "D0004": "wrong key mass||||/day (gold mass||||) from '200 mg per day'",
+  "D0017": "wrong key mass||||/day (gold mass||||) from '150 mg per day'",
+  "D0117": "wrong key mass||||/day (gold mass||||) from '20 mg per day'",
+  "D0102": "wrong key mass|/kg|||/day (gold mass|/kg|||) from '2 mg/kg per day'",
+  "D0175": "wrong value 80000-90000 (gold 90000-90000) from '80 to 90 mg/kg/day'"
+ }
+}

@@ -1,0 +1,1263 @@
+{
+ "generated_by": "scripts/journal2/unf_adv_report.py",
+ "data": "unf_adversarial.jsonl",
+ "n_items": 298,
+ "n_bases": 58,
+ "by_label": {
+  "SUPPORTED": 146,
+  "UNSUPPORTED": 152
+ },
+ "normalizer": {
+  "v1": {
+   "overall": {
+    "k": 177,
+    "n": 298,
+    "rate": 59.395973154362416,
+    "ci": [
+     51.64775657555441,
+     67.05449427833149
+    ]
+   },
+   "pair_level_overall": {
+    "k": 177,
+    "n": 298,
+    "rate": 59.395973154362416,
+    "ci": [
+     51.64775657555441,
+     67.05449427833149
+    ]
+   },
+   "by_label": {
+    "SUPPORTED": {
+     "k": 83,
+     "n": 146,
+     "rate": 56.84931506849315,
+     "ci": [
+      49.00662251655629,
+      64.62585034013605
+     ]
+    },
+    "UNSUPPORTED": {
+     "k": 94,
+     "n": 152,
+     "rate": 61.8421052631579,
+     "ci": [
+      53.54838709677419,
+      69.87179487179488
+     ]
+    }
+   },
+   "by_family": {
+    "basis_drop": {
+     "k": 6,
+     "n": 6
+    },
+    "fraction": {
+     "k": 0,
+     "n": 12
+    },
+    "gram": {
+     "k": 12,
+     "n": 18
+    },
+    "micro": {
+     "k": 22,
+     "n": 34
+    },
+    "milligram": {
+     "k": 6,
+     "n": 16
+    },
+    "number_format": {
+     "k": 12,
+     "n": 22
+    },
+    "per_kg": {
+     "k": 14,
+     "n": 22
+    },
+    "per_kg_day": {
+     "k": 14,
+     "n": 16
+    },
+    "per_m2": {
+     "k": 12,
+     "n": 20
+    },
+    "punctuation": {
+     "k": 16,
+     "n": 16
+    },
+    "range": {
+     "k": 14,
+     "n": 22
+    },
+    "spacing": {
+     "k": 10,
+     "n": 12
+    },
+    "units": {
+     "k": 20,
+     "n": 24
+    },
+    "uppercase": {
+     "k": 1,
+     "n": 12
+    },
+    "volume": {
+     "k": 18,
+     "n": 22
+    },
+    "words": {
+     "k": 0,
+     "n": 24
+    }
+   },
+   "failures": [
+    {
+     "id": "UNFADV0012__D0140__S",
+     "family": "micro",
+     "variant": "micro-gram",
+     "label": "SUPPORTED",
+     "surface": "25 micro-gram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0013__D0140__U",
+     "family": "micro",
+     "variant": "micro-gram",
+     "label": "UNSUPPORTED",
+     "surface": "0.025 micro-gram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0014__D0112__S",
+     "family": "micro",
+     "variant": "micro-grams",
+     "label": "SUPPORTED",
+     "surface": "4000 micro-grams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0015__D0112__U",
+     "family": "micro",
+     "variant": "micro-grams",
+     "label": "UNSUPPORTED",
+     "surface": "4 micro-grams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0016__D0126__S",
+     "family": "micro",
+     "variant": "mcgs",
+     "label": "SUPPORTED",
+     "surface": "5000 mcgs",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0017__D0126__U",
+     "family": "micro",
+     "variant": "mcgs",
+     "label": "UNSUPPORTED",
+     "surface": "5 mcgs",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0018__D0088__S",
+     "family": "micro",
+     "variant": "MCG",
+     "label": "SUPPORTED",
+     "surface": "2000 MCG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0019__D0088__U",
+     "family": "micro",
+     "variant": "MCG",
+     "label": "UNSUPPORTED",
+     "surface": "2 MCG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0020__D0015__S",
+     "family": "micro",
+     "variant": "Mcg",
+     "label": "SUPPORTED",
+     "surface": "100 Mcg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0021__D0015__U",
+     "family": "micro",
+     "variant": "Mcg",
+     "label": "UNSUPPORTED",
+     "surface": "0.1 Mcg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0030__D0141__S",
+     "family": "micro",
+     "variant": "respell:micro-gram",
+     "label": "SUPPORTED",
+     "surface": "20 micro-gram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0031__D0141__U",
+     "family": "micro",
+     "variant": "respell:micro-gram",
+     "label": "UNSUPPORTED",
+     "surface": "20 milli-gram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0038__D0016__S",
+     "family": "milligram",
+     "variant": "mgs",
+     "label": "SUPPORTED",
+     "surface": "500 mgs",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0039__D0016__U",
+     "family": "milligram",
+     "variant": "mgs",
+     "label": "UNSUPPORTED",
+     "surface": "500 gms",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0040__D0025__S",
+     "family": "milligram",
+     "variant": "MG",
+     "label": "SUPPORTED",
+     "surface": "300 MG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0041__D0025__U",
+     "family": "milligram",
+     "variant": "MG",
+     "label": "UNSUPPORTED",
+     "surface": "300 MCG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0042__D0038__S",
+     "family": "milligram",
+     "variant": "Mg",
+     "label": "SUPPORTED",
+     "surface": "600 Mg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0043__D0038__U",
+     "family": "milligram",
+     "variant": "Mg",
+     "label": "UNSUPPORTED",
+     "surface": "600 Mcg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0044__D0071__S",
+     "family": "milligram",
+     "variant": "milligramme",
+     "label": "SUPPORTED",
+     "surface": "81 milligramme",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0045__D0071__U",
+     "family": "milligram",
+     "variant": "milligramme",
+     "label": "UNSUPPORTED",
+     "surface": "81 gramme",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0046__D0058__S",
+     "family": "milligram",
+     "variant": "milli-grams",
+     "label": "SUPPORTED",
+     "surface": "10 milli-grams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0047__D0058__U",
+     "family": "milligram",
+     "variant": "milli-grams",
+     "label": "UNSUPPORTED",
+     "surface": "10 micro-grams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0058__D0099__S",
+     "family": "gram",
+     "variant": "gms",
+     "label": "SUPPORTED",
+     "surface": "1.2 gms",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0059__D0099__U",
+     "family": "gram",
+     "variant": "gms",
+     "label": "UNSUPPORTED",
+     "surface": "1200 gms",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0060__D0148__S",
+     "family": "gram",
+     "variant": "Grams",
+     "label": "SUPPORTED",
+     "surface": "0.25 Grams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0061__D0148__U",
+     "family": "gram",
+     "variant": "Grams",
+     "label": "UNSUPPORTED",
+     "surface": "250 Grams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0062__D0036__S",
+     "family": "gram",
+     "variant": "G",
+     "label": "SUPPORTED",
+     "surface": "0.5 G",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0063__D0036__U",
+     "family": "gram",
+     "variant": "G",
+     "label": "UNSUPPORTED",
+     "surface": "500 G",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0080__D0051__S",
+     "family": "per_kg",
+     "variant": "mg kg-1",
+     "label": "SUPPORTED",
+     "surface": "15 mg kg-1",
+     "why": "wrong key mass|||| (gold mass|/kg|||) from '15 mg'"
+    },
+    {
+     "id": "UNFADV0081__D0051__U",
+     "family": "per_kg",
+     "variant": "mg kg-1",
+     "label": "UNSUPPORTED",
+     "surface": "15 mcg kg-1",
+     "why": "wrong key mass|||| (gold mass|/kg|||) from '15 mcg'"
+    },
+    {
+     "id": "UNFADV0082__D0083__S",
+     "family": "per_kg",
+     "variant": "mg·kg⁻¹",
+     "label": "SUPPORTED",
+     "surface": "0.5 mg·kg⁻¹",
+     "why": "wrong key mass|||| (gold mass|/kg|||) from '0.5 mg'"
+    },
+    {
+     "id": "UNFADV0083__D0083__U",
+     "family": "per_kg",
+     "variant": "mg·kg⁻¹",
+     "label": "UNSUPPORTED",
+     "surface": "0.5 mcg·kg⁻¹",
+     "why": "wrong key mass|||| (gold mass|/kg|||) from '0.5 mcg'"
+    },
+    {
+     "id": "UNFADV0084__D0155__S",
+     "family": "per_kg",
+     "variant": "mg/Kg",
+     "label": "SUPPORTED",
+     "surface": "3 mg/Kg",
+     "why": "wrong key mass|||| (gold mass|/kg|||) from '3 mg'"
+    },
+    {
+     "id": "UNFADV0085__D0155__U",
+     "family": "per_kg",
+     "variant": "mg/Kg",
+     "label": "UNSUPPORTED",
+     "surface": "3 mcg/Kg",
+     "why": "wrong key mass|||| (gold mass|/kg|||) from '3 mcg'"
+    },
+    {
+     "id": "UNFADV0086__D0002__S",
+     "family": "per_kg",
+     "variant": "mg/KG",
+     "label": "SUPPORTED",
+     "surface": "1 mg/KG",
+     "why": "wrong key mass|||| (gold mass|/kg|||) from '1 mg'"
+    },
+    {
+     "id": "UNFADV0087__D0002__U",
+     "family": "per_kg",
+     "variant": "mg/KG",
+     "label": "UNSUPPORTED",
+     "surface": "1 mcg/KG",
+     "why": "wrong key mass|||| (gold mass|/kg|||) from '1 mcg'"
+    },
+    {
+     "id": "UNFADV0102__RD_azithromycin_1__S",
+     "family": "per_kg_day",
+     "variant": "mg/kg daily",
+     "label": "SUPPORTED",
+     "surface": "5 mg/kg daily",
+     "why": "wrong key mass|/kg||| (gold mass|/kg|||/day) from '5 mg/kg'"
+    },
+    {
+     "id": "UNFADV0103__RD_azithromycin_1__U",
+     "family": "per_kg_day",
+     "variant": "mg/kg daily",
+     "label": "UNSUPPORTED",
+     "surface": "5 g/kg daily",
+     "why": "wrong key mass|/kg||| (gold mass|/kg|||/day) from '5 g/kg'"
+    },
+    {
+     "id": "UNFADV0116__RD_mycophenolate_1__S",
+     "family": "per_m2",
+     "variant": "mg/m 2",
+     "label": "SUPPORTED",
+     "surface": "600 mg/m 2",
+     "why": "wrong key mass|||| (gold mass||/m2||) from '600 mg'"
+    },
+    {
+     "id": "UNFADV0117__RD_mycophenolate_1__U",
+     "family": "per_m2",
+     "variant": "mg/m 2",
+     "label": "UNSUPPORTED",
+     "surface": "600 g/m 2",
+     "why": "wrong key mass|||| (gold mass||/m2||) from '600 g'"
+    },
+    {
+     "id": "UNFADV0120__RD_mycophenolate_1__S",
+     "family": "per_m2",
+     "variant": "mg/sq m",
+     "label": "SUPPORTED",
+     "surface": "600 mg/sq m",
+     "why": "wrong key mass|||| (gold mass||/m2||) from '600 mg'"
+    },
+    {
+     "id": "UNFADV0121__RD_mycophenolate_1__U",
+     "family": "per_m2",
+     "variant": "mg/sq m",
+     "label": "UNSUPPORTED",
+     "surface": "600 g/sq m",
+     "why": "wrong key mass|||| (gold mass||/m2||) from '600 g'"
+    },
+    {
+     "id": "UNFADV0122__RD_methotrexate_0__S",
+     "family": "per_m2",
+     "variant": "mg/M2",
+     "label": "SUPPORTED",
+     "surface": "10 mg/M2",
+     "why": "wrong key mass|||| (gold mass||/m2||) from '10 mg'"
+    },
+    {
+     "id": "UNFADV0123__RD_methotrexate_0__U",
+     "family": "per_m2",
+     "variant": "mg/M2",
+     "label": "UNSUPPORTED",
+     "surface": "10 g/M2",
+     "why": "wrong key mass|||| (gold mass||/m2||) from '10 g'"
+    },
+    {
+     "id": "UNFADV0124__RD_mycophenolate_1__S",
+     "family": "per_m2",
+     "variant": "mg m-2",
+     "label": "SUPPORTED",
+     "surface": "600 mg m-2",
+     "why": "wrong key mass|||| (gold mass||/m2||) from '600 mg'"
+    },
+    {
+     "id": "UNFADV0125__RD_mycophenolate_1__U",
+     "family": "per_m2",
+     "variant": "mg m-2",
+     "label": "UNSUPPORTED",
+     "surface": "600 g m-2",
+     "why": "wrong key mass|||| (gold mass||/m2||) from '600 g'"
+    },
+    {
+     "id": "UNFADV0136__RD_glyburide_1__S",
+     "family": "units",
+     "variant": "Units",
+     "label": "SUPPORTED",
+     "surface": "20 Units",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0138__RD_glyburide_1__S",
+     "family": "units",
+     "variant": "UNITS",
+     "label": "SUPPORTED",
+     "surface": "20 UNITS",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0139__RD_glyburide_1__U",
+     "family": "units",
+     "variant": "UNITS",
+     "label": "UNSUPPORTED",
+     "surface": "20 MG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0140__RD_glyburide_1__S",
+     "family": "units",
+     "variant": "I.U.",
+     "label": "SUPPORTED",
+     "surface": "20 I.U.",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0153__D0022__U",
+     "family": "volume",
+     "variant": "ml",
+     "label": "UNSUPPORTED",
+     "surface": "3 l",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0156__D0116__S",
+     "family": "volume",
+     "variant": "ML",
+     "label": "SUPPORTED",
+     "surface": "50 ML",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0158__D0150__S",
+     "family": "volume",
+     "variant": "mls",
+     "label": "SUPPORTED",
+     "surface": "2 mls",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0164__D0115__S",
+     "family": "volume",
+     "variant": "c.c.",
+     "label": "SUPPORTED",
+     "surface": "30 c.c.",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0174__D0005__S",
+     "family": "spacing",
+     "variant": "hyphen",
+     "label": "SUPPORTED",
+     "surface": "50-mg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0175__D0005__U",
+     "family": "spacing",
+     "variant": "hyphen",
+     "label": "UNSUPPORTED",
+     "surface": "50-g",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0186__D0052__S",
+     "family": "number_format",
+     "variant": "space thousands",
+     "label": "SUPPORTED",
+     "surface": "1 000 mcg",
+     "why": "wrong value 0-0 (gold 1000-1000) from '000 mcg'"
+    },
+    {
+     "id": "UNFADV0187__D0052__U",
+     "family": "number_format",
+     "variant": "space thousands",
+     "label": "UNSUPPORTED",
+     "surface": "1 000 mg",
+     "why": "wrong value 0-0 (gold 1000000-1000000) from '000 mg'"
+    },
+    {
+     "id": "UNFADV0188__D0126__S",
+     "family": "number_format",
+     "variant": "thin-space thousands",
+     "label": "SUPPORTED",
+     "surface": "5 000 mcg",
+     "why": "wrong value 0-0 (gold 5000-5000) from '000 mcg'"
+    },
+    {
+     "id": "UNFADV0189__D0126__U",
+     "family": "number_format",
+     "variant": "thin-space thousands",
+     "label": "UNSUPPORTED",
+     "surface": "5 000 mg",
+     "why": "wrong value 0-0 (gold 5000000-5000000) from '000 mg'"
+    },
+    {
+     "id": "UNFADV0190__D0112__S",
+     "family": "number_format",
+     "variant": "nbsp thousands",
+     "label": "SUPPORTED",
+     "surface": "4 000 mcg",
+     "why": "wrong value 0-0 (gold 4000-4000) from '000 mcg'"
+    },
+    {
+     "id": "UNFADV0191__D0112__U",
+     "family": "number_format",
+     "variant": "nbsp thousands",
+     "label": "UNSUPPORTED",
+     "surface": "4 000 mg",
+     "why": "wrong value 0-0 (gold 4000000-4000000) from '000 mg'"
+    },
+    {
+     "id": "UNFADV0198__D0016__S",
+     "family": "number_format",
+     "variant": "decimal comma (EU)",
+     "label": "SUPPORTED",
+     "surface": "0,5 g",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0199__D0016__U",
+     "family": "number_format",
+     "variant": "decimal comma (EU)",
+     "label": "UNSUPPORTED",
+     "surface": "0,5 mg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0200__D0148__S",
+     "family": "number_format",
+     "variant": "decimal comma (EU)",
+     "label": "SUPPORTED",
+     "surface": "0,25 g",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0201__D0148__U",
+     "family": "number_format",
+     "variant": "decimal comma (EU)",
+     "label": "UNSUPPORTED",
+     "surface": "0,25 mg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0214__RD_azathioprine_1__S",
+     "family": "range",
+     "variant": "unit both ends",
+     "label": "SUPPORTED",
+     "surface": "50 mg to 100 mg",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFADV0215__RD_azathioprine_1__U",
+     "family": "range",
+     "variant": "unit both ends",
+     "label": "UNSUPPORTED",
+     "surface": "50 mcg to 100 mcg",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFADV0216__RD_baclofen_0__S",
+     "family": "range",
+     "variant": "unit both ends hyphen",
+     "label": "SUPPORTED",
+     "surface": "40 mg - 80 mg",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFADV0217__RD_baclofen_0__U",
+     "family": "range",
+     "variant": "unit both ends hyphen",
+     "label": "UNSUPPORTED",
+     "surface": "40 mcg - 80 mcg",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFADV0218__RD_atorvastatin_0__S",
+     "family": "range",
+     "variant": "between/and",
+     "label": "SUPPORTED",
+     "surface": "between 10 and 20 mg",
+     "why": "wrong value 20000-20000 (gold 10000-20000) from '20 mg'"
+    },
+    {
+     "id": "UNFADV0219__RD_atorvastatin_0__U",
+     "family": "range",
+     "variant": "between/and",
+     "label": "UNSUPPORTED",
+     "surface": "between 10 and 20 mcg",
+     "why": "wrong value 20-20 (gold 10-20) from '20 mcg'"
+    },
+    {
+     "id": "UNFADV0220__RD_azathioprine_1__S",
+     "family": "range",
+     "variant": "-to-",
+     "label": "SUPPORTED",
+     "surface": "50-to-100 mg",
+     "why": "wrong value 100000-100000 (gold 50000-100000) from '100 mg'"
+    },
+    {
+     "id": "UNFADV0221__RD_azathioprine_1__U",
+     "family": "range",
+     "variant": "-to-",
+     "label": "UNSUPPORTED",
+     "surface": "50-to-100 mcg",
+     "why": "wrong value 100-100 (gold 50-100) from '100 mcg'"
+    },
+    {
+     "id": "UNFADV0228__D0016__S",
+     "family": "fraction",
+     "variant": "unicode ½",
+     "label": "SUPPORTED",
+     "surface": "½ g",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0229__D0016__U",
+     "family": "fraction",
+     "variant": "unicode ½",
+     "label": "UNSUPPORTED",
+     "surface": "½ mg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0230__D0032__S",
+     "family": "fraction",
+     "variant": "ascii 1/2",
+     "label": "SUPPORTED",
+     "surface": "1/2 g",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0231__D0032__U",
+     "family": "fraction",
+     "variant": "ascii 1/2",
+     "label": "UNSUPPORTED",
+     "surface": "1/2 mg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0232__D0013__S",
+     "family": "fraction",
+     "variant": "unicode ¼",
+     "label": "SUPPORTED",
+     "surface": "¼ g",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0233__D0013__U",
+     "family": "fraction",
+     "variant": "unicode ¼",
+     "label": "UNSUPPORTED",
+     "surface": "¼ mg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0234__D0148__S",
+     "family": "fraction",
+     "variant": "ascii 1/4",
+     "label": "SUPPORTED",
+     "surface": "1/4 gram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0235__D0148__U",
+     "family": "fraction",
+     "variant": "ascii 1/4",
+     "label": "UNSUPPORTED",
+     "surface": "1/4 milligram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0236__D0083__S",
+     "family": "fraction",
+     "variant": "½ per kg",
+     "label": "SUPPORTED",
+     "surface": "½ mg/kg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0237__D0083__U",
+     "family": "fraction",
+     "variant": "½ per kg",
+     "label": "UNSUPPORTED",
+     "surface": "½ mcg/kg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0238__D0008__S",
+     "family": "fraction",
+     "variant": "½ mL",
+     "label": "SUPPORTED",
+     "surface": "½ mL",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0239__D0008__U",
+     "family": "fraction",
+     "variant": "½ mL",
+     "label": "UNSUPPORTED",
+     "surface": "½ L",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0240__D0126__S",
+     "family": "words",
+     "variant": "five milligrams",
+     "label": "SUPPORTED",
+     "surface": "five milligrams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0241__D0126__U",
+     "family": "words",
+     "variant": "five milligrams",
+     "label": "UNSUPPORTED",
+     "surface": "five micrograms",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0242__D0126__S",
+     "family": "words",
+     "variant": "five mg",
+     "label": "SUPPORTED",
+     "surface": "five mg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0243__D0126__U",
+     "family": "words",
+     "variant": "five mg",
+     "label": "UNSUPPORTED",
+     "surface": "five g",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0244__D0058__S",
+     "family": "words",
+     "variant": "ten milligrams",
+     "label": "SUPPORTED",
+     "surface": "ten milligrams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0245__D0058__U",
+     "family": "words",
+     "variant": "ten milligrams",
+     "label": "UNSUPPORTED",
+     "surface": "ten grams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0246__D0005__S",
+     "family": "words",
+     "variant": "fifty milligrams",
+     "label": "SUPPORTED",
+     "surface": "fifty milligrams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0247__D0005__U",
+     "family": "words",
+     "variant": "fifty milligrams",
+     "label": "UNSUPPORTED",
+     "surface": "fifty micrograms",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0248__D0122__S",
+     "family": "words",
+     "variant": "fifteen mg",
+     "label": "SUPPORTED",
+     "surface": "fifteen mg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0249__D0122__U",
+     "family": "words",
+     "variant": "fifteen mg",
+     "label": "UNSUPPORTED",
+     "surface": "fifteen mcg",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0250__D0120__S",
+     "family": "words",
+     "variant": "twenty-five milligrams",
+     "label": "SUPPORTED",
+     "surface": "twenty-five milligrams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0251__D0120__U",
+     "family": "words",
+     "variant": "twenty-five milligrams",
+     "label": "UNSUPPORTED",
+     "surface": "twenty-five grams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0252__D0030__S",
+     "family": "words",
+     "variant": "two milligrams",
+     "label": "SUPPORTED",
+     "surface": "two milligrams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0253__D0030__U",
+     "family": "words",
+     "variant": "two milligrams",
+     "label": "UNSUPPORTED",
+     "surface": "two micrograms",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0254__D0063__S",
+     "family": "words",
+     "variant": "one gram",
+     "label": "SUPPORTED",
+     "surface": "one gram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0255__D0063__U",
+     "family": "words",
+     "variant": "one gram",
+     "label": "UNSUPPORTED",
+     "surface": "one milligram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0256__D0016__S",
+     "family": "words",
+     "variant": "five hundred milligrams",
+     "label": "SUPPORTED",
+     "surface": "five hundred milligrams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0257__D0016__U",
+     "family": "words",
+     "variant": "five hundred milligrams",
+     "label": "UNSUPPORTED",
+     "surface": "five hundred micrograms",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0258__D0032__S",
+     "family": "words",
+     "variant": "half a gram",
+     "label": "SUPPORTED",
+     "surface": "half a gram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0259__D0032__U",
+     "family": "words",
+     "variant": "half a gram",
+     "label": "UNSUPPORTED",
+     "surface": "half a milligram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0260__D0002__S",
+     "family": "words",
+     "variant": "one milligram per kilogram",
+     "label": "SUPPORTED",
+     "surface": "one milligram per kilogram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0261__D0002__U",
+     "family": "words",
+     "variant": "one milligram per kilogram",
+     "label": "UNSUPPORTED",
+     "surface": "one microgram per kilogram",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0262__D0009__S",
+     "family": "words",
+     "variant": "Two Grams",
+     "label": "SUPPORTED",
+     "surface": "Two Grams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0263__D0009__U",
+     "family": "words",
+     "variant": "Two Grams",
+     "label": "UNSUPPORTED",
+     "surface": "Two Milligrams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0264__D0025__S",
+     "family": "uppercase",
+     "variant": "N MG",
+     "label": "SUPPORTED",
+     "surface": "300 MG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0265__D0025__U",
+     "family": "uppercase",
+     "variant": "N MG",
+     "label": "UNSUPPORTED",
+     "surface": "300 G",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0266__D0038__S",
+     "family": "uppercase",
+     "variant": "NMG",
+     "label": "SUPPORTED",
+     "surface": "600MG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0267__D0038__U",
+     "family": "uppercase",
+     "variant": "NMG",
+     "label": "UNSUPPORTED",
+     "surface": "600MCG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0268__D0031__S",
+     "family": "uppercase",
+     "variant": "N MCG",
+     "label": "SUPPORTED",
+     "surface": "1 MCG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0269__D0031__U",
+     "family": "uppercase",
+     "variant": "N MCG",
+     "label": "UNSUPPORTED",
+     "surface": "1 MG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0270__D0116__S",
+     "family": "uppercase",
+     "variant": "N ML",
+     "label": "SUPPORTED",
+     "surface": "50 ML",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0272__D0033__S",
+     "family": "uppercase",
+     "variant": "N MG/KG",
+     "label": "SUPPORTED",
+     "surface": "5 MG/KG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0273__D0033__U",
+     "family": "uppercase",
+     "variant": "N MG/KG",
+     "label": "UNSUPPORTED",
+     "surface": "5 MCG/KG",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0274__RD_glyburide_1__S",
+     "family": "uppercase",
+     "variant": "N UNITS",
+     "label": "SUPPORTED",
+     "surface": "20 UNITS",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0275__RD_glyburide_1__U",
+     "family": "uppercase",
+     "variant": "N UNITS",
+     "label": "UNSUPPORTED",
+     "surface": "20 MG",
+     "why": "no span"
+    }
+   ],
+   "anchors_ok": 58
+  },
+  "v2": {
+   "overall": {
+    "k": 292,
+    "n": 298,
+    "rate": 97.98657718120805,
+    "ci": [
+     95.53903345724908,
+     99.6845425867508
+    ]
+   },
+   "pair_level_overall": {
+    "k": 292,
+    "n": 298,
+    "rate": 97.98657718120805,
+    "ci": [
+     95.53903345724908,
+     99.6845425867508
+    ]
+   },
+   "by_label": {
+    "SUPPORTED": {
+     "k": 144,
+     "n": 146,
+     "rate": 98.63013698630137,
+     "ci": [
+      96.3768115942029,
+      100.0
+     ]
+    },
+    "UNSUPPORTED": {
+     "k": 148,
+     "n": 152,
+     "rate": 97.36842105263158,
+     "ci": [
+      94.36619718309859,
+      99.4047619047619
+     ]
+    }
+   },
+   "by_family": {
+    "basis_drop": {
+     "k": 6,
+     "n": 6
+    },
+    "fraction": {
+     "k": 12,
+     "n": 12
+    },
+    "gram": {
+     "k": 16,
+     "n": 18
+    },
+    "micro": {
+     "k": 34,
+     "n": 34
+    },
+    "milligram": {
+     "k": 16,
+     "n": 16
+    },
+    "number_format": {
+     "k": 20,
+     "n": 22
+    },
+    "per_kg": {
+     "k": 22,
+     "n": 22
+    },
+    "per_kg_day": {
+     "k": 16,
+     "n": 16
+    },
+    "per_m2": {
+     "k": 20,
+     "n": 20
+    },
+    "punctuation": {
+     "k": 16,
+     "n": 16
+    },
+    "range": {
+     "k": 22,
+     "n": 22
+    },
+    "spacing": {
+     "k": 12,
+     "n": 12
+    },
+    "units": {
+     "k": 24,
+     "n": 24
+    },
+    "uppercase": {
+     "k": 11,
+     "n": 12
+    },
+    "volume": {
+     "k": 22,
+     "n": 22
+    },
+    "words": {
+     "k": 23,
+     "n": 24
+    }
+   },
+   "failures": [
+    {
+     "id": "UNFADV0062__D0036__S",
+     "family": "gram",
+     "variant": "G",
+     "label": "SUPPORTED",
+     "surface": "0.5 G",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0063__D0036__U",
+     "family": "gram",
+     "variant": "G",
+     "label": "UNSUPPORTED",
+     "surface": "500 G",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0186__D0052__S",
+     "family": "number_format",
+     "variant": "space thousands",
+     "label": "SUPPORTED",
+     "surface": "1 000 mcg",
+     "why": "wrong value 0-0 (gold 1000-1000) from '000 mcg'"
+    },
+    {
+     "id": "UNFADV0187__D0052__U",
+     "family": "number_format",
+     "variant": "space thousands",
+     "label": "UNSUPPORTED",
+     "surface": "1 000 mg",
+     "why": "wrong value 0-0 (gold 1000000-1000000) from '000 mg'"
+    },
+    {
+     "id": "UNFADV0263__D0009__U",
+     "family": "words",
+     "variant": "Two Grams",
+     "label": "UNSUPPORTED",
+     "surface": "Two Milligrams",
+     "why": "no span"
+    },
+    {
+     "id": "UNFADV0265__D0025__U",
+     "family": "uppercase",
+     "variant": "N MG",
+     "label": "UNSUPPORTED",
+     "surface": "300 G",
+     "why": "no span"
+    }
+   ],
+   "anchors_ok": 58
+  }
+ },
+ "checkers": {
+  "MiniCheck-RoBERTa": {
+   "status": "not scored yet"
+  },
+  "MiniCheck-DeBERTa": {
+   "status": "not scored yet"
+  },
+  "AlignScore-base": {
+   "status": "not scored yet"
+  },
+  "MiniCheck-Flan-T5-Large": {
+   "status": "not scored yet"
+  },
+  "AlignScore-large": {
+   "status": "not scored yet"
+  }
+ }
+}
