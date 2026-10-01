@@ -274,20 +274,20 @@
       "display_name": "Mistral-Small-24B (MedScore)",
       "family": "LLM judges",
       "c0_pass_rate": 1.0,
-      "n_c0_scored": 110,
-      "n_c0_pass": 110,
+      "n_c0_scored": 109,
+      "n_c0_pass": 109,
       "qi_inv_natural_given_c0": 0.6363636363636364,
       "n_qi_given_c0": 22,
       "families": {
         "unit_spell": {
           "label": "unit spell-out",
           "p_pass_given_c0": 1.0,
-          "n_given_c0": 109
+          "n_given_c0": 108
         },
         "spacing": {
           "label": "spacing",
           "p_pass_given_c0": 1.0,
-          "n_given_c0": 109
+          "n_given_c0": 108
         },
         "symbol_micro": {
           "label": "symbol (mcg/\u00b5g/\u03bcg)",

@@ -31,7 +31,12 @@ sys.path.insert(0, str(ROOT / "src"))
 
 import m1_strong_run as m1s  # noqa: E402
 import t13_best_of_n_report as t13  # noqa: E402
-from canonical_scores import _score_file_allowed, score_filename  # noqa: E402
+from canonical_scores import (  # noqa: E402
+    _score_file_allowed,
+    minicheck_cpuverif_path,
+    minicheck_cpuverif_rows,
+    score_filename,
+)
 from t15_card_report import T7, join_extra, join_rows, load_main_dose_instances, metrics_block  # noqa: E402
 from verifier_labels import CANONICAL_VERIFIERS, verifier_display_name  # noqa: E402
 
@@ -123,6 +128,12 @@ def winners(paths: list[Path], deny: bool = False) -> dict[str, tuple[Path, str]
             continue
         for iid, env in file_rows(p).items():
             out[iid] = (p, env)
+        cpu_path = minicheck_cpuverif_path(p)
+        if cpu_path:
+            cpu = minicheck_cpuverif_rows(p)
+            for iid in file_rows(p):
+                if iid in cpu:
+                    out[iid] = (cpu_path, "cpuverif")
     return out
 
 
@@ -446,13 +457,23 @@ def aggrefact_agreement() -> dict[str, str]:
     return out
 
 
-def aggrefact_bacc() -> dict[str, tuple[str, int]]:
-    out = {}
+def aggrefact_bacc() -> tuple[dict[str, dict[str, str]], list[tuple[str, int, str, str]]]:
+    """Overall (macro BAcc over the 11 datasets, micro BAcc, accuracy, n) per leg + per-dataset BAcc rows."""
+    overall: dict[str, dict[str, str]] = {}
+    per_ds: list[tuple[str, int, str, str]] = []
     for line in (ROOT / "notes/t15_report.md").read_text().splitlines():
-        m = re.match(r"- \*\*(base|ft)\*\* overall balanced acc=([\d.]+) \(n=(\d+)", line)
+        m = re.match(
+            r"- \*\*(base|ft)\*\* LLM-AggreFact BAcc \(macro over datasets\)=([\d.]+) · micro BAcc=([\d.]+)"
+            r" · accuracy=([\d.]+) \(n=(\d+)",
+            line,
+        )
         if m:
-            out[m.group(1)] = (m.group(2), int(m.group(3)))
-    return out
+            overall[m.group(1)] = {"macro": m.group(2), "micro": m.group(3), "acc": m.group(4), "n": m.group(5)}
+            continue
+        m = re.match(r"\| ([A-Za-z][\w.-]*) \| (\d+) \| ([\d.]+) \| ([\d.]+) \| [+-][\d.]+ \|$", line)
+        if m:
+            per_ds.append((m.group(1), int(m.group(2)), m.group(3), m.group(4)))
+    return overall, per_ds
 
 
 def section_t15() -> None:
@@ -470,15 +491,22 @@ def section_t15() -> None:
             s_ = m[key]
             add("T15 card (main DOSE)", f"MiniCheck-RoBERTa {leg}", key, fmt(s_["rate"], s_["lo"], s_["hi"]), s_["den"], cell)
     agree = aggrefact_agreement()
-    bacc = aggrefact_bacc()
+    bacc, per_ds = aggrefact_bacc()
     for leg in ("base", "ft"):
         win = winners([raw / f"{leg}_aggrefact_test.jsonl"])
         cell = env_cell(win, set(win), "t15", "notes/t15_report.md")
         cell["script"] = "scripts/t15_aggrefact_finish_report.sh"
         if leg in agree:
             cell["agreement"] = cell["agreement"] + [agree[leg]]
-        val, n = bacc.get(leg, ("—", len(win)))
-        add("T15 card (AggreFact test)", f"MiniCheck-RoBERTa {leg}", "balanced accuracy (overall)", val, n, cell)
+        b = bacc.get(leg, {})
+        n = int(b.get("n", len(win)))
+        add("T15 card (AggreFact test)", f"MiniCheck-RoBERTa {leg}",
+            "LLM-AggreFact BAcc (macro mean over 11 datasets)", b.get("macro", "—"), n, cell)
+        add("T15 card (AggreFact test)", f"MiniCheck-RoBERTa {leg}", "micro BAcc (all rows pooled)", b.get("micro", "—"), n, cell)
+        add("T15 card (AggreFact test)", f"MiniCheck-RoBERTa {leg}", "accuracy (reference only)", b.get("acc", "—"), n, cell)
+        for ds, ds_n, base_v, ft_v in per_ds:
+            add("T15 card (AggreFact test, per dataset)", f"MiniCheck-RoBERTa {leg}", f"BAcc {ds}",
+                base_v if leg == "base" else ft_v, ds_n, cell)
 
     src = "notes/t15_ood_card.json"
     d = json.loads((ROOT / src).read_text())

@@ -100,10 +100,10 @@
           "n_bases": 86
         },
         "US_up_before_claim": {
-          "rate": 0.3333333333333333,
-          "lo": 0.25,
-          "hi": 0.4270833333333333,
-          "num": 32,
+          "rate": 0.3229166666666667,
+          "lo": 0.23958333333333334,
+          "hi": 0.4166666666666667,
+          "num": 31,
           "den": 96,
           "n_bases": 96
         },
@@ -156,10 +156,10 @@
           "n_after_missing": 0,
           "n_pairs": 96,
           "before": {
-            "rate": 0.3333333333333333,
-            "lo": 0.25,
-            "hi": 0.4270833333333333,
-            "num": 32,
+            "rate": 0.3229166666666667,
+            "lo": 0.23958333333333334,
+            "hi": 0.4166666666666667,
+            "num": 31,
             "den": 96,
             "n_bases": 96
           },
@@ -171,9 +171,9 @@
             "den": 96,
             "n_bases": 96
           },
-          "b_pass_to_fail": 59,
+          "b_pass_to_fail": 60,
           "c_fail_to_pass": 1,
-          "mcnemar_p_approx": 1.8575387793638713e-13
+          "mcnemar_p_approx": 1.118134656121451e-13
         },
         "up_evid": {
           "n_candidates": 96,
@@ -1729,23 +1729,23 @@
     "v1_medscore": {
       "display_name": "Mistral-Small-24B (MedScore)",
       "slug": "v1_medscore",
-      "c0_pass_bases": 107,
+      "c0_pass_bases": 106,
       "metrics": {
         "NS_x10_claim": {
           "rate": 1.0,
           "lo": 1.0,
           "hi": 1.0,
-          "num": 103,
-          "den": 103,
-          "n_bases": 103
+          "num": 102,
+          "den": 102,
+          "n_bases": 102
         },
         "NS_x10_evid": {
-          "rate": 0.9320388349514563,
-          "lo": 0.883495145631068,
-          "hi": 0.9805825242718447,
-          "num": 96,
-          "den": 103,
-          "n_bases": 103
+          "rate": 0.9313725490196079,
+          "lo": 0.8823529411764706,
+          "hi": 0.9705882352941176,
+          "num": 95,
+          "den": 102,
+          "n_bases": 102
         },
         "NS_div10_claim": {
           "rate": 1.0,
@@ -1764,158 +1764,158 @@
           "n_bases": 95
         },
         "US_up_before_claim": {
-          "rate": 0.9906542056074766,
-          "lo": 0.9719626168224299,
+          "rate": 0.9905660377358491,
+          "lo": 0.9716981132075472,
           "hi": 1.0,
-          "num": 106,
-          "den": 107,
-          "n_bases": 107
+          "num": 105,
+          "den": 106,
+          "n_bases": 106
         },
         "US_up_before_evid": {
-          "rate": 0.5981308411214953,
-          "lo": 0.5046728971962616,
-          "hi": 0.6915887850467289,
+          "rate": 0.6037735849056604,
+          "lo": 0.5094339622641509,
+          "hi": 0.6981132075471698,
           "num": 64,
-          "den": 107,
-          "n_bases": 107
+          "den": 106,
+          "n_bases": 106
         },
         "US_up_after_claim": {
-          "rate": 0.9906542056074766,
-          "lo": 0.9719626168224299,
+          "rate": 0.9905660377358491,
+          "lo": 0.9716981132075472,
           "hi": 1.0,
-          "num": 106,
-          "den": 107,
-          "n_bases": 107
+          "num": 105,
+          "den": 106,
+          "n_bases": 106
         },
         "US_up_after_evid": {
-          "rate": 0.9252336448598131,
-          "lo": 0.8691588785046729,
-          "hi": 0.9719626168224299,
-          "num": 99,
-          "den": 107,
-          "n_bases": 107
+          "rate": 0.9245283018867925,
+          "lo": 0.8679245283018868,
+          "hi": 0.9716981132075472,
+          "num": 98,
+          "den": 106,
+          "n_bases": 106
         },
         "US_down_claim": {
           "rate": 1.0,
           "lo": 1.0,
           "hi": 1.0,
-          "num": 75,
-          "den": 75,
-          "n_bases": 75
+          "num": 74,
+          "den": 74,
+          "n_bases": 74
         },
         "US_down_evid": {
-          "rate": 0.9333333333333333,
-          "lo": 0.8666666666666667,
-          "hi": 0.9866666666666667,
+          "rate": 0.9459459459459459,
+          "lo": 0.8918918918918919,
+          "hi": 0.9864864864864865,
           "num": 70,
-          "den": 75,
-          "n_bases": 75
+          "den": 74,
+          "n_bases": 74
         }
       },
       "paired": {
         "up_claim": {
-          "n_candidates": 107,
-          "n_before_scored": 107,
-          "n_after_scored": 107,
+          "n_candidates": 106,
+          "n_before_scored": 106,
+          "n_after_scored": 106,
           "n_after_missing": 0,
-          "n_pairs": 107,
+          "n_pairs": 106,
           "before": {
-            "rate": 0.9906542056074766,
-            "lo": 0.9719626168224299,
+            "rate": 0.9905660377358491,
+            "lo": 0.9716981132075472,
             "hi": 1.0,
-            "num": 106,
-            "den": 107,
-            "n_bases": 107
+            "num": 105,
+            "den": 106,
+            "n_bases": 106
           },
           "after": {
-            "rate": 0.9906542056074766,
-            "lo": 0.9719626168224299,
+            "rate": 0.9905660377358491,
+            "lo": 0.9716981132075472,
             "hi": 1.0,
-            "num": 106,
-            "den": 107,
-            "n_bases": 107
+            "num": 105,
+            "den": 106,
+            "n_bases": 106
           },
           "b_pass_to_fail": 1,
           "c_fail_to_pass": 1,
           "mcnemar_p_approx": 0.4795001221869535
         },
         "up_evid": {
-          "n_candidates": 107,
-          "n_before_scored": 107,
-          "n_after_scored": 107,
+          "n_candidates": 106,
+          "n_before_scored": 106,
+          "n_after_scored": 106,
           "n_after_missing": 0,
-          "n_pairs": 107,
+          "n_pairs": 106,
           "before": {
-            "rate": 0.5981308411214953,
-            "lo": 0.5046728971962616,
-            "hi": 0.6915887850467289,
+            "rate": 0.6037735849056604,
+            "lo": 0.5094339622641509,
+            "hi": 0.6981132075471698,
             "num": 64,
-            "den": 107,
-            "n_bases": 107
+            "den": 106,
+            "n_bases": 106
           },
           "after": {
-            "rate": 0.9252336448598131,
-            "lo": 0.8691588785046729,
-            "hi": 0.9719626168224299,
-            "num": 99,
-            "den": 107,
-            "n_bases": 107
+            "rate": 0.9245283018867925,
+            "lo": 0.8679245283018868,
+            "hi": 0.9716981132075472,
+            "num": 98,
+            "den": 106,
+            "n_bases": 106
           },
-          "b_pass_to_fail": 36,
+          "b_pass_to_fail": 35,
           "c_fail_to_pass": 1,
-          "mcnemar_p_approx": 2.276384001069436e-08
+          "mcnemar_p_approx": 3.7979124931775475e-08
         },
         "down_claim": {
-          "n_candidates": 75,
-          "n_before_scored": 75,
-          "n_after_scored": 75,
+          "n_candidates": 74,
+          "n_before_scored": 74,
+          "n_after_scored": 74,
           "n_after_missing": 0,
-          "n_pairs": 75,
+          "n_pairs": 74,
           "before": {
             "rate": 1.0,
             "lo": 1.0,
             "hi": 1.0,
-            "num": 75,
-            "den": 75,
-            "n_bases": 75
+            "num": 74,
+            "den": 74,
+            "n_bases": 74
           },
           "after": {
             "rate": 1.0,
             "lo": 1.0,
             "hi": 1.0,
-            "num": 75,
-            "den": 75,
-            "n_bases": 75
+            "num": 74,
+            "den": 74,
+            "n_bases": 74
           },
           "b_pass_to_fail": 0,
           "c_fail_to_pass": 0,
           "mcnemar_p_approx": null
         },
         "down_evid": {
-          "n_candidates": 75,
-          "n_before_scored": 75,
-          "n_after_scored": 75,
+          "n_candidates": 74,
+          "n_before_scored": 74,
+          "n_after_scored": 74,
           "n_after_missing": 0,
-          "n_pairs": 75,
+          "n_pairs": 74,
           "before": {
-            "rate": 0.9333333333333333,
-            "lo": 0.8666666666666667,
-            "hi": 0.9866666666666667,
+            "rate": 0.9459459459459459,
+            "lo": 0.8918918918918919,
+            "hi": 0.9864864864864865,
             "num": 70,
-            "den": 75,
-            "n_bases": 75
+            "den": 74,
+            "n_bases": 74
           },
           "after": {
-            "rate": 0.96,
-            "lo": 0.9066666666666666,
+            "rate": 0.9594594594594594,
+            "lo": 0.9054054054054054,
             "hi": 1.0,
-            "num": 72,
-            "den": 75,
-            "n_bases": 75
+            "num": 71,
+            "den": 74,
+            "n_bases": 74
           },
-          "b_pass_to_fail": 3,
+          "b_pass_to_fail": 2,
           "c_fail_to_pass": 1,
-          "mcnemar_p_approx": 0.6170750774519738
+          "mcnemar_p_approx": 1.0
         }
       },
       "bind": {

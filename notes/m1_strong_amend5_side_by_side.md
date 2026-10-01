@@ -6,7 +6,7 @@ Sources: `results/tables/m1_strong_final.md` (pre-amendment-5) and `results/tabl
 
 | Checker | Side | NS_x10 | before | after | n | b/c | Bind |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| MiniCheck-RoBERTa | CLAIM | 94.6 (87/92) | 33.3 (32/96) | 80.2 (77/96) → **93.8 (90/96)** | 96 | 47/2 → **59/1** | False → **True** |
+| MiniCheck-RoBERTa | CLAIM | 94.6 (87/92) | 33.3 (32/96) → **32.3 (31/96)** | 80.2 (77/96) → **93.8 (90/96)** | 96 | 47/2 → **60/1** | False → **True** |
 | MiniCheck-RoBERTa | EVID | 92.4 (85/92) | 20.8 (20/96) | 68.8 (66/96) → **83.3 (80/96)** | 96 | 47/1 → **61/1** | False → **True** |
 | MiniCheck-DeBERTa | CLAIM | 96.8 (90/93) → **96.7 (89/92)** | 86.5 (83/96) → **86.3 (82/95)** | 89.6 (86/96) → **93.7 (89/95)** | 96 → **95** | 6/3 → **11/4** | True |
 | MiniCheck-DeBERTa | EVID | 93.5 (87/93) → **93.5 (86/92)** | 71.9 (69/96) → **72.6 (69/95)** | 58.3 (56/96) → **58.9 (56/95)** | 96 → **95** | 6/19 → **9/22** | False |
@@ -22,8 +22,8 @@ Sources: `results/tables/m1_strong_final.md` (pre-amendment-5) and `results/tabl
 | Granite Guardian 2B | EVID | 68.6 (70/102) | 20.8 (22/106) | 67.0 (71/106) → **78.3 (83/106)** | 106 | 49/0 → **61/0** | True |
 | Bespoke-MiniCheck-7B | CLAIM | 97.1 (100/103) | 67.3 (72/107) | 95.3 (102/107) → **100.0 (107/107)** | 107 | 30/0 → **35/0** | True |
 | Bespoke-MiniCheck-7B | EVID | 89.3 (92/103) | 36.4 (39/107) | 67.3 (72/107) → **77.6 (83/107)** | 107 | 33/0 → **44/0** | False → **True** |
-| Mistral-Small-24B (MedScore) | CLAIM | 100.0 (103/103) | 99.1 (106/107) | 99.1 (106/107) | 107 | 1/1 | True |
-| Mistral-Small-24B (MedScore) | EVID | 93.2 (96/103) | 59.8 (64/107) | 88.8 (95/107) → **92.5 (99/107)** | 107 | 32/1 → **36/1** | True |
+| Mistral-Small-24B (MedScore) | CLAIM | 100.0 (103/103) → **100.0 (102/102)** | 99.1 (106/107) → **99.1 (105/106)** | 99.1 (106/107) → **99.1 (105/106)** | 107 → **106** | 1/1 | True |
+| Mistral-Small-24B (MedScore) | EVID | 93.2 (96/103) → **93.1 (95/102)** | 59.8 (64/107) → **60.4 (64/106)** | 88.8 (95/107) → **92.5 (98/106)** | 107 → **106** | 32/1 → **35/1** | True |
 | Llama-3.3-70B (RAGAS NLI) | CLAIM | 99.0 (102/103) | 92.5 (98/106) | 97.2 (103/106) → **99.1 (105/106)** | 106 | 7/2 → **7/0** | True |
 | Llama-3.3-70B (RAGAS NLI) | EVID | 90.3 (93/103) | 53.8 (57/106) | 84.9 (90/106) → **87.7 (93/106)** | 106 | 37/4 → **39/3** | True |
 | Claude Sonnet 4.6 (RAGAS NLI) | CLAIM | 100.0 (103/103) | NA | NA | 0 | 0/0 | None |
@@ -49,8 +49,8 @@ Sources: `results/tables/m1_strong_final.md` (pre-amendment-5) and `results/tabl
 | Granite Guardian 2B | EVID | 68.1 (64/94) | 23.0 (17/74) | 87.8 (65/74) | 74 | 48/0 | True |
 | Bespoke-MiniCheck-7B | CLAIM | 96.8 (92/95) | 80.0 (60/75) | 96.0 (72/75) | 75 | 12/0 | True |
 | Bespoke-MiniCheck-7B | EVID | 95.8 (91/95) | 38.7 (29/75) | 85.3 (64/75) | 75 | 35/0 | True |
-| Mistral-Small-24B (MedScore) | CLAIM | 100.0 (95/95) | 100.0 (75/75) | 100.0 (75/75) | 75 | 0/0 | True |
-| Mistral-Small-24B (MedScore) | EVID | 98.9 (94/95) | 93.3 (70/75) | 96.0 (72/75) | 75 | 3/1 | True |
+| Mistral-Small-24B (MedScore) | CLAIM | 100.0 (95/95) | 100.0 (75/75) → **100.0 (74/74)** | 100.0 (75/75) → **100.0 (74/74)** | 75 → **74** | 0/0 | True |
+| Mistral-Small-24B (MedScore) | EVID | 98.9 (94/95) | 93.3 (70/75) → **94.6 (70/74)** | 96.0 (72/75) → **95.9 (71/74)** | 75 → **74** | 3/1 → **2/1** | True |
 | Llama-3.3-70B (RAGAS NLI) | CLAIM | 97.9 (93/95) | 89.3 (67/75) | 100.0 (75/75) | 75 | 8/0 | True |
 | Llama-3.3-70B (RAGAS NLI) | EVID | 93.5 (87/93) | 62.7 (47/75) | 98.7 (74/75) | 75 | 27/0 | True |
 | Claude Sonnet 4.6 (RAGAS NLI) | CLAIM | 100.0 (95/95) | NA | NA | 0 | 0/0 | None |

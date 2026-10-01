@@ -35,7 +35,7 @@
     "t6a_minicheck_roberta": {
       "family": "small fine-tuned checkers",
       "display_name": "MiniCheck-RoBERTa",
-      "keep_rate_x1000": 0.5981308411214953,
+      "keep_rate_x1000": 0.6074766355140186,
       "drop_rate_inv_natural": 1.0,
       "n_x1000": 107,
       "n_inv_natural": 22,

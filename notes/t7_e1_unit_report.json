@@ -49,7 +49,7 @@
       "inv_unit_n_cohort": 62
     },
     "t6a_minicheck_roberta": {
-      "e1_unit_fail_rate": 0.34782608695652173,
+      "e1_unit_fail_rate": 0.34347826086956523,
       "e1_unit_n_scored": 230,
       "e1_unit_n_cohort": 230,
       "e1_claim_x2_x10_fail_rate": null,

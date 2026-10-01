@@ -14,28 +14,22 @@ env: **cpuverif** (`results/raw/t15_cpuverif`, base and ft scored in separate pr
 - env: **cpuverif** (`results/raw/t15_cpuverif`)
 - Test split rows in file: **29320** · scored paired: **29320**
 
-- **base** overall balanced acc=0.7263 (n=29320 paired)
-  - AggreFact-CNN: 0.7957 (n=558)
-  - AggreFact-XSum: 0.7061 (n=558)
-  - ClaimVerify: 0.7969 (n=1088)
-  - ExpertQA: 0.4525 (n=3702)
-  - FactCheck-GPT: 0.8206 (n=1566)
-  - Lfqa: 0.8336 (n=1911)
-  - RAGTruth: 0.7410 (n=16371)
-  - Reveal: 0.8632 (n=1710)
-  - TofuEval-MediaS: 0.7521 (n=726)
-  - TofuEval-MeetB: 0.7876 (n=772)
-  - Wice: 0.7682 (n=358)
-- **ft** overall balanced acc=0.7297 (n=29320 paired)
-  - AggreFact-CNN: 0.7115 (n=558)
-  - AggreFact-XSum: 0.7258 (n=558)
-  - ClaimVerify: 0.7849 (n=1088)
-  - ExpertQA: 0.5313 (n=3702)
-  - FactCheck-GPT: 0.8052 (n=1566)
-  - Lfqa: 0.8514 (n=1911)
-  - RAGTruth: 0.7422 (n=16371)
-  - Reveal: 0.7456 (n=1710)
-  - TofuEval-MediaS: 0.7672 (n=726)
-  - TofuEval-MeetB: 0.8329 (n=772)
-  - Wice: 0.7179 (n=358)
+Metric: balanced accuracy = (TPR + TNR) / 2 per dataset; **LLM-AggreFact BAcc = unweighted mean over the 11 datasets**. Micro BAcc pools all rows; accuracy shown for reference only.
+
+- **base** LLM-AggreFact BAcc (macro over datasets)=0.7351 · micro BAcc=0.7632 · accuracy=0.7263 (n=29320 paired)
+- **ft** LLM-AggreFact BAcc (macro over datasets)=0.7180 · micro BAcc=0.7292 · accuracy=0.7297 (n=29320 paired)
+
+| Dataset | n | base BAcc | ft BAcc | Δ (ft − base) |
+| --- | ---: | ---: | ---: | ---: |
+| AggreFact-CNN | 558 | 0.6375 | 0.5906 | -0.0469 |
+| AggreFact-XSum | 558 | 0.7076 | 0.7256 | +0.0181 |
+| ClaimVerify | 1088 | 0.7758 | 0.7177 | -0.0581 |
+| ExpertQA | 3702 | 0.5743 | 0.5708 | -0.0035 |
+| FactCheck-GPT | 1566 | 0.7328 | 0.7591 | +0.0263 |
+| Lfqa | 1911 | 0.8436 | 0.8442 | +0.0006 |
+| RAGTruth | 16371 | 0.7719 | 0.7332 | -0.0387 |
+| Reveal | 1710 | 0.8881 | 0.8079 | -0.0802 |
+| TofuEval-MediaS | 726 | 0.7193 | 0.7072 | -0.0121 |
+| TofuEval-MeetB | 772 | 0.7594 | 0.7774 | +0.0180 |
+| Wice | 358 | 0.6757 | 0.6641 | -0.0116 |
 

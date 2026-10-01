@@ -402,8 +402,8 @@
  "v1_medscore": {
   "display_name": "Mistral-Small-24B (MedScore)",
   "family": "LLM judges",
-  "n_c0_bases_scored": 110,
-  "n_c0_pass_bases": 110,
+  "n_c0_bases_scored": 109,
+  "n_c0_pass_bases": 109,
   "cells": {
    "div2_claim": {
     "rate": 0.9690721649484536,

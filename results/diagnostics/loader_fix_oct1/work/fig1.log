@@ -1,0 +1,18 @@
+MiniCheck-Flan-T5-Large            small fine-tuned checkers  QI_all=  8.3 (n=60) US_up= 52.4 (n=103) NS= 88.7 cost=None
+AlignScore-large                   small fine-tuned checkers  QI_all= 24.6 (n=57) US_up= 53.5 (n=101) NS= 94.0 cost=None
+Bespoke-MiniCheck-7B               7B fine-tuned checker      QI_all= 77.4 (n=62) US_up= 67.3 (n=107) NS= 93.8 cost=None
+MiniCheck-RoBERTa                  small fine-tuned checkers  QI_all=  5.5 (n=55) US_up= 32.3 (n=96) NS= 94.7 cost=None
+MiniCheck-DeBERTa                  small fine-tuned checkers  QI_all=  3.6 (n=55) US_up= 86.3 (n=95) NS= 95.8 cost=None
+AlignScore-base                    small fine-tuned checkers  QI_all= 19.3 (n=57) US_up= 12.1 (n=99) NS= 94.4 cost=None
+SummaC-ZS                          small fine-tuned checkers  QI_all= 13.7 (n=51) US_up= 27.1 (n=85) NS= 96.4 cost=None
+Granite Guardian 2B                small fine-tuned checkers  QI_all= 19.4 (n=62) US_up= 43.4 (n=106) NS=  nan cost=None
+Mistral-Small-24B (MedScore)       LLM judges                 QI_all= 68.9 (n=61) US_up= 99.1 (n=106) NS= 95.2 cost=0.026281446229913474
+GPT-4o (MedScore)                  LLM judges                 QI_all= 96.8 (n=62) US_up= 98.1 (n=107) NS= 73.0 cost=1.0790151515151516
+GPT-4o-mini (MedScore)             LLM judges                 QI_all= 45.9 (n=61) US_up= 89.6 (n=106) NS= 95.2 cost=0.059903030303030305
+Llama-3.3-70B (RAGAS NLI)          LLM judges                 QI_all= 75.8 (n=62) US_up= 92.5 (n=106) NS= 92.3 cost=0.12501516728624537
+Claude Sonnet 4.6 (RAGAS NLI)      LLM judges                 QI_all= 96.8 (n=62) US_up= 98.1 (n=107) NS= 98.1 cost=4.926590909090909
+GPT-4o-mini (RAGAS)                LLM judges                 QI_all= 74.1 (n=58) US_up= 92.2 (n=103) NS= 97.0 cost=0.1960729797979798
+Claude Haiku 4.5 (RAGAS)           LLM judges                 QI_all= 96.6 (n=59) US_up= 98.1 (n=104) NS= 97.6 cost=1.6995622895622897
+Llama-3.1-8B (RAGAS)               LLM judges                 QI_all= 27.6 (n=58) US_up= 83.5 (n=103) NS= 95.6 cost=0.022356195286195285
+Mistral-Small-3.2-24B (RAGAS)      LLM judges                 QI_all= 96.8 (n=62) US_up= 91.6 (n=107) NS= 93.8 cost=0.09016978114478115
+MiniCheck-RoBERTa T15-ft           T15 fine-tuned (ours)      QI_all= 96.5 (n=57) US_up=100.0 (n=99) NS= 97.9 cost=None

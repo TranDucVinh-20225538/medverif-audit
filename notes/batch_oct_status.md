@@ -78,7 +78,7 @@ Updated: **2026-09-30 ~17:45 UTC+7** · Freeze **Oct 5 23:59** (no extension)
 | --- | --- | --- | --- |
 | **T13** | **done** (main) | Pairwise harm; t6 encoders **n=22** on INV-nat / C0 pairs (node30 score subset) | `results/tables/t13_pairwise_preference.md` |
 | **T14** | **done** (main) | C0-conditional; LLM **~109–110** bases; encoders **n=23** node30 | `results/tables/t14_c0_conditional_pass.md` |
-| **T15** | **partial** | main_dose **996/996** base+ft; AggreFact test **n=29320** paired (BAcc ft **0.730** vs base **0.726**) | `notes/t15_report.md`, `notes/t15_aggrefact_report_run.md` |
+| **T15** | **partial** | main_dose **996/996** base+ft; AggreFact test **n=29320** paired (LLM-AggreFact BAcc, macro over 11 datasets: base **0.7351** vs ft **0.7180**; micro BAcc 0.7632 → 0.7292; earlier 0.726/0.730 were plain accuracy) | `notes/t15_report.md`, `notes/t15_aggrefact_report_run.md` |
 | **T16** | **appendix** | Attribution report committed earlier | `notes/t16_report.md` |
 | **T17** | **done** (needs dedupe→PI filter) | Raw LLM **612** lines / manifest **588**; lane B **588/588** | Dedupe + `qc/t17_labels.csv` → expect **540** (pending script) |
 | **T18** | **appendix** (blocked→PI ok) | **`qc/t18_PI_ok_labels.csv`** present (**93** rows); NS/US + unit_spell only; no headline QI (**6/92** nat) | Rescore when FINAL PI locked |
@@ -135,7 +135,7 @@ Updated: **2026-09-30 ~17:45 UTC+7** · Freeze **Oct 5 23:59** (no extension)
 
 ### T15 AggreFact (`notes/t15_aggrefact_report_run.md`)
 
-- **base** BAcc **0.7263** (n=29320 paired); **ft** **0.7297** (n=29320).
+- **base** LLM-AggreFact BAcc (macro over 11 datasets) **0.7351**, micro BAcc 0.7632, accuracy 0.7263; **ft** **0.7180**, micro 0.7292, accuracy 0.7297 (n=29320 paired). Oct 1 fix: `bal_acc()` previously returned plain accuracy.
 - Subsets: AggreFact-CNN **558**, XSum **558**, RAGTruth **16371**, etc.
 
 ### T22 / T23 decisions
@@ -159,3 +159,4 @@ Updated: **2026-09-30 ~17:45 UTC+7** · Freeze **Oct 5 23:59** (no extension)
 3. T17 dedupe **612→588→540** + per-verifier **n** report.
 4. T18/main_ext: FINAL PI CSVs → small-checker score passes.
 5. Commit **M1-strong code** + final table when exit 0; push after author sign-off.
+- **Oct 01 loader + AggreFact fix (login, after job 62017):** (1) AggreFact metric fixed to balanced accuracy (macro over 11 datasets: base 0.7351, ft 0.7180); `t15_report.md`, `t15_aggrefact_report_run.md`, `paper_numbers_final.md` regenerated with macro/micro/accuracy + per-dataset rows. (2) MiniCheck loaders now prefer the cpuverif rescore (`results/raw/minicheck_cpuverif`) per source file: RoBERTa CLAIM US_up_before 32/96 → 31/96 (M1-strong, main card, Figure 1), M1 b/c 59/1 → 60/1, T13 RoBERTa evid_x1000_vs_c0 4.7% → 5.6%; no bind changes. (3) MedScore exclusion also applied to the fallback copy `results/raw_node30/v1_medscore.jsonl` (same 5 ids); MedScore cells changed (see `notes/loader_fix_oct1.md`); UNCHECKED 20 → **0**.

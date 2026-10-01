@@ -13,7 +13,7 @@ At each verifier’s **default threshold** (see `configs/verifiers.yaml`):
 | Granite Guardian 2B | small fine-tuned checkers | 0.533 | 0.818 | 0.864 | 107 | 22 |
 | HHEM | small fine-tuned checkers | 0.963 | 0.864 | 1.000 | 107 | 22 |
 | MiniCheck-DeBERTa | small fine-tuned checkers | 0.121 | 0.955 | 0.909 | 107 | 22 |
-| MiniCheck-RoBERTa | small fine-tuned checkers | 0.598 | 1.000 | 1.000 | 107 | 22 |
+| MiniCheck-RoBERTa | small fine-tuned checkers | 0.607 | 1.000 | 1.000 | 107 | 22 |
 | SummaC-Conv | small fine-tuned checkers | 0.336 | 1.000 | 0.955 | 107 | 22 |
 | SummaC-ZS | small fine-tuned checkers | 0.589 | 0.955 | 1.000 | 107 | 22 |
 | MiniCheck-Flan-T5-Large | small fine-tuned checkers | 0.458 | 0.955 | 0.955 | 107 | 22 |

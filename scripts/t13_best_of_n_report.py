@@ -13,6 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "analysis"))
 sys.path.insert(0, str(ROOT / "src"))
+sys.path.append(str(ROOT / "scripts"))
+from canonical_scores import reference_env_rows  # noqa: E402
 
 from analyze import read_jsonl  # noqa: E402
 from review_filters import effective_unit_natural_y  # noqa: E402
@@ -230,7 +232,7 @@ def merged_score_rows(slug: str) -> dict[str, dict]:
         if path in seen:
             continue
         seen.add(path)
-        for row in read_jsonl(path):
+        for row in reference_env_rows(path):
             iid = row.get("instance_id")
             if iid:
                 out[iid] = row

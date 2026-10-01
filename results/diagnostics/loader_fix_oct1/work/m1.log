@@ -1,0 +1,24 @@
+[m1-strong] gate cache entries: 772 refresh=False cohort=post_amendment5_indep_gate
+[m1-strong] MiniCheck-RoBERTa (t6a_minicheck_roberta)
+[m1-strong] MiniCheck-DeBERTa (t6a_minicheck_deberta)
+[m1-strong] MiniCheck-Flan-T5-Large (v2a_minicheck)
+[m1-strong] AlignScore-base (t6a_alignscore_base)
+[m1-strong] AlignScore-large (v3_alignscore)
+[m1-strong] SummaC-ZS (t6a_summac_zs)
+[m1-strong] Granite Guardian 2B (t6a_granite_guardian)
+[m1-strong] Bespoke-MiniCheck-7B (v2b_bespoke)
+[m1-strong] Mistral-Small-24B (MedScore) (v1_medscore)
+[m1-strong] Llama-3.3-70B (RAGAS NLI) (v4_ragas_nli)
+[m1-strong] Claude Sonnet 4.6 (RAGAS NLI) (v5_ragas_nli)
+[m1-strong] parse error summary (>5% aborts):
+  pack=ns_div10_claim spans=196 errors=0 rate=0.0000
+  pack=ns_div10_evid spans=196 errors=0 rate=0.0000
+  pack=ns_x10_claim spans=212 errors=0 rate=0.0000
+  pack=ns_x10_evid spans=212 errors=0 rate=0.0000
+  pack=us_down_unit spans=300 errors=0 rate=0.0000
+  pack=us_up_x1000 spans=430 errors=0 rate=0.0000
+{
+  "wrote": "/data2/hpcshared/medverif-audit/results/tables/m1_strong_final_amend5.md",
+  "checkers": 11,
+  "bases": 110
+}

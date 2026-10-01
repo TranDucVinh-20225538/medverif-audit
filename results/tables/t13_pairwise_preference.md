@@ -14,7 +14,7 @@ Cells: **P(wrong ≥ correct)** [95% cluster-bootstrap CI] **(n=…)**; **ties c
 
 | model | family | mode | (1) ×1000 vs INV nat | (1′) ×1000 vs INV all | (2′) evid×1000 vs C0 |
 |---|---|---|---|---|---|
-| MiniCheck-RoBERTa | small fine-tuned checkers | continuous | 1.000 [1.000, 1.000] (n=22) | 0.984 [0.952, 1.000] (n=62) | 0.047 [0.009, 0.093] (n=107) |
+| MiniCheck-RoBERTa | small fine-tuned checkers | continuous | 1.000 [1.000, 1.000] (n=22) | 0.984 [0.952, 1.000] (n=62) | 0.056 [0.019, 0.103] (n=107) |
 | SummaC-ZS | small fine-tuned checkers | continuous | 1.000 [1.000, 1.000] (n=22) | 0.984 [0.952, 1.000] (n=62) | 0.117 [0.061, 0.182] (n=107) |
 | HHEM | small fine-tuned checkers | continuous | 1.000 [1.000, 1.000] (n=22) | 1.000 [1.000, 1.000] (n=62) | 0.374 [0.290, 0.467] (n=107) |
 | MiniCheck-Flan-T5-Large | small fine-tuned checkers | continuous | 0.955 [0.864, 1.000] (n=22) | 0.806 [0.694, 0.903] (n=62) | 0.093 [0.047, 0.159] (n=107) |
@@ -27,7 +27,7 @@ Cells: **P(wrong ≥ correct)** [95% cluster-bootstrap CI] **(n=…)**; **ties c
 | Llama-3.1-8B (RAGAS) | LLM judges | continuous | 0.500 [0.364, 0.636] (n=22) | 0.484 [0.411, 0.556] (n=62) | 0.274 [0.226, 0.321] (n=106) |
 | GPT-4o-mini (MedScore) | LLM judges | continuous | 0.318 [0.227, 0.409] (n=22) | 0.347 [0.274, 0.419] (n=62) | 0.290 [0.238, 0.336] (n=107) |
 | Llama-3.3-70B (RAGAS NLI) | LLM judges | continuous | 0.262 [0.167, 0.381] (n=21) | 0.180 [0.123, 0.246] (n=61) | 0.229 [0.182, 0.276] (n=107) |
-| Mistral-Small-24B (MedScore) | LLM judges | continuous | 0.182 [0.091, 0.273] (n=22) | 0.169 [0.113, 0.234] (n=62) | 0.201 [0.154, 0.248] (n=107) |
+| Mistral-Small-24B (MedScore) | LLM judges | continuous | 0.182 [0.091, 0.273] (n=22) | 0.169 [0.113, 0.234] (n=62) | 0.198 [0.151, 0.245] (n=106) |
 | GPT-4o-mini (RAGAS) | LLM judges | continuous | 0.114 [0.045, 0.205] (n=22) | 0.194 [0.137, 0.258] (n=62) | 0.145 [0.103, 0.187] (n=107) |
 | Mistral-Small-3.2-24B (RAGAS) | LLM judges | continuous | 0.091 [0.023, 0.182] (n=22) | 0.081 [0.040, 0.129] (n=62) | 0.266 [0.220, 0.313] (n=107) |
 | GPT-4o (MedScore) | LLM judges | continuous | 0.000 [0.000, 0.000] (n=22) | 0.032 [0.008, 0.065] (n=62) | 0.435 [0.402, 0.463] (n=107) |
@@ -48,7 +48,7 @@ Cells: **P(wrong ≥ correct)** [95% cluster-bootstrap CI] **(n=…)**; **ties c
 | MiniCheck-Flan-T5-Large | 0.093 [0.037, 0.150] (n=107) | 0.450 [0.250, 0.650] (n=20) |
 | AlignScore-large | 0.028 [0.000, 0.065] (n=107) | 0.100 [0.000, 0.250] (n=20) |
 | Bespoke-MiniCheck-7B | 0.000 [0.000, 0.000] (n=107) | 0.100 [0.000, 0.250] (n=20) |
-| Mistral-Small-24B (MedScore) | 0.005 [0.000, 0.014] (n=107) | 0.175 [0.075, 0.275] (n=20) |
+| Mistral-Small-24B (MedScore) | 0.005 [0.000, 0.014] (n=106) | 0.175 [0.075, 0.275] (n=20) |
 | GPT-4o (MedScore) | 0.009 [0.000, 0.023] (n=107) | 0.075 [0.000, 0.150] (n=20) |
 | GPT-4o-mini (MedScore) | 0.061 [0.028, 0.098] (n=107) | 0.275 [0.175, 0.375] (n=20) |
 | Llama-3.3-70B (RAGAS NLI) | 0.038 [0.014, 0.066] (n=106) | 0.200 [0.100, 0.300] (n=20) |

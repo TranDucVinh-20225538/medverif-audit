@@ -17,7 +17,7 @@ Among **main DOSE** bases where the verifier **PASS**es **C0**, report **P(PASS)
 | MiniCheck-Flan-T5-Large | small fine-tuned checkers | 0.964 (n=110) | 106 | 0.045 (n=22) | 1.000 (n=105) | 1.000 (n=105) | 0.875 (n=8) |
 | AlignScore-large | small fine-tuned checkers | 0.945 (n=110) | 104 | 0.190 (n=21) | 1.000 (n=103) | 1.000 (n=103) | 0.714 (n=7) |
 | Bespoke-MiniCheck-7B | 7B fine-tuned checker | 1.000 (n=110) | 110 | 0.818 (n=22) | — (n=0) | — (n=0) | — (n=0) |
-| Mistral-Small-24B (MedScore) | LLM judges | 1.000 (n=110) | 110 | 0.636 (n=22) | 1.000 (n=109) | 1.000 (n=109) | 1.000 (n=9) |
+| Mistral-Small-24B (MedScore) | LLM judges | 1.000 (n=109) | 109 | 0.636 (n=22) | 1.000 (n=108) | 1.000 (n=108) | 1.000 (n=9) |
 | GPT-4o (MedScore) | LLM judges | 1.000 (n=110) | 110 | 1.000 (n=22) | 0.990 (n=101) | 1.000 (n=102) | 1.000 (n=9) |
 | GPT-4o-mini (MedScore) | LLM judges | 0.991 (n=110) | 109 | 0.500 (n=22) | — (n=0) | — (n=0) | — (n=0) |
 | Llama-3.3-70B (RAGAS NLI) | LLM judges | 1.000 (n=109) | 109 | 0.727 (n=22) | 1.000 (n=109) | 1.000 (n=109) | 1.000 (n=9) |

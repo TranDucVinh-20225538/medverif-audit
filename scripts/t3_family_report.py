@@ -12,6 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "analysis"))
 sys.path.insert(0, str(ROOT / "src"))
+sys.path.append(str(ROOT / "scripts"))
+from canonical_scores import reference_env_rows  # noqa: E402
 
 from analyze import _c0_pass_bases, _parsed  # noqa: E402
 
@@ -121,10 +123,7 @@ def load_scores(slug: str) -> tuple[dict[str, str], str]:
             rel = str(path.relative_to(ROOT))
             if rel not in used:
                 used.append(rel)
-            for line in path.open():
-                if not line.strip():
-                    continue
-                rec = json.loads(line)
+            for rec in reference_env_rows(path):
                 m[rec["instance_id"]] = rec.get("verdict") or ""
     pack_used: list[str] = []
     if primary:

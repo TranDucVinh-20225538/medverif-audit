@@ -11,6 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "analysis"))
 sys.path.insert(0, str(ROOT / "src"))
+sys.path.append(str(ROOT / "scripts"))
+from canonical_scores import reference_env_rows  # noqa: E402
 
 from analyze import _c0_pass_bases  # noqa: E402
 
@@ -88,7 +90,7 @@ def load_scores(raw_dir: Path, verifiers: list[str]) -> dict[str, dict[str, str]
     for v in verifiers:
         path = _score_path(raw_dir, v)
         m: dict[str, str] = {}
-        for row in read_jsonl(path):
+        for row in (reference_env_rows(path) if path and path.is_file() else []):
             iid = row.get("instance_id")
             if iid:
                 m[iid] = row.get("verdict") or ""
