@@ -20,7 +20,8 @@ from review_filters import analysis_keep_row, effective_unit_natural_y  # noqa: 
 from t14_t3_filter_report import inv_span_before  # noqa: E402
 from text_utils import rule_natural_unit_conversion_label  # noqa: E402
 
-RAW = ROOT / "results/raw/t15"
+RAW = ROOT / "results/raw/t15_cpuverif"
+AGG_RAW_VLLM = ROOT / "results/raw/t15"
 MAIN = ROOT / "data/v3/instances_main.jsonl"
 T7 = ROOT / "data/t7/instances_e1_unit.jsonl"
 T17 = ROOT / "data/v3/t17_downdose.jsonl"
@@ -199,9 +200,12 @@ def aggrefact_section() -> list[str]:
         labels[str(iid)] = int(row["label"])
         by_ds[row.get("dataset", "?")].append(str(iid))
 
+    agg_raw = RAW if all((RAW / f"{t}_aggrefact_test.jsonl").is_file() for t in ("base", "ft")) else AGG_RAW_VLLM
+    agg_env = "cpuverif" if agg_raw == RAW else "vllm (not yet rescored in cpuverif)"
+
     def read_raw(tag: str) -> dict[str, dict]:
         out: dict[str, dict] = {}
-        path = RAW / f"{tag}_aggrefact_test.jsonl"
+        path = agg_raw / f"{tag}_aggrefact_test.jsonl"
         for row in read_jsonl(path):
             out[row["instance_id"]] = row
         return out
@@ -211,6 +215,7 @@ def aggrefact_section() -> list[str]:
     lines = [
         "## AggreFact test (paired base vs ft)",
         "",
+        f"- env: **{agg_env}** (`{agg_raw.relative_to(ROOT)}`)",
         f"- Test split rows in file: **{n_test}** · scored paired: **{len(set(labels) & set(base) & set(ft))}**",
         "",
     ]
@@ -253,6 +258,9 @@ def main() -> None:
         "Main **DOSE** cohort (`instances_main.jsonl`): non-dose bases excluded, `analysis_keep_row`, "
         f"bootstrap **{N_BOOT}** × `base_id`, seed **{SEED}**. "
         "Metrics **| C0 PASS** except C0 row. Same definitions as `scripts/compute_paper_numbers.py`.",
+        "",
+        "env: **cpuverif** (`results/raw/t15_cpuverif`, base and ft scored in separate processes); "
+        "verdict agreement with the earlier vllm-env files is in `notes/t15_card_cpuverif_agreement.json`.",
         "",
         "| Leg | C0 bases scored | C0 PASS bases | QI all | QI nat | NS (E1-evid FAIL) | "
         "US claim↑ (×1000) | US evid↑ (×1000) | US claim↓ (unit-down) | US evid↓ (unit-down) |",

@@ -2,6 +2,8 @@
 
 Main **DOSE** cohort (`instances_main.jsonl`): non-dose bases excluded, `analysis_keep_row`, bootstrap **1000** × `base_id`, seed **42**. Metrics **| C0 PASS** except C0 row. Same definitions as `scripts/compute_paper_numbers.py`.
 
+env: **cpuverif** (`results/raw/t15_cpuverif`, base and ft scored in separate processes); verdict agreement with the earlier vllm-env files is in `notes/t15_card_cpuverif_agreement.json`.
+
 | Leg | C0 bases scored | C0 PASS bases | QI all | QI nat | NS (E1-evid FAIL) | US claim↑ (×1000) | US evid↑ (×1000) | US claim↓ (unit-down) | US evid↓ (unit-down) |
 | --- | ---: | ---: | --- | --- | --- | --- | --- | --- | --- |
 | base | 110 | 99 | 5.5% [0.0%, 12.7%] (n=55, q=55) | 0.0% [0.0%, 0.0%] (n=20, q=20) | 94.7% [90.9%, 97.9%] (n=189, q=96) | 32.3% [24.0%, 41.7%] (n=96, q=96) | 20.8% [13.5%, 29.2%] (n=96, q=96) | 7.1% [1.4%, 12.9%] (n=70, q=70) | 5.7% [1.4%, 11.4%] (n=70, q=70) |
@@ -9,6 +11,7 @@ Main **DOSE** cohort (`instances_main.jsonl`): non-dose bases excluded, `analysi
 
 ## AggreFact test (paired base vs ft)
 
+- env: **cpuverif** (`results/raw/t15_cpuverif`)
 - Test split rows in file: **29320** · scored paired: **29320**
 
 - **base** overall balanced acc=0.7263 (n=29320 paired)
