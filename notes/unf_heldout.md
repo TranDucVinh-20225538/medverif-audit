@@ -142,13 +142,75 @@ Failure types (real strings): v1 {'wrong basis/kind': 7, 'split into 2 spans': 2
 
 ## (b) Checker level
 
-Held-out pairs not scored yet: run `sbatch jobs/journal2/jr2_UNFHO.sbatch` on the HPC (the last array task reruns this script).
+### Held-out pairs
+
+QI = PASS on S; US = FAIL on U; anchor-conditional (anchor PASSes in the same pack). Inversion = share of bases whose S score ≤ U score (threshold-free; lower is better). Δ = pack − raw text, paired drug-clustered bootstrap on bases whose anchor PASSes on raw text.
+
+| checker | metric | raw text | UNF v1 | Δ v1 | UNF v2 | Δ v2 |
+|---|---|---|---|---|---|---|
+| MiniCheck-RoBERTa | QI | 52.4 [44.4, 60.3] (n=145) | 100.0 [100.0, 100.0] (n=145) | +47.6 [+39.3, +55.9] | 100.0 [100.0, 100.0] (n=145) | +47.6 [+39.3, +55.9] |
+| MiniCheck-RoBERTa | US | 4.1 [1.3, 7.6] (n=145) | 73.1 [63.9, 81.9] (n=145) | +69.0 [+60.0, +78.0] | 73.1 [63.9, 81.9] (n=145) | +69.0 [+60.0, +78.0] |
+| MiniCheck-RoBERTa | US (U w/o residual copy) | 4.5 [0.9, 8.7] (n=111) | 77.5 [68.5, 85.8] (n=111) | | 77.5 [68.5, 85.8] (n=111) | |
+| MiniCheck-RoBERTa | inversion | 64.7 [57.1, 72.3] (n=150) | 1.3 [0.0, 3.3] (n=150) | | 1.3 [0.0, 3.3] (n=150) | |
+| MiniCheck-RoBERTa | AUC(S>U) | 0.223 | 0.949 | | 0.947 | |
+| MiniCheck-DeBERTa | QI | 38.1 [30.4, 45.6] (n=139) | 99.3 [97.7, 100.0] (n=139) | +61.2 [+53.7, +68.6] | 98.6 [96.3, 100.0] (n=140) | +60.4 [+52.9, +68.2] |
+| MiniCheck-DeBERTa | US | 71.9 [63.8, 80.0] (n=139) | 85.6 [79.8, 91.4] (n=139) | +13.7 [+6.3, +21.1] | 85.7 [80.0, 91.4] (n=140) | +13.7 [+6.3, +21.1] |
+| MiniCheck-DeBERTa | US (U w/o residual copy) | 74.0 [66.0, 82.0] (n=104) | 89.4 [84.1, 94.5] (n=104) | | 89.5 [84.4, 94.6] (n=105) | |
+| MiniCheck-DeBERTa | inversion | 56.0 [47.7, 64.5] (n=150) | 1.3 [0.0, 3.3] (n=150) | | 2.0 [0.0, 4.5] (n=150) | |
+| MiniCheck-DeBERTa | AUC(S>U) | 0.440 | 0.925 | | 0.924 | |
+| AlignScore-base | QI | 61.2 [53.1, 68.8] (n=147) | 100.0 [100.0, 100.0] (n=147) | +38.8 [+30.9, +46.6] | 100.0 [100.0, 100.0] (n=147) | +38.8 [+30.9, +46.6] |
+| AlignScore-base | US | 6.1 [2.3, 10.5] (n=147) | 57.1 [48.4, 65.7] (n=147) | +51.0 [+42.6, +59.9] | 56.5 [47.7, 65.2] (n=147) | +50.3 [+41.8, +59.3] |
+| AlignScore-base | US (U w/o residual copy) | 8.0 [3.0, 13.6] (n=112) | 67.0 [57.9, 75.4] (n=112) | | 66.1 [56.8, 74.8] (n=112) | |
+| AlignScore-base | inversion | 63.3 [56.0, 70.8] (n=150) | 2.0 [0.0, 4.4] (n=150) | | 2.7 [0.6, 5.4] (n=150) | |
+| AlignScore-base | AUC(S>U) | 0.302 | 0.912 | | 0.909 | |
+| MiniCheck-Flan-T5-Large | QI | 41.6 [32.7, 50.4] (n=125) | 98.4 [95.8, 100.0] (n=124) | +56.0 [+47.0, +65.1] | 98.4 [95.9, 100.0] (n=124) | +56.0 [+46.6, +65.3] |
+| MiniCheck-Flan-T5-Large | US | 29.6 [21.8, 37.6] (n=125) | 95.2 [90.1, 99.2] (n=124) | +65.6 [+55.2, +75.6] | 94.4 [89.1, 98.5] (n=124) | +64.8 [+54.4, +74.8] |
+| MiniCheck-Flan-T5-Large | US (U w/o residual copy) | 30.7 [22.1, 39.4] (n=101) | 96.0 [90.5, 100.0] (n=100) | | 95.0 [89.3, 99.1] (n=100) | |
+| MiniCheck-Flan-T5-Large | inversion | 68.7 [60.1, 76.9] (n=150) | 0.7 [0.0, 2.1] (n=150) | | 1.3 [0.0, 3.3] (n=150) | |
+| MiniCheck-Flan-T5-Large | AUC(S>U) | 0.313 | 0.974 | | 0.968 | |
+| AlignScore-large | QI | 62.8 [55.2, 70.3] (n=148) | 100.0 [100.0, 100.0] (n=148) | +37.2 [+29.9, +44.8] | 100.0 [100.0, 100.0] (n=148) | +37.2 [+29.9, +44.8] |
+| AlignScore-large | US | 4.7 [1.3, 8.8] (n=148) | 60.1 [51.6, 68.5] (n=148) | +55.4 [+47.0, +63.9] | 61.5 [53.1, 69.7] (n=148) | +56.8 [+48.7, +65.1] |
+| AlignScore-large | US (U w/o residual copy) | 5.3 [1.7, 9.6] (n=113) | 69.9 [60.9, 78.6] (n=113) | | 70.8 [62.0, 79.1] (n=113) | |
+| AlignScore-large | inversion | 64.7 [56.3, 73.1] (n=150) | 0.7 [0.0, 2.2] (n=150) | | 0.7 [0.0, 2.2] (n=150) | |
+| AlignScore-large | AUC(S>U) | 0.290 | 0.925 | | 0.923 | |
+
+By source (anchor-conditional): MiniCheck-RoBERTa {'orig': {'QI_rd_answer': '98.0 [93.6, 100.0] (n=49)', 'QI_label': '29.2 [20.0, 38.8] (n=96)', 'US_rd_answer': '10.2 [2.1, 19.6] (n=49)', 'US_label': '1.0 [0.0, 3.3] (n=96)'}, 'unf': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=49)', 'QI_label': '100.0 [100.0, 100.0] (n=96)', 'US_rd_answer': '81.6 [67.3, 94.0] (n=49)', 'US_label': '68.8 [58.6, 78.3] (n=96)'}, 'unf_v2': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=49)', 'QI_label': '100.0 [100.0, 100.0] (n=96)', 'US_rd_answer': '81.6 [67.3, 94.0] (n=49)', 'US_label': '68.8 [58.6, 78.3] (n=96)'}}; MiniCheck-DeBERTa {'orig': {'QI_rd_answer': '98.0 [93.6, 100.0] (n=50)', 'QI_label': '4.5 [1.1, 9.3] (n=89)', 'US_rd_answer': '48.0 [34.6, 62.0] (n=50)', 'US_label': '85.4 [77.0, 92.9] (n=89)'}, 'unf': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=50)', 'QI_label': '98.9 [96.5, 100.0] (n=89)', 'US_rd_answer': '72.0 [58.3, 84.0] (n=50)', 'US_label': '93.3 [87.8, 97.8] (n=89)'}, 'unf_v2': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=50)', 'QI_label': '97.8 [94.3, 100.0] (n=90)', 'US_rd_answer': '72.0 [58.3, 84.0] (n=50)', 'US_label': '93.3 [87.9, 97.8] (n=90)'}}; AlignScore-base {'orig': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=51)', 'QI_label': '40.6 [30.2, 51.0] (n=96)', 'US_rd_answer': '5.9 [0.0, 13.2] (n=51)', 'US_label': '6.2 [2.0, 11.3] (n=96)'}, 'unf': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=51)', 'QI_label': '100.0 [100.0, 100.0] (n=96)', 'US_rd_answer': '54.9 [40.7, 69.2] (n=51)', 'US_label': '58.3 [48.0, 68.4] (n=96)'}, 'unf_v2': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=51)', 'QI_label': '100.0 [100.0, 100.0] (n=96)', 'US_rd_answer': '54.9 [40.7, 69.2] (n=51)', 'US_label': '57.3 [46.9, 67.4] (n=96)'}}; MiniCheck-Flan-T5-Large {'orig': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=44)', 'QI_label': '9.9 [3.6, 18.1] (n=81)', 'US_rd_answer': '9.1 [2.2, 17.9] (n=44)', 'US_label': '40.7 [29.8, 51.9] (n=81)'}, 'unf': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=43)', 'QI_label': '97.5 [93.9, 100.0] (n=81)', 'US_rd_answer': '88.4 [74.5, 100.0] (n=43)', 'US_label': '98.8 [96.1, 100.0] (n=81)'}, 'unf_v2': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=43)', 'QI_label': '97.5 [93.7, 100.0] (n=81)', 'US_rd_answer': '88.4 [74.5, 100.0] (n=43)', 'US_label': '97.5 [93.5, 100.0] (n=81)'}}; AlignScore-large {'orig': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=52)', 'QI_label': '42.7 [32.7, 52.6] (n=96)', 'US_rd_answer': '3.8 [0.0, 9.4] (n=52)', 'US_label': '5.2 [1.1, 10.2] (n=96)'}, 'unf': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=52)', 'QI_label': '100.0 [100.0, 100.0] (n=96)', 'US_rd_answer': '59.6 [45.6, 73.1] (n=52)', 'US_label': '60.4 [50.0, 70.3] (n=96)'}, 'unf_v2': {'QI_rd_answer': '100.0 [100.0, 100.0] (n=52)', 'QI_label': '100.0 [100.0, 100.0] (n=96)', 'US_rd_answer': '61.5 [48.0, 75.0] (n=52)', 'US_label': '61.5 [51.5, 71.1] (n=96)'}}
 
 ### Real-dose (RD) pairs
 
 RD rows changed by the normalizer: v1 527, v2 705 (of 1451). Group sizes (all / changed by v1 / by v2): QI_correct 1062/352/494; US_unit_type_auto 47/36/40; US_unit_type_precheck_true 12/7/10; US_same_numeral_auto 15/12/13; US_value_auto 93/29/39.
 
-Not scored yet (MiniCheck-RoBERTa: not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705); MiniCheck-DeBERTa: not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705); AlignScore-base: not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705); MiniCheck-Flan-T5-Large: not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705); AlignScore-large: not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705)).
+QI = PASS on auto-`correct` answers; US = FAIL on errors (auto unit-type; AI-pre-check `true_unit_error` subset; auto same-numeral; auto value). Unchanged rows keep the stored verdict; changed rows use the same-run re-score.
+
+| checker | group | raw text | UNF v1 | UNF v2 |
+|---|---|---|---|---|
+| MiniCheck-RoBERTa | QI_correct | 77.0 [74.4, 79.5] (n=1062) | 76.9 [74.2, 79.5] (n=1062) | 76.5 [73.8, 79.0] (n=1062) |
+| MiniCheck-RoBERTa | US_unit_type_auto | 68.1 [52.3, 83.7] (n=47) | 72.3 [54.8, 88.9] (n=47) | 74.5 [58.5, 89.4] (n=47) |
+| MiniCheck-RoBERTa | US_unit_type_precheck_true | 75.0 [45.5, 100.0] (n=12) | 75.0 [45.5, 100.0] (n=12) | 75.0 [45.5, 100.0] (n=12) |
+| MiniCheck-RoBERTa | US_same_numeral_auto | 26.7 [6.2, 54.5] (n=15) | 46.7 [15.4, 83.3] (n=15) | 46.7 [15.4, 83.3] (n=15) |
+| MiniCheck-RoBERTa | US_value_auto | 96.8 [92.6, 100.0] (n=93) | 95.7 [90.9, 99.0] (n=93) | 95.7 [90.9, 99.0] (n=93) |
+| MiniCheck-DeBERTa | QI_correct | 71.6 [68.7, 74.4] (n=1062) | 71.4 [68.4, 74.3] (n=1062) | 71.5 [68.5, 74.4] (n=1062) |
+| MiniCheck-DeBERTa | US_unit_type_auto | 85.1 [72.7, 95.3] (n=47) | 87.2 [75.5, 96.2] (n=47) | 87.2 [75.5, 96.2] (n=47) |
+| MiniCheck-DeBERTa | US_unit_type_precheck_true | 91.7 [72.7, 100.0] (n=12) | 91.7 [72.7, 100.0] (n=12) | 91.7 [72.7, 100.0] (n=12) |
+| MiniCheck-DeBERTa | US_same_numeral_auto | 66.7 [42.9, 91.7] (n=15) | 73.3 [46.7, 100.0] (n=15) | 73.3 [46.7, 100.0] (n=15) |
+| MiniCheck-DeBERTa | US_value_auto | 97.8 [94.4, 100.0] (n=93) | 94.6 [89.5, 98.9] (n=93) | 94.6 [89.5, 98.9] (n=93) |
+| AlignScore-base | QI_correct | 85.4 [83.1, 87.5] (n=1062) | 85.8 [83.4, 87.9] (n=1062) | 85.6 [83.3, 87.7] (n=1062) |
+| AlignScore-base | US_unit_type_auto | 72.3 [57.4, 86.2] (n=47) | 70.2 [55.2, 85.0] (n=47) | 70.2 [55.2, 85.0] (n=47) |
+| AlignScore-base | US_unit_type_precheck_true | 75.0 [45.5, 100.0] (n=12) | 75.0 [45.5, 100.0] (n=12) | 75.0 [45.5, 100.0] (n=12) |
+| AlignScore-base | US_same_numeral_auto | 46.7 [18.2, 75.0] (n=15) | 40.0 [12.5, 72.7] (n=15) | 40.0 [12.5, 72.7] (n=15) |
+| AlignScore-base | US_value_auto | 93.5 [87.4, 98.9] (n=93) | 96.8 [92.9, 100.0] (n=93) | 95.7 [91.2, 99.0] (n=93) |
+| MiniCheck-Flan-T5-Large | QI_correct | 72.9 [69.6, 75.9] (n=1062) | 72.4 [69.2, 75.5] (n=1062) | 72.4 [69.2, 75.5] (n=1062) |
+| MiniCheck-Flan-T5-Large | US_unit_type_auto | 72.3 [57.1, 87.2] (n=47) | 80.9 [66.0, 94.0] (n=47) | 80.9 [66.0, 94.0] (n=47) |
+| MiniCheck-Flan-T5-Large | US_unit_type_precheck_true | 83.3 [58.3, 100.0] (n=12) | 91.7 [72.7, 100.0] (n=12) | 91.7 [72.7, 100.0] (n=12) |
+| MiniCheck-Flan-T5-Large | US_same_numeral_auto | 40.0 [16.7, 75.0] (n=15) | 60.0 [27.8, 100.0] (n=15) | 60.0 [27.8, 100.0] (n=15) |
+| MiniCheck-Flan-T5-Large | US_value_auto | 97.8 [94.5, 100.0] (n=93) | 96.8 [92.7, 100.0] (n=93) | 95.7 [91.1, 99.0] (n=93) |
+| AlignScore-large | QI_correct | 87.3 [85.3, 89.2] (n=1062) | 87.6 [85.6, 89.5] (n=1062) | 87.7 [85.7, 89.5] (n=1062) |
+| AlignScore-large | US_unit_type_auto | 68.1 [52.4, 83.8] (n=47) | 74.5 [59.6, 88.2] (n=47) | 74.5 [59.6, 88.2] (n=47) |
+| AlignScore-large | US_unit_type_precheck_true | 75.0 [45.5, 100.0] (n=12) | 75.0 [45.5, 100.0] (n=12) | 75.0 [45.5, 100.0] (n=12) |
+| AlignScore-large | US_same_numeral_auto | 20.0 [0.0, 50.0] (n=15) | 40.0 [12.5, 72.7] (n=15) | 40.0 [12.5, 72.7] (n=15) |
+| AlignScore-large | US_value_auto | 97.8 [94.5, 100.0] (n=93) | 98.9 [96.5, 100.0] (n=93) | 98.9 [96.5, 100.0] (n=93) |
+
+Env agreement (re-scored raw text vs stored paper verdicts, changed rows): MiniCheck-RoBERTa 705/705; MiniCheck-DeBERTa 705/705; AlignScore-base 705/705; MiniCheck-Flan-T5-Large 705/705; AlignScore-large 705/705
 
 ## Caveats
 

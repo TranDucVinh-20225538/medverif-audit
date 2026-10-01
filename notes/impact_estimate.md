@@ -25,10 +25,8 @@ Sensitivities (all answers): adjudicable denominator (drop time_ambiguous + unve
 | AlignScore-base | 1451/1451 | 13.1 [6.9, 20.3] | 9.0 [3.5, 15.2] | 5.5 [1.4, 10.6] | 4.1 [0.7, 8.3] | 8.3 [3.5, 13.6] | 13.6 [7.5, 20.0]% | 8.3 [2.7, 15.2] | 18.0 [8.3, 29.0] | 12.4 [4.2, 22.1] | 13.8 [5.6, 22.4] |
 | MiniCheck-Flan-T5-Large | 1451/1451 | 10.3 [4.2, 17.5] | 9.0 [3.4, 15.9] | 6.2 [1.4, 12.6] | 1.4 [0.0, 3.5] | 4.8 [1.4, 8.4] | 10.7 [4.8, 17.2]% | 9.6 [1.4, 19.4] | 11.0 [4.2, 19.2] | 16.5 [6.9, 27.9] | 4.1 [0.0, 9.6] |
 | AlignScore-large | 1451/1451 | 11.7 [5.4, 19.4] | 10.3 [4.1, 17.9] | 8.3 [2.7, 15.5] | 1.4 [0.0, 3.5] | 4.8 [1.4, 8.8] | 12.1 [5.8, 19.0]% | 12.4 [4.1, 23.2] | 11.0 [4.1, 19.3] | 11.0 [2.8, 20.9] | 12.4 [5.5, 20.8] |
-| Llama-3.3-70B (RAGAS NLI) | 1388/1451 | 10.8 [4.9, 17.9] | 9.4 [3.6, 16.3] | 5.8 [1.4, 11.5] | 1.4 [0.0, 3.6] | 4.3 [1.4, 7.9] | 11.7 [5.6, 18.3]% | 11.0 [4.1, 20.4] | 10.6 [3.1, 18.9] | 12.4 [4.2, 22.0] | 9.1 [3.0, 16.7] |
-| Mistral-Small-24B (MedScore) | missing (v1_medscore.jsonl not present yet) | | | | | | | | | | |
-
-Llama-3.3-70B (RAGAS NLI): coverage 1388/1451 (missing rows by cell: {'gemma3_27b|closed': 63}); post-stratified overall slips per 1000: any 10.8 [4.8, 17.9], unit-type 9.4 [3.6, 16.4].
+| Llama-3.3-70B (RAGAS NLI) | 1451/1451 | 11.0 [4.9, 18.0] | 9.0 [3.4, 15.7] | 5.5 [1.4, 11.0] | 2.1 [0.0, 4.8] | 4.8 [1.4, 8.4] | 11.4 [5.6, 17.7]% | 11.0 [4.1, 20.4] | 11.0 [4.1, 19.3] | 12.4 [4.2, 22.0] | 9.7 [2.8, 17.1] |
+| Mistral-Small-24B (MedScore) | 1451/1451 | 10.3 [4.1, 17.7] | 9.6 [3.5, 17.0] | 6.2 [1.4, 12.8] | 0.7 [0.0, 2.1] | 4.1 [0.7, 8.3] | 10.7 [4.7, 17.4]% | 9.6 [2.7, 18.3] | 11.0 [4.1, 20.4] | 15.2 [5.6, 26.2] | 5.5 [1.4, 11.2] |
 
 Per-stratum slips by error type (grounded / closed-book, per 1000 answers in that stratum) are in the JSON (`checkers.<name>.strata`), with miss rates (share of errors PASSed) and question-clustered CIs.
 
@@ -38,18 +36,19 @@ UNF (`src/unit_norm_fix.py`) changes the text of 527/1451 RD pairs (by class: {'
 
 | checker | before: any | after UNF: any | before: unit-type | after UNF: unit-type | status |
 |---|---|---|---|---|---|
-| MiniCheck-RoBERTa | 12.4 [6.0, 20.1] | pending; bounds [2.1, 46.9] | 10.3 [4.1, 17.9] | pending; bounds [0.7, 25.5] | PENDING (HPC re-score of UNF-changed rows: 0/527) |
-| MiniCheck-DeBERTa | 6.2 [2.1, 11.1] | pending; bounds [2.1, 46.9] | 4.8 [1.4, 9.2] | pending; bounds [0.7, 25.5] | PENDING (HPC re-score of UNF-changed rows: 0/527) |
-| AlignScore-base | 13.1 [6.9, 20.3] | pending; bounds [3.4, 48.2] | 9.0 [3.5, 15.2] | pending; bounds [2.1, 26.9] | PENDING (HPC re-score of UNF-changed rows: 0/527) |
-| MiniCheck-Flan-T5-Large | 10.3 [4.2, 17.5] | pending; bounds [1.4, 46.2] | 9.0 [3.4, 15.9] | pending; bounds [1.4, 26.2] | PENDING (HPC re-score of UNF-changed rows: 0/527) |
-| AlignScore-large | 11.7 [5.4, 19.4] | pending; bounds [1.4, 46.2] | 10.3 [4.1, 17.9] | pending; bounds [1.4, 26.2] | PENDING (HPC re-score of UNF-changed rows: 0/527) |
+| MiniCheck-RoBERTa | 12.4 [6.0, 20.1] | 11.7 [5.0, 19.8] | 10.3 [4.1, 17.9] | 9.0 [2.8, 16.6] | done |
+| MiniCheck-DeBERTa | 6.2 [2.1, 11.1] | 7.6 [2.8, 13.2] | 4.8 [1.4, 9.2] | 4.1 [0.7, 8.3] | done |
+| AlignScore-base | 13.1 [6.9, 20.3] | 11.7 [5.5, 19.1] | 9.0 [3.5, 15.2] | 9.6 [4.1, 16.7] | done |
+| MiniCheck-Flan-T5-Large | 10.3 [4.2, 17.5] | 8.3 [2.8, 14.8] | 9.0 [3.4, 15.9] | 6.2 [1.4, 12.4] | done |
+| AlignScore-large | 11.7 [5.4, 19.4] | 9.0 [3.5, 15.7] | 10.3 [4.1, 17.9] | 8.3 [2.8, 14.7] | done |
 
 Bounds: floor = slips among pairs UNF leaves unchanged (verdict cannot change); ceiling = every UNF-changed error PASSes.
+After UNF, correct answers PASSed (false-alarm side): MiniCheck-RoBERTa 76.9 [74.2, 79.5]%; MiniCheck-DeBERTa 71.4 [68.4, 74.3]%; AlignScore-base 85.8 [83.4, 87.9]%; MiniCheck-Flan-T5-Large 72.4 [69.2, 75.5]%; AlignScore-large 87.6 [85.6, 89.5]%. Same-env agreement of the HPC re-scored original text with the stored RD verdicts: MiniCheck-RoBERTa 527/527; MiniCheck-DeBERTa 527/527; AlignScore-base 527/527; MiniCheck-Flan-T5-Large 527/527; AlignScore-large 527/527.
 
 ## Paper-ready sentences (automatic labels; update after human verification)
 
 - Of every 1000 dose answers produced by gpt-4o-mini and gemma-3-27b, 96 (95% CI 77-116) contained an automatically flagged dose error: 180 (145-216) when answering closed-book versus 14 (5-25) when grounded in the FDA label excerpt.
-- At the paper's operating points, the 5 fully scored checkers let 6.2-13.1 of these erroneous answers per 1000 through, 4.8-10.3 of them unit-type errors (wrong unit or dosing basis): unit-type errors are 34% of flagged errors, but each checker passed 15-32% of them versus 2-6% of value errors.
+- At the paper's operating points, the 7 fully scored checkers let 6.2-13.1 of these erroneous answers per 1000 through, 4.8-10.3 of them unit-type errors (wrong unit or dosing basis): unit-type errors are 34% of flagged errors, but each checker passed 15-32% of them versus 1-6% of value errors.
 - 14 of the 47 unit-type flags are suspected label-parsing artifacts (e.g. `mg/m 2` from a lost superscript); excluding them, unit-type errors fall to 22.7 per 1000 answers and total slips to 3.4-8.3 per 1000, so the unit-type figures (especially grounded) are upper bounds until `qc/real_dose_errors_check.csv` is adjudicated.
 
 ## Caveats
