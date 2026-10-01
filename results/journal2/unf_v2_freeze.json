@@ -1,0 +1,13 @@
+{
+ "what": "FREEZE of the post-hoc unit normalizer v2 (src/unit_norm_fix_v2.py) before any held-out evaluation data exists",
+ "file": "src/unit_norm_fix_v2.py",
+ "sha256": "1e816234cd9cef18299f8d39fc7dfb1de83ec30454feae818910037301ee5511",
+ "depends_on": {
+  "src/unit_norm_fix.py": "369d89fe45c56f5d433465287e3a7e45a63c34d07faaf9d43e91bd2b25b3b970"
+ },
+ "git_head_at_freeze": "1843e83684751b3fee5c35138ec4b93a7787649a",
+ "git_last_commit_touching_v2": "76c2e5f0c5cb84aeeee7dc534f1f992bbf7d13a0",
+ "frozen_at": "2026-10-01T17:19:46+07:00",
+ "statement": "unit_norm_fix_v2.py was developed (post hoc) on data/journal2/unf_adversarial.jsonl (the synthetic unit-spelling adversarial set) and is FROZEN from this commit on. The held-out set (data/journal2/unf_heldout.jsonl, built from real LLM-answer and openFDA-label dose strings) is created only AFTER this freeze commit; v2 must not be edited afterwards. Bugs found on the held-out set are reported, not fixed. Verify with: sha256sum src/unit_norm_fix_v2.py",
+ "frozen_by": "audit-bot (Grok Bot agent)"
+}
