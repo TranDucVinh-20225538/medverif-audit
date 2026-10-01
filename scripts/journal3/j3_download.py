@@ -13,14 +13,17 @@ The scoring jobs load exactly that revision, offline.
 from __future__ import annotations
 
 import argparse
+import fcntl
 import json
 import os
 import shutil
+import struct
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from j3_common import J3, MOCK, log  # noqa: E402
+from j3_common import J3, MOCK, ROOT, log  # noqa: E402
 from j3_models import JUDGES  # noqa: E402
 
 OUT = J3 / "models.json"
@@ -28,12 +31,47 @@ PATTERNS = ["*.json", "*.safetensors", "*.model", "*.txt", "*.jinja", "tokenizer
 
 
 def hub_cache() -> Path:
-    return Path(os.environ.get("HUGGINGFACE_HUB_CACHE") or Path(os.environ.get("HF_HOME", "~/.cache/huggingface")).expanduser() / "hub")
+    """The hub cache the scoring jobs read (jr3_env.sh: HF_HOME defaults to <ROOT>/.cache/huggingface, not ~)."""
+    env = os.environ.get("HUGGINGFACE_HUB_CACHE") or os.environ.get("HF_HUB_CACHE")
+    if env:
+        return Path(env).expanduser()
+    return Path(os.environ.get("HF_HOME") or ROOT / ".cache" / "huggingface").expanduser() / "hub"
 
 
-def cached_snapshot(hf_id: str, revision: str | None = None):
-    """Return (revision, dir) of a complete cached snapshot (all shards listed in the safetensors index present)."""
-    d = hub_cache() / ("models--" + hf_id.replace("/", "--"))
+def extra_caches() -> list:
+    home = Path("~/.cache/huggingface/hub").expanduser()
+    return [home] if home.is_dir() and home.resolve() != hub_cache().resolve() else []
+
+
+def safetensors_ok(p: Path) -> bool:
+    """Header parses and the file is exactly 8 + header + tensor data bytes (catches truncated downloads)."""
+    try:
+        size = p.stat().st_size
+        with open(p, "rb") as f:
+            n = struct.unpack("<Q", f.read(8))[0]
+            hdr = json.loads(f.read(n))
+        end = max((v["data_offsets"][1] for k, v in hdr.items() if k != "__metadata__"), default=0)
+        return size == 8 + n + end
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def snapshot_complete(s: Path) -> bool:
+    if not (s / "config.json").is_file():
+        return False
+    idx = s / "model.safetensors.index.json"
+    if idx.is_file():
+        shards = set(json.loads(idx.read_text())["weight_map"].values())
+    elif (s / "model.safetensors").exists():
+        shards = {"model.safetensors"}
+    else:
+        return False
+    return bool(shards) and all(safetensors_ok(s / x) for x in shards)
+
+
+def cached_snapshot(hf_id: str, revision: str | None = None, cache: Path | None = None):
+    """Return (revision, dir) of a complete cached snapshot (every shard present with an intact safetensors file)."""
+    d = (cache or hub_cache()) / ("models--" + hf_id.replace("/", "--"))
     snaps = d / "snapshots"
     if not snaps.is_dir():
         return None, None
@@ -43,16 +81,30 @@ def cached_snapshot(hf_id: str, revision: str | None = None):
         cands.append(snaps / ref.read_text().strip())
     cands += sorted(snaps.iterdir())
     for s in cands:
-        if not s.is_dir():
-            continue
-        idx = s / "model.safetensors.index.json"
-        if idx.is_file():
-            shards = set(json.loads(idx.read_text())["weight_map"].values())
-            if shards and all((s / x).exists() for x in shards):
-                return s.name, s
-        elif (s / "model.safetensors").exists():
+        if s.is_dir() and snapshot_complete(s):
             return s.name, s
     return None, None
+
+
+def link_into_hub_cache(hf_id: str, src_snap: Path) -> Path:
+    """Symlink a complete model dir from another cache into the job cache (an existing partial dir is moved aside)."""
+    name = "models--" + hf_id.replace("/", "--")
+    dst = hub_cache() / name
+    if dst.is_symlink() or dst.exists():
+        aside = dst.with_name("%s.partial-%s" % (name, time.strftime("%Y%m%d%H%M%S")))
+        dst.rename(aside)
+        log("J3_DL", model=hf_id, moved_aside=str(aside))
+    dst.symlink_to(src_snap.parent.parent)
+    return dst / "snapshots" / src_snap.name
+
+
+def ensure_refs_main(hf_id: str, sha: str) -> None:
+    """vLLM 0.8.x builds the multimodal processor's tokenizer without the pinned revision (tokenizer_revision is dropped),
+    so offline loads of e.g. MedGemma resolve 'main' and need refs/main.  sha must be the Hub's current main."""
+    ref = hub_cache() / ("models--" + hf_id.replace("/", "--")) / "refs" / "main"
+    if not ref.is_file():
+        ref.parent.mkdir(parents=True, exist_ok=True)
+        ref.write_text(sha)
 
 
 def main() -> None:
@@ -66,6 +118,14 @@ def main() -> None:
     for part in args.models.split(","):
         a, _, b = part.partition("-")
         idx.update(range(int(a), int(b or a) + 1))
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    lock_dir = hub_cache() / ".locks"  # outside results/journal3, which jr3_final.sbatch commits
+    lock_dir.mkdir(parents=True, exist_ok=True)
+    lock = open(lock_dir / "j3_models_json.lock", "w")
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        raise SystemExit("%s is being written by another j3_download.py; wait for it to finish" % out_path)
     prev = json.loads(out_path.read_text()) if out_path.is_file() else {}
     res = dict(prev)
     free_gb = shutil.disk_usage(hub_cache() if hub_cache().exists() else Path.cwd()).free / 1e9
@@ -77,11 +137,24 @@ def main() -> None:
         if MOCK:
             res[slug] = dict(rec, status="ok", revision="MOCKREV", cached=True, size_gb=size_gb)
             continue
-        rev, snap = cached_snapshot(hf_id, (prev.get(slug) or {}).get("revision"))
+        want_rev = (prev.get(slug) or {}).get("revision")
+        rev, snap = cached_snapshot(hf_id, want_rev)
+        if not rev:
+            for other in extra_caches():
+                rev, src = cached_snapshot(hf_id, want_rev, other)
+                if rev:
+                    snap = src if args.check_only else link_into_hub_cache(hf_id, src)
+                    log("J3_DL", model=slug, found_in=str(other), linked=not args.check_only)
+                    break
         if rev:
+            refs_main = (snap.parent.parent / "refs" / "main").is_file()
             res[slug] = dict(rec, status="ok", revision=rev, cached=True, size_gb=round(sum(
-                f.stat().st_size for f in snap.iterdir() if f.suffix == ".safetensors") / 1e9, 2), local_path=str(snap))
+                f.stat().st_size for f in snap.iterdir() if f.suffix == ".safetensors") / 1e9, 2), local_path=str(snap),
+                refs_main=refs_main)
             log("J3_DL", model=slug, cached=True, revision=rev)
+            if not refs_main and family == "gemma3":
+                log("J3_DL", model=slug, warning="refs/main missing: offline vLLM multimodal load will fail; run "
+                    "snapshot_download(%r, revision='main') online if main == %s" % (hf_id, rev))
             continue
         try:
             from huggingface_hub import HfApi, get_hf_file_metadata, hf_hub_url
@@ -123,12 +196,18 @@ def main() -> None:
             res[slug].update(status="download_failed", reason="%s: %s" % (type(exc).__name__, str(exc)[:300]))
             log("J3_DL", model=slug, download_failed=res[slug]["reason"])
             continue
-        res[slug].update(status="ok", cached=True, local_path=path)
+        if not snapshot_complete(Path(path)):
+            res[slug].update(status="download_failed", reason="snapshot incomplete/truncated after download: %s" % path)
+            log("J3_DL", model=slug, download_failed=res[slug]["reason"])
+            continue
+        ensure_refs_main(hf_id, sha)
+        res[slug].update(status="ok", cached=True, local_path=path, refs_main=True)
     out = {"_meta": {"hub_cache": str(hub_cache()), "free_gb": round(free_gb, 1), "need_gb_new": round(need_gb, 1),
                      "check_only": args.check_only}}
     out.update({k: v for k, v in res.items() if not k.startswith("_")})
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(out, indent=1) + "\n")
+    tmp = out_path.with_name(out_path.name + ".tmp")
+    tmp.write_text(json.dumps(out, indent=1) + "\n")
+    tmp.replace(out_path)
     print(json.dumps({"models_json": str(out_path), "free_gb": round(free_gb, 1), "need_gb_new": round(need_gb, 1),
                       "status": {k: v.get("status") for k, v in out.items() if not k.startswith("_")}}, indent=1))
     if need_gb > free_gb * 0.9:
