@@ -1,0 +1,15 @@
+{
+ "stage": "J3_FT_minicheck_ft5_r2",
+ "finished": "2026-10-01T19:51:44+0700",
+ "slurm_job": "62142_5",
+ "weights": "/data2/hpcshared/medverif-audit/.cache/checkpoints/jr_minicheck_ft5_r2/best",
+ "rows": {
+  "rd_raw": 1451,
+  "ho_raw": 450,
+  "ho_unf": 450,
+  "ho_unf_v2": 450,
+  "rdunf_raw": 705,
+  "rdunf_unf": 705,
+  "rdunf_unf_v2": 705
+ }
+}
