@@ -1,0 +1,1143 @@
+{
+ "generated_by": "scripts/journal2/unf_heldout_report.py",
+ "v2_sha256": "1e816234cd9cef18299f8d39fc7dfb1de83ec30454feae818910037301ee5511",
+ "v2_frozen_sha256": "1e816234cd9cef18299f8d39fc7dfb1de83ec30454feae818910037301ee5511",
+ "v2_matches_freeze": true,
+ "freeze_record": {
+  "what": "FREEZE of the post-hoc unit normalizer v2 (src/unit_norm_fix_v2.py) before any held-out evaluation data exists",
+  "file": "src/unit_norm_fix_v2.py",
+  "sha256": "1e816234cd9cef18299f8d39fc7dfb1de83ec30454feae818910037301ee5511",
+  "depends_on": {
+   "src/unit_norm_fix.py": "369d89fe45c56f5d433465287e3a7e45a63c34d07faaf9d43e91bd2b25b3b970"
+  },
+  "git_head_at_freeze": "1843e83684751b3fee5c35138ec4b93a7787649a",
+  "git_last_commit_touching_v2": "76c2e5f0c5cb84aeeee7dc534f1f992bbf7d13a0",
+  "frozen_at": "2026-10-01T17:19:46+07:00",
+  "statement": "unit_norm_fix_v2.py was developed (post hoc) on data/journal2/unf_adversarial.jsonl (the synthetic unit-spelling adversarial set) and is FROZEN from this commit on. The held-out set (data/journal2/unf_heldout.jsonl, built from real LLM-answer and openFDA-label dose strings) is created only AFTER this freeze commit; v2 must not be edited afterwards. Bugs found on the held-out set are reported, not fixed. Verify with: sha256sum src/unit_norm_fix_v2.py",
+  "frozen_by": "audit-bot (Grok Bot agent)"
+ },
+ "n_rows": 486,
+ "rows_by_family": {
+  "S": 150,
+  "U": 150,
+  "anchor": 150,
+  "parse_only": 36
+ },
+ "rows_by_source_family": {
+  "label": {
+   "S": 96,
+   "U": 96,
+   "anchor": 96
+  },
+  "rd_answer": {
+   "S": 54,
+   "U": 54,
+   "anchor": 54,
+   "parse_only": 6
+  },
+  "rd_answer_free": {
+   "parse_only": 30
+  }
+ },
+ "n_drugs": 97,
+ "U_residual": {
+  "rd_answer": 15,
+  "label": 20
+ },
+ "normalizer": {
+  "v1": {
+   "real_all": {
+    "k": 211,
+    "n": 240,
+    "rate": 87.91666666666667,
+    "ci": [
+     82.23140495867769,
+     93.06122448979592
+    ]
+   },
+   "real_by_group": {
+    "LLM answer": {
+     "k": 80,
+     "n": 90,
+     "rate": 88.88888888888889,
+     "ci": [
+      81.25,
+      95.55555555555556
+     ]
+    },
+    "RD label excerpt": {
+     "k": 46,
+     "n": 54,
+     "rate": 85.18518518518519,
+     "ci": [
+      74.54545454545455,
+      94.11764705882354
+     ]
+    },
+    "openFDA label": {
+     "k": 85,
+     "n": 96,
+     "rate": 88.54166666666667,
+     "ci": [
+      81.52173913043478,
+      94.84536082474227
+     ]
+    }
+   },
+   "test_claims": {
+    "k": 286,
+    "n": 300,
+    "rate": 95.33333333333333,
+    "ci": [
+     91.94630872483222,
+     98.49624060150376
+    ]
+   },
+   "test_by_label": {
+    "SUPPORTED": {
+     "k": 143,
+     "n": 150,
+     "rate": 95.33333333333333,
+     "ci": [
+      91.94630872483222,
+      98.49624060150376
+     ]
+    },
+    "UNSUPPORTED": {
+     "k": 143,
+     "n": 150,
+     "rate": 95.33333333333333,
+     "ci": [
+      91.94630872483222,
+      98.49624060150376
+     ]
+    }
+   },
+   "test_by_source": {
+    "rd_answer": {
+     "k": 94,
+     "n": 108,
+     "rate": 87.03703703703704,
+     "ci": [
+      76.92307692307692,
+      94.73684210526316
+     ]
+    },
+    "label": {
+     "k": 192,
+     "n": 192,
+     "rate": 100.0,
+     "ci": [
+      100.0,
+      100.0
+     ]
+    }
+   },
+   "pair_outcome": {
+    "k": 244,
+    "n": 300,
+    "rate": 81.33333333333333,
+    "ci": [
+     77.3805501930502,
+     85.25191385353256
+    ]
+   },
+   "pair_U_clean": {
+    "k": 106,
+    "n": 115,
+    "rate": 92.17391304347827,
+    "ci": [
+     87.12871287128714,
+     96.58119658119658
+    ]
+   },
+   "pair_U_residual": {
+    "k": 0,
+    "n": 35,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ]
+   },
+   "pair_by_label": {
+    "SUPPORTED": {
+     "k": 138,
+     "n": 150,
+     "rate": 92.0,
+     "ci": [
+      87.03703703703704,
+      96.17834394904459
+     ]
+    },
+    "UNSUPPORTED": {
+     "k": 106,
+     "n": 150,
+     "rate": 70.66666666666667,
+     "ci": [
+      63.02988792029888,
+      78.0
+     ]
+    }
+   },
+   "anchors_parse_ok": "131/150",
+   "real_failures": [
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0000__diphenhydramine__S",
+     "drug": "diphenhydramine",
+     "mention": "150 mg/m 2/24 hr",
+     "gold": "150 mg/m2/day",
+     "why": "wrong key mass|||| (gold mass||/m2||/day) from '150 mg'",
+     "feature": "lost superscript 'm 2'"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0034__epinephrine__S",
+     "drug": "epinephrine",
+     "mention": "0.05 mcg/kg/min to 2 mcg/kg/min",
+     "gold": "0.05-2 mcg/kg/min",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0034__epinephrine__S",
+     "drug": "epinephrine",
+     "mention": "0.05 mcg/kg/min to 2 mcg/kg/min",
+     "gold": "0.05-2 mcg/kg/min",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0046__labetalol__P",
+     "drug": "labetalol",
+     "mention": "200 mg to 2,400 mg per day",
+     "gold": "200-2400 mg/day",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0060__cyclophosphamide__S",
+     "drug": "cyclophosphamide",
+     "mention": "40 mg per kg to 50 mg per kg",
+     "gold": "40-50 mg/kg",
+     "why": "split into 2 spans",
+     "feature": "spelled unit / denominator ('micrograms per kilogram')"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0060__cyclophosphamide__S",
+     "drug": "cyclophosphamide",
+     "mention": "40 mg per kg to 50 mg per kg",
+     "gold": "40-50 mg/kg",
+     "why": "split into 2 spans",
+     "feature": "spelled unit / denominator ('micrograms per kilogram')"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0102__propofol__S",
+     "drug": "propofol",
+     "mention": "2 mg/kg to 2.5 mg/kg",
+     "gold": "2-2.5 mg/kg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0102__propofol__S",
+     "drug": "propofol",
+     "mention": "2 mg/kg to 2.5 mg/kg",
+     "gold": "2-2.5 mg/kg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0132__pyrazinamide__S",
+     "drug": "pyrazinamide",
+     "mention": "3 g/daily dose",
+     "gold": "3 g/day",
+     "why": "wrong key mass|||| (gold mass||||/day) from '3 g'",
+     "feature": "spelled time denominator ('/minute', '/hour', '/24 hr', '/daily dose')"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0132__pyrazinamide__S",
+     "drug": "pyrazinamide",
+     "mention": "3 g/daily dose",
+     "gold": "3 g/day",
+     "why": "wrong key mass|||| (gold mass||||/day) from '3 g'",
+     "feature": "spelled time denominator ('/minute', '/hour', '/24 hr', '/daily dose')"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0138__norepinephrine__S",
+     "drug": "norepinephrine",
+     "mention": "0.25 mL to 0.375 mL per minute",
+     "gold": "0.25-0.375 mL/min",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0138__norepinephrine__S",
+     "drug": "norepinephrine",
+     "mention": "0.25 mL to 0.375 mL",
+     "gold": "0.25-0.375 mL",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0147__bumetanide__S",
+     "drug": "bumetanide",
+     "mention": "0.5 mg to 2 mg",
+     "gold": "0.5-2 mg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0147__bumetanide__S",
+     "drug": "bumetanide",
+     "mention": "0.5 mg to 2 mg",
+     "gold": "0.5-2 mg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0150__duloxetine__S",
+     "drug": "duloxetine",
+     "mention": "40 mg/day to 60 mg/day",
+     "gold": "40-60 mg/day",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0150__duloxetine__S",
+     "drug": "duloxetine",
+     "mention": "40 mg/day to 60 mg/day",
+     "gold": "40-60 mg/day",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0170__ondansetron__A",
+     "drug": "ondansetron",
+     "mention": "50 mg/m 2",
+     "gold": "50 mg/m2",
+     "why": "wrong key mass|||| (gold mass||/m2||) from '50 mg'",
+     "feature": "lost superscript 'm 2'"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0173__sulfamethoxazole__A",
+     "drug": "sulfamethoxazole",
+     "mention": "150 mg/m 2 /day",
+     "gold": "150 mg/m2/day",
+     "why": "wrong key mass|||| (gold mass||/m2||/day) from '150 mg'",
+     "feature": "lost superscript 'm 2'"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0176__sulfamethoxazole__A",
+     "drug": "sulfamethoxazole",
+     "mention": "750 mg/m 2 /day",
+     "gold": "750 mg/m2/day",
+     "why": "wrong key mass|||| (gold mass||/m2||/day) from '750 mg'",
+     "feature": "lost superscript 'm 2'"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0185__probenecid__A",
+     "drug": "probenecid",
+     "mention": "4.8 million units",
+     "gold": "4800000 units",
+     "why": "no span",
+     "feature": "'million units'"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0188__insulin__A",
+     "drug": "insulin",
+     "mention": "0.1 unit/mL to 1 unit/mL",
+     "gold": "0.1-1 units/mL",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0224__epinephrine__A",
+     "drug": "epinephrine",
+     "mention": "10 mcg/mL to 2.5 mcg/mL",
+     "gold": "10-2.5 mcg/mL",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0242__calcium__A",
+     "drug": "calcium",
+     "mention": "200 mg to 1,000 mg",
+     "gold": "200-1000 mg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0254__norepinephrine__A",
+     "drug": "norepinephrine",
+     "mention": "0.0625 mL to 0.125 mL per minute",
+     "gold": "0.0625-0.125 mL/min",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0263__metoprolol__A",
+     "drug": "metoprolol",
+     "mention": "100 mg to 450 mg per day",
+     "gold": "100-450 mg/day",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0428__glucagon__A",
+     "drug": "glucagon",
+     "mention": "0.25 mg to 0.5 mg",
+     "gold": "0.25-0.5 mg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0449__quetiapine__A",
+     "drug": "quetiapine",
+     "mention": "25 mg/day - 50 mg/day",
+     "gold": "25-50 mg/day",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0457__dobutamine__P",
+     "drug": "dobutamine",
+     "mention": "20 micrograms per minute per kilogram",
+     "gold": "20 mcg/kg/min",
+     "why": "wrong key mass||||/day (gold mass|/kg|||/day) from '20 micrograms per minute'",
+     "feature": "spelled unit / denominator ('micrograms per kilogram')"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0461__cyclophosphamide__P",
+     "drug": "cyclophosphamide",
+     "mention": "500 mg to 1,000 mg",
+     "gold": "500-1000 mg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    }
+   ],
+   "test_failures": [
+    {
+     "id": "UNFHO0034__epinephrine__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0035__epinephrine__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 0.05 mcg/kg/min to 2 mcg/kg/min -> 0.05 mg/kg/min to 2 mg/kg/min",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0060__cyclophosphamide__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0061__cyclophosphamide__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 40 mg per kg to 50 mg per kg -> 40 mcg per kg to 50 mcg per kg",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0102__propofol__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0103__propofol__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 2 mg/kg to 2.5 mg/kg -> 2 mcg/kg to 2.5 mcg/kg",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0132__pyrazinamide__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "wrong key mass|||| (gold mass||||/day) from '3 g'"
+    },
+    {
+     "id": "UNFHO0133__pyrazinamide__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 3 g/daily dose -> 3 mg/daily dose",
+     "why": "wrong key mass|||| (gold mass||||/day) from '3 mg'"
+    },
+    {
+     "id": "UNFHO0138__norepinephrine__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural respelling/conversion)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0139__norepinephrine__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 0.25 mL to 0.375 mL per minute -> 0.25 L to 0.375 L per minute",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0147__bumetanide__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0148__bumetanide__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 0.5 mg to 2 mg -> 0.5 mcg to 2 mcg",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0150__duloxetine__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0151__duloxetine__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 40 mg/day to 60 mg/day -> 40 mcg/day to 60 mcg/day",
+     "why": "split into 2 spans"
+    }
+   ]
+  },
+  "v2": {
+   "real_all": {
+    "k": 221,
+    "n": 240,
+    "rate": 92.08333333333333,
+    "ci": [
+     87.2,
+     96.31147540983606
+    ]
+   },
+   "real_by_group": {
+    "LLM answer": {
+     "k": 82,
+     "n": 90,
+     "rate": 91.11111111111111,
+     "ci": [
+      83.9080459770115,
+      96.875
+     ]
+    },
+    "RD label excerpt": {
+     "k": 49,
+     "n": 54,
+     "rate": 90.74074074074075,
+     "ci": [
+      82.0,
+      98.07692307692308
+     ]
+    },
+    "openFDA label": {
+     "k": 90,
+     "n": 96,
+     "rate": 93.75,
+     "ci": [
+      88.77551020408163,
+      97.95918367346938
+     ]
+    }
+   },
+   "test_claims": {
+    "k": 288,
+    "n": 300,
+    "rate": 96.0,
+    "ci": [
+     92.7710843373494,
+     98.67549668874172
+    ]
+   },
+   "test_by_label": {
+    "SUPPORTED": {
+     "k": 144,
+     "n": 150,
+     "rate": 96.0,
+     "ci": [
+      92.7710843373494,
+      98.67549668874172
+     ]
+    },
+    "UNSUPPORTED": {
+     "k": 144,
+     "n": 150,
+     "rate": 96.0,
+     "ci": [
+      92.7710843373494,
+      98.67549668874172
+     ]
+    }
+   },
+   "test_by_source": {
+    "rd_answer": {
+     "k": 98,
+     "n": 108,
+     "rate": 90.74074074074075,
+     "ci": [
+      82.0,
+      98.07692307692308
+     ]
+    },
+    "label": {
+     "k": 190,
+     "n": 192,
+     "rate": 98.95833333333333,
+     "ci": [
+      96.66666666666667,
+      100.0
+     ]
+    }
+   },
+   "pair_outcome": {
+    "k": 251,
+    "n": 300,
+    "rate": 83.66666666666667,
+    "ci": [
+     79.45205479452055,
+     87.81270032051282
+    ]
+   },
+   "pair_U_clean": {
+    "k": 107,
+    "n": 115,
+    "rate": 93.04347826086956,
+    "ci": [
+     87.5,
+     97.52066115702479
+    ]
+   },
+   "pair_U_residual": {
+    "k": 0,
+    "n": 35,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ]
+   },
+   "pair_by_label": {
+    "SUPPORTED": {
+     "k": 144,
+     "n": 150,
+     "rate": 96.0,
+     "ci": [
+      92.79927710843373,
+      98.6842105263158
+     ]
+    },
+    "UNSUPPORTED": {
+     "k": 107,
+     "n": 150,
+     "rate": 71.33333333333333,
+     "ci": [
+      63.447889861039634,
+      78.9861782071927
+     ]
+    }
+   },
+   "anchors_parse_ok": "139/150",
+   "real_failures": [
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0034__epinephrine__S",
+     "drug": "epinephrine",
+     "mention": "0.05 mcg/kg/min to 2 mcg/kg/min",
+     "gold": "0.05-2 mcg/kg/min",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0034__epinephrine__S",
+     "drug": "epinephrine",
+     "mention": "0.05 mcg/kg/min to 2 mcg/kg/min",
+     "gold": "0.05-2 mcg/kg/min",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0046__labetalol__P",
+     "drug": "labetalol",
+     "mention": "200 mg to 2,400 mg per day",
+     "gold": "200-2400 mg/day",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0060__cyclophosphamide__S",
+     "drug": "cyclophosphamide",
+     "mention": "40 mg per kg to 50 mg per kg",
+     "gold": "40-50 mg/kg",
+     "why": "split into 2 spans",
+     "feature": "spelled unit / denominator ('micrograms per kilogram')"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0060__cyclophosphamide__S",
+     "drug": "cyclophosphamide",
+     "mention": "40 mg per kg to 50 mg per kg",
+     "gold": "40-50 mg/kg",
+     "why": "split into 2 spans",
+     "feature": "spelled unit / denominator ('micrograms per kilogram')"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0102__propofol__S",
+     "drug": "propofol",
+     "mention": "2 mg/kg to 2.5 mg/kg",
+     "gold": "2-2.5 mg/kg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0102__propofol__S",
+     "drug": "propofol",
+     "mention": "2 mg/kg to 2.5 mg/kg",
+     "gold": "2-2.5 mg/kg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0132__pyrazinamide__S",
+     "drug": "pyrazinamide",
+     "mention": "3 g/daily dose",
+     "gold": "3 g/day",
+     "why": "wrong key mass|||| (gold mass||||/day) from '3 g'",
+     "feature": "spelled time denominator ('/minute', '/hour', '/24 hr', '/daily dose')"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0132__pyrazinamide__S",
+     "drug": "pyrazinamide",
+     "mention": "3 g/daily dose",
+     "gold": "3 g/day",
+     "why": "wrong key mass|||| (gold mass||||/day) from '3 g'",
+     "feature": "spelled time denominator ('/minute', '/hour', '/24 hr', '/daily dose')"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0150__duloxetine__S",
+     "drug": "duloxetine",
+     "mention": "40 mg/day to 60 mg/day",
+     "gold": "40-60 mg/day",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "RD label excerpt",
+     "id": "UNFHO0150__duloxetine__S",
+     "drug": "duloxetine",
+     "mention": "40 mg/day to 60 mg/day",
+     "gold": "40-60 mg/day",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0185__probenecid__A",
+     "drug": "probenecid",
+     "mention": "4.8 million units",
+     "gold": "4800000 units",
+     "why": "no span",
+     "feature": "'million units'"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0188__insulin__A",
+     "drug": "insulin",
+     "mention": "0.1 unit/mL to 1 unit/mL",
+     "gold": "0.1-1 units/mL",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0224__epinephrine__A",
+     "drug": "epinephrine",
+     "mention": "10 mcg/mL to 2.5 mcg/mL",
+     "gold": "10-2.5 mcg/mL",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0242__calcium__A",
+     "drug": "calcium",
+     "mention": "200 mg to 1,000 mg",
+     "gold": "200-1000 mg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0446__oxcarbazepine__A",
+     "drug": "oxcarbazepine",
+     "mention": "1800 mg/day",
+     "gold": "1800 mg/day",
+     "why": "no span",
+     "feature": "per-kg/m2/time basis (abbreviated)"
+    },
+    {
+     "group": "openFDA label",
+     "id": "UNFHO0449__quetiapine__A",
+     "drug": "quetiapine",
+     "mention": "25 mg/day - 50 mg/day",
+     "gold": "25-50 mg/day",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0457__dobutamine__P",
+     "drug": "dobutamine",
+     "mention": "20 micrograms per minute per kilogram",
+     "gold": "20 mcg/kg/min",
+     "why": "wrong key mass||||/day (gold mass|/kg|||/day) from '20 mcg per minute'",
+     "feature": "spelled unit / denominator ('micrograms per kilogram')"
+    },
+    {
+     "group": "LLM answer",
+     "id": "UNFHO0461__cyclophosphamide__P",
+     "drug": "cyclophosphamide",
+     "mention": "500 mg to 1,000 mg",
+     "gold": "500-1000 mg",
+     "why": "split into 2 spans",
+     "feature": "range, unit on both ends"
+    }
+   ],
+   "test_failures": [
+    {
+     "id": "UNFHO0034__epinephrine__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0035__epinephrine__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 0.05 mcg/kg/min to 2 mcg/kg/min -> 0.05 mg/kg/min to 2 mg/kg/min",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0060__cyclophosphamide__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0061__cyclophosphamide__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 40 mg per kg to 50 mg per kg -> 40 mcg per kg to 50 mcg per kg",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0102__propofol__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0103__propofol__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 2 mg/kg to 2.5 mg/kg -> 2 mcg/kg to 2.5 mcg/kg",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0132__pyrazinamide__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "wrong key mass|||| (gold mass||||/day) from '3 g'"
+    },
+    {
+     "id": "UNFHO0133__pyrazinamide__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 3 g/daily dose -> 3 mg/daily dose",
+     "why": "wrong key mass|||| (gold mass||||/day) from '3 mg'"
+    },
+    {
+     "id": "UNFHO0150__duloxetine__S",
+     "label": "SUPPORTED",
+     "source": "rd_answer",
+     "variant": "as written (natural identical surface)",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0151__duloxetine__U",
+     "label": "UNSUPPORTED",
+     "source": "rd_answer",
+     "variant": "unit swap 40 mg/day to 60 mg/day -> 40 mcg/day to 60 mcg/day",
+     "why": "split into 2 spans"
+    },
+    {
+     "id": "UNFHO0444__oxcarbazepine__S",
+     "label": "SUPPORTED",
+     "source": "label",
+     "variant": "conversion 1800 mg/day -> 1.8 g/day",
+     "why": "no span"
+    },
+    {
+     "id": "UNFHO0445__oxcarbazepine__U",
+     "label": "UNSUPPORTED",
+     "source": "label",
+     "variant": "unit swap 1800 mg/day -> 1800 mcg/day",
+     "why": "no span"
+    }
+   ]
+  },
+  "delta_v2_minus_v1_real_all": {
+   "delta": 4.1666666666666625,
+   "ci": [
+    0.813008130081305,
+    8.334163346613538
+   ]
+  },
+  "discordant_real_all": {
+   "v1_only_ok": 1,
+   "v2_only_ok": 11
+  },
+  "delta_v2_minus_v1_test_claims": {
+   "delta": 0.6666666666666599,
+   "ci": [
+    -1.4084507042253502,
+    3.125
+   ]
+  },
+  "discordant_test_claims": {
+   "v1_only_ok": 2,
+   "v2_only_ok": 4
+  },
+  "v2_regressions_vs_v1": [
+   {
+    "group": "openFDA label",
+    "id": "UNFHO0446__oxcarbazepine__A",
+    "drug": "oxcarbazepine",
+    "mention": "1800 mg/day",
+    "v2_why": "no span"
+   },
+   {
+    "group": "test claim SUPPORTED",
+    "id": "UNFHO0444__oxcarbazepine__S",
+    "drug": "oxcarbazepine",
+    "mention": "conversion 1800 mg/day -> 1.8 g/day",
+    "v2_why": "no span"
+   },
+   {
+    "group": "test claim UNSUPPORTED",
+    "id": "UNFHO0445__oxcarbazepine__U",
+    "drug": "oxcarbazepine",
+    "mention": "unit swap 1800 mg/day -> 1800 mcg/day",
+    "v2_why": "no span"
+   }
+  ],
+  "real_by_feature": {
+   "plain number + unit": {
+    "n": 62,
+    "v1_ok": 62,
+    "v2_ok": 62
+   },
+   "per-kg/m2/time basis (abbreviated)": {
+    "n": 42,
+    "v1_ok": 42,
+    "v2_ok": 41
+   },
+   "'to' range": {
+    "n": 39,
+    "v1_ok": 39,
+    "v2_ok": 39
+   },
+   "spelled unit / denominator ('micrograms per kilogram')": {
+    "n": 26,
+    "v1_ok": 23,
+    "v2_ok": 23
+   },
+   "range, unit on both ends": {
+    "n": 19,
+    "v1_ok": 0,
+    "v2_ok": 7
+   },
+   "spelled time denominator ('/minute', '/hour', '/24 hr', '/daily dose')": {
+    "n": 10,
+    "v1_ok": 8,
+    "v2_ok": 8
+   },
+   "thousands comma": {
+    "n": 9,
+    "v1_ok": 9,
+    "v2_ok": 9
+   },
+   "mEq": {
+    "n": 8,
+    "v1_ok": 8,
+    "v2_ok": 8
+   },
+   "concentration (/mL)": {
+    "n": 7,
+    "v1_ok": 7,
+    "v2_ok": 7
+   },
+   "no space number-unit ('8mEq', '500-750mg')": {
+    "n": 5,
+    "v1_ok": 5,
+    "v2_ok": 5
+   },
+   "lost superscript 'm 2'": {
+    "n": 4,
+    "v1_ok": 0,
+    "v2_ok": 4
+   },
+   "units (singular 'unit' / units)": {
+    "n": 4,
+    "v1_ok": 4,
+    "v2_ok": 4
+   },
+   "hyphen range ('2-5 mcg')": {
+    "n": 3,
+    "v1_ok": 3,
+    "v2_ok": 3
+   },
+   "'million units'": {
+    "n": 1,
+    "v1_ok": 0,
+    "v2_ok": 0
+   },
+   "mcg/µg": {
+    "n": 1,
+    "v1_ok": 1,
+    "v2_ok": 1
+   }
+  },
+  "real_failure_types": {
+   "v1": {
+    "wrong basis/kind": 7,
+    "split into 2 spans": 21,
+    "no span": 1
+   },
+   "v2": {
+    "split into 2 spans": 14,
+    "wrong basis/kind": 3,
+    "no span": 2
+   }
+  }
+ },
+ "checkers": {
+  "MiniCheck-RoBERTa": {
+   "status": "not scored yet"
+  },
+  "MiniCheck-DeBERTa": {
+   "status": "not scored yet"
+  },
+  "AlignScore-base": {
+   "status": "not scored yet"
+  },
+  "MiniCheck-Flan-T5-Large": {
+   "status": "not scored yet"
+  },
+  "AlignScore-large": {
+   "status": "not scored yet"
+  }
+ },
+ "rd": {
+  "pack_rows": 705,
+  "pack_changed": {
+   "v1": 527,
+   "v2": 705
+  },
+  "group_sizes": {
+   "QI_correct": 1062,
+   "US_unit_type_auto": 47,
+   "US_unit_type_precheck_true": 12,
+   "US_same_numeral_auto": 15,
+   "US_value_auto": 93
+  },
+  "group_sizes_changed": {
+   "v1": {
+    "QI_correct": 352,
+    "US_unit_type_auto": 36,
+    "US_unit_type_precheck_true": 7,
+    "US_same_numeral_auto": 12,
+    "US_value_auto": 29
+   },
+   "v2": {
+    "QI_correct": 494,
+    "US_unit_type_auto": 40,
+    "US_unit_type_precheck_true": 10,
+    "US_same_numeral_auto": 13,
+    "US_value_auto": 39
+   }
+  },
+  "checkers": {
+   "MiniCheck-RoBERTa": {
+    "status": "not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705)"
+   },
+   "MiniCheck-DeBERTa": {
+    "status": "not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705)"
+   },
+   "AlignScore-base": {
+    "status": "not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705)"
+   },
+   "MiniCheck-Flan-T5-Large": {
+    "status": "not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705)"
+   },
+   "AlignScore-large": {
+    "status": "not fully scored ({'orig': 0, 'unf': 0, 'unf_v2': 0} of 705)"
+   }
+  }
+ }
+}

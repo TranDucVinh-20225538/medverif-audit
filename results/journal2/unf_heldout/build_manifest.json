@@ -1,0 +1,94 @@
+{
+ "built_after_freeze": "1e816234cd9cef18299f8d39fc7dfb1de83ec30454feae818910037301ee5511",
+ "seed": 20261002,
+ "candidates": 4124,
+ "candidates_by_source": {
+  "rd_answer": 900,
+  "rd_answer_free": 886,
+  "label": 2338
+ },
+ "sampled_mentions": 186,
+ "sampled_by_source": {
+  "rd_answer": 60,
+  "label": 96,
+  "rd_answer_free": 30
+ },
+ "sampled_by_source_cat": {
+  "rd_answer": {
+   "per_m2": 1,
+   "units": 4,
+   "meq": 4,
+   "micro": 7,
+   "thousands": 5,
+   "spelled": 8,
+   "rate": 2,
+   "per_kg_day": 4,
+   "per_kg": 5,
+   "range": 5,
+   "gram": 4,
+   "volume": 2,
+   "decimal": 3,
+   "plain": 6
+  },
+  "label": {
+   "per_m2": 3,
+   "units": 4,
+   "meq": 5,
+   "micro": 10,
+   "thousands": 6,
+   "spelled": 8,
+   "rate": 5,
+   "per_kg_day": 6,
+   "per_kg": 9,
+   "range": 10,
+   "gram": 7,
+   "volume": 5,
+   "conc": 4,
+   "decimal": 7,
+   "plain": 7
+  },
+  "rd_answer_free": {
+   "any": 30
+  }
+ },
+ "excluded_candidates": {
+  "L:hydrocodone:DA:2010": "same label sentence is the evidence mention of an rd_answer item",
+  "F:RD_nifedipine_0:gpt4o_mini:32": "same answer mention is already an rd_answer item",
+  "L:lidocaine:DA:232": "same label sentence is the evidence mention of an rd_answer item",
+  "L:vancomycin:DA:1094": "same label sentence (TYZAVAN dose list) as an rd_answer evidence mention",
+  "L:vancomycin:DA:2951": "same label sentence is the evidence mention of an rd_answer item",
+  "L:diphenhydramine:DA:523": "same label sentence is the evidence mention of an rd_answer item",
+  "L:nystatin:DA:78": "same label sentence is the evidence mention of an rd_answer item",
+  "L:potassium:DA:88": "same label sentence is the evidence mention of an rd_answer item",
+  "L:potassium:DA:659": "same label sentence is the evidence mention of an rd_answer item",
+  "L:metoclopramide:DA:1339": "same label sentence is the evidence mention of an rd_answer item",
+  "L:pyrazinamide:DA:1298": "same label sentence is the evidence mention of an rd_answer item",
+  "L:insulin:DF:168": "verbatim repeat of the L:insulin:DF:40 sentence in the same label"
+ },
+ "rows": 486,
+ "rows_by_family": {
+  "S": 150,
+  "U": 150,
+  "anchor": 150,
+  "parse_only": 36
+ },
+ "test_claims_S_U": 300,
+ "anchors": 150,
+ "parse_only": 36,
+ "drugs": 97,
+ "drugs_in_pairs": 81,
+ "rd_answer_not_supported": [
+  "A:RD_digoxin_0:gemma3_27b:grounded:115",
+  "A:RD_digoxin_0:gpt4o_mini:grounded:60",
+  "A:RD_glucagon_0:gpt4o_mini:closed:32",
+  "A:RD_labetalol_1:gpt4o_mini:closed:133",
+  "A:RD_nystatin_0:gpt4o_mini:closed:52",
+  "A:RD_probenecid_0:gpt4o_mini:closed:104"
+ ],
+ "unused_gold_entries": [
+  "L:ceftazidime:DA:6477",
+  "L:vancomycin:DF:296",
+  "L:vancomycin:DF:314",
+  "L:voriconazole:DA:5794"
+ ]
+}
