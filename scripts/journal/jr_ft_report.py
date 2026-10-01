@@ -33,6 +33,20 @@ RAG_CELLS = [("RAG C0 PASS", "RAG-C0", "PASS", False), ("conv PASS given C0", "R
              ("value×2 FAIL given C0", "RAG-value-x2", "FAIL", True), ("unit-up FAIL given C0", "RAG-unit-up", "FAIL", True)]
 
 
+def cell_c0(inst, verd, cond, want, conditional, c0_cond):
+    """jr_rag_report.cell with the pack's own C0 condition (cell() hard-codes RAG-C0, which left every conditional
+    T24b cell empty)."""
+    c0ok = {r["base_id"] for r in inst if r["condition"] == c0_cond and verd.get(r["instance_id"]) == "PASS"}
+    groups = defaultdict(lambda: [0, 0])
+    for r in inst:
+        if r["condition"] != cond or r["instance_id"] not in verd or (conditional and r["base_id"] not in c0ok):
+            continue
+        g = groups[r["question_id"]]
+        g[1] += 1
+        g[0] += int(verd[r["instance_id"]] == want)
+    return list(groups.values())
+
+
 def verdicts(name: str, pack: str):
     return {r["instance_id"]: r["verdict"] for r in read_jsonl(FT_DIR / "scores" / ("%s__%s.jsonl" % (name, pack)))
             if r.get("verdict") in ("PASS", "FAIL")}
@@ -118,6 +132,8 @@ def main() -> None:
             if r:
                 res.setdefault(name, {})["aggrefact"] = r
                 md.append("| %s | %.4f [%.4f, %.4f] | %d |" % (name, r["macro_bacc"], r["lo"], r["hi"], r["n"]))
+    if not labels:
+        md.append("| (data/t8/aggrefact/test.jsonl not available on this machine -- rerun this script on the HPC) | | |")
     for title, rows, cells, pack in (("Out-of-template real RAG: T24b", t24b, T24B_CELLS, "t24b"),
                                      ("Out-of-template real RAG: journal RAG pack", rag, RAG_CELLS, "rag")):
         md += ["", "## %s (C0-conditional; bootstrap over questions)" % title, "",
@@ -131,7 +147,7 @@ def main() -> None:
                 v = verdicts(name, pack)
                 if not v:
                     continue
-                cs = [boot(cell(rows, v, c, w, cond), 1000) for _, c, w, cond in cells]
+                cs = [boot(cell_c0(rows, v, c, w, cond, cells[0][1]), 1000) for _, c, w, cond in cells]
                 res.setdefault(name, {})[pack] = {cells[i][0]: cs[i] for i in range(len(cells))}
                 md.append("| %s | %s |" % (name, " | ".join(
                     "NA" if c[0] is None else ("%.1f%% (n=%d)" % (100 * c[0], c[3])) for c in cs)))
