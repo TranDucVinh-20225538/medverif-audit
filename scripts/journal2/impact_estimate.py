@@ -210,7 +210,13 @@ def main() -> None:
     ap.add_argument("--out-md", default=str(NOTE))
     ap.add_argument("--out-json", default=str(OUT / "impact.json"))
     ap.add_argument("--unf-scores", default=str(UNF_SCORES), help="RD-UNF re-scores root (override for smoke tests)")
+    ap.add_argument("--precheck", default=None, help="AI pre-check CSV (e.g. qc/ai_precheck_real_dose_unit_errors.csv): "
+                    "sensitivity analysis counting only ai_label == true_unit_error as unit-type errors; writes "
+                    "impact_precheck.json + notes/real_dose_ai_precheck.md unless --out-* given. Default behaviour unchanged.")
     args = ap.parse_args()
+    if args.precheck:
+        run_precheck(args)
+        return
     unf_scores = Path(args.unf_scores)
     inst = read_jsonl(RD / "instances.jsonl")
     ext = {r["instance_id"]: r for r in read_jsonl(RD / "extract_rows.jsonl")}
@@ -419,6 +425,220 @@ def write_md(res: dict, path: Path) -> None:
           "the post-stratified overall reweights generator x mode cells to full size.",
           "- Per-1000 figures are specific to this question set (FDA-label [DOSE] cloze questions over 197 drugs), not a general "
           "clinical error rate.", ""]
+    path.write_text("\n".join(L) + "\n", encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# --precheck: sensitivity analysis on an AI-assisted pre-check of the unit-type flags (NOT human verification)
+PRECHECK_MD = ROOT / "notes/real_dose_ai_precheck.md"
+PRECHECK_JSON = OUT / "impact_precheck.json"
+AI_LABELS = ["true_unit_error", "parser_artifact_answer_correct", "different_indication_or_population",
+             "value_error_misclassified", "ambiguous"]
+PC_STRATA = ["overall", "grounded", "closed", "gpt4o_mini", "gemma3_27b"]
+
+
+def read_precheck(path: Path) -> dict:
+    with Path(path).open(encoding="utf-8-sig") as fh:
+        rows = list(csv.DictReader(l for l in fh if not l.startswith("#")))
+    return {r["instance_id"]: r for r in rows}
+
+
+def run_precheck(args) -> None:
+    pc_path = Path(args.precheck)
+    pc = read_precheck(pc_path)
+    out_md = Path(args.out_md) if args.out_md != str(NOTE) else PRECHECK_MD
+    out_json = Path(args.out_json) if args.out_json != str(OUT / "impact.json") else PRECHECK_JSON
+    inst = read_jsonl(RD / "instances.jsonl")
+    N = len(inst)
+    cls = np.array([r["auto_class"] for r in inst])
+    ai = np.array([pc.get(r["instance_id"], {}).get("ai_label", "") for r in inst])
+    unit_auto = np.isin(cls, ["unit_error", "basis_error"])
+    not_checked = [r["instance_id"] for r, u in zip(inst, unit_auto) if u and r["instance_id"] not in pc]
+    if not_checked:
+        raise SystemExit("pre-check CSV lacks %d auto unit-type rows, e.g. %s" % (len(not_checked), not_checked[:3]))
+    f = lambda m: np.asarray(m, dtype=float)  # noqa: E731
+    true_u = unit_auto & (ai == "true_unit_error")
+    masks = {
+        "unit_type_auto": f(unit_auto), "same_num_auto": f(cls == "unit_error"),
+        "unit_type_true": f(true_u), "same_num_true": f(true_u & (cls == "unit_error")),
+        "unit_type_true_or_ambiguous": f(unit_auto & np.isin(ai, ["true_unit_error", "ambiguous"])),
+        "value_auto": f(cls == "value_error"),
+        "value_precheck": f((cls == "value_error") | (unit_auto & (ai == "value_error_misclassified"))),
+        "any_auto": f(np.isin(cls, ["unit_error", "basis_error", "value_error"])),
+        "any_precheck": f((cls == "value_error") | (unit_auto & np.isin(ai, ["true_unit_error", "value_error_misclassified"]))),
+        "artifact": f(unit_auto & (ai == "parser_artifact_answer_correct")),
+        "diff_pop": f(unit_auto & (ai == "different_indication_or_population")),
+        "same_num_artifact": f((cls == "unit_error") & (ai == "parser_artifact_answer_correct")),
+    }
+    smask = {s: np.array([1.0 if STRATA[s](r) else 0.0 for r in inst]) for s in PC_STRATA}
+    bt = Boot([r["drug"] for r in inst], args.boot)
+    res = {"generated_by": "scripts/journal2/impact_estimate.py --precheck %s" % pc_path.relative_to(ROOT) if pc_path.is_absolute()
+           and ROOT in pc_path.parents else "scripts/journal2/impact_estimate.py --precheck %s" % pc_path,
+           "provenance": "AI-assisted pre-check by Grok Bot (LLM), not human verification; to be confirmed by a human annotator",
+           "n_dose_answers": N, "bootstrap": {"resamples": args.boot, "cluster": "drug", "seed": SEED},
+           "ai_label_counts": {}, "ai_label_by_auto_class": {}, "ai_label_by_mode": {}, "prevalence": {}, "checkers": {}}
+    for lab in AI_LABELS:
+        res["ai_label_counts"][lab] = int((unit_auto & (ai == lab)).sum())
+        for c in ("unit_error", "basis_error"):
+            res["ai_label_by_auto_class"].setdefault(c, {})[lab] = int(((cls == c) & (ai == lab)).sum())
+        for m in ("grounded", "closed"):
+            res["ai_label_by_mode"].setdefault(m, {})[lab] = int((unit_auto & (ai == lab) & (smask[m] > 0)).sum())
+    conf = [pc[i].get("ai_confidence", "") for i in pc]
+    res["ai_confidence_counts"] = dict(Counter(conf))
+    for s, sm in smask.items():
+        res["prevalence"][s] = {"n_answers": int(sm.sum()), **{k: ratio(bt, m * sm, sm) for k, m in masks.items()}}
+    for fname, name, _ in CHECKERS:
+        p = RD / "scores" / fname
+        if not p.is_file():
+            res["checkers"][name] = {"status": "missing"}
+            continue
+        vd = verdicts(p)
+        vv = [vd.get(r["instance_id"]) for r in inst]
+        scored = f([v in ("PASS", "FAIL") for v in vv])
+        passed = f([v == "PASS" for v in vv])
+        d = {"scored": int(scored.sum()), "strata": {}}
+        for s, sm in smask.items():
+            ds = d["strata"].setdefault(s, {})
+            for k, m in masks.items():
+                ds["pass_pct_" + k] = ratio(bt, m * passed * sm, m * scored * sm, scale=100.0)
+                ds["slip_" + k] = ratio(bt, m * passed * sm, scored * sm)
+        res["checkers"][name] = d
+    res["review_first"] = [{"check_id": r.get("check_id"), "instance_id": i, "ai_label": r["ai_label"],
+                            "ai_confidence": r["ai_confidence"], "ai_rationale": r["ai_rationale"]}
+                           for i, r in pc.items() if r["ai_confidence"] == "low" or r["ai_label"] == "ambiguous"
+                           or (r["ai_label"] == "true_unit_error" and r["ai_confidence"] != "high")]
+    out_json.parent.mkdir(parents=True, exist_ok=True)
+    out_json.write_text(json.dumps(res, indent=1, default=str) + "\n")
+    write_precheck_md(res, pc, out_md, out_json)
+    print(json.dumps({"wrote": [str(out_json), str(out_md)], "ai_label_counts": res["ai_label_counts"]}))
+
+
+SHORTNAME = {"MiniCheck-RoBERTa": "MC-RoBERTa", "MiniCheck-DeBERTa": "MC-DeBERTa", "AlignScore-base": "AS-base",
+             "MiniCheck-Flan-T5-Large": "MC-Flan-T5", "AlignScore-large": "AS-large",
+             "Llama-3.3-70B (RAGAS NLI)": "Llama-70B RAGAS", "Mistral-Small-24B (MedScore)": "MedScore (Mistral-24B)"}
+LLM_JUDGES = ["Llama-3.3-70B (RAGAS NLI)", "Mistral-Small-24B (MedScore)"]
+
+
+def _kn(s: dict) -> str:
+    if not s["n"]:
+        return "NA (n=0)"
+    lo, hi = s["ci"]
+    ci = " [%.0f, %.0f]" % (lo, hi) if lo is not None else ""
+    return "%d/%d = %.0f%%%s" % (s["k"], s["n"], s["per"], ci)
+
+
+def write_precheck_md(res: dict, pc: dict, path: Path, jpath: Path) -> None:
+    C = res["checkers"]
+    names = [n for n in C if "strata" in C[n]]
+    L = ["# Real-dose unit-type errors: AI-assisted pre-check (sensitivity analysis)", "",
+         "> **AI-assisted pre-check by Grok Bot (LLM), not human verification; to be confirmed by a human annotator.** "
+         "The labels in `qc/ai_precheck_real_dose_unit_errors.csv` were assigned by an LLM agent reading each row's "
+         "cloze question, FDA-label excerpt/target sentence, the generator's answer and the auto-extracted quantities "
+         "(no API calls; adjudication table in `scripts/journal2/rd_ai_precheck_build.py`). `qc/real_dose_errors_check.csv` "
+         "(the human sheet) is untouched. Treat everything below as a provisional sensitivity analysis.", "",
+         "Generated by `python3 scripts/journal2/impact_estimate.py --precheck qc/ai_precheck_real_dose_unit_errors.csv` "
+         "(JSON: `%s`). Default `impact_estimate.py` output is unchanged. PASS = stored verdict at the paper's operating "
+         "point (as `rd_report.py`); 95%% CIs = drug-clustered bootstrap (%d resamples; very wide/degenerate for small n)." % (
+             jpath.relative_to(ROOT) if ROOT in jpath.parents else jpath, res["bootstrap"]["resamples"]), "",
+         "## 1. Pre-check labels for the %d auto-labelled unit-type errors" % sum(res["ai_label_counts"].values()), "",
+         "| ai_label | all unit-type | same numeral, other unit (auto `unit_error`) | other basis (auto `basis_error`) | grounded | closed-book |",
+         "|---|---|---|---|---|---|"]
+    for lab in AI_LABELS:
+        L.append("| `%s` | %d | %d | %d | %d | %d |" % (lab, res["ai_label_counts"][lab], res["ai_label_by_auto_class"]["unit_error"][lab],
+                                                    res["ai_label_by_auto_class"]["basis_error"][lab], res["ai_label_by_mode"]["grounded"][lab],
+                                                    res["ai_label_by_mode"]["closed"][lab]))
+    L.append("| **total** | %d | %d | %d | %d | %d |" % (sum(res["ai_label_counts"].values()), sum(res["ai_label_by_auto_class"]["unit_error"].values()),
+                                                         sum(res["ai_label_by_auto_class"]["basis_error"].values()),
+                                                         sum(res["ai_label_by_mode"]["grounded"].values()), sum(res["ai_label_by_mode"]["closed"].values())))
+    L += ["", "Confidence: %s. Mechanisms (ai_mechanism column): %s." % (
+        ", ".join("%s %d" % (k, v) for k, v in sorted(res["ai_confidence_counts"].items())),
+        ", ".join("%s %d" % (k, v) for k, v in Counter((r["ai_label"][:4] + ":" + r["ai_mechanism"]) for r in pc.values()).most_common())), ""]
+    L += ["## 2. Checker PASS rate on unit-type errors: auto labels vs pre-check-confirmed (`true_unit_error`) only", "",
+          "PASS % among the errors (= miss rate; lower is better). `auto` = all auto-labelled rows (as in `notes/real_dose_errors.md`); "
+          "`true` = only rows the pre-check labels `true_unit_error`; `artifact` = rows labelled `parser_artifact_answer_correct` "
+          "(answers that are actually correct, so PASS is the right verdict); `diff-pop` = `different_indication_or_population` (legit dose for another population; not counted as errors).", "",
+          "| checker | unit-type auto | unit-type **true** | same-numeral auto | same-numeral **true** | same-numeral artifact (correct answers) | unit-type true or ambiguous | unit-type diff-pop |",
+          "|---|---|---|---|---|---|---|---|"]
+    for n in names:
+        o = C[n]["strata"]["overall"]
+        L.append("| %s | %s | %s | %s | %s | %s | %s | %s |" % (SHORTNAME[n], _kn(o["pass_pct_unit_type_auto"]), _kn(o["pass_pct_unit_type_true"]),
+                                                       _kn(o["pass_pct_same_num_auto"]), _kn(o["pass_pct_same_num_true"]),
+                                                       _kn(o["pass_pct_same_num_artifact"]), _kn(o["pass_pct_unit_type_true_or_ambiguous"]),
+                                                       _kn(o["pass_pct_diff_pop"])))
+    L += ["", "### By answer mode (pre-check-confirmed true unit errors only)", "",
+          "| checker | unit-type true: grounded | unit-type true: closed-book | same-numeral true: grounded | same-numeral true: closed-book |",
+          "|---|---|---|---|---|"]
+    for n in names:
+        g, c = C[n]["strata"]["grounded"], C[n]["strata"]["closed"]
+        L.append("| %s | %s | %s | %s | %s |" % (SHORTNAME[n], _kn(g["pass_pct_unit_type_true"]), _kn(c["pass_pct_unit_type_true"]),
+                                               _kn(g["pass_pct_same_num_true"]), _kn(c["pass_pct_same_num_true"])))
+    L += ["", "### Value errors after re-assigning `value_error_misclassified` (value errors themselves NOT pre-checked)", "",
+          "| checker | value auto | value + misclassified |", "|---|---|---|"]
+    for n in names:
+        o = C[n]["strata"]["overall"]
+        L.append("| %s | %s | %s |" % (SHORTNAME[n], _kn(o["pass_pct_value_auto"]), _kn(o["pass_pct_value_precheck"])))
+    P = res["prevalence"]
+    L += ["", "## 3. Impact per 1000 dose answers (pre-check sensitivity)", "",
+          "Prevalence per 1000 dose answers (n=%d): unit-type auto %s -> true %s; same-numeral auto %s -> true %s; any error auto %s -> "
+          "pre-check %s (value errors kept as auto-labelled)." % (
+              P["overall"]["n_answers"], fmt(P["overall"]["unit_type_auto"]), fmt(P["overall"]["unit_type_true"]), fmt(P["overall"]["same_num_auto"]),
+              fmt(P["overall"]["same_num_true"]), fmt(P["overall"]["any_auto"]), fmt(P["overall"]["any_precheck"])), "",
+          "Slips = erroneous answers PASSed, per 1000 dose answers scored by that checker.", "",
+          "| checker | unit-type slips auto | unit-type slips true | same-numeral slips auto | same-numeral slips true | any-error slips auto | any-error slips pre-check | closed-book: unit-type true | grounded: unit-type true |",
+          "|---|---|---|---|---|---|---|---|---|"]
+    for n in names:
+        o, g, c = (C[n]["strata"][s] for s in ("overall", "grounded", "closed"))
+        L.append("| %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+            SHORTNAME[n], fmt(o["slip_unit_type_auto"]), fmt(o["slip_unit_type_true"]), fmt(o["slip_same_num_auto"]), fmt(o["slip_same_num_true"]),
+            fmt(o["slip_any_auto"]), fmt(o["slip_any_precheck"]), fmt(c["slip_unit_type_true"]), fmt(g["slip_unit_type_true"])))
+    # verdict (data-driven numbers)
+    o = {n: C[n]["strata"]["overall"] for n in names}
+    small = [n for n in names if n not in LLM_JUDGES]
+    js = [n for n in LLM_JUDGES if n in o]
+    def rng_(key, ns):
+        v = [o[n][key]["per"] for n in ns if o[n][key]["n"]]
+        return (min(v), max(v)) if v else (float("nan"), float("nan"))
+    sn_true_n = o[names[0]]["pass_pct_same_num_true"]["n"]
+    ut_true_n = o[names[0]]["pass_pct_unit_type_true"]["n"]
+    L += ["", "## 4. Verdict", ""]
+    L.append("- **The 'LLM judges pass same-numeral unit errors 53-60%%' figure is mostly a parser artifact.** Of the %d auto "
+             "same-numeral (`unit_error`) flags, the pre-check finds %d where the answer is actually correct (lost `m 2` superscript, "
+             "`(mcg/kg)` table header, 'mcg of ivermectin per kg') and only %d genuine unit errors. On the artifacts every checker "
+             "PASSes most rows (correctly), which inflated the auto 'miss rate' of the judges to %.0f-%.0f%%." % (
+                 res["ai_label_by_auto_class"]["unit_error"] and sum(res["ai_label_by_auto_class"]["unit_error"].values()),
+                 res["ai_label_by_auto_class"]["unit_error"]["parser_artifact_answer_correct"], sn_true_n, *rng_("pass_pct_same_num_auto", js)))
+    L.append("- On the %d pre-check-confirmed same-numeral errors, the LLM judges PASS %s (%s) and %s (%s); the small checkers PASS "
+             "%.0f-%.0f%% (%s). On all %d confirmed unit-type errors: judges %s, small checkers %s." % (
+                 sn_true_n, _kn(o[js[0]]["pass_pct_same_num_true"]), SHORTNAME[js[0]], _kn(o[js[1]]["pass_pct_same_num_true"]), SHORTNAME[js[1]],
+                 *rng_("pass_pct_same_num_true", small), ", ".join("%s %d/%d" % (SHORTNAME[n], o[n]["pass_pct_same_num_true"]["k"],
+                                                                                  o[n]["pass_pct_same_num_true"]["n"]) for n in small),
+                 ut_true_n, ", ".join("%s %d/%d" % (SHORTNAME[n], o[n]["pass_pct_unit_type_true"]["k"], o[n]["pass_pct_unit_type_true"]["n"]) for n in js),
+                 ", ".join("%s %d/%d" % (SHORTNAME[n], o[n]["pass_pct_unit_type_true"]["k"], o[n]["pass_pct_unit_type_true"]["n"]) for n in small)))
+    L.append("- So, under this pre-check, the LLM judges do **not** pass genuine same-numeral unit errors at high rates; they "
+             "catch them about as well as the best small checkers (MiniCheck-DeBERTa, MiniCheck-Flan-T5), while "
+             "RoBERTa / AlignScore-base / AlignScore-large still PASS about half. With n=%d (same numeral) and n=%d (unit-type), "
+             "and only one confirmed grounded error (losartan, which MedScore PASSes and RAGAS FAILs), differences between "
+             "checkers are not statistically resolvable (see CIs); the claim in the paper should be reworded to 'auto-labelled' "
+             "or dropped until human verification." % (sn_true_n, ut_true_n))
+    L.append("- The remaining auto unit-type flags are mostly **closed-book answers giving a legitimate dose for another "
+             "population/indication** (%d; typically the adult dose when the hidden cloze slot is pediatric mg/kg), "
+             "%d value errors whose unit parse was wrong, and %d ambiguous rows. Checkers mostly FAIL the diff-pop rows "
+             "(the evidence names a different population/regimen; see the diff-pop column)." % (
+                 res["ai_label_counts"]["different_indication_or_population"], res["ai_label_counts"]["value_error_misclassified"],
+                 res["ai_label_counts"]["ambiguous"]))
+    L += ["", "## 5. Rows the human annotator should check first", "",
+          "Low-confidence labels, `ambiguous` labels, and medium-confidence `true_unit_error` labels (these drive the re-computed table).", "",
+          "| check_id | instance_id | ai_label | conf | rationale |", "|---|---|---|---|---|"]
+    for r in res["review_first"]:
+        L.append("| %s | %s | %s | %s | %s |" % (r["check_id"], r["instance_id"], r["ai_label"], r["ai_confidence"], r["ai_rationale"].replace("|", "/")))
+    L += ["", "## Caveats", "",
+          "- The pre-checker is an LLM; its pharmacology can be wrong (e.g. where it relied on prescribing-information knowledge "
+          "beyond the shown excerpt, such as adult acetaminophen or JRA meloxicam doses). Human labels in "
+          "`qc/real_dose_errors_check.csv` supersede it.",
+          "- Only the 47 auto unit-type rows were pre-checked; the 93 auto value errors were not (their PASS rates above are auto-labelled).",
+          "- `different_indication_or_population` answers are not counted as errors here; a stricter reading (the answer does not "
+          "fit the question's population) would count them, which mostly adds closed-book rows that all checkers FAIL.", ""]
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(L) + "\n", encoding="utf-8")
 
 
