@@ -3,7 +3,7 @@
 
 No keys, no .env, no usernames: IAA answer keys excluded, secrets scanned (build fails on a hit),
 absolute paths and the account name scrubbed in every text file copied into the zip.
-Usage: build_audit_zip_v3.py [--dry-run]
+Usage: build_audit_zip_v3.py [--dry-run] [--tag v4]
 """
 
 from __future__ import annotations
@@ -18,8 +18,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT_ZIP = ROOT / "release/audit_snapshot_v3.zip"
-OUT_MANIFEST = ROOT / "release/audit_snapshot_v3_manifest.json"
+TAG = sys.argv[sys.argv.index("--tag") + 1] if "--tag" in sys.argv else "v3"
+OUT_ZIP = ROOT / f"release/audit_snapshot_{TAG}.zip"
+OUT_MANIFEST = ROOT / f"release/audit_snapshot_{TAG}_manifest.json"
 
 INCLUDE_DIRS = ["results/raw", "results/raw_m1", "results/raw_node30", "results/tables", "results/figures",
                 "data", "qc", "scripts", "src", "analysis", "notes", "configs", "config", "tests"]
@@ -41,6 +42,7 @@ TEXT_SUFFIX = {".jsonl", ".json", ".md", ".csv", ".tsv", ".txt", ".py", ".sh", "
 SCRUB = [
     ("/data2/cmdir/home/toandq", "$HOME"),
     ("/data2/hpcshared/medverif-audit", "<repo>"),
+    ("/data2/hpcshared/medverif-wt-ee1ba47", "<repo>"),
     ("/data2/hpcshared", "<shared>"),
     ("/data2/shared", "<shared_apps>"),
     ("/data2/cmdir/home", "<home_root>"),
@@ -132,7 +134,7 @@ def main() -> None:
         print("SECRET/USERNAME SCAN FAILED:\n" + "\n".join(hits[:50]), file=sys.stderr)
         sys.exit(2)
     readme = "\n".join([
-        "# Audit snapshot v3",
+        f"# Audit snapshot {TAG}",
         "",
         f"Built {manifest['built_at']} from commit `{head}`.",
         "",
@@ -147,12 +149,12 @@ def main() -> None:
         "`_quarantine/`, model weights and caches. Absolute paths are replaced by `<repo>`, `<shared>`, `$HOME`; "
         "the account name by `<user>`.",
         "",
-        "`release/audit_snapshot_v3_manifest.json`: sha256 of every file as stored in the zip.",
+        f"`release/audit_snapshot_{TAG}_manifest.json`: sha256 of every file as stored in the zip.",
         "",
     ])
     if zf:
-        zf.writestr("AUDIT_SNAPSHOT_V3_README.md", readme)
-        zf.writestr("release/audit_snapshot_v3_manifest.json", json.dumps(manifest, indent=1) + "\n")
+        zf.writestr(f"AUDIT_SNAPSHOT_{TAG.upper()}_README.md", readme)
+        zf.writestr(f"release/audit_snapshot_{TAG}_manifest.json", json.dumps(manifest, indent=1) + "\n")
         zf.close()
         OUT_ZIP.with_suffix(".zip.tmp").replace(OUT_ZIP)
         with zipfile.ZipFile(OUT_ZIP) as z:

@@ -1,0 +1,16 @@
+{
+ "built_at": "2026-10-01T04:21:42.954473+00:00",
+ "git_head": "ee1ba479f1976f7dd5b591dd329cb06e5eedaf85",
+ "scrubbed_files": 452,
+ "scrub_replacements": 129706,
+ "excluded_by_policy": [
+  "qc/iaa_answer_key.jsonl",
+  "qc/iaa_key_DO_NOT_SHARE.csv",
+  "data/t15_cpuverif_chunks",
+  "data/minicheck_cpuverif_chunks",
+  "data/smoke"
+ ],
+ "zip_sha256": "5b3722ffb99065b393893361ae9878b8109fd511bc3aee60573d3bb0b31e590b",
+ "zip_bytes": 83587557,
+ "n_files": 1873
+}
