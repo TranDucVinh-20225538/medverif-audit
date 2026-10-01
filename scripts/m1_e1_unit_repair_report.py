@@ -35,6 +35,9 @@ LLM_VERIFIERS = (
     ("v6_ragas_mistral_small32", "V6-mistral", ROOT / "results/raw/t7", ROOT / "results/raw_m1/t7"),
 )
 
+AFTER_M1_T7 = ROOT / "results/raw_m1/t7"
+AFTER_M1_T7_AMEND5 = ROOT / "results/raw_m1/t7_amend5"  # amendment 5: spec-M1 rescores of off-spec rows (last wins)
+
 T17_LLMS = (
     ("v1_medscore", "V1", ROOT / "results/raw/t17", ROOT / "results/raw/lane_b/t17_downdose"),
     ("v4_ragas_nli", "V4-Llama", ROOT / "results/raw/t17", ROOT / "results/raw/lane_b/t17_downdose"),
@@ -79,6 +82,8 @@ def analyze_cohort(
     rows_out = []
     for slug, disp, before_dir, after_dir in llm_specs:
         sb, sa = load_scores(before_dir, slug), load_scores(after_dir, slug)
+        if after_dir == AFTER_M1_T7:
+            sa.update(load_scores(AFTER_M1_T7_AMEND5, slug))
         if not sb and not sa:
             continue
         pass_before = pass_after = 0

@@ -34,6 +34,7 @@ COLORS = {
     "T15 fine-tuned (ours)": "#2ca02c",
 }
 FLOOR_AREA = 25.0
+EXCLUDED = {"t6a_hhem", "t6a_summac_conv"}  # decision M: node30 main-card numbers only
 
 
 def verdicts(rows: dict[str, dict]) -> dict[str, str]:
@@ -57,6 +58,8 @@ def main() -> None:
     ids = {r["instance_id"] for r in inst}
     points = []
     for slug in CANONICAL_VERIFIERS:
+        if slug in EXCLUDED:
+            continue
         rows = merged_score_rows(slug)
         v = verdicts(rows)
         for iid, verdict in m1s.merge_verdicts(slug, (ROOT / "results/raw/lane_b/main_e1_evid",)).items():
