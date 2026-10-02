@@ -1,7 +1,7 @@
 {
  "_meta": {
   "hub_cache": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub",
-  "free_gb": 39457.1,
+  "free_gb": 39254.4,
   "need_gb_new": 0.0,
   "check_only": false
  },
@@ -94,6 +94,32 @@
   "cached": true,
   "size_gb": 29.54,
   "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "refs_main": true
+ },
+ "medgemma_27b": {
+  "hf_id": "google/medgemma-27b-text-it",
+  "params_b": 27.0,
+  "family": "gemma3_text",
+  "gated": true,
+  "array_index": 8,
+  "status": "ok",
+  "revision": "5b667cf2ddcf064085bc90952edb35a0edbfb79c",
+  "cached": true,
+  "size_gb": 54.02,
+  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--google--medgemma-27b-text-it/snapshots/5b667cf2ddcf064085bc90952edb35a0edbfb79c",
+  "refs_main": true
+ },
+ "baichuan_m2_32b": {
+  "hf_id": "baichuan-inc/Baichuan-M2-32B",
+  "params_b": 32.8,
+  "family": "qwen2.5",
+  "gated": false,
+  "array_index": 9,
+  "status": "ok",
+  "revision": "360f684d3cd527a4ef986c54071015eb0e6def58",
+  "cached": true,
+  "size_gb": 65.53,
+  "local_path": "/data2/hpcshared/medverif-audit/.cache/huggingface/hub/models--baichuan-inc--Baichuan-M2-32B/snapshots/360f684d3cd527a4ef986c54071015eb0e6def58",
   "refs_main": true
  }
 }

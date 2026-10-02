@@ -23,6 +23,7 @@ import argparse
 import csv
 import datetime as dt
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -64,6 +65,8 @@ REF_RD = [("MiniCheck-RoBERTa (paper)", "t6_minicheck_roberta.jsonl"), ("MiniChe
           ("AlignScore-large (paper)", "v3_alignscore.jsonl"), ("Llama-3.3-70B RAGAS (paper)", "v4_ragas_nli.jsonl"),
           ("Mistral-Small-24B MedScore (paper)", "v1_medscore.jsonl")]
 PAPER_BASE = {"minicheck_ft5": "MiniCheck-Flan-T5-Large", "alignscore_large": "AlignScore-large"}
+# same pattern as scripts/journal4/frontier_judges_rd.py LENIENT_RE (strict PARSE_FAIL -> first "verdict": 0/1 in raw)
+LENIENT_RE = re.compile(r'"verdict"\s*:\s*"?([01])\b')
 
 
 # ---------------------------------------------------------------- helpers
@@ -319,6 +322,12 @@ def main() -> None:
         res["judge_rag"][slug] = rag_block(rag, vd["rag"]) if len(vd["rag"]) >= len(rag) else None
         res["judge_rd"][slug] = rd_block(inst, vd["rd"], pre, cb) if len(vd["rd"]) >= len(inst) else None
         res["judges"][slug]["unit_blindness_gone"] = blind_gone(res["judge_card"][slug], res["judge_rag"][slug])
+        res["judges"][slug]["parse_fail"] = {}
+        for p in f:
+            recs = read_jsonl(f[p])
+            strict = [r for r in recs if r.get("verdict") == "PARSE_FAIL"]
+            res["judges"][slug]["parse_fail"][p] = {"rows": len(recs), "strict": len(strict),
+                                                    "lenient": sum(1 for r in strict if not LENIENT_RE.search(r.get("raw_output") or ""))}
     for name, paths in REF_CARD:
         vd = merged_verdicts(paths)
         res["ref_card"][name] = judge_card(card, vd, merged_scores(paths)) if vd else None
@@ -404,6 +413,13 @@ def write_md(res, path):
                                                                     "/".join(str(j["p_yes_missing"][p]) for p in ("card", "rag", "rd")),
                                                                     {True: "yes", False: "no", None: "NA"}[j["unit_blindness_gone"]]))
     L += ["", "Criterion: C0, QI, US claim↑ and US claim↓ ≥ 80% on the card and RAG unit-up / unit-down FAIL|C0 ≥ 80% (point estimates).", "",
+          "### Parse failures (strict = paper parser, used in every cell; lenient = strict, else first `\"verdict\": 0/1` in the raw output)", "",
+          "| slug | card strict | card lenient | rag strict | rag lenient | rd strict | rd lenient |", "|" + "---|" * 7]
+    pf = lambda d, k: ("%d/%d (%.1f%%)" % (d[k], d["rows"], 100.0 * d[k] / d["rows"])) if d["rows"] else "–"  # noqa: E731
+    for s, j in res["judges"].items():
+        d = j["parse_fail"]
+        L.append("| %s | %s |" % (s, " | ".join(pf(d[p], k) for p in ("card", "rag", "rd") for k in ("strict", "lenient"))))
+    L += ["",
           "### Main DOSE card (paper cells, C0-conditional; same frozen cohort as the paper table)", ""] + CARD_HDR
     for s, m in sorted(res["judge_card"].items(), key=lambda kv: res["judges"][kv[0]]["params_b"]):
         L.append(card_row_md("%s (%sB)" % (s, res["judges"][s]["params_b"]), m))

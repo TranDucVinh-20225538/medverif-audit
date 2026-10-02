@@ -1,0 +1,14 @@
+{
+ "stage": "J3_JG_medgemma_27b",
+ "finished": "2026-10-02T09:33:37+0700",
+ "slurm_job": "62238_8",
+ "hf_id": "google/medgemma-27b-text-it",
+ "revision": "5b667cf2ddcf064085bc90952edb35a0edbfb79c",
+ "backend": "vllm",
+ "backend_version": "0.8.3",
+ "packs": [
+  "card",
+  "rd"
+ ],
+ "secs": 717
+}

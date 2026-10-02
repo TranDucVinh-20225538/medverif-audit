@@ -37,7 +37,9 @@ _VERDICT_PREFIX = re.compile(r'"verdict"\s*:\s*$')
 def render(tokenizer, evidence: str, claim: str) -> str:
     messages = [{"role": "user", "content": nli_prompt(evidence, [claim])}]
     try:
-        return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
+        # thinking_mode: Baichuan-M2's switch (templates that do not reference it are unaffected)
+        return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False,
+                                             thinking_mode="off")
     except TypeError:
         return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
@@ -73,6 +75,7 @@ class VLLMBackend:
 
         kw = dict(model=hf_id, revision=revision, tokenizer_revision=revision, dtype="bfloat16", seed=42,
                   max_model_len=max_model_len, gpu_memory_utilization=float(os.environ.get("MEDVERIF_J3_GPU_UTIL", "0.85")),
+                  tensor_parallel_size=int(os.environ.get("MEDVERIF_J3_TP", "1")),
                   enforce_eager=os.environ.get("MEDVERIF_J3_EAGER", "1") == "1",
                   download_dir=os.environ.get("HUGGINGFACE_HUB_CACHE"), trust_remote_code=False)
         if family == "gemma3":
@@ -203,7 +206,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--array-index", type=int)
     ap.add_argument("--model", help="slug from j3_models.JUDGES")
-    ap.add_argument("--packs", default=",".join(JUDGE_PACKS))
+    ap.add_argument("--packs", default=os.environ.get("MEDVERIF_J3_PACKS") or ",".join(JUDGE_PACKS))
     ap.add_argument("--backend", default=os.environ.get("MEDVERIF_J3_BACKEND", "auto"), choices=["auto", "vllm", "hf", "mock"])
     ap.add_argument("--limit", type=int, default=int(os.environ.get("MEDVERIF_J3_LIMIT", "0") or 0), help="max NEW rows per pack (smoke)")
     ap.add_argument("--chunk", type=int, default=256)

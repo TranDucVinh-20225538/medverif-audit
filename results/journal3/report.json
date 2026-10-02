@@ -1,6 +1,6 @@
 {
  "generated_by": "scripts/journal3/j3_report.py",
- "generated_at": "2026-10-01 20:38 UTC+7",
+ "generated_at": "2026-10-02 09:35 UTC+7",
  "v2_sha256": "1e816234cd9cef18299f8d39fc7dfb1de83ec30454feae818910037301ee5511",
  "v2_matches_freeze": true,
  "n_rd": 1451,
@@ -14,7 +14,9 @@
   "J3_FT_minicheck_ft5_r0.5",
   "J3_FT_minicheck_ft5_r1",
   "J3_FT_minicheck_ft5_r2",
+  "J3_JG_baichuan_m2_32b",
   "J3_JG_llama31_8b",
+  "J3_JG_medgemma_27b",
   "J3_JG_medgemma_4b",
   "J3_JG_qwen25_0p5b",
   "J3_JG_qwen25_14b",
@@ -2205,7 +2207,205 @@
     }
    }
   },
-  "qwen25_32b": null
+  "qwen25_32b": null,
+  "medgemma_27b": {
+   "scored": 1451,
+   "of": 1451,
+   "parse_fail": 0,
+   "groups": {
+    "correct PASS": {
+     "k": 835,
+     "n": 1062,
+     "rate": 78.62523540489642,
+     "ci": [
+      75.55336809290607,
+      81.53853472882967
+     ]
+    },
+    "any err FAIL": {
+     "k": 125,
+     "n": 140,
+     "rate": 89.28571428571429,
+     "ci": [
+      82.26950354609929,
+      95.39473684210526
+     ]
+    },
+    "unit-type FAIL": {
+     "k": 32,
+     "n": 47,
+     "rate": 68.08510638297872,
+     "ci": [
+      51.99807692307692,
+      83.72093023255815
+     ]
+    },
+    "same-numeral FAIL": {
+     "k": 6,
+     "n": 15,
+     "rate": 40.0,
+     "ci": [
+      12.5,
+      71.42857142857143
+     ]
+    },
+    "value FAIL": {
+     "k": 93,
+     "n": 93,
+     "rate": 100.0,
+     "ci": [
+      100.0,
+      100.0
+     ]
+    },
+    "precheck-true FAIL": {
+     "k": 9,
+     "n": 12,
+     "rate": 75.0,
+     "ci": [
+      50.0,
+      100.0
+     ]
+    }
+   },
+   "slips": {
+    "any": {
+     "k": 15,
+     "n": 1451,
+     "rate": 10.337698139214336,
+     "ci": [
+      4.129387474191328,
+      17.95611132959409
+     ]
+    },
+    "unit-type": {
+     "k": 15,
+     "n": 1451,
+     "rate": 10.337698139214336,
+     "ci": [
+      4.129387474191328,
+      17.95611132959409
+     ]
+    },
+    "value": {
+     "k": 0,
+     "n": 1451,
+     "rate": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "precheck-true": {
+     "k": 3,
+     "n": 1451,
+     "rate": 2.067539627842867,
+     "ci": [
+      0.0,
+      4.80117977353545
+     ]
+    }
+   }
+  },
+  "baichuan_m2_32b": {
+   "scored": 1341,
+   "of": 1451,
+   "parse_fail": 110,
+   "groups": {
+    "correct PASS": {
+     "k": 760,
+     "n": 983,
+     "rate": 77.31434384537131,
+     "ci": [
+      74.14465062627072,
+      80.24439918533605
+     ]
+    },
+    "any err FAIL": {
+     "k": 115,
+     "n": 129,
+     "rate": 89.14728682170542,
+     "ci": [
+      82.75862068965517,
+      94.95813433286983
+     ]
+    },
+    "unit-type FAIL": {
+     "k": 31,
+     "n": 43,
+     "rate": 72.09302325581395,
+     "ci": [
+      56.75675675675676,
+      86.48648648648648
+     ]
+    },
+    "same-numeral FAIL": {
+     "k": 5,
+     "n": 13,
+     "rate": 38.46153846153846,
+     "ci": [
+      8.333333333333332,
+      69.23076923076923
+     ]
+    },
+    "value FAIL": {
+     "k": 84,
+     "n": 86,
+     "rate": 97.67441860465117,
+     "ci": [
+      94.11764705882352,
+      100.0
+     ]
+    },
+    "precheck-true FAIL": {
+     "k": 9,
+     "n": 11,
+     "rate": 81.81818181818181,
+     "ci": [
+      50.0,
+      100.0
+     ]
+    }
+   },
+   "slips": {
+    "any": {
+     "k": 14,
+     "n": 1341,
+     "rate": 10.439970171513796,
+     "ci": [
+      4.511278195488722,
+      17.39788199697428
+     ]
+    },
+    "unit-type": {
+     "k": 12,
+     "n": 1341,
+     "rate": 8.94854586129754,
+     "ci": [
+      3.6602551675608175,
+      15.742424174259451
+     ]
+    },
+    "value": {
+     "k": 2,
+     "n": 1341,
+     "rate": 1.4914243102162565,
+     "ci": [
+      0.0,
+      3.7593984962406015
+     ]
+    },
+    "precheck-true": {
+     "k": 2,
+     "n": 1341,
+     "rate": 1.4914243102162565,
+     "ci": [
+      0.0,
+      3.770739064856712
+     ]
+    }
+   }
+  }
  },
  "ft_ho": {
   "minicheck_ft5_r1": {
@@ -6349,7 +6549,185 @@
     }
    }
   },
-  "qwen25_32b": null
+  "qwen25_32b": null,
+  "medgemma_27b": {
+   "c0_pass_rate": {
+    "rate": 0.990909090909091,
+    "lo": 0.9727272727272728,
+    "hi": 1.0,
+    "num": 109,
+    "den": 110,
+    "n_bases": 110
+   },
+   "qi_all": {
+    "rate": 0.967741935483871,
+    "lo": 0.9193548387096774,
+    "hi": 1.0,
+    "num": 60,
+    "den": 62,
+    "n_bases": 62
+   },
+   "qi_nat": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 22,
+    "den": 22,
+    "n_bases": 22
+   },
+   "ns": {
+    "rate": 0.9665071770334929,
+    "lo": 0.929236899758562,
+    "hi": 0.990521327014218,
+    "num": 202,
+    "den": 209,
+    "n_bases": 106
+   },
+   "ns_claim": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 209,
+    "den": 209,
+    "n_bases": 106
+   },
+   "us_claim_up": {
+    "rate": 0.8962264150943396,
+    "lo": 0.839622641509434,
+    "hi": 0.9528301886792453,
+    "num": 95,
+    "den": 106,
+    "n_bases": 106
+   },
+   "us_evid_up": {
+    "rate": 0.4811320754716981,
+    "lo": 0.3867924528301887,
+    "hi": 0.5660377358490566,
+    "num": 51,
+    "den": 106,
+    "n_bases": 106
+   },
+   "us_claim_down": {
+    "rate": 0.9324324324324325,
+    "lo": 0.8648648648648649,
+    "hi": 0.9864864864864865,
+    "num": 69,
+    "den": 74,
+    "n_bases": 74
+   },
+   "us_evid_down": {
+    "rate": 0.7702702702702703,
+    "lo": 0.6621621621621622,
+    "hi": 0.8513513513513513,
+    "num": 57,
+    "den": 74,
+    "n_bases": 74
+   },
+   "n_scored": 958,
+   "n_parse_fail": 0,
+   "n_c0_pass_bases": 109,
+   "inversion": {
+    "claim": {
+     "floor": 0.016129032258064516,
+     "n_bases_paired": 62,
+     "auc_conv_vs_swap": 0.9786704853783539
+    },
+    "evid": {
+     "floor": 0.0967741935483871,
+     "n_bases_paired": 62,
+     "auc_conv_vs_swap": 0.8932770575821526
+    }
+   }
+  },
+  "baichuan_m2_32b": {
+   "c0_pass_rate": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 106,
+    "den": 106,
+    "n_bases": 106
+   },
+   "qi_all": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 58,
+    "den": 58,
+    "n_bases": 58
+   },
+   "qi_nat": {
+    "rate": 1.0,
+    "lo": 1.0,
+    "hi": 1.0,
+    "num": 18,
+    "den": 18,
+    "n_bases": 18
+   },
+   "ns": {
+    "rate": 0.945,
+    "lo": 0.905,
+    "hi": 0.9751274567755283,
+    "num": 189,
+    "den": 200,
+    "n_bases": 102
+   },
+   "ns_claim": {
+    "rate": 0.995,
+    "lo": 0.9847715736040609,
+    "hi": 1.0,
+    "num": 199,
+    "den": 200,
+    "n_bases": 103
+   },
+   "us_claim_up": {
+    "rate": 0.8936170212765957,
+    "lo": 0.8297872340425532,
+    "hi": 0.9574468085106383,
+    "num": 84,
+    "den": 94,
+    "n_bases": 94
+   },
+   "us_evid_up": {
+    "rate": 0.36082474226804123,
+    "lo": 0.26804123711340205,
+    "hi": 0.4639175257731959,
+    "num": 35,
+    "den": 97,
+    "n_bases": 97
+   },
+   "us_claim_down": {
+    "rate": 0.9696969696969697,
+    "lo": 0.9242424242424242,
+    "hi": 1.0,
+    "num": 64,
+    "den": 66,
+    "n_bases": 66
+   },
+   "us_evid_down": {
+    "rate": 0.6666666666666666,
+    "lo": 0.5454545454545454,
+    "hi": 0.7878787878787878,
+    "num": 44,
+    "den": 66,
+    "n_bases": 66
+   },
+   "n_scored": 958,
+   "n_parse_fail": 54,
+   "n_c0_pass_bases": 106,
+   "inversion": {
+    "claim": {
+     "floor": 0.017543859649122806,
+     "n_bases_paired": 57,
+     "auc_conv_vs_swap": 0.9905185433797618
+    },
+    "evid": {
+     "floor": 0.13793103448275862,
+     "n_bases_paired": 58,
+     "auc_conv_vs_swap": 0.8914921900963775
+    }
+   }
+  }
  },
  "ref_card": {
   "Llama-3.2-1B local HF (T19)": {
@@ -7185,7 +7563,9 @@
     "n_q": 96
    }
   },
-  "qwen25_32b": null
+  "qwen25_32b": null,
+  "medgemma_27b": null,
+  "baichuan_m2_32b": null
  },
  "ref_rag": {
   "Llama-3.3-70B API (v4)": {
@@ -7382,7 +7762,24 @@
     "rag": 124,
     "rd": 70
    },
-   "unit_blindness_gone": false
+   "unit_blindness_gone": false,
+   "parse_fail": {
+    "card": {
+     "rows": 958,
+     "strict": 107,
+     "lenient": 43
+    },
+    "rag": {
+     "rows": 1622,
+     "strict": 236,
+     "lenient": 125
+    },
+    "rd": {
+     "rows": 1451,
+     "strict": 193,
+     "lenient": 70
+    }
+   }
   },
   "llama31_8b": {
    "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
@@ -7400,7 +7797,24 @@
     "rag": 0,
     "rd": 0
    },
-   "unit_blindness_gone": false
+   "unit_blindness_gone": false,
+   "parse_fail": {
+    "card": {
+     "rows": 958,
+     "strict": 12,
+     "lenient": 0
+    },
+    "rag": {
+     "rows": 1622,
+     "strict": 65,
+     "lenient": 0
+    },
+    "rd": {
+     "rows": 1451,
+     "strict": 60,
+     "lenient": 0
+    }
+   }
   },
   "medgemma_4b": {
    "hf_id": "google/medgemma-4b-it",
@@ -7418,7 +7832,24 @@
     "rag": 2,
     "rd": 0
    },
-   "unit_blindness_gone": false
+   "unit_blindness_gone": false,
+   "parse_fail": {
+    "card": {
+     "rows": 958,
+     "strict": 0,
+     "lenient": 0
+    },
+    "rag": {
+     "rows": 1622,
+     "strict": 2,
+     "lenient": 2
+    },
+    "rd": {
+     "rows": 1451,
+     "strict": 0,
+     "lenient": 0
+    }
+   }
   },
   "qwen25_0p5b": {
    "hf_id": "Qwen/Qwen2.5-0.5B-Instruct",
@@ -7436,7 +7867,24 @@
     "rag": 152,
     "rd": 22
    },
-   "unit_blindness_gone": false
+   "unit_blindness_gone": false,
+   "parse_fail": {
+    "card": {
+     "rows": 958,
+     "strict": 0,
+     "lenient": 0
+    },
+    "rag": {
+     "rows": 1622,
+     "strict": 359,
+     "lenient": 148
+    },
+    "rd": {
+     "rows": 1451,
+     "strict": 71,
+     "lenient": 18
+    }
+   }
   },
   "qwen25_1p5b": {
    "hf_id": "Qwen/Qwen2.5-1.5B-Instruct",
@@ -7454,7 +7902,24 @@
     "rag": 162,
     "rd": 133
    },
-   "unit_blindness_gone": false
+   "unit_blindness_gone": false,
+   "parse_fail": {
+    "card": {
+     "rows": 958,
+     "strict": 217,
+     "lenient": 53
+    },
+    "rag": {
+     "rows": 1622,
+     "strict": 492,
+     "lenient": 163
+    },
+    "rd": {
+     "rows": 1451,
+     "strict": 403,
+     "lenient": 133
+    }
+   }
   },
   "qwen25_3b": {
    "hf_id": "Qwen/Qwen2.5-3B-Instruct",
@@ -7472,7 +7937,24 @@
     "rag": 197,
     "rd": 80
    },
-   "unit_blindness_gone": false
+   "unit_blindness_gone": false,
+   "parse_fail": {
+    "card": {
+     "rows": 958,
+     "strict": 213,
+     "lenient": 42
+    },
+    "rag": {
+     "rows": 1622,
+     "strict": 542,
+     "lenient": 197
+    },
+    "rd": {
+     "rows": 1451,
+     "strict": 373,
+     "lenient": 87
+    }
+   }
   },
   "qwen25_14b": {
    "hf_id": "Qwen/Qwen2.5-14B-Instruct",
@@ -7490,7 +7972,24 @@
     "rag": 46,
     "rd": 19
    },
-   "unit_blindness_gone": true
+   "unit_blindness_gone": true,
+   "parse_fail": {
+    "card": {
+     "rows": 958,
+     "strict": 42,
+     "lenient": 7
+    },
+    "rag": {
+     "rows": 1622,
+     "strict": 108,
+     "lenient": 46
+    },
+    "rd": {
+     "rows": 1451,
+     "strict": 90,
+     "lenient": 20
+    }
+   }
   },
   "qwen25_32b": {
    "hf_id": "Qwen/Qwen2.5-32B-Instruct",
@@ -7508,7 +8007,94 @@
     "rag": 0,
     "rd": 0
    },
-   "unit_blindness_gone": null
+   "unit_blindness_gone": null,
+   "parse_fail": {
+    "card": {
+     "rows": 0,
+     "strict": 0,
+     "lenient": 0
+    },
+    "rag": {
+     "rows": 0,
+     "strict": 0,
+     "lenient": 0
+    },
+    "rd": {
+     "rows": 0,
+     "strict": 0,
+     "lenient": 0
+    }
+   }
+  },
+  "medgemma_27b": {
+   "hf_id": "google/medgemma-27b-text-it",
+   "params_b": 27.0,
+   "status": "done",
+   "revision": "5b667cf2ddcf064085bc90952edb35a0edbfb79c",
+   "backend": "vllm 0.8.3",
+   "rows": {
+    "card": 958,
+    "rag": 0,
+    "rd": 1451
+   },
+   "p_yes_missing": {
+    "card": 0,
+    "rag": 0,
+    "rd": 0
+   },
+   "unit_blindness_gone": true,
+   "parse_fail": {
+    "card": {
+     "rows": 958,
+     "strict": 0,
+     "lenient": 0
+    },
+    "rag": {
+     "rows": 0,
+     "strict": 0,
+     "lenient": 0
+    },
+    "rd": {
+     "rows": 1451,
+     "strict": 0,
+     "lenient": 0
+    }
+   }
+  },
+  "baichuan_m2_32b": {
+   "hf_id": "baichuan-inc/Baichuan-M2-32B",
+   "params_b": 32.8,
+   "status": "done",
+   "revision": "360f684d3cd527a4ef986c54071015eb0e6def58",
+   "backend": "vllm 0.8.3",
+   "rows": {
+    "card": 958,
+    "rag": 0,
+    "rd": 1451
+   },
+   "p_yes_missing": {
+    "card": 35,
+    "rag": 0,
+    "rd": 75
+   },
+   "unit_blindness_gone": true,
+   "parse_fail": {
+    "card": {
+     "rows": 958,
+     "strict": 54,
+     "lenient": 35
+    },
+    "rag": {
+     "rows": 0,
+     "strict": 0,
+     "lenient": 0
+    },
+    "rd": {
+     "rows": 1451,
+     "strict": 110,
+     "lenient": 74
+    }
+   }
   }
  },
  "llama8b_agreement": {
