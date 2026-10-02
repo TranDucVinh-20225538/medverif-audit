@@ -1,0 +1,894 @@
+{
+ "retrieved": "2026-10-02T03:35:36+0000",
+ "api": "https://api.fda.gov/drug/label.json",
+ "query": "same as scripts/journal2/rd_fetch_labels.fetch (exact generic name, HUMAN PRESCRIPTION DRUG, _exists_:dosage_and_administration, sort effective_time:desc, limit 1; fallback generic_name word match)",
+ "n_target": 230,
+ "n_labels": 230,
+ "lexicon_rd2_size": 208,
+ "order_size": 472,
+ "misses": [
+  {
+   "drug": "chloramphenicol",
+   "why": "no_label"
+  },
+  {
+   "drug": "ethionamide",
+   "why": "no_label"
+  },
+  {
+   "drug": "peramivir",
+   "why": "no_label"
+  },
+  {
+   "drug": "artesunate",
+   "why": "no_label"
+  },
+  {
+   "drug": "miltefosine",
+   "why": "no_label"
+  },
+  {
+   "drug": "pancuronium",
+   "why": "no_label"
+  },
+  {
+   "drug": "alfentanil",
+   "why": "no_label"
+  },
+  {
+   "drug": "dimercaprol",
+   "why": "no_label"
+  },
+  {
+   "drug": "caffeine",
+   "why": "shares_ingredient_word:acetaminophen",
+   "generic_name": [
+    "BUTALBITAL, ACETAMINOPHEN, AND CAFFEINE"
+   ]
+  },
+  {
+   "drug": "laronidase",
+   "why": "no_label"
+  },
+  {
+   "drug": "hydroxyzine",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "acetaminophen",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "acyclovir",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "adalimumab",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "albuterol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "alendronate",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "allopurinol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "alprazolam",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "amikacin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "amiodarone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "amitriptyline",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "amlodipine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "amoxicillin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ampicillin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "anastrozole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "apixaban",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "aripiprazole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "atenolol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "atorvastatin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "azathioprine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "azithromycin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "baclofen",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "benazepril",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "bisoprolol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "bumetanide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "buprenorphine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "bupropion",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "buspirone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "captopril",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "carbamazepine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "carvedilol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "cefazolin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "cefdinir",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "cefepime",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "cefixime",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ceftazidime",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ceftriaxone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "cefuroxime",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "cephalexin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "cetirizine",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "chlorthalidone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ciprofloxacin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "citalopram",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "clarithromycin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "clindamycin",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "clonazepam",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "clonidine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "clopidogrel",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "colchicine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "cyclophosphamide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "cyclosporine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "dabigatran",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "dapagliflozin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "daptomycin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "dexamethasone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "diazepam",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "diclofenac",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "digoxin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "diltiazem",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "diphenhydramine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "dobutamine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "donepezil",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "dopamine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "doxycycline",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "duloxetine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "empagliflozin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "enalapril",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "enoxaparin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "epinephrine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ertapenem",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "erythromycin",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "escitalopram",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "esomeprazole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ethambutol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "famotidine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ferrous",
+   "why": "shares_ingredient_word:folic",
+   "generic_name": [
+    "ASCORBIC ACID, CHOLECALCIFEROL, .ALPHA.-TOCOPHEROL ACETATE, DL-, PYRIDOXINE, FOLIC ACID, CYANOCOBALAMIN, CALCIUM, FERROUS FUMARATE, MAGNESIUM, DOCONEXENT"
+   ]
+  },
+  {
+   "drug": "filgrastim",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "finasteride",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "fluconazole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "fluoxetine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "fluticasone",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "folic",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "fosfomycin",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "furosemide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "gabapentin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "gentamicin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "glimepiride",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "glipizide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "glyburide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "haloperidol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "heparin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "hydralazine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "hydrochlorothiazide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "hydrocodone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "hydrocortisone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "hydromorphone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "hydroxychloroquine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ibuprofen",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "imipenem",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "indomethacin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ipratropium",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "irbesartan",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "isoniazid",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "isosorbide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ivermectin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ketamine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ketorolac",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "labetalol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "lamotrigine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "lansoprazole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "letrozole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "levetiracetam",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "levofloxacin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "levothyroxine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "lidocaine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "linezolid",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "lisinopril",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "lithium",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "loperamide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "loratadine",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "lorazepam",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "losartan",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "magnesium",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "meloxicam",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "memantine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "meropenem",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "metformin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "methadone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "methotrexate",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "methylprednisolone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "metoclopramide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "metoprolol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "metronidazole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "midazolam",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "minocycline",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "mirtazapine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "montelukast",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "morphine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "moxifloxacin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "mycophenolate",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "naloxone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "naproxen",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "nifedipine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "nitrofurantoin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "nitroglycerin",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "norepinephrine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "nystatin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "olanzapine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "omeprazole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ondansetron",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "oseltamivir",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "oxcarbazepine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "oxycodone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "pantoprazole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "paroxetine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "penicillin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "phenobarbital",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "phenytoin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "pioglitazone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "piperacillin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "potassium",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "pravastatin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "prednisolone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "prednisone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "pregabalin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "primaquine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "probenecid",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "promethazine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "propofol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "propranolol",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "propylthiouracil",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "pyrazinamide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "quetiapine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ramipril",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "ranitidine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "rifampin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "risperidone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "rivaroxaban",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "rocuronium",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "rosuvastatin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "sertraline",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "sildenafil",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "simvastatin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "sitagliptin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "sodium",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "spironolactone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "sucralfate",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "sulfamethoxazole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "sumatriptan",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "tacrolimus",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "tamoxifen",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "tamsulosin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "terbinafine",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "testosterone",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "topiramate",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "triamcinolone",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "trimethoprim",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "valacyclovir",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "vancomycin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "verapamil",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "voriconazole",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "warfarin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "acetazolamide",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "amphotericin",
+   "why": "drug_in_rd"
+  },
+  {
+   "drug": "clotrimazole",
+   "why": "no_dose_span"
+  },
+  {
+   "drug": "didanosine",
+   "why": "no_label"
+  },
+  {
+   "drug": "ganciclovir",
+   "why": "no_dose_span"
+  }
+ ],
+ "max_chars": 20000,
+ "labels_sha256": "6df85f0c1819429e1f50bfdefbdc4a98928df9a6595845052080abce0a7e2b9c",
+ "rd_exclusion": {
+  "drugs": 197,
+  "set_ids": 196,
+  "names": 270,
+  "ingredient_words": 219
+ },
+ "script": "scripts/journal5/rd2_fetch_labels.py"
+}

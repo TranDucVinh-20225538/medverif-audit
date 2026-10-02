@@ -1,0 +1,362 @@
+{
+ "generators": 6,
+ "conditions": [
+  "grounded",
+  "closed"
+ ],
+ "rd2_questions": 480,
+ "rd2_answers": 5760,
+ "expected_total": {
+  "auto_unit_type": 308.4,
+  "ai_true": 98.6,
+  "value_error": 386.7
+ },
+ "expected_total_range_from_per_cell_wilson95": {
+  "auto_unit_type": [
+   191.5,
+   626.0
+  ],
+  "ai_true": [
+   48.5,
+   363.4
+  ],
+  "value_error": [
+   244.3,
+   718.6
+  ]
+ },
+ "rd_pooled": {
+  "grounded": {
+   "answers": 728,
+   "auto_unit_type": 9,
+   "ai_true": 1,
+   "value_error": 1
+  },
+  "closed": {
+   "answers": 728,
+   "auto_unit_type": 38,
+   "ai_true": 11,
+   "value_error": 92
+  }
+ },
+ "per_stratum": {
+  "bsa": {
+   "rd2_questions": 108,
+   "rd_questions": 3,
+   "grounded": {
+    "rd_answers": 6,
+    "rate_source": "ERROR_PRONE",
+    "rd_rates": {
+     "auto_unit_type": 0.0244,
+     "ai_true": 0.003,
+     "value_error": 0.0
+    },
+    "rd_counts": {
+     "auto_unit_type": 4,
+     "ai_true": 0,
+     "value_error": 0
+    },
+    "rd2_answers": 648,
+    "expected": {
+     "auto_unit_type": 15.8,
+     "ai_true": 2.0,
+     "value_error": 0.0
+    }
+   },
+   "closed": {
+    "rd_answers": 6,
+    "rate_source": "ERROR_PRONE",
+    "rd_rates": {
+     "auto_unit_type": 0.0945,
+     "ai_true": 0.0274,
+     "value_error": 0.1341
+    },
+    "rd_counts": {
+     "auto_unit_type": 3,
+     "ai_true": 0,
+     "value_error": 0
+    },
+    "rd2_answers": 648,
+    "expected": {
+     "auto_unit_type": 61.2,
+     "ai_true": 17.8,
+     "value_error": 86.9
+    }
+   }
+  },
+  "weight_based": {
+   "rd2_questions": 138,
+   "rd_questions": 54,
+   "grounded": {
+    "rd_answers": 108,
+    "rate_source": "weight_based",
+    "rd_rates": {
+     "auto_unit_type": 0.0093,
+     "ai_true": 0.0093,
+     "value_error": 0.0
+    },
+    "rd_counts": {
+     "auto_unit_type": 1,
+     "ai_true": 1,
+     "value_error": 0
+    },
+    "rd2_answers": 828,
+    "expected": {
+     "auto_unit_type": 7.7,
+     "ai_true": 7.7,
+     "value_error": 0.0
+    }
+   },
+   "closed": {
+    "rd_answers": 108,
+    "rate_source": "weight_based",
+    "rd_rates": {
+     "auto_unit_type": 0.2222,
+     "ai_true": 0.0833,
+     "value_error": 0.1389
+    },
+    "rd_counts": {
+     "auto_unit_type": 24,
+     "ai_true": 9,
+     "value_error": 15
+    },
+    "rd2_answers": 828,
+    "expected": {
+     "auto_unit_type": 184.0,
+     "ai_true": 69.0,
+     "value_error": 115.0
+    }
+   }
+  },
+  "loading_maintenance": {
+   "rd2_questions": 28,
+   "rd_questions": 14,
+   "grounded": {
+    "rd_answers": 28,
+    "rate_source": "loading_maintenance",
+    "rd_rates": {
+     "auto_unit_type": 0.0357,
+     "ai_true": 0.0,
+     "value_error": 0.0
+    },
+    "rd_counts": {
+     "auto_unit_type": 1,
+     "ai_true": 0,
+     "value_error": 0
+    },
+    "rd2_answers": 168,
+    "expected": {
+     "auto_unit_type": 6.0,
+     "ai_true": 0.0,
+     "value_error": 0.0
+    }
+   },
+   "closed": {
+    "rd_answers": 28,
+    "rate_source": "loading_maintenance",
+    "rd_rates": {
+     "auto_unit_type": 0.0357,
+     "ai_true": 0.0,
+     "value_error": 0.2143
+    },
+    "rd_counts": {
+     "auto_unit_type": 1,
+     "ai_true": 0,
+     "value_error": 6
+    },
+    "rd2_answers": 168,
+    "expected": {
+     "auto_unit_type": 6.0,
+     "ai_true": 0.0,
+     "value_error": 36.0
+    }
+   }
+  },
+  "renal": {
+   "rd2_questions": 43,
+   "rd_questions": 35,
+   "grounded": {
+    "rd_answers": 70,
+    "rate_source": "renal",
+    "rd_rates": {
+     "auto_unit_type": 0.0286,
+     "ai_true": 0.0,
+     "value_error": 0.0
+    },
+    "rd_counts": {
+     "auto_unit_type": 2,
+     "ai_true": 0,
+     "value_error": 0
+    },
+    "rd2_answers": 258,
+    "expected": {
+     "auto_unit_type": 7.4,
+     "ai_true": 0.0,
+     "value_error": 0.0
+    }
+   },
+   "closed": {
+    "rd_answers": 70,
+    "rate_source": "renal",
+    "rd_rates": {
+     "auto_unit_type": 0.0286,
+     "ai_true": 0.0,
+     "value_error": 0.1714
+    },
+    "rd_counts": {
+     "auto_unit_type": 2,
+     "ai_true": 0,
+     "value_error": 12
+    },
+    "rd2_answers": 258,
+    "expected": {
+     "auto_unit_type": 7.4,
+     "ai_true": 0.0,
+     "value_error": 44.2
+    }
+   }
+  },
+  "pediatric": {
+   "rd2_questions": 68,
+   "rd_questions": 47,
+   "grounded": {
+    "rd_answers": 94,
+    "rate_source": "pediatric",
+    "rd_rates": {
+     "auto_unit_type": 0.0,
+     "ai_true": 0.0,
+     "value_error": 0.0
+    },
+    "rd_counts": {
+     "auto_unit_type": 0,
+     "ai_true": 0,
+     "value_error": 0
+    },
+    "rd2_answers": 408,
+    "expected": {
+     "auto_unit_type": 0.0,
+     "ai_true": 0.0,
+     "value_error": 0.0
+    }
+   },
+   "closed": {
+    "rd_answers": 94,
+    "rate_source": "pediatric",
+    "rd_rates": {
+     "auto_unit_type": 0.0106,
+     "ai_true": 0.0,
+     "value_error": 0.0957
+    },
+    "rd_counts": {
+     "auto_unit_type": 1,
+     "ai_true": 0,
+     "value_error": 9
+    },
+    "rd2_answers": 408,
+    "expected": {
+     "auto_unit_type": 4.3,
+     "ai_true": 0.0,
+     "value_error": 39.1
+    }
+   }
+  },
+  "divided_daily": {
+   "rd2_questions": 23,
+   "rd_questions": 11,
+   "grounded": {
+    "rd_answers": 22,
+    "rate_source": "divided_daily",
+    "rd_rates": {
+     "auto_unit_type": 0.0,
+     "ai_true": 0.0,
+     "value_error": 0.0
+    },
+    "rd_counts": {
+     "auto_unit_type": 0,
+     "ai_true": 0,
+     "value_error": 0
+    },
+    "rd2_answers": 138,
+    "expected": {
+     "auto_unit_type": 0.0,
+     "ai_true": 0.0,
+     "value_error": 0.0
+    }
+   },
+   "closed": {
+    "rd_answers": 22,
+    "rate_source": "divided_daily",
+    "rd_rates": {
+     "auto_unit_type": 0.0,
+     "ai_true": 0.0,
+     "value_error": 0.0909
+    },
+    "rd_counts": {
+     "auto_unit_type": 0,
+     "ai_true": 0,
+     "value_error": 2
+    },
+    "rd2_answers": 138,
+    "expected": {
+     "auto_unit_type": 0.0,
+     "ai_true": 0.0,
+     "value_error": 12.5
+    }
+   }
+  },
+  "fixed": {
+   "rd2_questions": 72,
+   "rd_questions": 200,
+   "grounded": {
+    "rd_answers": 400,
+    "rate_source": "fixed",
+    "rd_rates": {
+     "auto_unit_type": 0.0025,
+     "ai_true": 0.0,
+     "value_error": 0.0025
+    },
+    "rd_counts": {
+     "auto_unit_type": 1,
+     "ai_true": 0,
+     "value_error": 1
+    },
+    "rd2_answers": 432,
+    "expected": {
+     "auto_unit_type": 1.1,
+     "ai_true": 0.0,
+     "value_error": 1.1
+    }
+   },
+   "closed": {
+    "rd_answers": 400,
+    "rate_source": "fixed",
+    "rd_rates": {
+     "auto_unit_type": 0.0175,
+     "ai_true": 0.005,
+     "value_error": 0.12
+    },
+    "rd_counts": {
+     "auto_unit_type": 7,
+     "ai_true": 2,
+     "value_error": 48
+    },
+    "rd2_answers": 432,
+    "expected": {
+     "auto_unit_type": 7.6,
+     "ai_true": 2.2,
+     "value_error": 51.8
+    }
+   }
+  }
+ },
+ "rd_stratum_counts": {
+  "pediatric": 47,
+  "weight_based": 54,
+  "fixed": 200,
+  "renal": 35,
+  "bsa": 3,
+  "divided_daily": 11,
+  "loading_maintenance": 14
+ },
+ "note": "ESTIMATE ONLY: RD rates (2 API generators; AI pre-check not human-verified) x RD2 composition."
+}

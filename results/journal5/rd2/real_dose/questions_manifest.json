@@ -1,0 +1,61 @@
+{
+ "labels": 230,
+ "labels_dropped_overlap": {},
+ "non_dose_targets_dropped": {
+  "diluent_volume": 121,
+  "renal_threshold": 107
+ },
+ "pool_after_per_drug": 613,
+ "pool_by_stratum": {
+  "weight_based": 151,
+  "pediatric": 68,
+  "fixed": 192,
+  "loading_maintenance": 28,
+  "renal": 43,
+  "bsa": 108,
+  "divided_daily": 23
+ },
+ "questions": 480,
+ "drugs": 215,
+ "out": "results/journal5/rd2/real_dose/questions.jsonl",
+ "sha256": "e3e339e260e90dbd3e851bb05fd5129855a315642a8772fd0c5138a2c08f86ca",
+ "labels_file": "results/journal5/rd2/labels/labels.jsonl",
+ "labels_sha256": "6df85f0c1819429e1f50bfdefbdc4a98928df9a6595845052080abce0a7e2b9c",
+ "params": {
+  "n": 480,
+  "per_drug": 3,
+  "gap": 300,
+  "fixed_share": 0.15,
+  "seed": 20261002,
+  "window": 900
+ },
+ "by_stratum": {
+  "fixed": 72,
+  "pediatric": 68,
+  "loading_maintenance": 28,
+  "weight_based": 138,
+  "renal": 43,
+  "bsa": 108,
+  "divided_daily": 23
+ },
+ "by_dosing_type_multilabel": {
+  "pediatric": 172,
+  "loading_maintenance": 59,
+  "weight_based": 145,
+  "divided_daily": 68,
+  "renal": 75,
+  "bsa": 108
+ },
+ "by_primary_basis": {
+  "none": 252,
+  "/kg": 133,
+  "/m2": 95
+ },
+ "by_population": {
+  "adult_or_unspecified": 239,
+  "pediatric": 159,
+  "renal": 75,
+  "hepatic": 7
+ },
+ "mixed_basis_sentences": 54
+}
