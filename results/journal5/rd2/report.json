@@ -1,0 +1,1875 @@
+{
+ "generated": "2026-10-02T20:40:26+0700",
+ "provisional": true,
+ "reference": "PROVISIONAL auto labels (rd_extract) -- not the pre-registered reference standard",
+ "n_instances": 5688,
+ "n_err": 459,
+ "n_nonerr": 3654,
+ "auto_class_by_generator": {
+  "baichuan_m2_32b|basis_error": 60,
+  "baichuan_m2_32b|correct": 608,
+  "baichuan_m2_32b|match_other_context": 102,
+  "baichuan_m2_32b|time_ambiguous": 27,
+  "baichuan_m2_32b|unit_error": 15,
+  "baichuan_m2_32b|unverifiable": 13,
+  "baichuan_m2_32b|value_error": 132,
+  "gemma3_27b|basis_error": 66,
+  "gemma3_27b|correct": 586,
+  "gemma3_27b|match_other_context": 109,
+  "gemma3_27b|time_ambiguous": 33,
+  "gemma3_27b|unit_error": 24,
+  "gemma3_27b|unverifiable": 15,
+  "gemma3_27b|value_error": 122,
+  "gpt4o_mini|basis_error": 39,
+  "gpt4o_mini|correct": 654,
+  "gpt4o_mini|match_other_context": 107,
+  "gpt4o_mini|time_ambiguous": 37,
+  "gpt4o_mini|unit_error": 30,
+  "gpt4o_mini|unverifiable": 9,
+  "gpt4o_mini|value_error": 83,
+  "llama31_8b|basis_error": 46,
+  "llama31_8b|correct": 591,
+  "llama31_8b|match_other_context": 103,
+  "llama31_8b|time_ambiguous": 35,
+  "llama31_8b|unit_error": 24,
+  "llama31_8b|unverifiable": 12,
+  "llama31_8b|value_error": 93,
+  "medgemma_27b|basis_error": 65,
+  "medgemma_27b|correct": 602,
+  "medgemma_27b|match_other_context": 103,
+  "medgemma_27b|time_ambiguous": 27,
+  "medgemma_27b|unit_error": 26,
+  "medgemma_27b|unverifiable": 15,
+  "medgemma_27b|value_error": 119,
+  "qwen25_14b|basis_error": 48,
+  "qwen25_14b|correct": 613,
+  "qwen25_14b|match_other_context": 99,
+  "qwen25_14b|time_ambiguous": 48,
+  "qwen25_14b|unit_error": 16,
+  "qwen25_14b|unverifiable": 13,
+  "qwen25_14b|value_error": 119
+ },
+ "err_by_stratum_condition": {
+  "bsa|closed": 145,
+  "divided_daily|closed": 11,
+  "fixed|closed": 56,
+  "fixed|grounded": 11,
+  "loading_maintenance|closed": 20,
+  "loading_maintenance|grounded": 1,
+  "pediatric|closed": 43,
+  "renal|closed": 10,
+  "weight_based|closed": 162
+ },
+ "P1_paper_checkers": {
+  "MiniCheck-RoBERTa": {
+   "pass_on_errors": {
+    "k": 74,
+    "n": 459,
+    "pct": 16.1,
+    "wilson95": [
+     13.0,
+     19.8
+    ],
+    "drug_cluster95": [
+     11.4,
+     21.2
+    ]
+   },
+   "pass_on_errors_parsefail_as_fail": {
+    "k": 74,
+    "n": 459,
+    "pct": 16.1,
+    "wilson95": [
+     13.0,
+     19.8
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 3040,
+    "n": 3654,
+    "pct": 83.2,
+    "wilson95": [
+     81.9,
+     84.4
+    ],
+    "drug_cluster95": [
+     81.5,
+     84.8
+    ]
+   },
+   "parse_fail_on_errors": 0,
+   "unscored_errors": 0
+  },
+  "MiniCheck-DeBERTa": {
+   "pass_on_errors": {
+    "k": 50,
+    "n": 459,
+    "pct": 10.9,
+    "wilson95": [
+     8.4,
+     14.1
+    ],
+    "drug_cluster95": [
+     7.4,
+     14.8
+    ]
+   },
+   "pass_on_errors_parsefail_as_fail": {
+    "k": 50,
+    "n": 459,
+    "pct": 10.9,
+    "wilson95": [
+     8.4,
+     14.1
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2388,
+    "n": 3654,
+    "pct": 65.4,
+    "wilson95": [
+     63.8,
+     66.9
+    ],
+    "drug_cluster95": [
+     63.4,
+     67.3
+    ]
+   },
+   "parse_fail_on_errors": 0,
+   "unscored_errors": 0
+  },
+  "AlignScore-base": {
+   "pass_on_errors": {
+    "k": 87,
+    "n": 459,
+    "pct": 19.0,
+    "wilson95": [
+     15.6,
+     22.8
+    ],
+    "drug_cluster95": [
+     14.5,
+     23.5
+    ]
+   },
+   "pass_on_errors_parsefail_as_fail": {
+    "k": 87,
+    "n": 459,
+    "pct": 19.0,
+    "wilson95": [
+     15.6,
+     22.8
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2938,
+    "n": 3654,
+    "pct": 80.4,
+    "wilson95": [
+     79.1,
+     81.7
+    ],
+    "drug_cluster95": [
+     78.7,
+     82.1
+    ]
+   },
+   "parse_fail_on_errors": 0,
+   "unscored_errors": 0
+  },
+  "MiniCheck-Flan-T5-Large": {
+   "pass_on_errors": {
+    "k": 83,
+    "n": 459,
+    "pct": 18.1,
+    "wilson95": [
+     14.8,
+     21.9
+    ],
+    "drug_cluster95": [
+     12.7,
+     23.5
+    ]
+   },
+   "pass_on_errors_parsefail_as_fail": {
+    "k": 83,
+    "n": 459,
+    "pct": 18.1,
+    "wilson95": [
+     14.8,
+     21.9
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2605,
+    "n": 3654,
+    "pct": 71.3,
+    "wilson95": [
+     69.8,
+     72.7
+    ],
+    "drug_cluster95": [
+     68.9,
+     73.7
+    ]
+   },
+   "parse_fail_on_errors": 0,
+   "unscored_errors": 0
+  },
+  "AlignScore-large": {
+   "pass_on_errors": {
+    "k": 83,
+    "n": 459,
+    "pct": 18.1,
+    "wilson95": [
+     14.8,
+     21.9
+    ],
+    "drug_cluster95": [
+     13.3,
+     22.8
+    ]
+   },
+   "pass_on_errors_parsefail_as_fail": {
+    "k": 83,
+    "n": 459,
+    "pct": 18.1,
+    "wilson95": [
+     14.8,
+     21.9
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 3199,
+    "n": 3654,
+    "pct": 87.5,
+    "wilson95": [
+     86.4,
+     88.6
+    ],
+    "drug_cluster95": [
+     85.9,
+     89.0
+    ]
+   },
+   "parse_fail_on_errors": 0,
+   "unscored_errors": 0
+  },
+  "Llama-3.3-70B RAGAS": {
+   "pass_on_errors": {
+    "k": 30,
+    "n": 459,
+    "pct": 6.5,
+    "wilson95": [
+     4.6,
+     9.2
+    ],
+    "drug_cluster95": [
+     3.1,
+     10.7
+    ]
+   },
+   "pass_on_errors_parsefail_as_fail": {
+    "k": 30,
+    "n": 459,
+    "pct": 6.5,
+    "wilson95": [
+     4.6,
+     9.2
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2928,
+    "n": 3653,
+    "pct": 80.2,
+    "wilson95": [
+     78.8,
+     81.4
+    ],
+    "drug_cluster95": [
+     78.2,
+     82.1
+    ]
+   },
+   "parse_fail_on_errors": 0,
+   "unscored_errors": 0
+  },
+  "MedScore (Mistral-Small-24B)": {
+   "pass_on_errors": {
+    "k": 39,
+    "n": 459,
+    "pct": 8.5,
+    "wilson95": [
+     6.3,
+     11.4
+    ],
+    "drug_cluster95": [
+     5.0,
+     12.6
+    ]
+   },
+   "pass_on_errors_parsefail_as_fail": {
+    "k": 39,
+    "n": 459,
+    "pct": 8.5,
+    "wilson95": [
+     6.3,
+     11.4
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2910,
+    "n": 3654,
+    "pct": 79.6,
+    "wilson95": [
+     78.3,
+     80.9
+    ],
+    "drug_cluster95": [
+     77.6,
+     81.6
+    ]
+   },
+   "parse_fail_on_errors": 0,
+   "unscored_errors": 0
+  }
+ },
+ "P2_basis_check_fdb95de": {
+  "full": {
+   "recall_independent_errors": {
+    "k": 235,
+    "n": 459,
+    "pct": 51.2,
+    "wilson95": [
+     46.6,
+     55.7
+    ],
+    "drug_cluster95": [
+     42.5,
+     60.0
+    ]
+   },
+   "recall_all_errors": {
+    "k": 235,
+    "n": 459,
+    "pct": 51.2,
+    "wilson95": [
+     46.6,
+     55.7
+    ],
+    "drug_cluster95": [
+     42.5,
+     60.0
+    ]
+   },
+   "flag_rate_all": {
+    "k": 271,
+    "n": 5688,
+    "pct": 4.8,
+    "wilson95": [
+     4.2,
+     5.3
+    ]
+   },
+   "flag_rate_on_nonerrors": {
+    "k": 5,
+    "n": 3654,
+    "pct": 0.1,
+    "wilson95": [
+     0.1,
+     0.3
+    ]
+   }
+  },
+  "strict": {
+   "recall_independent_errors": {
+    "k": 113,
+    "n": 459,
+    "pct": 24.6,
+    "wilson95": [
+     20.9,
+     28.8
+    ],
+    "drug_cluster95": [
+     18.0,
+     31.4
+    ]
+   },
+   "recall_all_errors": {
+    "k": 113,
+    "n": 459,
+    "pct": 24.6,
+    "wilson95": [
+     20.9,
+     28.8
+    ],
+    "drug_cluster95": [
+     18.0,
+     31.4
+    ]
+   },
+   "flag_rate_all": {
+    "k": 134,
+    "n": 5688,
+    "pct": 2.4,
+    "wilson95": [
+     2.0,
+     2.8
+    ]
+   },
+   "flag_rate_on_nonerrors": {
+    "k": 5,
+    "n": 3654,
+    "pct": 0.1,
+    "wilson95": [
+     0.1,
+     0.3
+    ]
+   }
+  }
+ },
+ "P3_transfer": {
+  "FT alignscore_large_base": {
+   "fail_on_errors": {
+    "k": 376,
+    "n": 459,
+    "pct": 81.9,
+    "wilson95": [
+     78.1,
+     85.2
+    ],
+    "drug_cluster95": [
+     77.1,
+     86.7
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 3199,
+    "n": 3654,
+    "pct": 87.5,
+    "wilson95": [
+     86.4,
+     88.6
+    ],
+    "drug_cluster95": [
+     85.9,
+     89.0
+    ]
+   }
+  },
+  "FT alignscore_large_r0.5": {
+   "fail_on_errors": {
+    "k": 319,
+    "n": 459,
+    "pct": 69.5,
+    "wilson95": [
+     65.1,
+     73.5
+    ],
+    "drug_cluster95": [
+     63.1,
+     75.6
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2953,
+    "n": 3654,
+    "pct": 80.8,
+    "wilson95": [
+     79.5,
+     82.1
+    ],
+    "drug_cluster95": [
+     79.0,
+     82.5
+    ]
+   }
+  },
+  "FT alignscore_large_r1": {
+   "fail_on_errors": {
+    "k": 356,
+    "n": 459,
+    "pct": 77.6,
+    "wilson95": [
+     73.5,
+     81.1
+    ],
+    "drug_cluster95": [
+     71.9,
+     82.6
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2803,
+    "n": 3654,
+    "pct": 76.7,
+    "wilson95": [
+     75.3,
+     78.1
+    ],
+    "drug_cluster95": [
+     74.6,
+     78.7
+    ]
+   }
+  },
+  "FT alignscore_large_r2": {
+   "fail_on_errors": {
+    "k": 344,
+    "n": 459,
+    "pct": 74.9,
+    "wilson95": [
+     70.8,
+     78.7
+    ],
+    "drug_cluster95": [
+     69.4,
+     80.1
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2713,
+    "n": 3654,
+    "pct": 74.2,
+    "wilson95": [
+     72.8,
+     75.6
+    ],
+    "drug_cluster95": [
+     72.2,
+     76.2
+    ]
+   }
+  },
+  "FT minicheck_ft5_base": {
+   "fail_on_errors": {
+    "k": 376,
+    "n": 459,
+    "pct": 81.9,
+    "wilson95": [
+     78.1,
+     85.2
+    ],
+    "drug_cluster95": [
+     76.5,
+     87.2
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2605,
+    "n": 3654,
+    "pct": 71.3,
+    "wilson95": [
+     69.8,
+     72.7
+    ],
+    "drug_cluster95": [
+     68.9,
+     73.7
+    ]
+   }
+  },
+  "FT minicheck_ft5_r0.5": {
+   "fail_on_errors": {
+    "k": 328,
+    "n": 459,
+    "pct": 71.5,
+    "wilson95": [
+     67.2,
+     75.4
+    ],
+    "drug_cluster95": [
+     65.4,
+     77.1
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2843,
+    "n": 3654,
+    "pct": 77.8,
+    "wilson95": [
+     76.4,
+     79.1
+    ],
+    "drug_cluster95": [
+     76.2,
+     79.5
+    ]
+   }
+  },
+  "FT minicheck_ft5_r1": {
+   "fail_on_errors": {
+    "k": 361,
+    "n": 459,
+    "pct": 78.6,
+    "wilson95": [
+     74.7,
+     82.2
+    ],
+    "drug_cluster95": [
+     73.0,
+     83.9
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2860,
+    "n": 3654,
+    "pct": 78.3,
+    "wilson95": [
+     76.9,
+     79.6
+    ],
+    "drug_cluster95": [
+     76.5,
+     80.0
+    ]
+   }
+  },
+  "FT minicheck_ft5_r2": {
+   "fail_on_errors": {
+    "k": 361,
+    "n": 459,
+    "pct": 78.6,
+    "wilson95": [
+     74.7,
+     82.2
+    ],
+    "drug_cluster95": [
+     72.7,
+     84.1
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2747,
+    "n": 3654,
+    "pct": 75.2,
+    "wilson95": [
+     73.8,
+     76.6
+    ],
+    "drug_cluster95": [
+     73.4,
+     77.0
+    ]
+   }
+  },
+  "UNF": {
+   "t6_minicheck_roberta unf_v1": {
+    "pass_on_errors_raw": {
+     "k": 74,
+     "n": 459,
+     "pct": 16.1,
+     "wilson95": [
+      13.0,
+      19.8
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 68,
+     "n": 459,
+     "pct": 14.8,
+     "wilson95": [
+      11.9,
+      18.4
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 3040,
+     "n": 3654,
+     "pct": 83.2,
+     "wilson95": [
+      81.9,
+      84.4
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 3050,
+     "n": 3654,
+     "pct": 83.5,
+     "wilson95": [
+      82.2,
+      84.6
+     ]
+    }
+   },
+   "t6_minicheck_deberta unf_v1": {
+    "pass_on_errors_raw": {
+     "k": 50,
+     "n": 459,
+     "pct": 10.9,
+     "wilson95": [
+      8.4,
+      14.1
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 46,
+     "n": 459,
+     "pct": 10.0,
+     "wilson95": [
+      7.6,
+      13.1
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2388,
+     "n": 3654,
+     "pct": 65.4,
+     "wilson95": [
+      63.8,
+      66.9
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2463,
+     "n": 3654,
+     "pct": 67.4,
+     "wilson95": [
+      65.9,
+      68.9
+     ]
+    }
+   },
+   "t6_alignscore_base unf_v1": {
+    "pass_on_errors_raw": {
+     "k": 87,
+     "n": 459,
+     "pct": 19.0,
+     "wilson95": [
+      15.6,
+      22.8
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 84,
+     "n": 459,
+     "pct": 18.3,
+     "wilson95": [
+      15.0,
+      22.1
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2938,
+     "n": 3654,
+     "pct": 80.4,
+     "wilson95": [
+      79.1,
+      81.7
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 3001,
+     "n": 3654,
+     "pct": 82.1,
+     "wilson95": [
+      80.9,
+      83.3
+     ]
+    }
+   },
+   "v2a_minicheck unf_v1": {
+    "pass_on_errors_raw": {
+     "k": 83,
+     "n": 459,
+     "pct": 18.1,
+     "wilson95": [
+      14.8,
+      21.9
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 69,
+     "n": 459,
+     "pct": 15.0,
+     "wilson95": [
+      12.1,
+      18.6
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2605,
+     "n": 3654,
+     "pct": 71.3,
+     "wilson95": [
+      69.8,
+      72.7
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2596,
+     "n": 3654,
+     "pct": 71.0,
+     "wilson95": [
+      69.6,
+      72.5
+     ]
+    }
+   },
+   "v3_alignscore unf_v1": {
+    "pass_on_errors_raw": {
+     "k": 83,
+     "n": 459,
+     "pct": 18.1,
+     "wilson95": [
+      14.8,
+      21.9
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 76,
+     "n": 459,
+     "pct": 16.6,
+     "wilson95": [
+      13.4,
+      20.2
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 3199,
+     "n": 3654,
+     "pct": 87.5,
+     "wilson95": [
+      86.4,
+      88.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 3211,
+     "n": 3654,
+     "pct": 87.9,
+     "wilson95": [
+      86.8,
+      88.9
+     ]
+    }
+   },
+   "FT alignscore_large_base unf_v1": {
+    "fail_on_errors_raw": {
+     "k": 376,
+     "n": 459,
+     "pct": 81.9,
+     "wilson95": [
+      78.1,
+      85.2
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 383,
+     "n": 459,
+     "pct": 83.4,
+     "wilson95": [
+      79.8,
+      86.6
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 3199,
+     "n": 3654,
+     "pct": 87.5,
+     "wilson95": [
+      86.4,
+      88.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 3211,
+     "n": 3654,
+     "pct": 87.9,
+     "wilson95": [
+      86.8,
+      88.9
+     ]
+    }
+   },
+   "FT alignscore_large_r0.5 unf_v1": {
+    "fail_on_errors_raw": {
+     "k": 319,
+     "n": 459,
+     "pct": 69.5,
+     "wilson95": [
+      65.1,
+      73.5
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 323,
+     "n": 459,
+     "pct": 70.4,
+     "wilson95": [
+      66.0,
+      74.4
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2953,
+     "n": 3654,
+     "pct": 80.8,
+     "wilson95": [
+      79.5,
+      82.1
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2987,
+     "n": 3654,
+     "pct": 81.7,
+     "wilson95": [
+      80.5,
+      83.0
+     ]
+    }
+   },
+   "FT alignscore_large_r1 unf_v1": {
+    "fail_on_errors_raw": {
+     "k": 356,
+     "n": 459,
+     "pct": 77.6,
+     "wilson95": [
+      73.5,
+      81.1
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 353,
+     "n": 459,
+     "pct": 76.9,
+     "wilson95": [
+      72.8,
+      80.5
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2803,
+     "n": 3654,
+     "pct": 76.7,
+     "wilson95": [
+      75.3,
+      78.1
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2920,
+     "n": 3654,
+     "pct": 79.9,
+     "wilson95": [
+      78.6,
+      81.2
+     ]
+    }
+   },
+   "FT alignscore_large_r2 unf_v1": {
+    "fail_on_errors_raw": {
+     "k": 344,
+     "n": 459,
+     "pct": 74.9,
+     "wilson95": [
+      70.8,
+      78.7
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 350,
+     "n": 459,
+     "pct": 76.3,
+     "wilson95": [
+      72.2,
+      79.9
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2713,
+     "n": 3654,
+     "pct": 74.2,
+     "wilson95": [
+      72.8,
+      75.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2864,
+     "n": 3654,
+     "pct": 78.4,
+     "wilson95": [
+      77.0,
+      79.7
+     ]
+    }
+   },
+   "FT minicheck_ft5_base unf_v1": {
+    "fail_on_errors_raw": {
+     "k": 376,
+     "n": 459,
+     "pct": 81.9,
+     "wilson95": [
+      78.1,
+      85.2
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 390,
+     "n": 459,
+     "pct": 85.0,
+     "wilson95": [
+      81.4,
+      87.9
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2605,
+     "n": 3654,
+     "pct": 71.3,
+     "wilson95": [
+      69.8,
+      72.7
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2596,
+     "n": 3654,
+     "pct": 71.0,
+     "wilson95": [
+      69.6,
+      72.5
+     ]
+    }
+   },
+   "FT minicheck_ft5_r0.5 unf_v1": {
+    "fail_on_errors_raw": {
+     "k": 328,
+     "n": 459,
+     "pct": 71.5,
+     "wilson95": [
+      67.2,
+      75.4
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 349,
+     "n": 459,
+     "pct": 76.0,
+     "wilson95": [
+      71.9,
+      79.7
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2843,
+     "n": 3654,
+     "pct": 77.8,
+     "wilson95": [
+      76.4,
+      79.1
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2829,
+     "n": 3654,
+     "pct": 77.4,
+     "wilson95": [
+      76.0,
+      78.7
+     ]
+    }
+   },
+   "FT minicheck_ft5_r1 unf_v1": {
+    "fail_on_errors_raw": {
+     "k": 361,
+     "n": 459,
+     "pct": 78.6,
+     "wilson95": [
+      74.7,
+      82.2
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 366,
+     "n": 459,
+     "pct": 79.7,
+     "wilson95": [
+      75.8,
+      83.2
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2860,
+     "n": 3654,
+     "pct": 78.3,
+     "wilson95": [
+      76.9,
+      79.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2874,
+     "n": 3654,
+     "pct": 78.7,
+     "wilson95": [
+      77.3,
+      80.0
+     ]
+    }
+   },
+   "FT minicheck_ft5_r2 unf_v1": {
+    "fail_on_errors_raw": {
+     "k": 361,
+     "n": 459,
+     "pct": 78.6,
+     "wilson95": [
+      74.7,
+      82.2
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 368,
+     "n": 459,
+     "pct": 80.2,
+     "wilson95": [
+      76.3,
+      83.6
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2747,
+     "n": 3654,
+     "pct": 75.2,
+     "wilson95": [
+      73.8,
+      76.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2752,
+     "n": 3654,
+     "pct": 75.3,
+     "wilson95": [
+      73.9,
+      76.7
+     ]
+    }
+   },
+   "t6_minicheck_roberta unf_v2": {
+    "pass_on_errors_raw": {
+     "k": 74,
+     "n": 459,
+     "pct": 16.1,
+     "wilson95": [
+      13.0,
+      19.8
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 68,
+     "n": 459,
+     "pct": 14.8,
+     "wilson95": [
+      11.9,
+      18.4
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 3040,
+     "n": 3654,
+     "pct": 83.2,
+     "wilson95": [
+      81.9,
+      84.4
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 3048,
+     "n": 3654,
+     "pct": 83.4,
+     "wilson95": [
+      82.2,
+      84.6
+     ]
+    }
+   },
+   "t6_minicheck_deberta unf_v2": {
+    "pass_on_errors_raw": {
+     "k": 50,
+     "n": 459,
+     "pct": 10.9,
+     "wilson95": [
+      8.4,
+      14.1
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 46,
+     "n": 459,
+     "pct": 10.0,
+     "wilson95": [
+      7.6,
+      13.1
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2388,
+     "n": 3654,
+     "pct": 65.4,
+     "wilson95": [
+      63.8,
+      66.9
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2460,
+     "n": 3654,
+     "pct": 67.3,
+     "wilson95": [
+      65.8,
+      68.8
+     ]
+    }
+   },
+   "t6_alignscore_base unf_v2": {
+    "pass_on_errors_raw": {
+     "k": 87,
+     "n": 459,
+     "pct": 19.0,
+     "wilson95": [
+      15.6,
+      22.8
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 85,
+     "n": 459,
+     "pct": 18.5,
+     "wilson95": [
+      15.2,
+      22.3
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2938,
+     "n": 3654,
+     "pct": 80.4,
+     "wilson95": [
+      79.1,
+      81.7
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 3005,
+     "n": 3654,
+     "pct": 82.2,
+     "wilson95": [
+      81.0,
+      83.4
+     ]
+    }
+   },
+   "v2a_minicheck unf_v2": {
+    "pass_on_errors_raw": {
+     "k": 83,
+     "n": 459,
+     "pct": 18.1,
+     "wilson95": [
+      14.8,
+      21.9
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 70,
+     "n": 459,
+     "pct": 15.3,
+     "wilson95": [
+      12.3,
+      18.8
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2605,
+     "n": 3654,
+     "pct": 71.3,
+     "wilson95": [
+      69.8,
+      72.7
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2596,
+     "n": 3654,
+     "pct": 71.0,
+     "wilson95": [
+      69.6,
+      72.5
+     ]
+    }
+   },
+   "v3_alignscore unf_v2": {
+    "pass_on_errors_raw": {
+     "k": 83,
+     "n": 459,
+     "pct": 18.1,
+     "wilson95": [
+      14.8,
+      21.9
+     ]
+    },
+    "pass_on_errors_unf": {
+     "k": 77,
+     "n": 459,
+     "pct": 16.8,
+     "wilson95": [
+      13.6,
+      20.5
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 3199,
+     "n": 3654,
+     "pct": 87.5,
+     "wilson95": [
+      86.4,
+      88.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 3210,
+     "n": 3654,
+     "pct": 87.8,
+     "wilson95": [
+      86.7,
+      88.9
+     ]
+    }
+   },
+   "FT alignscore_large_base unf_v2": {
+    "fail_on_errors_raw": {
+     "k": 376,
+     "n": 459,
+     "pct": 81.9,
+     "wilson95": [
+      78.1,
+      85.2
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 382,
+     "n": 459,
+     "pct": 83.2,
+     "wilson95": [
+      79.5,
+      86.4
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 3199,
+     "n": 3654,
+     "pct": 87.5,
+     "wilson95": [
+      86.4,
+      88.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 3210,
+     "n": 3654,
+     "pct": 87.8,
+     "wilson95": [
+      86.7,
+      88.9
+     ]
+    }
+   },
+   "FT alignscore_large_r0.5 unf_v2": {
+    "fail_on_errors_raw": {
+     "k": 319,
+     "n": 459,
+     "pct": 69.5,
+     "wilson95": [
+      65.1,
+      73.5
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 323,
+     "n": 459,
+     "pct": 70.4,
+     "wilson95": [
+      66.0,
+      74.4
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2953,
+     "n": 3654,
+     "pct": 80.8,
+     "wilson95": [
+      79.5,
+      82.1
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2988,
+     "n": 3654,
+     "pct": 81.8,
+     "wilson95": [
+      80.5,
+      83.0
+     ]
+    }
+   },
+   "FT alignscore_large_r1 unf_v2": {
+    "fail_on_errors_raw": {
+     "k": 356,
+     "n": 459,
+     "pct": 77.6,
+     "wilson95": [
+      73.5,
+      81.1
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 352,
+     "n": 459,
+     "pct": 76.7,
+     "wilson95": [
+      72.6,
+      80.3
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2803,
+     "n": 3654,
+     "pct": 76.7,
+     "wilson95": [
+      75.3,
+      78.1
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2921,
+     "n": 3654,
+     "pct": 79.9,
+     "wilson95": [
+      78.6,
+      81.2
+     ]
+    }
+   },
+   "FT alignscore_large_r2 unf_v2": {
+    "fail_on_errors_raw": {
+     "k": 344,
+     "n": 459,
+     "pct": 74.9,
+     "wilson95": [
+      70.8,
+      78.7
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 352,
+     "n": 459,
+     "pct": 76.7,
+     "wilson95": [
+      72.6,
+      80.3
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2713,
+     "n": 3654,
+     "pct": 74.2,
+     "wilson95": [
+      72.8,
+      75.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2866,
+     "n": 3654,
+     "pct": 78.4,
+     "wilson95": [
+      77.1,
+      79.7
+     ]
+    }
+   },
+   "FT minicheck_ft5_base unf_v2": {
+    "fail_on_errors_raw": {
+     "k": 376,
+     "n": 459,
+     "pct": 81.9,
+     "wilson95": [
+      78.1,
+      85.2
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 389,
+     "n": 459,
+     "pct": 84.7,
+     "wilson95": [
+      81.2,
+      87.7
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2605,
+     "n": 3654,
+     "pct": 71.3,
+     "wilson95": [
+      69.8,
+      72.7
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2596,
+     "n": 3654,
+     "pct": 71.0,
+     "wilson95": [
+      69.6,
+      72.5
+     ]
+    }
+   },
+   "FT minicheck_ft5_r0.5 unf_v2": {
+    "fail_on_errors_raw": {
+     "k": 328,
+     "n": 459,
+     "pct": 71.5,
+     "wilson95": [
+      67.2,
+      75.4
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 349,
+     "n": 459,
+     "pct": 76.0,
+     "wilson95": [
+      71.9,
+      79.7
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2843,
+     "n": 3654,
+     "pct": 77.8,
+     "wilson95": [
+      76.4,
+      79.1
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2821,
+     "n": 3654,
+     "pct": 77.2,
+     "wilson95": [
+      75.8,
+      78.5
+     ]
+    }
+   },
+   "FT minicheck_ft5_r1 unf_v2": {
+    "fail_on_errors_raw": {
+     "k": 361,
+     "n": 459,
+     "pct": 78.6,
+     "wilson95": [
+      74.7,
+      82.2
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 366,
+     "n": 459,
+     "pct": 79.7,
+     "wilson95": [
+      75.8,
+      83.2
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2860,
+     "n": 3654,
+     "pct": 78.3,
+     "wilson95": [
+      76.9,
+      79.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2873,
+     "n": 3654,
+     "pct": 78.6,
+     "wilson95": [
+      77.3,
+      79.9
+     ]
+    }
+   },
+   "FT minicheck_ft5_r2 unf_v2": {
+    "fail_on_errors_raw": {
+     "k": 361,
+     "n": 459,
+     "pct": 78.6,
+     "wilson95": [
+      74.7,
+      82.2
+     ]
+    },
+    "fail_on_errors_unf": {
+     "k": 368,
+     "n": 459,
+     "pct": 80.2,
+     "wilson95": [
+      76.3,
+      83.6
+     ]
+    },
+    "pass_on_nonerrors_raw": {
+     "k": 2747,
+     "n": 3654,
+     "pct": 75.2,
+     "wilson95": [
+      73.8,
+      76.6
+     ]
+    },
+    "pass_on_nonerrors_unf": {
+     "k": 2749,
+     "n": 3654,
+     "pct": 75.2,
+     "wilson95": [
+      73.8,
+      76.6
+     ]
+    }
+   }
+  }
+ },
+ "S_local_judges": {
+  "baichuan_m2_32b": {
+   "pass_on_errors": {
+    "k": 33,
+    "n": 424,
+    "pct": 7.8,
+    "wilson95": [
+     5.6,
+     10.7
+    ],
+    "drug_cluster95": [
+     3.8,
+     12.3
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2671,
+    "n": 3393,
+    "pct": 78.7,
+    "wilson95": [
+     77.3,
+     80.1
+    ]
+   },
+   "parse_fail_on_errors": 35
+  },
+  "llama31_8b": {
+   "pass_on_errors": {
+    "k": 82,
+    "n": 436,
+    "pct": 18.8,
+    "wilson95": [
+     15.4,
+     22.7
+    ],
+    "drug_cluster95": [
+     13.1,
+     24.5
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 3203,
+    "n": 3555,
+    "pct": 90.1,
+    "wilson95": [
+     89.1,
+     91.0
+    ]
+   },
+   "parse_fail_on_errors": 23
+  },
+  "medgemma_27b": {
+   "pass_on_errors": {
+    "k": 34,
+    "n": 459,
+    "pct": 7.4,
+    "wilson95": [
+     5.3,
+     10.2
+    ],
+    "drug_cluster95": [
+     3.6,
+     11.7
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2823,
+    "n": 3654,
+    "pct": 77.3,
+    "wilson95": [
+     75.9,
+     78.6
+    ]
+   },
+   "parse_fail_on_errors": 0
+  },
+  "medgemma_4b": {
+   "pass_on_errors": {
+    "k": 171,
+    "n": 459,
+    "pct": 37.3,
+    "wilson95": [
+     33.0,
+     41.8
+    ],
+    "drug_cluster95": [
+     31.1,
+     43.4
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 3355,
+    "n": 3652,
+    "pct": 91.9,
+    "wilson95": [
+     90.9,
+     92.7
+    ]
+   },
+   "parse_fail_on_errors": 0
+  },
+  "qwen25_0p5b": {
+   "pass_on_errors": {
+    "k": 388,
+    "n": 429,
+    "pct": 90.4,
+    "wilson95": [
+     87.3,
+     92.9
+    ],
+    "drug_cluster95": [
+     87.9,
+     92.9
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 3353,
+    "n": 3524,
+    "pct": 95.1,
+    "wilson95": [
+     94.4,
+     95.8
+    ]
+   },
+   "parse_fail_on_errors": 30
+  },
+  "qwen25_14b": {
+   "pass_on_errors": {
+    "k": 17,
+    "n": 424,
+    "pct": 4.0,
+    "wilson95": [
+     2.5,
+     6.3
+    ],
+    "drug_cluster95": [
+     0.9,
+     7.8
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2295,
+    "n": 3472,
+    "pct": 66.1,
+    "wilson95": [
+     64.5,
+     67.7
+    ]
+   },
+   "parse_fail_on_errors": 35
+  },
+  "qwen25_1p5b": {
+   "pass_on_errors": {
+    "k": 100,
+    "n": 341,
+    "pct": 29.3,
+    "wilson95": [
+     24.7,
+     34.4
+    ],
+    "drug_cluster95": [
+     22.2,
+     36.6
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2162,
+    "n": 2751,
+    "pct": 78.6,
+    "wilson95": [
+     77.0,
+     80.1
+    ]
+   },
+   "parse_fail_on_errors": 118
+  },
+  "qwen25_3b": {
+   "pass_on_errors": {
+    "k": 17,
+    "n": 342,
+    "pct": 5.0,
+    "wilson95": [
+     3.1,
+     7.8
+    ],
+    "drug_cluster95": [
+     1.1,
+     10.1
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 1126,
+    "n": 2641,
+    "pct": 42.6,
+    "wilson95": [
+     40.8,
+     44.5
+    ]
+   },
+   "parse_fail_on_errors": 117
+  },
+  "qwen25_7b": {
+   "pass_on_errors": {
+    "k": 47,
+    "n": 398,
+    "pct": 11.8,
+    "wilson95": [
+     9.0,
+     15.4
+    ],
+    "drug_cluster95": [
+     7.1,
+     16.9
+    ]
+   },
+   "pass_on_nonerrors": {
+    "k": 2566,
+    "n": 3270,
+    "pct": 78.5,
+    "wilson95": [
+     77.0,
+     79.8
+    ]
+   },
+   "parse_fail_on_errors": 61
+  }
+ }
+}

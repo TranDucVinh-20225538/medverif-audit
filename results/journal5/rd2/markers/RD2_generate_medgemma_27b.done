@@ -1,0 +1,8 @@
+{
+ "stage": "RD2_generate_medgemma_27b",
+ "finished": "2026-10-02T15:16:00+0700",
+ "slurm_job": "62278_2",
+ "hf_model": "google/medgemma-27b-text-it",
+ "revision": "5b667cf2ddcf064085bc90952edb35a0edbfb79c",
+ "answers": 960
+}

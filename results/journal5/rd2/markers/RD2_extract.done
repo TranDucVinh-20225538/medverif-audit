@@ -1,0 +1,8 @@
+{
+ "stage": "RD2_extract",
+ "finished": "2026-10-02T15:16:20+0700",
+ "slurm_job": "local",
+ "answers": 5760,
+ "instances": 5688,
+ "auto_unit_type": 459
+}

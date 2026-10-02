@@ -1,0 +1,8 @@
+{
+ "stage": "RD2_generate_gemma3_27b",
+ "finished": "2026-10-02T12:47:40+0700",
+ "slurm_job": "local",
+ "model": "google/gemma-3-27b-it",
+ "provider": "DeepInfra",
+ "answers": 960
+}

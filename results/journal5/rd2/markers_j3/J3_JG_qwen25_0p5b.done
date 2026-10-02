@@ -1,0 +1,13 @@
+{
+ "stage": "J3_JG_qwen25_0p5b",
+ "finished": "2026-10-02T15:46:55+0700",
+ "slurm_job": "62281_3",
+ "hf_id": "Qwen/Qwen2.5-0.5B-Instruct",
+ "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+ "backend": "vllm",
+ "backend_version": "0.8.3",
+ "packs": [
+  "rd2"
+ ],
+ "secs": 281
+}

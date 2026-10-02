@@ -1,0 +1,8 @@
+{
+ "stage": "RD2_generate_baichuan_m2_32b",
+ "finished": "2026-10-02T15:15:19+0700",
+ "slurm_job": "62278_3",
+ "hf_model": "baichuan-inc/Baichuan-M2-32B",
+ "revision": "360f684d3cd527a4ef986c54071015eb0e6def58",
+ "answers": 960
+}
