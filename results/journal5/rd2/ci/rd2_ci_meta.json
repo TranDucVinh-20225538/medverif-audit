@@ -1,0 +1,16 @@
+{
+ "generated": "2026-10-02T20:47:10+0700",
+ "script": "scripts/journal5/rd2_ci.py",
+ "rd2_dir": "results/journal5/rd2",
+ "reference": "PROVISIONAL auto labels (rd_extract: error = unit_error+basis_error, non-error = correct)",
+ "n_instances": 5688,
+ "n_error": 459,
+ "n_nonerror": 3654,
+ "n_boot": 10000,
+ "seed": 20261002,
+ "bootstrap": "percentile 95%, cluster resampling with replacement within each set; primary cluster = qid, secondary = drug",
+ "mcnemar": "two-sided; exact binomial if discordant < 25 else chi-square with continuity correction; ignores clustering",
+ "holm": "p_holm_all over all 64 tests; p_holm_family within (comparison, set)",
+ "instances_sha256": "e6319a7ef025fb90059161c4a0c82ea851d1f2f1aed3af40025e08ab133ee1c0",
+ "elapsed_s": 2.7
+}
