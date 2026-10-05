@@ -1,0 +1,25 @@
+label_set,subset,comparison,base,other,set,n_paired,base_pass_rate,other_pass_rate,delta_pass_rate,delta_ci_lo_qid,delta_ci_hi_qid,b_base_pass_other_fail,c_base_fail_other_pass,discordant,method,statistic,p,p_holm_all,p_holm_family
+v1,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r0.5,error,447,0.163311,0.268456,0.105145,0.0567686,0.156029,21,68,89,chi2_cc,23.7753,1.08264e-06,8.66112e-06,5.4132e-06
+v1,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r0.5,nonerror,996,0.553213,0.544177,-0.00903614,-0.038191,0.020854,86,77,163,chi2_cc,0.392638,0.530916,0.530916,0.530916
+v1,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r1,error,447,0.163311,0.194631,0.0313199,-0.0139219,0.0779534,27,41,68,chi2_cc,2.48529,0.114915,0.344745,0.22983
+v1,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r1,nonerror,996,0.553213,0.528112,-0.0251004,-0.052789,0.00303084,89,64,153,chi2_cc,3.76471,0.0523451,0.20938,0.10469
+v1,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r2,error,447,0.163311,0.194631,0.0313199,-0.0136682,0.0777784,28,42,70,chi2_cc,2.41429,0.120233,0.344745,0.22983
+v1,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r2,nonerror,996,0.553213,0.491968,-0.061245,-0.0890905,-0.0326305,119,58,177,chi2_cc,20.339,6.48655e-06,4.54058e-05,1.94596e-05
+v1,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r0.5,error,447,0.163311,0.295302,0.131991,0.0757549,0.188844,29,88,117,chi2_cc,28.7521,8.22591e-08,7.40332e-07,4.93555e-07
+v1,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r0.5,nonerror,996,0.747992,0.656627,-0.0913655,-0.126348,-0.0559569,147,56,203,chi2_cc,39.9015,2.67101e-10,2.67101e-09,1.0684e-09
+v1,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r1,error,447,0.163311,0.225951,0.0626398,0.0154867,0.110865,32,60,92,chi2_cc,7.92391,0.00487856,0.0243928,0.0146357
+v1,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r1,nonerror,996,0.747992,0.61245,-0.135542,-0.171373,-0.100401,188,53,241,chi2_cc,74.5062,6.04474e-18,6.64921e-17,3.02237e-17
+v1,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r2,error,447,0.163311,0.250559,0.0872483,0.0259726,0.146513,47,86,133,chi2_cc,10.8571,0.000984154,0.00590492,0.00393662
+v1,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r2,nonerror,996,0.747992,0.549197,-0.198795,-0.234594,-0.164544,232,34,266,chi2_cc,145.898,1.36625e-33,1.6395e-32,8.19752e-33
+v2,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r0.5,error,425,0.155294,0.270588,0.115294,0.0653252,0.167833,19,68,87,chi2_cc,26.4828,2.65901e-07,2.12721e-06,1.3295e-06
+v2,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r0.5,nonerror,1002,0.55489,0.54491,-0.00998004,-0.0397554,0.0194745,87,77,164,chi2_cc,0.493902,0.482192,0.482192,0.482192
+v2,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r1,error,425,0.155294,0.192941,0.0376471,-0.00966184,0.0867473,25,41,66,chi2_cc,3.40909,0.0648382,0.20938,0.129676
+v2,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r1,nonerror,1002,0.55489,0.52994,-0.0249501,-0.0525784,0.00211898,89,64,153,chi2_cc,3.76471,0.0523451,0.20938,0.10469
+v2,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r2,error,425,0.155294,0.190588,0.0352941,-0.0115761,0.0839006,27,42,69,chi2_cc,2.84058,0.091911,0.20938,0.129676
+v2,closed,ft_vs_base,FT minicheck_ft5_base,FT minicheck_ft5_r2,nonerror,1002,0.55489,0.493014,-0.0618762,-0.0896552,-0.0337457,120,58,178,chi2_cc,20.9045,4.82761e-06,3.37932e-05,1.44828e-05
+v2,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r0.5,error,425,0.164706,0.305882,0.141176,0.0835167,0.199144,27,87,114,chi2_cc,30.5351,3.27882e-08,2.95094e-07,1.96729e-07
+v2,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r0.5,nonerror,1002,0.743513,0.653693,-0.0898204,-0.12488,-0.0547928,147,57,204,chi2_cc,38.8284,4.62739e-10,4.62739e-09,1.85095e-09
+v2,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r1,error,425,0.164706,0.228235,0.0635294,0.0124054,0.114833,30,57,87,chi2_cc,7.77011,0.00531177,0.0265588,0.0159353
+v2,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r1,nonerror,1002,0.743513,0.60978,-0.133733,-0.169544,-0.098753,188,54,242,chi2_cc,73.095,1.23555e-17,1.3591e-16,6.17773e-17
+v2,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r2,error,425,0.164706,0.258824,0.0941176,0.0309518,0.155963,44,84,128,chi2_cc,11.8828,0.000566543,0.00339926,0.00226617
+v2,closed,ft_vs_base,FT alignscore_large_base,FT alignscore_large_r2,nonerror,1002,0.743513,0.546906,-0.196607,-0.232162,-0.161951,232,35,267,chi2_cc,143.88,3.77393e-33,4.52872e-32,2.26436e-32

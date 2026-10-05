@@ -1,0 +1,13 @@
+{
+ "no_dose_v1": 72,
+ "no_dose_scored_by_checkers": 0,
+ "parseable_under_v2": 4,
+ "parseable_v2_classes": {
+  "unverifiable": 3,
+  "time_ambiguous": 1
+ },
+ "parseable_entering_error_set": 0,
+ "parseable_entering_correct_set": 0,
+ "main_table_reference_sets_identical": true,
+ "note": "The 72 no-dose answers were never scored by any checker (scored set = 5,688 = 5,760 - 72), and the 4 parseable ones fall in unverifiable (3) / time_ambiguous (1), which are in neither the error nor the correct set; the main-table PASS rates with the parseable no-dose answers included under their v2 class are therefore identical to the v2 rates (rd2_rates_all.csv, label_set v2). A sensitivity with human labels is defined in prereg/rd2_amendment_1.md section 2."
+}

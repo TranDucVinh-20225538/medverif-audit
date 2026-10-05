@@ -1,0 +1,12 @@
+{
+ "script": "scripts/journal5/rd2_analysis_extra.py",
+ "elapsed_s": 87.8,
+ "n_boot_qid": 10000,
+ "n_boot_drug": 5000,
+ "seed": 20261002,
+ "inputs_sha256": {
+  "real_dose/instances.jsonl": "e6319a7ef025fb90059161c4a0c82ea851d1f2f1aed3af40025e08ab133ee1c0",
+  "amend1/labels_v2.jsonl": "c053f42632944fde170890ace306d867ddb29174993dfdc293afb847152b1f20",
+  "basis_check/per_item.jsonl": "6d49614f605faf8190d9ef75d461ab334707fb3ad3823864d45a1e47335e348f"
+ }
+}
