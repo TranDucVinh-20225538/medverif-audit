@@ -30,3 +30,6 @@ results/raw_threshold/**
 data/t8/aggrefact/*.jsonl
 *.jsonl.bak
 qc/iaa_key_DO_NOT_SHARE.csv
+
+# RD2 adjudication keys (blinding): key v1 is already tracked since 103be8a; new keys stay out of git until adjudication is complete
+results/journal5/rd2/**/*key*

@@ -1,0 +1,88 @@
+{
+ "script": "scripts/journal5/rd2_relabel_v2.py",
+ "classifier": "scripts/journal2/rd_extract.classify (frozen, unchanged)",
+ "answers": 5760,
+ "changed_items": 49,
+ "class_changed": 49,
+ "subtype_only_changed": 0,
+ "transitions": {
+  "unit_error -> correct": 13,
+  "basis_error -> value_error": 10,
+  "match_other_context -> correct": 10,
+  "basis_error -> match_other_context": 4,
+  "no_dose -> unverifiable": 3,
+  "unit_error -> time_ambiguous": 3,
+  "value_error -> match_other_context": 2,
+  "basis_error -> correct": 2,
+  "basis_error -> time_ambiguous": 1,
+  "no_dose -> time_ambiguous": 1
+ },
+ "unit_type_v1_to_non_unit_type_v2": 33,
+ "unit_type_removed_by_subtype_v1": {
+  "per_m2": 33
+ },
+ "unit_type_removed_grounded": 11,
+ "totals_v1": {
+  "unit_error": 135,
+  "basis_error": 324,
+  "unit_type": 459,
+  "value_error": 668,
+  "correct": 3654,
+  "others": 979,
+  "by_class": {
+   "basis_error": 324,
+   "correct": 3654,
+   "match_other_context": 623,
+   "no_dose": 72,
+   "time_ambiguous": 207,
+   "unit_error": 135,
+   "unverifiable": 77,
+   "value_error": 668
+  }
+ },
+ "totals_v2": {
+  "unit_error": 119,
+  "basis_error": 307,
+  "unit_type": 426,
+  "value_error": 676,
+  "correct": 3679,
+  "others": 979,
+  "by_class": {
+   "basis_error": 307,
+   "correct": 3679,
+   "match_other_context": 619,
+   "no_dose": 68,
+   "time_ambiguous": 212,
+   "unit_error": 119,
+   "unverifiable": 80,
+   "value_error": 676
+  }
+ },
+ "nodose": {
+  "n": 72,
+  "states_no_dose_in_label": 2,
+  "dose_unparseable": 20,
+  "refusal": 46,
+  "dose_parseable_v2": 4,
+  "by_generator": {
+   "baichuan_m2_32b": 3,
+   "gemma3_27b": 5,
+   "gpt4o_mini": 1,
+   "llama31_8b": 56,
+   "medgemma_27b": 3,
+   "qwen25_14b": 4
+  },
+  "by_condition": {
+   "closed": 69,
+   "grounded": 3
+  },
+  "parseable_v2_classes": {
+   "unverifiable": 3,
+   "time_ambiguous": 1
+  }
+ },
+ "inputs_sha256": {
+  "questions": "e3e339e260e90dbd3e851bb05fd5129855a315642a8772fd0c5138a2c08f86ca",
+  "extract_rows": "724791217376e4544aa54cd739e6d6cd2b0b1a9b9c01d95fcbb3213a5b773498"
+ }
+}

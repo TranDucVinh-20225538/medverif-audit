@@ -1,0 +1,82 @@
+{
+ "script": "scripts/journal5/rd2_sheet_v2.py",
+ "seed_sample10": 20261002,
+ "seed_P1_overlap": 20261005,
+ "v1_sheet_rows_reproduced": 1845,
+ "v1_rest": 4270,
+ "v1_controls_k": 427,
+ "sample10_pi": 0.1,
+ "sheet_rows": 2473,
+ "P1_rows": 200,
+ "overlap_rows": 50,
+ "rows_added_vs_v1": 628,
+ "rows_dropped_vs_v1": 0,
+ "reconciliation": {
+  "match_other_context under v1, not drawn as v1 control": 556,
+  "no_dose_v1 (excluded from the v1 sheet)": 72
+ },
+ "population_by_stratum": {
+  "basis_error|closed": 307,
+  "correct_census|closed": 10,
+  "correct_census|grounded": 20,
+  "correct_sampled|closed": 992,
+  "correct_sampled|grounded": 2657,
+  "match_other_context|closed": 464,
+  "match_other_context|grounded": 155,
+  "no_dose_v1": 72,
+  "time_ambiguous|closed": 174,
+  "time_ambiguous|grounded": 37,
+  "unit_error|closed": 118,
+  "unit_error|grounded": 1,
+  "unverifiable|closed": 72,
+  "unverifiable|grounded": 5,
+  "value_error|closed": 674,
+  "value_error|grounded": 2
+ },
+ "sheet_by_stratum": {
+  "basis_error|closed": 307,
+  "correct_census|closed": 10,
+  "correct_census|grounded": 20,
+  "correct_sampled|closed": 101,
+  "correct_sampled|grounded": 261,
+  "match_other_context|closed": 464,
+  "match_other_context|grounded": 155,
+  "no_dose_v1": 72,
+  "time_ambiguous|closed": 174,
+  "time_ambiguous|grounded": 37,
+  "unit_error|closed": 118,
+  "unit_error|grounded": 1,
+  "unverifiable|closed": 72,
+  "unverifiable|grounded": 5,
+  "value_error|closed": 674,
+  "value_error|grounded": 2
+ },
+ "P1_by_stratum": {
+  "basis_error|closed": 86,
+  "correct_sampled|closed": 11,
+  "correct_sampled|grounded": 29,
+  "match_other_context|closed": 4,
+  "match_other_context|grounded": 1,
+  "no_dose_v1": 5,
+  "time_ambiguous|closed": 4,
+  "time_ambiguous|grounded": 1,
+  "unit_error|closed": 33,
+  "unit_error|grounded": 1,
+  "unverifiable|closed": 5,
+  "value_error|closed": 20
+ },
+ "P1_by_group": {
+  "unit_basis": 120,
+  "correct": 40,
+  "other": 20,
+  "value": 20
+ },
+ "P1_row_ids": "RD2V2-0001..RD2V2-0200",
+ "sha256": {
+  "sheet_v2": "f573bfd617685fd066fc1e6e6a28c7821a9c293e644b9fc2a8927e87af041891",
+  "key_v2": "7fe7cc1e99a2cfa10541c8f99613d81b9d7948a6a1bdd778150e7df711539c00",
+  "sheet_v1": "e7c08ab8636ba8e6d0dc719f8f76dd1ebf840dd28891d7b86b3e87a4da2dc49a",
+  "key_v1": "6c4333e138073f8d390231bc6d0c47265a67ea37a834b0ed1d4e39bd323db339",
+  "labels_v2": "c053f42632944fde170890ace306d867ddb29174993dfdc293afb847152b1f20"
+ }
+}
