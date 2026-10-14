@@ -1,0 +1,124 @@
+{
+ "script": "scripts/journal5/rd2_rater_files.py",
+ "seed": 20261014,
+ "sheet_v2_sha256": "f573bfd617685fd066fc1e6e6a28c7821a9c293e644b9fc2a8927e87af041891",
+ "key_v2_sha256": "7fe7cc1e99a2cfa10541c8f99613d81b9d7948a6a1bdd778150e7df711539c00",
+ "rest_rows": 2273,
+ "shares": {
+  "S1": 758,
+  "S2": 758,
+  "S3": 757,
+  "S3a": 379,
+  "S3b": 378
+ },
+ "share_strata": {
+  "S1": {
+   "basis_error|closed": 74,
+   "correct_census|closed": 3,
+   "correct_census|grounded": 7,
+   "correct_sampled|closed": 30,
+   "correct_sampled|grounded": 77,
+   "match_other_context|closed": 154,
+   "match_other_context|grounded": 51,
+   "no_dose_v1": 22,
+   "time_ambiguous|closed": 57,
+   "time_ambiguous|grounded": 12,
+   "unit_error|closed": 28,
+   "unverifiable|closed": 23,
+   "unverifiable|grounded": 1,
+   "value_error|closed": 218,
+   "value_error|grounded": 1
+  },
+  "S2": {
+   "basis_error|closed": 74,
+   "correct_census|closed": 3,
+   "correct_census|grounded": 7,
+   "correct_sampled|closed": 30,
+   "correct_sampled|grounded": 77,
+   "match_other_context|closed": 153,
+   "match_other_context|grounded": 52,
+   "no_dose_v1": 22,
+   "time_ambiguous|closed": 57,
+   "time_ambiguous|grounded": 12,
+   "unit_error|closed": 28,
+   "unverifiable|closed": 22,
+   "unverifiable|grounded": 2,
+   "value_error|closed": 218,
+   "value_error|grounded": 1
+  },
+  "S3a": {
+   "basis_error|closed": 37,
+   "correct_census|closed": 2,
+   "correct_census|grounded": 3,
+   "correct_sampled|closed": 15,
+   "correct_sampled|grounded": 39,
+   "match_other_context|closed": 76,
+   "match_other_context|grounded": 26,
+   "no_dose_v1": 11,
+   "time_ambiguous|closed": 28,
+   "time_ambiguous|grounded": 6,
+   "unit_error|closed": 15,
+   "unverifiable|closed": 11,
+   "unverifiable|grounded": 1,
+   "value_error|closed": 109
+  },
+  "S3b": {
+   "basis_error|closed": 36,
+   "correct_census|closed": 2,
+   "correct_census|grounded": 3,
+   "correct_sampled|closed": 15,
+   "correct_sampled|grounded": 39,
+   "match_other_context|closed": 77,
+   "match_other_context|grounded": 25,
+   "no_dose_v1": 12,
+   "time_ambiguous|closed": 28,
+   "time_ambiguous|grounded": 6,
+   "unit_error|closed": 14,
+   "unverifiable|closed": 11,
+   "unverifiable|grounded": 1,
+   "value_error|closed": 109
+  }
+ },
+ "workload_if_3": {
+  "DS1": 958,
+  "DS2": 808,
+  "DS3": 807
+ },
+ "workload_if_2": {
+  "DS1": 1337,
+  "DS2": 1186
+ },
+ "files": {
+  "RD2_DS1.xlsx": {
+   "rows": 958,
+   "batch1": 200,
+   "batch2": 758,
+   "sha256": "71ac62432483402c11e90cece48586308484d914f21e59e86b72c2a3e547c4ce"
+  },
+  "RD2_DS2.xlsx": {
+   "rows": 808,
+   "batch1": 50,
+   "batch2": 758,
+   "sha256": "3274c3b1ef0226869db6a64d6f3dfb0d37229a31255a127651858e743ef042e8"
+  },
+  "RD2_DS3.xlsx": {
+   "rows": 807,
+   "batch1": 50,
+   "batch2": 757,
+   "sha256": "c8f8e615f6b6a8d870c20d69020e9ac14c74eb5d4241633f3899552542141120"
+  },
+  "RD2_DS1_them_neu_khong_co_DS3.xlsx": {
+   "rows": 379,
+   "batch1": 0,
+   "batch2": 379,
+   "sha256": "a401f9fe42034507a82f3843edd959608765dddddc72436a2d6fecbe585748bc"
+  },
+  "RD2_DS2_them_neu_khong_co_DS3.xlsx": {
+   "rows": 378,
+   "batch1": 0,
+   "batch2": 378,
+   "sha256": "708ab057d7a18ca5be92ca691429aea3bee9af4a36256b87ccd1ec3e22e02d6a"
+  }
+ },
+ "assignment_sha256": "294ca66c631fa8291352d61baef0c229cb46ab9ecfa57d0c43e8c8b880bef420"
+}
