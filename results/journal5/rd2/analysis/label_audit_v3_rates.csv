@@ -1,0 +1,145 @@
+system,label_version,condition,reference,metric,k,n,parse_fail_excluded,rate,rate_pct,wilson_lo,wilson_hi,wilson_lo_frac,wilson_hi_frac
+MiniCheck-RoBERTa,v2,all,error,pass_on_error_leak,60,426,0,0.14084507042253522,14.084507042253522,11.10,17.71,0.111013,0.177096
+MiniCheck-RoBERTa,v2,all,nonerror,fail_on_correct_false_reject,620,3679,0,0.1685240554498505,16.85240554498505,15.68,18.10,0.156775,0.180964
+MiniCheck-RoBERTa,v2,closed,error,pass_on_error_leak,60,425,0,0.1411764705882353,14.117647058823529,11.13,17.75,0.111278,0.177503
+MiniCheck-RoBERTa,v2,closed,nonerror,fail_on_correct_false_reject,333,1002,0,0.3323353293413174,33.23353293413174,30.39,36.21,0.303858,0.362093
+MiniCheck-RoBERTa,v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+MiniCheck-RoBERTa,v2,grounded,nonerror,fail_on_correct_false_reject,287,2677,0,0.10720956294359357,10.720956294359357,9.60,11.95,0.096048,0.119497
+MiniCheck-RoBERTa,v3,all,error,pass_on_error_leak,50,347,0,0.1440922190201729,14.409221902017292,11.10,18.49,0.111036,0.184943
+MiniCheck-RoBERTa,v3,all,nonerror,fail_on_correct_false_reject,384,2780,0,0.1381294964028777,13.81294964028777,12.58,15.15,0.125802,0.151456
+MiniCheck-RoBERTa,v3,closed,error,pass_on_error_leak,50,347,0,0.1440922190201729,14.409221902017292,11.10,18.49,0.111036,0.184943
+MiniCheck-RoBERTa,v3,closed,nonerror,fail_on_correct_false_reject,180,667,0,0.2698650674662669,26.986506746626688,23.76,30.48,0.237567,0.304799
+MiniCheck-RoBERTa,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+MiniCheck-RoBERTa,v3,grounded,nonerror,fail_on_correct_false_reject,204,2113,0,0.09654519640321817,9.654519640321817,8.47,10.99,0.084675,0.109880
+MiniCheck-DeBERTa,v2,all,error,pass_on_error_leak,44,426,0,0.10328638497652583,10.328638497652582,7.78,13.58,0.077844,0.135820
+MiniCheck-DeBERTa,v2,all,nonerror,fail_on_correct_false_reject,1285,3679,0,0.3492796955694482,34.927969556944824,33.40,36.48,0.334039,0.364835
+MiniCheck-DeBERTa,v2,closed,error,pass_on_error_leak,44,425,0,0.10352941176470588,10.352941176470589,7.80,13.61,0.078029,0.136132
+MiniCheck-DeBERTa,v2,closed,nonerror,fail_on_correct_false_reject,586,1002,0,0.5848303393213573,58.483033932135726,55.41,61.50,0.554053,0.614960
+MiniCheck-DeBERTa,v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+MiniCheck-DeBERTa,v2,grounded,nonerror,fail_on_correct_false_reject,699,2677,0,0.2611131864026896,26.11131864026896,24.48,27.81,0.244825,0.278086
+MiniCheck-DeBERTa,v3,all,error,pass_on_error_leak,39,347,0,0.11239193083573487,11.239193083573488,8.33,15.00,0.083315,0.149957
+MiniCheck-DeBERTa,v3,all,nonerror,fail_on_correct_false_reject,896,2780,0,0.32230215827338127,32.23021582733813,30.52,33.99,0.305185,0.339910
+MiniCheck-DeBERTa,v3,closed,error,pass_on_error_leak,39,347,0,0.11239193083573487,11.239193083573488,8.33,15.00,0.083315,0.149957
+MiniCheck-DeBERTa,v3,closed,nonerror,fail_on_correct_false_reject,373,667,0,0.5592203898050975,55.92203898050975,52.13,59.65,0.521310,0.596453
+MiniCheck-DeBERTa,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+MiniCheck-DeBERTa,v3,grounded,nonerror,fail_on_correct_false_reject,523,2113,0,0.24751538097491718,24.751538097491718,22.96,26.64,0.229583,0.266364
+AlignScore-base,v2,all,error,pass_on_error_leak,78,426,0,0.18309859154929578,18.309859154929576,14.93,22.26,0.149260,0.222602
+AlignScore-base,v2,all,nonerror,fail_on_correct_false_reject,732,3679,0,0.19896711062788802,19.8967110627888,18.64,21.22,0.186384,0.212178
+AlignScore-base,v2,closed,error,pass_on_error_leak,78,425,0,0.18352941176470589,18.352941176470587,14.96,22.31,0.149618,0.223111
+AlignScore-base,v2,closed,nonerror,fail_on_correct_false_reject,366,1002,0,0.3652694610778443,36.52694610778443,33.60,39.55,0.336023,0.395545
+AlignScore-base,v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+AlignScore-base,v2,grounded,nonerror,fail_on_correct_false_reject,366,2677,0,0.13672020918939112,13.672020918939111,12.42,15.03,0.124226,0.150256
+AlignScore-base,v3,all,error,pass_on_error_leak,67,347,0,0.1930835734870317,19.30835734870317,15.50,23.79,0.155005,0.237883
+AlignScore-base,v3,all,nonerror,fail_on_correct_false_reject,496,2780,0,0.17841726618705037,17.841726618705035,16.46,19.31,0.164632,0.193090
+AlignScore-base,v3,closed,error,pass_on_error_leak,67,347,0,0.1930835734870317,19.30835734870317,15.50,23.79,0.155005,0.237883
+AlignScore-base,v3,closed,nonerror,fail_on_correct_false_reject,209,667,0,0.31334332833583206,31.334332833583208,27.93,34.95,0.279295,0.349529
+AlignScore-base,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+AlignScore-base,v3,grounded,nonerror,fail_on_correct_false_reject,287,2113,0,0.13582584003786086,13.582584003786087,12.19,15.11,0.121877,0.151096
+MiniCheck-Flan-T5-Large,v2,all,error,pass_on_error_leak,66,426,0,0.15492957746478872,15.492957746478874,12.37,19.24,0.123668,0.192359
+MiniCheck-Flan-T5-Large,v2,all,nonerror,fail_on_correct_false_reject,1052,3679,0,0.28594726827942374,28.594726827942377,27.16,30.08,0.271575,0.300766
+MiniCheck-Flan-T5-Large,v2,closed,error,pass_on_error_leak,66,425,0,0.15529411764705883,15.529411764705882,12.40,19.28,0.123964,0.192800
+MiniCheck-Flan-T5-Large,v2,closed,nonerror,fail_on_correct_false_reject,446,1002,0,0.44510978043912175,44.510978043912175,41.46,47.60,0.414606,0.476033
+MiniCheck-Flan-T5-Large,v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+MiniCheck-Flan-T5-Large,v2,grounded,nonerror,fail_on_correct_false_reject,606,2677,0,0.22637280537915577,22.637280537915576,21.09,24.26,0.210919,0.242611
+MiniCheck-Flan-T5-Large,v3,all,error,pass_on_error_leak,50,347,0,0.1440922190201729,14.409221902017292,11.10,18.49,0.111036,0.184943
+MiniCheck-Flan-T5-Large,v3,all,nonerror,fail_on_correct_false_reject,721,2780,0,0.2593525179856115,25.93525179856115,24.34,27.60,0.243400,0.275969
+MiniCheck-Flan-T5-Large,v3,closed,error,pass_on_error_leak,50,347,0,0.1440922190201729,14.409221902017292,11.10,18.49,0.111036,0.184943
+MiniCheck-Flan-T5-Large,v3,closed,nonerror,fail_on_correct_false_reject,273,667,0,0.40929535232383807,40.929535232383806,37.26,44.70,0.372603,0.447027
+MiniCheck-Flan-T5-Large,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+MiniCheck-Flan-T5-Large,v3,grounded,nonerror,fail_on_correct_false_reject,448,2113,0,0.21202082347373402,21.202082347373402,19.51,23.00,0.195124,0.229963
+AlignScore-large,v2,all,error,pass_on_error_leak,70,426,0,0.1643192488262911,16.431924882629108,13.22,20.25,0.132160,0.202479
+AlignScore-large,v2,all,nonerror,fail_on_correct_false_reject,463,3679,0,0.12584941560206578,12.584941560206579,11.55,13.70,0.115520,0.136959
+AlignScore-large,v2,closed,error,pass_on_error_leak,70,425,0,0.16470588235294117,16.470588235294116,13.25,20.29,0.132476,0.202943
+AlignScore-large,v2,closed,nonerror,fail_on_correct_false_reject,257,1002,0,0.2564870259481038,25.64870259481038,23.04,28.44,0.230414,0.284420
+AlignScore-large,v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+AlignScore-large,v2,grounded,nonerror,fail_on_correct_false_reject,206,2677,0,0.076951811729548,7.6951811729548005,6.75,8.77,0.067451,0.087665
+AlignScore-large,v3,all,error,pass_on_error_leak,58,347,0,0.16714697406340057,16.714697406340058,13.16,21.00,0.131580,0.210003
+AlignScore-large,v3,all,nonerror,fail_on_correct_false_reject,269,2780,0,0.09676258992805756,9.676258992805755,8.63,10.83,0.086323,0.108315
+AlignScore-large,v3,closed,error,pass_on_error_leak,58,347,0,0.16714697406340057,16.714697406340058,13.16,21.00,0.131580,0.210003
+AlignScore-large,v3,closed,nonerror,fail_on_correct_false_reject,128,667,0,0.191904047976012,19.1904047976012,16.38,22.35,0.163816,0.223520
+AlignScore-large,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+AlignScore-large,v3,grounded,nonerror,fail_on_correct_false_reject,141,2113,0,0.06672976810222432,6.6729768102224325,5.69,7.82,0.056856,0.078176
+Llama-3.3-70B RAGAS-NLI,v2,all,error,pass_on_error_leak,18,426,0,0.04225352112676056,4.225352112676056,2.69,6.58,0.026892,0.065797
+Llama-3.3-70B RAGAS-NLI,v2,all,nonerror,fail_on_correct_false_reject,737,3678,1,0.20038064165307232,20.038064165307233,18.78,21.36,0.187760,0.213627
+Llama-3.3-70B RAGAS-NLI,v2,closed,error,pass_on_error_leak,18,425,0,0.042352941176470586,4.235294117647059,2.70,6.59,0.026956,0.065949
+Llama-3.3-70B RAGAS-NLI,v2,closed,nonerror,fail_on_correct_false_reject,290,1002,0,0.2894211576846307,28.942115768463072,26.22,31.83,0.262188,0.318263
+Llama-3.3-70B RAGAS-NLI,v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+Llama-3.3-70B RAGAS-NLI,v2,grounded,nonerror,fail_on_correct_false_reject,447,2676,1,0.16704035874439463,16.704035874439462,15.34,18.16,0.153387,0.181648
+Llama-3.3-70B RAGAS-NLI,v3,all,error,pass_on_error_leak,11,347,0,0.03170028818443804,3.170028818443804,1.78,5.59,0.017791,0.055864
+Llama-3.3-70B RAGAS-NLI,v3,all,nonerror,fail_on_correct_false_reject,416,2780,0,0.14964028776978416,14.964028776978417,13.69,16.34,0.136864,0.163384
+Llama-3.3-70B RAGAS-NLI,v3,closed,error,pass_on_error_leak,11,347,0,0.03170028818443804,3.170028818443804,1.78,5.59,0.017791,0.055864
+Llama-3.3-70B RAGAS-NLI,v3,closed,nonerror,fail_on_correct_false_reject,132,667,0,0.19790104947526238,19.79010494752624,16.94,22.98,0.169432,0.229830
+Llama-3.3-70B RAGAS-NLI,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+Llama-3.3-70B RAGAS-NLI,v3,grounded,nonerror,fail_on_correct_false_reject,284,2113,0,0.13440605773781353,13.440605773781353,12.05,14.96,0.120524,0.149615
+MedScore (Mistral-Small-24B),v2,all,error,pass_on_error_leak,28,426,0,0.06572769953051644,6.572769953051643,4.59,9.34,0.045863,0.093354
+MedScore (Mistral-Small-24B),v2,all,nonerror,fail_on_correct_false_reject,758,3679,0,0.2060342484370753,20.60342484370753,19.33,21.94,0.193275,0.219407
+MedScore (Mistral-Small-24B),v2,closed,error,pass_on_error_leak,28,425,0,0.06588235294117648,6.588235294117647,4.60,9.36,0.045972,0.093570
+MedScore (Mistral-Small-24B),v2,closed,nonerror,fail_on_correct_false_reject,281,1002,0,0.28043912175648705,28.043912175648703,25.35,30.91,0.253504,0.309051
+MedScore (Mistral-Small-24B),v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+MedScore (Mistral-Small-24B),v2,grounded,nonerror,fail_on_correct_false_reject,477,2677,0,0.17818453492715727,17.818453492715726,16.42,19.31,0.164153,0.193139
+MedScore (Mistral-Small-24B),v3,all,error,pass_on_error_leak,20,347,0,0.05763688760806916,5.763688760806916,3.76,8.73,0.037617,0.087343
+MedScore (Mistral-Small-24B),v3,all,nonerror,fail_on_correct_false_reject,438,2780,0,0.15755395683453238,15.755395683453237,14.45,17.16,0.144485,0.171568
+MedScore (Mistral-Small-24B),v3,closed,error,pass_on_error_leak,20,347,0,0.05763688760806916,5.763688760806916,3.76,8.73,0.037617,0.087343
+MedScore (Mistral-Small-24B),v3,closed,nonerror,fail_on_correct_false_reject,124,667,0,0.18590704647676162,18.590704647676162,15.82,21.72,0.158212,0.217200
+MedScore (Mistral-Small-24B),v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+MedScore (Mistral-Small-24B),v3,grounded,nonerror,fail_on_correct_false_reject,314,2113,0,0.1486038807382868,14.86038807382868,13.41,16.44,0.134076,0.164407
+basis_check_full,v2,all,error,pass_on_error_leak,191,426,0,0.44835680751173707,44.83568075117371,40.18,49.58,0.401801,0.495835
+basis_check_full,v2,all,nonerror,fail_on_correct_false_reject,5,3679,0,0.001359064963305246,0.1359064963305246,0.06,0.32,0.000581,0.003178
+basis_check_full,v2,closed,error,pass_on_error_leak,190,425,0,0.4470588235294118,44.705882352941174,40.05,49.46,0.400474,0.494592
+basis_check_full,v2,closed,nonerror,fail_on_correct_false_reject,4,1002,0,0.003992015968063872,0.3992015968063872,0.16,1.02,0.001553,0.010219
+basis_check_full,v2,grounded,error,pass_on_error_leak,1,1,0,1.0,100.0,20.65,100.00,0.206549,1.000000
+basis_check_full,v2,grounded,nonerror,fail_on_correct_false_reject,1,2677,0,0.00037355248412401944,0.03735524841240194,0.01,0.21,0.000066,0.002113
+basis_check_full,v3,all,error,pass_on_error_leak,139,347,0,0.40057636887608067,40.05763688760807,35.04,45.30,0.350379,0.452951
+basis_check_full,v3,all,nonerror,fail_on_correct_false_reject,0,2780,0,0.0,0.0,0.00,0.14,0.000000,0.001380
+basis_check_full,v3,closed,error,pass_on_error_leak,139,347,0,0.40057636887608067,40.05763688760807,35.04,45.30,0.350379,0.452951
+basis_check_full,v3,closed,nonerror,fail_on_correct_false_reject,0,667,0,0.0,0.0,0.00,0.57,0.000000,0.005726
+basis_check_full,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+basis_check_full,v3,grounded,nonerror,fail_on_correct_false_reject,0,2113,0,0.0,0.0,0.00,0.18,0.000000,0.001815
+basis_check_strict,v2,all,error,pass_on_error_leak,313,426,0,0.7347417840375586,73.47417840375587,69.09,77.44,0.690857,0.774431
+basis_check_strict,v2,all,nonerror,fail_on_correct_false_reject,5,3679,0,0.001359064963305246,0.1359064963305246,0.06,0.32,0.000581,0.003178
+basis_check_strict,v2,closed,error,pass_on_error_leak,312,425,0,0.7341176470588235,73.41176470588235,69.02,77.39,0.690153,0.773888
+basis_check_strict,v2,closed,nonerror,fail_on_correct_false_reject,4,1002,0,0.003992015968063872,0.3992015968063872,0.16,1.02,0.001553,0.010219
+basis_check_strict,v2,grounded,error,pass_on_error_leak,1,1,0,1.0,100.0,20.65,100.00,0.206549,1.000000
+basis_check_strict,v2,grounded,nonerror,fail_on_correct_false_reject,1,2677,0,0.00037355248412401944,0.03735524841240194,0.01,0.21,0.000066,0.002113
+basis_check_strict,v3,all,error,pass_on_error_leak,245,347,0,0.7060518731988472,70.60518731988472,65.61,75.15,0.656072,0.751519
+basis_check_strict,v3,all,nonerror,fail_on_correct_false_reject,0,2780,0,0.0,0.0,0.00,0.14,0.000000,0.001380
+basis_check_strict,v3,closed,error,pass_on_error_leak,245,347,0,0.7060518731988472,70.60518731988472,65.61,75.15,0.656072,0.751519
+basis_check_strict,v3,closed,nonerror,fail_on_correct_false_reject,0,667,0,0.0,0.0,0.00,0.57,0.000000,0.005726
+basis_check_strict,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+basis_check_strict,v3,grounded,nonerror,fail_on_correct_false_reject,0,2113,0,0.0,0.0,0.00,0.18,0.000000,0.001815
+Claude Sonnet HTML,v2,all,error,pass_on_error_leak,9,425,1,0.021176470588235293,2.1176470588235294,1.12,3.98,0.011180,0.039751
+Claude Sonnet HTML,v2,all,nonerror,fail_on_correct_false_reject,692,3679,0,0.18809459092144604,18.809459092144603,17.58,20.10,0.175795,0.201045
+Claude Sonnet HTML,v2,closed,error,pass_on_error_leak,9,424,1,0.02122641509433962,2.1226415094339623,1.12,3.98,0.011207,0.039844
+Claude Sonnet HTML,v2,closed,nonerror,fail_on_correct_false_reject,315,1002,0,0.3143712574850299,31.437125748502993,28.64,34.38,0.286380,0.343780
+Claude Sonnet HTML,v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+Claude Sonnet HTML,v2,grounded,nonerror,fail_on_correct_false_reject,377,2677,0,0.14082928651475532,14.082928651475532,12.82,15.45,0.128167,0.154521
+Claude Sonnet HTML,v3,all,error,pass_on_error_leak,6,346,1,0.017341040462427744,1.7341040462427746,0.80,3.73,0.007971,0.037311
+Claude Sonnet HTML,v3,all,nonerror,fail_on_correct_false_reject,366,2780,0,0.1316546762589928,13.16546762589928,11.96,14.47,0.119593,0.144733
+Claude Sonnet HTML,v3,closed,error,pass_on_error_leak,6,346,1,0.017341040462427744,1.7341040462427746,0.80,3.73,0.007971,0.037311
+Claude Sonnet HTML,v3,closed,nonerror,fail_on_correct_false_reject,147,667,0,0.22038980509745126,22.038980509745127,19.06,25.34,0.190583,0.253399
+Claude Sonnet HTML,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+Claude Sonnet HTML,v3,grounded,nonerror,fail_on_correct_false_reject,219,2113,0,0.10364410790345481,10.364410790345481,9.14,11.74,0.091359,0.117368
+GPT-4o HTML,v2,all,error,pass_on_error_leak,15,426,0,0.035211267605633804,3.5211267605633805,2.15,5.73,0.021453,0.057277
+GPT-4o HTML,v2,all,nonerror,fail_on_correct_false_reject,894,3679,0,0.24300081543897797,24.300081543897797,22.94,25.71,0.229414,0.257123
+GPT-4o HTML,v2,closed,error,pass_on_error_leak,15,425,0,0.03529411764705882,3.5294117647058822,2.15,5.74,0.021503,0.057410
+GPT-4o HTML,v2,closed,nonerror,fail_on_correct_false_reject,315,1002,0,0.3143712574850299,31.437125748502993,28.64,34.38,0.286380,0.343780
+GPT-4o HTML,v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+GPT-4o HTML,v2,grounded,nonerror,fail_on_correct_false_reject,579,2677,0,0.21628688830780723,21.628688830780725,20.11,23.23,0.201103,0.232284
+GPT-4o HTML,v3,all,error,pass_on_error_leak,8,347,0,0.023054755043227664,2.3054755043227666,1.17,4.48,0.011728,0.044826
+GPT-4o HTML,v3,all,nonerror,fail_on_correct_false_reject,542,2780,0,0.1949640287769784,19.496402877697843,18.07,21.01,0.180662,0.210108
+GPT-4o HTML,v3,closed,error,pass_on_error_leak,8,347,0,0.023054755043227664,2.3054755043227666,1.17,4.48,0.011728,0.044826
+GPT-4o HTML,v3,closed,nonerror,fail_on_correct_false_reject,154,667,0,0.23088455772113944,23.088455772113942,20.05,26.44,0.200500,0.264351
+GPT-4o HTML,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+GPT-4o HTML,v3,grounded,nonerror,fail_on_correct_false_reject,388,2113,0,0.1836251774727875,18.36251774727875,16.77,20.07,0.167696,0.200703
+DeepSeek Chat HTML,v2,all,error,pass_on_error_leak,21,426,0,0.04929577464788732,4.929577464788732,3.25,7.42,0.032466,0.074182
+DeepSeek Chat HTML,v2,all,nonerror,fail_on_correct_false_reject,805,3679,0,0.2188094590921446,21.88094590921446,20.57,23.25,0.205747,0.232459
+DeepSeek Chat HTML,v2,closed,error,pass_on_error_leak,21,425,0,0.04941176470588235,4.9411764705882355,3.25,7.44,0.032543,0.074354
+DeepSeek Chat HTML,v2,closed,nonerror,fail_on_correct_false_reject,305,1002,0,0.30439121756487025,30.439121756487026,27.67,33.36,0.276692,0.333585
+DeepSeek Chat HTML,v2,grounded,error,pass_on_error_leak,0,1,0,0.0,0.0,0.00,79.35,0.000000,0.793451
+DeepSeek Chat HTML,v2,grounded,nonerror,fail_on_correct_false_reject,500,2677,0,0.1867762420620097,18.67762420620097,17.25,20.20,0.172465,0.201985
+DeepSeek Chat HTML,v3,all,error,pass_on_error_leak,14,347,0,0.040345821325648415,4.034582132564841,2.42,6.66,0.024183,0.066575
+DeepSeek Chat HTML,v3,all,nonerror,fail_on_correct_false_reject,479,2780,0,0.1723021582733813,17.230215827338128,15.87,18.68,0.158719,0.186790
+DeepSeek Chat HTML,v3,closed,error,pass_on_error_leak,14,347,0,0.040345821325648415,4.034582132564841,2.42,6.66,0.024183,0.066575
+DeepSeek Chat HTML,v3,closed,nonerror,fail_on_correct_false_reject,148,667,0,0.22188905547226387,22.188905547226387,19.20,25.50,0.191998,0.254965
+DeepSeek Chat HTML,v3,grounded,error,pass_on_error_leak,0,0,0,nan,nan,,,,
+DeepSeek Chat HTML,v3,grounded,nonerror,fail_on_correct_false_reject,331,2113,0,0.15664931377188832,15.66493137718883,14.18,17.28,0.141776,0.172769
