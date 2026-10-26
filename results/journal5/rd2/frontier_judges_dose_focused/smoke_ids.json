@@ -1,0 +1,39 @@
+{
+  "correct_fr_ragas": [
+    "RD2_efavirenz_0__gemma3_27b__closed",
+    "RD2_dalbavancin_0__gemma3_27b__closed",
+    "RD2_eculizumab_0__qwen25_14b__closed",
+    "RD2_zolpidem_1__medgemma_27b__closed",
+    "RD2_zolpidem_0__gemma3_27b__closed",
+    "RD2_primidone_0__llama31_8b__closed",
+    "RD2_abatacept_0__qwen25_14b__closed",
+    "RD2_gemcitabine_0__qwen25_14b__closed",
+    "RD2_gemcitabine_2__qwen25_14b__closed",
+    "RD2_dalbavancin_0__medgemma_27b__closed"
+  ],
+  "errors": [
+    "RD2_lacosamide_0__llama31_8b__closed",
+    "RD2_valproate_1__gpt4o_mini__closed",
+    "RD2_thiotepa_1__gpt4o_mini__closed",
+    "RD2_cetuximab_0__gemma3_27b__closed",
+    "RD2_golimumab_0__qwen25_14b__closed",
+    "RD2_acetylcysteine_2__medgemma_27b__closed",
+    "RD2_cyproheptadine_1__gemma3_27b__closed",
+    "RD2_dactinomycin_1__qwen25_14b__closed",
+    "RD2_deferoxamine_0__qwen25_14b__closed",
+    "RD2_deferasirox_2__gpt4o_mini__closed"
+  ],
+  "other": [
+    "RD2_bendamustine_1__gpt4o_mini__closed",
+    "RD2_vinorelbine_1__qwen25_14b__closed",
+    "RD2_rufinamide_1__gpt4o_mini__closed",
+    "RD2_clobazam_0__gpt4o_mini__closed",
+    "RD2_docetaxel_0__llama31_8b__closed",
+    "RD2_tocilizumab_1__gemma3_27b__closed",
+    "RD2_milrinone_0__gemma3_27b__closed",
+    "RD2_brentuximab_0__gemma3_27b__closed",
+    "RD2_famciclovir_0__medgemma_27b__closed",
+    "RD2_rituximab_1__baichuan_m2_32b__closed"
+  ],
+  "n": 30
+}

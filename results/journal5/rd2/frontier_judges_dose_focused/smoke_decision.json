@@ -1,0 +1,38 @@
+{
+  "go": true,
+  "reasons": [
+    "GO: \u22651 model lowered FR on 10 correct smoke rows vs RAGAS without missing all 10 errors"
+  ],
+  "per_model": {
+    "claude_sonnet": {
+      "n_smoke_rows": 30,
+      "parse_fail": 0,
+      "parse_fail_rate": 0.0,
+      "fr_on_10_correct_dose": 1,
+      "fr_on_10_correct_ragas": 6,
+      "miss_on_10_errors_dose": 0,
+      "better_fr": true,
+      "missed_all_errors": false
+    },
+    "gpt4o": {
+      "n_smoke_rows": 30,
+      "parse_fail": 0,
+      "parse_fail_rate": 0.0,
+      "fr_on_10_correct_dose": 3,
+      "fr_on_10_correct_ragas": 9,
+      "miss_on_10_errors_dose": 1,
+      "better_fr": true,
+      "missed_all_errors": false
+    },
+    "deepseek_chat": {
+      "n_smoke_rows": 30,
+      "parse_fail": 0,
+      "parse_fail_rate": 0.0,
+      "fr_on_10_correct_dose": 2,
+      "fr_on_10_correct_ragas": 7,
+      "miss_on_10_errors_dose": 0,
+      "better_fr": true,
+      "missed_all_errors": false
+    }
+  }
+}
